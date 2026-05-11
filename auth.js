@@ -3,21 +3,61 @@
   const PASSWORD = "pompinkpu";
   const STORAGE_KEY = "site_authenticated";
 
-  // immediately hide page
-  document.documentElement.style.visibility = "hidden";
-
   // already authenticated
   if (sessionStorage.getItem(STORAGE_KEY) === "true") {
-
-    document.documentElement.style.visibility = "visible";
-
     return;
   }
 
-  // wait until DOM ready
-  window.addEventListener("DOMContentLoaded", () => {
+  // hide page immediately
+  const hideStyle = document.createElement("style");
 
-    // create styles
+  hideStyle.id = "auth-hide-style";
+
+  hideStyle.innerHTML = `
+    body {
+      visibility: hidden !important;
+    }
+
+    #auth-overlay {
+      visibility: visible !important;
+    }
+  `;
+
+  document.head.appendChild(hideStyle);
+
+  function initAuth() {
+
+    // create overlay
+    const overlay = document.createElement("div");
+
+    overlay.id = "auth-overlay";
+
+    overlay.innerHTML = `
+      <div id="auth-box">
+
+        <h2>Protected Page</h2>
+
+        <p>Please enter password</p>
+
+        <input
+          type="password"
+          id="auth-password"
+          placeholder="Password"
+          autofocus
+        />
+
+        <button id="auth-submit">
+          Enter
+        </button>
+
+        <p id="auth-error"></p>
+
+      </div>
+    `;
+
+    document.body.appendChild(overlay);
+
+    // auth styles
     const style = document.createElement("style");
 
     style.innerHTML = `
@@ -87,36 +127,6 @@
 
     document.head.appendChild(style);
 
-    // create overlay
-    const overlay = document.createElement("div");
-
-    overlay.id = "auth-overlay";
-
-    overlay.innerHTML = `
-      <div id="auth-box">
-
-        <h2>Protected Page</h2>
-
-        <p>Please enter password</p>
-
-        <input
-          type="password"
-          id="auth-password"
-          placeholder="Password"
-          autofocus
-        />
-
-        <button id="auth-submit">
-          Enter
-        </button>
-
-        <p id="auth-error"></p>
-
-      </div>
-    `;
-
-    document.body.appendChild(overlay);
-
     const passwordInput =
       document.getElementById("auth-password");
 
@@ -135,7 +145,9 @@
 
       overlay.remove();
 
-      document.documentElement.style.visibility =
+      hideStyle.remove();
+
+      document.body.style.visibility =
         "visible";
     }
 
@@ -166,12 +178,24 @@
       (e) => {
 
         if (e.key === "Enter") {
-
           validatePassword();
         }
       }
     );
 
-  });
+  }
+
+  // ensure body exists
+  if (document.readyState === "loading") {
+
+    document.addEventListener(
+      "DOMContentLoaded",
+      initAuth
+    );
+
+  } else {
+
+    initAuth();
+  }
 
 })();
