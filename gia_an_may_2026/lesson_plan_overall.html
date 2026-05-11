@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Chan Truong | Premium Course Plan</title>
+    
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Inter"', 'sans-serif'],
+                    },
+                    colors: {
+                        pastel: {
+                            pink: '#ffe4e6',
+                            purple: '#f3e8ff',
+                            blue: '#e0e7ff',
+                            teal: '#ccfbf1',
+                            orange: '#ffedd5',
+                            green: '#dcfce7'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Modern Pastel Mesh Gradient Background */
+        body { 
+            background-color: #fdfbfb;
+            background-image: 
+                radial-gradient(at 80% 0%, hsla(289, 50%, 90%, 1) 0px, transparent 50%),
+                radial-gradient(at 10% 30%, hsla(188, 60%, 90%, 1) 0px, transparent 50%),
+                radial-gradient(at 90% 80%, hsla(340, 60%, 90%, 1) 0px, transparent 50%),
+                radial-gradient(at 20% 90%, hsla(230, 60%, 90%, 1) 0px, transparent 50%);
+            background-attachment: fixed;
+            color: #334155;
+        }
+        
+        .skill-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.25rem 0.6rem;
+            border-radius: 8px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            backdrop-filter: blur(4px);
+        }
+        
+        /* Pastel UI Badges */
+        .badge-reading { background-color: rgba(224, 231, 255, 0.7); color: #4f46e5; border: 1px solid rgba(199, 210, 254, 0.5); }
+        .badge-listening { background-color: rgba(243, 232, 255, 0.7); color: #9333ea; border: 1px solid rgba(233, 213, 255, 0.5); }
+        .badge-speaking { background-color: rgba(255, 237, 213, 0.7); color: #ea580c; border: 1px solid rgba(253, 216, 163, 0.5); }
+        .badge-writing { background-color: rgba(255, 228, 230, 0.7); color: #e11d48; border: 1px solid rgba(254, 205, 211, 0.5); }
+        .badge-overview { background-color: rgba(204, 251, 241, 0.7); color: #0d9488; border: 1px solid rgba(153, 246, 228, 0.5); }
+        .badge-mock { background-color: rgba(241, 245, 249, 0.7); color: #475569; border: 1px solid rgba(226, 232, 240, 0.5); }
+
+        /* Accordion Animations */
+        .week-content {
+            transition: max-height 0.4s ease-in-out, opacity 0.3s ease-in-out, margin 0.3s ease;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+        .week-content.expanded {
+            max-height: 8000px;
+            opacity: 1;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+        .rotate-icon {
+            transition: transform 0.3s ease;
+        }
+        .expanded .rotate-icon {
+            transform: rotate(180deg);
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: rgba(203, 213, 225, 0.8); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(148, 163, 184, 0.8); }
+
+        /* Glassmorphism utility */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 10px 40px -10px rgba(0,0,0,0.05);
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen pb-16">
+
+<div class="max-w-5xl mx-auto px-4 py-10 sm:px-6 lg:px-8">
+    
+    <!-- Modern Pastel Header -->
+    <header class="glass-panel rounded-[2rem] p-8 md:p-12 mb-10 relative overflow-hidden">
+        <!-- Decorative abstract blobs inside header -->
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-pastel-pink rounded-full mix-blend-multiply filter blur-3xl opacity-50 z-0 animate-blob"></div>
+        <div class="absolute -bottom-24 -left-24 w-72 h-72 bg-pastel-teal rounded-full mix-blend-multiply filter blur-3xl opacity-50 z-0 animate-blob animation-delay-2000"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-pastel-blue rounded-full mix-blend-multiply filter blur-3xl opacity-40 z-0 animate-blob animation-delay-4000"></div>
+
+        <div class="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+            <div class="max-w-2xl">
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/60 border border-white text-[10px] font-bold text-slate-600 tracking-widest uppercase mb-5 shadow-sm">
+                    ✨ Intensive 1-on-1 Tutoring
+                </div>
+                <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-slate-800 mb-3">IELTS Chan Truong</h1>
+                <p class="text-slate-500 text-lg font-medium">40-Lesson Premium Curriculum Blueprint</p>
+            </div>
+            
+            <div class="flex gap-2 flex-wrap md:justify-end max-w-[280px]">
+                <span class="skill-badge badge-reading shadow-sm">Reading</span>
+                <span class="skill-badge badge-listening shadow-sm">Listening</span>
+                <span class="skill-badge badge-speaking shadow-sm">Speaking</span>
+                <span class="skill-badge badge-writing shadow-sm">Writing</span>
+            </div>
+        </div>
+        
+        <!-- Profile & Parameters (Glass Cards) -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 relative z-10">
+            <div class="bg-white/50 backdrop-blur-sm border border-white rounded-2xl p-5 shadow-sm">
+                <h3 class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4 flex items-center gap-2">
+                    <svg class="w-4 h-4 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                    Target Profile
+                </h3>
+                <div class="space-y-3 text-sm text-slate-600">
+                    <p class="flex justify-between items-center"><span class="text-slate-400">Student</span> <span class="font-semibold text-slate-800 bg-white px-2 py-0.5 rounded-md shadow-sm border border-slate-100">18, Male</span></p>
+                    <p class="flex justify-between items-center"><span class="text-slate-400">Current Band</span> <span class="font-semibold text-slate-800">5.5 - 6.0</span></p>
+                    <p class="flex justify-between items-center"><span class="text-slate-400">Target Band</span> <span class="font-bold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded-md border border-indigo-100">6.5 - 7.0+</span></p>
+                </div>
+            </div>
+            <div class="bg-white/50 backdrop-blur-sm border border-white rounded-2xl p-5 shadow-sm">
+                <h3 class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4 flex items-center gap-2">
+                    <svg class="w-4 h-4 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    Course Logistics
+                </h3>
+                <div class="space-y-3 text-sm text-slate-600">
+                    <p class="flex justify-between items-center"><span class="text-slate-400">Duration</span> <span class="font-semibold text-slate-800">40 Lessons</span></p>
+                    <p class="flex justify-between items-center"><span class="text-slate-400">Lesson Length</span> <span class="font-semibold text-slate-800">90 Minutes</span></p>
+                    <p class="flex justify-between items-center"><span class="text-slate-400">Pacing</span> <span class="font-semibold text-slate-800">~3x / Week</span></p>
+                </div>
+            </div>
+            <div class="bg-white/50 backdrop-blur-sm border border-white rounded-2xl p-5 shadow-sm">
+                <h3 class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4 flex items-center gap-2">
+                    <svg class="w-4 h-4 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                    Core Resources
+                </h3>
+                <div class="space-y-3 text-sm text-slate-600">
+                    <p class="flex justify-between items-center"><span class="text-slate-400">Primary</span> <span class="font-semibold text-slate-800">YouPass Set</span></p>
+                    <p class="flex justify-between items-center"><span class="text-slate-400">Secondary</span> <span class="font-semibold text-slate-800">Private Collection</span></p>
+                    <p class="flex justify-between items-center"><span class="text-slate-400">Vocab</span> <span class="font-semibold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-100">Weekly Integration</span></p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Controls -->
+    <div class="flex justify-between items-end mb-6 pb-2 px-2">
+        <h2 class="text-2xl font-bold text-slate-800 tracking-tight">Execution Plan</h2>
+        <div class="flex gap-2">
+            <button onclick="toggleAll(true)" class="text-xs font-semibold text-indigo-600 bg-white/60 backdrop-blur-sm border border-white hover:bg-white hover:shadow-sm px-4 py-2 rounded-xl transition-all focus:outline-none">Expand All</button>
+            <button onclick="toggleAll(false)" class="text-xs font-semibold text-slate-600 bg-white/60 backdrop-blur-sm border border-white hover:bg-white hover:shadow-sm px-4 py-2 rounded-xl transition-all focus:outline-none">Collapse All</button>
+        </div>
+    </div>
+
+    <!-- Container for dynamic syllabus -->
+    <div id="syllabus-container" class="space-y-5 relative z-10">
+        <!-- Javascript will inject content here -->
+    </div>
+
+    <!-- Footer -->
+    <footer class="mt-20 text-center pt-8 border-t border-slate-200/50">
+        <p class="text-slate-600 font-semibold text-sm">© IELTS Chan Truong | Executive Tutoring Program</p>
+        <p class="text-slate-400 text-xs mt-2">Authorized curriculum materials exclusively provided by YouPass & Private Collection.</p>
+    </footer>
+
+</div>
+
+<script>
+    // Pastel-themed Bullet Point Icon SVG
+    const bulletIcon = `<svg class="w-4 h-4 text-indigo-300 mt-0.5 mr-2.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>`;
+
+    const courseData = [
+        {
+            week: 1,
+            title: "Foundation & Setup (Target 6.0)",
+            lessons: [
+                { 
+                    num: 1, skills: ["overview", "writing"], title: "Course Overview & Intro to Task 1", tutor: "T1 & T2", 
+                    inClass: [
+                        { activity: "Curriculum roadmap, goal setting & expectations", time: "20 min" },
+                        { activity: "Writing: Band descriptors breakdown & analysis", time: "30 min" },
+                        { activity: "Task 1 Structure & Data Interpretation basics", time: "40 min" }
+                    ],
+                    hw: "Write 1 Line Graph report (Private Collection). Study Daily Vocab List 1 (Education)." 
+                },
+                { 
+                    num: 2, skills: ["reading", "listening"], title: "Skimming/Scanning + Section 1 Basics", tutor: "T1", 
+                    inClass: [
+                        { activity: "Reading: Keyword scanning & T/F/NG identification", time: "45 min" },
+                        { activity: "Listening: Predicting details, spelling, and numbers", time: "45 min" }
+                    ],
+                    hw: "Complete YouPass R&L Practice Set 1." 
+                },
+                { 
+                    num: 3, skills: ["speaking", "listening"], title: "Part 1 Fluency + Map Labeling", tutor: "T1", 
+                    inClass: [
+                        { activity: "Speaking: Part 1 expanding answers (Hometown/Studies)", time: "45 min" },
+                        { activity: "Listening: Section 2 Map & Plan labeling strategies", time: "45 min" }
+                    ],
+                    hw: "Record audio for 3 Part 1 topics. Complete YouPass Map Labeling exercise." 
+                }
+            ],
+            vocabTest: "Lesson 3: Vocab List 1 (Education & Work)"
+        },
+        {
+            week: 2,
+            title: "Building Accuracy & Coherence",
+            lessons: [
+                { 
+                    num: 4, skills: ["writing"], title: "Task 2: Essay Structure & Idea Generation", tutor: "T2", 
+                    inClass: [
+                        { activity: "Deconstructing prompts & brainstorming techniques", time: "30 min" },
+                        { activity: "Mastering the 4-paragraph structure", time: "30 min" },
+                        { activity: "Formulating strong Thesis statements for Opinion essays", time: "30 min" }
+                    ],
+                    hw: "Write 1 Opinion Essay (Private Collection). Study Vocab List 2 (Environment)." 
+                },
+                { 
+                    num: 5, skills: ["reading", "speaking"], title: "Matching Headings + Part 2 Prep", tutor: "T1", 
+                    inClass: [
+                        { activity: "Reading: Identifying main ideas vs. supporting details", time: "45 min" },
+                        { activity: "Speaking: The 1-minute prep strategy & P.P.F. method", time: "45 min" }
+                    ],
+                    hw: "Prepare and record 2 Part 2 cue cards (YouPass)." 
+                },
+                { 
+                    num: 6, skills: ["reading", "listening"], title: "T/F/NG Mastery + Section 3 MCQs", tutor: "T1", 
+                    inClass: [
+                        { activity: "Reading: Deep dive into False vs. Not Given distinctions", time: "45 min" },
+                        { activity: "Listening: Following academic discussions & spotting distractors", time: "45 min" }
+                    ],
+                    hw: "Complete YouPass Targeted R&L Set. Focus specifically on MCQs." 
+                }
+            ],
+            vocabTest: "Lesson 6: Vocab List 2 (Environment & Nature)"
+        },
+        {
+            week: 3,
+            title: "Tackling Complexity",
+            lessons: [
+                { 
+                    num: 7, skills: ["writing"], title: "Task 1: Line Graphs & Bar Charts", tutor: "T2", 
+                    inClass: [
+                        { activity: "Vocabulary for comparison, contrast, and trends", time: "30 min" },
+                        { activity: "Grouping data logically without listing mechanically", time: "30 min" },
+                        { activity: "Live drafting of complex body paragraphs", time: "30 min" }
+                    ],
+                    hw: "Write 1 Bar Chart and 1 Pie Chart report (Private Collection)." 
+                },
+                { 
+                    num: 8, skills: ["listening", "speaking"], title: "Recognizing Traps + Part 3 Intro", tutor: "T1", 
+                    inClass: [
+                        { activity: "Listening: Recognizing speaker self-correction in audio", time: "45 min" },
+                        { activity: "Speaking: Linking P2 to P3 & utilizing A.R.E.A structure", time: "45 min" }
+                    ],
+                    hw: "Complete YouPass Listening Set 4. Record 5 Part 3 answers." 
+                },
+                { 
+                    num: 9, skills: ["reading", "speaking"], title: "Summary Completion + Pronunciation", tutor: "T1", 
+                    inClass: [
+                        { activity: "Reading: Using grammar clues to predict missing words", time: "45 min" },
+                        { activity: "Speaking: Intonation, sentence stress, and natural rhythm", time: "45 min" }
+                    ],
+                    hw: "Complete YouPass Reading Practice Set. Perform 15-min shadowing exercise." 
+                }
+            ],
+            vocabTest: "Lesson 9: Vocab List 3 (Technology & Media)"
+        },
+        {
+            week: 4,
+            title: "Argumentation & Academic Range",
+            lessons: [
+                { 
+                    num: 10, skills: ["writing"], title: "Task 2: Discussion Essays", tutor: "T2", 
+                    inClass: [
+                        { activity: "Balancing two opposing views neutrally", time: "30 min" },
+                        { activity: "Integrating personal opinion effectively into the essay", time: "30 min" },
+                        { activity: "Advanced cohesive devices for signaling contrast", time: "30 min" }
+                    ],
+                    hw: "Write 1 full Discussion Essay (Private Collection). Study Vocab List 4." 
+                },
+                { 
+                    num: 11, skills: ["reading", "listening"], title: "Y/N/NG Writer's Claims + Monologues", tutor: "T1", 
+                    inClass: [
+                        { activity: "Reading: Distinguishing Fact vs. Writer's Opinion (Y/N/NG)", time: "45 min" },
+                        { activity: "Listening: Navigating dense Section 4 academic lectures", time: "45 min" }
+                    ],
+                    hw: "Complete YouPass Full Section 4 Practice. Y/N/NG isolated Drill." 
+                },
+                { 
+                    num: 12, skills: ["reading", "speaking"], title: "Matching Info + Part 2 Storytelling", tutor: "T1", 
+                    inClass: [
+                        { activity: "Reading: Locating specific arguments across paragraphs", time: "45 min" },
+                        { activity: "Speaking: Narrative tenses for compelling P2 storytelling", time: "45 min" }
+                    ],
+                    hw: "Record P2 (Describe an event). Read 1 long-form article from Private Collection." 
+                }
+            ],
+            vocabTest: "Lesson 12: Vocab List 4 (Health & Lifestyle)"
+        },
+        {
+            week: 5,
+            title: "Mid-Course Assessment",
+            lessons: [
+                { 
+                    num: 13, skills: ["writing"], title: "Task 1: Maps & Processes", tutor: "T2", 
+                    inClass: [
+                        { activity: "Mastering passive voice for describing processes", time: "45 min" },
+                        { activity: "Utilizing spatial and locational language for maps", time: "45 min" }
+                    ],
+                    hw: "Write 1 Map and 1 Process description (Private Collection)." 
+                },
+                { 
+                    num: 14, skills: ["listening", "speaking"], title: "Note-taking + Extending Answers", tutor: "T1", 
+                    inClass: [
+                        { activity: "Listening: Predicting missing words by grammatical function", time: "45 min" },
+                        { activity: "Speaking: Deploying conditionals to extend Part 3 answers", time: "45 min" }
+                    ],
+                    hw: "Record answers for abstract P3 topics. Complete YouPass Listening block." 
+                },
+                { 
+                    num: 15, skills: ["reading", "listening", "mock"], title: "Half-Mock Test (R&L) + Review", tutor: "T1", 
+                    inClass: [
+                        { activity: "Timed Reading & Listening Administration", time: "60 min" },
+                        { activity: "Immediate review of weak areas and error tracking", time: "30 min" }
+                    ],
+                    hw: "Log all mistakes. Correct and explain 'Why' in Private Collection Log." 
+                }
+            ],
+            vocabTest: "Lesson 15: Vocab List 5 (Society & Culture)"
+        },
+        {
+            week: 6,
+            title: "Grammar & Lexis Upgrade (Target 6.5+)",
+            lessons: [
+                { 
+                    num: 16, skills: ["writing"], title: "Task 2: Problem/Solution Essays", tutor: "T2", 
+                    inClass: [
+                        { activity: "Structuring logic for two-part prompt essays", time: "30 min" },
+                        { activity: "Advanced vocabulary for causes and downstream impacts", time: "30 min" },
+                        { activity: "Live outlining of 3 Problem/Solution prompts", time: "30 min" }
+                    ],
+                    hw: "Write 1 Problem/Solution essay (Private Collection)." 
+                },
+                { 
+                    num: 17, skills: ["reading", "listening"], title: "Passage 3 Strategy + Speed/Accents", tutor: "T1", 
+                    inClass: [
+                        { activity: "Reading: Tackling dense academic texts (Passage 3)", time: "45 min" },
+                        { activity: "Listening: Practice with varied global accents at 1.2x speed", time: "45 min" }
+                    ],
+                    hw: "Complete two YouPass Passage 3 sets. 1 Fast-paced Listening test." 
+                },
+                { 
+                    num: 18, skills: ["reading", "speaking"], title: "MCQ Deep Dive + Idioms/Phrasals", tutor: "T1", 
+                    inClass: [
+                        { activity: "Reading: Eliminating distractor options systematically", time: "45 min" },
+                        { activity: "Speaking: Natural usage of less common lexis and idioms", time: "45 min" }
+                    ],
+                    hw: "Record 3 Part 2 answers utilizing newly acquired target vocabulary." 
+                }
+            ],
+            vocabTest: "Lesson 18: Vocab List 6 (Global Issues & Economy)"
+        },
+        {
+            week: 7,
+            title: "Synthesizing Skills",
+            lessons: [
+                { 
+                    num: 19, skills: ["writing"], title: "Task 2: Direct Questions", tutor: "T2", 
+                    inClass: [
+                        { activity: "Answering multi-part prompts completely", time: "45 min" },
+                        { activity: "Ensuring full Task Response (TR criteria for Band 7)", time: "45 min" }
+                    ],
+                    hw: "Write 1 Direct Question essay (Private Collection)." 
+                },
+                { 
+                    num: 20, skills: ["listening", "speaking"], title: "Complex Matching + Defending Opinions", tutor: "T1", 
+                    inClass: [
+                        { activity: "Listening: Multi-speaker matching in Section 3", time: "45 min" },
+                        { activity: "Speaking: Debate style P3 & usage of hedging language", time: "45 min" }
+                    ],
+                    hw: "Complete YouPass Section 3 practice. Prepare for debate-style questions." 
+                },
+                { 
+                    num: 21, skills: ["reading", "listening"], title: "Speed Reading + Section 3&4 Intensive", tutor: "T1", 
+                    inClass: [
+                        { activity: "Reading: Faster pacing techniques for comprehension", time: "45 min" },
+                        { activity: "Listening: Sustained concentration drills for back-half", time: "45 min" }
+                    ],
+                    hw: "Complete YouPass Full Reading Test (Strictly Timed 55 mins)." 
+                }
+            ],
+            vocabTest: "Lesson 21: Vocab List 7 (Crime & Law)"
+        },
+        {
+            week: 8,
+            title: "Writing Polish & Speed",
+            lessons: [
+                { 
+                    num: 22, skills: ["writing"], title: "Task 1: Mixed Charts", tutor: "T2", 
+                    inClass: [
+                        { activity: "Handling multiple data sources (e.g. Pie + Table)", time: "45 min" },
+                        { activity: "Finding and summarizing key relationships across graphs", time: "45 min" }
+                    ],
+                    hw: "Write 2 Mixed Chart reports (Private Collection)." 
+                },
+                { 
+                    num: 23, skills: ["reading", "speaking"], title: "Cross-referencing + Mock P2/P3", tutor: "T1", 
+                    inClass: [
+                        { activity: "Reading: Locating deeply hidden synonyms", time: "45 min" },
+                        { activity: "Speaking: Live mock of P2 & P3 under strict pressure", time: "45 min" }
+                    ],
+                    hw: "Review speaking feedback. Re-record all weak answers." 
+                },
+                { 
+                    num: 24, skills: ["listening", "speaking"], title: "Dictation + Complex Grammar", tutor: "T1", 
+                    inClass: [
+                        { activity: "Listening: Spelling accuracy and rapid dictation drills", time: "45 min" },
+                        { activity: "Speaking: Using relative clauses & inversion naturally", time: "45 min" }
+                    ],
+                    hw: "Complete YouPass Full Listening Test." 
+                }
+            ],
+            vocabTest: "Lesson 24: Vocab List 8 (Art & History)"
+        },
+        {
+            week: 9,
+            title: "Consolidation Phase 1",
+            lessons: [
+                { 
+                    num: 25, skills: ["writing"], title: "Task 2: Causes/Effects", tutor: "T2", 
+                    inClass: [
+                        { activity: "Vocabulary specifically for causation and consequence", time: "45 min" },
+                        { activity: "Organizing complex paragraphs cleanly and logically", time: "45 min" }
+                    ],
+                    hw: "Write 1 Causes/Effects Essay (Private Collection)." 
+                },
+                { 
+                    num: 26, skills: ["reading", "listening"], title: "Tricky Traps + Signposting Language", tutor: "T1", 
+                    inClass: [
+                        { activity: "Reading: Spotting and avoiding examiner traps", time: "45 min" },
+                        { activity: "Listening: Following transition/signposting words in lectures", time: "45 min" }
+                    ],
+                    hw: "Complete YouPass R&L 'Hard Mode' practice set." 
+                },
+                { 
+                    num: 27, skills: ["reading", "speaking"], title: "Weak Types Review + Debate Part 3", tutor: "T1", 
+                    inClass: [
+                        { activity: "Reading: Custom review targeting student's data-backed weaknesses", time: "45 min" },
+                        { activity: "Speaking: Formulating responses to high-level abstract concepts", time: "45 min" }
+                    ],
+                    hw: "Complete Private Collection Custom Reading Set." 
+                }
+            ],
+            vocabTest: "Lesson 27: Vocab List 9 (Space & Science)"
+        },
+        {
+            week: 10,
+            title: "Consolidation Phase 2",
+            lessons: [
+                { 
+                    num: 28, skills: ["writing"], title: "Task 1 & 2: Cohesion & Coherence Review", tutor: "T2", 
+                    inClass: [
+                        { activity: "Auditing paragraph flow and logical progression", time: "30 min" },
+                        { activity: "Eliminating repetitive mechanical linking words", time: "30 min" },
+                        { activity: "Advanced pronoun referencing for cohesion", time: "30 min" }
+                    ],
+                    hw: "Rewrite 2 previous essays improving CC heavily (Private Collection)." 
+                },
+                { 
+                    num: 29, skills: ["listening", "speaking"], title: "Full Section 4 + Fluency under pressure", tutor: "T1", 
+                    inClass: [
+                        { activity: "Listening: Back-to-back Section 4 exhaustion training", time: "45 min" },
+                        { activity: "Speaking: Rapid-fire Part 1 & 3 to build quick thinking", time: "45 min" }
+                    ],
+                    hw: "Complete two YouPass Section 4 practices." 
+                },
+                { 
+                    num: 30, skills: ["reading", "listening", "mock"], title: "Timed Full Practice (R&L)", tutor: "T1", 
+                    inClass: [
+                        { activity: "Administer full timed reading test", time: "60 min" },
+                        { activity: "Administer full timed listening test", time: "30 min" }
+                    ],
+                    hw: "Mental rest and light reading." 
+                }
+            ],
+            vocabTest: "Lesson 29: Vocab List 10 (Abstract Concepts)"
+        },
+        {
+            week: 11,
+            title: "Mock Review & Targeted Repair",
+            lessons: [
+                { 
+                    num: 31, skills: ["writing"], title: "Grammar Upgrade & Live Rewriting", tutor: "T2", 
+                    inClass: [
+                        { activity: "Incorporating Band 7+ grammar structures smoothly", time: "45 min" },
+                        { activity: "Live rewriting of weak sentences from past essays", time: "45 min" }
+                    ],
+                    hw: "Write 1 essay strictly focusing on maximizing grammatical range." 
+                },
+                { 
+                    num: 32, skills: ["reading", "listening"], title: "Mock R/L Error Analysis", tutor: "T1", 
+                    inClass: [
+                        { activity: "Reading: Why were mistakes made? (Vocab, trap, speed)", time: "45 min" },
+                        { activity: "Listening: Targeted repair of missed audio cues", time: "45 min" }
+                    ],
+                    hw: "YouPass Targeted practice based on Mock errors." 
+                },
+                { 
+                    num: 33, skills: ["speaking", "listening"], title: "Mock Speaking Test + Audio Review", tutor: "T1", 
+                    inClass: [
+                        { activity: "Simulated speaking test conditions & grading", time: "45 min" },
+                        { activity: "Review of hard listening audio scripts and vocabulary", time: "45 min" }
+                    ],
+                    hw: "Daily 15-min speaking practice mirror exercises." 
+                }
+            ],
+            vocabTest: "Review Quiz: Lists 1-5"
+        },
+        {
+            week: 12,
+            title: "Final Push (Target 7.0 Alignment)",
+            lessons: [
+                { 
+                    num: 34, skills: ["writing", "mock"], title: "Task 1 & 2 Time Management", tutor: "T2", 
+                    inClass: [
+                        { activity: "Live writing: Task 1 execution under 20 mins", time: "30 min" },
+                        { activity: "Live writing: Task 2 execution under 40 mins", time: "45 min" },
+                        { activity: "Immediate peer review & feedback", time: "15 min" }
+                    ],
+                    hw: "Full Timed Writing Test (Private Collection)." 
+                },
+                { 
+                    num: 35, skills: ["reading", "listening"], title: "Live Strategy Execution", tutor: "T1", 
+                    inClass: [
+                        { activity: "Tutor observes student taking Reading test live to correct habits", time: "45 min" },
+                        { activity: "Tutor observes Listening test execution and note-taking", time: "45 min" }
+                    ],
+                    hw: "Complete YouPass Full Listening Test." 
+                },
+                { 
+                    num: 36, skills: ["reading", "speaking"], title: "Hard Reading Sets + Final P2 Polish", tutor: "T1", 
+                    inClass: [
+                        { activity: "Reading: Executing strategies on the densest passages", time: "45 min" },
+                        { activity: "Speaking: Final tweaks to body language, pacing, and tone", time: "45 min" }
+                    ],
+                    hw: "Review all recorded speaking feedback." 
+                }
+            ],
+            vocabTest: "Review Quiz: Lists 6-10"
+        },
+        {
+            week: 13,
+            title: "Peak Performance & Test Readiness",
+            lessons: [
+                { 
+                    num: 37, skills: ["writing"], title: "Final Lexical Polish", tutor: "T2", 
+                    inClass: [
+                        { activity: "Review Writing portfolio", time: "30 min" },
+                        { activity: "Focus on maximizing lexical resource score", time: "30 min" },
+                        { activity: "Drill on eliminating minor, repeated grammatical errors", time: "30 min" }
+                    ],
+                    hw: "Review all past writing feedback and compiled notes." 
+                },
+                { 
+                    num: 38, skills: ["reading", "listening", "mock"], title: "Full Mock Test Simulation (R&L)", tutor: "T1", 
+                    inClass: [
+                        { activity: "Final full simulation of Reading under real conditions", time: "60 min" },
+                        { activity: "Final full simulation of Listening under real conditions", time: "30 min" }
+                    ],
+                    hw: "Strictly Rest. Mental recovery." 
+                },
+                { 
+                    num: 39, skills: ["reading", "speaking"], title: "Mock Review + Mental Prep", tutor: "T1", 
+                    inClass: [
+                        { activity: "Review R&L mock performance and confirm readiness", time: "45 min" },
+                        { activity: "Test day logistics, psychology, and managing test anxiety", time: "45 min" }
+                    ],
+                    hw: "Light review of vocab lists. Ensure proper sleep." 
+                }
+            ],
+            vocabTest: "None (Focus on test prep)"
+        },
+        {
+            week: 14,
+            title: "Course Conclusion",
+            lessons: [
+                { 
+                    num: 40, skills: ["listening", "speaking"], title: "Warm-up & Test Psychology", tutor: "T1", 
+                    inClass: [
+                        { activity: "Light, low-stress speaking practice", time: "45 min" },
+                        { activity: "Active listening warm-up & final confidence boost", time: "45 min" }
+                    ],
+                    hw: "Ace the exam!" 
+                }
+            ],
+            vocabTest: "N/A"
+        }
+    ];
+
+    function renderCourse() {
+        const container = document.getElementById('syllabus-container');
+        let html = '';
+
+        courseData.forEach((week, index) => {
+            html += `
+            <div class="glass-panel rounded-2xl overflow-hidden mb-5 transition-all hover:shadow-[0_10px_40px_-10px_rgba(0,0,0,0.08)]">
+                <!-- Week Header -->
+                <button onclick="toggleWeek(${index})" class="w-full text-left px-6 py-5 hover:bg-white/40 flex justify-between items-center transition-colors focus:outline-none group">
+                    <div class="flex items-center gap-5">
+                        <div class="flex-shrink-0 w-14 h-14 bg-white/80 text-slate-700 rounded-xl flex flex-col items-center justify-center border border-white shadow-sm transition-transform group-hover:scale-105">
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-0.5">Week</span>
+                            <span class="text-2xl font-black leading-none bg-gradient-to-br from-slate-700 to-slate-500 bg-clip-text text-transparent">${week.week}</span>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-slate-800">${week.title}</h3>
+                            <div class="flex items-center gap-2 mt-1.5">
+                                <span class="text-xs font-semibold text-slate-500 bg-white/50 px-2 py-0.5 rounded-md border border-white/60">${week.lessons.length} Lessons</span>
+                                ${week.vocabTest && week.vocabTest !== 'N/A' ? `<span class="text-[10px] font-bold uppercase tracking-wider text-teal-600 bg-teal-50/80 px-2 py-0.5 rounded-md border border-teal-100/50 flex items-center gap-1"><svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>Vocab Integration</span>` : ''}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-10 h-10 rounded-full bg-white/60 flex items-center justify-center shadow-sm border border-white group-hover:bg-white transition-colors">
+                        <svg id="icon-${index}" class="w-5 h-5 text-slate-400 rotate-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                    </div>
+                </button>
+
+                <!-- Week Content -->
+                <div id="content-${index}" class="week-content border-t border-white/60 bg-white/30">
+                    <div class="p-6 md:p-8 space-y-6">
+                        ${week.lessons.map(lesson => `
+                            <div class="bg-white/80 backdrop-blur-md rounded-2xl p-6 border border-white shadow-sm relative pl-16 hover:bg-white transition-colors">
+                                <!-- Lesson Number Badge -->
+                                <div class="absolute left-5 top-6 w-8 h-8 rounded-full bg-gradient-to-br from-indigo-50 to-purple-50 flex items-center justify-center text-sm font-black text-indigo-600 border border-indigo-100 shadow-sm">
+                                    ${lesson.num}
+                                </div>
+                                
+                                <div class="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-5 border-b border-slate-100/60 pb-5">
+                                    <h4 class="text-base font-bold text-slate-800 leading-tight">${lesson.title}</h4>
+                                    <div class="flex flex-wrap items-center gap-2">
+                                        ${lesson.skills.map(skill => `<span class="skill-badge badge-${skill}">${skill}</span>`).join('')}
+                                        <span class="text-[10px] font-bold uppercase tracking-widest text-slate-500 bg-slate-100/80 px-2.5 py-1 rounded-md border border-slate-200/60 ml-1">Tutor ${lesson.tutor}</span>
+                                    </div>
+                                </div>
+
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                    <!-- In Class Focus (Bulleted & Timed) -->
+                                    <div>
+                                        <p class="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-3 flex items-center gap-1.5">
+                                            In-Class Focus (90 Min)
+                                        </p>
+                                        <ul class="space-y-3">
+                                            ${lesson.inClass.map(item => `
+                                                <li class="flex items-start bg-white/50 p-2.5 rounded-xl border border-white/60 shadow-[0_2px_10px_-4px_rgba(0,0,0,0.02)]">
+                                                    ${bulletIcon}
+                                                    <div class="flex-1 mt-0.5">
+                                                        <span class="text-[13px] text-slate-700 font-medium">${item.activity}</span>
+                                                        <span class="inline-flex items-center justify-center px-2 py-0.5 ml-1.5 rounded-md bg-indigo-50/50 text-indigo-600 border border-indigo-100/50 text-[10px] font-bold whitespace-nowrap shadow-sm">${item.time}</span>
+                                                    </div>
+                                                </li>
+                                            `).join('')}
+                                        </ul>
+                                    </div>
+
+                                    <!-- Homework -->
+                                    <div>
+                                        <p class="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-3 flex items-center gap-1.5">
+                                            Homework Assignment
+                                        </p>
+                                        <div class="flex items-start bg-gradient-to-br from-orange-50/30 to-rose-50/30 p-4 rounded-xl border border-orange-100/50 shadow-[0_2px_10px_-4px_rgba(0,0,0,0.02)]">
+                                            <svg class="w-4 h-4 text-orange-300 mt-0.5 mr-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                                            <p class="text-[13px] font-medium text-slate-700 leading-relaxed">${lesson.hw}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        `).join('')}
+                        
+                        ${week.vocabTest && week.vocabTest !== 'N/A' ? `
+                            <div class="mt-6 bg-gradient-to-r from-teal-50/80 to-emerald-50/80 border border-teal-100 rounded-2xl p-5 flex items-center gap-4 shadow-sm">
+                                <div class="bg-white text-teal-500 p-2 rounded-xl shadow-sm border border-teal-50">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                </div>
+                                <div>
+                                    <p class="text-[10px] font-bold text-teal-600/80 uppercase tracking-widest mb-0.5">Evaluation Checkpoint</p>
+                                    <p class="text-[14px] font-bold text-teal-900">${week.vocabTest}</p>
+                                </div>
+                            </div>
+                        ` : ''}
+                    </div>
+                </div>
+            </div>
+            `;
+        });
+
+        container.innerHTML = html;
+        // Expand the first week by default
+        setTimeout(() => toggleWeek(0), 100);
+    }
+
+    function toggleWeek(index) {
+        const content = document.getElementById(`content-${index}`);
+        const button = content.parentElement.querySelector('button');
+        
+        if (content.classList.contains('expanded')) {
+            content.classList.remove('expanded');
+            button.classList.remove('expanded');
+        } else {
+            content.classList.add('expanded');
+            button.classList.add('expanded');
+        }
+    }
+
+    function toggleAll(expand) {
+        courseData.forEach((_, index) => {
+            const content = document.getElementById(`content-${index}`);
+            const button = content.parentElement.querySelector('button');
+            
+            if (expand) {
+                content.classList.add('expanded');
+                button.classList.add('expanded');
+            } else {
+                content.classList.remove('expanded');
+                button.classList.remove('expanded');
+            }
+        });
+    }
+
+    // Initialize when DOM is ready
+    document.addEventListener('DOMContentLoaded', renderCourse);
+</script>
+
+</body>
+</html>
