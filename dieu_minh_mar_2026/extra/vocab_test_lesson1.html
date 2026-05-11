@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Vocabulary Assessment - Extended</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --success: #10b981;
+            --danger: #ef4444;
+            --bg-body: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header & Timer */
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-title h2 { font-size: 1.25rem; font-weight: 600; }
+        .header-title p { font-size: 0.875rem; opacity: 0.9; }
+
+        .timer-box {
+            background: rgba(255,255,255,0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .timer-box.warning {
+            background: var(--danger);
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.8; }
+            100% { opacity: 1; }
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            height: 6px;
+            background: var(--border);
+            width: 100%;
+        }
+        .progress-bar {
+            height: 100%;
+            background: var(--success);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        /* Content Area */
+        .content {
+            padding: 2rem;
+            min-height: 350px;
+        }
+
+        .question-number {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+
+        .question-text {
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            line-height: 1.5;
+        }
+
+        /* Form Controls */
+        .options-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .option-label {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 1.1rem;
+        }
+
+        .option-label:hover {
+            border-color: var(--primary);
+            background-color: #f0fdf4;
+        }
+
+        .option-label input[type="radio"] {
+            margin-right: 1rem;
+            transform: scale(1.2);
+        }
+
+        .option-label.selected {
+            border-color: var(--primary);
+            background-color: #eff6ff;
+        }
+
+        /* Question Navigation Grid */
+        .q-nav-container {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 2px dashed var(--border);
+        }
+        
+        .q-nav-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .q-nav-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+        
+        .q-nav-legend {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        
+        .legend-box {
+            width: 14px;
+            height: 14px;
+            border-radius: 3px;
+            border: 1px solid var(--border);
+        }
+        
+        .legend-box.answered { background: var(--primary); border-color: var(--primary); }
+        .legend-box.unanswered { background: var(--card-bg); }
+
+        .q-nav-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .q-nav-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 6px;
+            border: 2px solid var(--border);
+            background: var(--card-bg);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+        }
+        
+        .q-nav-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+        
+        .q-nav-btn.answered {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+        }
+        
+        .q-nav-btn.current {
+            transform: scale(1.1);
+            border-color: var(--text-main);
+            box-shadow: 0 0 0 2px var(--text-main);
+            z-index: 1;
+            color: var(--text-main);
+        }
+        
+        .q-nav-btn.answered.current {
+            color: white;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1.1rem;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            transition: border-color 0.2s ease;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        /* Footer Controls */
+        .footer {
+            padding: 1.5rem 2rem;
+            background-color: var(--bg-body);
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        button {
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-main);
+            border: 1px solid var(--border);
+        }
+
+        .btn-outline:hover:not(:disabled) {
+            background: var(--border);
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-hover);
+        }
+
+        .btn-submit {
+            background: var(--success);
+            color: white;
+        }
+
+        .btn-submit:hover {
+            background: #059669;
+        }
+
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Intro & Results screens */
+        .screen {
+            display: none;
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        .screen.active {
+            display: block;
+        }
+
+        .screen-title {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .score-display {
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--success);
+            margin: 1rem 0;
+        }
+
+        .results-list {
+            text-align: left;
+            margin-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .result-item {
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 5px solid;
+            background: #f8fafc;
+        }
+
+        .result-item.correct {
+            border-color: var(--success);
+        }
+
+        .result-item.incorrect {
+            border-color: var(--danger);
+        }
+        
+        .result-item-header {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .result-explanation {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: 0.5rem;
+            padding-top: 0.5rem;
+            border-top: 1px solid var(--border);
+        }
+
+        @media (max-width: 600px) {
+            header { flex-direction: column; gap: 1rem; text-align: center; }
+            .footer { flex-direction: column; gap: 1rem; }
+            .footer button { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header id="app-header">
+        <div class="header-title">
+            <h2>IELTS Vocabulary Test</h2>
+            <p>Target: Band 6.0 - 6.5</p>
+        </div>
+        <div class="timer-box" id="timer">
+            ⏱️ 15:00
+        </div>
+    </header>
+    
+    <div class="progress-container" id="progress-container">
+        <div class="progress-bar" id="progress-bar"></div>
+    </div>
+
+    <!-- Intro Screen -->
+    <div id="intro-screen" class="screen active">
+        <h1 class="screen-title">Extended Assessment</h1>
+        <p style="font-size: 1.1rem; margin-bottom: 2rem; color: var(--text-muted);">
+            This test consists of 33 questions assessing your understanding of the 20 target vocabulary words from the listening transcript. You have 15 minutes to complete it.
+        </p>
+        <button class="btn-primary" style="font-size: 1.2rem; padding: 1rem 3rem;" onclick="startTest()">Start Test</button>
+    </div>
+
+    <!-- Quiz Screen -->
+    <div id="quiz-screen" class="screen" style="padding: 0; text-align: left;">
+        <div class="content">
+            <div class="question-number" id="question-number">Question 1 of 33</div>
+            <div class="question-text" id="question-text">Question text goes here?</div>
+            <div id="options-container" class="options-grid">
+                <!-- Options injected via JS -->
+            </div>
+            
+            <div class="q-nav-container">
+                <div class="q-nav-header">
+                    <span class="q-nav-title">Question Navigator</span>
+                    <div class="q-nav-legend">
+                        <div class="legend-item"><div class="legend-box answered"></div> Answered</div>
+                        <div class="legend-item"><div class="legend-box unanswered"></div> Unanswered</div>
+                    </div>
+                </div>
+                <div id="q-nav-grid" class="q-nav-grid">
+                    <!-- Nav buttons injected via JS -->
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <button class="btn-outline" id="btn-prev" onclick="prevQuestion()">Previous</button>
+            <button class="btn-primary" id="btn-next" onclick="nextQuestion()">Next</button>
+            <button class="btn-submit" id="btn-submit" style="display: none;" onclick="submitTest()">Submit Test</button>
+        </div>
+    </div>
+
+    <!-- Results Screen -->
+    <div id="results-screen" class="screen">
+        <h1 class="screen-title" id="result-title">Test Complete!</h1>
+        <div class="score-display" id="score-display">0%</div>
+        <p style="font-size: 1.2rem; margin-bottom: 1rem;" id="score-text">You got 0 out of 33 correct.</p>
+        
+        <div class="results-list" id="results-list">
+            <!-- Results injected via JS -->
+        </div>
+        
+        <button class="btn-primary" style="margin-top: 2rem;" onclick="location.reload()">Take Test Again</button>
+    </div>
+</div>
+
+<script>
+    // ---------------------------------------------------------
+    // Quiz Data (33 Questions covering 20 words)
+    // ---------------------------------------------------------
+    const questions = [
+        // Word 1: Enroll
+        { type: "mcq", text: "Before the children can attend the preschool, the parents must first ________ them.", options: ["Retain", "Elaborate", "Enroll"], correct: 2, explanation: "To enroll means to officially register as a member of an institution." },
+        // Word 2: Reasonable
+        { type: "fill", text: "The term fee of $470 is considered quite r_ _ _ _ _ _ _ _e compared to other schools charging $500.", correct: "reasonable", explanation: "Reasonable means fair and sensible; not too expensive." },
+        // Word 3: Accommodate
+        { type: "tf", text: "True or False: If a ferry can 'accommodate' 600 cars, it means there is sufficient space for them.", options: ["True", "False"], correct: 0, explanation: "To accommodate means to provide lodging or sufficient space." },
+        // Word 4: Prohibited
+        { type: "mcq", text: "What does it mean if access to a certain area on a ferry is described as 'prohibited'?", options: ["It is highly recommended.", "It is strictly forbidden to enter.", "It is slightly delayed due to weather."], correct: 1, explanation: "Prohibited means formally forbidden by a rule or authority." },
+        // Word 5: Substantial
+        { type: "fill", text: "You won't need snacks because the meals provided on board are quite s_ _ _ _ _ _ _ _ _l.", correct: "substantial", explanation: "Substantial describes a meal that is large and filling." },
+        // Word 6: Picturesque
+        { type: "tf", text: "True or False: A 'picturesque' village is visually unattractive and heavily industrialized.", options: ["True", "False"], correct: 1, explanation: "Picturesque describes a place that is visually attractive, charming, or quaint." },
+        // Word 7: Retain
+        { type: "mcq", text: "The village has managed to ________ a lot of its traditional industry despite modern changes.", options: ["Enroll", "Retain", "Accommodate"], correct: 1, explanation: "To retain means to continue to have something; to keep possession of." },
+        // Word 8: Elaborate
+        { type: "fill", text: "The tour guide will e_ _ _ _ _ _ _e on a few key items from the equipment list to provide more details.", correct: "elaborate", explanation: "To elaborate means to add more detail concerning what has already been said." },
+        // Word 9: Essential
+        { type: "tf", text: "True or False: If packing sun cream is 'essential', it means you can easily leave it behind without worry.", options: ["True", "False"], correct: 1, explanation: "Essential means absolutely necessary; extremely important." },
+        // Word 10: Spectacular
+        { type: "mcq", text: "Tourists visit the Picos De Europa because of its ________ peaks that are incredibly beautiful.", options: ["Unusual", "Spectacular", "Prohibited"], correct: 1, explanation: "Spectacular means beautiful in a dramatic and eye-catching way." },
+        // Word 11: Latitude
+        { type: "fill", text: "Even factor 25 sun cream isn't strong enough for those high summer l_ _ _ _ _ _es near the equator.", correct: "latitudes", explanation: "Latitude refers to the distance north or south of the equator." },
+        // Word 12: Longitude
+        { type: "tf", text: "True or False: Longitude measures the angular distance east or west of the Greenwich meridian.", options: ["True", "False"], correct: 0, explanation: "Longitude is the distance east or west from the prime meridian." },
+        // Word 13: Altitude
+        { type: "mcq", text: "Because of the high ________, the mountain peaks have year-round snow caps.", options: ["Longitude", "Meadows", "Altitude"], correct: 2, explanation: "Altitude refers to the height of an object or point in relation to sea level." },
+        // Word 14: Waterproofs
+        { type: "fill", text: "To keep the rain and wind out while walking, it is highly advised to bring light w_ _ _ _ _ _ _ _ _s.", correct: "waterproofs", explanation: "Waterproofs are garments made of waterproof material to keep out the rain." },
+        // Word 15: Lightweight
+        { type: "tf", text: "True or False: A 'lightweight' jacket is thick, heavy, and difficult to fold up.", options: ["True", "False"], correct: 1, explanation: "Lightweight means weighing less than average; usually thin and easy to fold." },
+        // Word 16: Practicalities
+        { type: "mcq", text: "Before talking about the tour sights, the guide wanted to get the basic ________ (like packing lists and schedules) out of the way.", options: ["Species", "Practicalities", "Latitudes"], correct: 1, explanation: "Practicalities refer to the actual facts, conditions, and everyday requirements." },
+        // Word 17: Alpine
+        { type: "fill", text: "On the highest peaks, you will find a_ _ _ _e plants that survive the harsh snowy conditions.", correct: "alpine", explanation: "Alpine relates to high mountains or plants growing at high elevations." },
+        // Word 18: Meadow
+        { type: "tf", text: "True or False: A 'meadow' is a piece of grassland often filled with wildflowers.", options: ["True", "False"], correct: 0, explanation: "A meadow is a grassy field or pasture." },
+        // Word 19: Species
+        { type: "mcq", text: "The northern slopes give homes to rare ________ such as wolves and bears.", options: ["Altitudes", "Species", "Meadows"], correct: 1, explanation: "A species is a group of living organisms consisting of similar individuals." },
+        // Word 20: Unusual
+        { type: "fill", text: "Because the spelling of the name Keogh is uncommon, the receptionist said it was an u_ _ _ _ _l name.", correct: "unusual", explanation: "Unusual means not habitually or commonly occurring; remarkable." },
+        
+        // --- Round 2 of questions ---
+        // Word 1: Enroll
+        { type: "tf", text: "True or False: 'Enroll' refers to dropping out of a course.", options: ["True", "False"], correct: 1, explanation: "Enroll means to join or register for a course, not drop out." },
+        // Word 2: Reasonable
+        { type: "mcq", text: "If a price is described as ________, it is fair and not overly expensive.", options: ["Substantial", "Reasonable", "Lightweight"], correct: 1, explanation: "Reasonable means fair and sensible regarding cost." },
+        // Word 3: Accommodate
+        { type: "fill", text: "The new hotel has enough rooms to a_ _ _ _ _ _ _ _e up to 500 guests per night.", correct: "accommodate", explanation: "Accommodate means to provide lodging or space." },
+        // Word 4: Prohibited
+        { type: "tf", text: "True or False: If smoking is 'prohibited' on campus, you are allowed to smoke there.", options: ["True", "False"], correct: 1, explanation: "Prohibited means forbidden." },
+        // Word 5: Substantial
+        { type: "mcq", text: "He ate a very ________ breakfast, so he wasn't hungry at all during lunch.", options: ["Picturesque", "Essential", "Substantial"], correct: 2, explanation: "Substantial means large and filling." },
+        // Word 6: Picturesque
+        { type: "fill", text: "The valley is known for its beautiful, p_ _ _ _ _ _ _ _ _e scenery that attracts many painters.", correct: "picturesque", explanation: "Picturesque means visually attractive or charming." },
+        // Word 7: Retain
+        { type: "tf", text: "True or False: To 'retain' knowledge means to forget it quickly.", options: ["True", "False"], correct: 1, explanation: "To retain means to continue to have or hold onto something." },
+        // Word 8: Essential
+        { type: "mcq", text: "Water is absolutely ________ for survival during a desert hike.", options: ["Unusual", "Alpine", "Essential"], correct: 2, explanation: "Essential means absolutely necessary." },
+        // Word 13: Altitude
+        { type: "fill", text: "Climbers often experience shortness of breath when reaching high a_ _ _ _ _ _e.", correct: "altitude", explanation: "Altitude is the height above sea level." },
+        // Word 12: Longitude
+        { type: "mcq", text: "To pinpoint a location on a map precisely, you need its latitude and ________.", options: ["Practicalities", "Species", "Longitude"], correct: 2, explanation: "Longitude is the geographic coordinate specifying east-west position." },
+        // Word 11: Latitude
+        { type: "tf", text: "True or False: Lines of latitude run horizontally around the Earth, parallel to the equator.", options: ["True", "False"], correct: 0, explanation: "Lines of latitude measure distance north and south of the equator, running horizontally." },
+        // Word 14: Waterproofs
+        { type: "mcq", text: "It's going to rain heavily today, so don't forget your ________.", options: ["Meadows", "Waterproofs", "Latitudes"], correct: 1, explanation: "Waterproofs are clothing designed to keep you dry." },
+        // Word 15: Lightweight
+        { type: "fill", text: "Since you will be carrying the backpack all day, make sure all your gear is l_ _ _ _ _ _ _ _t.", correct: "lightweight", explanation: "Lightweight means not heavy; easy to carry." }
+    ];
+
+    // ---------------------------------------------------------
+    // App State
+    // ---------------------------------------------------------
+    let currentQuestion = 0;
+    let userAnswers = new Array(questions.length).fill(null);
+    let timeRemaining = 15 * 60; // 15 minutes in seconds
+    let timerInterval = null;
+
+    // DOM Elements
+    const introScreen = document.getElementById('intro-screen');
+    const quizScreen = document.getElementById('quiz-screen');
+    const resultsScreen = document.getElementById('results-screen');
+    const progressContainer = document.getElementById('progress-container');
+    const progressBar = document.getElementById('progress-bar');
+    const timerDisplay = document.getElementById('timer');
+    const appHeader = document.getElementById('app-header');
+
+    // ---------------------------------------------------------
+    // Timer Logic
+    // ---------------------------------------------------------
+    function startTimer() {
+        updateTimerDisplay();
+        timerInterval = setInterval(() => {
+            timeRemaining--;
+            updateTimerDisplay();
+            
+            if (timeRemaining <= 60) {
+                timerDisplay.classList.add('warning');
+            }
+            
+            if (timeRemaining <= 0) {
+                clearInterval(timerInterval);
+                submitTest();
+            }
+        }, 1000);
+    }
+
+    function updateTimerDisplay() {
+        const minutes = Math.floor(timeRemaining / 60);
+        const seconds = timeRemaining % 60;
+        timerDisplay.textContent = `⏱️ ${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    }
+
+    // ---------------------------------------------------------
+    // Quiz Navigation & Rendering
+    // ---------------------------------------------------------
+    function startTest() {
+        introScreen.classList.remove('active');
+        quizScreen.classList.add('active');
+        renderQuestion();
+        startTimer();
+    }
+
+    function renderQuestion() {
+        const q = questions[currentQuestion];
+        
+        // Update Headers & Progress
+        document.getElementById('question-number').textContent = `Question ${currentQuestion + 1} of ${questions.length}`;
+        document.getElementById('question-text').textContent = q.text;
+        progressBar.style.width = `${((currentQuestion) / questions.length) * 100}%`;
+        
+        // Render Options based on type
+        const container = document.getElementById('options-container');
+        container.innerHTML = ''; // Clear previous
+
+        if (q.type === 'mcq' || q.type === 'tf') {
+            q.options.forEach((opt, index) => {
+                const label = document.createElement('label');
+                label.className = `option-label ${userAnswers[currentQuestion] === index ? 'selected' : ''}`;
+                
+                const input = document.createElement('input');
+                input.type = 'radio';
+                input.name = `q${currentQuestion}`;
+                input.value = index;
+                input.checked = userAnswers[currentQuestion] === index;
+                
+                input.addEventListener('change', (e) => {
+                    userAnswers[currentQuestion] = parseInt(e.target.value);
+                    renderQuestion(); // Re-render to show selected styling
+                });
+                
+                label.appendChild(input);
+                label.appendChild(document.createTextNode(opt));
+                container.appendChild(label);
+            });
+        } else if (q.type === 'fill') {
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.placeholder = "Type your answer here...";
+            input.value = userAnswers[currentQuestion] || '';
+            
+            input.addEventListener('input', (e) => {
+                userAnswers[currentQuestion] = e.target.value.trim();
+                renderNavGrid(); // Update grid live as they type
+            });
+            
+            container.appendChild(input);
+        }
+
+        // Update Buttons
+        document.getElementById('btn-prev').disabled = currentQuestion === 0;
+        
+        if (currentQuestion === questions.length - 1) {
+            document.getElementById('btn-next').style.display = 'none';
+            document.getElementById('btn-submit').style.display = 'block';
+        } else {
+            document.getElementById('btn-next').style.display = 'block';
+            document.getElementById('btn-submit').style.display = 'none';
+        }
+        
+        renderNavGrid();
+    }
+    
+    // Renders the Question Navigation Grid
+    function renderNavGrid() {
+        const grid = document.getElementById('q-nav-grid');
+        grid.innerHTML = '';
+        
+        questions.forEach((_, index) => {
+            const btn = document.createElement('button');
+            btn.className = 'q-nav-btn';
+            btn.textContent = index + 1;
+            
+            // Check if user has provided an answer
+            if (userAnswers[index] !== null && userAnswers[index] !== '') {
+                btn.classList.add('answered');
+            }
+            
+            // Highlight the active question
+            if (index === currentQuestion) {
+                btn.classList.add('current');
+            }
+            
+            // Navigate to question on click
+            btn.onclick = () => {
+                currentQuestion = index;
+                renderQuestion();
+            };
+            
+            grid.appendChild(btn);
+        });
+    }
+
+    function nextQuestion() {
+        if (currentQuestion < questions.length - 1) {
+            currentQuestion++;
+            renderQuestion();
+        }
+    }
+
+    function prevQuestion() {
+        if (currentQuestion > 0) {
+            currentQuestion--;
+            renderQuestion();
+        }
+    }
+
+    // ---------------------------------------------------------
+    // Results & Grading
+    // ---------------------------------------------------------
+    function submitTest() {
+        clearInterval(timerInterval);
+        quizScreen.classList.remove('active');
+        resultsScreen.classList.add('active');
+        progressBar.style.width = '100%';
+        appHeader.style.display = 'none'; // Hide header/timer in results
+        progressContainer.style.display = 'none';
+        
+        let score = 0;
+        const resultsList = document.getElementById('results-list');
+        resultsList.innerHTML = '';
+
+        questions.forEach((q, index) => {
+            const userAnswer = userAnswers[index];
+            let isCorrect = false;
+            let displayAnswer = "";
+            let expectedAnswer = "";
+
+            // Evaluate
+            if (q.type === 'mcq' || q.type === 'tf') {
+                isCorrect = userAnswer === q.correct;
+                displayAnswer = userAnswer !== null ? q.options[userAnswer] : "No answer";
+                expectedAnswer = q.options[q.correct];
+            } else if (q.type === 'fill') {
+                isCorrect = userAnswer && userAnswer.toLowerCase() === q.correct.toLowerCase();
+                displayAnswer = userAnswer || "No answer";
+                expectedAnswer = q.correct;
+            }
+
+            if (isCorrect) score++;
+
+            // Render Result Item
+            const item = document.createElement('div');
+            item.className = `result-item ${isCorrect ? 'correct' : 'incorrect'}`;
+            
+            item.innerHTML = `
+                <div class="result-item-header">Q${index + 1}: ${q.text}</div>
+                <div><strong>Your Answer:</strong> ${displayAnswer} ${isCorrect ? '✅' : '❌'}</div>
+                ${!isCorrect ? `<div><strong>Correct Answer:</strong> ${expectedAnswer}</div>` : ''}
+                <div class="result-explanation">${q.explanation}</div>
+            `;
+            resultsList.appendChild(item);
+        });
+
+        // Update Score Display
+        const percentage = Math.round((score / questions.length) * 100);
+        document.getElementById('score-display').textContent = `${percentage}%`;
+        document.getElementById('score-text').textContent = `You got ${score} out of ${questions.length} correct.`;
+        
+        const title = document.getElementById('result-title');
+        if (percentage >= 80) title.textContent = "Excellent Work! 🎉";
+        else if (percentage >= 60) title.textContent = "Good Job! 👍";
+        else title.textContent = "Keep Practicing! 📚";
+    }
+</script>
+
+</body>
+</html>

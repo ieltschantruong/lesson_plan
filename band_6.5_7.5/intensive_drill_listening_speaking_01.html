@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Interactive Session | Band 6.5 - 7.5</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #f3f4f6; }
+        .fade-in { animation: fadeIn 0.4s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .vocab-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; }
+        .timer-text { font-variant-numeric: tabular-nums; }
+        
+        /* Custom scrollbar for hint panels */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    </style>
+</head>
+<body class="h-screen flex flex-col overflow-hidden text-gray-800">
+
+    <!-- Header Progress Area -->
+    <header id="app-header" class="text-white p-4 shadow-md transition-colors duration-500 z-10">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div>
+                <h1 class="text-xl font-bold tracking-tight">IELTS Intensive | Target 6.5 - 7.5</h1>
+                <h2 id="slide-title" class="text-sm opacity-90 mt-1 font-medium">Loading...</h2>
+            </div>
+            <div class="flex items-center space-x-3">
+                <!-- Navigation Menu -->
+                <div class="relative">
+                    <button id="nav-toggle-btn" class="flex items-center space-x-2 text-sm font-semibold bg-white/20 hover:bg-white/30 transition-colors px-4 py-1.5 rounded-full focus:outline-none">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                        <span class="hidden sm:inline">Sections</span>
+                    </button>
+                    
+                    <!-- Dropdown -->
+                    <div id="nav-dropdown" class="hidden absolute right-0 mt-2 w-72 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden z-50 origin-top-right transition-all fade-in">
+                        <div class="max-h-96 overflow-y-auto" id="nav-menu-list">
+                            <!-- Items injected here -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hidden sm:flex items-center space-x-2 text-sm font-semibold bg-black/20 px-3 py-1.5 rounded-full">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <span>90 Min</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Progress Bar -->
+        <div class="max-w-7xl mx-auto mt-4 bg-black/20 rounded-full h-2 overflow-hidden">
+            <div id="progress-bar" class="bg-white h-full transition-all duration-500" style="width: 0%"></div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow overflow-y-auto relative p-6 md:p-10">
+        <div id="content-container" class="max-w-7xl mx-auto fade-in">
+            <!-- Dynamic Content Injected Here -->
+        </div>
+    </main>
+
+    <!-- Footer Controls -->
+    <footer class="bg-white border-t border-gray-200 p-4 md:px-10 z-10 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)]">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <button id="btn-prev" class="px-6 py-2.5 rounded-lg border border-gray-300 text-gray-700 font-medium hover:bg-gray-50 hover:text-gray-900 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                Previous
+            </button>
+            
+            <div id="step-indicator" class="text-sm font-medium text-gray-500">
+                Step 1 of X
+            </div>
+
+            <button id="btn-next" class="px-6 py-2.5 rounded-lg bg-gray-900 text-white font-medium hover:bg-gray-800 transition-colors flex items-center gap-2">
+                Next
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </button>
+        </div>
+    </footer>
+
+<script>
+    // --- DATA STRUCTURE ---
+    const sessionData = [
+        {
+            id: 'listening',
+            type: 'listening',
+            themeColor: 'bg-indigo-600',
+            title: 'Part 1: Listening Mock Test (40 mins)',
+            content: `
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
+                    <div class="flex flex-col md:flex-row gap-8 items-start">
+                        <div class="flex-1 w-full">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-4">Cambridge 16 Test 4</h3>
+                            <p class="text-gray-600 mb-6">Distribute answer sheets. Ensure students are ready before starting the timer. Once the test begins, play the audio from the external link.</p>
+                            
+                            <a href="https://youpass.vn/thi-thu/listening/6577" target="_blank" class="inline-flex items-center gap-2 bg-blue-50 text-indigo-700 px-5 py-3 rounded-xl font-semibold hover:bg-blue-100 transition-colors border border-blue-200 mb-8 w-full md:w-auto justify-center">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                                Open Mock Test Link (YouPass)
+                            </a>
+
+                            <div class="bg-gray-50 rounded-xl p-6 border border-gray-200">
+                                <h4 class="font-bold text-gray-700 mb-3 flex items-center gap-2">
+                                    <svg class="w-5 h-5 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
+                                    Post-Test Reflection Prompt
+                                </h4>
+                                <p class="text-gray-800 italic">"Which section did you find the most difficult today? Was it due to the vocabulary, the speaker's accent, or the speed?"</p>
+                            </div>
+                        </div>
+
+                        <div class="w-full md:w-80 bg-indigo-50 rounded-2xl p-6 border border-indigo-100 flex flex-col items-center">
+                            <h4 class="text-indigo-800 font-bold uppercase tracking-wider text-sm mb-4">Exam Timer</h4>
+                            <div class="text-6xl font-black text-indigo-600 tracking-tighter timer-text mb-6" id="listening-timer">40:00</div>
+                            <div class="flex gap-3 w-full">
+                                <button onclick="toggleTimer('listening', 2400)" id="btn-listening-timer" class="flex-1 bg-indigo-600 text-white py-3 rounded-lg font-bold hover:bg-indigo-700 transition-colors">Start</button>
+                                <button onclick="resetTimer('listening', 2400)" class="px-4 bg-white border border-indigo-200 text-indigo-600 rounded-lg hover:bg-indigo-50 transition-colors">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 border-t border-gray-100 pt-8">
+                        <button onclick="toggleVisibility('answer-key-section')" class="w-full py-3 border-2 border-dashed border-gray-300 rounded-xl text-gray-500 font-semibold hover:border-indigo-400 hover:text-indigo-600 transition-colors flex items-center justify-center gap-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                            Reveal Answer Key & Scoring
+                        </button>
+                        
+                        <div id="answer-key-section" class="hidden mt-6 bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
+                            <div class="flex justify-between items-center mb-6">
+                                <h4 class="text-lg font-bold text-gray-800">Answer Key & Scoring Grid</h4>
+                                <div class="flex items-center gap-3">
+                                    <label class="font-bold text-gray-600">Total Score:</label>
+                                    <input type="number" min="0" max="40" class="w-20 border-2 border-indigo-200 rounded-lg p-2 text-center font-bold text-xl focus:outline-none focus:border-indigo-500" placeholder="/ 40">
+                                </div>
+                            </div>
+                            <p class="text-sm text-gray-500 mb-4 italic">Note: Refer to Cambridge 16 official materials for the exact definitive answers. Use this grid to review with students.</p>
+                            <div class="grid grid-cols-4 md:grid-cols-10 gap-2 text-sm text-center">
+                                ${Array.from({length: 40}, (_, i) => `<div class="p-2 border border-gray-100 bg-gray-50 rounded"><span class="block text-xs text-gray-400 font-bold">${i+1}</span><div class="border-b border-gray-300 mt-1 h-5"></div></div>`).join('')}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `
+        },
+        {
+            id: 'speaking_1_hometown',
+            type: 'speaking',
+            themeColor: 'bg-emerald-600',
+            title: 'Speaking Part 1: Hometown',
+            content: generateSpeakingSlide('Hometown', [
+                {q: "Have you learned anything about the history of your hometown?", a: "Yes, I've read quite a bit about its origins. It used to be a small fishing village before transforming into the bustling coastal city it is today."},
+                {q: "Is that a big city or a small place?", a: "It's a rapidly growing metropolitan area. While it's not as massive as the capital, it's definitely a major hub with heavy motorbike traffic and modern shopping malls."},
+                {q: "Do you like your hometown?", a: "Absolutely. I was born and bred here. What I cherish most is the balance between urban convenience and the beautiful natural landscapes, like the nearby beaches."},
+                {q: "Is there anything you dislike about it?", a: "If I had to pick something, it would be the traffic congestion during rush hours. The streets can get incredibly crowded and noisy."}
+            ], `
+                <div class="vocab-grid text-sm">
+                    <div class="bg-white p-4 rounded-xl border border-gray-200 shadow-sm">
+                        <h5 class="font-bold text-gray-700 mb-2 border-b pb-1">Key Vocabulary</h5>
+                        <ul class="space-y-2">
+                            <li>🏙️ <span class="font-semibold text-emerald-700">City types:</span> metropolitan area, coastal city, mountainous area</li>
+                            <li>🌆 <span class="font-semibold text-emerald-700">Urban features:</span> bustling streets, motorbike traffic, street food vendors, traditional markets, modern shopping malls</li>
+                            <li>🏞️ <span class="font-semibold text-emerald-700">Natural features:</span> rice paddies, rivers, beaches, mountains, tropical climate</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-4 rounded-xl border border-gray-200 shadow-sm">
+                        <h5 class="font-bold text-gray-700 mb-2 border-b pb-1">Cultural Expressions</h5>
+                        <ul class="space-y-2">
+                            <li>🏠 <span class="font-semibold text-emerald-700">Describing origins:</span> 'I'm originally from...', 'I was born and bred in...'</li>
+                            <li>📍 <span class="font-semibold text-emerald-700">Location:</span> 'It's situated in...', 'It's located in the heart of...', 'It lies along the...'</li>
+                            <li>❤️ <span class="font-semibold text-emerald-700">Attachment:</span> 'What I cherish most is...', 'I'm particularly fond of...', 'There's something special about...'</li>
+                        </ul>
+                    </div>
+                </div>
+            `)
+        },
+        {
+            id: 'speaking_1_names',
+            type: 'speaking',
+            themeColor: 'bg-emerald-600',
+            title: 'Speaking Part 1: Names',
+            content: generateSpeakingSlide('Names', [
+                {q: "Does your name have any special meaning?", a: "Yes, my name carries the meaning of 'peace' and 'prosperity'. My parents chose it hoping I would have a smooth and successful life."},
+                {q: "How would you choose names for your next generation?", a: "I would prioritize names that blend traditional virtues with a modern touch, perhaps something relatively short that is easy to pronounce internationally."},
+                {q: "Are there any differences between how Vietnamese name their children now and in the past?", a: "Definitely. Unlike previous generations who strictly followed Confucian values, modern parents tend to choose more unique and poetic combinations."},
+                {q: "Does anyone in your family have the same name as you?", a: "No, it's actually considered taboo in traditional Vietnamese culture to name a child after an older relative, to show respect."},
+                {q: "Are there any names that are more popular than others in Vietnam?", a: "Yes, names related to nature, like 'Anh' (bright) or 'Linh' (spirit), are extremely common for girls, while names meaning strength or victory are popular for boys."}
+            ], `
+                <div class="vocab-grid text-sm">
+                    <div class="bg-white p-4 rounded-xl border border-gray-200 shadow-sm">
+                        <h5 class="font-bold text-gray-700 mb-2 border-b pb-1">Key Vocabulary</h5>
+                        <ul class="space-y-2">
+                            <li>🏮 <span class="font-semibold text-emerald-700">Naming system:</span> family name (họ), middle name (tên đệm), given name (tên)</li>
+                            <li>🌸 <span class="font-semibold text-emerald-700">Common meanings:</span> beauty, intelligence, prosperity, peace</li>
+                            <li>📚 <span class="font-semibold text-emerald-700">Traditional elements:</span> Confucian values, nature-inspired, virtue-based, ancestral honor</li>
+                            <li>🌟 <span class="font-semibold text-emerald-700">Modern trends:</span> Western influence, unique combinations, shorter names, international appeal</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-4 rounded-xl border border-gray-200 shadow-sm">
+                        <h5 class="font-bold text-gray-700 mb-2 border-b pb-1">Useful Phrases</h5>
+                        <ul class="space-y-2">
+                            <li>🎋 <span class="font-semibold text-emerald-700">Meanings:</span> 'My name carries the meaning of...', 'It represents...'</li>
+                            <li>👨‍👩‍👧‍👦 <span class="font-semibold text-emerald-700">Traditions:</span> 'In Vietnamese culture, we...', 'Following our family tradition...'</li>
+                            <li>🔄 <span class="font-semibold text-emerald-700">Changes:</span> 'Unlike previous generations...', 'Modern Vietnamese parents tend to...'</li>
+                            <li>💭 <span class="font-semibold text-emerald-700">Preferences:</span> 'I would prioritize...', 'What matters most to me is...'</li>
+                        </ul>
+                    </div>
+                </div>
+            `)
+        },
+        {
+            id: 'speaking_1_thanks',
+            type: 'speaking',
+            themeColor: 'bg-emerald-600',
+            title: "Speaking Part 1: Saying 'thank you'",
+            content: generateSpeakingSlide("Saying 'thank you'", [
+                {q: "Have you ever sent a thank you card to others?", a: "Honestly, not very often. In Vietnam, we tend to express gratitude verbally or through small acts of service rather than writing formal notes, though I have given cards to teachers on Teachers' Day."},
+                {q: "Do people in your country often say 'thank you'?", a: "Yes, but context matters. We say it frequently to strangers, but among close friends and family, we often show appreciation through actions, like buying them a meal."},
+                {q: "On what occasions do you say 'thank you'?", a: "I usually say it when someone goes out of their way to help me, like holding a door open, or when I receive a gift or a genuine compliment."},
+                {q: "Why do people need to say 'thank you'?", a: "It's a fundamental polite courtesy. It shows that you value the other person's effort and helps to build and strengthen interpersonal relationships."}
+            ], `
+                <div class="vocab-grid text-sm">
+                    <div class="bg-white p-4 rounded-xl border border-gray-200 shadow-sm">
+                        <h5 class="font-bold text-gray-700 mb-2 border-b pb-1">Expressions & Actions</h5>
+                        <ul class="space-y-1">
+                            <li>🗣️ <span class="font-semibold text-emerald-700">Verbal:</span> much appreciated, grateful, thankful</li>
+                            <li>✍️ <span class="font-semibold text-emerald-700">Written:</span> notes, letters of appreciation, gratitude journals</li>
+                            <li>🎁 <span class="font-semibold text-emerald-700">Actions:</span> gifts, favors in return, acts of service</li>
+                            <li>💝 <span class="font-semibold text-emerald-700">Types:</span> sincere appreciation, polite courtesy, timely expressions</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-4 rounded-xl border border-gray-200 shadow-sm">
+                        <h5 class="font-bold text-gray-700 mb-2 border-b pb-1">Context & Impact</h5>
+                        <ul class="space-y-1">
+                            <li>👨‍👩‍👧‍👦 <span class="font-semibold text-emerald-700">Family/Edu:</span> respect for elders, gratitude to parents, thanking teachers</li>
+                            <li>🎭 <span class="font-semibold text-emerald-700">Social:</span> formal gratitude, ceremonial thanks, digital appreciation</li>
+                            <li>😊 <span class="font-semibold text-emerald-700">Benefits:</span> strengthened relationships, increased cooperation, better perspective</li>
+                        </ul>
+                    </div>
+                </div>
+            `)
+        },
+        {
+            id: 'speaking_2_electricity',
+            type: 'speaking2',
+            themeColor: 'bg-cyan-600',
+            title: 'Speaking Part 2: Long Turn',
+            content: `
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
+                    <div class="flex flex-col lg:flex-row gap-8">
+                        <!-- Left: Prompt -->
+                        <div class="flex-1">
+                            <div class="bg-cyan-50 border-l-4 border-cyan-500 p-6 rounded-r-xl mb-6">
+                                <h3 class="text-xl font-bold text-gray-800 mb-4">Candidate Task Card</h3>
+                                <p class="text-lg font-semibold text-gray-700 mb-3">Describe a time when the electricity suddenly went off</p>
+                                <p class="text-gray-600 mb-2 font-medium">You should say:</p>
+                                <ul class="list-disc list-inside text-gray-600 space-y-2 ml-2">
+                                    <li>When/where it happened</li>
+                                    <li>How long it lasted</li>
+                                    <li>What you did during that time</li>
+                                    <li>And explain how you felt about it</li>
+                                </ul>
+                            </div>
+                            
+                            <!-- Sample Answer (Always Visible) -->
+                            <div class="mb-6 bg-white border-l-4 border-emerald-400 p-5 rounded-r-xl shadow-sm border border-y-gray-100 border-r-gray-100">
+                                <h4 class="font-bold text-emerald-700 mb-2 flex items-center gap-2">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    Sample Answer (Band 7.0+)
+                                </h4>
+                                <p class="text-gray-700 italic text-sm leading-relaxed mb-3">
+                                    "I'm going to talk about a time when the power went out suddenly in my neighborhood. It happened about two months ago, right in the middle of a sweltering summer evening. I was at home, deeply engrossed in finishing an important university assignment on my laptop, while my family was watching TV. Suddenly, everything went pitch black and the hum of the air conditioning died down."
+                                </p>
+                                <p class="text-gray-700 italic text-sm leading-relaxed mb-3">
+                                    "The blackout lasted for roughly four hours, which felt like an eternity given the heat. Initially, I felt quite frustrated and anxious because I hadn't saved my document, and my laptop battery was running low. However, once we realized it wouldn't be fixed immediately, we had to adapt. My dad found some emergency flashlights and we lit a few candles. We all went out to the balcony to cool off."
+                                </p>
+                                <p class="text-gray-700 italic text-sm leading-relaxed">
+                                    "During that time, we actually ended up having a really nice, long conversation—something we rarely do since everyone is usually glued to their screens. Looking back, while the electrical breakdown was certainly an inconvenience, it made me appreciate how much we rely on modern technology, but also reminded me of the value of simple family time without digital distractions."
+                                </p>
+                            </div>
+                            
+                            <h4 class="font-bold text-gray-800 mb-3 flex items-center gap-2">
+                                <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                Suggested Vocabulary & Ideas
+                            </h4>
+                            <div class="bg-gray-50 border border-gray-200 rounded-xl p-5">
+                                <div class="vocab-grid text-sm">
+                                    <div>
+                                        <h5 class="font-bold text-cyan-700 mb-2">⚡ Power & Tech</h5>
+                                        <ul class="space-y-1 text-gray-600 bg-white p-3 rounded shadow-sm border border-gray-100">
+                                            <li>Power outage, blackout, electricity cut, electrical breakdown</li>
+                                            <li>Generator, backup power, emergency lighting, flashlight</li>
+                                            <li>Electrical grid, circuit breaker, fuse box</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-bold text-cyan-700 mb-2">🏠 Home & Reaction</h5>
+                                        <ul class="space-y-1 text-gray-600 bg-white p-3 rounded shadow-sm border border-gray-100">
+                                            <li>Household appliances, electronic devices, air conditioning</li>
+                                            <li>Inconvenience, adaptation, alternative solutions</li>
+                                            <li>Initially surprised and confused / Felt frustrated</li>
+                                            <li>Peaceful without electronic noise</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-span-full mt-2">
+                                        <h5 class="font-bold text-cyan-700 mb-2">🔧 Useful Expressions</h5>
+                                        <ul class="space-y-1 text-gray-600 list-disc list-inside ml-2 bg-white p-3 rounded shadow-sm border border-gray-100">
+                                            <li>The power went out suddenly while I was...</li>
+                                            <li>We had to find alternative ways to...</li>
+                                            <li>It made me appreciate how much we rely on...</li>
+                                            <li>The experience taught me the importance of...</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right: Timers -->
+                        <div class="w-full lg:w-72 space-y-4">
+                            <!-- Prep Timer -->
+                            <div class="bg-gray-50 rounded-2xl p-5 border border-gray-200 text-center">
+                                <h4 class="text-gray-500 font-bold uppercase tracking-wider text-xs mb-2">Preparation Time (1 Min)</h4>
+                                <div class="text-4xl font-black text-gray-800 tracking-tighter timer-text mb-4" id="prep-timer">01:00</div>
+                                <div class="flex gap-2">
+                                    <button onclick="toggleTimer('prep', 60)" id="btn-prep-timer" class="flex-1 bg-gray-200 text-gray-800 py-2 rounded-lg font-bold hover:bg-gray-300 transition-colors text-sm">Start</button>
+                                    <button onclick="resetTimer('prep', 60)" class="px-3 bg-white border border-gray-300 text-gray-600 rounded-lg hover:bg-gray-100 transition-colors">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Speaking Timer -->
+                            <div class="bg-cyan-50 rounded-2xl p-5 border border-cyan-200 text-center shadow-sm">
+                                <h4 class="text-cyan-700 font-bold uppercase tracking-wider text-xs mb-2">Speaking Time (2 Mins)</h4>
+                                <div class="text-5xl font-black text-cyan-600 tracking-tighter timer-text mb-4" id="speak-timer">02:00</div>
+                                <div class="flex gap-2">
+                                    <button onclick="toggleTimer('speak', 120)" id="btn-speak-timer" class="flex-1 bg-cyan-600 text-white py-2 rounded-lg font-bold hover:bg-cyan-700 transition-colors text-sm">Start</button>
+                                    <button onclick="resetTimer('speak', 120)" class="px-3 bg-white border border-cyan-300 text-cyan-600 rounded-lg hover:bg-cyan-50 transition-colors">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `
+        },
+        {
+            id: 'speaking_3_vehicles',
+            type: 'speaking',
+            themeColor: 'bg-orange-500',
+            title: 'Speaking Part 3: Two-way Discussion',
+            content: generateSpeakingSlide('Electricity & Vehicles', [
+                {q: "Which is better, electric bicycles or ordinary bicycles?", a: "Ordinary bicycles are fantastic for cardiovascular health. However, electric bicycles are much better for commuting, as they prevent you from arriving at work completely exhausted."},
+                {q: "Do you think electric bicycles will replace ordinary bicycles in the future?", a: "To a large extent, yes, particularly for urban transport. As battery technology improves, their convenience will outshine traditional bikes for daily use."},
+                {q: "Which is better, electric cars or petrol cars?", a: "In the long run, electric cars are vastly superior due to their lower carbon emissions. While petrol cars currently have the advantage of mature fueling infrastructure, EVs represent a necessary shift towards clean energy."},
+                {q: "How did people manage to live without electricity in the ancient world?", a: "They adapted to the natural environment. They relied heavily on daylight for working, used fire for illumination at night, and utilized physical labor or animal power."},
+                {q: "Is it difficult for the government to replace all the petrol cars with electric cars?", a: "Extremely difficult. The primary hurdle is infrastructure—building a comprehensive network of charging stations takes massive investment. They also must consider the economic impact on fossil fuel industries."},
+                {q: "Do people use more electricity now than before?", a: "Undoubtedly. Our modern lives are completely dependent on an ever-growing array of electronic devices. The rise of cloud computing and smart grid technologies means energy consumption is at an all-time high."}
+            ], `
+                <div class="vocab-grid text-sm">
+                    <div class="bg-white p-4 rounded-xl border border-gray-200 shadow-sm">
+                        <h5 class="font-bold text-gray-700 mb-2 border-b pb-1">Environmental & Technology</h5>
+                        <ul class="space-y-2">
+                            <li>🌍 <span class="font-semibold text-orange-700">Impact:</span> Carbon emissions, fossil fuels, clean energy, environmental impact</li>
+                            <li>🚗 <span class="font-semibold text-orange-700">Vehicles:</span> Electric vehicles, charging stations, battery technology, energy efficiency</li>
+                            <li>🌱 <span class="font-semibold text-orange-700">Future:</span> Smart grid, energy conservation, sustainable development, green technology</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-4 rounded-xl border border-gray-200 shadow-sm">
+                        <h5 class="font-bold text-gray-700 mb-2 border-b pb-1">Developing Ideas</h5>
+                        <ul class="space-y-2 text-gray-600">
+                            <li>• Contrast the immediate convenience of petrol with the long-term sustainability of EVs.</li>
+                            <li>• Discuss infrastructure challenges (building charging networks).</li>
+                            <li>• Mention historical adaptation (reliance on daylight, fire, physical labor).</li>
+                            <li>• Highlight increasing modern dependency (smartphones, IoT, cloud computing).</li>
+                        </ul>
+                    </div>
+                </div>
+            `)
+        },
+        {
+            id: 'assessment',
+            type: 'assessment',
+            themeColor: 'bg-teal-600',
+            title: 'Session Wrap-up & Assessment',
+            content: `
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 max-w-4xl mx-auto">
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-bold text-gray-800">Student Self-Assessment</h3>
+                        <p class="text-gray-500 mt-2">Have students reflect on their speaking performance today.</p>
+                    </div>
+
+                    <div class="space-y-6">
+                        <!-- Fluency -->
+                        <div class="bg-teal-50 border border-teal-100 rounded-xl p-5">
+                            <h4 class="font-bold text-teal-800 text-lg flex items-center gap-2 mb-3">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                                Fluency & Coherence
+                            </h4>
+                            <div class="space-y-2">
+                                <label class="flex items-start gap-3 text-gray-700 cursor-pointer hover:text-teal-700">
+                                    <input type="checkbox" class="mt-1 w-4 h-4 text-teal-600 rounded focus:ring-teal-500">
+                                    I spoke at length without noticeable hesitation.
+                                </label>
+                                <label class="flex items-start gap-3 text-gray-700 cursor-pointer hover:text-teal-700">
+                                    <input type="checkbox" class="mt-1 w-4 h-4 text-teal-600 rounded focus:ring-teal-500">
+                                    I used a variety of linking words successfully.
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Lexical -->
+                        <div class="bg-teal-50 border border-teal-100 rounded-xl p-5">
+                            <h4 class="font-bold text-teal-800 text-lg flex items-center gap-2 mb-3">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                                Lexical Resource
+                            </h4>
+                            <div class="space-y-2">
+                                <label class="flex items-start gap-3 text-gray-700 cursor-pointer hover:text-teal-700">
+                                    <input type="checkbox" class="mt-1 w-4 h-4 text-teal-600 rounded focus:ring-teal-500">
+                                    I attempted to use some of the new vocabulary discussed today.
+                                </label>
+                                <label class="flex items-start gap-3 text-gray-700 cursor-pointer hover:text-teal-700">
+                                    <input type="checkbox" class="mt-1 w-4 h-4 text-teal-600 rounded focus:ring-teal-500">
+                                    I was able to paraphrase when I didn't know the exact word.
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Grammar -->
+                        <div class="bg-teal-50 border border-teal-100 rounded-xl p-5">
+                            <h4 class="font-bold text-teal-800 text-lg flex items-center gap-2 mb-3">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                                Grammatical Range & Pronunciation
+                            </h4>
+                            <div class="space-y-2">
+                                <label class="flex items-start gap-3 text-gray-700 cursor-pointer hover:text-teal-700">
+                                    <input type="checkbox" class="mt-1 w-4 h-4 text-teal-600 rounded focus:ring-teal-500">
+                                    I used a mix of simple and complex sentence structures.
+                                </label>
+                                <label class="flex items-start gap-3 text-gray-700 cursor-pointer hover:text-teal-700">
+                                    <input type="checkbox" class="mt-1 w-4 h-4 text-teal-600 rounded focus:ring-teal-500">
+                                    My speech was generally clear and easy to understand.
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 text-center">
+                        <button onclick="alert('Great job today! See you next session.')" class="bg-teal-600 text-white px-8 py-3 rounded-full font-bold hover:bg-teal-700 shadow-md transition-all transform hover:scale-105">
+                            Complete Session
+                        </button>
+                    </div>
+                </div>
+            `
+        }
+    ];
+
+    // Helper to generate Speaking Part 1 & 3 UI templates
+    function generateSpeakingSlide(topicName, qnaList, hintHTML) {
+        const questionList = qnaList.map((item, idx) => `
+            <div class="p-5 rounded-xl bg-gray-50 border border-gray-100 mb-5 shadow-sm">
+                <div class="flex items-start gap-3 mb-3">
+                    <div class="w-8 h-8 rounded-full bg-blue-100 text-blue-800 flex items-center justify-center font-bold flex-shrink-0 mt-0.5">${idx + 1}</div>
+                    <p class="text-lg text-gray-800 font-bold leading-snug">${item.q}</p>
+                </div>
+                <div class="pl-11">
+                    <div class="bg-white border-l-4 border-emerald-400 p-4 rounded-r-lg shadow-sm">
+                        <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider mb-2 block flex items-center gap-1">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            Sample Answer
+                        </span>
+                        <p class="text-gray-700 italic">${item.a}</p>
+                    </div>
+                </div>
+            </div>
+        `).join('');
+
+        return `
+            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6 border-b pb-4">Topic: ${topicName}</h3>
+                
+                <div class="mb-8">
+                    ${questionList}
+                </div>
+
+                <div class="pt-6 border-t border-gray-100">
+                    <h4 class="font-bold text-gray-800 mb-4 flex items-center gap-2 text-lg">
+                        <svg class="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        Suggested Ideas & Vocabulary
+                    </h4>
+                    <div class="bg-gray-50 border border-gray-200 rounded-xl p-6">
+                        ${hintHTML}
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+
+    // --- APPLICATION LOGIC ---
+    let currentIndex = 0;
+    
+    // Timer states
+    let timers = {
+        listening: { interval: null, remaining: 2400, isRunning: false },
+        prep: { interval: null, remaining: 60, isRunning: false },
+        speak: { interval: null, remaining: 120, isRunning: false }
+    };
+
+    const headerEl = document.getElementById('app-header');
+    const titleEl = document.getElementById('slide-title');
+    const containerEl = document.getElementById('content-container');
+    const prevBtn = document.getElementById('btn-prev');
+    const nextBtn = document.getElementById('btn-next');
+    const indicatorEl = document.getElementById('step-indicator');
+    const progressBarEl = document.getElementById('progress-bar');
+
+    // Navigation menu elements
+    const navToggleBtn = document.getElementById('nav-toggle-btn');
+    const navDropdown = document.getElementById('nav-dropdown');
+    const navMenuList = document.getElementById('nav-menu-list');
+
+    function populateNavMenu() {
+        navMenuList.innerHTML = sessionData.map((data, index) => `
+            <button onclick="goToSlide(${index})" class="nav-item-btn w-full text-left px-4 py-3 hover:bg-gray-50 border-b border-gray-50 last:border-0 transition-colors flex items-start gap-3 border-l-4 border-l-transparent">
+                <div class="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 text-xs font-bold text-white mt-0.5 ${data.themeColor}">
+                    ${index + 1}
+                </div>
+                <div>
+                    <div class="text-sm font-semibold text-gray-800">${data.title}</div>
+                    <div class="text-xs text-gray-500 capitalize">${data.type.replace(/\d/g, '').replace('_', ' ')}</div>
+                </div>
+            </button>
+        `).join('');
+    }
+
+    window.goToSlide = function(index) {
+        currentIndex = index;
+        renderSlide(currentIndex);
+        navDropdown.classList.add('hidden');
+    };
+
+    // Toggle menu
+    navToggleBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        navDropdown.classList.toggle('hidden');
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!navDropdown.contains(e.target) && !navToggleBtn.contains(e.target)) {
+            navDropdown.classList.add('hidden');
+        }
+    });
+
+    function renderSlide(index) {
+        // Pause active timers when switching slides to prevent UI sync issues
+        pauseAllTimers();
+
+        const data = sessionData[index];
+        
+        // Update header classes and content
+        headerEl.className = `text-white p-4 shadow-md transition-colors duration-500 z-10 ${data.themeColor}`;
+        titleEl.textContent = data.title;
+        
+        // Update progress
+        const progressPercent = ((index + 1) / sessionData.length) * 100;
+        progressBarEl.style.width = `${progressPercent}%`;
+        indicatorEl.textContent = `Step ${index + 1} of ${sessionData.length}`;
+
+        // Update nav menu active state
+        document.querySelectorAll('.nav-item-btn').forEach((btn, i) => {
+            if (i === index) {
+                btn.classList.add('bg-blue-50', 'border-l-blue-500');
+                btn.classList.remove('border-l-transparent');
+            } else {
+                btn.classList.remove('bg-blue-50', 'border-l-blue-500');
+                btn.classList.add('border-l-transparent');
+            }
+        });
+
+        // Inject content (force reflow to trigger animation)
+        containerEl.innerHTML = ''; 
+        setTimeout(() => {
+            containerEl.innerHTML = data.content;
+            
+            // Restore timer UI if they are on the current slide
+            if(data.id === 'listening') updateTimerUI('listening', timers.listening.remaining);
+            if(data.id === 'speaking_2_electricity') {
+                updateTimerUI('prep', timers.prep.remaining);
+                updateTimerUI('speak', timers.speak.remaining);
+            }
+        }, 10);
+
+        // Update buttons
+        prevBtn.disabled = index === 0;
+        nextBtn.innerHTML = index === sessionData.length - 1 ? 
+            'Finish <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>' : 
+            'Next <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>';
+    }
+
+    // Navigation handlers
+    prevBtn.addEventListener('click', () => {
+        if (currentIndex > 0) {
+            currentIndex--;
+            renderSlide(currentIndex);
+        }
+    });
+
+    nextBtn.addEventListener('click', () => {
+        if (currentIndex < sessionData.length - 1) {
+            currentIndex++;
+            renderSlide(currentIndex);
+        }
+    });
+
+    // Utilities callable from injected HTML
+    window.toggleVisibility = function(id) {
+        const el = document.getElementById(id);
+        if(el) {
+            if(el.classList.contains('hidden')){
+                el.classList.remove('hidden');
+                el.classList.add('fade-in');
+                // Automatically scroll down to show the newly opened content
+                setTimeout(() => {
+                    el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }, 50);
+            } else {
+                el.classList.add('hidden');
+                el.classList.remove('fade-in');
+            }
+        }
+    };
+
+    // --- TIMER LOGIC ---
+    function formatTime(seconds) {
+        const m = Math.floor(seconds / 60).toString().padStart(2, '0');
+        const s = (seconds % 60).toString().padStart(2, '0');
+        return `${m}:${s}`;
+    }
+
+    function updateTimerUI(id, seconds) {
+        const displayEl = document.getElementById(`${id}-timer`);
+        if (displayEl) displayEl.textContent = formatTime(seconds);
+    }
+
+    function toggleTimer(id, defaultTime) {
+        const timer = timers[id];
+        const btn = document.getElementById(`btn-${id}-timer`);
+        
+        if (timer.isRunning) {
+            // Pause
+            clearInterval(timer.interval);
+            timer.isRunning = false;
+            if(btn) btn.textContent = 'Resume';
+        } else {
+            // Start
+            if (timer.remaining <= 0) timer.remaining = defaultTime; // Auto-reset if at 0
+            
+            timer.isRunning = true;
+            if(btn) btn.textContent = 'Pause';
+            
+            timer.interval = setInterval(() => {
+                timer.remaining--;
+                updateTimerUI(id, timer.remaining);
+                
+                if (timer.remaining <= 0) {
+                    clearInterval(timer.interval);
+                    timer.isRunning = false;
+                    if(btn) btn.textContent = 'Time Up!';
+                    playAlertSound();
+                }
+            }, 1000);
+        }
+    }
+
+    function resetTimer(id, defaultTime) {
+        const timer = timers[id];
+        clearInterval(timer.interval);
+        timer.isRunning = false;
+        timer.remaining = defaultTime;
+        updateTimerUI(id, defaultTime);
+        
+        const btn = document.getElementById(`btn-${id}-timer`);
+        if(btn) btn.textContent = 'Start';
+    }
+
+    function pauseAllTimers() {
+        Object.keys(timers).forEach(key => {
+            if (timers[key].isRunning) {
+                clearInterval(timers[key].interval);
+                timers[key].isRunning = false;
+            }
+        });
+    }
+
+    function playAlertSound() {
+        // Double beep using Web Audio API for a clear alert when timer finishes
+        try {
+            const ctx = new (window.AudioContext || window.webkitAudioContext)();
+            const playBeep = (startTime) => {
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(800, startTime);
+                gain.gain.setValueAtTime(0.1, startTime);
+                osc.start(startTime);
+                gain.gain.exponentialRampToValueAtTime(0.00001, startTime + 0.3);
+                osc.stop(startTime + 0.3);
+            };
+            
+            // Trigger two beeps slightly spaced apart
+            playBeep(ctx.currentTime);
+            playBeep(ctx.currentTime + 0.4);
+        } catch(e) { console.log('Audio alert fallback'); }
+    }
+
+    // Initialize application
+    window.addEventListener('DOMContentLoaded', () => {
+        populateNavMenu();
+        renderSlide(0);
+    });
+
+</script>
+</body>
+</html>

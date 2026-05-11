@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 6 Teaching Guide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+        .section-done { opacity: 0.6; transition: opacity 0.3s; }
+        /* Custom checkbox style */
+        input[type="checkbox"] { accent-color: #2563eb; width: 1.25rem; height: 1.25rem; cursor: pointer; }
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
+    </style>
+</head>
+<body class="text-slate-800 pb-20">
+
+    <!-- Top Navigation / Status Bar -->
+    <div class="sticky top-0 bg-white border-b border-slate-200 shadow-sm z-50">
+        <div class="max-w-4xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div>
+                <h1 class="text-xl font-bold text-blue-700">Lesson 6: Reading 3 & Integrated Speaking</h1>
+                <p class="text-xs text-slate-500 font-medium tracking-wide uppercase">90 Minutes Total</p>
+            </div>
+            <div class="text-right">
+                <span class="text-sm font-semibold text-slate-600">Progress: </span>
+                <span id="progress-text" class="text-blue-600 font-bold">0 / 4</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-4 py-8 space-y-8">
+
+        <!-- Header Info -->
+        <div class="bg-blue-50 border border-blue-200 rounded-xl p-5 shadow-sm">
+            <h2 class="text-lg font-bold text-blue-900 mb-2">Goal</h2>
+            <p class="text-blue-800">Master Reading Passage 3 (Yes/No/Not Given, Global Multiple Choice) and execute a full 3-part Speaking Mock Test under exam pressure.</p>
+        </div>
+
+        <!-- PART 1: HW Review -->
+        <section id="part1" class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden transition-opacity">
+            <div class="bg-slate-50 border-b border-slate-200 p-4 flex justify-between items-center cursor-pointer" onclick="document.getElementById('check1').click()">
+                <h2 class="text-xl font-bold text-slate-800">Part 1: Homework Review (from Lesson 5) <span class="text-sm font-normal text-slate-500 ml-2">(00-10m)</span></h2>
+                <input type="checkbox" id="check1" class="part-checkbox" onchange="updateProgress(this, 'part1')">
+            </div>
+            <div class="p-6 space-y-4">
+                <h3 class="font-bold text-lg mb-2 text-indigo-700">Review Lesson 5 Assignments</h3>
+                
+                <div class="flex flex-col sm:flex-row gap-4 mb-4 bg-slate-50 p-3 rounded-lg border border-slate-200 items-start sm:items-center">
+                    <span class="text-sm font-bold text-slate-700">Prior HW Links:</span>
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <a href="https://youpass.vn/thi-thu/listening/10007" target="_blank" class="text-indigo-600 text-sm font-semibold hover:text-indigo-800 hover:underline flex items-center">
+                            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                            Listening Part 4 HW
+                        </a>
+                        <span class="text-indigo-600 text-sm font-semibold flex items-center">
+                            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+                            Speaking Memos (Local files)
+                        </span>
+                    </div>
+                </div>
+
+                <ul class="space-y-3 list-disc pl-5 text-slate-600">
+                    <li><strong>Check Listening Score:</strong> Ask for their score on the Part 4 test. Did they manage to keep up with the signpost words?</li>
+                    <li><strong>Review Speaking Memos:</strong> Listen to their responses to the abstract "Books" questions. Check if they used speculative language (e.g., <em>"It's highly likely that..."</em>) rather than personal stories.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- PART 2: Reading Passage 3 -->
+        <section id="part2" class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden transition-opacity">
+            <div class="bg-slate-50 border-b border-slate-200 p-4 flex justify-between items-center cursor-pointer" onclick="document.getElementById('check2').click()">
+                <h2 class="text-xl font-bold text-slate-800">Part 2: Reading Passage 3 <span class="text-sm font-normal text-slate-500 ml-2">(10-50m)</span></h2>
+                <input type="checkbox" id="check2" class="part-checkbox" onchange="updateProgress(this, 'part2')">
+            </div>
+            <div class="p-6 space-y-6">
+                
+                <div class="bg-amber-50 border border-amber-200 rounded-lg p-4 shadow-inner">
+                    <h3 class="font-bold text-amber-900 flex items-center mb-3">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
+                        Test Link Launcher
+                    </h3>
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <a href="https://youpass.vn/thi-thu/reading/8008" target="_blank" class="bg-amber-600 hover:bg-amber-700 text-white font-semibold py-2 px-4 rounded transition-colors shadow-sm text-center flex-1 flex items-center justify-center">
+                            Launch Reading Practice
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-lg mb-2 text-indigo-700">1. Strategy: Tackling the Hardest Passage (10 mins)</h3>
+                    
+                    <div class="mb-4">
+                        <h4 class="font-semibold text-slate-800 mb-1">Yes / No / Not Given (Author's Opinion)</h4>
+                        <p class="text-slate-600 text-sm mb-2">Unlike T/F/NG (which is about factual information), Y/N/NG is about the <strong>claims or views of the writer</strong>. The student must look for opinion words in the text (e.g., <em>argues, suggests, believes, unfortunately, surprisingly</em>).</p>
+                    </div>
+
+                    <div class="bg-emerald-50 p-4 rounded-lg border border-emerald-200 mb-4">
+                        <h4 class="font-bold text-emerald-800 mb-2">Global Multiple Choice vs. Detail Multiple Choice</h4>
+                        <ul class="text-sm text-emerald-700 space-y-1 list-disc pl-4">
+                            <li><strong>Detail:</strong> "In paragraph 3, what does the writer say about X?" &rarr; Go straight to paragraph 3.</li>
+                            <li><strong>Global:</strong> "What is the main purpose of this article?" or "What is the best title for this text?" &rarr; <strong>Leave this question until the very end!</strong> Do not answer it first.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="pt-4 border-t border-slate-100">
+                    <h3 class="font-bold text-lg mb-2 text-indigo-700">2. Live Practice & Execution (30 mins)</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-start">
+                            <span class="bg-blue-100 text-blue-800 font-bold px-2 py-1 rounded text-xs mr-3 mt-0.5">STEP 1</span>
+                            <p class="text-slate-600">Give the student strictly <strong>20 minutes</strong> to complete the passage. Remind them they are dealing with advanced, academic vocabulary and they should guess words from context.</p>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="bg-blue-100 text-blue-800 font-bold px-2 py-1 rounded text-xs mr-3 mt-0.5">STEP 2</span>
+                            <p class="text-slate-600">Review answers (10 mins). Focus heavily on why any "No" answers were incorrect versus "Not Given."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PART 3: Integrated Speaking Mock -->
+        <section id="part3" class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden transition-opacity">
+            <div class="bg-slate-50 border-b border-slate-200 p-4 flex justify-between items-center cursor-pointer" onclick="document.getElementById('check3').click()">
+                <h2 class="text-xl font-bold text-slate-800">Part 3: Full Speaking Mock <span class="text-sm font-normal text-slate-500 ml-2">(50-80m)</span></h2>
+                <input type="checkbox" id="check3" class="part-checkbox" onchange="updateProgress(this, 'part3')">
+            </div>
+            <div class="p-6 space-y-6">
+                <div>
+                    <h3 class="font-bold text-lg mb-2 text-indigo-700">Exam Simulation Rules</h3>
+                    <p class="text-slate-600 mb-3 text-sm">Tell the student: <em>"We are going to do a full 15-minute mock test now. I will not break character to correct your grammar. I will take notes and give you all the feedback at the end."</em></p>
+                    
+                    <!-- PART 1 -->
+                    <div class="bg-white rounded border border-slate-200 shadow-sm overflow-hidden mb-6">
+                        <div class="bg-slate-100 border-b border-slate-200 p-3 font-bold text-slate-800">
+                            Part 1: General Questions (4-5 mins)
+                        </div>
+                        <div class="p-4 space-y-4 text-sm text-slate-700">
+                            <div>
+                                <h4 class="font-bold text-indigo-600 mb-1">Topic 1: Street Market</h4>
+                                <ol class="list-decimal pl-5 space-y-1">
+                                    <li>What do people usually buy at the street market?</li>
+                                    <li>Do you prefer to go shopping in the shopping mall or at the street market?</li>
+                                    <li>When was the last time you went to a street market?</li>
+                                    <li>Are there many street markets in Vietnam?</li>
+                                </ol>
+                                <div class="mt-2 bg-slate-50 p-2 rounded border border-slate-200">
+                                    <p class="text-xs text-slate-500 mb-1"><span class="font-bold text-indigo-600">💡 Ideas:</span> Fresh produce, bargaining, bustling atmosphere, traditional food.</p>
+                                    <p class="text-xs text-slate-600 italic"><span class="font-bold text-emerald-600">✅ Q2 Sample (A-R-E):</span> "I generally prefer shopping malls. The main reason is comfort, as they are air-conditioned and well-organized. For example, during the hot summers in Vietnam, it's much more relaxing to walk around a cool mall than a crowded, outdoor street market."</p>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-indigo-600 mb-1">Topic 2: Happiness</h4>
+                                <ol class="list-decimal pl-5 space-y-1">
+                                    <li>Do you prefer to watch happy or sad movies?</li>
+                                    <li>Is there anything that has made you feel happy lately?</li>
+                                    <li>What made you happy when you were little?</li>
+                                    <li>What do you think will make you feel happy in the future?</li>
+                                </ol>
+                                <div class="mt-2 bg-slate-50 p-2 rounded border border-slate-200">
+                                    <p class="text-xs text-slate-500 mb-1"><span class="font-bold text-indigo-600">💡 Ideas:</span> Unwinding, stress relief, achieving goals, simple childhood games.</p>
+                                    <p class="text-xs text-slate-600 italic"><span class="font-bold text-emerald-600">✅ Q1 Sample (A-R-E):</span> "I definitely prefer watching happy movies, like comedies. Since I have a pretty stressful job, I want to unwind and laugh when I watch TV. For instance, I usually watch sitcoms on the weekends just to clear my mind and relax."</p>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-indigo-600 mb-1">Topic 3: Crowded Place</h4>
+                                <ol class="list-decimal pl-5 space-y-1">
+                                    <li>Is the city where you live crowded?</li>
+                                    <li>Is there a crowded place near where you live?</li>
+                                    <li>Do you like crowded places?</li>
+                                    <li>Do most people like crowded places?</li>
+                                    <li>When was the last time you were in a crowded place?</li>
+                                </ol>
+                                <div class="mt-2 bg-slate-50 p-2 rounded border border-slate-200">
+                                    <p class="text-xs text-slate-500 mb-1"><span class="font-bold text-indigo-600">💡 Ideas:</span> Traffic jams, feeling overwhelmed, lively festivals, claustrophobia.</p>
+                                    <p class="text-xs text-slate-600 italic"><span class="font-bold text-emerald-600">✅ Q3 Sample (A-R-E):</span> "To be honest, I don't really like crowded places. I find them quite overwhelming and noisy. For example, I try to avoid going to supermarkets on weekends because the huge crowds make me feel stressed and claustrophobic."</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PART 2 -->
+                    <div class="bg-white rounded border border-emerald-200 shadow-sm overflow-hidden mb-6">
+                        <div class="bg-emerald-50 border-b border-emerald-200 p-3 font-bold text-emerald-900 flex justify-between items-center">
+                            <span>Part 2: Long Turn (3-4 mins)</span>
+                            <span class="text-xs font-normal bg-white px-2 py-1 rounded border border-emerald-200">1 min prep + 2 min speak</span>
+                        </div>
+                        <div class="p-4">
+                            <p class="font-semibold text-slate-800 text-lg mb-2">Describe an occasion that you saw a lot of people smiling.</p>
+                            <p class="text-slate-600 text-sm mb-1">You should say:</p>
+                            <ul class="list-disc pl-5 text-sm text-slate-600 mb-4 font-medium">
+                                <li>When and where this happened</li>
+                                <li>Who you were with</li>
+                                <li>What exactly was happening</li>
+                            </ul>
+                            <p class="text-slate-600 text-sm font-medium">And explain why so many people were smiling.</p>
+                            
+                            <div class="mt-4 bg-slate-50 p-3 rounded text-xs text-slate-500 border border-slate-200">
+                                <strong>Tutor Note:</strong> Remind them to use chronological order or the WH-question framework for their 1-minute notes. They must speak for at least 1:30.
+                            </div>
+
+                            <div class="mt-4 bg-emerald-50 p-3 rounded border border-emerald-200">
+                                <span class="text-xs font-bold text-emerald-800 uppercase tracking-wider block mb-2">Band 6.5+ Sample Response</span>
+                                <p class="text-sm text-slate-700 italic">"I'd like to talk about a specific occasion when I saw a huge crowd of people smiling and laughing. This happened just last year during the Lunar New Year festival, which we call Tet in Vietnam. I was at the central square in my hometown, waiting for the midnight fireworks display.<br><br>I went there with my entire family, including my parents and my younger sister. What was happening was the city had organized a massive countdown event. There was live music, colorful decorations everywhere, and thousands of locals gathered together in the cool night air.<br><br>I think so many people were smiling for a few reasons. First, Tet is the most important holiday in our culture, representing a fresh start and hope for the new year. All the stress from the previous year was temporarily gone. When the fireworks finally went off at exactly midnight, lighting up the sky, I looked around and saw genuine joy on everyone's faces. People were hugging, taking photos, and wishing strangers a happy new year. It was a contagious feeling of community and optimism, which is why that memory stands out to me so clearly."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PART 3 -->
+                    <div class="bg-white rounded border border-rose-200 shadow-sm overflow-hidden">
+                        <div class="bg-rose-50 border-b border-rose-200 p-3 font-bold text-rose-900">
+                            Part 3: Abstract Discussion (4-5 mins)
+                        </div>
+                        <div class="p-4 space-y-3 text-sm text-slate-700">
+                            <p class="italic text-slate-500 mb-2">"We've been talking about seeing people smile, and I'd now like to ask you some general questions related to this."</p>
+                            
+                            <div class="space-y-4">
+                                <div>
+                                    <p class="font-semibold text-slate-800">1. Why do you think people smile when they meet someone for the first time?</p>
+                                    <p class="text-xs text-slate-500 mt-1 mb-2">Idea: Politeness, breaking the ice, showing you are approachable and not a threat.</p>
+                                    <div class="bg-white p-2 rounded border border-rose-200">
+                                        <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider">Band 6.5 Sample</span>
+                                        <p class="text-xs text-slate-700 mt-1 italic">"I suppose it's primarily a matter of politeness and social etiquette. Smiling is a universal way to break the ice and show the other person that you are friendly and approachable. For instance, in a job interview or on a first date, a warm smile helps to reduce tension and build a quick connection."</p>
+                                    </div>
+                                </div>
+                                <hr class="border-slate-100">
+                                <div>
+                                    <p class="font-semibold text-slate-800">2. Do you think people in your country smile more than people in other countries? Why or why not?</p>
+                                    <p class="text-xs text-slate-500 mt-1 mb-2">Idea: Cultural differences. E.g., Vietnamese people often smile to hide embarrassment or to show hospitality.</p>
+                                    <div class="bg-white p-2 rounded border border-rose-200">
+                                        <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider">Band 6.5 Sample</span>
+                                        <p class="text-xs text-slate-700 mt-1 italic">"It's hard to generalize, but I do think people in my country smile quite a lot. In our culture, hospitality is highly valued, so locals naturally smile to make tourists or guests feel welcome. Interestingly, we also sometimes smile when we feel awkward or embarrassed as a way to "save face," which might be quite different from Western cultures."</p>
+                                    </div>
+                                </div>
+                                <hr class="border-slate-100">
+                                <div>
+                                    <p class="font-semibold text-slate-800">3. How can smiling affect a person's mood or the mood of people around them?</p>
+                                    <p class="text-xs text-slate-500 mt-1 mb-2">Idea: Contagious emotions, scientifically triggering endorphins in the brain.</p>
+                                    <div class="bg-white p-2 rounded border border-rose-200">
+                                        <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider">Band 6.5 Sample</span>
+                                        <p class="text-xs text-slate-700 mt-1 italic">"Well, scientifically speaking, smiling can actually trick your brain into feeling happier by releasing positive hormones like endorphins. Furthermore, emotions are highly contagious. If a teacher walks into a classroom with a big smile, it almost instantly lifts the energy of the room and makes the students feel more relaxed and positive."</p>
+                                    </div>
+                                </div>
+                                <hr class="border-slate-100">
+                                <div>
+                                    <p class="font-semibold text-slate-800">4. In what kinds of situations is it considered inappropriate to smile?</p>
+                                    <p class="text-xs text-slate-500 mt-1 mb-2">Idea: Funerals, serious business negotiations, when someone is giving you bad news or a scolding.</p>
+                                    <div class="bg-white p-2 rounded border border-rose-200">
+                                        <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider">Band 6.5 Sample</span>
+                                        <p class="text-xs text-slate-700 mt-1 italic">"There are certainly times when smiling is completely inappropriate. The most obvious example would be at a funeral or when someone is sharing sad news with you, as smiling would seem disrespectful and unempathetic. Additionally, in a very strict professional setting, like a serious business negotiation, smiling too much might make you look unprofessional or naive."</p>
+                                    </div>
+                                </div>
+                                <hr class="border-slate-100">
+                                <div>
+                                    <p class="font-semibold text-slate-800">5. Do you agree that a fake smile is easy to recognize? How can you tell?</p>
+                                    <p class="text-xs text-slate-500 mt-1 mb-2">Idea: Genuine smiles reach the eyes (crinkling the corners), while fake smiles only use the mouth.</p>
+                                    <div class="bg-white p-2 rounded border border-rose-200">
+                                        <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider">Band 6.5 Sample</span>
+                                        <p class="text-xs text-slate-700 mt-1 italic">"Yes, I completely agree. It's usually quite easy to spot a fake smile if you pay attention to the person's eyes. A genuine smile, often called a Duchenne smile, causes the skin around the eyes to crinkle. A fake smile, on the other hand, usually only involves the mouth, so the person's eyes look cold or emotionally disconnected."</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- PART 4: Wrap-up -->
+        <section id="part4" class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden transition-opacity">
+            <div class="bg-slate-50 border-b border-slate-200 p-4 flex justify-between items-center cursor-pointer" onclick="document.getElementById('check4').click()">
+                <h2 class="text-xl font-bold text-slate-800">Part 4: Wrap-up & HW <span class="text-sm font-normal text-slate-500 ml-2">(80-90m)</span></h2>
+                <input type="checkbox" id="check4" class="part-checkbox" onchange="updateProgress(this, 'part4')">
+            </div>
+            <div class="p-6 space-y-6">
+                <div>
+                    <h3 class="font-bold text-lg mb-2 text-indigo-700">1. Mock Test Feedback (5 mins)</h3>
+                    <ul class="space-y-3 pl-2 text-slate-600">
+                        <li class="flex items-start">
+                            <span class="mr-2">📝</span> 
+                            <div>Provide immediate feedback on the Mock Speaking test. Did they use the A-R-E format in Part 1? Did they speak for the full 2 minutes in Part 2? Did they successfully shift to "abstract/society" thinking in Part 3?</div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="pt-4 border-t border-slate-100">
+                    <h3 class="font-bold text-lg mb-2 text-indigo-700">2. Assign Homework (5 mins)</h3>
+                    <div class="bg-rose-50 border border-rose-200 p-4 rounded-lg">
+                        
+                        <p class="font-bold text-rose-900 flex items-center mb-1">📖 Task 1: Reading Practice</p>
+                        <p class="text-rose-800 text-sm mb-2">Complete these two Reading Part 3 passages on the computer.</p>
+                        <div class="flex flex-col gap-2 mb-4 bg-white p-3 rounded border border-rose-100">
+                            <a href="https://youpass.vn/thi-thu/reading/8005" target="_blank" class="text-rose-700 text-sm font-semibold hover:text-rose-900 hover:underline flex items-center">
+                                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                                Reading HW 1 (8005)
+                            </a>
+                            <a href="https://youpass.vn/thi-thu/reading/8054" target="_blank" class="text-rose-700 text-sm font-semibold hover:text-rose-900 hover:underline flex items-center">
+                                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                                Reading HW 2 (8054)
+                            </a>
+                        </div>
+
+                        <p class="font-bold text-rose-900 flex items-center mb-1">🧠 Task 2: Vocabulary Learning</p>
+                        <p class="text-rose-800 text-sm mb-2">Study the vocabulary list for Lesson 6.</p>
+                        <a href="https://baongocnguyenngo2018-bot.github.io/IELTS/lesson_plan/dieu_minh_mar_2026/extra/vocab_learning_lesson6.html" target="_blank" class="inline-flex items-center text-rose-700 text-sm font-semibold hover:text-rose-900 hover:underline mb-4 bg-white px-3 py-2 rounded border border-rose-100">
+                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                            Lesson 6 Vocab
+                        </a>
+
+                        <p class="font-bold text-rose-900 flex items-center mb-1">⏰ Reminder</p>
+                        <p class="text-rose-800 text-sm">Inform them that the next session will be their dedicated Writing class with the other tutor.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        // Progress Tracking Logic
+        function updateProgress(checkboxElem, sectionId) {
+            const section = document.getElementById(sectionId);
+            const evt = window.event;
+            if(evt) evt.stopPropagation(); 
+
+            if (checkboxElem.checked) {
+                section.classList.add('section-done');
+            } else {
+                section.classList.remove('section-done');
+            }
+
+            const checkboxes = document.querySelectorAll('.part-checkbox');
+            let checkedCount = 0;
+            checkboxes.forEach(cb => {
+                if (cb.checked) checkedCount++;
+            });
+            
+            document.getElementById('progress-text').innerText = `${checkedCount} / 4`;
+        }
+    </script>
+</body>
+</html>

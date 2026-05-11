@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 2 Teaching Guide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+        .section-done { opacity: 0.6; transition: opacity 0.3s; }
+        /* Custom checkbox style */
+        input[type="checkbox"] { accent-color: #2563eb; width: 1.25rem; height: 1.25rem; cursor: pointer; }
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
+    </style>
+</head>
+<body class="text-slate-800 pb-20">
+
+    <!-- Top Navigation / Status Bar -->
+    <div class="sticky top-0 bg-white border-b border-slate-200 shadow-sm z-50">
+        <div class="max-w-4xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div>
+                <h1 class="text-xl font-bold text-blue-700">Lesson 2: Reading 1 & Speaking 2</h1>
+                <p class="text-xs text-slate-500 font-medium tracking-wide uppercase">90 Minutes Total</p>
+            </div>
+            <div class="text-right">
+                <span class="text-sm font-semibold text-slate-600">Progress: </span>
+                <span id="progress-text" class="text-blue-600 font-bold">0 / 4</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-4 py-8 space-y-8">
+
+        <!-- Header Info -->
+        <div class="bg-blue-50 border border-blue-200 rounded-xl p-5 shadow-sm">
+            <h2 class="text-lg font-bold text-blue-900 mb-2">Goal</h2>
+            <p class="text-blue-800">Master CD-IELTS reading navigation (split-screen), secure Reading Passage 1 points (T/F/NG, Completion), and confidently structure the Speaking Part 2 Long Turn.</p>
+        </div>
+
+        <!-- PART 1: HW Review -->
+        <section id="part1" class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden transition-opacity">
+            <div class="bg-slate-50 border-b border-slate-200 p-4 flex justify-between items-center cursor-pointer" onclick="document.getElementById('check1').click()">
+                <h2 class="text-xl font-bold text-slate-800">Part 1: Vocab Check & HW Review <span class="text-sm font-normal text-slate-500 ml-2">(00-15m)</span></h2>
+                <input type="checkbox" id="check1" class="part-checkbox" onchange="updateProgress(this, 'part1')">
+            </div>
+            <div class="p-6 space-y-4">
+                
+                <h3 class="font-bold text-lg mb-2 text-indigo-700">1. Lesson 1 Vocabulary Test</h3>
+                <div class="flex flex-col sm:flex-row gap-4 mb-4 bg-amber-50 p-4 rounded-lg border border-amber-200 items-start sm:items-center">
+                    <div class="flex-1">
+                        <p class="text-sm font-bold text-amber-900 mb-1">Check Previous Vocabulary</p>
+                        <p class="text-xs text-amber-800">Have the student complete this quick vocabulary check before reviewing homework to reinforce retention.</p>
+                    </div>
+                    <a href="https://baongocnguyenngo2018-bot.github.io/IELTS/lesson_plan/dieu_minh_mar_2026/extra/vocab_test_lesson1.html" target="_blank" class="bg-amber-600 hover:bg-amber-700 text-white text-sm font-semibold py-2 px-4 rounded transition-colors shadow-sm whitespace-nowrap flex items-center">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                        Launch Vocab Test
+                    </a>
+                </div>
+
+                <h3 class="font-bold text-lg mb-2 text-indigo-700 border-t border-slate-100 pt-4">2. Review Listening HW (Parts 1 & 2)</h3>
+                
+                <div class="flex flex-col sm:flex-row gap-4 mb-4 bg-slate-50 p-3 rounded-lg border border-slate-200 items-start sm:items-center">
+                    <span class="text-sm font-bold text-slate-700">Prior HW Links:</span>
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <a href="https://youpass.vn/thi-thu/listening/9961" target="_blank" class="text-indigo-600 text-sm font-semibold hover:text-indigo-800 hover:underline flex items-center">
+                            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                            Listening HW 1
+                        </a>
+                        <a href="https://youpass.vn/thi-thu/listening/9968" target="_blank" class="text-indigo-600 text-sm font-semibold hover:text-indigo-800 hover:underline flex items-center">
+                            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                            Listening HW 2
+                        </a>
+                    </div>
+                </div>
+
+                <ul class="space-y-3 list-disc pl-5 text-slate-600">
+                    <li>Ask the student for their scores on the two assigned YouPass Listening tests.</li>
+                    <li><strong>Troubleshoot:</strong> "Did you miss any answers because you were typing too slowly?" "Did you catch any distractors/traps?"</li>
+                    <li><strong>CD-IELTS Check:</strong> "How did it feel not having 10 minutes at the end to transfer answers?" Emphasize the need to get comfortable with simultaneous typing and listening.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- PART 2: Reading -->
+        <section id="part2" class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden transition-opacity">
+            <div class="bg-slate-50 border-b border-slate-200 p-4 flex justify-between items-center cursor-pointer" onclick="document.getElementById('check2').click()">
+                <h2 class="text-xl font-bold text-slate-800">Part 2: Reading Passage 1 <span class="text-sm font-normal text-slate-500 ml-2">(10-45m)</span></h2>
+                <input type="checkbox" id="check2" class="part-checkbox" onchange="updateProgress(this, 'part2')">
+            </div>
+            <div class="p-6 space-y-6">
+                
+                <!-- HARDCODED TEST LINKS -->
+                <div class="bg-amber-50 border border-amber-200 rounded-lg p-4 shadow-inner">
+                    <h3 class="font-bold text-amber-900 flex items-center mb-3">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
+                        Test Link Launcher
+                    </h3>
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <a href="https://youpass.vn/thi-thu/reading/7966" target="_blank" class="bg-amber-600 hover:bg-amber-700 text-white font-semibold py-2 px-4 rounded transition-colors shadow-sm text-center flex-1 flex items-center justify-center">
+                            Launch Reading Practice
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-lg mb-2 text-indigo-700">1. Screen Navigation & Strategy (10 mins)</h3>
+                    
+                    <div class="mb-4">
+                        <h4 class="font-semibold text-slate-800 mb-1">The Split-Screen Advantage</h4>
+                        <p class="text-slate-600 text-sm mb-2">In CD-IELTS, the text is on the left, questions on the right. <strong>Teach them to highlight:</strong> They can right-click to highlight text or make notes on the screen.</p>
+                    </div>
+
+                    <div class="mb-4">
+                        <h4 class="font-semibold text-slate-800 mb-1">Skimming vs. Scanning</h4>
+                        <ul class="space-y-1 list-disc pl-5 text-slate-600 text-sm">
+                            <li><strong>Skimming:</strong> Read the title, subheadings, and the <em>first sentence</em> of each paragraph to get the main idea (1-2 mins max).</li>
+                            <li><strong>Scanning:</strong> Looking for specific keywords from the questions (Names, Dates, Capital letters, Numbers).</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-indigo-50 border border-indigo-100 rounded-lg p-4 mb-4">
+                        <h4 class="font-bold text-indigo-900 mb-2 border-b border-indigo-200 pb-1">Common Question Types & Handling Tips</h4>
+                        
+                        <div class="space-y-3">
+                            <div>
+                                <h5 class="font-semibold text-indigo-800 text-sm">1. True / False / Not Given (T/F/NG)</h5>
+                                <ul class="space-y-1 list-disc pl-5 text-indigo-700 text-sm mt-1">
+                                    <li><span class="font-bold">True:</span> The statement perfectly matches the text (usually with synonyms).</li>
+                                    <li><span class="font-bold">False:</span> The statement <em>contradicts</em> the text. It says the exact opposite.</li>
+                                    <li><span class="font-bold">Not Given:</span> You cannot find the information, or there isn't enough info to prove it true OR false. <em>(Don't assume based on outside knowledge!)</em></li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <h5 class="font-semibold text-indigo-800 text-sm">2. Note / Table / Flow-chart Completion</h5>
+                                <ul class="space-y-1 list-disc pl-5 text-indigo-700 text-sm mt-1">
+                                    <li><strong>Instruction Check:</strong> Always check the exact word limit (e.g., "NO MORE THAN TWO WORDS AND/OR A NUMBER").</li>
+                                    <li><strong>Predict & Scan:</strong> Guess the missing word's grammatical type (noun, verb) and context. Scan the text for the surrounding keywords/synonyms.</li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <h5 class="font-semibold text-indigo-800 text-sm">3. Matching Headings / Information</h5>
+                                <ul class="space-y-1 list-disc pl-5 text-indigo-700 text-sm mt-1">
+                                    <li><strong>Headings:</strong> Summarize the main idea. Read the first and last sentence of the paragraph carefully. Watch out for distractors that only mention a small detail.</li>
+                                    <li><strong>Information:</strong> You are looking for a specific detail within a paragraph. Scan for synonyms of the keywords in the prompt.</li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <h5 class="font-semibold text-indigo-800 text-sm">4. Multiple Choice</h5>
+                                <ul class="space-y-1 list-disc pl-5 text-indigo-700 text-sm mt-1">
+                                    <li><strong>Process of Elimination:</strong> Read the question stem, locate the relevant section in the text, and evaluate each option. Cross out options that are contradicted or Not Given.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-4 border-t border-slate-100">
+                    <h3 class="font-bold text-lg mb-2 text-indigo-700">2. Live Practice & Execution (25 mins)</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-start">
+                            <span class="bg-blue-100 text-blue-800 font-bold px-2 py-1 rounded text-xs mr-3 mt-0.5">STEP 1</span>
+                            <p class="text-slate-600">Open the practice link. Have the student share their screen if possible. Give them <strong>strictly 15-18 minutes</strong> to complete Passage 1 only.</p>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="bg-blue-100 text-blue-800 font-bold px-2 py-1 rounded text-xs mr-3 mt-0.5">STEP 2</span>
+                            <p class="text-slate-600">Watch how they navigate. Are they scrolling up and down too much? Remind them to use the text-highlighting feature.</p>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="bg-blue-100 text-blue-800 font-bold px-2 py-1 rounded text-xs mr-3 mt-0.5">STEP 3</span>
+                            <p class="text-slate-600">Stop and review the answers together. Pay special attention to why they got any T/F/NG questions wrong (usually confusing False with Not Given).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PART 3: Speaking -->
+        <section id="part3" class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden transition-opacity">
+            <div class="bg-slate-50 border-b border-slate-200 p-4 flex justify-between items-center cursor-pointer" onclick="document.getElementById('check3').click()">
+                <h2 class="text-xl font-bold text-slate-800">Part 3: Speaking Part 2 <span class="text-sm font-normal text-slate-500 ml-2">(45-80m)</span></h2>
+                <input type="checkbox" id="check3" class="part-checkbox" onchange="updateProgress(this, 'part3')">
+            </div>
+            <div class="p-6 space-y-6">
+                <div>
+                    <h3 class="font-bold text-lg mb-2 text-indigo-700">1. Concept & 1-Minute Prep (10 mins)</h3>
+                    <p class="text-slate-600 mb-3">Explain Part 2: The "Long Turn". They get a cue card, exactly 1 minute to prepare notes, and must speak for 1 to 2 minutes.</p>
+                    
+                    <div class="grid md:grid-cols-2 gap-4 mb-4">
+                        <div class="bg-rose-50 p-4 rounded-lg border border-rose-200">
+                            <h4 class="font-bold text-rose-800 mb-2">❌ Note-taking MISTAKES</h4>
+                            <ul class="text-sm text-rose-700 space-y-1 list-disc pl-4">
+                                <li>Writing full, complete sentences.</li>
+                                <li>Writing a script to read from.</li>
+                                <li>Writing down vocabulary words without context.</li>
+                            </ul>
+                        </div>
+                        <div class="bg-emerald-50 p-4 rounded-lg border border-emerald-200">
+                            <h4 class="font-bold text-emerald-800 mb-2">✅ Note-taking STRATEGY</h4>
+                            <ul class="text-sm text-emerald-700 space-y-1 list-disc pl-4">
+                                <li>Write only keywords and bullet points.</li>
+                                <li>Use the <strong>WH-Question Framework</strong>: <em>Who, What, When, Where, Why.</em></li>
+                                <li>Alternatively, use <strong>Chronological Order</strong>: <em>Beginning, Middle, End.</em></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="bg-indigo-50 border border-indigo-100 rounded-lg p-4 mb-4">
+                        <h4 class="font-bold text-indigo-900 mb-2 border-b border-indigo-200 pb-1">Major Speaking Part 2 Topics & Strategies</h4>
+                        <div class="grid sm:grid-cols-2 gap-3 mt-3">
+                            <div class="bg-white p-3 rounded shadow-sm border border-indigo-100">
+                                <h5 class="font-bold text-indigo-800 text-sm">👤 A Person</h5>
+                                <p class="text-xs text-slate-600 mt-1">Focus on appearance, personality traits (with anecdotes), and your relationship. <em>Strategy: Use strong adjectives and relative clauses.</em></p>
+                            </div>
+                            <div class="bg-white p-3 rounded shadow-sm border border-indigo-100">
+                                <h5 class="font-bold text-indigo-800 text-sm">📍 A Place</h5>
+                                <p class="text-xs text-slate-600 mt-1">Focus on location, physical description, atmosphere, and activities. <em>Strategy: Use spatial language and sensory details (sight, sound).</em></p>
+                            </div>
+                            <div class="bg-white p-3 rounded shadow-sm border border-indigo-100">
+                                <h5 class="font-bold text-indigo-800 text-sm">📦 An Object / Thing</h5>
+                                <p class="text-xs text-slate-600 mt-1">Focus on appearance, origin, function, and personal significance. <em>Strategy: Practice describing utility and emotional attachment.</em></p>
+                            </div>
+                            <div class="bg-white p-3 rounded shadow-sm border border-indigo-100">
+                                <h5 class="font-bold text-indigo-800 text-sm">📅 An Event / Experience</h5>
+                                <p class="text-xs text-slate-600 mt-1">Focus on chronological order (before, during, after) and your feelings. <em>Strategy: Master narrative tenses (Past Simple, Past Continuous).</em></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-4 border-t border-slate-100">
+                    <h3 class="font-bold text-lg mb-4 text-indigo-700">2. Live Practice Drill (25 mins)</h3>
+                    <p class="text-sm text-slate-600 italic mb-4">For each card, set a timer for exactly 1 minute of silence for them to take notes. Then, set a timer for 2 minutes and have them speak. Do not interrupt them.</p>
+                    
+                    <!-- Accordions for Cue Cards -->
+                    <div class="space-y-3">
+                        <details class="group bg-slate-50 rounded-lg border border-slate-200 [&_summary::-webkit-details-marker]:hidden">
+                            <summary class="flex items-center justify-between p-4 cursor-pointer font-bold text-slate-800 hover:bg-slate-100">
+                                Cue Card 1: A Creative Person
+                                <span class="transition group-open:rotate-180">
+                                    <svg fill="none" height="24" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                                </span>
+                            </summary>
+                            <div class="p-4 pt-0 border-t border-slate-200 mt-2">
+                                <p class="font-semibold text-slate-800 mb-2">Describe a creative person (e.g. an artist, a musician, an architect, etc.) you admire</p>
+                                <p class="text-slate-600 text-sm mb-1">You should say:</p>
+                                <ul class="list-disc pl-5 text-sm text-slate-600 mb-3">
+                                    <li>Who he/she is</li>
+                                    <li>How you knew him/her</li>
+                                    <li>What his/her greatest achievement is</li>
+                                </ul>
+                                <p class="text-slate-600 text-sm">And explain why you think he/she is creative.</p>
+                            </div>
+                        </details>
+
+                        <details class="group bg-slate-50 rounded-lg border border-slate-200 [&_summary::-webkit-details-marker]:hidden">
+                            <summary class="flex items-center justify-between p-4 cursor-pointer font-bold text-slate-800 hover:bg-slate-100">
+                                Cue Card 2: An Exciting Activity
+                                <span class="transition group-open:rotate-180">
+                                    <svg fill="none" height="24" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                                </span>
+                            </summary>
+                            <div class="p-4 pt-0 border-t border-slate-200 mt-2">
+                                <p class="font-semibold text-slate-800 mb-2">Describe an exciting activity you have tried for the first time</p>
+                                <p class="text-slate-600 text-sm mb-1">You should say:</p>
+                                <ul class="list-disc pl-5 text-sm text-slate-600 mb-3">
+                                    <li>What it is</li>
+                                    <li>When/where you did it</li>
+                                    <li>Why you thought it was exciting</li>
+                                </ul>
+                                <p class="text-slate-600 text-sm">And explain how you felt about it.</p>
+                            </div>
+                        </details>
+
+                        <details class="group bg-slate-50 rounded-lg border border-slate-200 [&_summary::-webkit-details-marker]:hidden">
+                            <summary class="flex items-center justify-between p-4 cursor-pointer font-bold text-slate-800 hover:bg-slate-100">
+                                Cue Card 3: An Area of Science
+                                <span class="transition group-open:rotate-180">
+                                    <svg fill="none" height="24" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                                </span>
+                            </summary>
+                            <div class="p-4 pt-0 border-t border-slate-200 mt-2">
+                                <p class="font-semibold text-slate-800 mb-2">Describe an area/subject of science (biology, robotics, etc.) that you are interested in and would like to learn more about</p>
+                                <p class="text-slate-600 text-sm mb-1">You should say:</p>
+                                <ul class="list-disc pl-5 text-sm text-slate-600 mb-3">
+                                    <li>Which area/subject it is</li>
+                                    <li>When and where you came to know this area/subject</li>
+                                    <li>How you get information about this area/subject</li>
+                                </ul>
+                                <p class="text-slate-600 text-sm">And explain why you are interested in this area/subject.</p>
+                            </div>
+                        </details>
+                    </div>
+
+                    <div class="mt-4 p-3 bg-indigo-50 border border-indigo-200 rounded flex items-start text-sm text-indigo-800">
+                        <span class="mr-2 text-lg">💡</span>
+                        <div>
+                            <strong>Feedback Focus:</strong>
+                            <ul class="list-disc pl-5 mt-1">
+                                <li>Did they speak for at least 1 minute and 30 seconds?</li>
+                                <li>Did they look at their notes naturally, or were they just reading a script?</li>
+                                <li>Praise them for using linking words (e.g., <em>However, Therefore, To begin with</em>).</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PART 4: Wrap-up -->
+        <section id="part4" class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden transition-opacity">
+            <div class="bg-slate-50 border-b border-slate-200 p-4 flex justify-between items-center cursor-pointer" onclick="document.getElementById('check4').click()">
+                <h2 class="text-xl font-bold text-slate-800">Part 4: Wrap-up & HW <span class="text-sm font-normal text-slate-500 ml-2">(80-90m)</span></h2>
+                <input type="checkbox" id="check4" class="part-checkbox" onchange="updateProgress(this, 'part4')">
+            </div>
+            <div class="p-6 space-y-6">
+                <div>
+                    <h3 class="font-bold text-lg mb-2 text-indigo-700">1. Session Review (5 mins)</h3>
+                    <ul class="space-y-3 pl-2 text-slate-600">
+                        <li class="flex items-start">
+                            <span class="mr-2">❓</span> 
+                            <div>Ask: <em>"What is the difference between False and Not Given?"</em> <br><span class="text-sm font-semibold text-green-700">Answer: False contradicts the text. Not Given means the info is completely missing or can't be proven.</span></div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="mr-2">❓</span> 
+                            <div>Ask: <em>"Should you write full sentences during your 1-minute speaking prep?"</em> <br><span class="text-sm font-semibold text-green-700">Answer: No, only keywords or bullet points.</span></div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="pt-4 border-t border-slate-100">
+                    <h3 class="font-bold text-lg mb-2 text-indigo-700">2. Assign Homework (5 mins)</h3>
+                    <div class="bg-rose-50 border border-rose-200 p-4 rounded-lg">
+                        <p class="font-bold text-rose-900 flex items-center mb-1">📝 Task 1: Reading Practice</p>
+                        <p class="text-rose-800 text-sm mb-3">Complete the following Reading Passage 1 on your computer. Time yourself (Maximum 20 minutes).</p>
+                        
+                        <div class="flex flex-col gap-2 mb-4 bg-white p-3 rounded border border-rose-100">
+                            <a href="https://youpass.vn/thi-thu/reading/10009" target="_blank" class="text-rose-700 text-sm font-semibold hover:text-rose-900 hover:underline flex items-center">
+                                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                                Reading HW Link (Passage 1)
+                            </a>
+                        </div>
+
+                        <p class="font-bold text-rose-900 flex items-center mb-1 mt-4">🎤 Task 2: Speaking Voice Memos</p>
+                        <p class="text-rose-800 text-sm mb-3">Record two voice memos (2 minutes each) responding to the two Cue Cards we didn't fully cover today, or replay one you want to improve. Send them to me via chat/Zalo before the next class.</p>
+
+                        <p class="font-bold text-rose-900 flex items-center mb-1 mt-4">🧠 Task 3: Vocabulary Learning</p>
+                        <p class="text-rose-800 text-sm mb-3">Study the new vocabulary for Lesson 2 to prepare for our next session's check.</p>
+                        <div class="flex flex-col gap-2 mb-4 bg-white p-3 rounded border border-rose-100">
+                            <a href="https://baongocnguyenngo2018-bot.github.io/IELTS/lesson_plan/dieu_minh_mar_2026/extra/vocab_learning_lesson2.html" target="_blank" class="text-rose-700 text-sm font-semibold hover:text-rose-900 hover:underline flex items-center">
+                                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                                Lesson 2 Vocab Learning
+                            </a>
+                        </div>
+
+                        <p class="font-bold text-rose-900 flex items-center mb-1 mt-4">⏰ Reminder</p>
+                        <p class="text-rose-800 text-sm">Inform them of the next session time (which will be Lesson 4, as Lesson 3 is dedicated to their Writing tutor).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        // Progress Tracking Logic
+        function updateProgress(checkboxElem, sectionId) {
+            const section = document.getElementById(sectionId);
+            const evt = window.event;
+            if(evt) evt.stopPropagation(); 
+
+            if (checkboxElem.checked) {
+                section.classList.add('section-done');
+            } else {
+                section.classList.remove('section-done');
+            }
+
+            const checkboxes = document.querySelectorAll('.part-checkbox');
+            let checkedCount = 0;
+            checkboxes.forEach(cb => {
+                if (cb.checked) checkedCount++;
+            });
+            
+            document.getElementById('progress-text').innerText = `${checkedCount} / 4`;
+        }
+    </script>
+</body>
+</html>

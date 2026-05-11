@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Speaking: Happiness & Reading Test (Band 6-6.5)</title>
+    <style>
+        :root { --primary: #059669; --primary-hover: #047857; --success: #2563eb; --danger: #ef4444; --bg-body: #f8fafc; --card-bg: #ffffff; --text-main: #0f172a; --text-muted: #64748b; --border: #e2e8f0; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+        body { background-color: var(--bg-body); color: var(--text-main); min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 2rem 1rem; }
+        .container { width: 100%; max-width: 800px; background: var(--card-bg); border-radius: 12px; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); overflow: hidden; display: flex; flex-direction: column; }
+        
+        /* Header & Timer */
+        header { background-color: var(--primary); color: white; padding: 1.5rem; display: flex; justify-content: space-between; align-items: center; }
+        .header-title h2 { font-size: 1.25rem; font-weight: 600; }
+        .header-title p { font-size: 0.875rem; opacity: 0.9; }
+        .timer-box { background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 8px; font-weight: bold; font-size: 1.25rem; display: flex; align-items: center; gap: 0.5rem; transition: transform 0.1s ease;}
+        .timer-box.warning { background: var(--danger); }
+        
+        /* Progress Bar */
+        .progress-container { height: 6px; background: var(--border); width: 100%; }
+        .progress-bar { height: 100%; background: var(--success); width: 0%; transition: width 0.3s ease; }
+
+        /* Content Area */
+        .content { padding: 2rem; min-height: 350px; }
+        .question-number { color: var(--text-muted); font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; }
+        .topic-context { display: inline-block; background: #d1fae5; color: #064e3b; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.8rem; font-weight: bold; margin-bottom: 1rem;}
+        .question-text { font-size: 1.25rem; font-weight: 500; margin-bottom: 2rem; line-height: 1.5; }
+
+        /* Form Controls */
+        .options-grid { display: flex; flex-direction: column; gap: 1rem; }
+        .option-label { display: flex; align-items: center; padding: 1rem; border: 2px solid var(--border); border-radius: 8px; cursor: pointer; transition: all 0.2s ease; font-size: 1.1rem; }
+        .option-label:hover { border-color: var(--primary); background-color: #f0fdf4; }
+        .option-label input[type="radio"] { margin-right: 1rem; transform: scale(1.2); }
+        .option-label.selected { border-color: var(--primary); background-color: #d1fae5; }
+        input[type="text"] { width: 100%; padding: 1rem; font-size: 1.1rem; border: 2px solid var(--border); border-radius: 8px; transition: border-color 0.2s ease; }
+        input[type="text"]:focus { outline: none; border-color: var(--primary); }
+        
+        /* Specialized Question Text Formatting */
+        .scramble-text { letter-spacing: 3px; font-size: 1.6rem; color: var(--primary); font-weight: 800; display: block; margin-top: 0.5rem;}
+        .missing-text { letter-spacing: 5px; font-size: 1.6rem; color: var(--primary); font-family: monospace; font-weight: 800; display: block; margin-top: 0.5rem;}
+        .context-sentence { font-style: italic; background: #f1f5f9; padding: 1rem; border-left: 4px solid var(--primary); border-radius: 4px; display: block; margin-top: 1rem;}
+
+        /* Question Navigation Grid */
+        .q-nav-container { margin-top: 3rem; padding-top: 1.5rem; border-top: 2px dashed var(--border); }
+        .q-nav-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+        .q-nav-title { font-size: 1rem; font-weight: 600; color: var(--text-muted); }
+        .q-nav-legend { display: flex; gap: 1rem; font-size: 0.8rem; color: var(--text-muted); }
+        .legend-item { display: flex; align-items: center; gap: 0.4rem; }
+        .legend-box { width: 14px; height: 14px; border-radius: 3px; border: 1px solid var(--border); }
+        .legend-box.answered { background: var(--primary); border-color: var(--primary); }
+        .legend-box.unanswered { background: var(--card-bg); }
+        .q-nav-grid { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .q-nav-btn { width: 36px; height: 36px; border-radius: 6px; border: 2px solid var(--border); background: var(--card-bg); color: var(--text-muted); font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; justify-content: center; padding: 0; }
+        .q-nav-btn:hover { border-color: var(--primary); color: var(--primary); }
+        .q-nav-btn.answered { background: var(--primary); border-color: var(--primary); color: white; }
+        .q-nav-btn.current { transform: scale(1.1); border-color: var(--text-main); box-shadow: 0 0 0 2px var(--text-main); z-index: 1; color: var(--text-main); }
+        .q-nav-btn.answered.current { color: white; }
+
+        /* Footer Controls */
+        .footer { padding: 1.5rem 2rem; background-color: var(--bg-body); border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+        button { padding: 0.75rem 1.5rem; font-size: 1rem; font-weight: 600; border: none; border-radius: 6px; cursor: pointer; transition: all 0.2s ease; }
+        .btn-outline { background: transparent; color: var(--text-main); border: 1px solid var(--border); }
+        .btn-outline:hover:not(:disabled) { background: var(--border); }
+        .btn-primary { background: var(--primary); color: white; }
+        .btn-primary:hover { background: var(--primary-hover); }
+        .btn-submit { background: var(--success); color: white; }
+        .btn-submit:hover { background: #1d4ed8; }
+        button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+        /* Screens */
+        .screen { display: none; text-align: center; padding: 3rem 2rem; }
+        .screen.active { display: block; }
+        .screen-title { font-size: 2rem; color: var(--primary); margin-bottom: 1rem; }
+        .score-display { font-size: 4rem; font-weight: 700; color: var(--success); margin: 1rem 0; }
+        .results-list { text-align: left; margin-top: 2rem; display: flex; flex-direction: column; gap: 1.5rem; }
+        .result-item { padding: 1.5rem; border-radius: 8px; border-left: 5px solid; background: #f8fafc; }
+        .result-item.correct { border-color: var(--success); }
+        .result-item.incorrect { border-color: var(--danger); }
+        .result-item-header { font-weight: 600; margin-bottom: 0.5rem; line-height: 1.4; }
+        .result-explanation { font-size: 0.9rem; color: var(--text-muted); margin-top: 0.5rem; padding-top: 0.5rem; border-top: 1px solid var(--border); }
+
+        /* Config specific styles */
+        .config-group { margin: 2rem 0; text-align: left; max-width: 400px; margin-left: auto; margin-right: auto; }
+        .config-group label { display: block; font-weight: 600; margin-bottom: 0.5rem; }
+        .config-select { width: 100%; padding: 0.75rem; border-radius: 6px; border: 1px solid var(--border); font-size: 1rem; background: var(--card-bg); }
+
+        @media (max-width: 600px) { header { flex-direction: column; gap: 1rem; text-align: center; } .footer { flex-direction: column; gap: 1rem; } .footer button { width: 100%; } }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header id="app-header-test" style="display: none;">
+        <div class="header-title">
+            <h2>Speaking Vocabulary Test</h2>
+            <p>Happiness, Crowds & Reading</p>
+        </div>
+        <div class="timer-box" id="timer-test">
+            ⏱️ 00:00
+        </div>
+    </header>
+    
+    <div class="progress-container" id="progress-container" style="display: none;">
+        <div class="progress-bar" id="progress-bar"></div>
+    </div>
+
+    <!-- Configuration Screen -->
+    <div id="config-screen" class="screen active">
+        <h1 class="screen-title">Vocabulary Assessment</h1>
+        <p style="font-size: 1.1rem; margin-bottom: 1rem; color: var(--text-muted);">
+            Test your knowledge of academic vocabulary regarding Emotions, Society, and Reading Habits.
+        </p>
+        
+        <div class="config-group">
+            <label for="num-questions">How many questions would you like to take?</label>
+            <select id="num-questions" class="config-select">
+                <option value="5">5 Questions (2:30)</option>
+                <option value="10" selected>10 Questions (5:00)</option>
+                <option value="15">15 Questions (7:30)</option>
+                <option value="20">20 Questions (10:00)</option>
+                <option value="30">30 Questions (15:00)</option>
+                <option value="50">50 Questions (25:00)</option>
+                <option value="All">All 240 Combinations (120:00)</option>
+            </select>
+        </div>
+        
+        <p style="font-size: 0.9rem; margin-bottom: 2rem; color: var(--text-muted);">
+            You will have exactly <strong>30 seconds per question</strong>. The test features 8 different interaction types (MCQ, Anagrams, Fill-in-the-blanks, True/False, etc.) randomly generated from the vocabulary bank.
+        </p>
+        <button class="btn-primary" style="font-size: 1.2rem; padding: 1rem 3rem;" onclick="startTest()">Start Test</button>
+    </div>
+
+    <!-- Quiz Screen -->
+    <div id="test-screen" class="screen" style="padding: 0; text-align: left;">
+        <div class="content">
+            <div class="question-number" id="question-number">Question 1 of X</div>
+            <div class="topic-context" id="topic-context">Category: ...</div>
+            <div class="question-text" id="question-text">Question text goes here?</div>
+            <div id="options-container" class="options-grid"></div>
+            
+            <div class="q-nav-container">
+                <div class="q-nav-header">
+                    <span class="q-nav-title">Question Navigator</span>
+                    <div class="q-nav-legend">
+                        <div class="legend-item"><div class="legend-box answered"></div> Answered</div>
+                        <div class="legend-item"><div class="legend-box unanswered"></div> Unanswered</div>
+                    </div>
+                </div>
+                <div id="q-nav-grid" class="q-nav-grid"></div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <button class="btn-outline" id="btn-prev" onclick="prevQuestion()">Previous</button>
+            <button class="btn-primary" id="btn-next" onclick="nextQuestion()">Next</button>
+            <button class="btn-submit" id="btn-submit" style="display: none;" onclick="submitTest()">Submit Test</button>
+        </div>
+    </div>
+
+    <!-- Results Screen -->
+    <div id="results-screen" class="screen">
+        <h1 class="screen-title" id="result-title">Test Complete!</h1>
+        <div class="score-display" id="score-display">0 / 0</div>
+        <p style="font-size: 1.2rem; font-weight: bold; margin-bottom: 1rem;" id="band-indicator">Indicator</p>
+        <div class="results-list" id="results-list"></div>
+        <button class="btn-primary" style="margin-top: 2rem;" onclick="restartTest()">Take Another Test</button>
+    </div>
+</div>
+
+<script>
+    // ---------------------------------------------------------
+    // Adjusted Vocabulary Bank (Target: Band 6.0 - 6.5)
+    // ---------------------------------------------------------
+    const vocabBank = [
+        { topic: "Emotions & Expressions", word: "Genuine", form: "Adjective", def: "Real, authentic, and sincere; not fake.", contextSentence: "People like her because she always has a ________ smile." },
+        { topic: "Emotions & Expressions", word: "Express", form: "Verb", def: "To show a feeling, opinion, or fact.", contextSentence: "Smiling is the easiest way to ________ happiness when taking a photo." },
+        { topic: "Emotions & Expressions", word: "Approachable", form: "Adjective", def: "Friendly and easy to talk to.", contextSentence: "A smile makes shop assistants look much more ________ to customers." },
+        { topic: "Emotions & Expressions", word: "Welcoming", form: "Adjective", def: "Friendly or making you feel welcome.", contextSentence: "She gave me a ________ smile when I entered the store." },
+        { topic: "Emotions & Expressions", word: "Mood", form: "Noun", def: "The way you feel at a particular time.", contextSentence: "Listening to cheerful music can instantly improve your ________." },
+        { topic: "Emotions & Expressions", word: "Cheerful", form: "Adjective", def: "Happy and positive.", contextSentence: "He is always ________ and smiling, even on Monday mornings." },
+        { topic: "Emotions & Expressions", word: "Professionalism", form: "Noun", def: "The skill, good judgment, and polite behavior expected from a person trained to do a job well.", contextSentence: "Maintaining a polite smile is a sign of ________ at work." },
+        { topic: "Emotions & Expressions", word: "Hide", form: "Verb", def: "To keep a feeling or information secret.", contextSentence: "In customer service, staff sometimes have to ________ their tiredness behind a smile." },
+        { topic: "Emotions & Expressions", word: "Connection", form: "Noun", def: "A relationship in which a person or idea is linked with something else.", contextSentence: "A shared smile can help build a quick ________ with a stranger." },
+        { topic: "Emotions & Expressions", word: "Make a good impression", form: "Phrase", def: "To cause someone to notice and admire you.", contextSentence: "It is important to smile at a job interview to ________." },
+
+        { topic: "Society & Well-being", word: "Standard of living", form: "Noun Phrase", def: "The amount of money and comfort people have in a particular society.", contextSentence: "The ________ is higher today, but people seem more worried." },
+        { topic: "Society & Well-being", word: "Satisfaction", form: "Noun", def: "A pleasant feeling that you get when you receive something you wanted.", contextSentence: "Many people get a lot of ________ from their simple hobbies." },
+        { topic: "Society & Well-being", word: "Stressful", form: "Adjective", def: "Causing mental or emotional stress.", contextSentence: "Living in a fast-paced city can be very ________ compared to the past." },
+        { topic: "Society & Well-being", word: "Materialistic", form: "Adjective", def: "Believing that having money and possessions is the most important thing in life.", contextSentence: "Some people think our society has become too ________ to be truly happy." },
+        { topic: "Society & Well-being", word: "Shared experience", form: "Noun Phrase", def: "An event or activity that two or more people go through together.", contextSentence: "Attending a live concert is a wonderful ________." },
+        { topic: "Society & Well-being", word: "Atmosphere", form: "Noun", def: "The mood or feeling that exists in a place.", contextSentence: "The ________ at the music festival was incredibly happy and exciting." },
+        { topic: "Society & Well-being", word: "Energetic", form: "Adjective", def: "Having or involving a lot of energy.", contextSentence: "Being in an ________ crowd can make you feel excited and happy." },
+        { topic: "Society & Well-being", word: "Sense of belonging", form: "Noun Phrase", def: "A feeling of being happy or comfortable as part of a particular group.", contextSentence: "Singing together at a concert gives people a strong ________." },
+        { topic: "Society & Well-being", word: "Isolated", form: "Adjective", def: "Feeling unhappy because of not seeing or talking to other people.", contextSentence: "Despite living in big cities, some people feel very ________ today." },
+        { topic: "Society & Well-being", word: "Fast-paced", form: "Adjective", def: "Moving or happening very quickly.", contextSentence: "It is hard to relax and feel happy in today's ________ world." },
+
+        { topic: "Reading & Media", word: "Relaxation", form: "Noun", def: "The state of being free from tension and anxiety.", contextSentence: "For many people, reading a fiction book is pure ________." },
+        { topic: "Reading & Media", word: "Concentrate", form: "Verb", def: "To direct your attention or your efforts towards a particular activity.", contextSentence: "It is difficult to ________ on a long book if the story is boring." },
+        { topic: "Reading & Media", word: "Physical book", form: "Noun Phrase", def: "A traditional book printed on paper.", contextSentence: "I still prefer buying a ________ rather than reading on a screen." },
+        { topic: "Reading & Media", word: "Outdated", form: "Adjective", def: "Old-fashioned and therefore not as good or as useful as something modern.", contextSentence: "Some teenagers think that going to a library is ________." },
+        { topic: "Reading & Media", word: "Digital format", form: "Noun Phrase", def: "Information stored in an electronic form.", contextSentence: "Many textbooks are now available in a ________ online." },
+        { topic: "Reading & Media", word: "Inspire", form: "Verb", def: "To make someone feel that they want to do something and can do it.", contextSentence: "Reading science fiction can ________ young people to study science." },
+        { topic: "Reading & Media", word: "Accessible", form: "Adjective", def: "Easy to find, reach, or get.", contextSentence: "The internet has made learning and reading much more ________ for everyone." },
+        { topic: "Reading & Media", word: "Preference", form: "Noun", def: "The fact that you like something or someone more than another thing or person.", contextSentence: "When it comes to reading, my ________ is definitely non-fiction." },
+        { topic: "Reading & Media", word: "Attention span", form: "Noun Phrase", def: "The length of time that someone can keep their thoughts and interest fixed on something.", contextSentence: "Short videos on the internet have reduced the ________ of many youths." },
+        { topic: "Reading & Media", word: "Informative", form: "Adjective", def: "Providing a lot of useful information.", contextSentence: "I find historical books very ________ and interesting to read." }
+    ];
+
+    // Helper functions
+    function getDistractors(correctWord, count) {
+        let distractors = [];
+        let pool = vocabBank.filter(v => v.word !== correctWord);
+        pool.sort(() => 0.5 - Math.random());
+        for (let i = 0; i < count; i++) {
+            if (pool[i]) distractors.push(pool[i].word);
+        }
+        return distractors;
+    }
+    
+    function buildOptions(correct, distractors) {
+        let options = [correct, ...distractors];
+        options.sort(() => 0.5 - Math.random());
+        return {
+            options: options,
+            correctIndex: options.indexOf(correct)
+        };
+    }
+
+    function scrambleWord(word) {
+        return word.split(' ').map(w => {
+            let a = w.split('');
+            for(let i = a.length - 1; i > 0; i--) {
+                let j = Math.floor(Math.random() * (i + 1));
+                [a[i], a[j]] = [a[j], a[i]];
+            }
+            return a.join('');
+        }).join(' ').toUpperCase();
+    }
+
+    function hideLetters(word) {
+        return word.split(' ').map(w => {
+            let arr = w.split('');
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] === '-') continue;
+                if (Math.random() > 0.4) arr[i] = '_';
+            }
+            // Guarantee at least one hidden and one shown if length > 1
+            if (!arr.includes('_') && arr.length > 1) arr[1] = '_';
+            let allHidden = true;
+            for(let c of arr) if(c !== '_' && c !== '-') allHidden = false;
+            if(allHidden && arr.length > 1) arr[0] = w[0]; 
+            return arr.join(' ');
+        }).join(' &nbsp; '); 
+    }
+
+    // Generate Question Bank (8 Types per word = 240 Questions)
+    function generateAllQuestions() {
+        let generatedQuestions = [];
+        
+        vocabBank.forEach(entry => {
+            // Type 1: MCQ Definition
+            let mcqDists = getDistractors(entry.word, 3);
+            let mcqOpts = buildOptions(entry.word, mcqDists);
+            generatedQuestions.push({
+                topic: entry.topic, type: 'mcq',
+                text: `Which word or phrase best matches this definition: "${entry.def}"?`,
+                options: mcqOpts.options, correct: mcqOpts.correctIndex,
+                explanation: `The word/phrase is "${entry.word}".`, vocabEntry: entry
+            });
+
+            // Type 2: Match Word to Definition
+            let defDists = [];
+            let defPool = vocabBank.filter(v => v.def !== entry.def).sort(() => 0.5 - Math.random());
+            for (let i = 0; i < 3; i++) if(defPool[i]) defDists.push(defPool[i].def);
+            let matchOpts = buildOptions(entry.def, defDists);
+            generatedQuestions.push({
+                topic: entry.topic, type: 'match',
+                text: `What is the correct definition of the word/phrase: "${entry.word}"?`,
+                options: matchOpts.options, correct: matchOpts.correctIndex,
+                explanation: `"${entry.word}" means: ${entry.def}`, vocabEntry: entry
+            });
+
+            // Type 3: Fill-in-the-blank Definition
+            generatedQuestions.push({
+                topic: entry.topic, type: 'fill',
+                text: `Type the exact vocabulary term (${entry.form}) that matches this definition: "${entry.def}"`,
+                correctStr: entry.word,
+                explanation: `The correct term is "${entry.word}".`, vocabEntry: entry
+            });
+            
+            // Type 4: Word Form
+            let formOpts = buildOptions(entry.form, ["Noun", "Noun Phrase", "Verb", "Adjective", "Phrase"].filter(f=>f!==entry.form).slice(0,3));
+            generatedQuestions.push({
+                topic: entry.topic, type: 'form',
+                text: `What is the correct grammatical word form of the term "${entry.word}"?`,
+                options: formOpts.options, correct: formOpts.correctIndex,
+                explanation: `"${entry.word}" acts as a(n) ${entry.form} in academic contexts.`, vocabEntry: entry
+            });
+
+            // Type 5: Word Scramble
+            generatedQuestions.push({
+                topic: entry.topic, type: 'scramble',
+                text: `Unscramble the letters to find the word matching this definition: "${entry.def}" <span class="scramble-text">${scrambleWord(entry.word)}</span>`,
+                correctStr: entry.word,
+                explanation: `The unscrambled word is "${entry.word}".`, vocabEntry: entry
+            });
+
+            // Type 6: Missing Letters (Hangman)
+            generatedQuestions.push({
+                topic: entry.topic, type: 'missing',
+                text: `Fill in the missing letters for the word matching this definition: "${entry.def}" <span class="missing-text">${hideLetters(entry.word)}</span>`,
+                correctStr: entry.word,
+                explanation: `The complete word is "${entry.word}".`, vocabEntry: entry
+            });
+
+            // Type 7: Contextual Sentence
+            let ctxDists = getDistractors(entry.word, 3);
+            let ctxOpts = buildOptions(entry.word, ctxDists);
+            generatedQuestions.push({
+                topic: entry.topic, type: 'context',
+                text: `Choose the correct vocabulary word to fill in the blank:<span class="context-sentence">"${entry.contextSentence}"</span>`,
+                options: ctxOpts.options, correct: ctxOpts.correctIndex,
+                explanation: `The word that fits the context is "${entry.word}".`, vocabEntry: entry
+            });
+
+            // Type 8: True/False Definition
+            let isTrue = Math.random() > 0.5;
+            let displayedDef = entry.def;
+            if (!isTrue) {
+                let otherDefs = vocabBank.filter(v => v.def !== entry.def);
+                displayedDef = otherDefs[Math.floor(Math.random() * otherDefs.length)].def;
+            }
+            generatedQuestions.push({
+                topic: entry.topic, type: 'tf_def',
+                text: `<strong>True or False?</strong><br><br>The word <strong>"${entry.word}"</strong> is defined as:<br>"${displayedDef}"`,
+                options: ["True", "False"],
+                correct: isTrue ? 0 : 1,
+                explanation: isTrue ? `Correct! "${entry.word}" means: ${entry.def}` : `False! "${entry.word}" actually means: ${entry.def}`,
+                vocabEntry: entry
+            });
+        });
+        
+        return generatedQuestions;
+    }
+
+    const allQuestions = generateAllQuestions();
+
+    // ---------------------------------------------------------
+    // App State
+    // ---------------------------------------------------------
+    let selectedQuestions = [];
+    let currentQuestion = 0;
+    let userAnswers = [];
+    let timeRemaining = 0;
+    let timerInterval = null;
+
+    // DOM Elements
+    const configScreen = document.getElementById('config-screen');
+    const testScreen = document.getElementById('test-screen');
+    const resultsScreen = document.getElementById('results-screen');
+    const progressContainer = document.getElementById('progress-container');
+    const progressBar = document.getElementById('progress-bar');
+    const appHeaderTest = document.getElementById('app-header-test');
+    const timerDisplayTest = document.getElementById('timer-test');
+    
+    function startTimer() {
+        updateTimerDisplay();
+        timerInterval = setInterval(() => {
+            timeRemaining--;
+            updateTimerDisplay();
+            
+            if (timeRemaining <= 10) {
+                 timerDisplayTest.classList.add('warning');
+                 timerDisplayTest.style.transform = `scale(${1 + 0.05 * Math.sin(timeRemaining * Math.PI)})`;
+            } else {
+                 timerDisplayTest.style.transform = "scale(1)";
+            }
+            
+            if (timeRemaining <= 0) { 
+                clearInterval(timerInterval); 
+                submitTest(); 
+            }
+        }, 1000);
+    }
+
+    function updateTimerDisplay() {
+        const minutes = Math.floor(timeRemaining / 60);
+        const seconds = timeRemaining % 60;
+        timerDisplayTest.textContent = `⏱️ ${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    }
+
+    function startTest() {
+        const numSelect = document.getElementById('num-questions').value;
+        const totalAvail = allQuestions.length;
+        let numToSelect = numSelect === 'All' ? totalAvail : parseInt(numSelect);
+        numToSelect = Math.min(numToSelect, totalAvail);
+        
+        // Shuffle and pick subset
+        let shuffled = [...allQuestions].sort(() => 0.5 - Math.random());
+        selectedQuestions = shuffled.slice(0, numToSelect);
+        
+        currentQuestion = 0;
+        userAnswers = new Array(selectedQuestions.length).fill(null);
+        timeRemaining = selectedQuestions.length * 30; // 30 seconds per question
+        
+        // UI resets
+        configScreen.classList.remove('active');
+        testScreen.classList.add('active');
+        appHeaderTest.style.display = 'flex';
+        progressContainer.style.display = 'block';
+        timerDisplayTest.classList.remove('warning');
+        timerDisplayTest.style.transform = "scale(1)";
+        
+        renderQuestion();
+        startTimer();
+    }
+
+    function renderQuestion() {
+        const q = selectedQuestions[currentQuestion];
+        
+        document.getElementById('question-number').textContent = `Question ${currentQuestion + 1} of ${selectedQuestions.length}`;
+        document.getElementById('topic-context').textContent = `Category: ${q.topic}`;
+        document.getElementById('question-text').innerHTML = q.text; 
+        progressBar.style.width = `${((currentQuestion) / selectedQuestions.length) * 100}%`;
+        
+        const container = document.getElementById('options-container');
+        container.innerHTML = ''; 
+
+        // MCQ style inputs
+        if (['mcq', 'match', 'form', 'context', 'tf_def'].includes(q.type)) {
+            q.options.forEach((opt, index) => {
+                const label = document.createElement('label');
+                label.className = `option-label ${userAnswers[currentQuestion] === index ? 'selected' : ''}`;
+                
+                const input = document.createElement('input');
+                input.type = 'radio'; 
+                input.name = `q${currentQuestion}`; 
+                input.value = index;
+                input.checked = userAnswers[currentQuestion] === index;
+                
+                input.addEventListener('change', (e) => {
+                    userAnswers[currentQuestion] = parseInt(e.target.value);
+                    renderQuestion(); 
+                });
+                
+                label.appendChild(input); 
+                label.appendChild(document.createTextNode(opt));
+                container.appendChild(label);
+            });
+        } 
+        // Text style inputs
+        else if (['fill', 'scramble', 'missing'].includes(q.type)) {
+            const input = document.createElement('input');
+            input.type = 'text'; 
+            input.placeholder = "Type your answer here...";
+            input.value = userAnswers[currentQuestion] || '';
+            
+            input.addEventListener('input', (e) => {
+                userAnswers[currentQuestion] = e.target.value;
+                renderNavGrid(); 
+            });
+            container.appendChild(input);
+        }
+
+        document.getElementById('btn-prev').disabled = currentQuestion === 0;
+        if (currentQuestion === selectedQuestions.length - 1) {
+            document.getElementById('btn-next').style.display = 'none';
+            document.getElementById('btn-submit').style.display = 'block';
+        } else {
+            document.getElementById('btn-next').style.display = 'block';
+            document.getElementById('btn-submit').style.display = 'none';
+        }
+        renderNavGrid();
+    }
+
+    function renderNavGrid() {
+        const grid = document.getElementById('q-nav-grid');
+        grid.innerHTML = '';
+        
+        selectedQuestions.forEach((q, index) => {
+            const btn = document.createElement('button');
+            btn.className = 'q-nav-btn'; 
+            btn.textContent = index + 1;
+            
+            let isAnswered = false;
+            if (['fill', 'scramble', 'missing'].includes(q.type)) {
+                 isAnswered = userAnswers[index] && userAnswers[index].trim() !== '';
+            } else {
+                 isAnswered = userAnswers[index] !== null;
+            }
+
+            if (isAnswered) btn.classList.add('answered');
+            if (index === currentQuestion) btn.classList.add('current');
+            
+            btn.onclick = () => { currentQuestion = index; renderQuestion(); };
+            grid.appendChild(btn);
+        });
+    }
+
+    function nextQuestion() { if (currentQuestion < selectedQuestions.length - 1) { currentQuestion++; renderQuestion(); } }
+    function prevQuestion() { if (currentQuestion > 0) { currentQuestion--; renderQuestion(); } }
+
+    function submitTest() {
+        clearInterval(timerInterval);
+        testScreen.classList.remove('active');
+        resultsScreen.classList.add('active');
+        progressBar.style.width = '100%';
+        appHeaderTest.style.display = 'none'; 
+        progressContainer.style.display = 'none';
+        
+        let score = 0;
+        const resultsList = document.getElementById('results-list');
+        resultsList.innerHTML = '';
+
+        selectedQuestions.forEach((q, index) => {
+            const userAnswer = userAnswers[index];
+            let isCorrect = false; 
+            let displayAnswer = "No answer provided"; 
+            let expectedAnswer = "";
+
+            if (['mcq', 'match', 'form', 'context', 'tf_def'].includes(q.type)) {
+                isCorrect = userAnswer === q.correct;
+                if (userAnswer !== null) displayAnswer = q.options[userAnswer];
+                expectedAnswer = q.options[q.correct];
+            } else if (['fill', 'scramble', 'missing'].includes(q.type)) {
+                isCorrect = userAnswer && userAnswer.trim().toLowerCase() === q.correctStr.toLowerCase();
+                if (userAnswer && userAnswer.trim() !== '') displayAnswer = userAnswer;
+                expectedAnswer = q.correctStr;
+            }
+
+            if (isCorrect) score++;
+
+            const item = document.createElement('div');
+            item.className = `result-item ${isCorrect ? 'correct' : 'incorrect'}`;
+            
+            let html = `
+                <div class="result-item-header">Q${index + 1} [${q.topic}]: ${q.text}</div>
+                <div><strong>Your Answer:</strong> ${displayAnswer} ${isCorrect ? '✅' : '❌'}</div>
+                ${!isCorrect ? `<div><strong>Correct Answer:</strong> ${expectedAnswer}</div>` : ''}
+                <div class="result-explanation">${q.explanation}</div>
+            `;
+            
+            if (!isCorrect && q.vocabEntry) {
+                html += `
+                    <div style="margin-top: 10px; padding: 10px; background-color: #f1f5f9; border-radius: 6px;">
+                        <strong>Vocabulary Review:</strong><br/>
+                        <em>Word:</em> ${q.vocabEntry.word} (${q.vocabEntry.form})<br/>
+                        <em>Definition:</em> ${q.vocabEntry.def}
+                    </div>
+                `;
+            }
+            
+            item.innerHTML = html;
+            resultsList.appendChild(item);
+        });
+
+        const percentage = Math.round((score / selectedQuestions.length) * 100);
+        document.getElementById('score-display').textContent = `${score} / ${selectedQuestions.length}`;
+        
+        let bandText = "";
+        let color = "";
+        if (percentage >= 80) {
+            bandText = `Outstanding! You are well prepared for Band 6.0-6.5 vocabulary. (${percentage}%)`;
+            color = "var(--success)";
+        } else if (percentage >= 60) {
+            bandText = `Good effort! You are on track for Band 6.0, but keep reviewing. (${percentage}%)`;
+            color = "#f59e0b"; // Amber
+        } else {
+            bandText = `Keep studying! Review the flashcards to reach Band 6.0. (${percentage}%)`;
+            color = "var(--danger)";
+        }
+        
+        const bandIndicator = document.getElementById('band-indicator');
+        bandIndicator.textContent = bandText;
+        bandIndicator.style.color = color;
+    }
+
+    function restartTest() {
+        resultsScreen.classList.remove('active');
+        configScreen.classList.add('active');
+    }
+</script>
+
+</body>
+</html>

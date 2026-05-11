@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Reading: The Myth of Eight-Hour Sleep</title>
+    <style>
+        :root {
+            --primary: #4338ca;
+            --primary-light: #e0e7ff;
+            --text-main: #1f2937;
+            --text-muted: #6b7280;
+            --bg-body: #f3f4f6;
+            --card-bg: #ffffff;
+            --accent: #6366f1;
+            --border: #e5e7eb;
+            --badge-bg: #c7d2fe;
+            --badge-text: #312e81;
+            --success: #047857; 
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+
+        body { background-color: var(--bg-body); color: var(--text-main); line-height: 1.6; padding: 2rem 1rem; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        header { text-align: center; margin-bottom: 2rem; }
+        h1 { color: var(--primary); font-size: 2.2rem; margin-bottom: 0.5rem; }
+        p.subtitle { color: var(--text-muted); font-size: 1.1rem; max-width: 800px; margin: 0 auto; }
+
+        /* Topic Filter Controls */
+        .filter-controls { display: flex; justify-content: center; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+        .filter-btn { padding: 0.5rem 1rem; font-size: 0.9rem; font-weight: 600; background: var(--bg-body); color: var(--primary); border: 2px solid var(--primary-light); border-radius: 20px; cursor: pointer; transition: all 0.2s ease; }
+        .filter-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
+        .filter-btn:hover:not(.active) { background: var(--primary-light); }
+
+        /* View Toggles */
+        .view-controls { display: flex; justify-content: center; gap: 1rem; margin-bottom: 3rem; }
+        .view-btn { padding: 0.75rem 1.5rem; font-size: 1rem; font-weight: 600; background: var(--card-bg); color: var(--text-muted); border: 2px solid var(--border); border-radius: 8px; cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; gap: 0.5rem; }
+        .view-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
+        .view-btn:hover:not(.active) { border-color: var(--primary); color: var(--primary); }
+
+        /* Grid View Styles */
+        #grid-view { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 1.5rem; }
+        .vocab-card { background-color: var(--card-bg); border-radius: 12px; padding: 1.5rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); border: 1px solid var(--border); transition: transform 0.2s ease, box-shadow 0.2s ease; display: flex; flex-direction: column; }
+        .vocab-card:hover { transform: translateY(-5px); box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); border-color: var(--primary); }
+        .vocab-card.hidden { display: none; }
+        .word-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; border-bottom: 2px solid var(--primary-light); padding-bottom: 0.75rem; }
+        .word-main { display: flex; align-items: center; gap: 0.5rem; }
+        .word { font-size: 1.5rem; font-weight: 700; color: var(--primary); }
+        .audio-btn { background: none; border: none; cursor: pointer; font-size: 1.2rem; padding: 0.2rem; border-radius: 50%; transition: transform 0.2s; }
+        .audio-btn:hover { transform: scale(1.2); background-color: var(--primary-light); }
+        .meta-info { text-align: right; display: flex; flex-direction: column; align-items: flex-end; gap: 0.25rem; }
+        .phonetic { font-size: 0.95rem; color: var(--text-muted); font-style: italic; }
+        .word-form { background-color: var(--badge-bg); color: var(--badge-text); font-size: 0.75rem; font-weight: 600; padding: 0.2rem 0.6rem; border-radius: 12px; text-transform: uppercase; letter-spacing: 0.05em; display: inline-block; }
+        
+        .topic-tag { font-size: 0.8rem; color: var(--accent); font-weight: bold; margin-bottom: 0.5rem; display: block;}
+        
+        .definition { font-size: 1rem; margin-bottom: 0.25rem; }
+        .definition strong { color: var(--text-main); }
+        
+        /* Translation and Usage */
+        .translation { font-size: 0.95rem; color: var(--success); margin-bottom: 0.5rem; font-weight: 500; }
+        .usage-note { font-size: 0.9rem; margin-bottom: 1rem; color: #4b5563; font-style: italic; background: #f9fafb; padding: 0.5rem 0.75rem; border-radius: 4px; border-left: 3px solid #9ca3af; flex-grow: 1; }
+        .usage-note strong { color: var(--text-main); font-style: normal; font-weight: 600; }
+
+        .example-box { background-color: var(--primary-light); padding: 1rem; border-left: 4px solid var(--accent); border-radius: 4px; font-size: 0.95rem; color: var(--text-main); margin-top: auto; }
+        .example-box span { display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 0.25rem; font-weight: bold; }
+
+        /* Flashcard View Styles */
+        #flashcard-view { display: none; flex-direction: column; align-items: center; width: 100%; }
+        .flashcard-scene { width: 100%; max-width: 650px; height: 420px; perspective: 1000px; cursor: pointer; margin-bottom: 2rem; }
+        .flashcard-inner { width: 100%; height: 100%; position: relative; transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1); transform-style: preserve-3d; }
+        .flashcard-scene.is-flipped .flashcard-inner { transform: rotateY(180deg); }
+        .flashcard-face { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 16px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08); border: 2px solid var(--border); background: var(--card-bg); padding: 2rem 2.5rem; display: flex; flex-direction: column; justify-content: center; align-items: center; overflow-y: auto; }
+        .flashcard-front { text-align: center; }
+        .flashcard-front .word { font-size: 3rem; margin-bottom: 1rem; }
+        .flashcard-front .meta-row { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+        .flashcard-front .phonetic { font-size: 1.2rem; }
+        .flashcard-front .audio-btn { font-size: 1.8rem; background: var(--primary-light); padding: 0.5rem; }
+        .flashcard-back { transform: rotateY(180deg); background: #f8fafc; align-items: flex-start; text-align: left; }
+        .flashcard-back h3 { color: var(--primary); font-size: 1.1rem; margin-bottom: 0.25rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        
+        .flashcard-back .definition { font-size: 1.1rem; margin-bottom: 0.25rem; }
+        .flashcard-back .translation { font-size: 1.05rem; margin-bottom: 0.75rem; }
+        .flashcard-back .usage-note { width: 100%; font-size: 0.95rem; padding: 0.5rem; margin-bottom: 1rem; }
+        .flashcard-back .example-box { width: 100%; font-size: 1rem; padding: 0.75rem 1rem; }
+        
+        .flashcard-hint { position: absolute; bottom: 1rem; font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.6; }
+
+        .flashcard-controls { display: flex; align-items: center; gap: 1.5rem; background: var(--card-bg); padding: 1rem 2rem; border-radius: 50px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border: 1px solid var(--border); }
+        .fc-btn { background: none; border: none; color: var(--text-main); font-size: 1rem; font-weight: 600; cursor: pointer; padding: 0.5rem 1rem; border-radius: 20px; transition: background 0.2s; display: flex; align-items: center; gap: 0.5rem; }
+        .fc-btn:hover:not(:disabled) { background: var(--primary-light); color: var(--primary); }
+        .fc-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+        .fc-counter { font-weight: 700; font-size: 1.1rem; color: var(--primary); min-width: 60px; text-align: center; }
+
+        @media (max-width: 768px) { 
+            h1 { font-size: 1.8rem; } 
+            #grid-view { grid-template-columns: 1fr; } 
+            .flashcard-scene { height: 480px; } 
+            .flashcard-front .word { font-size: 2.2rem; } 
+            .flashcard-back .definition { font-size: 1rem; }
+            .flashcard-face { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Vocabulary: The Myth of Eight-Hour Sleep</h1>
+        <p class="subtitle">Target Band 6.5+ | 15 Selected Academic Words & Phrases</p>
+    </header>
+
+    <!-- Topic Filter -->
+    <div class="filter-controls" id="topic-filters">
+        <button class="filter-btn active" onclick="filterTopic('all')">All Terms</button>
+        <button class="filter-btn" onclick="filterTopic('Scientific Research')">Scientific Research</button>
+        <button class="filter-btn" onclick="filterTopic('Historical Patterns')">Historical Patterns</button>
+        <button class="filter-btn" onclick="filterTopic('Modern Habits')">Modern Habits</button>
+    </div>
+
+    <div class="view-controls">
+        <button class="view-btn active" id="btn-grid" onclick="switchView('grid')">📄 List View</button>
+        <button class="view-btn" id="btn-flashcards" onclick="switchView('flashcards')">🗂️ Flashcard Study</button>
+    </div>
+
+    <!-- FLASHCARD VIEW -->
+    <div id="flashcard-view">
+        <div class="flashcard-scene" id="flashcard-scene" onclick="flipCard()">
+            <div class="flashcard-inner">
+                <div class="flashcard-face flashcard-front">
+                    <span class="word-form" id="fc-form">Verb</span>
+                    <h2 class="word" id="fc-word">Word</h2>
+                    <div class="meta-row">
+                        <span class="phonetic" id="fc-phonetic">/wɜːd/</span>
+                        <button class="audio-btn" id="fc-audio" onclick="playAudioFromCard(event)" title="Listen to pronunciation">🔊</button>
+                    </div>
+                    <span class="topic-tag" id="fc-topic" style="margin-top: 1rem;">Topic: General</span>
+                    <span class="flashcard-hint">Click card to flip</span>
+                </div>
+                <div class="flashcard-face flashcard-back">
+                    <h3>Meaning & Usage</h3>
+                    <p class="definition" id="fc-definition">Definition goes here.</p>
+                    <p class="translation" id="fc-translation">Vietnamese goes here.</p>
+                    <div class="usage-note" id="fc-usage"><strong>Usage:</strong> Usage goes here.</div>
+                    <div class="example-box">
+                        <span>Example</span>
+                        <div id="fc-example">"Example sentence goes here."</div>
+                    </div>
+                    <span class="flashcard-hint" style="left: 50%; transform: translateX(-50%);">Click card to flip back</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="flashcard-controls">
+            <button class="fc-btn" id="fc-prev" onclick="prevCard()">◀ Prev</button>
+            <span class="fc-counter" id="fc-counter">1 / 15</span>
+            <button class="fc-btn" id="fc-next" onclick="nextCard()">Next ▶</button>
+            <div style="width: 2px; height: 24px; background: var(--border); margin: 0 0.5rem;"></div>
+            <button class="fc-btn" onclick="shuffleCards()" title="Shuffle Order">🔀</button>
+        </div>
+    </div>
+
+    <!-- GRID VIEW -->
+    <main id="grid-view">
+        
+        <!-- Category: Scientific Research -->
+        <article class="vocab-card" data-topic="Scientific Research">
+            <div class="word-header">
+                <div class="word-main">
+                    <span class="word">Regulate</span>
+                    <button class="audio-btn" onclick="playAudio('Regulate')" title="Listen to pronunciation">🔊</button>
+                </div>
+                <div class="meta-info">
+                    <span class="word-form">Verb</span>
+                    <span class="phonetic">/ˈrɛɡjʊleɪt/</span>
+                </div>
+            </div>
+            <span class="topic-tag">Scientific Research</span>
+            <p class="definition"><strong>Definition:</strong> To control or adjust something so that it works properly or functions at a normal level.</p>
+            <p class="translation"><strong>Vietnamese:</strong> Điều hòa, điều chỉnh.</p>
+            <p class="usage-note"><strong>Usage:</strong> Often used with biological processes (like sleep, body temperature, or metabolism) and official rules.</p>
+            <div class="example-box"><span>Example</span>"It took some time for their sleep to regulate in the darkened room."</div>
+        </article>
+
+        <article class="vocab-card" data-topic="Scientific Research">
+            <div class="word-header">
+                <div class="word-main">
+                    <span class="word">Consecutive</span>
+                    <button class="audio-btn" onclick="playAudio('Consecutive')" title="Listen to pronunciation">🔊</button>
+                </div>
+                <div class="meta-info">
+                    <span class="word-form">Adjective</span>
+                    <span class="phonetic">/kənˈsɛkjʊtɪv/</span>
+                </div>
+            </div>
+            <span class="topic-tag">Scientific Research</span>
+            <p class="definition"><strong>Definition:</strong> Following continuously; in unbroken or logical sequence.</p>
+            <p class="translation"><strong>Vietnamese:</strong> Liên tục, liên tiếp.</p>
+            <p class="usage-note"><strong>Usage:</strong> Very commonly paired with time periods like "hours", "days", or "years" (e.g., five consecutive days).</p>
+            <div class="example-box"><span>Example</span>"The idea that we must sleep for eight consecutive hours is actually a modern myth."</div>
+        </article>
+
+        <article class="vocab-card" data-topic="Scientific Research">
+            <div class="word-header">
+                <div class="word-main">
+                    <span class="word">Distinct</span>
+                    <button class="audio-btn" onclick="playAudio('Distinct')" title="Listen to pronunciation">🔊</button>
+                </div>
+                <div class="meta-info">
+                    <span class="word-form">Adjective</span>
+                    <span class="phonetic">/dɪˈstɪŋkt/</span>
+                </div>
+            </div>
+            <span class="topic-tag">Scientific Research</span>
+            <p class="definition"><strong>Definition:</strong> Clearly different or of a different kind; easily noticeable.</p>
+            <p class="translation"><strong>Vietnamese:</strong> Khác biệt, rõ rệt.</p>
+            <p class="usage-note"><strong>Usage:</strong> Used to emphasize that two or more things are noticeably separate (e.g., two distinct periods).</p>
+            <div class="example-box"><span>Example</span>"The subjects had settled into a very distinct sleeping pattern."</div>
+        </article>
+
+        <article class="vocab-card" data-topic="Scientific Research">
+            <div class="word-header">
+                <div class="word-main">
+                    <span class="word">Persist</span>
+                    <button class="audio-btn" onclick="playAudio('Persist')" title="Listen to pronunciation">🔊</button>
+                </div>
+                <div class="meta-info">
+                    <span class="word-form">Verb</span>
+                    <span class="phonetic">/pəˈsɪst/</span>
+                </div>
+            </div>
+            <span class="topic-tag">Scientific Research</span>
+            <p class="definition"><strong>Definition:</strong> To continue to exist or occur over a prolonged period, often despite opposition.</p>
+            <p class="translation"><strong>Vietnamese:</strong> Tồn tại dai dẳng, khăng khăng.</p>
+            <p class="usage-note"><strong>Usage:</strong> Describes beliefs, rumors, or physical symptoms that won't go away.</p>
+            <div class="example-box"><span>Example</span>"The idea that we must sleep in one block persists amongst the general public."</div>
+        </article>
+
+        <article class="vocab-card" data-topic="Scientific Research">
+            <div class="word-header">
+                <div class="word-main">
+                    <span class="word">Stem from</span>
+                    <button class="audio-btn" onclick="playAudio('Stem from')" title="Listen to pronunciation">🔊</button>
+                </div>
+                <div class="meta-info">
+                    <span class="word-form">Phrasal Verb</span>
+                    <span class="phonetic">/stɛm frɒm/</span>
+                </div>
+            </div>
+            <span class="topic-tag">Scientific Research</span>
+            <p class="definition"><strong>Definition:</strong> To be caused by; to originate or develop from something.</p>
+            <p class="translation"><strong>Vietnamese:</strong> Bắt nguồn từ, xuất phát từ.</p>
+            <p class="usage-note"><strong>Usage:</strong> Frequently used in scientific or medical contexts to identify the root cause of a problem.</p>
+            <div class="example-box"><span>Example</span>"Over 30% of medical problems stem directly or indirectly from sleep issues."</div>
+        </article>
+
+        <!-- Category: Historical Patterns -->
+        <article class="vocab-card" data-topic="Historical Patterns">
+            <div class="word-header">
+                <div class="word-main">
+                    <span class="word">Segmented</span>
+                    <button class="audio-btn" onclick="playAudio('Segmented')" title="Listen to pronunciation">🔊</button>
+                </div>
+                <div class="meta-info">
+                    <span class="word-form">Adjective</span>
+                    <span class="phonetic">/ˈsɛɡməntɪd/</span>
+                </div>
+            </div>
+            <span class="topic-tag">Historical Patterns</span>
+            <p class="definition"><strong>Definition:</strong> Divided into separate parts or sections.</p>
+            <p class="translation"><strong>Vietnamese:</strong> Được chia nhỏ, phân đoạn.</p>
+            <p class="usage-note"><strong>Usage:</strong> Used to describe things broken into pieces, such as segmented markets, bodies, or sleep patterns.</p>
+            <div class="example-box"><span>Example</span>"Ekirch found more than 500 references to a segmented sleeping pattern in old diaries."</div>
+        </article>
+
+        <article class="vocab-card" data-topic="Historical Patterns">
+            <div class="word-header">
+                <div class="word-main">
+                    <span class="word">Reflect on</span>
+                    <button class="audio-btn" onclick="playAudio('Reflect on')" title="Listen to pronunciation">🔊</button>
+                </div>
+                <div class="meta-info">
+                    <span class="word-form">Phrasal Verb</span>
+                    <span class="phonetic">/rɪˈflɛkt ɒn/</span>
+                </div>
+            </div>
+            <span class="topic-tag">Historical Patterns</span>
+            <p class="definition"><strong>Definition:</strong> To think deeply, carefully, or seriously about something.</p>
+            <p class="translation"><strong>Vietnamese:</strong> Suy ngẫm về.</p>
+            <p class="usage-note"><strong>Usage:</strong> Implies calm, serious thought about past events, memories, or abstract concepts like dreams.</p>
+            <div class="example-box"><span>Example</span>"People used the waking period between sleep to reflect calmly on their dreams."</div>
+        </article>
+
+        <article class="vocab-card" data-topic="Historical Patterns">
+            <div class="word-header">
+                <div class="word-main">
+                    <span class="word">Prestige</span>
+                    <button class="audio-btn" onclick="playAudio('Prestige')" title="Listen to pronunciation">🔊</button>
+                </div>
+                <div class="meta-info">
+                    <span class="word-form">Noun</span>
+                    <span class="phonetic">/prɛˈstiːʒ/</span>
+                </div>
+            </div>
+            <span class="topic-tag">Historical Patterns</span>
+            <p class="definition"><strong>Definition:</strong> Widespread respect and admiration felt for someone or something based on achievements or quality.</p>
+            <p class="translation"><strong>Vietnamese:</strong> Uy tín, danh tiếng, giá trị xã hội.</p>
+            <p class="usage-note"><strong>Usage:</strong> Strongly associated with high status, wealth, power, or important social standing.</p>
+            <div class="example-box"><span>Example</span>"Before the 17th century, there was no prestige or social value in staying up late at night."</div>
+        </article>
+
+        <article class="vocab-card" data-topic="Historical Patterns">
+            <div class="word-header">
+                <div class="word-main">
+                    <span class="word">Alter</span>
+                    <button class="audio-btn" onclick="playAudio('Alter')" title="Listen to pronunciation">🔊</button>
+                </div>
+                <div class="meta-info">
+                    <span class="word-form">Verb</span>
+                    <span class="phonetic">/ˈɔːltə/</span>
+                </div>
+            </div>
+            <span class="topic-tag">Historical Patterns</span>
+            <p class="definition"><strong>Definition:</strong> To change or cause to change in character, composition, or form.</p>
+            <p class="translation"><strong>Vietnamese:</strong> Thay đổi, biến đổi.</p>
+            <p class="usage-note"><strong>Usage:</strong> A slightly formal synonym for "change," often implying a noticeable but not total adjustment to a structure or pattern.</p>
+            <div class="example-box"><span>Example</span>"The sleep pattern began to alter first among the urban upper classes."</div>
+        </article>
+
+        <article class="vocab-card" data-topic="Historical Patterns">
+            <div class="word-header">
+                <div class="word-main">
+                    <span class="word">Recede</span>
+                    <button class="audio-btn" onclick="playAudio('Recede')" title="Listen to pronunciation">🔊</button>
+                </div>
+                <div class="meta-info">
+                    <span class="word-form">Verb</span>
+                    <span class="phonetic">/rɪˈsiːd/</span>
+                </div>
+            </div>
+            <span class="topic-tag">Historical Patterns</span>
+            <p class="definition"><strong>Definition:</strong> To gradually diminish, fade away, or move further away into the distance.</p>
+            <p class="translation"><strong>Vietnamese:</strong> Lùi dần, phai nhạt dần.</p>
+            <p class="usage-note"><strong>Usage:</strong> Used literally for receding water/hairlines, and figuratively for fading memories, ideas, or traditions.</p>
+            <div class="example-box"><span>Example</span>"By the 1920s, the idea of a divided sleep had receded entirely from our social consciousness."</div>
+        </article>
+
+        <!-- Category: Modern Habits -->
+        <article class="vocab-card" data-topic="Modern Habits">
+            <div class="word-header">
+                <div class="word-main">
+                    <span class="word">Emerge</span>
+                    <button class="audio-btn" onclick="playAudio('Emerge')" title="Listen to pronunciation">🔊</button>
+                </div>
+                <div class="meta-info">
+                    <span class="word-form">Verb</span>
+                    <span class="phonetic">/ɪˈmɜːdʒ/</span>
+                </div>
+            </div>
+            <span class="topic-tag">Modern Habits</span>
+            <p class="definition"><strong>Definition:</strong> To move out of or away from something and come into view; to become known or prominent.</p>
+            <p class="translation"><strong>Vietnamese:</strong> Nổi lên, xuất hiện.</p>
+            <p class="usage-note"><strong>Usage:</strong> Often used for new trends, new facts, or when something hidden becomes visible.</p>
+            <div class="example-box"><span>Example</span>"When city streets were lit, coffee houses emerged as a fashionable nighttime phenomenon."</div>
+        </article>
+
+        <article class="vocab-card" data-topic="Modern Habits">
+            <div class="word-header">
+                <div class="word-main">
+                    <span class="word">Commonplace</span>
+                    <button class="audio-btn" onclick="playAudio('Commonplace')" title="Listen to pronunciation">🔊</button>
+                </div>
+                <div class="meta-info">
+                    <span class="word-form">Adjective</span>
+                    <span class="phonetic">/ˈkɒmənpleɪs/</span>
+                </div>
+            </div>
+            <span class="topic-tag">Modern Habits</span>
+            <p class="definition"><strong>Definition:</strong> Not unusual; ordinary or happening frequently.</p>
+            <p class="translation"><strong>Vietnamese:</strong> Phổ biến, quen thuộc, bình thường.</p>
+            <p class="usage-note"><strong>Usage:</strong> Describes things or habits that happen so often they are no longer surprising or special.</p>
+            <div class="example-box"><span>Example</span>"With the spread of street lamps, going out at night quickly became commonplace."</div>
+        </article>
+
+        <article class="vocab-card" data-topic="Modern Habits">
+            <div class="word-header">
+                <div class="word-main">
+                    <span class="word">Adapt</span>
+                    <button class="audio-btn" onclick="playAudio('Adapt')" title="Listen to pronunciation">🔊</button>
+                </div>
+                <div class="meta-info">
+                    <span class="word-form">Verb</span>
+                    <span class="phonetic">/əˈdæpt/</span>
+                </div>
+            </div>
+            <span class="topic-tag">Modern Habits</span>
+            <p class="definition"><strong>Definition:</strong> To make something suitable for a new use; to adjust oneself to new conditions.</p>
+            <p class="translation"><strong>Vietnamese:</strong> Thích nghi, làm cho phù hợp.</p>
+            <p class="usage-note"><strong>Usage:</strong> Almost always followed by the preposition "to" (e.g., adapt to a new environment/schedule).</p>
+            <div class="example-box"><span>Example</span>"Today, most people seem to have adapted quite well to the unbroken eight-hour sleep."</div>
+        </article>
+
+        <article class="vocab-card" data-topic="Modern Habits">
+            <div class="word-header">
+                <div class="word-main">
+                    <span class="word">Artificial</span>
+                    <button class="audio-btn" onclick="playAudio('Artificial')" title="Listen to pronunciation">🔊</button>
+                </div>
+                <div class="meta-info">
+                    <span class="word-form">Adjective</span>
+                    <span class="phonetic">/ˌɑːtɪˈfɪʃl/</span>
+                </div>
+            </div>
+            <span class="topic-tag">Modern Habits</span>
+            <p class="definition"><strong>Definition:</strong> Made or produced by human beings rather than occurring naturally.</p>
+            <p class="translation"><strong>Vietnamese:</strong> Nhân tạo.</p>
+            <p class="usage-note"><strong>Usage:</strong> Contrasted with "natural." Frequently used with light, flavors, fabrics, or intelligence (AI).</p>
+            <div class="example-box"><span>Example</span>"Modern sleep difficulties are often caused by extended exposure to artificial light."</div>
+        </article>
+
+        <article class="vocab-card" data-topic="Modern Habits">
+            <div class="word-header">
+                <div class="word-main">
+                    <span class="word">Interrupt</span>
+                    <button class="audio-btn" onclick="playAudio('Interrupt')" title="Listen to pronunciation">🔊</button>
+                </div>
+                <div class="meta-info">
+                    <span class="word-form">Verb</span>
+                    <span class="phonetic">/ˌɪntəˈrʌpt/</span>
+                </div>
+            </div>
+            <span class="topic-tag">Modern Habits</span>
+            <p class="definition"><strong>Definition:</strong> To stop the continuous progress of an activity or process.</p>
+            <p class="translation"><strong>Vietnamese:</strong> Làm gián đoạn, ngắt quãng.</p>
+            <p class="usage-note"><strong>Usage:</strong> Used for stopping conversations, blocking views, or breaking continuous states like sleep or power supply.</p>
+            <div class="example-box"><span>Example</span>"By the end of the 19th century, accounts of naturally interrupted sleep had disappeared."</div>
+        </article>
+
+    </main>
+</div>
+
+<script>
+    // --- Audio Synthesis ---
+    function playAudio(text) {
+        if ('speechSynthesis' in window) {
+            window.speechSynthesis.cancel();
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'en-GB';
+            utterance.rate = 0.9;
+            window.speechSynthesis.speak(utterance);
+        } else {
+            alert("Sorry, your browser doesn't support text-to-speech pronunciation.");
+        }
+    }
+
+    function playAudioFromCard(event) {
+        event.stopPropagation();
+        const word = document.getElementById('fc-word').textContent;
+        playAudio(word);
+    }
+
+    // --- Topic Filtering ---
+    function filterTopic(topicName) {
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        filterBtns.forEach(btn => btn.classList.remove('active'));
+        event.target.classList.add('active');
+
+        const allCards = document.querySelectorAll('.vocab-card');
+        allCards.forEach(card => {
+            if (topicName === 'all' || card.getAttribute('data-topic') === topicName) {
+                card.classList.remove('hidden');
+            } else {
+                card.classList.add('hidden');
+            }
+        });
+
+        if(document.getElementById('flashcard-view').style.display === 'flex') {
+             extractDataFromGrid(topicName);
+             currentCardIndex = 0;
+             updateFlashcardUI();
+        }
+    }
+
+    // --- View Toggling ---
+    function switchView(viewName) {
+        const gridView = document.getElementById('grid-view');
+        const flashcardView = document.getElementById('flashcard-view');
+        const btnGrid = document.getElementById('btn-grid');
+        const btnFlashcards = document.getElementById('btn-flashcards');
+
+        if (viewName === 'grid') {
+            gridView.style.display = 'grid';
+            flashcardView.style.display = 'none';
+            btnGrid.classList.add('active');
+            btnFlashcards.classList.remove('active');
+        } else {
+            gridView.style.display = 'none';
+            flashcardView.style.display = 'flex';
+            btnFlashcards.classList.add('active');
+            btnGrid.classList.remove('active');
+            
+            const activeFilter = document.querySelector('.filter-btn.active').textContent;
+            const topicName = activeFilter === 'All Terms' ? 'all' : activeFilter;
+            
+            extractDataFromGrid(topicName);
+            currentCardIndex = 0;
+            updateFlashcardUI();
+        }
+    }
+
+    // --- Flashcard Logic ---
+    let flashcardData = [];
+    let currentCardIndex = 0;
+    const flashcardScene = document.getElementById('flashcard-scene');
+
+    function extractDataFromGrid(topicName = 'all') {
+        flashcardData = [];
+        const cards = document.querySelectorAll('.vocab-card');
+        cards.forEach(card => {
+            if (topicName === 'all' || card.getAttribute('data-topic') === topicName) {
+                const definitionElement = card.querySelector('.definition');
+                const translationElement = card.querySelector('.translation');
+                const usageElement = card.querySelector('.usage-note');
+                const exampleBoxElement = card.querySelector('.example-box');
+
+                if (definitionElement && exampleBoxElement) {
+                    let defText = definitionElement.textContent.replace('Definition:', '').trim();
+                    let transText = translationElement ? translationElement.textContent.replace('Vietnamese:', '').trim() : '';
+                    let useText = usageElement ? usageElement.textContent.replace('Usage:', '').trim() : '';
+                    let exText = exampleBoxElement.textContent.replace('Example', '').trim();
+                    
+                    flashcardData.push({
+                        word: card.querySelector('.word').textContent.trim(),
+                        form: card.querySelector('.word-form').textContent.trim(),
+                        phonetic: card.querySelector('.phonetic').textContent.trim(),
+                        topic: card.getAttribute('data-topic'),
+                        definition: defText,
+                        translation: transText,
+                        usage: useText,
+                        example: exText
+                    });
+                }
+            }
+        });
+    }
+
+    function updateFlashcardUI() {
+        if (flashcardData.length === 0) return;
+        const data = flashcardData[currentCardIndex];
+        
+        flashcardScene.classList.remove('is-flipped');
+        
+        setTimeout(() => {
+            document.getElementById('fc-word').textContent = data.word;
+            document.getElementById('fc-form').textContent = data.form;
+            document.getElementById('fc-phonetic').textContent = data.phonetic;
+            document.getElementById('fc-topic').textContent = "Category: " + data.topic;
+            
+            document.getElementById('fc-definition').textContent = data.definition;
+            document.getElementById('fc-translation').textContent = data.translation;
+            document.getElementById('fc-usage').innerHTML = `<strong>Usage:</strong> ${data.usage}`;
+            document.getElementById('fc-example').textContent = data.example;
+            
+            document.getElementById('fc-counter').textContent = `${currentCardIndex + 1} / ${flashcardData.length}`;
+            
+            document.getElementById('fc-prev').disabled = currentCardIndex === 0;
+            document.getElementById('fc-next').disabled = currentCardIndex === flashcardData.length - 1;
+        }, 150);
+    }
+
+    function flipCard() { flashcardScene.classList.toggle('is-flipped'); }
+    function nextCard() { if (currentCardIndex < flashcardData.length - 1) { currentCardIndex++; updateFlashcardUI(); } }
+    function prevCard() { if (currentCardIndex > 0) { currentCardIndex--; updateFlashcardUI(); } }
+    
+    function shuffleCards() {
+        for (let i = flashcardData.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [flashcardData[i], flashcardData[j]] = [flashcardData[j], flashcardData[i]];
+        }
+        currentCardIndex = 0;
+        updateFlashcardUI();
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Reading: Musical Expertise & Practice (Band 6-6.5)</title>
+    <style>
+        :root {
+            --primary: #8b5cf6; /* Purple */
+            --primary-light: #ede9fe;
+            --text-main: #1f2937;
+            --text-muted: #6b7280;
+            --bg-body: #f3f4f6;
+            --card-bg: #ffffff;
+            --accent: #6d28d9;
+            --border: #e5e7eb;
+            --badge-bg: #ddd6fe;
+            --badge-text: #4c1d95;
+            --success: #059669; /* Green for translation */
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+
+        body { background-color: var(--bg-body); color: var(--text-main); line-height: 1.6; padding: 2rem 1rem; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        header { text-align: center; margin-bottom: 2rem; }
+        h1 { color: var(--primary); font-size: 2.2rem; margin-bottom: 0.5rem; }
+        p.subtitle { color: var(--text-muted); font-size: 1.1rem; max-width: 800px; margin: 0 auto; }
+
+        /* Topic Filter Controls */
+        .filter-controls { display: flex; justify-content: center; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+        .filter-btn { padding: 0.5rem 1rem; font-size: 0.9rem; font-weight: 600; background: var(--bg-body); color: var(--primary); border: 2px solid var(--primary-light); border-radius: 20px; cursor: pointer; transition: all 0.2s ease; }
+        .filter-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
+        .filter-btn:hover:not(.active) { background: var(--primary-light); }
+
+        /* View Toggles */
+        .view-controls { display: flex; justify-content: center; gap: 1rem; margin-bottom: 3rem; }
+        .view-btn { padding: 0.75rem 1.5rem; font-size: 1rem; font-weight: 600; background: var(--card-bg); color: var(--text-muted); border: 2px solid var(--border); border-radius: 8px; cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; gap: 0.5rem; }
+        .view-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
+        .view-btn:hover:not(.active) { border-color: var(--primary); color: var(--primary); }
+
+        /* Grid View Styles */
+        #grid-view { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 1.5rem; }
+        .vocab-card { background-color: var(--card-bg); border-radius: 12px; padding: 1.5rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); border: 1px solid var(--border); transition: transform 0.2s ease, box-shadow 0.2s ease; display: flex; flex-direction: column; }
+        .vocab-card:hover { transform: translateY(-5px); box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); border-color: var(--primary); }
+        .vocab-card.hidden { display: none; }
+        .word-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; border-bottom: 2px solid var(--primary-light); padding-bottom: 0.75rem; }
+        .word-main { display: flex; align-items: center; gap: 0.5rem; }
+        .word { font-size: 1.5rem; font-weight: 700; color: var(--primary); }
+        .audio-btn { background: none; border: none; cursor: pointer; font-size: 1.2rem; padding: 0.2rem; border-radius: 50%; transition: transform 0.2s; }
+        .audio-btn:hover { transform: scale(1.2); background-color: var(--primary-light); }
+        .meta-info { text-align: right; display: flex; flex-direction: column; align-items: flex-end; gap: 0.25rem; }
+        .phonetic { font-size: 0.95rem; color: var(--text-muted); font-style: italic; }
+        .word-form { background-color: var(--badge-bg); color: var(--badge-text); font-size: 0.75rem; font-weight: 600; padding: 0.2rem 0.6rem; border-radius: 12px; text-transform: uppercase; letter-spacing: 0.05em; display: inline-block; }
+        
+        .topic-tag { font-size: 0.8rem; color: var(--accent); font-weight: bold; margin-bottom: 0.5rem; display: block;}
+        
+        .definition { font-size: 1rem; margin-bottom: 0.25rem; }
+        .definition strong { color: var(--text-main); }
+        
+        /* Translation and Usage */
+        .translation { font-size: 0.95rem; color: var(--success); margin-bottom: 0.5rem; font-weight: 500; }
+        .usage-note { font-size: 0.9rem; margin-bottom: 1rem; color: #4b5563; background: #f9fafb; padding: 0.5rem 0.75rem; border-radius: 4px; border-left: 3px solid #9ca3af; flex-grow: 1; }
+        .usage-note strong { color: var(--text-main); font-style: normal; font-weight: 600; }
+        .usage-vi { color: #6b7280; font-style: italic; display: block; margin-top: 0.25rem; }
+
+        .example-box { background-color: var(--primary-light); padding: 1rem; border-left: 4px solid var(--badge-bg); border-radius: 4px; font-size: 0.95rem; color: var(--text-main); margin-top: auto; }
+        .example-box span { display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 0.25rem; font-weight: bold; }
+
+        /* Flashcard View Styles */
+        #flashcard-view { display: none; flex-direction: column; align-items: center; width: 100%; }
+        .flashcard-scene { width: 100%; max-width: 650px; height: 460px; perspective: 1000px; cursor: pointer; margin-bottom: 2rem; }
+        .flashcard-inner { width: 100%; height: 100%; position: relative; transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1); transform-style: preserve-3d; }
+        .flashcard-scene.is-flipped .flashcard-inner { transform: rotateY(180deg); }
+        .flashcard-face { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 16px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08); border: 2px solid var(--border); background: var(--card-bg); padding: 2rem 2.5rem; display: flex; flex-direction: column; justify-content: center; align-items: center; overflow-y: auto; }
+        .flashcard-front { text-align: center; }
+        .flashcard-front .word { font-size: 3rem; margin-bottom: 1rem; color: var(--primary); }
+        .flashcard-front .meta-row { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+        .flashcard-front .phonetic { font-size: 1.2rem; color: var(--text-muted); }
+        .flashcard-front .audio-btn { font-size: 1.8rem; background: var(--primary-light); padding: 0.5rem; }
+        .flashcard-back { transform: rotateY(180deg); background: #f8fafc; align-items: flex-start; text-align: left; }
+        .flashcard-back h3 { color: var(--primary); font-size: 1.1rem; margin-bottom: 0.25rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        
+        .flashcard-back .definition { font-size: 1.1rem; margin-bottom: 0.25rem; }
+        .flashcard-back .translation { font-size: 1.05rem; margin-bottom: 0.75rem; color: var(--success); font-weight: 500;}
+        .flashcard-back .usage-note { width: 100%; font-size: 0.95rem; padding: 0.5rem; margin-bottom: 1rem; }
+        .flashcard-back .example-box { width: 100%; font-size: 1rem; padding: 0.75rem 1rem; }
+        
+        .flashcard-hint { position: absolute; bottom: 1rem; font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.6; }
+
+        .flashcard-controls { display: flex; align-items: center; gap: 1.5rem; background: var(--card-bg); padding: 1rem 2rem; border-radius: 50px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border: 1px solid var(--border); }
+        .fc-btn { background: none; border: none; color: var(--text-main); font-size: 1rem; font-weight: 600; cursor: pointer; padding: 0.5rem 1rem; border-radius: 20px; transition: background 0.2s; display: flex; align-items: center; gap: 0.5rem; }
+        .fc-btn:hover:not(:disabled) { background: var(--primary-light); color: var(--primary); }
+        .fc-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+        .fc-counter { font-weight: 700; font-size: 1.1rem; color: var(--primary); min-width: 60px; text-align: center; }
+
+        @media (max-width: 768px) { 
+            h1 { font-size: 1.8rem; } 
+            #grid-view { grid-template-columns: 1fr; } 
+            .flashcard-scene { height: 520px; } 
+            .flashcard-front .word { font-size: 2.2rem; } 
+            .flashcard-back .definition { font-size: 1rem; }
+            .flashcard-face { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Reading: Musical Expertise & Practice</h1>
+        <p class="subtitle">Target Band 6.0 - 6.5 | 20 Essential Academic Words</p>
+    </header>
+
+    <!-- Topic Filter -->
+    <div class="filter-controls" id="topic-filters">
+        <button class="filter-btn active" onclick="filterTopic('all')">All Terms</button>
+        <button class="filter-btn" onclick="filterTopic('Skills & Abilities')">Skills & Abilities</button>
+        <button class="filter-btn" onclick="filterTopic('Science & Research')">Science & Research</button>
+        <button class="filter-btn" onclick="filterTopic('Practice & Learning')">Practice & Learning</button>
+    </div>
+
+    <div class="view-controls">
+        <button class="view-btn active" id="btn-grid" onclick="switchView('grid')">📄 List View</button>
+        <button class="view-btn" id="btn-flashcards" onclick="switchView('flashcards')">🗂️ Flashcard Study</button>
+    </div>
+
+    <!-- FLASHCARD VIEW -->
+    <div id="flashcard-view">
+        <div class="flashcard-scene" id="flashcard-scene" onclick="flipCard()">
+            <div class="flashcard-inner">
+                <div class="flashcard-face flashcard-front">
+                    <span class="word-form" id="fc-form">Verb</span>
+                    <h2 class="word" id="fc-word">Word</h2>
+                    <div class="meta-row">
+                        <span class="phonetic" id="fc-phonetic">/wɜːd/</span>
+                        <button class="audio-btn" id="fc-audio" onclick="playAudioFromCard(event)" title="Listen to pronunciation">🔊</button>
+                    </div>
+                    <span class="topic-tag" id="fc-topic" style="margin-top: 1rem;">Topic: General</span>
+                    <span class="flashcard-hint">Click card to flip</span>
+                </div>
+                <div class="flashcard-face flashcard-back">
+                    <h3>Meaning & Usage</h3>
+                    <p class="definition" id="fc-definition">Definition goes here.</p>
+                    <p class="translation" id="fc-translation">Vietnamese goes here.</p>
+                    <div class="usage-note" id="fc-usage"><strong>Usage:</strong> Usage goes here.</div>
+                    <div class="example-box">
+                        <span>Text Context</span>
+                        <div id="fc-example">"Example sentence goes here."</div>
+                    </div>
+                    <span class="flashcard-hint" style="left: 50%; transform: translateX(-50%);">Click card to flip back</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="flashcard-controls">
+            <button class="fc-btn" id="fc-prev" onclick="prevCard()">◀ Prev</button>
+            <span class="fc-counter" id="fc-counter">1 / 20</span>
+            <button class="fc-btn" id="fc-next" onclick="nextCard()">Next ▶</button>
+            <div style="width: 2px; height: 24px; background: var(--border); margin: 0 0.5rem;"></div>
+            <button class="fc-btn" onclick="shuffleCards()" title="Shuffle Order">🔀</button>
+        </div>
+    </div>
+
+    <!-- GRID VIEW -->
+    <main id="grid-view">
+        <!-- Injected via JavaScript -->
+    </main>
+</div>
+
+<script>
+    // ---------------------------------------------------------
+    // Vocabulary Bank (Extracted from the text)
+    // ---------------------------------------------------------
+    const vocabBank = [
+        // Category 1: Skills & Abilities
+        { topic: "Skills & Abilities", word: "Innate", form: "Adjective", phonetic: "/ɪˈneɪt/", def: "Inborn; natural.", translation: "Bẩm sinh", usage: "Often used with qualities, abilities, or talent. <span class='usage-vi'>(Thường dùng với phẩm chất, khả năng hoặc tài năng.)</span>", example: "...are they based on innate brain structures - what we refer to as 'talent'?" },
+        { topic: "Skills & Abilities", word: "Exceptional", form: "Adjective", phonetic: "/ɪkˈsɛpʃənl/", def: "Unusually good; outstanding.", translation: "Xuất chúng, khác thường", usage: "Describes performance, skills, or people. <span class='usage-vi'>(Miêu tả hiệu suất làm việc, kỹ năng, hoặc con người.)</span>", example: "...before a person has achieved exceptional levels of performance." },
+        { topic: "Skills & Abilities", word: "Expertise", form: "Noun", phonetic: "/ˌɛkspɜːˈtiːz/", def: "Expert skill or knowledge in a particular field.", translation: "Sự chuyên môn, sự thành thạo", usage: "Often paired with the preposition 'in' (e.g., expertise in music). <span class='usage-vi'>(Thường đi kèm giới từ 'in' - chuyên môn trong lĩnh vực gì.)</span>", example: "Anders Ericsson approaches the topic of musical expertise as a general problem..." },
+        { topic: "Skills & Abilities", word: "Mastery", form: "Noun", phonetic: "/ˈmɑːstəri/", def: "Comprehensive knowledge or skill in a subject or accomplishment.", translation: "Sự thành thạo, làm chủ", usage: "Refers to achieving the highest level of a skill after long practice. <span class='usage-vi'>(Chỉ việc đạt đến mức độ kỹ năng cao nhất sau quá trình thực hành dài.)</span>", example: "...ten thousand hours of practice is required to achieve the level of mastery..." },
+        { topic: "Skills & Abilities", word: "Achievement", form: "Noun", phonetic: "/əˈtʃiːvmənt/", def: "A thing done successfully, typically by effort, courage, or skill.", translation: "Thành tựu, thành tích", usage: "Often linked with academic, artistic, or sporting success. <span class='usage-vi'>(Thường liên kết với thành công trong học tập, nghệ thuật, thể thao.)</span>", example: "...suggesting that practice does not merely correlate with achievement, but causes it." },
+        { topic: "Skills & Abilities", word: "Gifted", form: "Adjective", phonetic: "/ˈɡɪftɪd/", def: "Having exceptional talent or natural ability.", translation: "Có năng khiếu", usage: "Often used to describe children or artists with high natural abilities. <span class='usage-vi'>(Thường dùng để miêu tả trẻ em hoặc nghệ sĩ có khả năng thiên bẩm cao.)</span>", example: "Although experts appear to be gifted, it may be that it takes them to consolidate information naturally..." },
+
+        // Category 2: Science & Research
+        { topic: "Science & Research", word: "Investigate", form: "Verb", phonetic: "/ɪnˈvɛstɪɡeɪt/", def: "To carry out research or study into a subject to discover facts.", translation: "Điều tra, nghiên cứu", usage: "Used in scientific, academic, or police contexts. <span class='usage-vi'>(Dùng trong bối cảnh khoa học, học thuật hoặc cảnh sát.)</span>", example: "The emphasis on early identification means that to investigate it, we study the development of skills in children." },
+        { topic: "Science & Research", word: "Component", form: "Noun", phonetic: "/kəmˈpəʊnənt/", def: "A part or element of a larger whole.", translation: "Thành phần, yếu tố", usage: "Used when discussing factors that make up a complex system or theory. <span class='usage-vi'>(Dùng khi thảo luận các yếu tố cấu thành một hệ thống hoặc lý thuyết phức tạp.)</span>", example: "...closely linked with other factors - with a presumably environmental component..." },
+        { topic: "Science & Research", word: "Conclusive", form: "Adjective", phonetic: "/kənˈkluːsɪv/", def: "Proving that something is true, or ending any doubt.", translation: "Thuyết phục, mang tính quyết định", usage: "Often describes evidence, study results, or proof. <span class='usage-vi'>(Thường miêu tả bằng chứng, kết quả nghiên cứu, hoặc sự chứng minh.)</span>", example: "Results of research into the areas of the brain involved in skilled motor movement are more conclusive." },
+        { topic: "Science & Research", word: "Correlate", form: "Verb", phonetic: "/ˈkɒrəleɪt/", def: "To have a mutual relationship or connection, in which one thing affects or depends on another.", translation: "Tương quan, liên quan", usage: "Used in statistics and research to show how two variables link together. <span class='usage-vi'>(Dùng trong thống kê và nghiên cứu để chỉ sự liên kết giữa hai biến số.)</span>", example: "...suggesting that practice does not merely correlate with achievement, but causes it." },
+        { topic: "Science & Research", word: "Assumption", form: "Noun", phonetic: "/əˈsʌmpʃn/", def: "A thing that is accepted as true or as certain to happen, without proof.", translation: "Giả định, giả thiết", usage: "Often used as the starting point in debates or research theories. <span class='usage-vi'>(Thường được dùng làm điểm xuất phát trong các cuộc tranh luận hoặc lý thuyết nghiên cứu.)</span>", example: "He takes as a starting-point the assumption that there are certain issues involved in becoming an expert..." },
+        { topic: "Science & Research", word: "Consistent", form: "Adjective", phonetic: "/kənˈsɪstənt/", def: "In agreement with other facts or typical behavior.", translation: "Nhất quán, phù hợp", usage: "Often followed by the preposition 'with' (e.g., consistent with the theory). <span class='usage-vi'>(Thường đi theo sau bởi giới từ 'with' - phù hợp với.)</span>", example: "The ten-thousand-hour theory is consistent with what we know about how the brain learns." },
+
+        // Category 3: Practice & Learning
+        { topic: "Practice & Learning", word: "Acquire", form: "Verb", phonetic: "/əˈkwaɪə/", def: "To learn or develop a skill, habit, or quality.", translation: "Thu nhận, đạt được", usage: "Frequently used with 'knowledge', 'skills', or 'language'. <span class='usage-vi'>(Thường dùng với 'kiến thức', 'kỹ năng', hoặc 'ngôn ngữ'.)</span>", example: "It is evident that some children acquire skills more rapidly than others..." },
+        { topic: "Practice & Learning", word: "Motivation", form: "Noun", phonetic: "/ˌməʊtɪˈveɪʃn/", def: "The reason or reasons one has for acting or behaving in a particular way.", translation: "Động lực", usage: "A key factor in education, psychology, and personal development. <span class='usage-vi'>(Một yếu tố then chốt trong giáo dục, tâm lý học và phát triển cá nhân.)</span>", example: "...closely linked with other factors... such as motivation and family dynamics." },
+        { topic: "Practice & Learning", word: "Precision", form: "Noun", phonetic: "/prɪˈsɪʒn/", def: "The quality, condition, or fact of being exact and accurate.", translation: "Sự độ chính xác", usage: "Describes careful, exact movements or measurements in science and arts. <span class='usage-vi'>(Miêu tả các chuyển động cẩn thận, chính xác trong khoa học và nghệ thuật.)</span>", example: "...the hand that controls greater precision in violin playing increases in size as a result of practice." },
+        { topic: "Practice & Learning", word: "Assimilate", form: "Verb", phonetic: "/əˈsɪmɪleɪt/", def: "To take in information, ideas, or culture and understand fully.", translation: "Đồng hóa, tiếp thu", usage: "Describes how the brain processes and stores new learning or data. <span class='usage-vi'>(Miêu tả cách não bộ xử lý và lưu trữ kiến thức mới.)</span>", example: "It seems that it takes the brain this long to assimilate all that it needs to know..." },
+        { topic: "Practice & Learning", word: "Consolidate", form: "Verb", phonetic: "/kənˈsɒlɪdeɪt/", def: "To make something physically stronger or more solid; to reinforce.", translation: "Củng cố", usage: "In learning, it refers to making memories or new skills permanent. <span class='usage-vi'>(Trong học tập, nó ám chỉ việc biến ký ức hoặc kỹ năng mới thành vĩnh viễn.)</span>", example: "Learning involves the assimilation and consolidation of information..." },
+        { topic: "Practice & Learning", word: "Crucial", form: "Adjective", phonetic: "/ˈkruːʃl/", def: "Decisive or critical, especially in the success or failure of something.", translation: "Cực kỳ quan trọng, thiết yếu", usage: "A stronger, more academic synonym for 'very important'. <span class='usage-vi'>(Một từ đồng nghĩa mạnh hơn, học thuật hơn của 'very important'.)</span>", example: "...practice may well be the most important, if not the only crucial case." },
+        { topic: "Practice & Learning", word: "Assign", form: "Verb", phonetic: "/əˈsaɪn/", def: "To allocate a job or duty, or place someone in a particular group.", translation: "Phân công, xếp vào nhóm", usage: "Common in educational, workplace, or scientific experiments. <span class='usage-vi'>(Phổ biến trong giáo dục, nơi làm việc hoặc các thí nghiệm khoa học.)</span>", example: "...irrespective of which 'talent' group they had been assigned to..." },
+        { topic: "Practice & Learning", word: "Lengthy", form: "Adjective", phonetic: "/ˈlɛŋθi/", def: "Especially long, often taking more time than is usual or necessary.", translation: "Dài dòng, kéo dài", usage: "Describes periods of time, documents, or processes. <span class='usage-vi'>(Miêu tả khoảng thời gian, tài liệu hoặc quá trình.)</span>", example: "Like experts in mathematics, chess, or sports, experts in music require lengthy periods of instruction and practice." }
+    ];
+
+    // --- DOM Injection ---
+    function renderGrid() {
+        const grid = document.getElementById('grid-view');
+        vocabBank.forEach(item => {
+            const article = document.createElement('article');
+            article.className = 'vocab-card';
+            article.setAttribute('data-topic', item.topic);
+            
+            article.innerHTML = `
+                <div class="word-header">
+                    <div class="word-main">
+                        <span class="word">${item.word}</span>
+                        <button class="audio-btn" onclick="playAudio('${item.word.replace(/'/g, "\\'")}')" title="Listen to pronunciation">🔊</button>
+                    </div>
+                    <div class="meta-info">
+                        <span class="word-form">${item.form}</span>
+                        <span class="phonetic">${item.phonetic}</span>
+                    </div>
+                </div>
+                <span class="topic-tag">${item.topic}</span>
+                <p class="definition"><strong>Definition:</strong> ${item.def}</p>
+                <p class="translation"><strong>Vietnamese:</strong> ${item.translation}</p>
+                <div class="usage-note"><strong>Usage:</strong> ${item.usage}</div>
+                <div class="example-box"><span>Text Context</span>"${item.example}"</div>
+            `;
+            grid.appendChild(article);
+        });
+    }
+
+    // Initialize Grid
+    renderGrid();
+
+    // --- Audio Synthesis ---
+    function playAudio(text) {
+        if ('speechSynthesis' in window) {
+            window.speechSynthesis.cancel();
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'en-GB';
+            utterance.rate = 0.9;
+            window.speechSynthesis.speak(utterance);
+        } else {
+            alert("Sorry, your browser doesn't support text-to-speech pronunciation.");
+        }
+    }
+
+    function playAudioFromCard(event) {
+        event.stopPropagation();
+        const word = document.getElementById('fc-word').textContent;
+        playAudio(word);
+    }
+
+    // --- Topic Filtering ---
+    function filterTopic(topicName) {
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        filterBtns.forEach(btn => btn.classList.remove('active'));
+        event.target.classList.add('active');
+
+        const allCards = document.querySelectorAll('.vocab-card');
+        allCards.forEach(card => {
+            if (topicName === 'all' || card.getAttribute('data-topic') === topicName) {
+                card.classList.remove('hidden');
+            } else {
+                card.classList.add('hidden');
+            }
+        });
+
+        if(document.getElementById('flashcard-view').style.display === 'flex') {
+             extractDataFromGrid(topicName);
+             currentCardIndex = 0;
+             updateFlashcardUI();
+        }
+    }
+
+    // --- View Toggling ---
+    function switchView(viewName) {
+        const gridView = document.getElementById('grid-view');
+        const flashcardView = document.getElementById('flashcard-view');
+        const btnGrid = document.getElementById('btn-grid');
+        const btnFlashcards = document.getElementById('btn-flashcards');
+
+        if (viewName === 'grid') {
+            gridView.style.display = 'grid';
+            flashcardView.style.display = 'none';
+            btnGrid.classList.add('active');
+            btnFlashcards.classList.remove('active');
+        } else {
+            gridView.style.display = 'none';
+            flashcardView.style.display = 'flex';
+            btnFlashcards.classList.add('active');
+            btnGrid.classList.remove('active');
+            
+            const activeFilter = document.querySelector('.filter-btn.active').textContent;
+            const topicName = activeFilter === 'All Terms' ? 'all' : activeFilter;
+            
+            extractDataFromGrid(topicName);
+            currentCardIndex = 0;
+            updateFlashcardUI();
+        }
+    }
+
+    // --- Flashcard Logic ---
+    let flashcardData = [];
+    let currentCardIndex = 0;
+    const flashcardScene = document.getElementById('flashcard-scene');
+
+    function extractDataFromGrid(topicName = 'all') {
+        flashcardData = [];
+        vocabBank.forEach(item => {
+            if (topicName === 'all' || item.topic === topicName) {
+                flashcardData.push(item);
+            }
+        });
+    }
+
+    function updateFlashcardUI() {
+        if (flashcardData.length === 0) return;
+        const data = flashcardData[currentCardIndex];
+        
+        flashcardScene.classList.remove('is-flipped');
+        
+        setTimeout(() => {
+            document.getElementById('fc-word').textContent = data.word;
+            document.getElementById('fc-form').textContent = data.form;
+            document.getElementById('fc-phonetic').textContent = data.phonetic;
+            document.getElementById('fc-topic').textContent = "Category: " + data.topic;
+            
+            document.getElementById('fc-definition').textContent = data.def;
+            document.getElementById('fc-translation').textContent = data.translation;
+            document.getElementById('fc-usage').innerHTML = `<strong>Usage:</strong> ${data.usage}`;
+            document.getElementById('fc-example').textContent = data.example;
+            
+            document.getElementById('fc-counter').textContent = `${currentCardIndex + 1} / ${flashcardData.length}`;
+            
+            document.getElementById('fc-prev').disabled = currentCardIndex === 0;
+            document.getElementById('fc-next').disabled = currentCardIndex === flashcardData.length - 1;
+        }, 150);
+    }
+
+    function flipCard() { flashcardScene.classList.toggle('is-flipped'); }
+    function nextCard() { if (currentCardIndex < flashcardData.length - 1) { currentCardIndex++; updateFlashcardUI(); } }
+    function prevCard() { if (currentCardIndex > 0) { currentCardIndex--; updateFlashcardUI(); } }
+    
+    function shuffleCards() {
+        for (let i = flashcardData.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [flashcardData[i], flashcardData[j]] = [flashcardData[j], flashcardData[i]];
+        }
+        currentCardIndex = 0;
+        updateFlashcardUI();
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 9 Teaching Guide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+        .section-done { opacity: 0.6; transition: opacity 0.3s; }
+        /* Custom checkbox style */
+        input[type="checkbox"] { accent-color: #2563eb; width: 1.25rem; height: 1.25rem; cursor: pointer; }
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
+    </style>
+</head>
+<body class="text-slate-800 pb-20">
+
+    <!-- Top Navigation / Status Bar -->
+    <div class="sticky top-0 bg-white border-b border-slate-200 shadow-sm z-50">
+        <div class="max-w-4xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div>
+                <h1 class="text-xl font-bold text-blue-700">Lesson 9: Listening Mock & Speaking Part 2</h1>
+                <p class="text-xs text-slate-500 font-medium tracking-wide uppercase">Integration Phase • 90 Minutes Total</p>
+            </div>
+            <div class="text-right">
+                <span class="text-sm font-semibold text-slate-600">Progress: </span>
+                <span id="progress-text" class="text-blue-600 font-bold">0 / 4</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-4 py-8 space-y-8">
+
+        <!-- Header Info -->
+        <div class="bg-blue-50 border border-blue-200 rounded-xl p-5 shadow-sm">
+            <h2 class="text-lg font-bold text-blue-900 mb-2">Goal</h2>
+            <p class="text-blue-800">Execute a full Listening test under strict exam conditions to build stamina, and refine fluency and structure in Speaking Part 2 Long Turns.</p>
+        </div>
+
+        <!-- PART 1: HW Review -->
+        <section id="part1" class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden transition-opacity">
+            <div class="bg-slate-50 border-b border-slate-200 p-4 flex justify-between items-center cursor-pointer" onclick="document.getElementById('check1').click()">
+                <h2 class="text-xl font-bold text-slate-800">Part 1: Homework Review (from Lesson 8) <span class="text-sm font-normal text-slate-500 ml-2">(00-15m)</span></h2>
+                <input type="checkbox" id="check1" class="part-checkbox" onchange="updateProgress(this, 'part1')">
+            </div>
+            <div class="p-6 space-y-4">
+                <h3 class="font-bold text-lg mb-2 text-indigo-700">Review Lesson 8 Assignment</h3>
+                
+                <div class="flex flex-col sm:flex-row gap-4 mb-4 bg-slate-50 p-3 rounded-lg border border-slate-200 items-start sm:items-center">
+                    <span class="text-sm font-bold text-slate-700">Prior HW Link:</span>
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <a href="https://e-learning.youpass.vn/practice/reading/6351" target="_blank" class="text-indigo-600 text-sm font-semibold hover:text-indigo-800 hover:underline flex items-center">
+                            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                            Full Reading Mock (Cam 20 Test 1)
+                        </a>
+                    </div>
+                </div>
+
+                <ul class="space-y-3 list-disc pl-5 text-slate-600">
+                    <li><strong>Score Check:</strong> Ask for their overall score out of 40. Did they hit the Band 6.0-6.5 target (23-29 correct)?</li>
+                    <li><strong>Time Management:</strong> Ask: <em>"Did you manage to finish all 3 passages in exactly 60 minutes?"</em> and <em>"Did you have to randomly guess any answers at the end?"</em></li>
+                    <li><strong>Error Focus:</strong> Quickly review 2-3 questions they got wrong, particularly identifying if the errors were due to vocabulary or simply misinterpreting the question.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- PART 2: Listening Full Mock -->
+        <section id="part2" class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden transition-opacity">
+            <div class="bg-slate-50 border-b border-slate-200 p-4 flex justify-between items-center cursor-pointer" onclick="document.getElementById('check2').click()">
+                <h2 class="text-xl font-bold text-slate-800">Part 2: Listening Full Mock Test <span class="text-sm font-normal text-slate-500 ml-2">(15-55m)</span></h2>
+                <input type="checkbox" id="check2" class="part-checkbox" onchange="updateProgress(this, 'part2')">
+            </div>
+            <div class="p-6 space-y-6">
+                
+                <div class="bg-amber-50 border border-amber-200 rounded-lg p-4 shadow-inner">
+                    <h3 class="font-bold text-amber-900 flex items-center mb-3">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
+                        Test Link Launcher
+                    </h3>
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <a href="https://youpass.vn/thi-thu/listening/6380" target="_blank" class="bg-amber-600 hover:bg-amber-700 text-white font-semibold py-2 px-4 rounded transition-colors shadow-sm text-center flex-1 flex items-center justify-center">
+                            Launch Cam 20 Test 2 Listening (6380)
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-lg mb-2 text-indigo-700">1. Pre-Test Exam Conditions (2 mins)</h3>
+                    <ul class="space-y-2 list-disc pl-5 text-slate-600 text-sm mb-4">
+                        <li><strong>No Pausing:</strong> Tell the student that once the audio starts, you will not pause it for any reason.</li>
+                        <li><strong>CD-IELTS Transfer Rule:</strong> Remind them they only get <strong>2 minutes</strong> at the end of Part 4 to check their answers, not 10 minutes. They must type as they listen.</li>
+                        <li><strong>Volume Check:</strong> Ensure their audio volume is set perfectly before hitting play.</li>
+                    </ul>
+                </div>
+
+                <div class="pt-4 border-t border-slate-100">
+                    <h3 class="font-bold text-lg mb-2 text-indigo-700">2. Live Execution & Analysis (38 mins)</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-start">
+                            <span class="bg-blue-100 text-blue-800 font-bold px-2 py-1 rounded text-xs mr-3 mt-0.5">MOCK</span>
+                            <p class="text-slate-600">Start the test. Observe their screen if possible. Watch for panic during Part 3 (Multiple Choice) or Part 4 (Monologue).</p>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="bg-blue-100 text-blue-800 font-bold px-2 py-1 rounded text-xs mr-3 mt-0.5">GRADE</span>
+                            <p class="text-slate-600">Once finished, grade immediately. Celebrate if they hit 23+ correct answers.</p>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="bg-blue-100 text-blue-800 font-bold px-2 py-1 rounded text-xs mr-3 mt-0.5">REVIEW</span>
+                            <p class="text-slate-600">Spend the remaining time looking at the transcript for missed questions. Identify "trap words" or spelling errors that cost them points.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PART 3: Speaking Part 2 -->
+        <section id="part3" class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden transition-opacity">
+            <div class="bg-slate-50 border-b border-slate-200 p-4 flex justify-between items-center cursor-pointer" onclick="document.getElementById('check3').click()">
+                <h2 class="text-xl font-bold text-slate-800">Part 3: Speaking Part 2 Topics <span class="text-sm font-normal text-slate-500 ml-2">(55-80m)</span></h2>
+                <input type="checkbox" id="check3" class="part-checkbox" onchange="updateProgress(this, 'part3')">
+            </div>
+            <div class="p-6 space-y-6">
+                
+                <div>
+                    <h3 class="font-bold text-lg mb-2 text-indigo-700">Live Practice Drill</h3>
+                    <p class="text-slate-600 text-sm mb-4">Give the student 1 minute of silence to prepare notes using the WH-question framework. Then, require them to speak for a full 2 minutes without interruption. Provide feedback on fluency and vocabulary after each attempt.</p>
+                    
+                    <!-- Cue Card 1 -->
+                    <div class="bg-white rounded border border-emerald-200 shadow-sm overflow-hidden mb-6">
+                        <div class="bg-emerald-50 border-b border-emerald-200 p-3 font-bold text-emerald-900 flex justify-between items-center">
+                            <span>Cue Card 1: A Useful Book</span>
+                            <span class="text-xs font-normal bg-white px-2 py-1 rounded border border-emerald-200">1m prep + 2m speak</span>
+                        </div>
+                        <div class="p-4">
+                            <p class="font-semibold text-slate-800 text-lg mb-2">Describe a book you read that you found useful.</p>
+                            <p class="text-slate-600 text-sm mb-1">You should say:</p>
+                            <ul class="list-disc pl-5 text-sm text-slate-600 mb-4 font-medium">
+                                <li>What the book is</li>
+                                <li>When you read it</li>
+                                <li>What it is about</li>
+                            </ul>
+                            <p class="text-slate-600 text-sm font-medium">And explain why you found it useful.</p>
+                            
+                            <div class="mt-4 bg-indigo-50 p-3 rounded-lg border border-indigo-100 space-y-2 text-sm">
+                                <p class="text-indigo-800"><span class="font-bold">💡 Brainstorming Ideas:</span> A self-help book (like <em>Atomic Habits</em> or <em>Rich Dad Poor Dad</em>), a cooking recipe book, a travel guide for a past trip, or an IELTS preparation book.</p>
+                                
+                                <div class="bg-white p-3 rounded border border-emerald-200 mt-2">
+                                    <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider block mb-2">Band 6.5 Sample Outline & Response</span>
+                                    <p class="text-slate-700 italic">"I’d like to talk about a book that really changed my daily routine, called 'Atomic Habits' by James Clear. I read it about six months ago when I was feeling quite stressed and disorganized with my studies.<br><br>Basically, the book is about the psychology of habit formation. It explains how making tiny, 1-percent improvements every day can lead to massive changes over a year. The author shares practical strategies on how to build good habits, like exercising or studying, and how to break bad ones, like scrolling on social media too much.<br><br>I found this book incredibly useful because it gave me actionable advice, not just motivation. Before reading it, I used to procrastinate a lot with my IELTS preparation. However, by applying the 'two-minute rule' from the book—which means scaling down a new habit so it takes just two minutes to start—I managed to build a consistent daily study routine. It totally shifted my mindset and made a huge difference in my productivity."</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cue Card 2 -->
+                    <div class="bg-white rounded border border-rose-200 shadow-sm overflow-hidden">
+                        <div class="bg-rose-50 border-b border-rose-200 p-3 font-bold text-rose-900 flex justify-between items-center">
+                            <span>Cue Card 2: A Helpful Person</span>
+                            <span class="text-xs font-normal bg-white px-2 py-1 rounded border border-rose-200">1m prep + 2m speak</span>
+                        </div>
+                        <div class="p-4">
+                            <p class="font-semibold text-slate-800 text-lg mb-2">Describe a person who often helps others.</p>
+                            <p class="text-slate-600 text-sm mb-1">You should say:</p>
+                            <ul class="list-disc pl-5 text-sm text-slate-600 mb-4 font-medium">
+                                <li>Who this person is</li>
+                                <li>How you know them</li>
+                                <li>How they help others</li>
+                            </ul>
+                            <p class="text-slate-600 text-sm font-medium">And explain how you feel about this person.</p>
+                            
+                            <div class="mt-4 bg-indigo-50 p-3 rounded-lg border border-indigo-100 space-y-2 text-sm">
+                                <p class="text-indigo-800"><span class="font-bold">💡 Brainstorming Ideas:</span> A dedicated school teacher, a family member (like an aunt or mother) who cooks for the neighborhood, a friend who volunteers at an animal shelter, or a local charity organizer.</p>
+                                
+                                <div class="bg-white p-3 rounded border border-rose-200 mt-2">
+                                    <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider block mb-2">Band 6.5 Sample Outline & Response</span>
+                                    <p class="text-slate-700 italic">"I'm going to describe my aunt, Lan, who is probably the most selfless and generous person I’ve ever met. I’ve known her my whole life, as she is my mother’s older sister, and she lives just a few blocks away from our family home.<br><br>She helps others in a variety of ways, but primarily through a local community kitchen she organizes. Every weekend, she gathers donations and cooks hundreds of meals for homeless people and struggling workers in the city. She doesn't just provide food; she also takes the time to sit and talk with them, offering emotional support and a listening ear. Furthermore, she's the kind of neighbor who is always willing to babysit kids or help out when someone is sick.<br><br>I feel profound respect and admiration for her. In today’s fast-paced world, where most people are only focused on their own careers and problems, it’s incredibly inspiring to see someone dedicate so much of their free time to making society a better place. She has definitely taught me the true meaning of compassion."</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- PART 4: Wrap-up -->
+        <section id="part4" class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden transition-opacity">
+            <div class="bg-slate-50 border-b border-slate-200 p-4 flex justify-between items-center cursor-pointer" onclick="document.getElementById('check4').click()">
+                <h2 class="text-xl font-bold text-slate-800">Part 4: Wrap-up & HW <span class="text-sm font-normal text-slate-500 ml-2">(80-90m)</span></h2>
+                <input type="checkbox" id="check4" class="part-checkbox" onchange="updateProgress(this, 'part4')">
+            </div>
+            <div class="p-6 space-y-6">
+                <div>
+                    <h3 class="font-bold text-lg mb-2 text-indigo-700">1. Feedback (5 mins)</h3>
+                    <ul class="space-y-3 pl-2 text-slate-600">
+                        <li class="flex items-start">
+                            <span class="mr-2">📝</span> 
+                            <div>Give final feedback on their Speaking Part 2 performance. Did they manage to expand on the last bullet point ("and explain why...")? The final bullet point is usually the easiest place to show off complex sentences and emotions.</div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="pt-4 border-t border-slate-100">
+                    <h3 class="font-bold text-lg mb-2 text-indigo-700">2. Assign Homework (5 mins)</h3>
+                    <div class="bg-rose-50 border border-rose-200 p-4 rounded-lg">
+                        
+                        <p class="font-bold text-rose-900 flex items-center mb-1">📖 Task: Full Reading Mock Test</p>
+                        <p class="text-rose-800 text-sm mb-2">Complete another full 60-minute Reading Test (Cam 20 Test 2) on the computer. Continue building that test-day stamina.</p>
+                        <div class="flex flex-col gap-2 mb-4 bg-white p-3 rounded border border-rose-100">
+                            <a href="https://youpass.vn/thi-thu/reading/6354" target="_blank" class="text-rose-700 text-sm font-semibold hover:text-rose-900 hover:underline flex items-center">
+                                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                                Full Reading HW (Cam 20 Test 4)
+                            </a>
+                        </div>
+
+                        <p class="font-bold text-rose-900 flex items-center mb-1">⏰ Reminder</p>
+                        <p class="text-rose-800 text-sm">Inform them to take the homework seriously, as strict time management is the only way to improve Reading scores at this stage of the curriculum.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        // Progress Tracking Logic
+        function updateProgress(checkboxElem, sectionId) {
+            const section = document.getElementById(sectionId);
+            const evt = window.event;
+            if(evt) evt.stopPropagation(); 
+
+            if (checkboxElem.checked) {
+                section.classList.add('section-done');
+            } else {
+                section.classList.remove('section-done');
+            }
+
+            const checkboxes = document.querySelectorAll('.part-checkbox');
+            let checkedCount = 0;
+            checkboxes.forEach(cb => {
+                if (cb.checked) checkedCount++;
+            });
+            
+            document.getElementById('progress-text').innerText = `${checkedCount} / 4`;
+        }
+    </script>
+</body>
+</html>

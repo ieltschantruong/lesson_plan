@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Vocabulary: Education & Travel Tours</title>
+    <style>
+        :root {
+            --primary: #1d4ed8;
+            --primary-light: #eff6ff;
+            --text-main: #1f2937;
+            --text-muted: #6b7280;
+            --bg-body: #f3f4f6;
+            --card-bg: #ffffff;
+            --accent: #3b82f6;
+            --border: #e5e7eb;
+            --badge-bg: #dbeafe;
+            --badge-text: #1e40af;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            color: var(--primary);
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        p.subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        /* View Toggles */
+        .view-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .view-btn {
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            background: var(--card-bg);
+            color: var(--text-muted);
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .view-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .view-btn:hover:not(.active) {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        /* Grid View Styles */
+        #grid-view {
+            display: block; /* Default view */
+        }
+
+        .vocab-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .vocab-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .vocab-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            border-color: var(--primary);
+        }
+
+        .word-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--primary-light);
+            padding-bottom: 0.75rem;
+        }
+        
+        .word-main {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .word {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .audio-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            padding: 0.2rem;
+            border-radius: 50%;
+            transition: transform 0.2s;
+        }
+        
+        .audio-btn:hover {
+            transform: scale(1.2);
+            background-color: var(--primary-light);
+        }
+
+        .meta-info {
+            text-align: right;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 0.25rem;
+        }
+
+        .phonetic {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+        
+        .word-form {
+            background-color: var(--badge-bg);
+            color: var(--badge-text);
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            display: inline-block;
+        }
+
+        .definition {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        .definition strong {
+            color: var(--text-main);
+        }
+
+        .example-box {
+            background-color: var(--primary-light);
+            padding: 1rem;
+            border-left: 4px solid var(--accent);
+            border-radius: 4px;
+            font-size: 0.95rem;
+            color: var(--text-main);
+            margin-top: auto;
+        }
+
+        .example-box span {
+            display: block;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--accent);
+            margin-bottom: 0.25rem;
+            font-weight: bold;
+        }
+
+        /* Flashcard View Styles */
+        #flashcard-view {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        .flashcard-scene {
+            width: 100%;
+            max-width: 600px;
+            height: 380px;
+            perspective: 1000px;
+            cursor: pointer;
+            margin-bottom: 2rem;
+        }
+
+        .flashcard-inner {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+
+        .flashcard-scene.is-flipped .flashcard-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flashcard-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            border: 2px solid var(--border);
+            background: var(--card-bg);
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .flashcard-front {
+            text-align: center;
+        }
+
+        .flashcard-front .word {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .flashcard-front .meta-row {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .flashcard-front .phonetic {
+            font-size: 1.2rem;
+        }
+
+        .flashcard-front .audio-btn {
+            font-size: 1.8rem;
+            background: var(--primary-light);
+            padding: 0.5rem;
+        }
+
+        .flashcard-back {
+            transform: rotateY(180deg);
+            background: #f8fafc;
+            align-items: flex-start;
+            text-align: left;
+        }
+
+        .flashcard-back h3 {
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .flashcard-back .definition {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+        }
+
+        .flashcard-back .example-box {
+            width: 100%;
+            font-size: 1.1rem;
+        }
+
+        .flashcard-hint {
+            position: absolute;
+            bottom: 1.5rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            opacity: 0.6;
+        }
+
+        /* Flashcard Controls */
+        .flashcard-controls {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            background: var(--card-bg);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+        }
+
+        .fc-btn {
+            background: none;
+            border: none;
+            color: var(--text-main);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            transition: background 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .fc-btn:hover:not(:disabled) {
+            background: var(--primary-light);
+            color: var(--primary);
+        }
+
+        .fc-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .fc-counter {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--primary);
+            min-width: 60px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .vocab-grid { grid-template-columns: 1fr; }
+            .flashcard-scene { height: 420px; }
+            .flashcard-front .word { font-size: 2.2rem; }
+            .flashcard-back .definition { font-size: 1.1rem; }
+            .flashcard-controls { padding: 0.75rem 1rem; gap: 0.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>IELTS Vocabulary List</h1>
+        <p class="subtitle">Theme: Education, Geography & Travel Tours (20 Essential Words)</p>
+    </header>
+
+    <!-- View Toggles -->
+    <div class="view-controls">
+        <button class="view-btn active" id="btn-grid" onclick="switchView('grid')">
+            📄 List View
+        </button>
+        <button class="view-btn" id="btn-flashcards" onclick="switchView('flashcards')">
+            🗂️ Flashcard Study
+        </button>
+    </div>
+
+    <!-- FLASHCARD VIEW -->
+    <div id="flashcard-view">
+        <div class="flashcard-scene" id="flashcard-scene" onclick="flipCard()">
+            <div class="flashcard-inner">
+                <!-- Front Face -->
+                <div class="flashcard-face flashcard-front">
+                    <span class="word-form" id="fc-form">Verb</span>
+                    <h2 class="word" id="fc-word">Word</h2>
+                    <div class="meta-row">
+                        <span class="phonetic" id="fc-phonetic">/wɜːd/</span>
+                        <button class="audio-btn" id="fc-audio" onclick="playAudioFromCard(event)" title="Listen to pronunciation">🔊</button>
+                    </div>
+                    <span class="flashcard-hint">Click card to flip</span>
+                </div>
+                
+                <!-- Back Face -->
+                <div class="flashcard-face flashcard-back">
+                    <h3>Definition</h3>
+                    <p class="definition" id="fc-definition">Definition goes here.</p>
+                    <div class="example-box">
+                        <span>Example</span>
+                        <div id="fc-example">"Example sentence goes here."</div>
+                    </div>
+                    <span class="flashcard-hint" style="left: 50%; transform: translateX(-50%);">Click card to flip back</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="flashcard-controls">
+            <button class="fc-btn" id="fc-prev" onclick="prevCard()">◀ Prev</button>
+            <span class="fc-counter" id="fc-counter">1 / 20</span>
+            <button class="fc-btn" id="fc-next" onclick="nextCard()">Next ▶</button>
+            <div style="width: 2px; height: 24px; background: var(--border); margin: 0 0.5rem;"></div>
+            <button class="fc-btn" onclick="shuffleCards()" title="Shuffle Order">🔀</button>
+        </div>
+    </div>
+
+    <!-- GRID VIEW -->
+    <main class="vocab-grid" id="grid-view">
+        <!-- Word 1 -->
+        <article class="vocab-card">
+            <div class="word-header">
+                <div class="word-main">
+                    <span class="word">Enroll</span>
+                    <button class="audio-btn" onclick="playAudio('Enroll')" title="Listen to pronunciation">🔊</button>
+                </div>
+                <div class="meta-info">
+                    <span class="word-form">Verb</span>
+                    <span class="phonetic">/ɪnˈroʊl/</span>
+                </div>
+            </div>
+            <p class="definition"><strong>Definition:</strong> To officially register as a member of an institution or a student on a course.</p>
+            <div class="example-box">
+                <span>Example</span>
+                "We would certainly make use of that library system if we enroll our daughter in the preschool."
+            </div>
+        </article>
+
+        <!-- Word 2 -->
+        <article class="vocab-card">
+            <div class="word-header">
+                <div class="word-main">
+                    <span class="word">Reasonable</span>
+                    <button class="audio-btn" onclick="playAudio('Reasonable')" title="Listen to pronunciation">🔊</button>
+                </div>
+                <div class="meta-info">
+                    <span class="word-form">Adjective</span>
+                    <span class="phonetic">/ˈriːzənəbl/</span>
+                </div>
+            </div>
+            <p class="definition"><strong>Definition:</strong> Fair and sensible; as much as is appropriate or fair; not too expensive.</p>
+            <div class="example-box">
+                <span>Example</span>
+                "Even though they went up slightly, I think the term fees are still quite reasonable."
+            </div>
+        </article>
+
+        <!-- Word 3 -->
+        <article class="vocab-card">
+            <div class="word-header">
+                <div class="word-main">
+                    <span class="word">Accommodate</span>
+                    <button class="audio-btn" onclick="playAudio('Accommodate')" title="Listen to pronunciation">🔊</button>
+                </div>
+                <div class="meta-info">
+                    <span class="word-form">Verb</span>
+                    <span class="phonetic">/əˈkɒmədeɪt/</span>
+                </div>
+            </div>
+            <p class="definition"><strong>Definition:</strong> To provide lodging or sufficient space for people or things.</p>
+            <div class="example-box">
+                <span>Example</span>
+                "The ferry can accommodate about 2,000 people and 600 cars."
+            </div>
+        </article>
+
+        <!-- Word 4 -->
+        <article class="vocab-card">
+            <div class="word-header">
+                <div class="word-main">
+                    <span class="word">Prohibited</span>
+                    <button class="audio-btn" onclick="playAudio('Prohibited')" title="Listen to pronunciation">🔊</button>
+                </div>
+                <div class="meta-info">
+                    <span class="word-form">Adjective</span>
+                    <span class="phonetic">/prəˈhɪbɪtɪd/</span>
+                </div>
+            </div>
+            <p class="definition"><strong>Definition:</strong> Formally forbidden by law, rule, or other authority.</p>
+            <div class="example-box">
+                <span>Example</span>
+                "Access to the vehicle decks is prohibited during the crossing."
+            </div>
+        </article>
+
+        <!-- Word 5 -->
+        <article class="vocab-card">
+            <div class="word-header">
+                <div class="word-main">
+                    <span class="word">Substantial</span>
+                    <button class="audio-btn" onclick="playAudio('Substantial')" title="Listen to pronunciation">🔊</button>
+                </div>
+                <div class="meta-info">
+                    <span class="word-form">Adjective</span>
+                    <span class="phonetic">/səbˈstænʃl/</span>
+                </div>
+            </div>
+            <p class="definition"><strong>Definition:</strong> Of considerable importance, size, or worth; a meal that is large and filling.</p>
+            <div class="example-box">
+                <span>Example</span>
+                "You shouldn't need snacks on board as the meals provided are quite substantial."
+            </div>
+        </article>
+
+        <!-- Word 6 -->
+        <article class="vocab-card">
+            <div class="word-header">
+                <div class="word-main">
+                    <span class="word">Picturesque</span>
+                    <button class="audio-btn" onclick="playAudio('Picturesque')" title="Listen to pronunciation">🔊</button>
+                </div>
+                <div class="meta-info">
+                    <span class="word-form">Adjective</span>
+                    <span class="phonetic">/ˌpɪktʃəˈrɛsk/</span>
+                </div>
+            </div>
+            <p class="definition"><strong>Definition:</strong> Visually attractive, especially in a quaint, traditional, or charming style.</p>
+            <div class="example-box">
+                <span>Example</span>
+                "We will be based at a hostel in a small village that is in a very picturesque area."
+            </div>
+        </article>
+
+        <!-- Word 7 -->
+        <article class="vocab-card">
+            <div class="word-header">
+                <div class="word-main">
+                    <span class="word">Retain</span>
+                    <button class="audio-btn" onclick="playAudio('Retain')" title="Listen to pronunciation">🔊</button>
+                </div>
+                <div class="meta-info">
+                    <span class="word-form">Verb</span>
+                    <span class="phonetic">/rɪˈteɪn/</span>
+                </div>
+            </div>
+            <p class="definition"><strong>Definition:</strong> To continue to have something; keep possession of.</p>
+            <div class="example-box">
+                <span>Example</span>
+                "The area has retained a lot of its traditional industry and culture despite modernization."
+            </div>
+        </article>
+
+        <!-- Word 8 -->
+        <article class="vocab-card">
+            <div class="word-header">
+                <div class="word-main">
+                    <span class="word">Elaborate</span>
+                    <button class="audio-btn" onclick="playAudio('Elaborate')" title="Listen to pronunciation">🔊</button>
+                </div>
+                <div class="meta-info">
+                    <span class="word-form">Verb</span>
+                    <span class="phonetic">/ɪˈlæbəreɪt/</span>
+                </div>
+            </div>
+            <p class="definition"><strong>Definition:</strong> To add more detail concerning what has already been said.</p>
+            <div class="example-box">
+                <span>Example</span>
+                "There’s a list of equipment, but I’ll just elaborate on one or two key items."
+            </div>
+        </article>
+
+        <!-- Word 9 -->
+        <article class="vocab-card">
+            <div class="word-header">
+                <div class="word-main">
+                    <span class="word">Essential</span>
+                    <button class="audio-btn" onclick="playAudio('Essential')" title="Listen to pronunciation">🔊</button>
+                </div>
+                <div class="meta-info">
+                    <span class="word-form">Adjective</span>
+                    <span class="phonetic">/ɪˈsɛnʃl/</span>
+                </div>
+            </div>
+            <p class="definition"><strong>Definition:</strong> Absolutely necessary; extremely important.</p>
+            <div class="example-box">
+                <span>Example</span>
+                "When walking in the mountains during the summer, packing sun cream is absolutely essential."
+            </div>
+        </article>
+
+        <!-- Word 10 -->
+        <article class="vocab-card">
+            <div class="word-header">
+                <div class="word-main">
+                    <span class="word">Spectacular</span>
+                    <button class="audio-btn" onclick="playAudio('Spectacular')" title="Listen to pronunciation">🔊</button>
+                </div>
+                <div class="meta-info">
+                    <span class="word-form">Adjective</span>
+                    <span class="phonetic">/spɛkˈtækjʊlə/</span>
+                </div>
+            </div>
+            <p class="definition"><strong>Definition:</strong> Beautiful in a dramatic and eye-catching way.</p>
+            <div class="example-box">
+                <span>Example</span>
+                "The Picos De Europa is a very popular area for tourists because of its spectacular peaks."
+            </div>
+        </article>
+        
+        <!-- Word 11 -->
+        <article class="vocab-card">
+            <div class="word-header">
+                <div class="word-main">
+                    <span class="word">Latitude</span>
+                    <button class="audio-btn" onclick="playAudio('Latitude')" title="Listen to pronunciation">🔊</button>
+                </div>
+                <div class="meta-info">
+                    <span class="word-form">Noun</span>
+                    <span class="phonetic">/ˈlætɪtjuːd/</span>
+                </div>
+            </div>
+            <p class="definition"><strong>Definition:</strong> The angular distance of a place north or south of the earth's equator.</p>
+            <div class="example-box">
+                <span>Example</span>
+                "Even factor 25 sun cream isn’t good enough for those latitudes in July."
+            </div>
+        </article>
+
+        <!-- Word 12 -->
+        <article class="vocab-card">
+            <div class="word-header">
+                <div class="word-main">
+                    <span class="word">Longitude</span>
+                    <button class="audio-btn" onclick="playAudio('Longitude')" title="Listen to pronunciation">🔊</button>
+                </div>
+                <div class="meta-info">
+                    <span class="word-form">Noun</span>
+                    <span class="phonetic">/ˈlɒndʒɪtjuːd/</span>
+                </div>
+            </div>
+            <p class="definition"><strong>Definition:</strong> The angular distance of a place east or west of the meridian at Greenwich, England.</p>
+            <div class="example-box">
+                <span>Example</span>
+                "Navigators use both latitude and longitude to determine the exact location of the ship."
+            </div>
+        </article>
+
+        <!-- Word 13 -->
+        <article class="vocab-card">
+            <div class="word-header">
+                <div class="word-main">
+                    <span class="word">Altitude</span>
+                    <button class="audio-btn" onclick="playAudio('Altitude')" title="Listen to pronunciation">🔊</button>
+                </div>
+                <div class="meta-info">
+                    <span class="word-form">Noun</span>
+                    <span class="phonetic">/ˈæltɪtjuːd/</span>
+                </div>
+            </div>
+            <p class="definition"><strong>Definition:</strong> The height of an object or point in relation to sea level or ground level.</p>
+            <div class="example-box">
+                <span>Example</span>
+                "Because of the high altitude, the highest peaks have year-round snow caps."
+            </div>
+        </article>
+        
+        <!-- Word 14 -->
+        <article class="vocab-card">
+            <div class="word-header">
+                <div class="word-main">
+                    <span class="word">Waterproofs</span>
+                    <button class="audio-btn" onclick="playAudio('Waterproofs')" title="Listen to pronunciation">🔊</button>
+                </div>
+                <div class="meta-info">
+                    <span class="word-form">Noun</span>
+                    <span class="phonetic">/ˈwɔːtəpruːfs/</span>
+                </div>
+            </div>
+            <p class="definition"><strong>Definition:</strong> Garments, especially coats or suits, made of waterproof material to keep rain out.</p>
+            <div class="example-box">
+                <span>Example</span>
+                "Regarding waterproofs, I’d strongly advise you not to come with anything heavy."
+            </div>
+        </article>
+        
+        <!-- Word 15 -->
+        <article class="vocab-card">
+            <div class="word-header">
+                <div class="word-main">
+                    <span class="word">Lightweight</span>
+                    <button class="audio-btn" onclick="playAudio('Lightweight')" title="Listen to pronunciation">🔊</button>
+                </div>
+                <div class="meta-info">
+                    <span class="word-form">Adjective</span>
+                    <span class="phonetic">/ˈlaɪtweɪt/</span>
+                </div>
+            </div>
+            <p class="definition"><strong>Definition:</strong> Weighing less than average; made of thinner material than usual.</p>
+            <div class="example-box">
+                <span>Example</span>
+                "The ideal things are those lightweight ones because they fold up small."
+            </div>
+        </article>
+        
+        <!-- Word 16 -->
+        <article class="vocab-card">
+            <div class="word-header">
+                <div class="word-main">
+                    <span class="word">Practicalities</span>
+                    <button class="audio-btn" onclick="playAudio('Practicalities')" title="Listen to pronunciation">🔊</button>
+                </div>
+                <div class="meta-info">
+                    <span class="word-form">Noun</span>
+                    <span class="phonetic">/ˌpræktɪˈkælətiz/</span>
+                </div>
+            </div>
+            <p class="definition"><strong>Definition:</strong> The actual facts, conditions, and everyday requirements of a situation.</p>
+            <div class="example-box">
+                <span>Example</span>
+                "So that’s the practicalities over. Now let me tell you about the area in Spain."
+            </div>
+        </article>
+        
+        <!-- Word 17 -->
+        <article class="vocab-card">
+            <div class="word-header">
+                <div class="word-main">
+                    <span class="word">Alpine</span>
+                    <button class="audio-btn" onclick="playAudio('Alpine')" title="Listen to pronunciation">🔊</button>
+                </div>
+                <div class="meta-info">
+                    <span class="word-form">Adjective</span>
+                    <span class="phonetic">/ˈælpaɪn/</span>
+                </div>
+            </div>
+            <p class="definition"><strong>Definition:</strong> Relating to high mountains, especially the Alps; plants growing at high elevations.</p>
+            <div class="example-box">
+                <span>Example</span>
+                "On the highest peaks, you’ve got alpine plants that are only free of snow for a few months."
+            </div>
+        </article>
+        
+        <!-- Word 18 -->
+        <article class="vocab-card">
+            <div class="word-header">
+                <div class="word-main">
+                    <span class="word">Meadows</span>
+                    <button class="audio-btn" onclick="playAudio('Meadows')" title="Listen to pronunciation">🔊</button>
+                </div>
+                <div class="meta-info">
+                    <span class="word-form">Noun</span>
+                    <span class="phonetic">/ˈmɛdoʊz/</span>
+                </div>
+            </div>
+            <p class="definition"><strong>Definition:</strong> Pieces of grassland, especially ones used for hay or filled with wildflowers.</p>
+            <div class="example-box">
+                <span>Example</span>
+                "Then you’ve got meadows that are full of wildflowers at certain times of the year."
+            </div>
+        </article>
+        
+        <!-- Word 19 -->
+        <article class="vocab-card">
+            <div class="word-header">
+                <div class="word-main">
+                    <span class="word">Species</span>
+                    <button class="audio-btn" onclick="playAudio('Species')" title="Listen to pronunciation">🔊</button>
+                </div>
+                <div class="meta-info">
+                    <span class="word-form">Noun</span>
+                    <span class="phonetic">/ˈspiːʃiːz/</span>
+                </div>
+            </div>
+            <p class="definition"><strong>Definition:</strong> A group of living organisms consisting of similar individuals capable of exchanging genes."</p>
+            <div class="example-box">
+                <span>Example</span>
+                "The northern slopes give homes to rare species such as wolves and bears."
+            </div>
+        </article>
+        
+        <!-- Word 20 -->
+        <article class="vocab-card">
+            <div class="word-header">
+                <div class="word-main">
+                    <span class="word">Unusual</span>
+                    <button class="audio-btn" onclick="playAudio('Unusual')" title="Listen to pronunciation">🔊</button>
+                </div>
+                <div class="meta-info">
+                    <span class="word-form">Adjective</span>
+                    <span class="phonetic">/ʌnˈjuːʒʊəl/</span>
+                </div>
+            </div>
+            <p class="definition"><strong>Definition:</strong> Not habitually or commonly occurring or done; remarkable or interesting.</p>
+            <div class="example-box">
+                <span>Example</span>
+                "Could you spell the last name, please? It’s an unusual one, isn’t it?"
+            </div>
+        </article>
+    </main>
+</div>
+
+<script>
+    // --- Audio Synthesis ---
+    function playAudio(text) {
+        if ('speechSynthesis' in window) {
+            window.speechSynthesis.cancel();
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'en-GB';
+            utterance.rate = 0.9;
+            window.speechSynthesis.speak(utterance);
+        } else {
+            alert("Sorry, your browser doesn't support text-to-speech pronunciation.");
+        }
+    }
+
+    // Play audio from the flashcard without flipping the card
+    function playAudioFromCard(event) {
+        event.stopPropagation(); // Prevents the card click (flip) event
+        const word = document.getElementById('fc-word').textContent;
+        playAudio(word);
+    }
+
+    // --- View Toggling ---
+    function switchView(viewName) {
+        const gridView = document.getElementById('grid-view');
+        const flashcardView = document.getElementById('flashcard-view');
+        const btnGrid = document.getElementById('btn-grid');
+        const btnFlashcards = document.getElementById('btn-flashcards');
+
+        if (viewName === 'grid') {
+            gridView.style.display = 'grid';
+            flashcardView.style.display = 'none';
+            btnGrid.classList.add('active');
+            btnFlashcards.classList.remove('active');
+        } else {
+            gridView.style.display = 'none';
+            flashcardView.style.display = 'flex';
+            btnFlashcards.classList.add('active');
+            btnGrid.classList.remove('active');
+            
+            // Initialize flashcards if not done yet
+            if (flashcardData.length === 0) {
+                extractDataFromGrid();
+            }
+            updateFlashcardUI();
+        }
+    }
+
+    // --- Flashcard Logic ---
+    let flashcardData = [];
+    let currentCardIndex = 0;
+    const flashcardScene = document.getElementById('flashcard-scene');
+
+    // Dynamically pull data from the existing HTML grid to keep code DRY
+    function extractDataFromGrid() {
+        const cards = document.querySelectorAll('.vocab-card');
+        cards.forEach(card => {
+            flashcardData.push({
+                word: card.querySelector('.word').textContent.trim(),
+                form: card.querySelector('.word-form').textContent.trim(),
+                phonetic: card.querySelector('.phonetic').textContent.trim(),
+                // Extract text after the <strong> element
+                definition: card.querySelector('.definition').childNodes[1].textContent.trim(), 
+                // Extract text after the <span> element
+                example: card.querySelector('.example-box').childNodes[2].textContent.trim()
+            });
+        });
+    }
+
+    function updateFlashcardUI() {
+        if (flashcardData.length === 0) return;
+        
+        const data = flashcardData[currentCardIndex];
+        
+        // Ensure card is showing front before changing text
+        flashcardScene.classList.remove('is-flipped');
+        
+        // A slight timeout allows the flip animation to start before swapping text 
+        // if user was on the back face.
+        setTimeout(() => {
+            document.getElementById('fc-word').textContent = data.word;
+            document.getElementById('fc-form').textContent = data.form;
+            document.getElementById('fc-phonetic').textContent = data.phonetic;
+            document.getElementById('fc-definition').textContent = data.definition;
+            document.getElementById('fc-example').textContent = data.example;
+            
+            document.getElementById('fc-counter').textContent = `${currentCardIndex + 1} / ${flashcardData.length}`;
+            
+            // Update button states
+            document.getElementById('fc-prev').disabled = currentCardIndex === 0;
+            document.getElementById('fc-next').disabled = currentCardIndex === flashcardData.length - 1;
+        }, 150);
+    }
+
+    function flipCard() {
+        flashcardScene.classList.toggle('is-flipped');
+    }
+
+    function nextCard() {
+        if (currentCardIndex < flashcardData.length - 1) {
+            currentCardIndex++;
+            updateFlashcardUI();
+        }
+    }
+
+    function prevCard() {
+        if (currentCardIndex > 0) {
+            currentCardIndex--;
+            updateFlashcardUI();
+        }
+    }
+
+    function shuffleCards() {
+        // Fisher-Yates shuffle
+        for (let i = flashcardData.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [flashcardData[i], flashcardData[j]] = [flashcardData[j], flashcardData[i]];
+        }
+        currentCardIndex = 0;
+        updateFlashcardUI();
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Speaking: Happiness & Reading Vocabulary (Band 6-6.5)</title>
+    <style>
+        :root {
+            --primary: #059669; 
+            --primary-light: #d1fae5;
+            --text-main: #1f2937;
+            --text-muted: #6b7280;
+            --bg-body: #f3f4f6;
+            --card-bg: #ffffff;
+            --accent: #10b981;
+            --border: #e5e7eb;
+            --badge-bg: #a7f3d0;
+            --badge-text: #064e3b;
+            --success: #2563eb; 
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+
+        body { background-color: var(--bg-body); color: var(--text-main); line-height: 1.6; padding: 2rem 1rem; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        header { text-align: center; margin-bottom: 2rem; }
+        h1 { color: var(--primary); font-size: 2.2rem; margin-bottom: 0.5rem; }
+        p.subtitle { color: var(--text-muted); font-size: 1.1rem; max-width: 800px; margin: 0 auto; }
+
+        /* Topic Filter Controls */
+        .filter-controls { display: flex; justify-content: center; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+        .filter-btn { padding: 0.5rem 1rem; font-size: 0.9rem; font-weight: 600; background: var(--bg-body); color: var(--primary); border: 2px solid var(--primary-light); border-radius: 20px; cursor: pointer; transition: all 0.2s ease; }
+        .filter-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
+        .filter-btn:hover:not(.active) { background: var(--primary-light); }
+
+        /* View Toggles */
+        .view-controls { display: flex; justify-content: center; gap: 1rem; margin-bottom: 3rem; }
+        .view-btn { padding: 0.75rem 1.5rem; font-size: 1rem; font-weight: 600; background: var(--card-bg); color: var(--text-muted); border: 2px solid var(--border); border-radius: 8px; cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; gap: 0.5rem; }
+        .view-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
+        .view-btn:hover:not(.active) { border-color: var(--primary); color: var(--primary); }
+
+        /* Grid View Styles */
+        #grid-view { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 1.5rem; }
+        .vocab-card { background-color: var(--card-bg); border-radius: 12px; padding: 1.5rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); border: 1px solid var(--border); transition: transform 0.2s ease, box-shadow 0.2s ease; display: flex; flex-direction: column; }
+        .vocab-card:hover { transform: translateY(-5px); box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); border-color: var(--primary); }
+        .vocab-card.hidden { display: none; }
+        .word-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; border-bottom: 2px solid var(--primary-light); padding-bottom: 0.75rem; }
+        .word-main { display: flex; align-items: center; gap: 0.5rem; }
+        .word { font-size: 1.5rem; font-weight: 700; color: var(--primary); }
+        .audio-btn { background: none; border: none; cursor: pointer; font-size: 1.2rem; padding: 0.2rem; border-radius: 50%; transition: transform 0.2s; }
+        .audio-btn:hover { transform: scale(1.2); background-color: var(--primary-light); }
+        .meta-info { text-align: right; display: flex; flex-direction: column; align-items: flex-end; gap: 0.25rem; }
+        .phonetic { font-size: 0.95rem; color: var(--text-muted); font-style: italic; }
+        .word-form { background-color: var(--badge-bg); color: var(--badge-text); font-size: 0.75rem; font-weight: 600; padding: 0.2rem 0.6rem; border-radius: 12px; text-transform: uppercase; letter-spacing: 0.05em; display: inline-block; }
+        
+        .topic-tag { font-size: 0.8rem; color: var(--accent); font-weight: bold; margin-bottom: 0.5rem; display: block;}
+        
+        .definition { font-size: 1rem; margin-bottom: 0.25rem; }
+        .definition strong { color: var(--text-main); }
+        
+        /* Translation and Usage */
+        .translation { font-size: 0.95rem; color: var(--success); margin-bottom: 0.5rem; font-weight: 500; }
+        .usage-note { font-size: 0.9rem; margin-bottom: 1rem; color: #4b5563; background: #f9fafb; padding: 0.5rem 0.75rem; border-radius: 4px; border-left: 3px solid #9ca3af; flex-grow: 1; }
+        .usage-note strong { color: var(--text-main); font-style: normal; font-weight: 600; }
+        .usage-vi { color: #6b7280; font-style: italic; display: block; margin-top: 0.25rem; }
+
+        .example-box { background-color: var(--primary-light); padding: 1rem; border-left: 4px solid var(--accent); border-radius: 4px; font-size: 0.95rem; color: var(--text-main); margin-top: auto; }
+        .example-box span { display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 0.25rem; font-weight: bold; }
+
+        /* Flashcard View Styles */
+        #flashcard-view { display: none; flex-direction: column; align-items: center; width: 100%; }
+        .flashcard-scene { width: 100%; max-width: 650px; height: 460px; perspective: 1000px; cursor: pointer; margin-bottom: 2rem; }
+        .flashcard-inner { width: 100%; height: 100%; position: relative; transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1); transform-style: preserve-3d; }
+        .flashcard-scene.is-flipped .flashcard-inner { transform: rotateY(180deg); }
+        .flashcard-face { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 16px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08); border: 2px solid var(--border); background: var(--card-bg); padding: 2rem 2.5rem; display: flex; flex-direction: column; justify-content: center; align-items: center; overflow-y: auto; }
+        .flashcard-front { text-align: center; }
+        .flashcard-front .word { font-size: 3rem; margin-bottom: 1rem; color: var(--primary); }
+        .flashcard-front .meta-row { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+        .flashcard-front .phonetic { font-size: 1.2rem; color: var(--text-muted); }
+        .flashcard-front .audio-btn { font-size: 1.8rem; background: var(--primary-light); padding: 0.5rem; }
+        .flashcard-back { transform: rotateY(180deg); background: #f8fafc; align-items: flex-start; text-align: left; }
+        .flashcard-back h3 { color: var(--primary); font-size: 1.1rem; margin-bottom: 0.25rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        
+        .flashcard-back .definition { font-size: 1.1rem; margin-bottom: 0.25rem; }
+        .flashcard-back .translation { font-size: 1.05rem; margin-bottom: 0.75rem; color: var(--success); font-weight: 500;}
+        .flashcard-back .usage-note { width: 100%; font-size: 0.95rem; padding: 0.5rem; margin-bottom: 1rem; }
+        .flashcard-back .example-box { width: 100%; font-size: 1rem; padding: 0.75rem 1rem; }
+        
+        .flashcard-hint { position: absolute; bottom: 1rem; font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.6; }
+
+        .flashcard-controls { display: flex; align-items: center; gap: 1.5rem; background: var(--card-bg); padding: 1rem 2rem; border-radius: 50px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border: 1px solid var(--border); }
+        .fc-btn { background: none; border: none; color: var(--text-main); font-size: 1rem; font-weight: 600; cursor: pointer; padding: 0.5rem 1rem; border-radius: 20px; transition: background 0.2s; display: flex; align-items: center; gap: 0.5rem; }
+        .fc-btn:hover:not(:disabled) { background: var(--primary-light); color: var(--primary); }
+        .fc-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+        .fc-counter { font-weight: 700; font-size: 1.1rem; color: var(--primary); min-width: 60px; text-align: center; }
+
+        @media (max-width: 768px) { 
+            h1 { font-size: 1.8rem; } 
+            #grid-view { grid-template-columns: 1fr; } 
+            .flashcard-scene { height: 520px; } 
+            .flashcard-front .word { font-size: 2.2rem; } 
+            .flashcard-back .definition { font-size: 1rem; }
+            .flashcard-face { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Speaking: Happiness & Reading</h1>
+        <p class="subtitle">Target Band 6.0 - 6.5 | 30 Essential Words & Phrases</p>
+    </header>
+
+    <!-- Topic Filter -->
+    <div class="filter-controls" id="topic-filters">
+        <button class="filter-btn active" onclick="filterTopic('all')">All Terms</button>
+        <button class="filter-btn" onclick="filterTopic('Emotions & Expressions')">Emotions & Expressions</button>
+        <button class="filter-btn" onclick="filterTopic('Society & Well-being')">Society & Well-being</button>
+        <button class="filter-btn" onclick="filterTopic('Reading & Media')">Reading & Media</button>
+    </div>
+
+    <div class="view-controls">
+        <button class="view-btn active" id="btn-grid" onclick="switchView('grid')">📄 List View</button>
+        <button class="view-btn" id="btn-flashcards" onclick="switchView('flashcards')">🗂️ Flashcard Study</button>
+    </div>
+
+    <!-- FLASHCARD VIEW -->
+    <div id="flashcard-view">
+        <div class="flashcard-scene" id="flashcard-scene" onclick="flipCard()">
+            <div class="flashcard-inner">
+                <div class="flashcard-face flashcard-front">
+                    <span class="word-form" id="fc-form">Verb</span>
+                    <h2 class="word" id="fc-word">Word</h2>
+                    <div class="meta-row">
+                        <span class="phonetic" id="fc-phonetic">/wɜːd/</span>
+                        <button class="audio-btn" id="fc-audio" onclick="playAudioFromCard(event)" title="Listen to pronunciation">🔊</button>
+                    </div>
+                    <span class="topic-tag" id="fc-topic" style="margin-top: 1rem;">Topic: General</span>
+                    <span class="flashcard-hint">Click card to flip</span>
+                </div>
+                <div class="flashcard-face flashcard-back">
+                    <h3>Meaning & Usage</h3>
+                    <p class="definition" id="fc-definition">Definition goes here.</p>
+                    <p class="translation" id="fc-translation">Vietnamese goes here.</p>
+                    <div class="usage-note" id="fc-usage"><strong>Usage:</strong> Usage goes here.</div>
+                    <div class="example-box">
+                        <span>Example</span>
+                        <div id="fc-example">"Example sentence goes here."</div>
+                    </div>
+                    <span class="flashcard-hint" style="left: 50%; transform: translateX(-50%);">Click card to flip back</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="flashcard-controls">
+            <button class="fc-btn" id="fc-prev" onclick="prevCard()">◀ Prev</button>
+            <span class="fc-counter" id="fc-counter">1 / 30</span>
+            <button class="fc-btn" id="fc-next" onclick="nextCard()">Next ▶</button>
+            <div style="width: 2px; height: 24px; background: var(--border); margin: 0 0.5rem;"></div>
+            <button class="fc-btn" onclick="shuffleCards()" title="Shuffle Order">🔀</button>
+        </div>
+    </div>
+
+    <!-- GRID VIEW -->
+    <main id="grid-view">
+        <!-- Injected via JavaScript -->
+    </main>
+</div>
+
+<script>
+    // ---------------------------------------------------------
+    // Adjusted Vocabulary Bank (Target: Band 6.0 - 6.5)
+    // ---------------------------------------------------------
+    const vocabBank = [
+        // Theme 1: Emotions & Expressions
+        { topic: "Emotions & Expressions", word: "Genuine", form: "Adjective", phonetic: "/ˈdʒɛnjʊɪn/", def: "Real, authentic, and sincere; not fake.", translation: "Chân thật, thành thật", usage: "Often used to describe smiles or feelings.<span class='usage-vi'>(Thường được dùng để miêu tả nụ cười hoặc cảm xúc.)</span>", example: "People like her because she always has a genuine smile." },
+        { topic: "Emotions & Expressions", word: "Express", form: "Verb", phonetic: "/ɪkˈsprɛs/", def: "To show a feeling, opinion, or fact.", translation: "Biểu lộ, thể hiện", usage: "Used with emotions or ideas.<span class='usage-vi'>(Thường được dùng với cảm xúc hoặc ý tưởng.)</span>", example: "Smiling is the easiest way to express happiness when taking a photo." },
+        { topic: "Emotions & Expressions", word: "Approachable", form: "Adjective", phonetic: "/əˈprəʊtʃəbl/", def: "Friendly and easy to talk to.", translation: "Dễ gần, thân thiện", usage: "Used for people, especially in customer service.<span class='usage-vi'>(Dùng cho người, đặc biệt trong ngành chăm sóc khách hàng.)</span>", example: "A smile makes shop assistants look much more approachable to customers." },
+        { topic: "Emotions & Expressions", word: "Welcoming", form: "Adjective", phonetic: "/ˈwɛlkəmɪŋ/", def: "Friendly or making you feel welcome.", translation: "Chào đón, niềm nở", usage: "Used to describe a place, a person, or a smile.<span class='usage-vi'>(Dùng để miêu tả một địa điểm, một người, hoặc một nụ cười.)</span>", example: "She gave me a welcoming smile when I entered the store." },
+        { topic: "Emotions & Expressions", word: "Mood", form: "Noun", phonetic: "/muːd/", def: "The way you feel at a particular time.", translation: "Tâm trạng", usage: "Often used as 'in a good/bad mood'.<span class='usage-vi'>(Thường được dùng trong cụm 'in a good/bad mood' - tâm trạng tốt/tệ.)</span>", example: "Listening to cheerful music can instantly improve your mood." },
+        { topic: "Emotions & Expressions", word: "Cheerful", form: "Adjective", phonetic: "/ˈtʃɪəfʊl/", def: "Happy and positive.", translation: "Vui vẻ, phấn khởi", usage: "Describes a person's personality or behavior.<span class='usage-vi'>(Miêu tả tính cách hoặc hành vi của một người.)</span>", example: "He is always cheerful and smiling, even on Monday mornings." },
+        { topic: "Emotions & Expressions", word: "Professionalism", form: "Noun", phonetic: "/prəˈfɛʃnəlɪzəm/", def: "The skill, good judgment, and polite behavior expected from a person trained to do a job well.", translation: "Sự chuyên nghiệp", usage: "Crucial in business and customer service contexts.<span class='usage-vi'>(Rất quan trọng trong bối cảnh kinh doanh và chăm sóc khách hàng.)</span>", example: "Maintaining a polite smile is a sign of professionalism at work." },
+        { topic: "Emotions & Expressions", word: "Hide", form: "Verb", phonetic: "/haɪd/", def: "To keep a feeling or information secret.", translation: "Che giấu", usage: "Used when people don't want others to see their true emotions.<span class='usage-vi'>(Dùng khi người ta không muốn người khác thấy cảm xúc thật của mình.)</span>", example: "In customer service, staff sometimes have to hide their tiredness behind a smile." },
+        { topic: "Emotions & Expressions", word: "Connection", form: "Noun", phonetic: "/kəˈnɛkʃn/", def: "A relationship in which a person or idea is linked with something else.", translation: "Sự kết nối, mối quan hệ", usage: "Often used with verbs like 'build' or 'make'.<span class='usage-vi'>(Thường đi kèm với các động từ như 'build' hoặc 'make' - xây dựng/tạo kết nối.)</span>", example: "A shared smile can help build a quick connection with a stranger." },
+        { topic: "Emotions & Expressions", word: "Make a good impression", form: "Phrase", phonetic: "/meɪk ə gʊd ɪmˈprɛʃn/", def: "To cause someone to notice and admire you.", translation: "Tạo ấn tượng tốt", usage: "Used when meeting someone for the first time.<span class='usage-vi'>(Dùng khi gặp ai đó lần đầu tiên.)</span>", example: "It is important to smile at a job interview to make a good impression." },
+
+        // Theme 2: Society & Well-being
+        { topic: "Society & Well-being", word: "Standard of living", form: "Noun Phrase", phonetic: "/ˈstændəd əv ˈlɪvɪŋ/", def: "The amount of money and comfort people have in a particular society.", translation: "Mức sống", usage: "Used to compare life in the past and present.<span class='usage-vi'>(Dùng để so sánh cuộc sống trong quá khứ và hiện tại.)</span>", example: "The standard of living is higher today, but people seem more worried." },
+        { topic: "Society & Well-being", word: "Satisfaction", form: "Noun", phonetic: "/ˌsætɪsˈfækʃn/", def: "A pleasant feeling that you get when you receive something you wanted.", translation: "Sự thỏa mãn, hài lòng", usage: "Often relates to jobs, purchases, or life in general.<span class='usage-vi'>(Thường liên quan đến công việc, mua sắm, hoặc cuộc sống nói chung.)</span>", example: "Many people get a lot of satisfaction from their simple hobbies." },
+        { topic: "Society & Well-being", word: "Stressful", form: "Adjective", phonetic: "/ˈstrɛsfʊl/", def: "Causing mental or emotional stress.", translation: "Căng thẳng", usage: "Often used to describe modern jobs or lifestyles.<span class='usage-vi'>(Thường dùng để miêu tả công việc hoặc lối sống hiện đại.)</span>", example: "Living in a fast-paced city can be very stressful compared to the past." },
+        { topic: "Society & Well-being", word: "Materialistic", form: "Adjective", phonetic: "/məˌtɪərɪəˈlɪstɪk/", def: "Believing that having money and possessions is the most important thing in life.", translation: "Thực dụng, trọng vật chất", usage: "Often used as a criticism of modern society.<span class='usage-vi'>(Thường được dùng như một lời phê phán xã hội hiện đại.)</span>", example: "Some people think our society has become too materialistic to be truly happy." },
+        { topic: "Society & Well-being", word: "Shared experience", form: "Noun Phrase", phonetic: "/ʃeəd ɪkˈspɪərɪəns/", def: "An event or activity that two or more people go through together.", translation: "Trải nghiệm chung", usage: "Used to explain why crowds or group activities are enjoyable.<span class='usage-vi'>(Dùng để giải thích lý do tại sao đám đông hoặc các hoạt động nhóm lại thú vị.)</span>", example: "Attending a live concert is a wonderful shared experience." },
+        { topic: "Society & Well-being", word: "Atmosphere", form: "Noun", phonetic: "/ˈætməsfɪə/", def: "The mood or feeling that exists in a place.", translation: "Bầu không khí", usage: "Used to describe concerts, festivals, or restaurants.<span class='usage-vi'>(Dùng để miêu tả buổi hòa nhạc, lễ hội, hoặc nhà hàng.)</span>", example: "The atmosphere at the music festival was incredibly happy and exciting." },
+        { topic: "Society & Well-being", word: "Energetic", form: "Adjective", phonetic: "/ˌɛnəˈdʒɛtɪk/", def: "Having or involving a lot of energy.", translation: "Tràn đầy năng lượng", usage: "Describes crowds, music, or people.<span class='usage-vi'>(Miêu tả đám đông, âm nhạc, hoặc con người.)</span>", example: "Being in an energetic crowd can make you feel excited and happy." },
+        { topic: "Society & Well-being", word: "Sense of belonging", form: "Noun Phrase", phonetic: "/sɛns əv bɪˈlɒŋɪŋ/", def: "A feeling of being happy or comfortable as part of a particular group.", translation: "Cảm giác thuộc về", usage: "Used to discuss community and friendship.<span class='usage-vi'>(Dùng để thảo luận về cộng đồng và tình bạn.)</span>", example: "Singing together at a concert gives people a strong sense of belonging." },
+        { topic: "Society & Well-being", word: "Isolated", form: "Adjective", phonetic: "/ˈaɪsəleɪtɪd/", def: "Feeling unhappy because of not seeing or talking to other people.", translation: "Bị cô lập, đơn độc", usage: "Used as a contrast to feeling connected in modern society.<span class='usage-vi'>(Dùng để đối lập với cảm giác được kết nối trong xã hội hiện đại.)</span>", example: "Despite living in big cities, some people feel very isolated today." },
+        { topic: "Society & Well-being", word: "Fast-paced", form: "Adjective", phonetic: "/fɑːst-peɪst/", def: "Moving or happening very quickly.", translation: "Nhịp độ nhanh", usage: "Often describes modern urban life or work environments.<span class='usage-vi'>(Thường miêu tả cuộc sống đô thị hoặc môi trường làm việc hiện đại.)</span>", example: "It is hard to relax and feel happy in today's fast-paced world." },
+
+        // Theme 3: Reading & Media
+        { topic: "Reading & Media", word: "Relaxation", form: "Noun", phonetic: "/ˌriːlækˈseɪʃn/", def: "The state of being free from tension and anxiety.", translation: "Sự thư giãn", usage: "Used to explain why people enjoy hobbies like reading.<span class='usage-vi'>(Dùng để giải thích tại sao mọi người thích các sở thích như đọc sách.)</span>", example: "For many people, reading a fiction book is pure relaxation." },
+        { topic: "Reading & Media", word: "Concentrate", form: "Verb", phonetic: "/ˈkɒnsəntreɪt/", def: "To direct your attention or your efforts towards a particular activity.", translation: "Tập trung", usage: "Often followed by the preposition 'on'.<span class='usage-vi'>(Thường theo sau bởi giới từ 'on' - tập trung vào.)</span>", example: "It is difficult to concentrate on a long book if the story is boring." },
+        { topic: "Reading & Media", word: "Physical book", form: "Noun Phrase", phonetic: "/ˈfɪzɪkl bʊk/", def: "A traditional book printed on paper.", translation: "Sách giấy", usage: "Used when comparing traditional reading to digital reading.<span class='usage-vi'>(Dùng khi so sánh việc đọc sách truyền thống với sách kỹ thuật số.)</span>", example: "I still prefer buying a physical book rather than reading on a screen." },
+        { topic: "Reading & Media", word: "Outdated", form: "Adjective", phonetic: "/aʊtˈdeɪtɪd/", def: "Old-fashioned and therefore not as good or as useful as something modern.", translation: "Lỗi thời", usage: "Used to talk about old technology or habits.<span class='usage-vi'>(Dùng để nói về công nghệ hoặc thói quen cũ.)</span>", example: "Some teenagers think that going to a library is outdated." },
+        { topic: "Reading & Media", word: "Digital format", form: "Noun Phrase", phonetic: "/ˈdɪdʒɪtl ˈfɔːmæt/", def: "Information stored in an electronic form.", translation: "Định dạng kỹ thuật số", usage: "Used to discuss e-books and online articles.<span class='usage-vi'>(Dùng để thảo luận về sách điện tử và các bài báo trực tuyến.)</span>", example: "Many textbooks are now available in a digital format online." },
+        { topic: "Reading & Media", word: "Inspire", form: "Verb", phonetic: "/ɪnˈspaɪə/", def: "To make someone feel that they want to do something and can do it.", translation: "Truyền cảm hứng", usage: "Used to describe the effect of good books or stories.<span class='usage-vi'>(Dùng để miêu tả tác động của những cuốn sách hoặc câu chuyện hay.)</span>", example: "Reading science fiction can inspire young people to study science." },
+        { topic: "Reading & Media", word: "Accessible", form: "Adjective", phonetic: "/əkˈsɛsəbl/", def: "Easy to find, reach, or get.", translation: "Dễ tiếp cận", usage: "Describes information on the internet or e-books.<span class='usage-vi'>(Miêu tả thông tin trên mạng hoặc sách điện tử.)</span>", example: "The internet has made learning and reading much more accessible for everyone." },
+        { topic: "Reading & Media", word: "Preference", form: "Noun", phonetic: "/ˈprɛfrəns/", def: "The fact that you like something or someone more than another thing or person.", translation: "Sự ưa thích, sở thích", usage: "Used when comparing two choices in Speaking Part 3.<span class='usage-vi'>(Dùng khi so sánh hai sự lựa chọn trong phần 3 của bài thi Nói.)</span>", example: "When it comes to reading, my preference is definitely non-fiction." },
+        { topic: "Reading & Media", word: "Attention span", form: "Noun Phrase", phonetic: "/əˈtɛnʃn spæn/", def: "The length of time that someone can keep their thoughts and interest fixed on something.", translation: "Khoảng thời gian tập trung", usage: "Often discussed in relation to modern media and children.<span class='usage-vi'>(Thường được thảo luận trong mối liên hệ với truyền thông hiện đại và trẻ em.)</span>", example: "Short videos on the internet have reduced the attention span of many youths." },
+        { topic: "Reading & Media", word: "Informative", form: "Adjective", phonetic: "/ɪnˈfɔːmətɪv/", def: "Providing a lot of useful information.", translation: "Cung cấp nhiều thông tin", usage: "Used to describe documentaries, news, or non-fiction books.<span class='usage-vi'>(Dùng để miêu tả phim tài liệu, tin tức, hoặc sách phi hư cấu.)</span>", example: "I find historical books very informative and interesting to read." }
+    ];
+
+    // --- DOM Injection ---
+    function renderGrid() {
+        const grid = document.getElementById('grid-view');
+        vocabBank.forEach(item => {
+            const article = document.createElement('article');
+            article.className = 'vocab-card';
+            article.setAttribute('data-topic', item.topic);
+            
+            article.innerHTML = `
+                <div class="word-header">
+                    <div class="word-main">
+                        <span class="word">${item.word}</span>
+                        <button class="audio-btn" onclick="playAudio('${item.word.replace(/'/g, "\\'")}')" title="Listen to pronunciation">🔊</button>
+                    </div>
+                    <div class="meta-info">
+                        <span class="word-form">${item.form}</span>
+                        <span class="phonetic">${item.phonetic}</span>
+                    </div>
+                </div>
+                <span class="topic-tag">${item.topic}</span>
+                <p class="definition"><strong>Definition:</strong> ${item.def}</p>
+                <p class="translation"><strong>Vietnamese:</strong> ${item.translation}</p>
+                <div class="usage-note"><strong>Usage:</strong> ${item.usage}</div>
+                <div class="example-box"><span>Example</span>"${item.example}"</div>
+            `;
+            grid.appendChild(article);
+        });
+    }
+
+    // Initialize Grid
+    renderGrid();
+
+    // --- Audio Synthesis ---
+    function playAudio(text) {
+        if ('speechSynthesis' in window) {
+            window.speechSynthesis.cancel();
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'en-GB';
+            utterance.rate = 0.9;
+            window.speechSynthesis.speak(utterance);
+        } else {
+            alert("Sorry, your browser doesn't support text-to-speech pronunciation.");
+        }
+    }
+
+    function playAudioFromCard(event) {
+        event.stopPropagation();
+        const word = document.getElementById('fc-word').textContent;
+        playAudio(word);
+    }
+
+    // --- Topic Filtering ---
+    function filterTopic(topicName) {
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        filterBtns.forEach(btn => btn.classList.remove('active'));
+        event.target.classList.add('active');
+
+        const allCards = document.querySelectorAll('.vocab-card');
+        allCards.forEach(card => {
+            if (topicName === 'all' || card.getAttribute('data-topic') === topicName) {
+                card.classList.remove('hidden');
+            } else {
+                card.classList.add('hidden');
+            }
+        });
+
+        if(document.getElementById('flashcard-view').style.display === 'flex') {
+             extractDataFromGrid(topicName);
+             currentCardIndex = 0;
+             updateFlashcardUI();
+        }
+    }
+
+    // --- View Toggling ---
+    function switchView(viewName) {
+        const gridView = document.getElementById('grid-view');
+        const flashcardView = document.getElementById('flashcard-view');
+        const btnGrid = document.getElementById('btn-grid');
+        const btnFlashcards = document.getElementById('btn-flashcards');
+
+        if (viewName === 'grid') {
+            gridView.style.display = 'grid';
+            flashcardView.style.display = 'none';
+            btnGrid.classList.add('active');
+            btnFlashcards.classList.remove('active');
+        } else {
+            gridView.style.display = 'none';
+            flashcardView.style.display = 'flex';
+            btnFlashcards.classList.add('active');
+            btnGrid.classList.remove('active');
+            
+            const activeFilter = document.querySelector('.filter-btn.active').textContent;
+            const topicName = activeFilter === 'All Terms' ? 'all' : activeFilter;
+            
+            extractDataFromGrid(topicName);
+            currentCardIndex = 0;
+            updateFlashcardUI();
+        }
+    }
+
+    // --- Flashcard Logic ---
+    let flashcardData = [];
+    let currentCardIndex = 0;
+    const flashcardScene = document.getElementById('flashcard-scene');
+
+    function extractDataFromGrid(topicName = 'all') {
+        flashcardData = [];
+        vocabBank.forEach(item => {
+            if (topicName === 'all' || item.topic === topicName) {
+                flashcardData.push(item);
+            }
+        });
+    }
+
+    function updateFlashcardUI() {
+        if (flashcardData.length === 0) return;
+        const data = flashcardData[currentCardIndex];
+        
+        flashcardScene.classList.remove('is-flipped');
+        
+        setTimeout(() => {
+            document.getElementById('fc-word').textContent = data.word;
+            document.getElementById('fc-form').textContent = data.form;
+            document.getElementById('fc-phonetic').textContent = data.phonetic;
+            document.getElementById('fc-topic').textContent = "Category: " + data.topic;
+            
+            document.getElementById('fc-definition').textContent = data.def;
+            document.getElementById('fc-translation').textContent = data.translation;
+            document.getElementById('fc-usage').innerHTML = `<strong>Usage:</strong> ${data.usage}`;
+            document.getElementById('fc-example').textContent = data.example;
+            
+            document.getElementById('fc-counter').textContent = `${currentCardIndex + 1} / ${flashcardData.length}`;
+            
+            document.getElementById('fc-prev').disabled = currentCardIndex === 0;
+            document.getElementById('fc-next').disabled = currentCardIndex === flashcardData.length - 1;
+        }, 150);
+    }
+
+    function flipCard() { flashcardScene.classList.toggle('is-flipped'); }
+    function nextCard() { if (currentCardIndex < flashcardData.length - 1) { currentCardIndex++; updateFlashcardUI(); } }
+    function prevCard() { if (currentCardIndex > 0) { currentCardIndex--; updateFlashcardUI(); } }
+    
+    function shuffleCards() {
+        for (let i = flashcardData.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [flashcardData[i], flashcardData[j]] = [flashcardData[j], flashcardData[i]];
+        }
+        currentCardIndex = 0;
+        updateFlashcardUI();
+    }
+</script>
+</body>
+</html>

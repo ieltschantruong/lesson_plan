@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Speaking Part 2: Helpful Person & Useful Book</title>
+    <style>
+        :root {
+            --primary: #ea580c; /* Orange */
+            --primary-light: #ffedd5;
+            --text-main: #1f2937;
+            --text-muted: #6b7280;
+            --bg-body: #f8fafc;
+            --card-bg: #ffffff;
+            --accent: #c2410c;
+            --border: #e2e8f0;
+            --badge-bg: #fed7aa;
+            --badge-text: #7c2d12;
+            --success: #0284c7; /* Blue for translation to contrast */
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+
+        body { background-color: var(--bg-body); color: var(--text-main); line-height: 1.6; padding: 2rem 1rem; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        header { text-align: center; margin-bottom: 2rem; }
+        h1 { color: var(--primary); font-size: 2.2rem; margin-bottom: 0.5rem; }
+        p.subtitle { color: var(--text-muted); font-size: 1.1rem; max-width: 800px; margin: 0 auto; }
+
+        /* Topic Filter Controls */
+        .filter-controls { display: flex; justify-content: center; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+        .filter-btn { padding: 0.5rem 1rem; font-size: 0.9rem; font-weight: 600; background: var(--bg-body); color: var(--primary); border: 2px solid var(--primary-light); border-radius: 20px; cursor: pointer; transition: all 0.2s ease; }
+        .filter-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
+        .filter-btn:hover:not(.active) { background: var(--primary-light); }
+
+        /* View Toggles */
+        .view-controls { display: flex; justify-content: center; gap: 1rem; margin-bottom: 3rem; }
+        .view-btn { padding: 0.75rem 1.5rem; font-size: 1rem; font-weight: 600; background: var(--card-bg); color: var(--text-muted); border: 2px solid var(--border); border-radius: 8px; cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; gap: 0.5rem; }
+        .view-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
+        .view-btn:hover:not(.active) { border-color: var(--primary); color: var(--primary); }
+
+        /* Grid View Styles */
+        #grid-view { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 1.5rem; }
+        .vocab-card { background-color: var(--card-bg); border-radius: 12px; padding: 1.5rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); border: 1px solid var(--border); transition: transform 0.2s ease, box-shadow 0.2s ease; display: flex; flex-direction: column; }
+        .vocab-card:hover { transform: translateY(-5px); box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); border-color: var(--primary); }
+        .vocab-card.hidden { display: none; }
+        .word-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; border-bottom: 2px solid var(--primary-light); padding-bottom: 0.75rem; }
+        .word-main { display: flex; align-items: center; gap: 0.5rem; }
+        .word { font-size: 1.5rem; font-weight: 700; color: var(--primary); }
+        .audio-btn { background: none; border: none; cursor: pointer; font-size: 1.2rem; padding: 0.2rem; border-radius: 50%; transition: transform 0.2s; }
+        .audio-btn:hover { transform: scale(1.2); background-color: var(--primary-light); }
+        .meta-info { text-align: right; display: flex; flex-direction: column; align-items: flex-end; gap: 0.25rem; }
+        .phonetic { font-size: 0.95rem; color: var(--text-muted); font-style: italic; }
+        .word-form { background-color: var(--badge-bg); color: var(--badge-text); font-size: 0.75rem; font-weight: 600; padding: 0.2rem 0.6rem; border-radius: 12px; text-transform: uppercase; letter-spacing: 0.05em; display: inline-block; }
+        
+        .topic-tag { font-size: 0.8rem; color: var(--accent); font-weight: bold; margin-bottom: 0.5rem; display: block;}
+        
+        .definition { font-size: 1rem; margin-bottom: 0.25rem; }
+        .definition strong { color: var(--text-main); }
+        
+        /* Translation and Usage */
+        .translation { font-size: 0.95rem; color: var(--success); margin-bottom: 0.5rem; font-weight: 500; }
+        .usage-note { font-size: 0.9rem; margin-bottom: 1rem; color: #4b5563; background: #f9fafb; padding: 0.5rem 0.75rem; border-radius: 4px; border-left: 3px solid #9ca3af; flex-grow: 1; }
+        .usage-note strong { color: var(--text-main); font-style: normal; font-weight: 600; }
+        .usage-vi { color: #6b7280; font-style: italic; display: block; margin-top: 0.25rem; }
+
+        .example-box { background-color: var(--primary-light); padding: 1rem; border-left: 4px solid var(--accent); border-radius: 4px; font-size: 0.95rem; color: var(--text-main); margin-top: auto; }
+        .example-box span { display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 0.25rem; font-weight: bold; }
+
+        /* Flashcard View Styles */
+        #flashcard-view { display: none; flex-direction: column; align-items: center; width: 100%; }
+        .flashcard-scene { width: 100%; max-width: 650px; height: 480px; perspective: 1000px; cursor: pointer; margin-bottom: 2rem; }
+        .flashcard-inner { width: 100%; height: 100%; position: relative; transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1); transform-style: preserve-3d; }
+        .flashcard-scene.is-flipped .flashcard-inner { transform: rotateY(180deg); }
+        .flashcard-face { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 16px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08); border: 2px solid var(--border); background: var(--card-bg); padding: 2rem 2.5rem; display: flex; flex-direction: column; justify-content: center; align-items: center; overflow-y: auto; }
+        .flashcard-front { text-align: center; }
+        .flashcard-front .word { font-size: 3rem; margin-bottom: 1rem; color: var(--primary); }
+        .flashcard-front .meta-row { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+        .flashcard-front .phonetic { font-size: 1.2rem; color: var(--text-muted); }
+        .flashcard-front .audio-btn { font-size: 1.8rem; background: var(--primary-light); padding: 0.5rem; }
+        .flashcard-back { transform: rotateY(180deg); background: #f8fafc; align-items: flex-start; text-align: left; }
+        .flashcard-back h3 { color: var(--primary); font-size: 1.1rem; margin-bottom: 0.25rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        
+        .flashcard-back .definition { font-size: 1.1rem; margin-bottom: 0.25rem; }
+        .flashcard-back .translation { font-size: 1.05rem; margin-bottom: 0.75rem; color: var(--success); font-weight: 500;}
+        .flashcard-back .usage-note { width: 100%; font-size: 0.95rem; padding: 0.5rem; margin-bottom: 1rem; }
+        .flashcard-back .example-box { width: 100%; font-size: 1rem; padding: 0.75rem 1rem; }
+        
+        .flashcard-hint { position: absolute; bottom: 1rem; font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.6; }
+
+        .flashcard-controls { display: flex; align-items: center; gap: 1.5rem; background: var(--card-bg); padding: 1rem 2rem; border-radius: 50px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border: 1px solid var(--border); }
+        .fc-btn { background: none; border: none; color: var(--text-main); font-size: 1rem; font-weight: 600; cursor: pointer; padding: 0.5rem 1rem; border-radius: 20px; transition: background 0.2s; display: flex; align-items: center; gap: 0.5rem; }
+        .fc-btn:hover:not(:disabled) { background: var(--primary-light); color: var(--primary); }
+        .fc-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+        .fc-counter { font-weight: 700; font-size: 1.1rem; color: var(--primary); min-width: 60px; text-align: center; }
+
+        @media (max-width: 768px) { 
+            h1 { font-size: 1.8rem; } 
+            #grid-view { grid-template-columns: 1fr; } 
+            .flashcard-scene { height: 520px; } 
+            .flashcard-front .word { font-size: 2.2rem; } 
+            .flashcard-back .definition { font-size: 1rem; }
+            .flashcard-face { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Speaking Part 2 Vocabulary</h1>
+        <p class="subtitle">Target Band 6.0 - 6.5 | Describing a Helpful Person & a Useful Book</p>
+    </header>
+
+    <!-- Topic Filter -->
+    <div class="filter-controls" id="topic-filters">
+        <button class="filter-btn active" onclick="filterTopic('all')">All Words</button>
+        <button class="filter-btn" onclick="filterTopic('A Helpful Person')">Topic: A Helpful Person</button>
+        <button class="filter-btn" onclick="filterTopic('A Useful Book')">Topic: A Useful Book</button>
+    </div>
+
+    <div class="view-controls">
+        <button class="view-btn active" id="btn-grid" onclick="switchView('grid')">📄 List View</button>
+        <button class="view-btn" id="btn-flashcards" onclick="switchView('flashcards')">🗂️ Flashcard Study</button>
+    </div>
+
+    <!-- FLASHCARD VIEW -->
+    <div id="flashcard-view">
+        <div class="flashcard-scene" id="flashcard-scene" onclick="flipCard()">
+            <div class="flashcard-inner">
+                <div class="flashcard-face flashcard-front">
+                    <span class="word-form" id="fc-form">Verb</span>
+                    <h2 class="word" id="fc-word">Word</h2>
+                    <div class="meta-row">
+                        <span class="phonetic" id="fc-phonetic">/wɜːd/</span>
+                        <button class="audio-btn" id="fc-audio" onclick="playAudioFromCard(event)" title="Listen to pronunciation">🔊</button>
+                    </div>
+                    <span class="topic-tag" id="fc-topic" style="margin-top: 1rem;">Topic: General</span>
+                    <span class="flashcard-hint">Click card to flip</span>
+                </div>
+                <div class="flashcard-face flashcard-back">
+                    <h3>Meaning & Usage</h3>
+                    <p class="definition" id="fc-definition">Definition goes here.</p>
+                    <p class="translation" id="fc-translation">Vietnamese goes here.</p>
+                    <div class="usage-note" id="fc-usage"><strong>Usage:</strong> Usage goes here.</div>
+                    <div class="example-box">
+                        <span>Speaking Example</span>
+                        <div id="fc-example">"Example sentence goes here."</div>
+                    </div>
+                    <span class="flashcard-hint" style="left: 50%; transform: translateX(-50%);">Click card to flip back</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="flashcard-controls">
+            <button class="fc-btn" id="fc-prev" onclick="prevCard()">◀ Prev</button>
+            <span class="fc-counter" id="fc-counter">1 / 20</span>
+            <button class="fc-btn" id="fc-next" onclick="nextCard()">Next ▶</button>
+            <div style="width: 2px; height: 24px; background: var(--border); margin: 0 0.5rem;"></div>
+            <button class="fc-btn" onclick="shuffleCards()" title="Shuffle Order">🔀</button>
+        </div>
+    </div>
+
+    <!-- GRID VIEW -->
+    <main id="grid-view">
+        <!-- Injected via JavaScript -->
+    </main>
+</div>
+
+<script>
+    // ---------------------------------------------------------
+    // Adjusted Vocabulary Bank (Target: Band 6.0 - 6.5)
+    // ---------------------------------------------------------
+    const vocabBank = [
+        // Topic 1: A Helpful Person
+        { topic: "A Helpful Person", word: "Generous", form: "Adjective", phonetic: "/ˈdʒɛnərəs/", def: "Willing to give money, help, or time freely.", translation: "Rộng lượng, hào phóng", usage: "Describes a person's character regarding helping others.<span class='usage-vi'>(Miêu tả tính cách của một người luôn sẵn sàng giúp đỡ người khác.)</span>", example: "My neighbor is incredibly generous with her time and always helps the elderly." },
+        { topic: "A Helpful Person", word: "Kind-hearted", form: "Adjective", phonetic: "/kaɪnd-ˈhɑːtɪd/", def: "Having a kind and sympathetic nature.", translation: "Tốt bụng, nhân hậu", usage: "A natural alternative to simply saying 'good'.<span class='usage-vi'>(Một từ thay thế tự nhiên cho từ 'good' - tốt.)</span>", example: "He is a kind-hearted man who regularly rescues stray animals." },
+        { topic: "A Helpful Person", word: "Supportive", form: "Adjective", phonetic: "/səˈpɔːtɪv/", def: "Giving help and encouragement.", translation: "Mang tính hỗ trợ, luôn ủng hộ", usage: "Often used when talking about family, friends, or colleagues.<span class='usage-vi'>(Thường dùng khi nói về gia đình, bạn bè hoặc đồng nghiệp.)</span>", example: "Whenever I face difficulties at work, she is always extremely supportive." },
+        { topic: "A Helpful Person", word: "Reliable", form: "Adjective", phonetic: "/rɪˈlaɪəbl/", def: "Someone you can trust or depend on.", translation: "Đáng tin cậy", usage: "Crucial for describing someone who keeps their promises to help.<span class='usage-vi'>(Rất quan trọng để miêu tả người luôn giữ lời hứa giúp đỡ.)</span>", example: "You can always count on him; he is the most reliable friend I have." },
+        { topic: "A Helpful Person", word: "Volunteer", form: "Verb / Noun", phonetic: "/ˌvɒlənˈtɪə/", def: "To offer to do something without being paid.", translation: "Tình nguyện / Tình nguyện viên", usage: "Used to describe formal or informal ways of helping the community.<span class='usage-vi'>(Dùng để miêu tả các hình thức giúp đỡ cộng đồng chính thức hoặc không chính thức.)</span>", example: "She volunteers at the local hospital every weekend to help sick children." },
+        { topic: "A Helpful Person", word: "A helping hand", form: "Noun Phrase", phonetic: "/ə ˈhɛlpɪŋ hænd/", def: "Assistance or support.", translation: "Sự giúp đỡ", usage: "Commonly used with verbs like 'lend', 'give', or 'offer'.<span class='usage-vi'>(Thường đi chung với các động từ như 'lend', 'give', hoặc 'offer'.)</span>", example: "He is always ready to lend a helping hand to anyone in need." },
+        { topic: "A Helpful Person", word: "Look up to", form: "Phrasal Verb", phonetic: "/lʊk ʌp tuː/", def: "To admire and respect someone.", translation: "Kính trọng, ngưỡng mộ", usage: "Perfect for the 'explain how you feel about this person' prompt.<span class='usage-vi'>(Rất phù hợp cho phần 'giải thích cảm nhận của bạn về người này'.)</span>", example: "I really look up to him because he dedicates his life to helping others." },
+        { topic: "A Helpful Person", word: "Make a difference", form: "Phrase", phonetic: "/meɪk ə ˈdɪfrəns/", def: "To have a positive effect on a situation or on people's lives.", translation: "Tạo ra sự khác biệt (tích cực)", usage: "Describes the result of someone's helpful actions.<span class='usage-vi'>(Miêu tả kết quả từ hành động giúp đỡ của ai đó.)</span>", example: "Even small acts of kindness can make a big difference in someone's life." },
+        { topic: "A Helpful Person", word: "Compassionate", form: "Adjective", phonetic: "/kəmˈpæʃənət/", def: "Feeling or showing sympathy and concern for others.", translation: "Cảm thông, thương xót", usage: "A great band 6.5 word to describe deep care for others.<span class='usage-vi'>(Một từ vựng band 6.5 rất hay để miêu tả sự quan tâm sâu sắc đến người khác.)</span>", example: "She is so compassionate that she often cries when she sees homeless people." },
+        { topic: "A Helpful Person", word: "Selfless", form: "Adjective", phonetic: "/ˈsɛlfləs/", def: "Caring more about what other people need than about what you need.", translation: "Vị tha, không ích kỷ", usage: "Describes a helper who doesn't expect anything in return.<span class='usage-vi'>(Miêu tả một người giúp đỡ không mong nhận lại điều gì.)</span>", example: "Helping strangers without expecting anything in return is a truly selfless act." },
+
+        // Topic 2: A Useful Book
+        { topic: "A Useful Book", word: "Non-fiction", form: "Noun", phonetic: "/nɒn-ˈfɪkʃn/", def: "Writing that is about real events and facts, rather than stories invented by the author.", translation: "Sách phi hư cấu (người thật việc thật)", usage: "Useful for describing self-help, business, or history books.<span class='usage-vi'>(Hữu ích khi miêu tả sách self-help, kinh doanh, hoặc lịch sử.)</span>", example: "I usually prefer reading non-fiction because I like learning real facts." },
+        { topic: "A Useful Book", word: "Practical", form: "Adjective", phonetic: "/ˈpræktɪkl/", def: "Useful and sensible; relating to real situations rather than ideas.", translation: "Thực tế, thực tiễn", usage: "Describes the type of advice found in a useful book.<span class='usage-vi'>(Miêu tả loại lời khuyên tìm thấy trong một cuốn sách hữu ích.)</span>", example: "The book is full of practical advice on how to save money effectively." },
+        { topic: "A Useful Book", word: "Informative", form: "Adjective", phonetic: "/ɪnˈfɔːmətɪv/", def: "Providing a lot of useful or interesting information.", translation: "Cung cấp nhiều thông tin hữu ích", usage: "A standard band 6.0 word to say a book taught you a lot.<span class='usage-vi'>(Một từ chuẩn band 6.0 để nói rằng một cuốn sách dạy bạn rất nhiều điều.)</span>", example: "I found the chapters on time management to be incredibly informative." },
+        { topic: "A Useful Book", word: "Inspiring", form: "Adjective", phonetic: "/ɪnˈspaɪərɪŋ/", def: "Encouraging, making you feel you want to do something positive.", translation: "Truyền cảm hứng", usage: "Perfect for the 'explain why it was useful' section.<span class='usage-vi'>(Tuyệt vời cho phần 'giải thích tại sao nó hữu ích'.)</span>", example: "Reading about the author's success story was extremely inspiring to me." },
+        { topic: "A Useful Book", word: "Engaging", form: "Adjective", phonetic: "/ɪnˈɡeɪdʒɪŋ/", def: "Pleasant, attractive, and holding your attention.", translation: "Lôi cuốn, hấp dẫn", usage: "A better alternative to simply saying 'interesting'.<span class='usage-vi'>(Một sự thay thế tốt hơn cho từ 'interesting' - thú vị.)</span>", example: "The writing style was so engaging that I finished the book in two days." },
+        { topic: "A Useful Book", word: "Eye-opening", form: "Adjective", phonetic: "/ˈaɪˌəʊpnɪŋ/", def: "Surprising, and teaching you new facts about life or a situation.", translation: "Mở mang tầm mắt", usage: "Used to describe a book that completely changed how you think.<span class='usage-vi'>(Dùng để miêu tả cuốn sách đã thay đổi hoàn toàn cách bạn suy nghĩ.)</span>", example: "Learning about healthy eating habits in this book was an eye-opening experience." },
+        { topic: "A Useful Book", word: "Highly recommend", form: "Phrase", phonetic: "/ˈhaɪli ˌrɛkəˈmɛnd/", def: "To strongly suggest that someone does something or reads something.", translation: "Kịch liệt đề xuất, khuyên đọc", usage: "A great way to conclude your Speaking Part 2 speech.<span class='usage-vi'>(Một cách tuyệt vời để kết thúc bài nói Phần 2 của bạn.)</span>", example: "If you want to improve your daily habits, I highly recommend this book." },
+        { topic: "A Useful Book", word: "Broaden my horizons", form: "Phrase", phonetic: "/ˈbrɔːdn maɪ həˈraɪznz/", def: "To increase the range of things that someone knows about or has experienced.", translation: "Mở rộng tầm hiểu biết", usage: "A classic IELTS phrase for explaining the benefit of reading or traveling.<span class='usage-vi'>(Một cụm từ IELTS kinh điển để giải thích lợi ích của việc đọc sách hoặc du lịch.)</span>", example: "This book really helped to broaden my horizons about global history." },
+        { topic: "A Useful Book", word: "Apply", form: "Verb", phonetic: "/əˈplaɪ/", def: "To put into operation or use (like advice, a rule, or knowledge).", translation: "Áp dụng", usage: "Followed by 'to my life' or 'to my work'.<span class='usage-vi'>(Thường đi kèm với 'to my life' - vào cuộc sống, hoặc 'to my work' - vào công việc.)</span>", example: "I immediately tried to apply the lessons from the book to my own life." },
+        { topic: "A Useful Book", word: "Life lesson", form: "Noun Phrase", phonetic: "/laɪf ˈlɛsn/", def: "Something useful that you learn from an experience or a book.", translation: "Bài học cuộc sống", usage: "Used to describe the core message or takeaway from a useful book.<span class='usage-vi'>(Dùng để miêu tả thông điệp cốt lõi hoặc bài học rút ra từ một cuốn sách hữu ích.)</span>", example: "The main character's journey teaches a valuable life lesson about honesty." }
+    ];
+
+    // --- DOM Injection ---
+    function renderGrid() {
+        const grid = document.getElementById('grid-view');
+        vocabBank.forEach(item => {
+            const article = document.createElement('article');
+            article.className = 'vocab-card';
+            article.setAttribute('data-topic', item.topic);
+            
+            article.innerHTML = `
+                <div class="word-header">
+                    <div class="word-main">
+                        <span class="word">${item.word}</span>
+                        <button class="audio-btn" onclick="playAudio('${item.word.replace(/'/g, "\\'")}')" title="Listen to pronunciation">🔊</button>
+                    </div>
+                    <div class="meta-info">
+                        <span class="word-form">${item.form}</span>
+                        <span class="phonetic">${item.phonetic}</span>
+                    </div>
+                </div>
+                <span class="topic-tag">${item.topic}</span>
+                <p class="definition"><strong>Definition:</strong> ${item.def}</p>
+                <p class="translation"><strong>Vietnamese:</strong> ${item.translation}</p>
+                <div class="usage-note"><strong>Usage:</strong> ${item.usage}</div>
+                <div class="example-box"><span>Speaking Example</span>"${item.example}"</div>
+            `;
+            grid.appendChild(article);
+        });
+    }
+
+    // Initialize Grid
+    renderGrid();
+
+    // --- Audio Synthesis ---
+    function playAudio(text) {
+        if ('speechSynthesis' in window) {
+            window.speechSynthesis.cancel();
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'en-GB';
+            utterance.rate = 0.9;
+            window.speechSynthesis.speak(utterance);
+        } else {
+            alert("Sorry, your browser doesn't support text-to-speech pronunciation.");
+        }
+    }
+
+    function playAudioFromCard(event) {
+        event.stopPropagation();
+        const word = document.getElementById('fc-word').textContent;
+        playAudio(word);
+    }
+
+    // --- Topic Filtering ---
+    function filterTopic(topicName) {
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        filterBtns.forEach(btn => btn.classList.remove('active'));
+        event.target.classList.add('active');
+
+        const allCards = document.querySelectorAll('.vocab-card');
+        allCards.forEach(card => {
+            if (topicName === 'all' || card.getAttribute('data-topic') === topicName) {
+                card.classList.remove('hidden');
+            } else {
+                card.classList.add('hidden');
+            }
+        });
+
+        if(document.getElementById('flashcard-view').style.display === 'flex') {
+             extractDataFromGrid(topicName);
+             currentCardIndex = 0;
+             updateFlashcardUI();
+        }
+    }
+
+    // --- View Toggling ---
+    function switchView(viewName) {
+        const gridView = document.getElementById('grid-view');
+        const flashcardView = document.getElementById('flashcard-view');
+        const btnGrid = document.getElementById('btn-grid');
+        const btnFlashcards = document.getElementById('btn-flashcards');
+
+        if (viewName === 'grid') {
+            gridView.style.display = 'grid';
+            flashcardView.style.display = 'none';
+            btnGrid.classList.add('active');
+            btnFlashcards.classList.remove('active');
+        } else {
+            gridView.style.display = 'none';
+            flashcardView.style.display = 'flex';
+            btnFlashcards.classList.add('active');
+            btnGrid.classList.remove('active');
+            
+            const activeFilter = document.querySelector('.filter-btn.active').textContent;
+            let topicName = 'all';
+            if (activeFilter.includes('Helpful')) topicName = 'A Helpful Person';
+            if (activeFilter.includes('Book')) topicName = 'A Useful Book';
+            
+            extractDataFromGrid(topicName);
+            currentCardIndex = 0;
+            updateFlashcardUI();
+        }
+    }
+
+    // --- Flashcard Logic ---
+    let flashcardData = [];
+    let currentCardIndex = 0;
+    const flashcardScene = document.getElementById('flashcard-scene');
+
+    function extractDataFromGrid(topicName = 'all') {
+        flashcardData = [];
+        vocabBank.forEach(item => {
+            if (topicName === 'all' || item.topic === topicName) {
+                flashcardData.push(item);
+            }
+        });
+    }
+
+    function updateFlashcardUI() {
+        if (flashcardData.length === 0) return;
+        const data = flashcardData[currentCardIndex];
+        
+        flashcardScene.classList.remove('is-flipped');
+        
+        setTimeout(() => {
+            document.getElementById('fc-word').textContent = data.word;
+            document.getElementById('fc-form').textContent = data.form;
+            document.getElementById('fc-phonetic').textContent = data.phonetic;
+            document.getElementById('fc-topic').textContent = data.topic;
+            
+            document.getElementById('fc-definition').textContent = data.def;
+            document.getElementById('fc-translation').textContent = data.translation;
+            document.getElementById('fc-usage').innerHTML = `<strong>Usage:</strong> ${data.usage}`;
+            document.getElementById('fc-example').textContent = data.example;
+            
+            document.getElementById('fc-counter').textContent = `${currentCardIndex + 1} / ${flashcardData.length}`;
+            
+            document.getElementById('fc-prev').disabled = currentCardIndex === 0;
+            document.getElementById('fc-next').disabled = currentCardIndex === flashcardData.length - 1;
+        }, 150);
+    }
+
+    function flipCard() { flashcardScene.classList.toggle('is-flipped'); }
+    function nextCard() { if (currentCardIndex < flashcardData.length - 1) { currentCardIndex++; updateFlashcardUI(); } }
+    function prevCard() { if (currentCardIndex > 0) { currentCardIndex--; updateFlashcardUI(); } }
+    
+    function shuffleCards() {
+        for (let i = flashcardData.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [flashcardData[i], flashcardData[j]] = [flashcardData[j], flashcardData[i]];
+        }
+        currentCardIndex = 0;
+        updateFlashcardUI();
+    }
+</script>
+</body>
+</html>

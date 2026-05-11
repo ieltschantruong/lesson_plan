@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Chan Truong - Lesson 19</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .slide { display: none; animation: fadeIn 0.4s ease-in-out; }
+        .slide.active { display: block; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* Custom scrollbar for iframe/content */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #fdf2f8; } /* pastel pink track */
+        ::-webkit-scrollbar-thumb { background: #f472b6; border-radius: 4px; } /* pink thumb */
+        ::-webkit-scrollbar-thumb:hover { background: #be123c; } /* rose hover */
+        
+        /* Details/Summary marker styling */
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
+
+        /* Hide answers by default */
+        .hidden-answer { display: none; }
+    </style>
+</head>
+<body class="bg-rose-50 text-gray-800 h-screen flex flex-col overflow-hidden">
+
+    <!-- Header / Navigation -->
+    <header class="bg-rose-900 text-white p-4 shadow-md flex justify-between items-center z-10 shrink-0 border-b-4 border-pink-300">
+        <div>
+            <h1 class="text-2xl font-bold tracking-wide">IELTS Chan Truong <span class="text-pink-200 text-lg font-normal ml-2">Class 5.5-6.5 | Lesson 19</span></h1>
+            <p class="text-sm text-rose-200 mt-1">Listening & Speaking</p>
+        </div>
+        <div class="flex items-center gap-4">
+            <span id="slide-counter" class="font-semibold bg-rose-800 px-3 py-1 rounded border border-rose-700">Slide 1 / 7</span>
+            <button onclick="prevSlide()" class="bg-rose-700 hover:bg-rose-600 px-4 py-2 rounded transition font-medium">⬅ Previous</button>
+            <button onclick="nextSlide()" class="bg-pink-600 hover:bg-pink-500 px-4 py-2 rounded shadow-lg transition font-medium text-white">Next ➡</button>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 overflow-y-auto p-8 relative">
+        <div class="max-w-5xl mx-auto pb-20">
+
+            <!-- SLIDE 1: Intro -->
+            <div class="slide active" id="slide-0">
+                <div class="text-center py-20">
+                    <h2 class="text-5xl font-extrabold text-rose-900 mb-6">Lesson 19: Listening & Speaking</h2>
+                    <p class="text-2xl text-rose-700 mb-12 font-medium">Today's Overview</p>
+                    
+                    <div class="grid grid-cols-2 gap-8 max-w-3xl mx-auto text-left">
+                        <div class="bg-white p-6 rounded-xl shadow border-t-4 border-pink-400">
+                            <h3 class="text-xl font-bold mb-2 text-rose-900">Part 1: Listening</h3>
+                            <ul class="list-disc pl-5 text-gray-600 space-y-2">
+                                <li>Complete IELTS Student Book - Unit 6</li>
+                                <li>Complete IELTS Work Book - Unit 6</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white p-6 rounded-xl shadow border-t-4 border-rose-500">
+                            <h3 class="text-xl font-bold mb-2 text-rose-900">Part 2: Speaking</h3>
+                            <ul class="list-disc pl-5 text-gray-600 space-y-2">
+                                <li><strong>Part 1:</strong> Exercise Correction</li>
+                                <li><strong>Part 1:</strong> Question Discussion & Practice</li>
+                                <li><strong>Part 2:</strong> Exercise Correction</li>
+                                <li><strong>Part 2:</strong> Question Discussion & Practice</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <button onclick="nextSlide()" class="mt-12 bg-rose-700 hover:bg-rose-800 text-white px-8 py-4 rounded-full text-xl font-bold shadow-lg transition">
+                        Let's Begin
+                    </button>
+                </div>
+            </div>
+
+            <!-- SLIDE 2: Listening - Student Book -->
+            <div class="slide" id="slide-1">
+                <div class="flex items-center mb-6">
+                    <span class="bg-pink-200 text-rose-900 text-sm font-bold px-3 py-1 rounded uppercase tracking-wider mr-3">Listening</span>
+                    <h2 class="text-3xl font-bold text-gray-800">Complete IELTS Student Book - Unit 6</h2>
+                </div>
+
+                <div class="space-y-8">
+                    <!-- I. Vocabulary -->
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-rose-100 exercise-container">
+                        <h3 class="text-xl font-bold text-rose-900 mb-4">I. Listening Section 2: Vocabulary</h3>
+                        <p class="text-gray-700 mb-6 text-lg">You are going to hear a worker from the Citizen's Advice Bureau talking to people who have arrived recently in the country about the banking system in Britain. Before you listen, match these words and phrases (1-8) with their definitions (a–h).</p>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-lg mb-4">
+                            <div class="bg-rose-50 p-5 rounded border border-rose-200">
+                                <ul class="space-y-3 font-bold text-rose-900">
+                                    <li>1. account <span class="hidden-answer text-rose-600 ml-2 font-medium">→ b</span></li>
+                                    <li>2. balance <span class="hidden-answer text-rose-600 ml-2 font-medium">→ c</span></li>
+                                    <li>3. branch <span class="hidden-answer text-rose-600 ml-2 font-medium">→ g</span></li>
+                                    <li>4. direct debit <span class="hidden-answer text-rose-600 ml-2 font-medium">→ a</span></li>
+                                    <li>5. in credit <span class="hidden-answer text-rose-600 ml-2 font-medium">→ e</span></li>
+                                    <li>6. interest rate <span class="hidden-answer text-rose-600 ml-2 font-medium">→ d</span></li>
+                                    <li>7. overdraft <span class="hidden-answer text-rose-600 ml-2 font-medium">→ h</span></li>
+                                    <li>8. savings <span class="hidden-answer text-rose-600 ml-2 font-medium">→ f</span></li>
+                                </ul>
+                            </div>
+                            <div class="bg-white p-5 rounded border border-pink-200 text-base text-gray-700 space-y-3">
+                                <p><strong>a.</strong> arrangement that allows an organisation to take money from your bank account to pay for something</p>
+                                <p><strong>b.</strong> arrangement with a bank to keep your money there</p>
+                                <p><strong>c.</strong> exact amount of money you have in a bank account</p>
+                                <p><strong>d.</strong> extra money that you must pay to a bank which has lent you money</p>
+                                <p><strong>e.</strong> having money in your bank account</p>
+                                <p><strong>f.</strong> money which you have saved and not spent</p>
+                                <p><strong>g.</strong> one of the offices of a bank</p>
+                                <p><strong>h.</strong> when you have taken more money out of your bank account than you had in it</p>
+                            </div>
+                        </div>
+                        <button onclick="toggleAnswers(this)" data-default-text="👀 Reveal Answers" class="mt-2 bg-pink-100 hover:bg-pink-200 text-rose-800 font-bold py-3 px-4 rounded transition w-full text-center border border-pink-300">
+                            👀 Reveal Answers
+                        </button>
+                    </div>
+
+                    <!-- II & III. Questions 1-4 -->
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-rose-100 exercise-container">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-rose-900">II & III. Listen and answer Questions 1-4</h3>
+                            <span class="bg-rose-100 text-rose-800 text-sm font-bold px-3 py-1 rounded">00:00 - 02:54</span>
+                        </div>
+                        
+                        <p class="font-medium text-lg mb-2">Which bank provides the following?</p>
+                        <p class="text-gray-600 italic mb-6">Choose FOUR answers from the box and write the correct letter, A-F, next to questions 1-4.</p>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                            <ul class="space-y-5 text-lg pl-2">
+                                <li class="flex items-center"><strong>1.</strong> <span class="border-b-2 border-gray-400 w-12 inline-block mx-2 text-center text-rose-600 font-bold"><span class="hidden-answer">B</span></span> a branch on the campus</li>
+                                <li class="flex items-center"><strong>2.</strong> <span class="border-b-2 border-gray-400 w-12 inline-block mx-2 text-center text-rose-600 font-bold"><span class="hidden-answer">D</span></span> a free gift for new customers</li>
+                                <li class="flex items-center"><strong>3.</strong> <span class="border-b-2 border-gray-400 w-12 inline-block mx-2 text-center text-rose-600 font-bold"><span class="hidden-answer">C</span></span> special interest rates for students</li>
+                                <li class="flex items-center"><strong>4.</strong> <span class="border-b-2 border-gray-400 w-12 inline-block mx-2 text-center text-rose-600 font-bold"><span class="hidden-answer">E</span></span> no bank charges for certain customers</li>
+                            </ul>
+                            <div class="bg-pink-50 p-6 rounded-lg border border-pink-200 shadow-sm">
+                                <ul class="grid grid-cols-2 gap-4 text-lg font-bold text-rose-900">
+                                    <li>A. Evergreen</li>
+                                    <li>B. Finley's</li>
+                                    <li>C. Great Western</li>
+                                    <li>D. International Union</li>
+                                    <li>E. Moneysafe</li>
+                                    <li>F. Northern Star</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="bg-rose-50 p-4 rounded-lg flex items-center gap-4 border border-rose-200">
+                            <span class="text-3xl">🎧</span>
+                            <audio id="audio-q1-4" controls class="w-full h-10" preload="metadata">
+                                <source src="http://ieltschantruong.github.io/IELTS/src/listening_audios/complete_ielts_5_6.5_studentbook_unit6.mp3#t=0,174" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+
+                        <!-- Hidden Transcript -->
+                        <div class="hidden-answer mt-6 p-5 bg-pink-50 border-l-4 border-pink-400 rounded text-gray-700 text-base leading-relaxed h-64 overflow-y-auto shadow-inner">
+                            <h4 class="font-bold text-rose-900 mb-4 text-xl">Transcript & Answers:</h4>
+                            <p class="mb-4">
+                                <button onclick="jumpToTime(0, 'audio-q1-4')" class="bg-pink-200 hover:bg-pink-300 text-rose-900 font-mono text-sm px-2 py-1 rounded transition shadow-sm mr-2 font-bold">▶ 00:00</button>
+                                So I thought that I'd first say a few words to help orientate you round the banking system. As new arrivals, one of the first things you'll want to do is open a bank account. This will allow you to receive your money transfers, pay your bills by direct debit and all sorts of other things that will make your life easier. One mistake I think a lot of people make is to just wander into the first bank they see, thinking that all banks are much the same, and ask to open an account. In actual fact, they all offer something slightly different, and some of the differences can affect you quite seriously.
+                            </p>
+                            <p class="mb-4">
+                                <button onclick="jumpToTime(68, 'audio-q1-4')" class="bg-pink-200 hover:bg-pink-300 text-rose-900 font-mono text-sm px-2 py-1 rounded transition shadow-sm mr-2 font-bold">▶ 01:08</button>
+                                For example, for those of you who are studying at the university here, you may have noticed that there are two or three banks with branches near the university - Great Western and Moneysafe, for example - but only one - <strong class="text-rose-700 bg-pink-100 px-1 rounded">Finley's (Answer Q1)</strong> actually has an office inside one of the university buildings. For the others, you'd have a bit more of a walk.
+                            </p>
+                            <p class="mb-4">
+                                <button onclick="jumpToTime(93, 'audio-q1-4')" class="bg-pink-200 hover:bg-pink-300 text-rose-900 font-mono text-sm px-2 py-1 rounded transition shadow-sm mr-2 font-bold">▶ 01:33</button>
+                                Some banks give away free gifts: Evergreen offers a laptop to people who keep a balance of more than £5,000 for nine months; with <strong class="text-rose-700 bg-pink-100 px-1 rounded">International Union (Answer Q2)</strong>, you'll get a phone when you open your first account; and one or two others, like Moneysafe and Northern Star, offer mountain bikes or vacuum cleaners if you put money on deposit. That sort of thing.
+                            </p>
+                            <p class="mb-4">
+                                <button onclick="jumpToTime(116, 'audio-q1-4')" class="bg-pink-200 hover:bg-pink-300 text-rose-900 font-mono text-sm px-2 py-1 rounded transition shadow-sm mr-2 font-bold">▶ 01:56</button>
+                                More seriously, you should look at the sort of interest rates the bank will offer you, both if you need an overdraft or loan, or if you're hoping to get some interest on your savings.
+                            </p>
+                            <p class="mb-4">
+                                <button onclick="jumpToTime(126, 'audio-q1-4')" class="bg-pink-200 hover:bg-pink-300 text-rose-900 font-mono text-sm px-2 py-1 rounded transition shadow-sm mr-2 font-bold">▶ 02:06</button>
+                                At the moment, Northern Star offers the highest rate of interest to savers, but <strong class="text-rose-700 bg-pink-100 px-1 rounded">Great Western (Answer Q3)</strong> will lend money at a lower percentage than normal to people registered on higher education courses. So you can see it really is worth looking around.
+                            </p>
+                            <p>
+                                <button onclick="jumpToTime(145, 'audio-q1-4')" class="bg-pink-200 hover:bg-pink-300 text-rose-900 font-mono text-sm px-2 py-1 rounded transition shadow-sm mr-2 font-bold">▶ 02:25</button>
+                                Another thing it's a good idea to enquire about are bank charges. Again, they're not all the same. Some charge the same across the board, such as Evergreen, Finley's and Northern Star, but <strong class="text-rose-700 bg-pink-100 px-1 rounded">Moneysafe (Answer Q4)</strong> actually say that if you're in credit, your account won't cost a thing - though, just like the others, as soon as you go into the red, their prices become pretty steep.
+                            </p>
+                        </div>
+                        
+                        <button onclick="toggleAnswers(this)" data-default-text="👀 Reveal Answers & Transcript" class="mt-6 bg-pink-100 hover:bg-pink-200 text-rose-800 font-bold py-3 px-4 rounded transition w-full text-center border border-pink-300">
+                            👀 Reveal Answers & Transcript
+                        </button>
+                    </div>
+
+                    <!-- IV & V. Questions 5-10 Diagram -->
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-rose-100 exercise-container">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-rose-900">IV & V. Questions 5-10</h3>
+                            <span class="bg-rose-100 text-rose-800 text-sm font-bold px-3 py-1 rounded">02:55 - End</span>
+                        </div>
+
+                        <!-- Pair Work Box -->
+                        <div class="bg-pink-100 border-l-4 border-pink-400 p-5 mb-6 rounded-r">
+                            <h4 class="font-bold text-rose-900 flex items-center gap-2 text-lg mb-1"><span>👥</span> Pair Work</h4>
+                            <p class="text-rose-800">Look at Questions 5-10 and the diagram below. What information do you think you need to complete the labels? Discuss with your partner before listening.</p>
+                        </div>
+
+                        <div class="mb-8 p-4 bg-gray-50 border border-gray-200 rounded text-center">
+                            <img src="http://ieltschantruong.github.io/IELTS/src/listening_diagrams/complete_itelts_studentbook_unit6.png" alt="Listening Diagram Questions 5-10" class="mx-auto max-w-full h-auto rounded shadow-sm">
+                        </div>
+
+                        <p class="font-bold text-lg mb-4 text-rose-900">Now listen and complete the diagram (Questions 5-10).</p>
+                        <div class="bg-rose-50 p-4 rounded-lg flex items-center gap-4 border border-rose-200 mb-6">
+                            <span class="text-3xl">🎧</span>
+                            <audio id="audio-q5-10" controls class="w-full h-10" preload="metadata">
+                                <source src="http://ieltschantruong.github.io/IELTS/src/listening_audios/complete_ielts_5_6.5_studentbook_unit6.mp3#t=175" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+
+                        <!-- Answer Key & Transcript Container -->
+                        <div class="hidden-answer mt-4">
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                <!-- Diagram Answers -->
+                                <div class="col-span-1 bg-white border-2 border-rose-200 rounded-lg shadow-sm p-5 h-fit">
+                                    <h4 class="font-bold text-rose-900 mb-4 border-b border-rose-100 pb-2 text-xl">Diagram Answers:</h4>
+                                    <ul class="space-y-3 text-lg text-rose-800 font-bold">
+                                        <li><span class="inline-block w-8 text-gray-500">5.</span> picture</li>
+                                        <li><span class="inline-block w-8 text-gray-500">6.</span> magnetic strip</li>
+                                        <li><span class="inline-block w-8 text-gray-500">7.</span> signature</li>
+                                        <li><span class="inline-block w-8 text-gray-500">8.</span> bank logo</li>
+                                        <li><span class="inline-block w-8 text-gray-500">9.</span> date</li>
+                                        <li><span class="inline-block w-8 text-gray-500">10.</span> chip</li>
+                                    </ul>
+                                </div>
+
+                                <!-- Transcript -->
+                                <div class="col-span-2 p-5 bg-pink-50 border-l-4 border-pink-400 rounded text-gray-700 text-base leading-relaxed h-80 overflow-y-auto shadow-inner">
+                                    <h4 class="font-bold text-rose-900 mb-4 text-xl">Transcript:</h4>
+                                    <p class="mb-4">
+                                        <button onclick="jumpToTime(183, 'audio-q5-10')" class="bg-pink-200 hover:bg-pink-300 text-rose-900 font-mono text-sm px-2 py-1 rounded transition shadow-sm mr-2 font-bold">▶ 03:03</button>
+                                        Of course, one of the things you'll want as soon as you open your account is a debit card, so I thought I'd give you a little tour of these essential little pieces of plastic. If you look at the slide, you'll see that on the front at the top they tend to have either the name of the bank or the company which has issued the card.
+                                    </p>
+                                    <p class="mb-4">
+                                        <button onclick="jumpToTime(204, 'audio-q5-10')" class="bg-pink-200 hover:bg-pink-300 text-rose-900 font-mono text-sm px-2 py-1 rounded transition shadow-sm mr-2 font-bold">▶ 03:24</button>
+                                        Then a bit more than halfway down on the right, you'll see this hologram with a <strong class="text-rose-700 bg-pink-100 px-1 rounded">picture (Answer Q5)</strong> which appears to move as you move the card around in front of you. This sort of detail makes cards very hard to forge, although, like with anything else, there are people out there who'll try.
+                                    </p>
+                                    <p class="mb-4">
+                                        <button onclick="jumpToTime(223, 'audio-q5-10')" class="bg-pink-200 hover:bg-pink-300 text-rose-900 font-mono text-sm px-2 py-1 rounded transition shadow-sm mr-2 font-bold">▶ 03:43</button>
+                                        Then, on the back, there's another of those sophisticated high-tech details, and that's the <strong class="text-rose-700 bg-pink-100 px-1 rounded">magnetic strip (Answer Q6)</strong>, which is this black thing going from one side to the other, which contains certain coded details. While we're on the back, you'll see another lighter strip with three numbers at the end. That's your security number, which they always ask for when you use the card for an internet purchase or over the phone,
+                                    </p>
+                                    <p class="mb-4">
+                                        <button onclick="jumpToTime(252, 'audio-q5-10')" class="bg-pink-200 hover:bg-pink-300 text-rose-900 font-mono text-sm px-2 py-1 rounded transition shadow-sm mr-2 font-bold">▶ 04:12</button>
+                                        and it also has a space where you, as the card holder, should put your <strong class="text-rose-700 bg-pink-100 px-1 rounded">signature (Answer Q7)</strong> so that shop assistants can compare it when you sign a payment slip.
+                                    </p>
+                                    <p class="mb-4">
+                                        <button onclick="jumpToTime(263, 'audio-q5-10')" class="bg-pink-200 hover:bg-pink-300 text-rose-900 font-mono text-sm px-2 py-1 rounded transition shadow-sm mr-2 font-bold">▶ 04:23</button>
+                                        Going back to the front, in the bottom right-hand corner, you'll usually find the <strong class="text-rose-700 bg-pink-100 px-1 rounded">bank logo (Answer Q8)</strong> and just to the left of it, there's your own name in raised print.
+                                    </p>
+                                    <p class="mb-4">
+                                        <button onclick="jumpToTime(274, 'audio-q5-10')" class="bg-pink-200 hover:bg-pink-300 text-rose-900 font-mono text-sm px-2 py-1 rounded transition shadow-sm mr-2 font-bold">▶ 04:34</button>
+                                        One thing you always need for telephone and internet sales is the expiry <strong class="text-rose-700 bg-pink-100 px-1 rounded">date (Answer Q9)</strong>, and on the card in front of you, that's just above the cardholder's name.
+                                    </p>
+                                    <p class="mb-4">
+                                        <button onclick="jumpToTime(286, 'audio-q5-10')" class="bg-pink-200 hover:bg-pink-300 text-rose-900 font-mono text-sm px-2 py-1 rounded transition shadow-sm mr-2 font-bold">▶ 04:46</button>
+                                        Finally, in most places, you have to insert your card into a machine and key in your PIN.
+                                    </p>
+                                    <p>
+                                        <button onclick="jumpToTime(292, 'audio-q5-10')" class="bg-pink-200 hover:bg-pink-300 text-rose-900 font-mono text-sm px-2 py-1 rounded transition shadow-sm mr-2 font-bold">▶ 04:52</button>
+                                        Just above the card number on the left, you can see a <strong class="text-rose-700 bg-pink-100 px-1 rounded">chip (Answer Q10)</strong>, and that chip is there to verify that the PIN you have entered is correct.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button onclick="toggleAnswers(this)" data-default-text="👀 Reveal Answers & Transcript" class="mt-6 bg-pink-100 hover:bg-pink-200 text-rose-800 font-bold py-3 px-4 rounded transition w-full text-center border border-pink-300">
+                            👀 Reveal Answers & Transcript
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 3: Listening - Work Book -->
+            <div class="slide" id="slide-2">
+                <div class="flex items-center mb-6">
+                    <span class="bg-pink-200 text-rose-900 text-sm font-bold px-3 py-1 rounded uppercase tracking-wider mr-3">Listening</span>
+                    <h2 class="text-3xl font-bold text-gray-800">Complete IELTS Work Book - Unit 6</h2>
+                </div>
+
+                <div class="space-y-8">
+                    <!-- I. Pre-listening Task -->
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-rose-100 exercise-container">
+                        <h3 class="text-xl font-bold text-rose-900 mb-4">I. Pre-listening Task</h3>
+                        <p class="text-gray-700 mb-4 text-lg">You are going to hear a manager talking about new machines in a museum. Look at Questions 5-10. Which of the following are you required to label? Circle A, B or C.</p>
+                        <div class="bg-rose-50 p-5 rounded border border-rose-200">
+                            <ul class="space-y-3 text-lg font-medium text-rose-900">
+                                <li><span class="font-bold mr-2 text-rose-700">A.</span> the kinds of drink in the machine</li>
+                                <li><span class="font-bold mr-2 text-rose-700">B.</span> how you order a drink from the machine</li>
+                                <li><span class="font-bold mr-2 text-rose-700">C.</span> how you put drinks into the machine</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- II. Main Audio & Questions -->
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-rose-100 exercise-container">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-rose-900">II. Listen and answer Questions 1-10</h3>
+                        </div>
+
+                        <!-- Audio Player -->
+                        <div class="bg-rose-50 p-4 rounded-lg flex items-center gap-4 border border-rose-200 mb-8">
+                            <span class="text-3xl">🎧</span>
+                            <audio id="audio-wb-q1-10" controls class="w-full h-10" preload="metadata">
+                                <source src="http://ieltschantruong.github.io/IELTS/src/listening_audios/complete_ielts_5_6.5_workbook_unit6.mp3" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+
+                        <!-- Questions 1-4 -->
+                        <div class="mb-10">
+                            <h4 class="font-bold text-lg mb-2 text-rose-900 border-b border-pink-100 pb-2">Questions 1-4</h4>
+                            <p class="font-medium text-lg mb-2">Where will the following machines be?</p>
+                            <p class="text-gray-600 italic mb-6">Choose FOUR answers from the box and write the correct letter, A-F, next to questions 1-4.</p>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                <ul class="space-y-5 text-lg pl-2">
+                                    <li class="flex items-center"><strong>1.</strong> <span class="border-b-2 border-gray-400 w-12 inline-block mx-2 text-center text-rose-600 font-bold"><span class="hidden-answer">D</span></span> cash machine</li>
+                                    <li class="flex items-center"><strong>2.</strong> <span class="border-b-2 border-gray-400 w-12 inline-block mx-2 text-center text-rose-600 font-bold"><span class="hidden-answer">F</span></span> ticket machine</li>
+                                    <li class="flex items-center"><strong>3.</strong> <span class="border-b-2 border-gray-400 w-12 inline-block mx-2 text-center text-rose-600 font-bold"><span class="hidden-answer">A</span></span> games machine</li>
+                                    <li class="flex items-center"><strong>4.</strong> <span class="border-b-2 border-gray-400 w-12 inline-block mx-2 text-center text-rose-600 font-bold"><span class="hidden-answer">C</span></span> drinks machine</li>
+                                </ul>
+                                <div class="bg-pink-50 p-6 rounded-lg border border-pink-200 shadow-sm">
+                                    <ul class="grid grid-cols-2 gap-4 text-lg font-bold text-rose-900">
+                                        <li>A. visitor centre</li>
+                                        <li>B. in front of the building</li>
+                                        <li>C. next to elevators</li>
+                                        <li>D. entrance hall</li>
+                                        <li>E. exhibition halls</li>
+                                        <li>F. reception area</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Questions 5-10 -->
+                        <div>
+                            <h4 class="font-bold text-lg mb-2 text-rose-900 border-b border-pink-100 pb-2">Questions 5-10</h4>
+                            <p class="font-medium text-lg mb-2">Label the diagram below.</p>
+                            <p class="text-gray-600 italic mb-6">Write ONE OR TWO WORDS AND/OR A NUMBER for each answer.</p>
+
+                            <div class="text-center mb-6">
+                                <h5 class="text-xl font-bold tracking-wider text-rose-900 mb-4 uppercase">Drinks Machine For Staff Room</h5>
+                                <div class="p-4 bg-gray-50 border border-gray-200 rounded text-center inline-block w-full">
+                                    <img src="http://ieltschantruong.github.io/IELTS/src/listening_diagrams/complete_itelts_workbook_unit6.jpeg" alt="Drinks Machine Diagram Questions 5-10" class="mx-auto max-w-full h-auto rounded shadow-sm">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Answer Key & Transcript Container -->
+                        <div class="hidden-answer mt-4">
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                <!-- Diagram Answers -->
+                                <div class="col-span-1 bg-white border-2 border-rose-200 rounded-lg shadow-sm p-5 h-fit">
+                                    <h4 class="font-bold text-rose-900 mb-4 border-b border-rose-100 pb-2 text-xl">Diagram Answers:</h4>
+                                    <ul class="space-y-3 text-lg text-rose-800 font-bold">
+                                        <li><span class="inline-block w-8 text-gray-500">5.</span> glass</li>
+                                        <li><span class="inline-block w-8 text-gray-500">6.</span> illuminated</li>
+                                        <li><span class="inline-block w-8 text-gray-500">7.</span> moving arm</li>
+                                        <li><span class="inline-block w-8 text-gray-500">8.</span> shaken</li>
+                                        <li><span class="inline-block w-8 text-gray-500">9.</span> code</li>
+                                        <li><span class="inline-block w-8 text-gray-500">10.</span> 10 / ten products / drinks</li>
+                                    </ul>
+                                </div>
+
+                                <!-- Transcript -->
+                                <div class="col-span-2 p-5 bg-pink-50 border-l-4 border-pink-400 rounded text-gray-700 text-base leading-relaxed h-80 overflow-y-auto shadow-inner">
+                                    <h4 class="font-bold text-rose-900 mb-4 text-xl">Transcript:</h4>
+                                    <p class="mb-4">
+                                        <button onclick="jumpToTime(24, 'audio-wb-q1-10')" class="bg-pink-200 hover:bg-pink-300 text-rose-900 font-mono text-sm px-2 py-1 rounded transition shadow-sm mr-2 font-bold">▶ 00:24</button>
+                                        OK, now what we need to discuss next is vending machines. Now that the building has been completely refurbished, and we're going to be reopening, we should think of what kind of machines we need. These have two functions, of course - they provide services for visitors and they raise money. Every time someone buys something from the machine, we raise a little more money.
+                                    </p>
+                                    <p class="mb-4">
+                                        <button onclick="jumpToTime(52, 'audio-wb-q1-10')" class="bg-pink-200 hover:bg-pink-300 text-rose-900 font-mono text-sm px-2 py-1 rounded transition shadow-sm mr-2 font-bold">▶ 00:52</button>
+                                        Well, first of all a cash machine seems like a good idea, so that people can get some money to spend while they're in the building. and this will help to keep down queues in the gift shop if everyone is paying with cards. That can go in the <strong class="text-rose-700 bg-pink-100 px-1 rounded">entrance hall (Answer Q1)</strong> - we thought about putting it in on the front wall outside the building but decided against that.
+                                    </p>
+                                    <p class="mb-4">
+                                        <button onclick="jumpToTime(75, 'audio-wb-q1-10')" class="bg-pink-200 hover:bg-pink-300 text-rose-900 font-mono text-sm px-2 py-1 rounded transition shadow-sm mr-2 font-bold">▶ 01:15</button>
+                                        Now, we've also decided to install a ticket machine for the individual exhibitions in the various parts of the building. This will take some pressure off the ticket office and reduce the number of people hanging about in the entrance hall. It'll be a simple device - you select the exhibition and then pay for it in cash or by card and it'll be right next to the <strong class="text-rose-700 bg-pink-100 px-1 rounded">reception desk (Answer Q2)</strong>, with a sign above it so that people can clearly see it when they arrive.
+                                    </p>
+                                    <p class="mb-4">
+                                        <button onclick="jumpToTime(108, 'audio-wb-q1-10')" class="bg-pink-200 hover:bg-pink-300 text-rose-900 font-mono text-sm px-2 py-1 rounded transition shadow-sm mr-2 font-bold">▶ 01:48</button>
+                                        Now the next machine lots of people might not approve of - a games machine for children to use. I know that this might not seem like the right sort of thing to have in a museum, but a constant complaint we get from visitors is that their visit is spoiled by the sound of bored children running around the corridors and shouting and generally disturbing the atmosphere. If we put a couple of these in the <strong class="text-rose-700 bg-pink-100 px-1 rounded">Visitor Centre (Answer Q3)</strong>, well away from the Exhibition Halls, it'll keep some of them occupied.
+                                    </p>
+                                    <p class="mb-4">
+                                        <button onclick="jumpToTime(144, 'audio-wb-q1-10')" class="bg-pink-200 hover:bg-pink-300 text-rose-900 font-mono text-sm px-2 py-1 rounded transition shadow-sm mr-2 font-bold">▶ 02:24</button>
+                                        Then there's the question of a drinks machine. Well, we want as many people as possible to buy our own food and drink in the cafeteria and restaurant, but at the same time visitors will want something to drink when they're going round the museum and are not near to either of those places. We thought a good place for this would be by the <strong class="text-rose-700 bg-pink-100 px-1 rounded">lifts (Answer Q4)</strong> on the first floor as people go up and down from one exhibition to another and, of course, that's also right at the top of the stairs.
+                                    </p>
+                                    <p class="mb-4">
+                                        <button onclick="jumpToTime(182, 'audio-wb-q1-10')" class="bg-pink-200 hover:bg-pink-300 text-rose-900 font-mono text-sm px-2 py-1 rounded transition shadow-sm mr-2 font-bold">▶ 03:02</button>
+                                        Now, the last thing is the drinks machine that we're putting in the staff room. As you'll be using this brand new state-of-the-art machine pretty frequently, I thought I'd just run through with how it works. So, here on the screen I've put up a picture of it and I'll just tell you all how it works. Well, it's pretty big and you may be surprised to hear that it can store as many as 495 drinks products. so there'll be plenty to choose from and it won't need refilling too regularly.
+                                    </p>
+                                    <p class="mb-4">
+                                        <button onclick="jumpToTime(219, 'audio-wb-q1-10')" class="bg-pink-200 hover:bg-pink-300 text-rose-900 font-mono text-sm px-2 py-1 rounded transition shadow-sm mr-2 font-bold">▶ 03:39</button>
+                                        Right, well, it's got a <strong class="text-rose-700 bg-pink-100 px-1 rounded">glass (Answer Q5)</strong> front here and behind it all the drinks, of course. The drinks come in bottles and cans and they're, of course, refrigerated. Now this machine has an interesting feature that I'm sure will entertain you all.
+                                    </p>
+                                    <p class="mb-4">
+                                        <button onclick="jumpToTime(237, 'audio-wb-q1-10')" class="bg-pink-200 hover:bg-pink-300 text-rose-900 font-mono text-sm px-2 py-1 rounded transition shadow-sm mr-2 font-bold">▶ 03:57</button>
+                                        When you've chosen and paid for your drink, there's a special rapid pick-up mechanism that grabs your drink and places it into the receiver, here, which is <strong class="text-rose-700 bg-pink-100 px-1 rounded">illuminated (Answer Q6)</strong>. So you can see your drink even if it's dark in here. And that's not all.
+                                    </p>
+                                    <p class="mb-4">
+                                        <button onclick="jumpToTime(254, 'audio-wb-q1-10')" class="bg-pink-200 hover:bg-pink-300 text-rose-900 font-mono text-sm px-2 py-1 rounded transition shadow-sm mr-2 font-bold">▶ 04:14</button>
+                                        Through the glass front you can actually see the mechanism working - there's a visible <strong class="text-rose-700 bg-pink-100 px-1 rounded">moving arm (Answer Q7)</strong> that gets and delivers the drink and you can see that happening. Now, that's not just to make the machine interesting to look at while you're buying a drink, it's got a serious advantage too.
+                                    </p>
+                                    <p class="mb-4">
+                                        <button onclick="jumpToTime(276, 'audio-wb-q1-10')" class="bg-pink-200 hover:bg-pink-300 text-rose-900 font-mono text-sm px-2 py-1 rounded transition shadow-sm mr-2 font-bold">▶ 04:36</button>
+                                        What it does is to quickly and safely move the drink without it being <strong class="text-rose-700 bg-pink-100 px-1 rounded">shaken (Answer Q8)</strong> at all. So it won't bubble up or spill when you open it.
+                                    </p>
+                                    <p class="mb-4">
+                                        <button onclick="jumpToTime(289, 'audio-wb-q1-10')" class="bg-pink-200 hover:bg-pink-300 text-rose-900 font-mono text-sm px-2 py-1 rounded transition shadow-sm mr-2 font-bold">▶ 04:49</button>
+                                        Now to the business of how you buy a drink. How it works is that you choose the drink you want from the menu here and then type in the <strong class="text-rose-700 bg-pink-100 px-1 rounded">code (Answer Q9)</strong> for that drink - you'll see the code in front of each drink.
+                                    </p>
+                                    <p class="mb-4">
+                                        <button onclick="jumpToTime(304, 'audio-wb-q1-10')" class="bg-pink-200 hover:bg-pink-300 text-rose-900 font-mono text-sm px-2 py-1 rounded transition shadow-sm mr-2 font-bold">▶ 05:04</button>
+                                        Then the price of the drink will be displayed here and you pay for it. You can do that with coins or by card.
+                                    </p>
+                                    <p>
+                                        <button onclick="jumpToTime(312, 'audio-wb-q1-10')" class="bg-pink-200 hover:bg-pink-300 text-rose-900 font-mono text-sm px-2 py-1 rounded transition shadow-sm mr-2 font-bold">▶ 05:12</button>
+                                        And you can order up to <strong class="text-rose-700 bg-pink-100 px-1 rounded">ten products (Answer Q10)</strong> at a time, for example, if you're getting drinks for a group of visitors or colleagues. So, as I say, it's the very latest in drinks machine technology and I hope you'll all be pleased to have it.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button onclick="toggleAnswers(this)" data-default-text="👀 Reveal Answers & Transcript" class="mt-6 bg-pink-100 hover:bg-pink-200 text-rose-800 font-bold py-3 px-4 rounded transition w-full text-center border border-pink-300">
+                            👀 Reveal Answers & Transcript
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 4: Speaking Part 1 - Exercise Correction -->
+            <div class="slide" id="slide-3">
+                <div class="flex items-center mb-6">
+                    <span class="bg-fuchsia-200 text-fuchsia-900 text-sm font-bold px-3 py-1 rounded uppercase tracking-wider mr-3">Speaking Part 1</span>
+                    <h2 class="text-3xl font-bold text-gray-800">Exercise Correction: Money Vocabulary</h2>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm border border-rose-100 exercise-container mb-6 text-xl leading-relaxed">
+                    <p class="mb-4 font-medium text-rose-900">Read the box below and try to guess the meanings of the bolded words/phrases.</p>
+                    
+                    <div class="p-6 bg-pink-50 rounded italic text-gray-800 border-l-4 border-pink-300 mb-8 shadow-inner">
+                        "I used to keep my money in <strong>a piggy bank</strong> when I was a child, and now I open a saving account instead to <strong>save money for a rainy day</strong>. My mother has always reminded me to <strong>spend</strong> my money <strong>wisely</strong>; otherwise, I may be <strong>broke</strong> or even <strong>get into debt</strong>. I believe it's <strong>crucial</strong> that children comprehend the significance of <strong>money management skills</strong>, and they should not be given too much <strong>pocket money</strong>."
+                    </div>
+
+                    <div class="grid grid-cols-5 gap-4 font-semibold text-lg border-b-2 border-pink-100 pb-2 mb-4 text-rose-900">
+                        <div class="col-span-2">WORDS/ PHRASES</div>
+                        <div class="col-span-3">MEANINGS</div>
+                    </div>
+                    
+                    <ul class="space-y-4 text-lg">
+                        <li class="grid grid-cols-5 gap-4 items-center border-b border-gray-100 pb-2">
+                            <div class="col-span-2 font-medium">1. a piggy bank (n)</div>
+                            <div class="col-span-3 text-gray-600 italic hidden-answer">a container used mainly by children to store coins <span class="font-semibold text-rose-600 not-italic ml-2">(ống heo tiết kiệm)</span></div>
+                        </li>
+                        <li class="grid grid-cols-5 gap-4 items-center border-b border-gray-100 pb-2">
+                            <div class="col-span-2 font-medium">2. save money for a rainy day</div>
+                            <div class="col-span-3 text-gray-600 italic hidden-answer">save money for a time when it might be needed unexpectedly <span class="font-semibold text-rose-600 not-italic ml-2">(dành dụm phòng khi khó khăn)</span></div>
+                        </li>
+                        <li class="grid grid-cols-5 gap-4 items-center border-b border-gray-100 pb-2">
+                            <div class="col-span-2 font-medium">3. spend money wisely</div>
+                            <div class="col-span-3 text-gray-600 italic hidden-answer">use money in a sensible and effective way <span class="font-semibold text-rose-600 not-italic ml-2">(chi tiêu hợp lý)</span></div>
+                        </li>
+                        <li class="grid grid-cols-5 gap-4 items-center border-b border-gray-100 pb-2">
+                            <div class="col-span-2 font-medium">4. broke (a)</div>
+                            <div class="col-span-3 text-gray-600 italic hidden-answer">having no money <span class="font-semibold text-rose-600 not-italic ml-2">(cháy túi / hết tiền)</span></div>
+                        </li>
+                        <li class="grid grid-cols-5 gap-4 items-center border-b border-gray-100 pb-2">
+                            <div class="col-span-2 font-medium">5. get into debt</div>
+                            <div class="col-span-3 text-gray-600 italic hidden-answer">get into a situation where you owe money <span class="font-semibold text-rose-600 not-italic ml-2">(mắc nợ)</span></div>
+                        </li>
+                        <li class="grid grid-cols-5 gap-4 items-center border-b border-gray-100 pb-2">
+                            <div class="col-span-2 font-medium">6. crucial (a)</div>
+                            <div class="col-span-3 text-gray-600 italic hidden-answer">extremely important <span class="font-semibold text-rose-600 not-italic ml-2">(cực kỳ quan trọng)</span></div>
+                        </li>
+                        <li class="grid grid-cols-5 gap-4 items-center border-b border-gray-100 pb-2">
+                            <div class="col-span-2 font-medium">7. money management skills</div>
+                            <div class="col-span-3 text-gray-600 italic hidden-answer">abilities needed to handle money effectively <span class="font-semibold text-rose-600 not-italic ml-2">(kỹ năng quản lý tài chính)</span></div>
+                        </li>
+                        <li class="grid grid-cols-5 gap-4 items-center">
+                            <div class="col-span-2 font-medium">8. pocket money (n)</div>
+                            <div class="col-span-3 text-gray-600 italic hidden-answer">a small amount of money given to a child by their parents <span class="font-semibold text-rose-600 not-italic ml-2">(tiền tiêu vặt)</span></div>
+                        </li>
+                    </ul>
+                    
+                    <button onclick="toggleAnswers(this)" data-default-text="👀 Reveal Meanings" class="mt-6 bg-pink-100 hover:bg-pink-200 text-rose-800 font-bold py-3 px-4 rounded transition w-full text-center border border-pink-300">
+                        👀 Reveal Meanings
+                    </button>
+                </div>
+            </div>
+
+            <!-- SLIDE 5: Speaking Part 1 - Question Discussion & Practice -->
+            <div class="slide" id="slide-4">
+                <div class="flex items-center mb-6">
+                    <span class="bg-fuchsia-200 text-fuchsia-900 text-sm font-bold px-3 py-1 rounded uppercase tracking-wider mr-3">Speaking Part 1</span>
+                    <h2 class="text-3xl font-bold text-gray-800">Question Discussion & Practice</h2>
+                </div>
+
+                <div class="bg-white p-8 rounded-lg shadow-sm border border-rose-100 mb-8">
+                    <h3 class="text-2xl font-bold text-rose-900 mb-6 border-b-2 border-pink-200 pb-2 uppercase tracking-wide">Save Money</h3>
+                    
+                    <ol class="list-decimal pl-6 space-y-6 text-2xl text-gray-800 font-medium">
+                        <li>Did you save money when you were a child?</li>
+                        <li>Do your parents give you money for house cleaning?</li>
+                        <li>Have you given money to other children?</li>
+                        <li>Do you think parents should teach children to save money?</li>
+                        <li>What are the ways to improve money management skills?</li>
+                        <li>Is it acceptable to borrow money?</li>
+                    </ol>
+
+                    <!-- Collapsible Sample Answers -->
+                    <details class="group mt-8 bg-pink-50 border border-pink-200 rounded-lg shadow-sm">
+                        <summary class="cursor-pointer font-bold text-rose-800 p-4 flex items-center justify-between outline-none hover:bg-pink-100 transition rounded-lg">
+                            <span class="text-lg">💡 View Sample Answers</span>
+                            <span class="group-open:rotate-180 transition-transform text-xl">▼</span>
+                        </summary>
+                        <div class="p-5 border-t border-pink-200 text-gray-700 space-y-5 text-lg">
+                            <p><strong class="text-rose-900">1. Did you save money when you were a child?</strong><br>Yes, absolutely. I used to keep my spare change in a small piggy bank that my parents bought me for my birthday.</p>
+                            <p><strong class="text-rose-900">2. Do your parents give you money for house cleaning?</strong><br>Not really. In my family, doing household chores was considered a shared responsibility, so we didn't get paid pocket money just for doing it.</p>
+                            <p><strong class="text-rose-900">3. Have you given money to other children?</strong><br>Yes, occasionally. During the Lunar New Year, it's a tradition in my country to give 'lucky money' to younger cousins to wish them good fortune.</p>
+                            <p><strong class="text-rose-900">4. Do you think parents should teach children to save money?</strong><br>Definitely. It's crucial for children to learn early on. If they don't develop good habits, they might easily get into debt when they grow up.</p>
+                            <p><strong class="text-rose-900">5. What are the ways to improve money management skills?</strong><br>I think the best way is to keep track of daily expenses using a mobile app. Also, it's wise to always set aside a small portion of your income to save for a rainy day.</p>
+                            <p><strong class="text-rose-900">6. Is it acceptable to borrow money?</strong><br>It depends. If it's for an emergency, it's totally acceptable. However, borrowing money just to buy luxury items or because you're broke from spending unwisely isn't a good idea.</p>
+                        </div>
+                    </details>
+                </div>
+
+                <!-- Pair Work -->
+                <div class="bg-pink-100 border-l-4 border-pink-400 p-5 rounded-r shadow-sm flex justify-between items-center mb-6">
+                    <div>
+                        <h4 class="font-bold text-rose-900 text-xl flex items-center gap-2">
+                            <span>👥</span> Pair Work
+                        </h4>
+                        <p class="text-rose-800 mt-1">Discuss the questions with your partner using the new vocabulary.</p>
+                    </div>
+                    <div class="flex items-center gap-4 bg-white p-2 rounded shadow-sm border border-pink-200">
+                        <button onclick="startTimer(3, 'timer-sp1')" class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-4 rounded transition">
+                            ▶ Start 3 Mins
+                        </button>
+                        <span id="timer-sp1" class="text-3xl font-mono text-gray-800 w-24 text-center">03:00</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 6: Speaking Part 2 - Exercise Correction -->
+            <div class="slide" id="slide-5">
+                <div class="flex items-center mb-6">
+                    <span class="bg-fuchsia-200 text-fuchsia-900 text-sm font-bold px-3 py-1 rounded uppercase tracking-wider mr-3">Speaking Part 2</span>
+                    <h2 class="text-3xl font-bold text-gray-800">Exercise Correction</h2>
+                </div>
+
+                <!-- Exercise 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-sm border border-rose-100 exercise-container mb-8">
+                    <h3 class="text-2xl font-bold text-rose-900 mb-4 border-b-2 border-pink-100 pb-2">Exercise 2</h3>
+                    <p class="font-medium text-lg mb-6 text-gray-700">Fill in the blanks with the correct form of the verbs in brackets.</p>
+                    
+                    <div class="p-6 bg-pink-50 rounded text-gray-800 border border-pink-200 text-xl leading-relaxed shadow-inner">
+                        I still <strong class="text-rose-700">recall</strong> vividly the time I (save) <span class="hidden-answer text-emerald-600 font-bold underline px-1">saved</span> money to buy my current laptop. It (be) <span class="hidden-answer text-emerald-600 font-bold underline px-1">was</span> around a couple of years ago when I was fully <strong class="text-rose-700">occupied with</strong> my work, but suddenly my old laptop (<strong class="text-rose-700">crash</strong>) <span class="hidden-answer text-emerald-600 font-bold underline px-1">crashed</span> and nothing could be done to repair it. So I (make up) <span class="hidden-answer text-emerald-600 font-bold underline px-1">made up</span> my mind to buy a brand new Macbook, a product of Apple, one of the global tech giants. When I first (lay) <span class="hidden-answer text-emerald-600 font-bold underline px-1">laid</span> my eyes on it, I was <strong class="text-rose-700">struck by</strong> its large display and <strong class="text-rose-700">blazing-fast</strong> performance. However, at that time it (cost) <span class="hidden-answer text-emerald-600 font-bold underline px-1">cost</span> me <strong class="text-rose-700">fortune</strong>, so I (have) <span class="hidden-answer text-emerald-600 font-bold underline px-1">had</span> to save up for a pretty long time. Instead of (<strong class="text-rose-700">squander</strong>) <span class="hidden-answer text-emerald-600 font-bold underline px-1">squandering</span> on <strong class="text-rose-700">exorbitant</strong> clothes, I set aside a certain amount of money from my salary. And in a little over a year, I finally (can) <span class="hidden-answer text-emerald-600 font-bold underline px-1">could</span> afford it. <strong class="text-rose-700">In retrospect</strong>, I think I (make) <span class="hidden-answer text-emerald-600 font-bold underline px-1">made</span> the best purchase ever.
+                    </div>
+                    
+                    <button onclick="toggleAnswers(this)" data-default-text="👀 Reveal Verbs" class="mt-6 bg-pink-100 hover:bg-pink-200 text-rose-800 font-bold py-3 px-4 rounded transition w-full text-center border border-pink-300">
+                        👀 Reveal Verbs
+                    </button>
+                </div>
+
+                <!-- Exercise 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-sm border border-rose-100 exercise-container">
+                    <h3 class="text-2xl font-bold text-rose-900 mb-4 border-b-2 border-pink-100 pb-2">Exercise 3</h3>
+                    <p class="font-medium text-lg mb-6 text-gray-700">Decide the meaning of the following phrases.</p>
+
+                    <div class="space-y-4 text-lg">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 border-b border-gray-100 pb-3">
+                            <div><strong>1.</strong> If you <strong class="text-rose-700">recall</strong> something</div>
+                            <div class="grid grid-cols-2 gap-2">
+                                <div><span class="hidden-answer bg-pink-100 px-1 rounded font-bold text-rose-800 border border-pink-300">a.</span><span class="answer-mask">a.</span> you remember it.</div>
+                                <div>b. you forget it.</div>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 border-b border-gray-100 pb-3">
+                            <div><strong>2.</strong> If you're <strong class="text-rose-700">occupied with</strong> something</div>
+                            <div class="grid grid-cols-2 gap-2">
+                                <div>a. you're stressed with it.</div>
+                                <div><span class="hidden-answer bg-pink-100 px-1 rounded font-bold text-rose-800 border border-pink-300">b.</span><span class="answer-mask">b.</span> you're busy with it.</div>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 border-b border-gray-100 pb-3">
+                            <div><strong>3.</strong> If my laptop <strong class="text-rose-700">crashes</strong></div>
+                            <div class="grid grid-cols-2 gap-2">
+                                <div><span class="hidden-answer bg-pink-100 px-1 rounded font-bold text-rose-800 border border-pink-300">a.</span><span class="answer-mask">a.</span> it stops working suddenly.</div>
+                                <div>b. it's updated.</div>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 border-b border-gray-100 pb-3">
+                            <div><strong>4.</strong> When you're <strong class="text-rose-700">struck by</strong> something</div>
+                            <div class="grid grid-cols-2 gap-2">
+                                <div><span class="hidden-answer bg-pink-100 px-1 rounded font-bold text-rose-800 border border-pink-300">a.</span><span class="answer-mask">a.</span> you're impressed by it.</div>
+                                <div>b. you dislike it.</div>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 border-b border-gray-100 pb-3">
+                            <div><strong>5.</strong> If your laptop is <strong class="text-rose-700">blazing-fast</strong></div>
+                            <div class="grid grid-cols-2 gap-2">
+                                <div>a. it operates slowly.</div>
+                                <div><span class="hidden-answer bg-pink-100 px-1 rounded font-bold text-rose-800 border border-pink-300">b.</span><span class="answer-mask">b.</span> it runs very quickly.</div>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 border-b border-gray-100 pb-3">
+                            <div><strong>6.</strong> If something <strong class="text-rose-700">costs you a fortune</strong></div>
+                            <div class="grid grid-cols-2 gap-2">
+                                <div>a. it's reasonably-priced.</div>
+                                <div><span class="hidden-answer bg-pink-100 px-1 rounded font-bold text-rose-800 border border-pink-300">b.</span><span class="answer-mask">b.</span> it's very expensive.</div>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 border-b border-gray-100 pb-3">
+                            <div><strong>7.</strong> When you <strong class="text-rose-700">squander</strong> money</div>
+                            <div class="grid grid-cols-2 gap-2">
+                                <div>a. you save it.</div>
+                                <div><span class="hidden-answer bg-pink-100 px-1 rounded font-bold text-rose-800 border border-pink-300">b.</span><span class="answer-mask">b.</span> you waste it.</div>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 border-b border-gray-100 pb-3">
+                            <div><strong>8.</strong> If something is <strong class="text-rose-700">exorbitant</strong></div>
+                            <div class="grid grid-cols-2 gap-2">
+                                <div><span class="hidden-answer bg-pink-100 px-1 rounded font-bold text-rose-800 border border-pink-300">a.</span><span class="answer-mask">a.</span> it's costly.</div>
+                                <div>b. it's inexpensive.</div>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div><strong>9.</strong> <strong class="text-rose-700">In retrospect</strong> means</div>
+                            <div class="grid grid-cols-2 gap-2">
+                                <div><span class="hidden-answer bg-pink-100 px-1 rounded font-bold text-rose-800 border border-pink-300">a.</span><span class="answer-mask">a.</span> looking back on the past.</div>
+                                <div>b. thinking of the future.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button onclick="toggleAnswersMC(this)" class="mt-6 bg-pink-100 hover:bg-pink-200 text-rose-800 font-bold py-3 px-4 rounded transition w-full text-center border border-pink-300">
+                        👀 Reveal Correct Options
+                    </button>
+                </div>
+            </div>
+
+            <!-- SLIDE 7: Speaking Part 2 - Question Discussion & Practice -->
+            <div class="slide" id="slide-6">
+                <div class="flex items-center mb-6">
+                    <span class="bg-fuchsia-200 text-fuchsia-900 text-sm font-bold px-3 py-1 rounded uppercase tracking-wider mr-3">Speaking Part 2</span>
+                    <h2 class="text-3xl font-bold text-gray-800">Question Discussion & Practice (Cue Card)</h2>
+                </div>
+
+                <div class="bg-white p-8 rounded-xl shadow-lg border-2 border-fuchsia-200 mb-8 max-w-2xl mx-auto relative overflow-hidden">
+                    <!-- Decorative Piggy Bank Emoji -->
+                    <div class="absolute -right-4 -bottom-4 text-8xl opacity-20 transform -rotate-12">🐖</div>
+                    
+                    <h3 class="text-2xl font-bold text-center mb-6 uppercase tracking-wide text-rose-900">DESCRIBE A TIME WHEN YOU SAVED MONEY TO BUY SOMETHING</h3>
+                    <p class="text-xl mb-4 italic text-gray-600">You should say:</p>
+                    <ul class="list-disc pl-8 space-y-3 text-xl font-medium text-gray-700 mb-8">
+                        <li>What it is</li>
+                        <li>When you bought it</li>
+                        <li>How you saved money to buy it</li>
+                        <li>Say how important it is</li>
+                    </ul>
+
+                    <!-- Collapsible Sample Answer -->
+                    <details class="group mt-8 bg-pink-50 border border-pink-200 rounded-lg shadow-sm relative z-10">
+                        <summary class="cursor-pointer font-bold text-rose-800 p-4 flex items-center justify-between outline-none hover:bg-pink-100 transition rounded-lg">
+                            <span class="text-lg">💡 View Sample Answer (Using new vocabulary)</span>
+                            <span class="group-open:rotate-180 transition-transform text-xl">▼</span>
+                        </summary>
+                        <div class="p-5 border-t border-pink-200 text-gray-700 text-lg italic leading-relaxed">
+                            "I still <strong>recall</strong> vividly the time I saved up to buy a new laptop during my freshman year. I was fully <strong>occupied with</strong> my assignments when my old computer suddenly <strong>crashed</strong> completely. At that time, I was practically <strong>broke</strong> and didn't have much <strong>pocket money</strong> left.<br><br>
+                            
+                            I desperately needed a replacement, so I went to a tech store. There, I was completely <strong>struck by</strong> a high-end laptop. It had a gorgeous display and <strong>blazing-fast</strong> performance. However, it <strong>cost a fortune</strong>, and I knew that if I wasn't careful with my finances, I could easily <strong>get into debt</strong>.<br><br>
+                            
+                            Because my parents always taught me to <strong>spend money wisely</strong> and <strong>save money for a rainy day</strong>, I decided to rely on my own <strong>money management skills</strong> rather than asking them for a handout. I stopped <strong>squandering</strong> my cash on <strong>exorbitant</strong> things like milk tea or eating out. Instead, I put every spare coin and note into <strong>a piggy bank</strong> on my desk.<br><br>
+                            
+                            After six months of strict saving, I finally had enough. <strong>In retrospect</strong>, it was a <strong>crucial</strong> experience for me, as it not only gave me the laptop I needed but also taught me the true value of financial discipline."
+                        </div>
+                    </details>
+                </div>
+
+                <div class="flex justify-center gap-8">
+                    <div class="bg-rose-50 border border-rose-200 p-5 rounded-lg shadow-sm text-center w-64">
+                        <h4 class="font-bold text-rose-900 text-lg mb-3">📝 Prep Time</h4>
+                        <button onclick="startTimer(1, 'timer-prep2')" class="bg-rose-500 hover:bg-rose-600 text-white font-bold py-2 px-4 rounded transition w-full mb-3">
+                            Start 1 Min
+                        </button>
+                        <div id="timer-prep2" class="text-4xl font-mono text-gray-800">01:00</div>
+                    </div>
+
+                    <div class="bg-fuchsia-50 border border-fuchsia-200 p-5 rounded-lg shadow-sm text-center w-64">
+                        <h4 class="font-bold text-fuchsia-900 text-lg mb-3">🎙️ Speaking Time</h4>
+                        <button onclick="startTimer(2, 'timer-speak2')" class="bg-fuchsia-600 hover:bg-fuchsia-700 text-white font-bold py-2 px-4 rounded transition w-full mb-3">
+                            Start 2 Mins
+                        </button>
+                        <div id="timer-speak2" class="text-4xl font-mono text-gray-800">02:00</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        // -- Navigation Logic --
+        let currentSlide = 0;
+        const totalSlides = 7;
+
+        function updateUI() {
+            // Hide all
+            document.querySelectorAll('.slide').forEach(el => el.classList.remove('active'));
+            // Show current
+            document.getElementById(`slide-${currentSlide}`).classList.add('active');
+            // Update counter
+            document.getElementById('slide-counter').innerText = `Slide ${currentSlide + 1} / ${totalSlides}`;
+            // Scroll to top
+            document.querySelector('main').scrollTop = 0;
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides - 1) {
+                currentSlide++;
+                updateUI();
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 0) {
+                currentSlide--;
+                updateUI();
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') nextSlide();
+            if (e.key === 'ArrowLeft') prevSlide();
+        });
+
+        // -- Toggle Answers Logic (For future populated content) --
+        function toggleAnswers(button) {
+            const container = button.closest('.exercise-container');
+            if (!container) return;
+            const hiddenElements = Array.from(container.querySelectorAll('.hidden-answer'));
+            
+            // Find the first element that is currently hidden
+            const firstHidden = hiddenElements.find(el => el.style.display === 'none' || el.style.display === '');
+            
+            if (firstHidden) {
+                // Reveal it
+                firstHidden.style.display = firstHidden.tagName === 'SPAN' ? 'inline' : 'block';
+                
+                // Check if there are more hidden elements
+                const remainingHidden = hiddenElements.filter(el => el.style.display === 'none' || el.style.display === '');
+                if (remainingHidden.length === 0) {
+                    button.innerHTML = "🙈 Hide All";
+                } else {
+                    button.innerHTML = "👀 Reveal Next";
+                }
+            } else {
+                // All are revealed, so hide them all
+                hiddenElements.forEach(el => {
+                    el.style.display = 'none';
+                });
+                button.innerHTML = button.getAttribute('data-default-text') || "👀 Reveal Answers";
+            }
+        }
+
+        // Special toggle for multiple choice (Ex 3) to swap between masked and unmasked
+        function toggleAnswersMC(button) {
+            const container = button.closest('.exercise-container');
+            if (!container) return;
+            const hiddenElements = Array.from(container.querySelectorAll('.hidden-answer'));
+            
+            // Find the first hidden element
+            const firstHidden = hiddenElements.find(el => el.style.display === 'none' || el.style.display === '');
+            
+            if (firstHidden) {
+                // Reveal this specific option
+                firstHidden.style.display = 'inline';
+                const mask = firstHidden.nextElementSibling;
+                if (mask && mask.classList.contains('answer-mask')) {
+                    mask.style.display = 'none';
+                }
+                
+                // Check if there are more hidden elements
+                const remainingHidden = hiddenElements.filter(el => el.style.display === 'none' || el.style.display === '');
+                if (remainingHidden.length === 0) {
+                    button.innerHTML = "🙈 Hide All";
+                } else {
+                    button.innerHTML = "👀 Reveal Next";
+                }
+            } else {
+                // All are revealed, so hide them all and restore masks
+                hiddenElements.forEach(el => {
+                    el.style.display = 'none';
+                    const mask = el.nextElementSibling;
+                    if (mask && mask.classList.contains('answer-mask')) {
+                        mask.style.display = 'inline';
+                    }
+                });
+                button.innerHTML = button.getAttribute('data-default-text') || "👀 Reveal Correct Options";
+            }
+        }
+
+        // Initialize display states for MC on load
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelectorAll('.answer-mask').forEach(el => el.style.display = 'inline');
+        });
+
+        // -- Audio Jump Logic --
+        function jumpToTime(seconds, audioId) {
+            const audio = document.getElementById(audioId);
+            if (audio) {
+                audio.currentTime = seconds;
+                audio.play();
+            }
+        }
+
+        // -- Timer Logic --
+        let intervals = {};
+
+        function startTimer(minutes, elementId) {
+            const display = document.getElementById(elementId);
+            let time = minutes * 60;
+            
+            if (intervals[elementId]) {
+                clearInterval(intervals[elementId]);
+            }
+
+            updateTimerDisplay(time, display);
+
+            intervals[elementId] = setInterval(() => {
+                time--;
+                updateTimerDisplay(time, display);
+
+                if (time <= 0) {
+                    clearInterval(intervals[elementId]);
+                    display.classList.add('text-red-600');
+                    display.classList.remove('text-gray-800');
+                    try {
+                        let audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                        let oscillator = audioCtx.createOscillator();
+                        oscillator.type = 'sine';
+                        oscillator.frequency.setValueAtTime(440, audioCtx.currentTime);
+                        oscillator.connect(audioCtx.destination);
+                        oscillator.start();
+                        oscillator.stop(audioCtx.currentTime + 0.5);
+                    } catch(e) {}
+                } else {
+                    display.classList.remove('text-red-600');
+                    display.classList.add('text-gray-800');
+                }
+            }, 1000);
+        }
+
+        function updateTimerDisplay(totalSeconds, element) {
+            const m = Math.floor(totalSeconds / 60).toString().padStart(2, '0');
+            const s = (totalSeconds % 60).toString().padStart(2, '0');
+            element.innerText = `${m}:${s}`;
+        }
+    </script>
+</body>
+</html>

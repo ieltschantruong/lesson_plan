@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 5 Teaching Guide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+        .section-done { opacity: 0.6; transition: opacity 0.3s; }
+        /* Custom checkbox style */
+        input[type="checkbox"] { accent-color: #2563eb; width: 1.25rem; height: 1.25rem; cursor: pointer; }
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
+    </style>
+</head>
+<body class="text-slate-800 pb-20">
+
+    <!-- Top Navigation / Status Bar -->
+    <div class="sticky top-0 bg-white border-b border-slate-200 shadow-sm z-50">
+        <div class="max-w-4xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div>
+                <h1 class="text-xl font-bold text-blue-700">Lesson 5: Listening 4 & Speaking 3</h1>
+                <p class="text-xs text-slate-500 font-medium tracking-wide uppercase">90 Minutes Total</p>
+            </div>
+            <div class="text-right">
+                <span class="text-sm font-semibold text-slate-600">Progress: </span>
+                <span id="progress-text" class="text-blue-600 font-bold">0 / 4</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-4 py-8 space-y-8">
+
+        <!-- Header Info -->
+        <div class="bg-blue-50 border border-blue-200 rounded-xl p-5 shadow-sm">
+            <h2 class="text-lg font-bold text-blue-900 mb-2">Goal</h2>
+            <p class="text-blue-800">Master tracking signpost words in the uninterrupted Listening Part 4 monologue, and confidently navigate abstract, extended discussions in Speaking Part 3.</p>
+        </div>
+
+        <!-- PART 1: HW Review -->
+        <section id="part1" class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden transition-opacity">
+            <div class="bg-slate-50 border-b border-slate-200 p-4 flex justify-between items-center cursor-pointer" onclick="document.getElementById('check1').click()">
+                <h2 class="text-xl font-bold text-slate-800">Part 1: Homework Review (from Lesson 4) <span class="text-sm font-normal text-slate-500 ml-2">(00-10m)</span></h2>
+                <input type="checkbox" id="check1" class="part-checkbox" onchange="updateProgress(this, 'part1')">
+            </div>
+            <div class="p-6 space-y-4">
+                <h3 class="font-bold text-lg mb-2 text-indigo-700">Review Lesson 4 Assignments</h3>
+                
+                <div class="flex flex-col sm:flex-row gap-4 mb-4 bg-slate-50 p-3 rounded-lg border border-slate-200 items-start sm:items-center">
+                    <span class="text-sm font-bold text-slate-700">Prior HW Links:</span>
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <a href="https://youpass.vn/thi-thu/reading/7251" target="_blank" class="text-indigo-600 text-sm font-semibold hover:text-indigo-800 hover:underline flex items-center">
+                            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                            Reading HW
+                        </a>
+                        <a href="https://youpass.vn/thi-thu/listening/9966" target="_blank" class="text-indigo-600 text-sm font-semibold hover:text-indigo-800 hover:underline flex items-center">
+                            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                            Listening HW
+                        </a>
+                    </div>
+                </div>
+
+                <ul class="space-y-3 list-disc pl-5 text-slate-600">
+                    <li><strong>Check Scores:</strong> Ask for their scores. How did they handle the heavy reading load in Listening Part 3?</li>
+                    <li><strong>Troubleshoot:</strong> Did they wait for speaker agreement in Part 3, or did they select the first answer they heard? </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- PART 2: Listening Part 4 -->
+        <section id="part2" class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden transition-opacity">
+            <div class="bg-slate-50 border-b border-slate-200 p-4 flex justify-between items-center cursor-pointer" onclick="document.getElementById('check2').click()">
+                <h2 class="text-xl font-bold text-slate-800">Part 2: Listening Part 4 <span class="text-sm font-normal text-slate-500 ml-2">(10-45m)</span></h2>
+                <input type="checkbox" id="check2" class="part-checkbox" onchange="updateProgress(this, 'part2')">
+            </div>
+            <div class="p-6 space-y-6">
+                
+                <div class="bg-amber-50 border border-amber-200 rounded-lg p-4 shadow-inner">
+                    <h3 class="font-bold text-amber-900 flex items-center mb-3">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
+                        Test Link Launchers
+                    </h3>
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <a href="https://youpass.vn/thi-thu/listening/10056" target="_blank" class="bg-amber-600 hover:bg-amber-700 text-white font-semibold py-2 px-4 rounded transition-colors shadow-sm text-center flex-1 flex items-center justify-center">
+                            Launch Practice 1 (10056)
+                        </a>
+                        <a href="https://youpass.vn/thi-thu/listening/10015" target="_blank" class="bg-amber-600 hover:bg-amber-700 text-white font-semibold py-2 px-4 rounded transition-colors shadow-sm text-center flex-1 flex items-center justify-center">
+                            Launch Practice 2 (10015)
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-lg mb-2 text-indigo-700">1. Strategy: Surviving the Monologue (10 mins)</h3>
+                    
+                    <div class="mb-4">
+                        <h4 class="font-semibold text-slate-800 mb-1">The Part 4 Reality</h4>
+                        <p class="text-slate-600 text-sm mb-2">Part 4 is a 5-minute academic lecture. <strong>There is no break in the middle.</strong> The biggest challenge is losing your place and panicking.</p>
+                    </div>
+
+                    <div class="bg-emerald-50 p-4 rounded-lg border border-emerald-200 mb-4">
+                        <h4 class="font-bold text-emerald-800 mb-2">Tracking "Signpost Words"</h4>
+                        <p class="text-sm text-emerald-700 mb-2">The speaker will guide you through the bullet points using signposts. Teach the student to listen for:</p>
+                        <ul class="text-sm text-emerald-700 space-y-1 list-disc pl-4">
+                            <li><strong>Introductions:</strong> <em>"Today I'd like to talk about...", "Let's start by looking at..."</em></li>
+                            <li><strong>Moving to a new bullet point/section:</strong> <em>"Now, let's turn to...", "Moving on to...", "Another significant factor is..."</em></li>
+                            <li><strong>Contrasts (Traps!):</strong> <em>"However...", "On the other hand...", "Despite this..."</em></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-semibold text-slate-800 mb-1">The "Move On" Rule</h4>
+                        <p class="text-slate-600 text-sm">If you miss an answer, <strong>let it go immediately.</strong> If you think about question 34 too long, you will miss 35, 36, and 37.</p>
+                    </div>
+                </div>
+
+                <div class="pt-4 border-t border-slate-100">
+                    <h3 class="font-bold text-lg mb-2 text-indigo-700">2. Live Practice & Execution (25 mins)</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-start">
+                            <span class="bg-blue-100 text-blue-800 font-bold px-2 py-1 rounded text-xs mr-3 mt-0.5">STEP 1</span>
+                            <p class="text-slate-600">Open Practice Link 1. Give them the reading time to predict word types (noun, verb, adjective) for all 10 questions.</p>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="bg-blue-100 text-blue-800 font-bold px-2 py-1 rounded text-xs mr-3 mt-0.5">STEP 2</span>
+                            <p class="text-slate-600">Play the audio. Observe if they lose their place.</p>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="bg-blue-100 text-blue-800 font-bold px-2 py-1 rounded text-xs mr-3 mt-0.5">STEP 3</span>
+                            <p class="text-slate-600">Review, then immediately jump into Practice Link 2 to build stamina.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PART 3: Speaking Part 3 -->
+        <section id="part3" class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden transition-opacity">
+            <div class="bg-slate-50 border-b border-slate-200 p-4 flex justify-between items-center cursor-pointer" onclick="document.getElementById('check3').click()">
+                <h2 class="text-xl font-bold text-slate-800">Part 3: Speaking Part 3 <span class="text-sm font-normal text-slate-500 ml-2">(45-80m)</span></h2>
+                <input type="checkbox" id="check3" class="part-checkbox" onchange="updateProgress(this, 'part3')">
+            </div>
+            <div class="p-6 space-y-6">
+                <div>
+                    <h3 class="font-bold text-lg mb-2 text-indigo-700">1. Concept: Abstract Discussion (10 mins)</h3>
+                    <p class="text-slate-600 mb-3 text-sm">Explain that Part 3 is an abstract discussion related to the Part 2 topic. It is <strong>NOT</strong> about them personally anymore. It is about society, the world, the past, and the future.</p>
+                    
+                    <div class="grid md:grid-cols-2 gap-4 mb-4">
+                        <div class="bg-rose-50 p-4 rounded-lg border border-rose-200">
+                            <h4 class="font-bold text-rose-800 mb-2">❌ Band 5.0 Mistake</h4>
+                            <p class="text-sm text-rose-700">Making it personal. <br><br><em>Q: Do people read more now than in the past?</em><br><em>A: Well, I don't read much because I am busy with homework...</em></p>
+                        </div>
+                        <div class="bg-emerald-50 p-4 rounded-lg border border-emerald-200">
+                            <h4 class="font-bold text-emerald-800 mb-2">✅ Band 6.5+ Strategy</h4>
+                            <p class="text-sm text-emerald-700">Speaking generally using Speculative Language. <br><br><em>A: Generally speaking, I think society reads less books now. It's highly likely that smartphones have replaced traditional reading habits for most young people.</em></p>
+                        </div>
+                    </div>
+
+                    <div class="bg-indigo-50 border border-indigo-100 rounded-lg p-4">
+                        <h4 class="font-bold text-indigo-900 mb-2">Useful "Buying Time" Phrases</h4>
+                        <ul class="text-sm text-indigo-800 space-y-1 list-disc pl-4">
+                            <li>"That's a very interesting question..."</li>
+                            <li>"I've never really thought about it before, but I suppose..."</li>
+                            <li>"Well, there are a few ways to look at this..."</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="pt-4 border-t border-slate-100">
+                    <h3 class="font-bold text-lg mb-4 text-indigo-700">2. Live Practice Drill (25 mins)</h3>
+                    <p class="text-sm text-slate-600 italic mb-4">Topic Theme: Happiness, Crowds, and Social Events (Linked to: "An occasion you saw a lot of people smiling"). Ask the questions below. Force them to give multi-sentence answers using the A-R-E framework.</p>
+                    
+                    <div class="bg-white rounded border border-slate-200 shadow-sm overflow-hidden">
+                        <div class="bg-slate-50 border-b border-slate-200 p-3 font-bold text-slate-700">
+                            Discussion Questions
+                        </div>
+                        <div class="p-4 space-y-6">
+                            <!-- Q1 -->
+                            <div>
+                                <p class="font-semibold text-slate-800">Q1: Why do you think people generally smile when they are taking photos?</p>
+                                <div class="mt-2 bg-indigo-50 p-3 rounded-lg border border-indigo-100 space-y-2 text-sm">
+                                    <p class="text-indigo-800"><span class="font-bold">💡 Ideas:</span> Social expectations, creating lasting positive memories, projecting a good image on social media.</p>
+                                    <div class="bg-white p-2 rounded border border-indigo-200">
+                                        <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider">Band 6.5 Sample</span>
+                                        <p class="text-slate-700 mt-1 italic">"Generally speaking, I think it's a social expectation. When people look back at old photos, they want to remember the good times, not the stressful ones. For example, even if someone is having a bad day, they will usually force a smile for the camera so that their Instagram followers think they are enjoying themselves."</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="border-slate-100">
+                            <!-- Q2 -->
+                            <div>
+                                <p class="font-semibold text-slate-800">Q2: Is it important to show a positive facial expression in customer service jobs? Why or why not?</p>
+                                <div class="mt-2 bg-indigo-50 p-3 rounded-lg border border-indigo-100 space-y-2 text-sm">
+                                    <p class="text-indigo-800"><span class="font-bold">💡 Ideas:</span> Makes customers feel welcome, reflects well on the company brand, helps diffuse angry situations.</p>
+                                    <div class="bg-white p-2 rounded border border-indigo-200">
+                                        <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider">Band 6.5 Sample</span>
+                                        <p class="text-slate-700 mt-1 italic">"Yes, it is absolutely crucial. A warm smile makes customers feel welcomed and valued, which is good for business. If a shop assistant looks angry or bored, customers might leave a bad review online or simply never return to that store again."</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="border-slate-100">
+                            <!-- Q3 -->
+                            <div>
+                                <p class="font-semibold text-slate-800">Q3: Do you think people in your country are generally happier now than they were in the past?</p>
+                                <div class="mt-2 bg-indigo-50 p-3 rounded-lg border border-indigo-100 space-y-2 text-sm">
+                                    <p class="text-indigo-800"><span class="font-bold">💡 Ideas:</span> Better living standards and economy VS higher stress, longer work hours, and modern pressure.</p>
+                                    <div class="bg-white p-2 rounded border border-indigo-200">
+                                        <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider">Band 6.5 Sample</span>
+                                        <p class="text-slate-700 mt-1 italic">"That's a complex question. On the one hand, our living standards have improved significantly, which makes daily life easier. However, I believe modern life is much more stressful. People today work longer hours and face a lot of peer pressure from social media, which probably makes them less happy overall."</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="border-slate-100">
+                            <!-- Q4 -->
+                            <div>
+                                <p class="font-semibold text-slate-800">Q4: How does being in a crowd of happy people (like at a concert or festival) affect an individual's mood?</p>
+                                <div class="mt-2 bg-indigo-50 p-3 rounded-lg border border-indigo-100 space-y-2 text-sm">
+                                    <p class="text-indigo-800"><span class="font-bold">💡 Ideas:</span> Contagious emotions, feeling a sense of belonging, escaping the daily routine.</p>
+                                    <div class="bg-white p-2 rounded border border-indigo-200">
+                                        <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider">Band 6.5 Sample</span>
+                                        <p class="text-slate-700 mt-1 italic">"I suppose emotions are highly contagious. When you are surrounded by thousands of cheering people at a music festival, it's almost impossible to stay sad. The collective energy lifts your mood and helps you forget about your daily worries, at least for a few hours."</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PART 4: Wrap-up -->
+        <section id="part4" class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden transition-opacity">
+            <div class="bg-slate-50 border-b border-slate-200 p-4 flex justify-between items-center cursor-pointer" onclick="document.getElementById('check4').click()">
+                <h2 class="text-xl font-bold text-slate-800">Part 4: Wrap-up & HW <span class="text-sm font-normal text-slate-500 ml-2">(80-90m)</span></h2>
+                <input type="checkbox" id="check4" class="part-checkbox" onchange="updateProgress(this, 'part4')">
+            </div>
+            <div class="p-6 space-y-6">
+                <div>
+                    <h3 class="font-bold text-lg mb-2 text-indigo-700">1. Session Review (5 mins)</h3>
+                    <ul class="space-y-3 pl-2 text-slate-600">
+                        <li class="flex items-start">
+                            <span class="mr-2">❓</span> 
+                            <div>Ask: <em>"In Listening Part 4, what should you do if you miss a question completely?"</em> <br><span class="text-sm font-semibold text-green-700">Answer: Move on immediately so you don't miss the next ones.</span></div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="mr-2">❓</span> 
+                            <div>Ask: <em>"In Speaking Part 3, should you talk a lot about your personal experiences?"</em> <br><span class="text-sm font-semibold text-green-700">Answer: No, you should speak generally about society and the world.</span></div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="pt-4 border-t border-slate-100">
+                    <h3 class="font-bold text-lg mb-2 text-indigo-700">2. Assign Homework (5 mins)</h3>
+                    <div class="bg-rose-50 border border-rose-200 p-4 rounded-lg">
+                        
+                        <p class="font-bold text-rose-900 flex items-center mb-1">🎧 Task 1: Listening Practice</p>
+                        <p class="text-rose-800 text-sm mb-2">Complete this Part 4 test on the computer.</p>
+                        <a href="https://youpass.vn/thi-thu/listening/10007" target="_blank" class="inline-flex items-center text-rose-700 text-sm font-semibold hover:text-rose-900 hover:underline mb-4 bg-white px-3 py-2 rounded border border-rose-100">
+                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                            Listening HW (Part 4)
+                        </a>
+
+                        <p class="font-bold text-rose-900 flex items-center mb-1">🧠 Task 2: Vocabulary Learning</p>
+                        <p class="text-rose-800 text-sm mb-2">Study the vocabulary list for Lesson 5.</p>
+                        <a href="https://baongocnguyenngo2018-bot.github.io/IELTS/lesson_plan/dieu_minh_mar_2026/extra/vocab_learning_lesson5.html" target="_blank" class="inline-flex items-center text-rose-700 text-sm font-semibold hover:text-rose-900 hover:underline mb-4 bg-white px-3 py-2 rounded border border-rose-100">
+                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                            Lesson 5 Vocab
+                        </a>
+
+                        <p class="font-bold text-rose-900 flex items-center mb-1">🎤 Task 3: Speaking Part 3 Audio Memos</p>
+                        <p class="text-rose-800 text-sm mb-3">Topic theme: <strong>"A book you read that you found useful" (Reading/Education)</strong>. Record voice memos answering these 3 abstract questions and send them to the tutor:</p>
+                        <ul class="list-decimal pl-5 text-sm text-rose-800 mb-4 space-y-1 bg-white p-3 rounded border border-rose-100">
+                            <li>Why do some people prefer reading fiction over non-fiction?</li>
+                            <li>How has the internet changed the way people read books today?</li>
+                            <li>Do you think printed books will eventually disappear completely in the future?</li>
+                        </ul>
+
+                        <p class="font-bold text-rose-900 flex items-center mb-1">⏰ Reminder</p>
+                        <p class="text-rose-800 text-sm">Inform them of the next session time.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        // Progress Tracking Logic
+        function updateProgress(checkboxElem, sectionId) {
+            const section = document.getElementById(sectionId);
+            const evt = window.event;
+            if(evt) evt.stopPropagation(); 
+
+            if (checkboxElem.checked) {
+                section.classList.add('section-done');
+            } else {
+                section.classList.remove('section-done');
+            }
+
+            const checkboxes = document.querySelectorAll('.part-checkbox');
+            let checkedCount = 0;
+            checkboxes.forEach(cb => {
+                if (cb.checked) checkedCount++;
+            });
+            
+            document.getElementById('progress-text').innerText = `${checkedCount} / 4`;
+        }
+    </script>
+</body>
+</html>

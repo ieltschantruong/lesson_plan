@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 4 Teaching Guide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+        .section-done { opacity: 0.6; transition: opacity 0.3s; }
+        /* Custom checkbox style */
+        input[type="checkbox"] { accent-color: #2563eb; width: 1.25rem; height: 1.25rem; cursor: pointer; }
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
+    </style>
+</head>
+<body class="text-slate-800 pb-20">
+
+    <!-- Top Navigation / Status Bar -->
+    <div class="sticky top-0 bg-white border-b border-slate-200 shadow-sm z-50">
+        <div class="max-w-4xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div>
+                <h1 class="text-xl font-bold text-blue-700">Lesson 4: Reading 2 & Listening 3</h1>
+                <p class="text-xs text-slate-500 font-medium tracking-wide uppercase">90 Minutes Total</p>
+            </div>
+            <div class="text-right">
+                <span class="text-sm font-semibold text-slate-600">Progress: </span>
+                <span id="progress-text" class="text-blue-600 font-bold">0 / 4</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-4 py-8 space-y-8">
+
+        <!-- Header Info -->
+        <div class="bg-blue-50 border border-blue-200 rounded-xl p-5 shadow-sm">
+            <h2 class="text-lg font-bold text-blue-900 mb-2">Goal</h2>
+            <p class="text-blue-800">Master CD-IELTS drag-and-drop mechanics for Matching Headings in Reading, and conquer the heavy reading load of Long Multiple-Choice in Listening Part 3.</p>
+        </div>
+
+        <!-- PART 1: HW Review -->
+        <section id="part1" class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden transition-opacity">
+            <div class="bg-slate-50 border-b border-slate-200 p-4 flex justify-between items-center cursor-pointer" onclick="document.getElementById('check1').click()">
+                <h2 class="text-xl font-bold text-slate-800">Part 1: Homework Review (from Lesson 2) <span class="text-sm font-normal text-slate-500 ml-2">(00-15m)</span></h2>
+                <input type="checkbox" id="check1" class="part-checkbox" onchange="updateProgress(this, 'part1')">
+            </div>
+            <div class="p-6 space-y-4">
+                <h3 class="font-bold text-lg mb-2 text-indigo-700">Review Lesson 2 Assignments</h3>
+                
+                <div class="flex flex-col sm:flex-row gap-4 mb-4 bg-slate-50 p-3 rounded-lg border border-slate-200 items-start sm:items-center">
+                    <span class="text-sm font-bold text-slate-700">Prior HW Links:</span>
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <a href="https://youpass.vn/thi-thu/reading/10009" target="_blank" class="text-indigo-600 text-sm font-semibold hover:text-indigo-800 hover:underline flex items-center">
+                            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                            Reading HW (Passage 1)
+                        </a>
+                        <span class="text-indigo-600 text-sm font-semibold flex items-center">
+                            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+                            Speaking Voice Memos (Local files)
+                        </span>
+                    </div>
+                </div>
+
+                <ul class="space-y-3 list-disc pl-5 text-slate-600">
+                    <li><strong>Reading Review:</strong> Ask for their score on the Passage 1 practice. Review any T/F/NG questions they got wrong. Reinforce that "Not Given" means the information simply isn't there.</li>
+                    <li><strong>Speaking Review:</strong> Play their 2-minute voice memos together. 
+                        <ul class="list-circle pl-5 mt-1">
+                            <li>Did they speak for the full 2 minutes?</li>
+                            <li>Did they sound natural or like they were reading a script?</li>
+                            <li>Did they use linking words (e.g., <em>However, First of all, Consequently</em>)?</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- PART 2: Reading Passage 2 -->
+        <section id="part2" class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden transition-opacity">
+            <div class="bg-slate-50 border-b border-slate-200 p-4 flex justify-between items-center cursor-pointer" onclick="document.getElementById('check2').click()">
+                <h2 class="text-xl font-bold text-slate-800">Part 2: Reading Passage 2 <span class="text-sm font-normal text-slate-500 ml-2">(15-50m)</span></h2>
+                <input type="checkbox" id="check2" class="part-checkbox" onchange="updateProgress(this, 'part2')">
+            </div>
+            <div class="p-6 space-y-6">
+                
+                <!-- HARDCODED TEST LINKS -->
+                <div class="bg-amber-50 border border-amber-200 rounded-lg p-4 shadow-inner">
+                    <h3 class="font-bold text-amber-900 flex items-center mb-3">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
+                        Test Link Launcher
+                    </h3>
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <a href="https://youpass.vn/thi-thu/reading/9878" target="_blank" class="bg-amber-600 hover:bg-amber-700 text-white font-semibold py-2 px-4 rounded transition-colors shadow-sm text-center flex-1 flex items-center justify-center">
+                            Launch Reading Practice
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-lg mb-2 text-indigo-700">1. Strategy Explanation (10 mins)</h3>
+                    
+                    <div class="mb-4">
+                        <h4 class="font-semibold text-slate-800 mb-1">Matching Headings (CD-IELTS UI Focus)</h4>
+                        <p class="text-slate-600 text-sm mb-2">On the computer, students must click and drag headings into the correct slots. It can be visually confusing. <strong>Strategy:</strong> Always read the Headings list <em>first</em> to prime the brain, then read Paragraph A, find its heading, then Paragraph B, etc.</p>
+                        <p class="text-slate-600 text-sm mb-2"><strong>Topic Sentences:</strong> Teach them that the heading is usually found in the first or second sentence of the paragraph (the topic sentence) or occasionally the very last sentence (the conclusion).</p>
+                    </div>
+
+                    <div>
+                        <h4 class="font-semibold text-slate-800 mb-1">Matching Information to Paragraphs</h4>
+                        <p class="text-slate-600 text-sm">Unlike Headings (which summarize the <em>main idea</em>), Matching Information asks you to find a <em>specific detail</em> (e.g., "a description of...", "a reason why..."). The answer might be hidden in the middle of a paragraph. Don't rely solely on topic sentences for these.</p>
+                    </div>
+                </div>
+
+                <div class="pt-4 border-t border-slate-100">
+                    <h3 class="font-bold text-lg mb-2 text-indigo-700">2. Live Practice & Execution (25 mins)</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-start">
+                            <span class="bg-blue-100 text-blue-800 font-bold px-2 py-1 rounded text-xs mr-3 mt-0.5">STEP 1</span>
+                            <p class="text-slate-600">Open the Reading Practice link. Have the student share their screen. Give them exactly <strong>20 minutes</strong> to complete the passage.</p>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="bg-blue-100 text-blue-800 font-bold px-2 py-1 rounded text-xs mr-3 mt-0.5">STEP 2</span>
+                            <p class="text-slate-600">Observe: Are they using the drag-and-drop efficiently? Are they highlighting keywords in the text?</p>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="bg-blue-100 text-blue-800 font-bold px-2 py-1 rounded text-xs mr-3 mt-0.5">STEP 3</span>
+                            <p class="text-slate-600">Review answers. For incorrect Matching Headings, read the paragraph together and identify the true "Topic Sentence" they missed.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PART 3: Listening Part 3 -->
+        <section id="part3" class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden transition-opacity">
+            <div class="bg-slate-50 border-b border-slate-200 p-4 flex justify-between items-center cursor-pointer" onclick="document.getElementById('check3').click()">
+                <h2 class="text-xl font-bold text-slate-800">Part 3: Listening Part 3 <span class="text-sm font-normal text-slate-500 ml-2">(50-80m)</span></h2>
+                <input type="checkbox" id="check3" class="part-checkbox" onchange="updateProgress(this, 'part3')">
+            </div>
+            <div class="p-6 space-y-6">
+                
+                <div class="bg-amber-50 border border-amber-200 rounded-lg p-4 shadow-inner">
+                    <h3 class="font-bold text-amber-900 flex items-center mb-3">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
+                        Test Link Launcher
+                    </h3>
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <a href="https://youpass.vn/thi-thu/listening/9969" target="_blank" class="bg-amber-600 hover:bg-amber-700 text-white font-semibold py-2 px-4 rounded transition-colors shadow-sm text-center flex-1 flex items-center justify-center">
+                            Launch Listening Practice
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-lg mb-2 text-indigo-700">1. Strategy: The Pre-Reading Phase (10 mins)</h3>
+                    <p class="text-slate-600 mb-3">Part 3 is usually an academic discussion between 2-3 people. The biggest challenge isn't the audio; it's the amount of text you have to read for Long Multiple-Choice questions.</p>
+                    
+                    <div class="bg-emerald-50 p-4 rounded-lg border border-emerald-200 mb-4">
+                        <h4 class="font-bold text-emerald-800 mb-2">The "Read Before" Rule</h4>
+                        <ul class="text-sm text-emerald-700 space-y-2 list-disc pl-4">
+                            <li>You get roughly 30-40 seconds before the audio starts. Use every second of it.</li>
+                            <li><strong>Do not read the A, B, C options deeply yet.</strong> Focus on reading and highlighting the keywords in the <em>questions</em>.</li>
+                            <li>You need to know exactly <em>what</em> information you are listening for. The audio will paraphrase the A, B, C options anyway.</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
+                        <h4 class="font-bold text-slate-800 mb-2">Tracking Speakers (Agreement/Disagreement)</h4>
+                        <p class="text-sm text-slate-600">Because it's a discussion, Speaker A might suggest an answer, but Speaker B might disagree. <strong>Wait for agreement!</strong> The correct answer is usually the point they finally agree upon.</p>
+                    </div>
+                </div>
+
+                <div class="pt-4 border-t border-slate-100">
+                    <h3 class="font-bold text-lg mb-4 text-indigo-700">2. Live Practice Drill (20 mins)</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-start">
+                            <span class="bg-blue-100 text-blue-800 font-bold px-2 py-1 rounded text-xs mr-3 mt-0.5">STEP 1</span>
+                            <p class="text-slate-600">Give the student the allotted pre-reading time. Ensure they are scanning the questions.</p>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="bg-blue-100 text-blue-800 font-bold px-2 py-1 rounded text-xs mr-3 mt-0.5">STEP 2</span>
+                            <p class="text-slate-600">Play the audio. Watch them type/click.</p>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="bg-blue-100 text-blue-800 font-bold px-2 py-1 rounded text-xs mr-3 mt-0.5">STEP 3</span>
+                            <p class="text-slate-600">Stop and Review. Discuss the distractors. Did they hear Speaker A suggest an incorrect option before Speaker B corrected them?</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PART 4: Wrap-up -->
+        <section id="part4" class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden transition-opacity">
+            <div class="bg-slate-50 border-b border-slate-200 p-4 flex justify-between items-center cursor-pointer" onclick="document.getElementById('check4').click()">
+                <h2 class="text-xl font-bold text-slate-800">Part 4: Wrap-up & HW <span class="text-sm font-normal text-slate-500 ml-2">(80-90m)</span></h2>
+                <input type="checkbox" id="check4" class="part-checkbox" onchange="updateProgress(this, 'part4')">
+            </div>
+            <div class="p-6 space-y-6">
+                <div>
+                    <h3 class="font-bold text-lg mb-2 text-indigo-700">1. Session Review (5 mins)</h3>
+                    <ul class="space-y-3 pl-2 text-slate-600">
+                        <li class="flex items-start">
+                            <span class="mr-2">❓</span> 
+                            <div>Ask: <em>"Where do you usually find the answer for a Matching Headings question?"</em> <br><span class="text-sm font-semibold text-green-700">Answer: The Topic Sentence (usually the 1st or 2nd sentence of the paragraph).</span></div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="mr-2">❓</span> 
+                            <div>Ask: <em>"In Listening Part 3, what should you do during the 30 seconds of silence?"</em> <br><span class="text-sm font-semibold text-green-700">Answer: Read and highlight keywords in the Questions, not the A/B/C options.</span></div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="pt-4 border-t border-slate-100">
+                    <h3 class="font-bold text-lg mb-2 text-indigo-700">2. Assign Homework (5 mins)</h3>
+                    <div class="bg-rose-50 border border-rose-200 p-4 rounded-lg">
+                        <p class="font-bold text-rose-900 flex items-center mb-1">📝 Task</p>
+                        <p class="text-rose-800 text-sm mb-3">Complete the following Reading and Listening sections on your computer. Treat them like a real test.</p>
+                        
+                        <div class="flex flex-col gap-2 mb-4 bg-white p-3 rounded border border-rose-100">
+                            <a href="https://youpass.vn/thi-thu/reading/7952" target="_blank" class="text-rose-700 text-sm font-semibold hover:text-rose-900 hover:underline flex items-center">
+                                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                                Reading HW Link
+                            </a>
+                            <a href="https://youpass.vn/thi-thu/listening/9966" target="_blank" class="text-rose-700 text-sm font-semibold hover:text-rose-900 hover:underline flex items-center">
+                                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                                Listening HW Link
+                            </a>
+                        </div>
+
+                        <p class="font-bold text-rose-900 flex items-center mb-1">⏰ Reminder</p>
+                        <p class="text-rose-800 text-sm">Inform them of the next session time. Note that Week 2 begins to introduce advanced methodologies.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        // Progress Tracking Logic
+        function updateProgress(checkboxElem, sectionId) {
+            const section = document.getElementById(sectionId);
+            const evt = window.event;
+            // Stop event bubbling so clicking the checkbox doesn't trigger the parent div click twice
+            if(evt) evt.stopPropagation(); 
+
+            if (checkboxElem.checked) {
+                section.classList.add('section-done');
+            } else {
+                section.classList.remove('section-done');
+            }
+
+            const checkboxes = document.querySelectorAll('.part-checkbox');
+            let checkedCount = 0;
+            checkboxes.forEach(cb => {
+                if (cb.checked) checkedCount++;
+            });
+            
+            document.getElementById('progress-text').innerText = `${checkedCount} / 4`;
+        }
+    </script>
+</body>
+</html>

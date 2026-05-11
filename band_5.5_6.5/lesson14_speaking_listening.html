@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Speaking & Listening - Band 5.5-6.5</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .slide { display: none; animation: fadeIn 0.4s ease-in-out; }
+        .slide.active { display: block; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* Custom scrollbar for iframe/content */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #fdf2f8; } /* pastel pink track */
+        ::-webkit-scrollbar-thumb { background: #f472b6; border-radius: 4px; } /* pink thumb */
+        ::-webkit-scrollbar-thumb:hover { background: #be123c; } /* rose hover */
+        
+        /* Details/Summary marker styling */
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
+    </style>
+</head>
+<body class="bg-rose-50 text-gray-800 h-screen flex flex-col overflow-hidden">
+
+    <!-- Header / Navigation -->
+    <header class="bg-rose-900 text-white p-4 shadow-md flex justify-between items-center z-10 shrink-0 border-b-4 border-pink-300">
+        <div>
+            <h1 class="text-2xl font-bold tracking-wide">IELTS Preparation <span class="text-pink-200 text-lg font-normal ml-2">Band 5.5 - 6.5</span></h1>
+            <p class="text-sm text-rose-200 mt-1">90-Minute Interactive Lesson Plan (14-16 Students)</p>
+        </div>
+        <div class="flex items-center gap-4">
+            <span id="slide-counter" class="font-semibold bg-rose-800 px-3 py-1 rounded border border-rose-700">Slide 1 / 12</span>
+            <button onclick="prevSlide()" class="bg-rose-700 hover:bg-rose-600 px-4 py-2 rounded transition font-medium">⬅ Previous</button>
+            <button onclick="nextSlide()" class="bg-pink-600 hover:bg-pink-500 px-4 py-2 rounded shadow-lg transition font-medium text-white">Next ➡</button>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 overflow-y-auto p-8 relative">
+        <div class="max-w-5xl mx-auto pb-20">
+
+            <!-- SLIDE 1: Intro -->
+            <div class="slide active" id="slide-0">
+                <div class="text-center py-20">
+                    <h2 class="text-5xl font-extrabold text-rose-900 mb-6">Speaking & Listening Practice</h2>
+                    <p class="text-2xl text-rose-700 mb-12 font-medium">Topic: Technology, Internet & Communication</p>
+                    
+                    <div class="grid grid-cols-2 gap-8 max-w-3xl mx-auto text-left">
+                        <div class="bg-white p-6 rounded-xl shadow border-t-4 border-pink-400">
+                            <h3 class="text-xl font-bold mb-2 text-rose-900">Part 1: Speaking (~55-60 min)</h3>
+                            <ul class="list-disc pl-5 text-gray-600 space-y-2">
+                                <li>Vocabulary Exercises</li>
+                                <li>IELTS Part 1 Questions (Pair & Class Work)</li>
+                                <li>IELTS Part 2 Cue Card</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white p-6 rounded-xl shadow border-t-4 border-rose-500">
+                            <h3 class="text-xl font-bold mb-2 text-rose-900">Part 2: Listening (~30-35 min)</h3>
+                            <ul class="list-disc pl-5 text-gray-600 space-y-2">
+                                <li>Cambridge 9, Test 1</li>
+                                <li>Listening Parts 3 & 4</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <button onclick="nextSlide()" class="mt-12 bg-rose-700 hover:bg-rose-800 text-white px-8 py-4 rounded-full text-xl font-bold shadow-lg transition">
+                        Start Lesson
+                    </button>
+                </div>
+            </div>
+
+            <!-- SLIDE 2: Exercise 1 -->
+            <div class="slide" id="slide-1">
+                <div class="flex items-center mb-6">
+                    <span class="bg-pink-200 text-rose-900 text-sm font-bold px-3 py-1 rounded uppercase tracking-wider mr-3">Part 1</span>
+                    <h2 class="text-3xl font-bold text-gray-800">Exercise 1: Vocabulary</h2>
+                </div>
+
+                <div class="bg-stone-100 border-l-4 border-stone-400 p-4 mb-6 rounded-r">
+                    <p class="font-bold text-stone-800">👨‍🏫 Teacher Note:</p>
+                    <p class="text-stone-700">Display the text below. Elicit guesses for the bolded words from the whole class before revealing the meanings.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm border border-rose-100 mb-6 text-xl leading-relaxed">
+                    <p>Read the box below and try to guess the meanings of the bolded words/phrases.</p>
+                    <div class="mt-4 p-5 bg-pink-50 rounded italic text-gray-800 border-l-4 border-pink-300">
+                        "I've just bought a <strong>brand new</strong> laptop from Apple, an internationally <strong>renowned tech giant</strong>. I find it <strong>high-speed</strong>, <strong>lightweight</strong> and powerful, so it greatly <strong>facilitates</strong> my studies, work and recreation. I often use it for word processing, web <strong>browsing</strong>, information searching and photo design. Well, I would consider myself relatively <strong>computer-literate</strong>."
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm border border-rose-100 mb-6">
+                    <div class="grid grid-cols-2 gap-4 font-semibold text-lg border-b-2 border-pink-100 pb-2 mb-4 text-rose-900">
+                        <div>WORDS/ PHRASES</div>
+                        <div>MEANINGS</div>
+                    </div>
+                    <ul class="space-y-3 text-lg">
+                        <li class="grid grid-cols-2 gap-4 items-center"><div>1 brand new (a)</div><div class="text-gray-600 italic hidden-answer">completely new <span class="font-semibold text-rose-600 not-italic ml-2">(hoàn toàn mới)</span></div></li>
+                        <li class="grid grid-cols-2 gap-4 items-center"><div>2 renowned (a) /rɪˈnaʊnd/</div><div class="text-gray-600 italic hidden-answer">famous, well-known <span class="font-semibold text-rose-600 not-italic ml-2">(nổi tiếng)</span></div></li>
+                        <li class="grid grid-cols-2 gap-4 items-center"><div>3 tech giant (n)</div><div class="text-gray-600 italic hidden-answer">a very large technology company <span class="font-semibold text-rose-600 not-italic ml-2">(gã khổng lồ công nghệ)</span></div></li>
+                        <li class="grid grid-cols-2 gap-4 items-center"><div>4 high-speed (a)</div><div class="text-gray-600 italic hidden-answer">operating very quickly <span class="font-semibold text-rose-600 not-italic ml-2">(tốc độ cao)</span></div></li>
+                        <li class="grid grid-cols-2 gap-4 items-center"><div>5 lightweight (a)</div><div class="text-gray-600 italic hidden-answer">weighing less than average <span class="font-semibold text-rose-600 not-italic ml-2">(trọng lượng nhẹ)</span></div></li>
+                        <li class="grid grid-cols-2 gap-4 items-center"><div>6 facilitate (v) /fəˈsɪlɪteɪt/</div><div class="text-gray-600 italic hidden-answer">make an action or process easy or easier <span class="font-semibold text-rose-600 not-italic ml-2">(tạo điều kiện thuận lợi)</span></div></li>
+                        <li class="grid grid-cols-2 gap-4 items-center"><div>7 browse (v)</div><div class="text-gray-600 italic hidden-answer">look through or read information on the internet <span class="font-semibold text-rose-600 not-italic ml-2">(lướt web)</span></div></li>
+                        <li class="grid grid-cols-2 gap-4 items-center"><div>8 computer-literate (a) /ˈlɪtərət/</div><div class="text-gray-600 italic hidden-answer">having sufficient knowledge and skill to use computers <span class="font-semibold text-rose-600 not-italic ml-2">(thành thạo máy tính)</span></div></li>
+                    </ul>
+                </div>
+
+                <button onclick="toggleAnswers(this)" class="bg-pink-100 hover:bg-pink-200 text-rose-800 font-bold py-3 px-4 rounded transition w-full text-center border border-pink-300">
+                    👀 Reveal Meanings
+                </button>
+            </div>
+
+            <!-- SLIDE 3: Computer Questions -->
+            <div class="slide" id="slide-2">
+                <div class="flex items-center mb-6">
+                    <span class="bg-pink-200 text-rose-900 text-sm font-bold px-3 py-1 rounded uppercase tracking-wider mr-3">Part 1</span>
+                    <h2 class="text-3xl font-bold text-gray-800">COMPUTER</h2>
+                </div>
+
+                <div class="bg-white p-8 rounded-lg shadow-sm border border-rose-100 mb-8">
+                    <ol class="list-decimal pl-6 space-y-6 text-2xl text-gray-800 font-medium">
+                        <li>Do you use computers?</li>
+                        <li>How often do you use your computer/laptop?</li>
+                        <li>What kinds of activities involve using computers?</li>
+                        <li>How important is your computer to you?</li>
+                        <li>What kinds of computer skills do you have?</li>
+                    </ol>
+
+                    <!-- Collapsible Sample Answers -->
+                    <details class="group mt-8 bg-pink-50 border border-pink-200 rounded-lg shadow-sm">
+                        <summary class="cursor-pointer font-bold text-rose-800 p-4 flex items-center justify-between outline-none hover:bg-pink-100 transition rounded-lg">
+                            <span class="text-lg">💡 View Sample Answers</span>
+                            <span class="group-open:rotate-180 transition-transform text-xl">▼</span>
+                        </summary>
+                        <div class="p-5 border-t border-pink-200 text-gray-700 space-y-5 text-lg">
+                            <p><strong class="text-rose-900">1. Do you use computers?</strong><br>Yes, absolutely. I use my laptop every single day for both work and entertainment.</p>
+                            <p><strong class="text-rose-900">2. How often do you use your computer/laptop?</strong><br>I would say I'm on my laptop for at least 6 to 8 hours a day. It's an indispensable tool for my daily routine.</p>
+                            <p><strong class="text-rose-900">3. What kinds of activities involve using computers?</strong><br>I mainly use it for word processing, browsing the internet to search for information, and occasionally watching movies or playing lightweight games to unwind.</p>
+                            <p><strong class="text-rose-900">4. How important is your computer to you?</strong><br>It's crucial. Honestly, I would feel completely disconnected and unable to fulfill my work responsibilities without it.</p>
+                            <p><strong class="text-rose-900">5. What kinds of computer skills do you have?</strong><br>I consider myself reasonably computer-literate. I am proficient in basic office software like Word and Excel, and I can troubleshoot minor software issues.</p>
+                        </div>
+                    </details>
+                </div>
+
+                <!-- Pair Work -->
+                <div class="bg-pink-100 border-l-4 border-pink-400 p-5 rounded-r shadow-sm flex justify-between items-center mb-6">
+                    <div>
+                        <h4 class="font-bold text-rose-900 text-xl flex items-center gap-2">
+                            <span>👥</span> Pair Work (3 mins)
+                        </h4>
+                        <p class="text-rose-800 mt-1">Instruct students to ask and answer these questions in pairs using the new vocabulary.</p>
+                    </div>
+                    <div class="flex items-center gap-4 bg-white p-2 rounded shadow-sm border border-pink-200">
+                        <button onclick="startTimer(3, 'timer-comp')" class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-4 rounded transition">
+                            ▶ Start Timer
+                        </button>
+                        <span id="timer-comp" class="text-3xl font-mono text-gray-800 w-24 text-center">03:00</span>
+                    </div>
+                </div>
+
+                <!-- Class Work -->
+                <div class="bg-rose-100 border-l-4 border-rose-400 p-5 rounded-r shadow-sm">
+                    <h4 class="font-bold text-rose-900 text-xl flex items-center gap-2">
+                        <span>🗣️</span> Class Work
+                    </h4>
+                    <p class="text-rose-800 mt-1">Call on 2-3 students to answer in front of the class to verify pronunciation and fluency.</p>
+                </div>
+            </div>
+
+            <!-- SLIDE 4: Exercise 2 -->
+            <div class="slide" id="slide-3">
+                <div class="flex items-center mb-6">
+                    <span class="bg-pink-200 text-rose-900 text-sm font-bold px-3 py-1 rounded uppercase tracking-wider mr-3">Part 1</span>
+                    <h2 class="text-3xl font-bold text-gray-800">Exercise 2: Means of Communication</h2>
+                </div>
+
+                <div class="bg-stone-100 border-l-4 border-stone-400 p-4 mb-6 rounded-r">
+                    <p class="font-bold text-stone-800">👨‍🏫 Teacher Note:</p>
+                    <p class="text-stone-700">Give students a moment to categorize the ideas. Discuss as a class before revealing suggested answers.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm border border-rose-100 mb-6">
+                    <p class="text-xl mb-6">Put the following ideas into the suitable blanks. Some ideas can be used more than once.</p>
+                    
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8 text-lg bg-pink-50 p-6 rounded-lg border border-pink-200">
+                        <div>A. faster and more efficient</div>
+                        <div>B. a more personal touch</div>
+                        <div>C. express affection better</div>
+                        <div>D. easy to attach files or photos</div>
+                        <div>E. free, money-saving</div>
+                        <div>F. contain viruses</div>
+                        <div>G. distracting</div>
+                        <div>H. can be lost or damaged</div>
+                        <div>I. unwanted spam messages</div>
+                    </div>
+
+                    <table class="w-full text-left border-collapse mt-4 text-xl">
+                        <thead>
+                            <tr class="bg-rose-100">
+                                <th class="border border-rose-200 p-4 w-1/3 text-center text-rose-900">MEANS OF COMMUNICATION</th>
+                                <th class="border border-rose-200 p-4 w-1/3 text-center text-emerald-700">MERITS</th>
+                                <th class="border border-rose-200 p-4 w-1/3 text-center text-rose-700">DEMERITS</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="border border-rose-100 p-4 font-bold text-center">Emails</td>
+                                <td class="border border-rose-100 p-4 h-24 bg-white"><span class="hidden-answer text-gray-800 font-bold">A, D, E</span></td>
+                                <td class="border border-rose-100 p-4 h-24 bg-white"><span class="hidden-answer text-gray-800 font-bold">F, G, I</span></td>
+                            </tr>
+                            <tr>
+                                <td class="border border-rose-100 p-4 font-bold text-center">Letters</td>
+                                <td class="border border-rose-100 p-4 h-24 bg-white"><span class="hidden-answer text-gray-800 font-bold">B, C</span></td>
+                                <td class="border border-rose-100 p-4 h-24 bg-white"><span class="hidden-answer text-gray-800 font-bold">A (lack of), H</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <button onclick="toggleAnswers(this)" class="bg-pink-100 hover:bg-pink-200 text-rose-800 font-bold py-3 px-4 rounded transition w-full text-center border border-pink-300">
+                    👀 Reveal Suggested Answers
+                </button>
+            </div>
+
+            <!-- SLIDE 5: Exercise 3 -->
+            <div class="slide" id="slide-4">
+                <div class="flex items-center mb-6">
+                    <span class="bg-pink-200 text-rose-900 text-sm font-bold px-3 py-1 rounded uppercase tracking-wider mr-3">Part 1</span>
+                    <h2 class="text-3xl font-bold text-gray-800">Exercise 3: True or False</h2>
+                </div>
+
+                <div class="bg-stone-100 border-l-4 border-stone-400 p-4 mb-6 rounded-r">
+                    <p class="font-bold text-stone-800">👨‍🏫 Teacher Note:</p>
+                    <p class="text-stone-700">Read out the sentences. Ensure students understand the bolded phrases. Have a quick show of hands for True vs False.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm border border-rose-100 mb-6">
+                    <p class="text-xl mb-6">Are the following statements true or false to you?</p>
+                    
+                    <table class="w-full text-left border-collapse text-xl">
+                        <thead>
+                            <tr class="bg-rose-100 text-rose-900">
+                                <th class="border border-rose-200 p-4">Statement</th>
+                                <th class="border border-rose-200 p-4 w-24 text-center">TRUE</th>
+                                <th class="border border-rose-200 p-4 w-24 text-center">FALSE</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="bg-white">
+                                <td class="border border-rose-100 p-4">1 Emails can <strong class="text-rose-700">substitute</strong> (replace) letters.</td>
+                                <td class="border border-rose-100 p-4"></td><td class="border border-rose-100 p-4"></td>
+                            </tr>
+                            <tr class="bg-pink-50">
+                                <td class="border border-rose-100 p-4">2 Many people are <strong class="text-rose-700">fed up with</strong> (bored with) letters.</td>
+                                <td class="border border-rose-100 p-4"></td><td class="border border-rose-100 p-4"></td>
+                            </tr>
+                            <tr class="bg-white">
+                                <td class="border border-rose-100 p-4">3 Many people are <strong class="text-rose-700">bombarded with</strong> (attacked with) spam emails.</td>
+                                <td class="border border-rose-100 p-4"></td><td class="border border-rose-100 p-4"></td>
+                            </tr>
+                            <tr class="bg-pink-50">
+                                <td class="border border-rose-100 p-4">4 It is common to <strong class="text-rose-700">jot down</strong> (take notes) ideas that <strong class="text-rose-700">pop into your head</strong> (appear suddenly).</td>
+                                <td class="border border-rose-100 p-4"></td><td class="border border-rose-100 p-4"></td>
+                            </tr>
+                            <tr class="bg-white">
+                                <td class="border border-rose-100 p-4">5 Your personality can <strong class="text-rose-700">manifest itself</strong> (appear) in handwriting.</td>
+                                <td class="border border-rose-100 p-4"></td><td class="border border-rose-100 p-4"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- SLIDE 6: Email Questions -->
+            <div class="slide" id="slide-5">
+                <div class="flex items-center mb-6">
+                    <span class="bg-pink-200 text-rose-900 text-sm font-bold px-3 py-1 rounded uppercase tracking-wider mr-3">Part 1</span>
+                    <h2 class="text-3xl font-bold text-gray-800">EMAIL</h2>
+                </div>
+
+                <div class="bg-white p-8 rounded-lg shadow-sm border border-rose-100 mb-8">
+                    <ol class="list-decimal pl-6 space-y-6 text-2xl text-gray-800 font-medium">
+                        <li>Do you think emails are useful?</li>
+                        <li>Do you think it is a good thing that companies send out spam emails to customers?</li>
+                        <li>Do you think typing can replace handwriting?</li>
+                        <li>Do you often write something by hand?</li>
+                        <li>What are the differences between letters and emails?</li>
+                    </ol>
+
+                    <!-- Collapsible Sample Answers -->
+                    <details class="group mt-8 bg-pink-50 border border-pink-200 rounded-lg shadow-sm">
+                        <summary class="cursor-pointer font-bold text-rose-800 p-4 flex items-center justify-between outline-none hover:bg-pink-100 transition rounded-lg">
+                            <span class="text-lg">💡 View Sample Answers</span>
+                            <span class="group-open:rotate-180 transition-transform text-xl">▼</span>
+                        </summary>
+                        <div class="p-5 border-t border-pink-200 text-gray-700 space-y-5 text-lg">
+                            <p><strong class="text-rose-900">1. Do you think emails are useful?</strong><br>Yes, very useful. They facilitate quick and professional communication, especially in academic or corporate environments.</p>
+                            <p><strong class="text-rose-900">2. Do you think it is a good thing that companies send out spam emails to customers?</strong><br>Not at all. It's quite frustrating to have your inbox bombarded with unwanted promotional messages. It feels like an invasion of privacy.</p>
+                            <p><strong class="text-rose-900">3. Do you think typing can replace handwriting?</strong><br>In many practical scenarios, yes, because it's faster and more efficient. However, handwriting still holds a special personal touch that typing lacks.</p>
+                            <p><strong class="text-rose-900">4. Do you often write something by hand?</strong><br>Not as often as I used to. Nowadays, I only jot down quick notes that pop into my head or write greeting cards for special occasions.</p>
+                            <p><strong class="text-rose-900">5. What are the differences between letters and emails?</strong><br>Emails are instant, free, and allow you to attach files easily. Letters, on the other hand, take time to deliver but are much more personal and meaningful.</p>
+                        </div>
+                    </details>
+                </div>
+
+                <!-- Pair Work -->
+                <div class="bg-pink-100 border-l-4 border-pink-400 p-5 rounded-r shadow-sm flex justify-between items-center mb-6">
+                    <div>
+                        <h4 class="font-bold text-rose-900 text-xl flex items-center gap-2">
+                            <span>👥</span> Pair Work (3 mins)
+                        </h4>
+                        <p class="text-rose-800 mt-1">Give students 3 minutes to discuss in pairs.</p>
+                    </div>
+                    <div class="flex items-center gap-4 bg-white p-2 rounded shadow-sm border border-pink-200">
+                        <button onclick="startTimer(3, 'timer-email')" class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-4 rounded transition">
+                            ▶ Start Timer
+                        </button>
+                        <span id="timer-email" class="text-3xl font-mono text-gray-800 w-24 text-center">03:00</span>
+                    </div>
+                </div>
+
+                <!-- Class Work -->
+                <div class="bg-rose-100 border-l-4 border-rose-400 p-5 rounded-r shadow-sm">
+                    <h4 class="font-bold text-rose-900 text-xl flex items-center gap-2">
+                        <span>🗣️</span> Class Work
+                    </h4>
+                    <p class="text-rose-800 mt-1">Call on 2-3 students to answer in front of the class.</p>
+                </div>
+            </div>
+
+            <!-- SLIDE 7: Exercise 4 Matching -->
+            <div class="slide" id="slide-6">
+                <div class="flex items-center mb-6">
+                    <span class="bg-pink-200 text-rose-900 text-sm font-bold px-3 py-1 rounded uppercase tracking-wider mr-3">Part 1</span>
+                    <h2 class="text-3xl font-bold text-gray-800">Exercise 4: Matching</h2>
+                </div>
+
+                <div class="bg-stone-100 border-l-4 border-stone-400 p-4 mb-6 rounded-r">
+                    <p class="font-bold text-stone-800">👨‍🏫 Teacher Note:</p>
+                    <p class="text-stone-700">Give students 2 minutes to match the halves before revealing answers.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm border border-rose-100 mb-6">
+                    <p class="text-xl mb-6">Match the phrases to complete the sentences below.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-xl">
+                        <div class="space-y-6">
+                            <p><strong>1</strong> I use social networking sites to stay in touch, <span class="hidden-answer text-rose-600 font-bold ml-2">→ C</span></p>
+                            <p><strong>2</strong> My sister has been <span class="hidden-answer text-rose-600 font-bold ml-2">→ A</span></p>
+                            <p><strong>3</strong> Many people think Facebook is not <span class="hidden-answer text-rose-600 font-bold ml-2">→ B</span></p>
+                            <p><strong>4</strong> We all should be careful of <span class="hidden-answer text-rose-600 font-bold ml-2">→ D</span></p>
+                            <p><strong>5</strong> Facebook's interface is <span class="hidden-answer text-rose-600 font-bold ml-2">→ F</span></p>
+                            <p><strong>6</strong> Addiction to the virtual world is <span class="hidden-answer text-rose-600 font-bold ml-2">→ E</span></p>
+                        </div>
+                        <div class="space-y-6 bg-pink-50 p-6 rounded-lg border border-pink-200">
+                            <p><strong>A.</strong> deceived by cyber friends.</p>
+                            <p><strong>B.</strong> a good platform for sharing information.</p>
+                            <p><strong>C.</strong> regardless of geographic distance.</p>
+                            <p><strong>D.</strong> misleading information.</p>
+                            <p><strong>E.</strong> a grave problem.</p>
+                            <p><strong>F.</strong> user-friendly.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <button onclick="toggleAnswers(this)" class="bg-pink-100 hover:bg-pink-200 text-rose-800 font-bold py-3 px-4 rounded transition w-full text-center border border-pink-300">
+                    👀 Reveal Answers
+                </button>
+            </div>
+
+            <!-- SLIDE 8: Social Networking Sites Questions -->
+            <div class="slide" id="slide-7">
+                <div class="flex items-center mb-6">
+                    <span class="bg-pink-200 text-rose-900 text-sm font-bold px-3 py-1 rounded uppercase tracking-wider mr-3">Part 1</span>
+                    <h2 class="text-3xl font-bold text-gray-800">SOCIAL NETWORKING SITES</h2>
+                </div>
+
+                <div class="bg-white p-8 rounded-lg shadow-sm border border-rose-100 mb-8">
+                    <ol class="list-decimal pl-6 space-y-6 text-2xl text-gray-800 font-medium">
+                        <li>What social networking websites do you like to use?</li>
+                        <li>What kinds of people do you like to be friends with on those websites?</li>
+                        <li>Is it easy to find real friends on a social networking site?</li>
+                        <li>What kinds of chatting applications or websites do you like to use?</li>
+                    </ol>
+
+                    <!-- Collapsible Sample Answers -->
+                    <details class="group mt-8 bg-pink-50 border border-pink-200 rounded-lg shadow-sm">
+                        <summary class="cursor-pointer font-bold text-rose-800 p-4 flex items-center justify-between outline-none hover:bg-pink-100 transition rounded-lg">
+                            <span class="text-lg">💡 View Sample Answers</span>
+                            <span class="group-open:rotate-180 transition-transform text-xl">▼</span>
+                        </summary>
+                        <div class="p-5 border-t border-pink-200 text-gray-700 space-y-5 text-lg">
+                            <p><strong class="text-rose-900">1. What social networking websites do you like to use?</strong><br>I'm quite active on Facebook and Instagram. They are user-friendly platforms for staying in touch with friends.</p>
+                            <p><strong class="text-rose-900">2. What kinds of people do you like to be friends with on those websites?</strong><br>I prefer connecting with people I know in real life, like classmates, colleagues, and family members, to keep up with their lives.</p>
+                            <p><strong class="text-rose-900">3. Is it easy to find real friends on a social networking site?</strong><br>I don't think so. The virtual world can be deceptive, and it's hard to build genuine trust with someone you've only met online.</p>
+                            <p><strong class="text-rose-900">4. What kinds of chatting applications or websites do you like to use?</strong><br>I mostly use Zalo and Messenger. They are extremely convenient for instant messaging and making free video calls.</p>
+                        </div>
+                    </details>
+                </div>
+
+                <!-- Pair Work -->
+                <div class="bg-pink-100 border-l-4 border-pink-400 p-5 rounded-r shadow-sm flex justify-between items-center mb-6">
+                    <div>
+                        <h4 class="font-bold text-rose-900 text-xl flex items-center gap-2">
+                            <span>👥</span> Pair Work (2 mins)
+                        </h4>
+                        <p class="text-rose-800 mt-1">Give students 2 minutes to discuss in pairs.</p>
+                    </div>
+                    <div class="flex items-center gap-4 bg-white p-2 rounded shadow-sm border border-pink-200">
+                        <button onclick="startTimer(2, 'timer-sns')" class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-4 rounded transition">
+                            ▶ Start Timer
+                        </button>
+                        <span id="timer-sns" class="text-3xl font-mono text-gray-800 w-24 text-center">02:00</span>
+                    </div>
+                </div>
+
+                <!-- Class Work -->
+                <div class="bg-rose-100 border-l-4 border-rose-400 p-5 rounded-r shadow-sm">
+                    <h4 class="font-bold text-rose-900 text-xl flex items-center gap-2">
+                        <span>🗣️</span> Class Work
+                    </h4>
+                    <p class="text-rose-800 mt-1">Call on 2-3 students to answer in front of the class.</p>
+                </div>
+            </div>
+
+            <!-- SLIDE 9: Exercise 5 Multiple Choice -->
+            <div class="slide" id="slide-8">
+                <div class="flex items-center mb-6">
+                    <span class="bg-pink-200 text-rose-900 text-sm font-bold px-3 py-1 rounded uppercase tracking-wider mr-3">Part 1</span>
+                    <h2 class="text-3xl font-bold text-gray-800">Exercise 5: Meanings</h2>
+                </div>
+
+                <div class="bg-stone-100 border-l-4 border-stone-400 p-4 mb-6 rounded-r">
+                    <p class="font-bold text-stone-800">👨‍🏫 Teacher Note:</p>
+                    <p class="text-stone-700">Check reading comprehension and paraphrasing skills.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm border border-rose-100 mb-6">
+                    <p class="text-xl mb-6">Choose the meanings of the following sentences.</p>
+                    
+                    <div class="space-y-8 text-lg">
+                        <div class="border-b border-pink-100 pb-4">
+                            <p class="font-bold text-xl mb-3 text-rose-900">1 The phone call has lost its primacy in American communication.</p>
+                            <p class="pl-4 mb-2">A. The significance of the phone call has stayed unchanged.</p>
+                            <p class="pl-4"><span class="hidden-answer bg-pink-100 px-1 rounded font-bold text-rose-800 border border-pink-300">B. The phone call has no longer kept its dominant role.</span> <span class="answer-mask">B. The phone call has no longer kept its dominant role.</span></p>
+                        </div>
+                        <div class="border-b border-pink-100 pb-4">
+                            <p class="font-bold text-xl mb-3 text-rose-900">2 Text-based communication tools have proliferated. /prəˈlɪfəreɪt/</p>
+                            <p class="pl-4 mb-2"><span class="hidden-answer bg-pink-100 px-1 rounded font-bold text-rose-800 border border-pink-300">A. The number of text-based communication tools has increased rapidly.</span> <span class="answer-mask">A. The number of text-based communication tools has increased rapidly.</span></p>
+                            <p class="pl-4">B. The number of text-based communication tools has decreased rapidly.</p>
+                        </div>
+                        <div class="border-b border-pink-100 pb-4">
+                            <p class="font-bold text-xl mb-3 text-rose-900">3 Spoken conversation accomplishes far more in a shorter amount of time.</p>
+                            <p class="pl-4 mb-2"><span class="hidden-answer bg-pink-100 px-1 rounded font-bold text-rose-800 border border-pink-300">A. Much more information can be effectively conveyed in spoken conversation.</span> <span class="answer-mask">A. Much more information can be effectively conveyed in spoken conversation.</span></p>
+                            <p class="pl-4">B. It's much quicker to achieve one's goals in written conversation.</p>
+                        </div>
+                        <div>
+                            <p class="font-bold text-xl mb-3 text-rose-900">4 Phone calls are efficient in emergency when you need to call your mom or you need to call the police.</p>
+                            <p class="pl-4 mb-2"><span class="hidden-answer bg-pink-100 px-1 rounded font-bold text-rose-800 border border-pink-300">A. It's more efficient to call someone in urgent situations.</span> <span class="answer-mask">A. It's more efficient to call someone in urgent situations.</span></p>
+                            <p class="pl-4">B. Phone calls are only used in emergency situations.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <button onclick="toggleAnswersMC(this)" class="bg-pink-100 hover:bg-pink-200 text-rose-800 font-bold py-3 px-4 rounded transition w-full text-center border border-pink-300">
+                    👀 Reveal Correct Options
+                </button>
+            </div>
+
+            <!-- SLIDE 10: Texting & Applications Questions -->
+            <div class="slide" id="slide-9">
+                <div class="flex items-center mb-6">
+                    <span class="bg-pink-200 text-rose-900 text-sm font-bold px-3 py-1 rounded uppercase tracking-wider mr-3">Part 1</span>
+                    <h2 class="text-3xl font-bold text-gray-800">TEXTING & APPLICATIONS</h2>
+                </div>
+
+                <div class="bg-white p-8 rounded-lg shadow-sm border border-rose-100 mb-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-2xl font-bold text-rose-900 mb-4 border-b-2 border-pink-200 pb-2">TEXTING</h3>
+                        <ol class="list-decimal pl-6 space-y-4 text-xl text-gray-800 font-medium">
+                            <li>Do you like texting someone?</li>
+                            <li>Do you think texting is better than making a phone call?</li>
+                        </ol>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-rose-900 mb-4 border-b-2 border-pink-200 pb-2">APPLICATIONS</h3>
+                        <ol class="list-decimal pl-6 space-y-4 text-xl text-gray-800 font-medium">
+                            <li>What applications do you often use?</li>
+                            <li>Do you want to create an application of your own in the future?</li>
+                        </ol>
+                    </div>
+                    
+                    <!-- Collapsible Sample Answers (Spans full width) -->
+                    <div class="md:col-span-2">
+                        <details class="group mt-2 bg-pink-50 border border-pink-200 rounded-lg shadow-sm">
+                            <summary class="cursor-pointer font-bold text-rose-800 p-4 flex items-center justify-between outline-none hover:bg-pink-100 transition rounded-lg">
+                                <span class="text-lg">💡 View Sample Answers</span>
+                                <span class="group-open:rotate-180 transition-transform text-xl">▼</span>
+                            </summary>
+                            <div class="p-5 border-t border-pink-200 text-gray-700 space-y-5 text-lg">
+                                <p><strong class="text-rose-900">TEXTING 1. Do you like texting someone?</strong><br>Yes, I prefer texting over calling. It allows me to think before I reply and isn't as intrusive as a phone call.</p>
+                                <p><strong class="text-rose-900">TEXTING 2. Do you think texting is better than making a phone call?</strong><br>It depends on the situation. For a quick question, texting is great. But in an emergency, a phone call is definitely more efficient.</p>
+                                <p><strong class="text-rose-900">APPLICATIONS 1. What applications do you often use?</strong><br>Besides social media, I heavily rely on banking apps for transactions and Google Maps for navigation.</p>
+                                <p><strong class="text-rose-900">APPLICATIONS 2. Do you want to create an application of your own in the future?</strong><br>That sounds fascinating, but I lack the programming skills. If I could, I'd create an app to help people manage their daily expenses more easily.</p>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
+                <!-- Pair Work -->
+                <div class="bg-pink-100 border-l-4 border-pink-400 p-5 rounded-r shadow-sm flex justify-between items-center mb-6">
+                    <div>
+                        <h4 class="font-bold text-rose-900 text-xl flex items-center gap-2">
+                            <span>👥</span> Pair Work (3 mins)
+                        </h4>
+                        <p class="text-rose-800 mt-1">Give students 3 minutes to discuss all four questions in pairs.</p>
+                    </div>
+                    <div class="flex items-center gap-4 bg-white p-2 rounded shadow-sm border border-pink-200">
+                        <button onclick="startTimer(3, 'timer-textapp')" class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-4 rounded transition">
+                            ▶ Start Timer
+                        </button>
+                        <span id="timer-textapp" class="text-3xl font-mono text-gray-800 w-24 text-center">03:00</span>
+                    </div>
+                </div>
+
+                <!-- Class Work -->
+                <div class="bg-rose-100 border-l-4 border-rose-400 p-5 rounded-r shadow-sm">
+                    <h4 class="font-bold text-rose-900 text-xl flex items-center gap-2">
+                        <span>🗣️</span> Class Work
+                    </h4>
+                    <p class="text-rose-800 mt-1">Call on 2-3 students to answer in front of the class.</p>
+                </div>
+            </div>
+
+            <!-- SLIDE 11: PART 2 Cue Card -->
+            <div class="slide" id="slide-10">
+                <div class="flex items-center mb-6">
+                    <span class="bg-fuchsia-200 text-fuchsia-900 text-sm font-bold px-3 py-1 rounded uppercase tracking-wider mr-3">Part 2</span>
+                    <h2 class="text-3xl font-bold text-gray-800">CUE CARD</h2>
+                </div>
+
+                <div class="bg-stone-100 border-l-4 border-stone-400 p-4 mb-6 rounded-r">
+                    <p class="font-bold text-stone-800">👨‍🏫 Teacher Note:</p>
+                    <p class="text-stone-700">Give students exactly 1 minute to prepare notes, then 2 minutes to speak to their partner or to the class.</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-xl shadow-lg border-2 border-fuchsia-200 mb-8 max-w-2xl mx-auto">
+                    <h3 class="text-2xl font-bold text-center mb-6 uppercase tracking-wide text-rose-900">Describe a website/ an application you like.</h3>
+                    <p class="text-xl mb-4 italic text-gray-600">You should say:</p>
+                    <ul class="list-disc pl-8 space-y-3 text-xl font-medium text-gray-700 mb-8">
+                        <li>What it is about <span class="text-fuchsia-600 font-bold float-right">"WHAT"</span></li>
+                        <li>When you found it <span class="text-fuchsia-600 font-bold float-right">"WHEN"</span></li>
+                        <li>How often you use it <span class="text-fuchsia-600 font-bold float-right">"HOW OFTEN"</span></li>
+                        <li>Why you like it <span class="text-fuchsia-600 font-bold float-right">"WHY"</span></li>
+                    </ul>
+
+                    <!-- Collapsible Sample Answer -->
+                    <details class="group mt-8 bg-pink-50 border border-pink-200 rounded-lg shadow-sm">
+                        <summary class="cursor-pointer font-bold text-rose-800 p-4 flex items-center justify-between outline-none hover:bg-pink-100 transition rounded-lg">
+                            <span class="text-lg">💡 View Sample Answer (Band 6.0-6.5)</span>
+                            <span class="group-open:rotate-180 transition-transform text-xl">▼</span>
+                        </summary>
+                        <div class="p-5 border-t border-pink-200 text-gray-700 text-lg italic leading-relaxed">
+                            "I'd like to talk about Duolingo, a language-learning application that I am really fond of. It's basically a platform that helps users learn new languages through interactive mini-games and quizzes.<br><br>
+                            I discovered it about two years ago when I was looking for a free tool to pick up some basic Spanish before a trip.<br><br>
+                            I use it almost every day, usually for just 15 to 20 minutes during my commute or right before bed.<br><br>
+                            I really like it because its interface is extremely user-friendly and colorful. Plus, it breaks down complex grammar into bite-sized lessons, making the learning process feel less like a chore and more like a fun game."
+                        </div>
+                    </details>
+                </div>
+
+                <div class="flex justify-center gap-8">
+                    <div class="bg-rose-50 border border-rose-200 p-5 rounded-lg shadow-sm text-center w-64">
+                        <h4 class="font-bold text-rose-900 text-lg mb-3">📝 Prep Time</h4>
+                        <button onclick="startTimer(1, 'timer-prep')" class="bg-rose-500 hover:bg-rose-600 text-white font-bold py-2 px-4 rounded transition w-full mb-3">
+                            Start 1 Min
+                        </button>
+                        <div id="timer-prep" class="text-4xl font-mono text-gray-800">01:00</div>
+                    </div>
+
+                    <div class="bg-fuchsia-50 border border-fuchsia-200 p-5 rounded-lg shadow-sm text-center w-64">
+                        <h4 class="font-bold text-fuchsia-900 text-lg mb-3">🎙️ Speaking Time</h4>
+                        <button onclick="startTimer(2, 'timer-speak')" class="bg-fuchsia-600 hover:bg-fuchsia-700 text-white font-bold py-2 px-4 rounded transition w-full mb-3">
+                            Start 2 Mins
+                        </button>
+                        <div id="timer-speak" class="text-4xl font-mono text-gray-800">02:00</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 12: Listening Session -->
+            <div class="slide" id="slide-11">
+                <div class="flex items-center justify-between mb-6">
+                    <div class="flex items-center">
+                        <span class="bg-rose-200 text-rose-900 text-sm font-bold px-3 py-1 rounded uppercase tracking-wider mr-3">Part 2</span>
+                        <h2 class="text-3xl font-bold text-gray-800">Cambridge 9, Test 1 — Listening Parts 3 & 4</h2>
+                    </div>
+                    <span class="text-gray-500 font-medium">~30-35 min</span>
+                </div>
+
+                <div class="bg-stone-100 border-l-4 border-stone-400 p-4 mb-6 rounded-r">
+                    <p class="font-bold text-stone-800">👨‍🏫 Teacher Note:</p>
+                    <p class="text-stone-700">Use the embedded mock test below to conduct the listening session. If the embed fails to load due to browser restrictions, use the direct link button.</p>
+                </div>
+                
+                <div class="mb-4 text-center">
+                    <a href="https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/test_view_cam9_test1.html" target="_blank" class="inline-block bg-rose-600 hover:bg-rose-700 text-white font-bold py-3 px-6 rounded shadow-lg transition">
+                        🔗 Open Listening Test in New Tab
+                    </a>
+                </div>
+
+                <div class="bg-white rounded-lg shadow border border-pink-200 overflow-hidden" style="height: 60vh;">
+                    <iframe 
+                        src="https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/test_view_cam9_test1.html" 
+                        class="w-full h-full border-0"
+                        title="IELTS Listening Mock Test">
+                    </iframe>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        // -- Navigation Logic --
+        let currentSlide = 0;
+        const totalSlides = 12;
+
+        function updateUI() {
+            // Hide all
+            document.querySelectorAll('.slide').forEach(el => el.classList.remove('active'));
+            // Show current
+            document.getElementById(`slide-${currentSlide}`).classList.add('active');
+            // Update counter
+            document.getElementById('slide-counter').innerText = `Slide ${currentSlide + 1} / ${totalSlides}`;
+            // Scroll to top
+            document.querySelector('main').scrollTop = 0;
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides - 1) {
+                currentSlide++;
+                updateUI();
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 0) {
+                currentSlide--;
+                updateUI();
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') nextSlide();
+            if (e.key === 'ArrowLeft') prevSlide();
+        });
+
+
+        // -- Toggle Answers Logic --
+        function toggleAnswers(button) {
+            const container = button.previousElementSibling;
+            const hiddenElements = container.querySelectorAll('.hidden-answer');
+            
+            let isHidden = true;
+            if(hiddenElements.length > 0) {
+                isHidden = hiddenElements[0].style.display === 'none' || hiddenElements[0].style.display === '';
+            }
+
+            hiddenElements.forEach(el => {
+                if (isHidden) {
+                    el.style.display = 'block';
+                    // special handling for table vs list
+                    if(el.tagName === 'SPAN') el.style.display = 'inline'; 
+                } else {
+                    el.style.display = 'none';
+                }
+            });
+
+            if (isHidden) {
+                button.innerHTML = "🙈 Hide Answers";
+            } else {
+                button.innerHTML = "👀 Reveal Answers";
+            }
+        }
+
+        // Special toggle for multiple choice (Ex 5) to swap between masked and unmasked
+        function toggleAnswersMC(button) {
+            const container = button.previousElementSibling;
+            const hiddenElements = container.querySelectorAll('.hidden-answer');
+            const maskElements = container.querySelectorAll('.answer-mask');
+            
+            let isHidden = true;
+            if(hiddenElements.length > 0) {
+                isHidden = hiddenElements[0].style.display === 'none' || hiddenElements[0].style.display === '';
+            }
+
+            hiddenElements.forEach(el => el.style.display = isHidden ? 'inline' : 'none');
+            maskElements.forEach(el => el.style.display = isHidden ? 'none' : 'inline');
+
+            button.innerHTML = isHidden ? "🙈 Hide Correct Options" : "👀 Reveal Correct Options";
+        }
+
+        // Initialize display states for MC
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelectorAll('.hidden-answer').forEach(el => el.style.display = 'none');
+            document.querySelectorAll('.answer-mask').forEach(el => el.style.display = 'inline');
+        });
+
+
+        // -- Timer Logic --
+        let intervals = {}; // Store intervals by element ID so we can clear them
+
+        function startTimer(minutes, elementId) {
+            const display = document.getElementById(elementId);
+            let time = minutes * 60;
+            
+            // Clear any existing timer on this element
+            if (intervals[elementId]) {
+                clearInterval(intervals[elementId]);
+            }
+
+            // Immediately update visual
+            updateTimerDisplay(time, display);
+
+            intervals[elementId] = setInterval(() => {
+                time--;
+                updateTimerDisplay(time, display);
+
+                if (time <= 0) {
+                    clearInterval(intervals[elementId]);
+                    display.classList.add('text-red-600');
+                    display.classList.remove('text-gray-800');
+                    // Play a soft beep sound (optional, using browser audio synthesis)
+                    try {
+                        let audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                        let oscillator = audioCtx.createOscillator();
+                        oscillator.type = 'sine';
+                        oscillator.frequency.setValueAtTime(440, audioCtx.currentTime); // A4
+                        oscillator.connect(audioCtx.destination);
+                        oscillator.start();
+                        oscillator.stop(audioCtx.currentTime + 0.5);
+                    } catch(e) {}
+                } else {
+                    display.classList.remove('text-red-600');
+                    display.classList.add('text-gray-800');
+                }
+            }, 1000);
+        }
+
+        function updateTimerDisplay(totalSeconds, element) {
+            const m = Math.floor(totalSeconds / 60).toString().padStart(2, '0');
+            const s = (totalSeconds % 60).toString().padStart(2, '0');
+            element.innerText = `${m}:${s}`;
+        }
+    </script>
+</body>
+</html>

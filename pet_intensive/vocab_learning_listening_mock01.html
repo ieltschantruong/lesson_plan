@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PET Listening Mock Test 1 - Vocabulary Learning</title>
+    <style>
+        :root {
+            --primary: #0d9488; /* Teal */
+            --primary-light: #ccfbf1;
+            --text-main: #1f2937;
+            --text-muted: #4b5563;
+            --bg-body: #f0fdfa;
+            --card-bg: #ffffff;
+            --accent: #0f766e;
+            --border: #99f6e4;
+            --badge-bg: #a7f3d0;
+            --badge-text: #064e3b;
+            --success: #2563eb; 
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+
+        body { background-color: var(--bg-body); color: var(--text-main); line-height: 1.6; padding: 2rem 1rem; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        header { text-align: center; margin-bottom: 2rem; }
+        h1 { color: var(--primary); font-size: 2.2rem; margin-bottom: 0.5rem; }
+        p.subtitle { color: var(--text-muted); font-size: 1.1rem; max-width: 800px; margin: 0 auto; }
+
+        /* Topic Filter Controls */
+        .filter-controls { display: flex; justify-content: center; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+        .filter-btn { padding: 0.5rem 1rem; font-size: 0.9rem; font-weight: 600; background: var(--bg-body); color: var(--primary); border: 2px solid var(--border); border-radius: 20px; cursor: pointer; transition: all 0.2s ease; }
+        .filter-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
+        .filter-btn:hover:not(.active) { background: var(--primary-light); }
+
+        /* View Toggles */
+        .view-controls { display: flex; justify-content: center; gap: 1rem; margin-bottom: 3rem; }
+        .view-btn { padding: 0.75rem 1.5rem; font-size: 1rem; font-weight: 600; background: var(--card-bg); color: var(--text-muted); border: 2px solid var(--border); border-radius: 8px; cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; gap: 0.5rem; }
+        .view-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
+        .view-btn:hover:not(.active) { border-color: var(--primary); color: var(--primary); }
+
+        /* Grid View Styles */
+        #grid-view { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 1.5rem; }
+        .vocab-card { background-color: var(--card-bg); border-radius: 12px; padding: 1.5rem; box-shadow: 0 4px 6px rgba(13, 148, 136, 0.05); border: 1px solid var(--border); transition: transform 0.2s ease, box-shadow 0.2s ease; display: flex; flex-direction: column; }
+        .vocab-card:hover { transform: translateY(-5px); box-shadow: 0 10px 15px rgba(13, 148, 136, 0.15); border-color: var(--primary); }
+        .vocab-card.hidden { display: none; }
+        .word-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; border-bottom: 2px solid var(--primary-light); padding-bottom: 0.75rem; }
+        .word-main { display: flex; align-items: center; gap: 0.5rem; }
+        .word { font-size: 1.5rem; font-weight: 700; color: var(--primary); text-transform: capitalize; }
+        .audio-btn { background: none; border: none; cursor: pointer; font-size: 1.2rem; padding: 0.2rem; border-radius: 50%; transition: transform 0.2s; }
+        .audio-btn:hover { transform: scale(1.2); background-color: var(--primary-light); }
+        .meta-info { text-align: right; display: flex; flex-direction: column; align-items: flex-end; gap: 0.25rem; }
+        .phonetic { font-size: 0.95rem; color: var(--text-muted); font-style: italic; }
+        .word-form { background-color: var(--badge-bg); color: var(--badge-text); font-size: 0.75rem; font-weight: 600; padding: 0.2rem 0.6rem; border-radius: 12px; text-transform: uppercase; letter-spacing: 0.05em; display: inline-block; }
+        
+        .topic-tag { font-size: 0.8rem; color: var(--accent); font-weight: bold; margin-bottom: 0.5rem; display: block;}
+        
+        .definition { font-size: 1rem; margin-bottom: 0.25rem; }
+        .definition strong { color: var(--text-main); }
+        
+        /* Translation and Usage */
+        .translation { font-size: 0.95rem; color: var(--success); margin-bottom: 0.5rem; font-weight: 500; }
+        .usage-note { font-size: 0.9rem; margin-bottom: 1rem; color: #4b5563; background: #f8fafc; padding: 0.5rem 0.75rem; border-radius: 4px; border-left: 3px solid #64748b; flex-grow: 1; }
+        .usage-note strong { color: var(--text-main); font-style: normal; font-weight: 600; }
+        .usage-vi { color: #64748b; font-style: italic; display: block; margin-top: 0.25rem; }
+
+        .example-box { background-color: var(--primary-light); padding: 1rem; border-left: 4px solid var(--accent); border-radius: 4px; font-size: 0.95rem; color: var(--text-main); margin-top: auto; }
+        .example-box span { display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 0.25rem; font-weight: bold; }
+
+        /* Flashcard View Styles */
+        #flashcard-view { display: none; flex-direction: column; align-items: center; width: 100%; }
+        .flashcard-scene { width: 100%; max-width: 650px; height: 480px; perspective: 1000px; cursor: pointer; margin-bottom: 2rem; }
+        .flashcard-inner { width: 100%; height: 100%; position: relative; transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1); transform-style: preserve-3d; }
+        .flashcard-scene.is-flipped .flashcard-inner { transform: rotateY(180deg); }
+        .flashcard-face { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 16px; box-shadow: 0 10px 25px rgba(13, 148, 136, 0.1); border: 2px solid var(--border); background: var(--card-bg); padding: 2rem 2.5rem; display: flex; flex-direction: column; justify-content: center; align-items: center; overflow-y: auto; }
+        .flashcard-front { text-align: center; }
+        .flashcard-front .word { font-size: 3rem; margin-bottom: 1rem; color: var(--primary); text-transform: capitalize;}
+        .flashcard-front .meta-row { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+        .flashcard-front .phonetic { font-size: 1.2rem; color: var(--text-muted); }
+        .flashcard-front .audio-btn { font-size: 1.8rem; background: var(--primary-light); padding: 0.5rem; }
+        .flashcard-back { transform: rotateY(180deg); background: #f8fafc; align-items: flex-start; text-align: left; }
+        .flashcard-back h3 { color: var(--primary); font-size: 1.1rem; margin-bottom: 0.25rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        
+        .flashcard-back .definition { font-size: 1.1rem; margin-bottom: 0.25rem; }
+        .flashcard-back .translation { font-size: 1.05rem; margin-bottom: 0.75rem; color: var(--success); font-weight: 500;}
+        .flashcard-back .usage-note { width: 100%; font-size: 0.95rem; padding: 0.5rem; margin-bottom: 1rem; }
+        .flashcard-back .example-box { width: 100%; font-size: 1rem; padding: 0.75rem 1rem; }
+        
+        .flashcard-hint { position: absolute; bottom: 1rem; font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.6; }
+
+        .flashcard-controls { display: flex; align-items: center; gap: 1.5rem; background: var(--card-bg); padding: 1rem 2rem; border-radius: 50px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border: 1px solid var(--border); }
+        .fc-btn { background: none; border: none; color: var(--text-main); font-size: 1rem; font-weight: 600; cursor: pointer; padding: 0.5rem 1rem; border-radius: 20px; transition: background 0.2s; display: flex; align-items: center; gap: 0.5rem; }
+        .fc-btn:hover:not(:disabled) { background: var(--primary-light); color: var(--primary); }
+        .fc-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+        .fc-counter { font-weight: 700; font-size: 1.1rem; color: var(--primary); min-width: 60px; text-align: center; }
+
+        .copyright-banner { background-color: var(--accent); color: white; text-align: center; padding: 0.5rem 1rem; font-weight: 700; font-size: 1rem; letter-spacing: 0.05em; width: 100%; top: 0; left: 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 1.5rem; }
+
+        @media (max-width: 768px) { 
+            h1 { font-size: 1.8rem; } 
+            #grid-view { grid-template-columns: 1fr; } 
+            .flashcard-scene { height: 520px; } 
+            .flashcard-front .word { font-size: 2.2rem; } 
+            .flashcard-back .definition { font-size: 1rem; }
+            .flashcard-face { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="copyright-banner">&copy; IELTS Chan Truong</div>
+
+<div class="container">
+    <header>
+        <h1>PET Listening Mock Test 1 - Vocabulary</h1>
+    </header>
+
+    <!-- Topic Filter -->
+    <div class="filter-controls" id="topic-filters">
+        <button class="filter-btn active" onclick="filterTopic('all')">All Words</button>
+        <button class="filter-btn" onclick="filterTopic('Building & Safety')">Building & Safety</button>
+        <button class="filter-btn" onclick="filterTopic('Art & Design')">Art & Design</button>
+        <button class="filter-btn" onclick="filterTopic('Actions & Processes')">Actions & Processes</button>
+    </div>
+
+    <div class="view-controls">
+        <button class="view-btn active" id="btn-grid" onclick="switchView('grid')">📄 List View</button>
+        <button class="view-btn" id="btn-flashcards" onclick="switchView('flashcards')">🗂️ Flashcard Study</button>
+    </div>
+
+    <!-- FLASHCARD VIEW -->
+    <div id="flashcard-view">
+        <div class="flashcard-scene" id="flashcard-scene" onclick="flipCard()">
+            <div class="flashcard-inner">
+                <div class="flashcard-face flashcard-front">
+                    <span class="word-form" id="fc-form">Verb</span>
+                    <h2 class="word" id="fc-word">Word</h2>
+                    <div class="meta-row">
+                        <span class="phonetic" id="fc-phonetic">/wɜːd/</span>
+                        <button class="audio-btn" id="fc-audio" onclick="playAudioFromCard(event)" title="Listen to pronunciation">🔊</button>
+                    </div>
+                    <span class="topic-tag" id="fc-topic" style="margin-top: 1rem;">Topic: General</span>
+                    <span class="flashcard-hint">Click card to flip</span>
+                </div>
+                <div class="flashcard-face flashcard-back">
+                    <h3>Meaning & Usage</h3>
+                    <p class="definition" id="fc-definition">Definition goes here.</p>
+                    <p class="translation" id="fc-translation">Vietnamese goes here.</p>
+                    <div class="usage-note" id="fc-usage"><strong>Usage:</strong> Usage goes here.</div>
+                    <div class="example-box">
+                        <span>Example</span>
+                        <div id="fc-example">"Example sentence goes here."</div>
+                    </div>
+                    <span class="flashcard-hint" style="left: 50%; transform: translateX(-50%);">Click card to flip back</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="flashcard-controls">
+            <button class="fc-btn" id="fc-prev" onclick="prevCard()">◀ Prev</button>
+            <span class="fc-counter" id="fc-counter">1 / 31</span>
+            <button class="fc-btn" id="fc-next" onclick="nextCard()">Next ▶</button>
+            <div style="width: 2px; height: 24px; background: var(--border); margin: 0 0.5rem;"></div>
+            <button class="fc-btn" onclick="shuffleCards()" title="Shuffle Order">🔀</button>
+        </div>
+    </div>
+
+    <!-- GRID VIEW -->
+    <main id="grid-view">
+        <!-- Injected via JavaScript -->
+    </main>
+</div>
+
+<script>
+    // ---------------------------------------------------------
+    // Vocabulary Bank (PET Listening Mock Test 1)
+    // ---------------------------------------------------------
+    const vocabBank = [
+        // Building & Safety
+        { topic: "Building & Safety", word: "Venue", form: "Noun", phonetic: "/ˈven.juː/", def: "The place where a public event or meeting happens.", translation: "Địa điểm (tổ chức sự kiện)", usage: "Commonly used for concerts, conferences, or weddings.<span class='usage-vi'>(Thường dùng cho các buổi hòa nhạc, hội nghị, hoặc đám cưới.)</span>", example: "The hotel is an ideal venue for conferences and exhibitions." },
+        { topic: "Building & Safety", word: "Cliff", form: "Noun", phonetic: "/klɪf/", def: "A high area of rock with a very steep side, often on a coast.", translation: "Vách đá", usage: "Used when describing geography or outdoor activities.<span class='usage-vi'>(Dùng khi miêu tả địa lý hoặc các hoạt động ngoài trời.)</span>", example: "They stood on the edge of the cliff, looking out at the sea." },
+        { topic: "Building & Safety", word: "Ramp", form: "Noun", phonetic: "/ræmp/", def: "An artificial slope that connects two different levels.", translation: "Đoạn đường dốc, dốc thoai thoải", usage: "Used for wheelchairs, strollers, or loading goods.<span class='usage-vi'>(Dùng cho xe lăn, xe đẩy, hoặc bốc dỡ hàng hóa.)</span>", example: "The building has a ramp at the entrance for wheelchair users." },
+        { topic: "Building & Safety", word: "Warden", form: "Noun", phonetic: "/ˈwɔː.dən/", def: "A person whose job is to take care of a place or make sure rules are obeyed.", translation: "Người giám sát, quản lý", usage: "Commonly seen as 'traffic warden' or 'park warden'.<span class='usage-vi'>(Thường thấy như 'nhân viên kiểm soát giao thông' hoặc 'người quản lý công viên'.)</span>", example: "The park warden asked the tourists not to feed the animals." },
+        { topic: "Building & Safety", word: "Corridor", form: "Noun", phonetic: "/ˈkɒr.ɪ.dɔːr/", def: "A long passage in a building or train, with doors on each side.", translation: "Hành lang", usage: "Describes parts of schools, hospitals, or hotels.<span class='usage-vi'>(Miêu tả các phần của trường học, bệnh viện, hoặc khách sạn.)</span>", example: "Her office is at the very end of the corridor on the left." },
+        { topic: "Building & Safety", word: "Fire extinguisher", form: "Noun", phonetic: "/ˈfaɪər ɪkˌstɪŋ.ɡwɪ.ʃər/", def: "A portable device containing gas or chemicals for putting out small fires.", translation: "Bình chữa cháy", usage: "An essential safety term for buildings.<span class='usage-vi'>(Một thuật ngữ an toàn thiết yếu đối với các tòa nhà.)</span>", example: "Make sure you know how to use the fire extinguisher in an emergency." },
+        { topic: "Building & Safety", word: "Sprinkler", form: "Noun", phonetic: "/ˈsprɪŋ.klər/", def: "A device that sprays water automatically to put out a fire or water plants.", translation: "Vòi phun nước (chữa cháy/tưới cây)", usage: "Usually installed on ceilings for fire safety.<span class='usage-vi'>(Thường được lắp trên trần nhà để đảm bảo an toàn phòng cháy.)</span>", example: "The smoke from the kitchen triggered the automatic sprinkler system." },
+        { topic: "Building & Safety", word: "Obstacle", form: "Noun", phonetic: "/ˈɒb.stə.kəl/", def: "Something that blocks you so that movement or progress is prevented.", translation: "Chướng ngại vật, trở ngại", usage: "Can be a physical object or a difficult situation.<span class='usage-vi'>(Có thể là một vật thể vật lý hoặc một tình huống khó khăn.)</span>", example: "The fallen tree was a major obstacle on the road." },
+        { topic: "Building & Safety", word: "Inhalation", form: "Noun", phonetic: "/ˌɪn.həˈleɪ.ʃən/", def: "The action of breathing air, smoke, or gas into your lungs.", translation: "Sự hít vào", usage: "Often used in medical or emergency contexts, like 'smoke inhalation'.<span class='usage-vi'>(Thường dùng trong y tế hoặc khẩn cấp, như 'hít phải khói'.)</span>", example: "Two people were taken to the hospital to be treated for smoke inhalation." },
+        { topic: "Building & Safety", word: "Evacuation", form: "Noun", phonetic: "/ɪˌvæk.juˈeɪ.ʃən/", def: "The moving of people from a dangerous place to somewhere safe.", translation: "Sự sơ tán", usage: "Used during emergencies like fires, floods, or storms.<span class='usage-vi'>(Dùng trong các tình huống khẩn cấp như hỏa hoạn, lũ lụt, bão.)</span>", example: "The fire alarm sounded, and the prompt evacuation of the building began." },
+        { topic: "Building & Safety", word: "Flammable", form: "Adjective", phonetic: "/ˈflæm.ə.bəl/", def: "Something that burns easily.", translation: "Dễ cháy", usage: "Used as a warning on chemicals, clothes, or materials.<span class='usage-vi'>(Dùng làm cảnh báo trên hóa chất, quần áo hoặc vật liệu.)</span>", example: "You should always keep flammable liquids far away from the stove." },
+
+        // Art & Design
+        { topic: "Art & Design", word: "Intricate", form: "Adjective", phonetic: "/ˈɪn.trɪ.kət/", def: "Having a lot of small parts or details that are arranged in a complicated way.", translation: "Phức tạp, tỉ mỉ", usage: "Describes designs, patterns, or plots in stories.<span class='usage-vi'>(Miêu tả thiết kế, hoa văn, hoặc cốt truyện.)</span>", example: "The wooden box was decorated with an intricate floral pattern." },
+        { topic: "Art & Design", word: "Genuine", form: "Adjective", phonetic: "/ˈdʒen.ju.ɪn/", def: "Real and exactly what it appears to be; not fake.", translation: "Thật, chính hãng", usage: "Used for materials (leather, gold) or emotions.<span class='usage-vi'>(Dùng cho vật liệu (da, vàng) hoặc cảm xúc.)</span>", example: "If the painting is a genuine Picasso, it will be worth millions." },
+        { topic: "Art & Design", word: "Acrylic", form: "Noun / Adjective", phonetic: "/əˈkrɪl.ɪk/", def: "A type of quick-drying paint or clear plastic.", translation: "Nhựa acrylic, sơn acrylic", usage: "Commonly used in art classes and manufacturing.<span class='usage-vi'>(Thường được dùng trong các lớp mỹ thuật và sản xuất.)</span>", example: "The artist prefers using acrylics because they dry much faster than oil paints." },
+        { topic: "Art & Design", word: "Curator", form: "Noun", phonetic: "/kjʊəˈreɪ.tər/", def: "A person in charge of a museum, gallery, or zoo.", translation: "Người phụ trách (bảo tàng)", usage: "The person who organizes exhibitions and looks after items.<span class='usage-vi'>(Người tổ chức triển lãm và trông coi các hiện vật.)</span>", example: "The curator gave us a guided tour of the new dinosaur exhibition." },
+        { topic: "Art & Design", word: "Trace", form: "Noun / Verb", phonetic: "/treɪs/", def: "A sign that something existed; or to find the origin of something.", translation: "Dấu vết, truy tìm", usage: "Used in history, art history, or crime solving.<span class='usage-vi'>(Dùng trong lịch sử, lịch sử nghệ thuật, hoặc phá án.)</span>", example: "Researchers could find no trace of the lost Roman city." },
+        { topic: "Art & Design", word: "Substitute", form: "Noun / Verb", phonetic: "/ˈsʌb.stɪ.tʃuːt/", def: "To use something or someone instead of another thing or person.", translation: "Sự thay thế, thay thế", usage: "Common in cooking, sports, and materials.<span class='usage-vi'>(Phổ biến trong nấu ăn, thể thao và vật liệu.)</span>", example: "Margarine can be used as a substitute for butter in this cake recipe." },
+        { topic: "Art & Design", word: "Malleable", form: "Adjective", phonetic: "/ˈmæl.i.ə.bəl/", def: "Easily shaped or bent without breaking (usually a metal).", translation: "Dễ uốn nắn, dễ rèn", usage: "Describes materials like gold, silver, or clay.<span class='usage-vi'>(Miêu tả các vật liệu như vàng, bạc, hoặc đất sét.)</span>", example: "Gold is highly malleable, making it perfect for creating detailed jewelry." },
+        { topic: "Art & Design", word: "Magnificent", form: "Adjective", phonetic: "/mæɡˈnɪf.ɪ.sənt/", def: "Very good, beautiful, or deserving to be admired.", translation: "Tráng lệ, tuyệt vời", usage: "Used to describe buildings, views, or performances.<span class='usage-vi'>(Dùng để miêu tả các tòa nhà, phong cảnh hoặc màn trình diễn.)</span>", example: "The palace is surrounded by magnificent gardens." },
+        { topic: "Art & Design", word: "Chandelier", form: "Noun", phonetic: "/ˌʃæn.dəˈlɪər/", def: "A large, decorative hanging light with branches for several light bulbs or candles.", translation: "Đèn chùm", usage: "Found in fancy buildings, ballrooms, or dining rooms.<span class='usage-vi'>(Được tìm thấy trong các tòa nhà sang trọng, phòng khiêu vũ hoặc phòng ăn.)</span>", example: "A beautiful crystal chandelier hung from the center of the ceiling." },
+
+        // Actions & Processes
+        { topic: "Actions & Processes", word: "Deposit", form: "Noun / Verb", phonetic: "/dɪˈpɒz.ɪt/", def: "A part of the cost of something you are buying that you pay first.", translation: "Tiền đặt cọc, gửi tiền", usage: "Used when booking holidays, renting apartments, or banking.<span class='usage-vi'>(Dùng khi đặt kỳ nghỉ, thuê căn hộ hoặc giao dịch ngân hàng.)</span>", example: "We had to pay a $100 deposit to reserve the hotel room." },
+        { topic: "Actions & Processes", word: "Procedure", form: "Noun", phonetic: "/prəˈsiː.dʒər/", def: "A set of actions that is the official or accepted way of doing something.", translation: "Thủ tục, quy trình", usage: "Common in business, medical, or legal contexts.<span class='usage-vi'>(Phổ biến trong bối cảnh kinh doanh, y tế, hoặc pháp lý.)</span>", example: "You must follow the correct safety procedure when operating this machine." },
+        { topic: "Actions & Processes", word: "Take action", form: "Phrase", phonetic: "/teɪk ˈæk.ʃən/", def: "To do something to deal with a problem or situation.", translation: "Hành động, đưa ra biện pháp", usage: "Often used to urge people or governments to solve an issue.<span class='usage-vi'>(Thường dùng để hối thúc mọi người hoặc chính phủ giải quyết một vấn đề.)</span>", example: "The school needs to take action to stop students from bullying each other." },
+        { topic: "Actions & Processes", word: "Crew", form: "Noun", phonetic: "/kruː/", def: "A group of people who work together, especially on a ship or aircraft.", translation: "Đội ngũ, thủy thủ/phi hành đoàn", usage: "Also used for film teams or ambulance staff.<span class='usage-vi'>(Cũng được dùng cho đội làm phim hoặc nhân viên xe cứu thương.)</span>", example: "The cabin crew will be serving drinks and snacks shortly." },
+        { topic: "Actions & Processes", word: "On the agenda", form: "Phrase", phonetic: "/ɒn ði əˈdʒen.də/", def: "Included in a list of matters to be discussed at a meeting.", translation: "Trong chương trình nghị sự/bàn bạc", usage: "Used in formal meetings or planning sessions.<span class='usage-vi'>(Dùng trong các cuộc họp chính thức hoặc các phiên lập kế hoạch.)</span>", example: "The first item on the agenda for today's meeting is the new budget." },
+        { topic: "Actions & Processes", word: "Technique", form: "Noun", phonetic: "/tekˈniːk/", def: "A particular way of doing an activity that needs skill.", translation: "Kỹ thuật, phương pháp", usage: "Used in sports, arts, science, and learning.<span class='usage-vi'>(Dùng trong thể thao, nghệ thuật, khoa học, và học tập.)</span>", example: "The tennis coach taught her a new technique for serving the ball." },
+        { topic: "Actions & Processes", word: "Consult", form: "Verb", phonetic: "/kənˈsʌlt/", def: "To get information or advice from a person, book, or map.", translation: "Tham khảo, hỏi ý kiến", usage: "Often used with doctors, lawyers, or reference books.<span class='usage-vi'>(Thường dùng với bác sĩ, luật sư hoặc sách tham khảo.)</span>", example: "If the pain continues, you should consult your doctor immediately." },
+        { topic: "Actions & Processes", word: "Verdict", form: "Noun", phonetic: "/ˈvɜː.dɪkt/", def: "An official decision made in a court of law, or a general opinion.", translation: "Phán quyết, lời tuyên án", usage: "Used in legal situations or when judging a competition.<span class='usage-vi'>(Dùng trong các tình huống pháp lý hoặc khi chấm điểm một cuộc thi.)</span>", example: "The jury took five hours to reach a guilty verdict." },
+        { topic: "Actions & Processes", word: "Analysis", form: "Noun", phonetic: "/əˈnæl.ə.sɪs/", def: "The process of studying or examining something in detail to understand it.", translation: "Sự phân tích", usage: "Used in science, business, and literature.<span class='usage-vi'>(Dùng trong khoa học, kinh doanh, và văn học.)</span>", example: "The blood test requires careful analysis in the laboratory." },
+        { topic: "Actions & Processes", word: "Make a fortune", form: "Idiom", phonetic: "/meɪk ə ˈfɔː.tʃuːn/", def: "To make a very large amount of money.", translation: "Kiếm được một gia tài, phát tài", usage: "Used informally when someone becomes very rich.<span class='usage-vi'>(Dùng trong giao tiếp khi ai đó trở nên rất giàu có.)</span>", example: "He made a fortune by selling his tech company to a larger corporation." },
+        { topic: "Actions & Processes", word: "Scale", form: "Noun", phonetic: "/skeɪl/", def: "The size, level, or extent of something.", translation: "Quy mô, tỷ lệ", usage: "Often used with 'on a large/small scale'.<span class='usage-vi'>(Thường đi kèm với 'on a large/small scale' - trên quy mô lớn/nhỏ.)</span>", example: "The festival is organized on a massive scale, with thousands of visitors." }
+    ];
+
+    // --- DOM Injection ---
+    function renderGrid() {
+        const grid = document.getElementById('grid-view');
+        vocabBank.forEach(item => {
+            const article = document.createElement('article');
+            article.className = 'vocab-card';
+            article.setAttribute('data-topic', item.topic);
+            
+            article.innerHTML = `
+                <div class="word-header">
+                    <div class="word-main">
+                        <span class="word">${item.word}</span>
+                        <button class="audio-btn" onclick="playAudio('${item.word.replace(/'/g, "\\'")}')" title="Listen to pronunciation">🔊</button>
+                    </div>
+                    <div class="meta-info">
+                        <span class="word-form">${item.form}</span>
+                        <span class="phonetic">${item.phonetic}</span>
+                    </div>
+                </div>
+                <span class="topic-tag">${item.topic}</span>
+                <p class="definition"><strong>Definition:</strong> ${item.def}</p>
+                <p class="translation"><strong>Vietnamese:</strong> ${item.translation}</p>
+                <div class="usage-note"><strong>Usage:</strong> ${item.usage}</div>
+                <div class="example-box"><span>Example</span>"${item.example}"</div>
+            `;
+            grid.appendChild(article);
+        });
+    }
+
+    // Initialize Grid
+    renderGrid();
+
+    // --- Audio Synthesis ---
+    function playAudio(text) {
+        if ('speechSynthesis' in window) {
+            window.speechSynthesis.cancel();
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'en-GB';
+            utterance.rate = 0.9;
+            window.speechSynthesis.speak(utterance);
+        } else {
+            alert("Sorry, your browser doesn't support text-to-speech pronunciation.");
+        }
+    }
+
+    function playAudioFromCard(event) {
+        event.stopPropagation();
+        const word = document.getElementById('fc-word').textContent;
+        playAudio(word);
+    }
+
+    // --- Topic Filtering ---
+    function filterTopic(topicName) {
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        filterBtns.forEach(btn => btn.classList.remove('active'));
+        event.target.classList.add('active');
+
+        const allCards = document.querySelectorAll('.vocab-card');
+        allCards.forEach(card => {
+            if (topicName === 'all' || card.getAttribute('data-topic') === topicName) {
+                card.classList.remove('hidden');
+            } else {
+                card.classList.add('hidden');
+            }
+        });
+
+        if(document.getElementById('flashcard-view').style.display === 'flex') {
+             extractDataFromGrid(topicName);
+             currentCardIndex = 0;
+             updateFlashcardUI();
+        }
+    }
+
+    // --- View Toggling ---
+    function switchView(viewName) {
+        const gridView = document.getElementById('grid-view');
+        const flashcardView = document.getElementById('flashcard-view');
+        const btnGrid = document.getElementById('btn-grid');
+        const btnFlashcards = document.getElementById('btn-flashcards');
+
+        if (viewName === 'grid') {
+            gridView.style.display = 'grid';
+            flashcardView.style.display = 'none';
+            btnGrid.classList.add('active');
+            btnFlashcards.classList.remove('active');
+        } else {
+            gridView.style.display = 'none';
+            flashcardView.style.display = 'flex';
+            btnFlashcards.classList.add('active');
+            btnGrid.classList.remove('active');
+            
+            const activeFilter = document.querySelector('.filter-btn.active').textContent;
+            let topicName = 'all';
+            if (activeFilter === 'Building & Safety') topicName = 'Building & Safety';
+            if (activeFilter === 'Art & Design') topicName = 'Art & Design';
+            if (activeFilter === 'Actions & Processes') topicName = 'Actions & Processes';
+            
+            extractDataFromGrid(topicName);
+            currentCardIndex = 0;
+            updateFlashcardUI();
+        }
+    }
+
+    // --- Flashcard Logic ---
+    let flashcardData = [];
+    let currentCardIndex = 0;
+    const flashcardScene = document.getElementById('flashcard-scene');
+
+    function extractDataFromGrid(topicName = 'all') {
+        flashcardData = [];
+        vocabBank.forEach(item => {
+            if (topicName === 'all' || item.topic === topicName) {
+                flashcardData.push(item);
+            }
+        });
+    }
+
+    function updateFlashcardUI() {
+        if (flashcardData.length === 0) return;
+        const data = flashcardData[currentCardIndex];
+        
+        flashcardScene.classList.remove('is-flipped');
+        
+        setTimeout(() => {
+            document.getElementById('fc-word').textContent = data.word;
+            document.getElementById('fc-form').textContent = data.form;
+            document.getElementById('fc-phonetic').textContent = data.phonetic;
+            document.getElementById('fc-topic').textContent = data.topic;
+            
+            document.getElementById('fc-definition').textContent = data.def;
+            document.getElementById('fc-translation').textContent = data.translation;
+            document.getElementById('fc-usage').innerHTML = `<strong>Usage:</strong> ${data.usage}`;
+            document.getElementById('fc-example').textContent = data.example;
+            
+            document.getElementById('fc-counter').textContent = `${currentCardIndex + 1} / ${flashcardData.length}`;
+            
+            document.getElementById('fc-prev').disabled = currentCardIndex === 0;
+            document.getElementById('fc-next').disabled = currentCardIndex === flashcardData.length - 1;
+        }, 150);
+    }
+
+    function flipCard() { flashcardScene.classList.toggle('is-flipped'); }
+    function nextCard() { if (currentCardIndex < flashcardData.length - 1) { currentCardIndex++; updateFlashcardUI(); } }
+    function prevCard() { if (currentCardIndex > 0) { currentCardIndex--; updateFlashcardUI(); } }
+    
+    function shuffleCards() {
+        for (let i = flashcardData.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [flashcardData[i], flashcardData[j]] = [flashcardData[j], flashcardData[i]];
+        }
+        currentCardIndex = 0;
+        updateFlashcardUI();
+    }
+</script>
+</body>
+</html>

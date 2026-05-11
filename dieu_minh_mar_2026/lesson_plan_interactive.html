@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Intensive Curriculum Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        stonebg: '#F9F8F6',
+                        paper: '#FFFFFF',
+                        charcoal: '#2D3748',
+                        terracotta: '#D06346',
+                        sage: '#7C9082',
+                        sand: '#E2D8C8',
+                        navy: '#2C3E50'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #F9F8F6;
+            color: #2D3748;
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #F9F8F6; }
+        ::-webkit-scrollbar-thumb { background: #E2D8C8; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #D06346; }
+
+        /* Chart Container Requirements */
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        @media (max-width: 640px) {
+            .chart-container {
+                height: 250px;
+            }
+        }
+
+        /* Interactive Transitions */
+        .transition-all-fast { transition: all 0.2s ease-in-out; }
+        .lesson-card.active { border-left: 4px solid #D06346; background-color: #Fdfbf9; }
+        
+        /* Hide scrollbar for clean internal scrolling */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="antialiased font-sans">
+
+    <!-- Chosen Palette: Warm Neutrals with Terracotta and Sage Accents -->
+    <!-- Application Structure Plan: The SPA uses a dashboard-style layout designed for both tutors and students. It opens with high-level analytics (charts) to visualize the curriculum's balance and progression, followed by an interactive "Rules" section for CD-IELTS constraints. The core of the app is the "Interactive Lesson Explorer"—a split-pane interface allowing users to navigate weeks and select individual lessons to view minute-by-minute breakdowns without losing the context of the overall 4-week timeline. This prevents the "wall of text" issue common in long lesson plans. -->
+    <!-- Visualization & Content Choices: 
+        1. Radar Chart -> Goal: Compare -> Shows skill distribution (R, L, S, W) -> Justification: Quickly proves to the user that the curriculum is balanced despite separated writing lessons. -> Chart.js
+        2. Doughnut Chart -> Goal: Inform -> Shows the 4-week pedagogical progression -> Justification: Visually breaks down the 16 lessons into distinct thematic blocks. -> Chart.js
+        3. Interactive Rule Cards -> Goal: Highlight key constraints -> CSS Hover/Click states -> Justification: Makes the Vietnam CD-IELTS specific rules interactive and memorable. -> Vanilla JS/HTML.
+        4. Split-Pane Dashboard -> Goal: Organize & Drill-down -> JS updated detail views -> Justification: Allows deep diving into a 90-minute session while keeping the 16-lesson roadmap visible. -> Vanilla JS.
+        - CONFIRMING NO SVG OR MERMAID USED. 
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <!-- Navigation -->
+    <nav class="bg-paper shadow-sm sticky top-0 z-50 border-b border-sand">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-2xl font-heading font-bold text-navy tracking-tight">IELTS<span class="text-terracotta">Intensive</span></span>
+                </div>
+                <div class="flex items-center space-x-6 text-sm font-medium text-charcoal">
+                    <a href="#overview" class="hover:text-terracotta transition-all-fast">Overview</a>
+                    <a href="#cd-rules" class="hover:text-terracotta transition-all-fast">CD-IELTS Rules</a>
+                    <a href="#curriculum" class="px-4 py-2 bg-navy text-paper rounded-md hover:bg-terracotta transition-all-fast">Explore Curriculum</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header / Hero Section -->
+    <header id="overview" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <div class="inline-block px-3 py-1 mb-4 text-xs font-semibold tracking-wider text-sage uppercase bg-sage/10 rounded-full">4-Week Program</div>
+                <h1 class="text-4xl md:text-5xl font-heading font-bold text-navy leading-tight mb-6">
+                    Computer-Delivered IELTS <br><span class="text-terracotta">Mastery Plan</span>
+                </h1>
+                <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                    An intensive 1-month curriculum designed specifically for the Vietnam testing context. 
+                    Targeting Band 6.0-6.5, this interactive guide balances receptive skills, isolated writing workshops, and rigorous timed simulations.
+                </p>
+                <div class="flex space-x-4">
+                    <div class="bg-paper p-4 rounded-xl border border-sand shadow-sm flex-1">
+                        <div class="text-3xl font-heading font-bold text-navy">16</div>
+                        <div class="text-sm text-gray-500 font-medium">Total Lessons</div>
+                    </div>
+                    <div class="bg-paper p-4 rounded-xl border border-sand shadow-sm flex-1">
+                        <div class="text-3xl font-heading font-bold text-terracotta">90<span class="text-lg">m</span></div>
+                        <div class="text-sm text-gray-500 font-medium">Per Session</div>
+                    </div>
+                    <div class="bg-paper p-4 rounded-xl border border-sand shadow-sm flex-1">
+                        <div class="text-3xl font-heading font-bold text-sage">6.5</div>
+                        <div class="text-sm text-gray-500 font-medium">Target Band</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Contextual Analytics -->
+            <div class="bg-paper p-6 rounded-2xl shadow-xl border border-sand/50 relative">
+                <h3 class="text-xl font-heading font-bold text-navy mb-2 text-center">Curriculum Balance</h3>
+                <p class="text-sm text-gray-500 mb-6 text-center">Visualizing the integration of 4 skills over 16 sessions</p>
+                <div class="chart-container">
+                    <canvas id="skillsRadarChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- CD-IELTS Format Adjustments Section -->
+    <section id="cd-rules" class="bg-navy py-16 text-paper">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-heading font-bold mb-4">Vietnam CD-IELTS Format Constraints</h2>
+                <p class="text-blue-100 max-w-2xl mx-auto">
+                    This curriculum breaks away from legacy paper-based habits. The application below highlights the four critical environmental adjustments integrated into this 4-week plan. Click each card to reveal the pedagogical impact.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Rule 1 -->
+                <div class="bg-white/10 border border-white/20 p-6 rounded-xl hover:bg-white/20 transition-all-fast cursor-pointer group" onclick="toggleCard(this)">
+                    <div class="text-terracotta text-2xl mb-4 font-bold">&#9202; Listening Timing</div>
+                    <h4 class="text-xl font-bold mb-2 group-hover:text-terracotta transition-colors">No 10-Min Transfer</h4>
+                    <p class="text-sm text-blue-100 hidden-content hidden mt-4 border-t border-white/20 pt-4">
+                        <strong>Impact:</strong> Practice strictly enforces a 2-minute review period. Students must type answers simultaneously while listening, predicting answers to manage cognitive load.
+                    </p>
+                    <div class="text-xs text-sage mt-4 uppercase tracking-wider font-bold click-hint">Click to expand &#8595;</div>
+                </div>
+                <!-- Rule 2 -->
+                <div class="bg-white/10 border border-white/20 p-6 rounded-xl hover:bg-white/20 transition-all-fast cursor-pointer group" onclick="toggleCard(this)">
+                    <div class="text-terracotta text-2xl mb-4 font-bold">&#128187; Reading UI</div>
+                    <h4 class="text-xl font-bold mb-2 group-hover:text-terracotta transition-colors">Split-Screen Layout</h4>
+                    <p class="text-sm text-blue-100 hidden-content hidden mt-4 border-t border-white/20 pt-4">
+                        <strong>Impact:</strong> All practice emphasizes side-by-side reading (text left, questions right). Students are trained to use digital highlight tools rather than underlining on paper.
+                    </p>
+                    <div class="text-xs text-sage mt-4 uppercase tracking-wider font-bold click-hint">Click to expand &#8595;</div>
+                </div>
+                <!-- Rule 3 -->
+                <div class="bg-white/10 border border-white/20 p-6 rounded-xl hover:bg-white/20 transition-all-fast cursor-pointer group" onclick="toggleCard(this)">
+                    <div class="text-terracotta text-2xl mb-4 font-bold">&#9000; Writing Mechanics</div>
+                    <h4 class="text-xl font-bold mb-2 group-hover:text-terracotta transition-colors">Digital Word Counts</h4>
+                    <p class="text-sm text-blue-100 hidden-content hidden mt-4 border-t border-white/20 pt-4">
+                        <strong>Impact:</strong> Weekly dedicated writing lessons isolate typing speed, structural copy/paste editing, and utilizing the on-screen word count to avoid over-writing.
+                    </p>
+                    <div class="text-xs text-sage mt-4 uppercase tracking-wider font-bold click-hint">Click to expand &#8595;</div>
+                </div>
+                <!-- Rule 4 -->
+                <div class="bg-white/10 border border-white/20 p-6 rounded-xl hover:bg-white/20 transition-all-fast cursor-pointer group" onclick="toggleCard(this)">
+                    <div class="text-terracotta text-2xl mb-4 font-bold">&#128218; Homework Rule</div>
+                    <h4 class="text-xl font-bold mb-2 group-hover:text-terracotta transition-colors">100% Digital Execution</h4>
+                    <p class="text-sm text-blue-100 hidden-content hidden mt-4 border-t border-white/20 pt-4">
+                        <strong>Impact:</strong> Paper practice is banned. All self-study must occur on IDP/BC familiarization platforms to build crucial muscle memory for the testing interface.
+                    </p>
+                    <div class="text-xs text-sage mt-4 uppercase tracking-wider font-bold click-hint">Click to expand &#8595;</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Phase Overview Analytics -->
+    <section class="py-16 bg-stonebg border-b border-sand">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl font-heading font-bold text-navy mb-4">Pedagogical Phasing</h2>
+                    <p class="text-gray-600 mb-6">
+                        The 16 lessons are not randomly distributed. They follow a strict 4-phase psychological and academic progression. This chart illustrates the thematic weighting across the month.
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <span class="text-terracotta font-bold mr-3 mt-1">&#9632;</span>
+                            <div><strong class="text-navy">Week 1: Foundations.</strong> Securing basic templates and easy points.</div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-sage font-bold mr-3 mt-1">&#9632;</span>
+                            <div><strong class="text-navy">Week 2: Advanced.</strong> Complex methodologies and hard question types.</div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-[#E2D8C8] font-bold mr-3 mt-1">&#9632;</span>
+                            <div><strong class="text-navy">Week 3: Integration.</strong> Stamina building and strict timed tests.</div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-navy font-bold mr-3 mt-1">&#9632;</span>
+                            <div><strong class="text-navy">Week 4: Simulation.</strong> Weakness targeting and psychological readiness.</div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-paper p-6 rounded-2xl shadow-sm border border-sand">
+                    <div class="chart-container">
+                        <canvas id="phaseDoughnutChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Interactive Curriculum Explorer -->
+    <section id="curriculum" class="py-16 bg-paper">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="mb-10">
+                <h2 class="text-3xl font-heading font-bold text-navy mb-4">Interactive Curriculum Dashboard</h2>
+                <p class="text-gray-600 max-w-3xl">
+                    Explore the granular details of the 4-week program. Select a week below to view its specific pedagogical focus, then click on individual lessons to reveal the strict 90-minute time allocation and homework assignments. 
+                    <em>Note how Writing is completely isolated into its own dedicated session each week.</em>
+                </p>
+            </div>
+
+            <!-- Dashboard Container -->
+            <div class="bg-stonebg border border-sand rounded-2xl overflow-hidden shadow-lg flex flex-col lg:flex-row min-h-[600px]">
+                
+                <!-- Left Sidebar: Weeks & Lessons List -->
+                <div class="w-full lg:w-1/3 bg-white border-r border-sand flex flex-col">
+                    
+                    <!-- Week Tabs -->
+                    <div class="flex border-b border-sand bg-stonebg overflow-x-auto no-scrollbar">
+                        <button class="week-tab flex-1 py-4 px-2 text-sm font-bold text-center border-b-2 border-terracotta text-terracotta bg-white" data-week="1">Week 1</button>
+                        <button class="week-tab flex-1 py-4 px-2 text-sm font-bold text-center border-b-2 border-transparent text-gray-500 hover:text-navy" data-week="2">Week 2</button>
+                        <button class="week-tab flex-1 py-4 px-2 text-sm font-bold text-center border-b-2 border-transparent text-gray-500 hover:text-navy" data-week="3">Week 3</button>
+                        <button class="week-tab flex-1 py-4 px-2 text-sm font-bold text-center border-b-2 border-transparent text-gray-500 hover:text-navy" data-week="4">Week 4</button>
+                    </div>
+
+                    <!-- Week Focus Summary -->
+                    <div id="week-focus-container" class="p-4 bg-sage/10 border-b border-sand text-sm font-medium text-navy">
+                        Focus: Securing the "easy" points and establishing basic templates.
+                    </div>
+
+                    <!-- Lesson List -->
+                    <div id="lesson-list-container" class="flex-1 overflow-y-auto p-2 space-y-2">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+
+                <!-- Right Pane: Lesson Detail View -->
+                <div class="w-full lg:w-2/3 bg-stonebg p-6 lg:p-10 flex flex-col relative">
+                    <div id="lesson-detail-empty" class="absolute inset-0 flex items-center justify-center text-gray-400 font-medium flex-col">
+                        <div class="text-4xl mb-2">&#8592;</div>
+                        <div>Select a lesson from the left to view the 90-minute breakdown.</div>
+                    </div>
+                    
+                    <div id="lesson-detail-content" class="hidden h-full flex flex-col">
+                        <!-- Header -->
+                        <div class="mb-8 pb-4 border-b border-sand">
+                            <span id="detail-lesson-number" class="text-terracotta font-bold text-sm tracking-widest uppercase mb-1 block">Lesson X</span>
+                            <h3 id="detail-lesson-title" class="text-2xl lg:text-3xl font-heading font-bold text-navy">Title Placeholder</h3>
+                        </div>
+
+                        <!-- Timeline Grid -->
+                        <div class="flex-1 overflow-y-auto pr-4 space-y-6" id="detail-timeline">
+                            <!-- Populated by JS -->
+                        </div>
+
+                        <!-- Homework Block -->
+                        <div class="mt-8 p-5 bg-white border border-sand rounded-xl shadow-sm">
+                            <h4 class="text-sm font-bold text-navy uppercase tracking-wider mb-2 flex items-center">
+                                <span class="mr-2 text-terracotta">&#128218;</span> Required Homework
+                            </h4>
+                            <p id="detail-homework" class="text-gray-700 font-medium"></p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-navy text-paper py-8 text-center border-t border-navy/80">
+        <p class="text-blue-200/50 text-sm">Generated for intensive CD-IELTS curriculum planning.</p>
+    </footer>
+
+    <!-- Interactive Logic & Data Management -->
+    <script>
+        // Data Storage: The Complete Curriculum Structure
+        const curriculumData = {
+            1: {
+                focus: "Core Mechanics & CD-IELTS Familiarization",
+                lessons: [
+                    {
+                        id: 1, title: "Listening Foundations & Speaking Part 1",
+                        timeline: [
+                            { time: "00-15m", desc: "Course overview, target setting (Band 6.0-6.5 realities), and Intro to CD-IELTS interface (drag-and-drop, highlighting)." },
+                            { time: "15-45m", desc: "<strong>(Listening)</strong> Strategies for Parts 1 & 2 (Form completion, short multiple choice). Focus on predicting answers and typing numbers/spelling quickly." },
+                            { time: "45-80m", desc: "<strong>(Speaking)</strong> Part 1 overview. Expanding answers using the 'A-R-E' (Answer, Reason, Example) method. Avoiding 1-word answers." },
+                            { time: "80-90m", desc: "Wrap-up & HW Assignment." }
+                        ],
+                        hw: "Complete one full Listening Part 1 & 2 section on a computer."
+                    },
+                    {
+                        id: 2, title: "Reading Passage 1 & Speaking Part 2",
+                        timeline: [
+                            { time: "00-10m", desc: "HW Review (Listening Part 1 & 2 from Lesson 1)." },
+                            { time: "10-45m", desc: "<strong>(Reading)</strong> Skimming and scanning on a screen. Tackling Passage 1. Focus on Note/Table completion and True/False/Not Given (T/F/NG)." },
+                            { time: "45-80m", desc: "<strong>(Speaking)</strong> Part 2 Long Turn. Note-taking strategies during the 1-minute prep. Structuring the 2-minute talk chronologically or by WH-questions." },
+                            { time: "80-90m", desc: "Wrap-up & HW Assignment." }
+                        ],
+                        hw: "Do one Reading Passage 1 online and record two Speaking Part 2 voice memos."
+                    },
+                    {
+                        id: 3, title: "DEDICATED WRITING - Task 1 (Dynamic Data)",
+                        isWriting: true,
+                        timeline: [
+                            { time: "00-15m", desc: "Writing module introduction, tutor expectations, and CD-IELTS typing interface overview. *(No cross-over with main tutor)*." },
+                            { time: "15-45m", desc: "Task 1 overview. Analyzing Line Graphs and Bar Charts. Structuring the essay (Intro, Overview, Body 1, Body 2)." },
+                            { time: "45-75m", desc: "Focus on the <em>Overview</em> paragraph—this is the deciding factor for a Band 6.0 in Task 1. Vocabulary for trends." },
+                            { time: "75-90m", desc: "Typing drill & HW assignment." }
+                        ],
+                        hw: "Type one Task 1 Line Graph essay. Pay attention to typing speed and word count."
+                    },
+                    {
+                        id: 4, title: "Reading Passage 2 & Listening Part 3",
+                        timeline: [
+                            { time: "00-15m", desc: "HW Review (Feedback on Reading Passage 1 & listen to Speaking voice memos from Lesson 2)." },
+                            { time: "15-50m", desc: "<strong>(Reading)</strong> Passage 2 strategies. Tackling Matching Headings (drag and drop on CD-IELTS) and Matching Information. Identifying topic sentences." },
+                            { time: "50-80m", desc: "<strong>(Listening)</strong> Tackling Part 3 (Long multiple-choice, matching). Managing the crucial reading time *before* the audio plays." },
+                            { time: "80-90m", desc: "Wrap-up & HW Assignment." }
+                        ],
+                        hw: "Complete Reading Passage 2 and Listening Part 3 online."
+                    }
+                ]
+            },
+            2: {
+                focus: "Advanced Question Types & Methodologies",
+                lessons: [
+                    {
+                        id: 5, title: "Listening Part 4 & Speaking Part 3",
+                        timeline: [
+                            { time: "00-10m", desc: "HW Review (Review Reading and Listening from Lesson 4)." },
+                            { time: "10-45m", desc: "<strong>(Listening)</strong> Part 4 (Academic Monologue). Following signpost words. Maintaining focus during a 5-minute uninterrupted talk while typing simultaneously." },
+                            { time: "45-80m", desc: "<strong>(Speaking)</strong> Part 3 (Abstract discussions). Using speculative language. Comparing and contrasting." },
+                            { time: "80-90m", desc: "Wrap-up & HW Assignment." }
+                        ],
+                        hw: "Complete a full Listening test un-timed, focus on accuracy."
+                    },
+                    {
+                        id: 6, title: "Reading Passage 3 & Integrated Speaking",
+                        timeline: [
+                            { time: "00-10m", desc: "HW Review (Review full Listening test from Lesson 5)." },
+                            { time: "10-50m", desc: "<strong>(Reading)</strong> Passage 3. Tackling Yes/No/Not Given and Multiple Choice. Dealing with unknown vocabulary contextually." },
+                            { time: "50-80m", desc: "<strong>(Speaking)</strong> Full mock speaking interviews (Parts 1, 2, and 3 combined) with immediate feedback on fluency and vocabulary." },
+                            { time: "80-90m", desc: "Wrap-up & HW Assignment." }
+                        ],
+                        hw: "Complete one Reading Passage 2 & 3 un-timed."
+                    },
+                    {
+                        id: 7, title: "DEDICATED WRITING - Task 2 (Foundations)",
+                        isWriting: true,
+                        timeline: [
+                            { time: "00-15m", desc: "HW Review (Detailed feedback on Task 1 Line Graph essay from Lesson 3)." },
+                            { time: "15-45m", desc: "Task 2 essay structure (4-5 paragraphs). Analyzing prompt types. Focus on writing strong introductions and thesis statements." },
+                            { time: "45-75m", desc: "Body Paragraphs. Using the 'PEEL' structure. CD-IELTS Strategy: Type core thesis and topic sentences first, then fill in evidence." },
+                            { time: "75-90m", desc: "Wrap-up & HW assignment." }
+                        ],
+                        hw: "Write a full Task 2 essay - Opinion/Agree-Disagree. Strict 40-minute limit."
+                    },
+                    {
+                        id: 8, title: "The 'Half-Test' Stamina Builder",
+                        timeline: [
+                            { time: "00-15m", desc: "HW Review (Analyze errors from Reading Passages 2 & 3 assigned in Lesson 6)." },
+                            { time: "15-50m", desc: "<strong>(Reading)</strong> 35 Minutes timed practice: Passage 1 & 2 strictly on computer." },
+                            { time: "50-65m", desc: "<strong>(Reading Review)</strong> Analyze errors. Why were mistakes made? (Vocabulary? Time? Misinterpretation?)" },
+                            { time: "65-85m", desc: "<strong>(Listening)</strong> Timed practice: Sections 2 & 3." },
+                            { time: "85-90m", desc: "Wrap-up & HW Assignment." }
+                        ],
+                        hw: "Review missed vocabulary from today's session."
+                    }
+                ]
+            },
+            3: {
+                focus: "Timed Practice & Integration",
+                lessons: [
+                    {
+                        id: 9, title: "Listening Full Mock & Error Analysis",
+                        timeline: [
+                            { time: "00-10m", desc: "HW Review (Vocab from Lesson 8) & Warm-up." },
+                            { time: "10-40m", desc: "<strong>(Listening Mock)</strong> Full 30-minute Listening Test under strict exam conditions." },
+                            { time: "40-45m", desc: "<strong>(CD-IELTS Transfer)</strong> Strict 2-minute checking time. No extra writing allowed." },
+                            { time: "45-75m", desc: "<strong>(Analysis)</strong> Grade together. Deep dive into the transcript for missed questions." },
+                            { time: "75-90m", desc: "<strong>(Speaking)</strong> Quick 15-minute drill on Speaking Part 2 fluency." }
+                        ],
+                        hw: "Do one full Reading test, strictly timed to 60 minutes on computer at home."
+                    },
+                    {
+                        id: 10, title: "Reading Full Mock (Session Splitting)",
+                        timeline: [
+                            { time: "00-60m", desc: "<strong>(Reading Mock)</strong> Full 60-minute Reading Test under strict exam conditions. No dictionary, 1-minute warnings given." },
+                            { time: "60-85m", desc: "<strong>(Analysis)</strong> Immediate grading. Focus review specifically on T/F/NG and Matching questions." },
+                            { time: "85-90m", desc: "Wrap-up & HW Assignment." }
+                        ],
+                        hw: "Prepare vocabulary mind-maps for 3 common IELTS topics."
+                    },
+                    {
+                        id: 11, title: "DEDICATED WRITING - Task 1 & Task 2",
+                        isWriting: true,
+                        timeline: [
+                            { time: "00-15m", desc: "HW Review (Detailed feedback on the Task 2 Opinion essay assigned in Lesson 7)." },
+                            { time: "15-50m", desc: "<strong>(Task 1)</strong> Maps and Processes. Vocabulary for locations, changes, and passive voice. Static vs Dynamic charts." },
+                            { time: "50-80m", desc: "<strong>(Task 2)</strong> 'Discuss both views' essays. Live outlining on shared screen. Focus on grammatical range." },
+                            { time: "80-90m", desc: "Wrap-up & HW Assignment." }
+                        ],
+                        hw: "Write a full Task 2 Discussion essay."
+                    },
+                    {
+                        id: 12, title: "Speaking Mocks & Reading Weakness Drill",
+                        timeline: [
+                            { time: "00-10m", desc: "HW Review (Discuss the vocabulary mind-maps from Lesson 10)." },
+                            { time: "10-45m", desc: "<strong>(Speaking)</strong> Two back-to-back full Speaking Mock Tests using different topics." },
+                            { time: "45-55m", desc: "<strong>(Feedback)</strong> Detailed feedback on grammatical range and lexical resource." },
+                            { time: "55-80m", desc: "<strong>(Reading Drill)</strong> Drill the student's statistical worst question type based on Lesson 10." },
+                            { time: "80-90m", desc: "Wrap-up & HW Assignment." }
+                        ],
+                        hw: "Listen to a 15-minute TED talk and summarize it verbally."
+                    }
+                ]
+            },
+            4: {
+                focus: "Test Simulation & Weakness Targeting",
+                lessons: [
+                    {
+                        id: 13, title: "Targeted Reading & Listening Rescue",
+                        timeline: [
+                            { time: "00-10m", desc: "HW Review (Verbal summary of the TED talk from Lesson 12)." },
+                            { time: "10-45m", desc: "<strong>(Reading)</strong> Focus on Time Management—practicing abandoning overly difficult questions." },
+                            { time: "45-80m", desc: "<strong>(Listening)</strong> Drill the student's worst section. Practice shadowing the audio." },
+                            { time: "80-90m", desc: "Wrap-up & HW Assignment." }
+                        ],
+                        hw: "Rest mind, light vocabulary review only."
+                    },
+                    {
+                        id: 14, title: "Half-Test Simulation (Receptive Mix)",
+                        timeline: [
+                            { time: "00-40m", desc: "<strong>(Reading)</strong> Timed Passage 2 & 3 (40 mins)." },
+                            { time: "40-70m", desc: "<strong>(Listening)</strong> Timed Sections 1, 3, and 4 (30 mins)." },
+                            { time: "70-85m", desc: "<strong>(Review)</strong> Rapid grading and final strategic adjustments for receptive skills." },
+                            { time: "85-90m", desc: "Wrap-up & HW Assignment." }
+                        ],
+                        hw: "Review all notes from the past 3 weeks."
+                    },
+                    {
+                        id: 15, title: "DEDICATED WRITING - Full Mock",
+                        isWriting: true,
+                        timeline: [
+                            { time: "00-15m", desc: "HW Review (Detailed feedback on the Task 2 Discussion essay from Lesson 11)." },
+                            { time: "15-75m", desc: "<strong>(Writing Mock)</strong> Full 60-minute Writing Test completed live. Tutor observes typing habits and pacing." },
+                            { time: "75-85m", desc: "<strong>(Live Marking)</strong> Tutor marks the essays live on screen using Band Descriptors." },
+                            { time: "85-90m", desc: "Wrap-up & HW Assignment." }
+                        ],
+                        hw: "Re-write the essays based on feedback."
+                    },
+                    {
+                        id: 16, title: "Final Polish & Strategy Briefing",
+                        timeline: [
+                            { time: "00-10m", desc: "HW Review (General check-in and review notes from Lesson 14)." },
+                            { time: "10-30m", desc: "<strong>(Speaking)</strong> Final, highly formal Speaking Mock Test." },
+                            { time: "30-40m", desc: "<strong>(Speaking Feedback)</strong> Final notes on pronunciation and confidence." },
+                            { time: "40-70m", desc: "<strong>(Tips)</strong> CD-IELTS 'guessing' strategies. Handling panic." },
+                            { time: "70-90m", desc: "<strong>(Logistics)</strong> Sleep, ID requirements, eye fatigue from screen, check-in process. Final confidence boost." }
+                        ],
+                        hw: "Rest. Good luck on the exam!"
+                    }
+                ]
+            }
+        };
+
+        // State Management
+        let currentWeek = 1;
+        let currentLessonId = null;
+
+        // UI Elements
+        const weekTabs = document.querySelectorAll('.week-tab');
+        const weekFocusContainer = document.getElementById('week-focus-container');
+        const lessonListContainer = document.getElementById('lesson-list-container');
+        const lessonDetailEmpty = document.getElementById('lesson-detail-empty');
+        const lessonDetailContent = document.getElementById('lesson-detail-content');
+        const detailLessonNumber = document.getElementById('detail-lesson-number');
+        const detailLessonTitle = document.getElementById('detail-lesson-title');
+        const detailTimeline = document.getElementById('detail-timeline');
+        const detailHomework = document.getElementById('detail-homework');
+
+        // Core Interaction Handling: Render lessons for a selected week
+        function renderWeek(weekNum) {
+            currentWeek = weekNum;
+            const data = curriculumData[weekNum];
+            
+            // Update tabs UI
+            weekTabs.forEach(tab => {
+                if(parseInt(tab.dataset.week) === weekNum) {
+                    tab.classList.remove('border-transparent', 'text-gray-500');
+                    tab.classList.add('border-terracotta', 'text-terracotta', 'bg-white');
+                } else {
+                    tab.classList.add('border-transparent', 'text-gray-500');
+                    tab.classList.remove('border-terracotta', 'text-terracotta', 'bg-white');
+                }
+            });
+
+            // Update Focus text
+            weekFocusContainer.innerHTML = `<strong>Focus:</strong> ${data.focus}`;
+
+            // Render Lesson List
+            lessonListContainer.innerHTML = '';
+            data.lessons.forEach(lesson => {
+                const isWriting = lesson.isWriting ? '<span class="ml-2 text-[10px] bg-terracotta text-white px-2 py-0.5 rounded uppercase font-bold tracking-wider">Writing Tutor</span>' : '';
+                
+                const btn = document.createElement('button');
+                btn.className = `lesson-card w-full text-left p-4 rounded-xl border border-sand hover:border-terracotta/50 transition-all-fast flex flex-col ${currentLessonId === lesson.id ? 'active' : 'bg-white'}`;
+                btn.onclick = () => renderLessonDetail(lesson.id, weekNum);
+                
+                btn.innerHTML = `
+                    <div class="flex justify-between items-center mb-1">
+                        <span class="text-xs font-bold text-gray-500 uppercase tracking-widest">Lesson ${lesson.id}</span>
+                        ${isWriting}
+                    </div>
+                    <span class="font-heading font-semibold text-navy leading-tight">${lesson.title}</span>
+                `;
+                lessonListContainer.appendChild(btn);
+            });
+        }
+
+        // Core Interaction Handling: Render specific lesson details
+        function renderLessonDetail(lessonId, weekNum) {
+            currentLessonId = lessonId;
+            const lesson = curriculumData[weekNum].lessons.find(l => l.id === lessonId);
+            
+            // Update UI Selection state
+            const buttons = lessonListContainer.querySelectorAll('.lesson-card');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            // Find and activate the clicked button (based on DOM order since we reconstruct)
+            const index = lesson.id - ((weekNum - 1) * 4) - 1;
+            if(buttons[index]) buttons[index].classList.add('active');
+
+            // Show Content Pane, Hide Empty state
+            lessonDetailEmpty.classList.add('hidden');
+            lessonDetailContent.classList.remove('hidden');
+
+            // Populate Content
+            detailLessonNumber.innerText = `Week ${weekNum} • Lesson ${lesson.id}`;
+            detailLessonTitle.innerText = lesson.title;
+            detailHomework.innerText = lesson.hw;
+
+            // Populate Timeline
+            detailTimeline.innerHTML = '';
+            lesson.timeline.forEach((item, i) => {
+                const isLast = i === lesson.timeline.length - 1;
+                const node = document.createElement('div');
+                node.className = "flex";
+                node.innerHTML = `
+                    <div class="flex flex-col items-center mr-4">
+                        <div class="w-3 h-3 bg-terracotta rounded-full border-2 border-stonebg ring-2 ring-terracotta/20 mt-1"></div>
+                        ${!isLast ? '<div class="w-0.5 h-full bg-sand my-1"></div>' : ''}
+                    </div>
+                    <div class="pb-6">
+                        <div class="text-sm font-bold text-sage mb-1">${item.time}</div>
+                        <div class="text-navy text-sm md:text-base leading-relaxed">${item.desc}</div>
+                    </div>
+                `;
+                detailTimeline.appendChild(node);
+            });
+        }
+
+        // Event Listeners for Tabs
+        weekTabs.forEach(tab => {
+            tab.addEventListener('click', (e) => {
+                const weekNum = parseInt(e.target.dataset.week);
+                renderWeek(weekNum);
+                // Reset detail view when changing weeks
+                lessonDetailEmpty.classList.remove('hidden');
+                lessonDetailContent.classList.add('hidden');
+                currentLessonId = null;
+            });
+        });
+
+        // Initialize App
+        renderWeek(1);
+
+        // CD-IELTS Rule Cards Toggle Function
+        function toggleCard(el) {
+            const content = el.querySelector('.hidden-content');
+            const hint = el.querySelector('.click-hint');
+            if(content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                hint.innerHTML = "Click to close &#8593;";
+                el.classList.add('bg-white/20');
+            } else {
+                content.classList.add('hidden');
+                hint.innerHTML = "Click to expand &#8595;";
+                el.classList.remove('bg-white/20');
+            }
+        }
+
+        // --- Chart.js Implementations ---
+        
+        // Setup shared chart configurations for responsive containers
+        Chart.defaults.font.family = "'Plus Jakarta Sans', sans-serif";
+        Chart.defaults.color = '#718096';
+
+        // 1. Radar Chart: Skill Balance
+        const ctxRadar = document.getElementById('skillsRadarChart').getContext('2d');
+        new Chart(ctxRadar, {
+            type: 'radar',
+            data: {
+                labels: ['Reading', 'Listening', 'Speaking', 'Writing (Dedicated)', 'Test Strategy'],
+                datasets: [{
+                    label: 'Focus Intensity',
+                    data: [8, 8, 7, 4, 3], // Estimated weighting based on lesson distributions
+                    backgroundColor: 'rgba(208, 99, 70, 0.2)', // Terracotta light
+                    borderColor: 'rgba(208, 99, 70, 1)',
+                    pointBackgroundColor: 'rgba(208, 99, 70, 1)',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: 'rgba(208, 99, 70, 1)'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false, // CRITICAL for chart-container styling
+                scales: {
+                    r: {
+                        angleLines: { color: 'rgba(0,0,0,0.05)' },
+                        grid: { color: 'rgba(0,0,0,0.05)' },
+                        pointLabels: {
+                            font: { size: 11, weight: 'bold' },
+                            color: '#2C3E50'
+                        },
+                        ticks: { display: false, max: 10, min: 0 }
+                    }
+                },
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        backgroundColor: '#2D3748',
+                        callbacks: {
+                            label: function(context) {
+                                return ` Sessions/Focus areas: ${context.raw}`;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // 2. Doughnut Chart: Pedagogical Phasing
+        const ctxDoughnut = document.getElementById('phaseDoughnutChart').getContext('2d');
+        new Chart(ctxDoughnut, {
+            type: 'doughnut',
+            data: {
+                labels: ['Core Mechanics (W1)', 'Advanced Types (W2)', 'Timed Practice (W3)', 'Test Simulation (W4)'],
+                datasets: [{
+                    data: [4, 4, 4, 4], // Equal 4 lessons per week
+                    backgroundColor: [
+                        '#D06346', // Terracotta
+                        '#7C9082', // Sage
+                        '#E2D8C8', // Sand
+                        '#2C3E50'  // Navy
+                    ],
+                    borderWidth: 2,
+                    borderColor: '#FFFFFF'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false, // CRITICAL for chart-container styling
+                cutout: '65%',
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        backgroundColor: '#2D3748',
+                        callbacks: {
+                            label: function(context) {
+                                return ` ${context.label}: 4 Lessons`;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

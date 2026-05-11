@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Speaking Vocabulary Assessment</title>
+    <style>
+        :root { --primary: #4338ca; --primary-hover: #3730a3; --success: #10b981; --danger: #ef4444; --bg-body: #f8fafc; --card-bg: #ffffff; --text-main: #0f172a; --text-muted: #64748b; --border: #e2e8f0; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+        body { background-color: var(--bg-body); color: var(--text-main); min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 2rem 1rem; }
+        .container { width: 100%; max-width: 800px; background: var(--card-bg); border-radius: 12px; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); overflow: hidden; display: flex; flex-direction: column; }
+        
+        /* Header & Timer */
+        header { background-color: var(--primary); color: white; padding: 1.5rem; display: flex; justify-content: space-between; align-items: center; }
+        .header-title h2 { font-size: 1.25rem; font-weight: 600; }
+        .header-title p { font-size: 0.875rem; opacity: 0.9; }
+        .timer-box { background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 8px; font-weight: bold; font-size: 1.25rem; display: flex; align-items: center; gap: 0.5rem; }
+        .timer-box.warning { background: var(--danger); animation: pulse 1s infinite; }
+        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.8; } 100% { opacity: 1; } }
+
+        /* Progress Bar */
+        .progress-container { height: 6px; background: var(--border); width: 100%; }
+        .progress-bar { height: 100%; background: var(--success); width: 0%; transition: width 0.3s ease; }
+
+        /* Content Area */
+        .content { padding: 2rem; min-height: 350px; }
+        .question-number { color: var(--text-muted); font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; }
+        .topic-context { display: inline-block; background: #e0e7ff; color: #3730a3; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.8rem; font-weight: bold; margin-bottom: 1rem;}
+        .question-text { font-size: 1.25rem; font-weight: 500; margin-bottom: 2rem; line-height: 1.5; }
+
+        /* Form Controls */
+        .options-grid { display: flex; flex-direction: column; gap: 1rem; }
+        .option-label { display: flex; align-items: center; padding: 1rem; border: 2px solid var(--border); border-radius: 8px; cursor: pointer; transition: all 0.2s ease; font-size: 1.1rem; }
+        .option-label:hover { border-color: var(--primary); background-color: #f5f3ff; }
+        .option-label input[type="radio"] { margin-right: 1rem; transform: scale(1.2); }
+        .option-label.selected { border-color: var(--primary); background-color: #eef2ff; }
+        input[type="text"] { width: 100%; padding: 1rem; font-size: 1.1rem; border: 2px solid var(--border); border-radius: 8px; transition: border-color 0.2s ease; }
+        input[type="text"]:focus { outline: none; border-color: var(--primary); }
+
+        /* Question Navigation Grid */
+        .q-nav-container { margin-top: 3rem; padding-top: 1.5rem; border-top: 2px dashed var(--border); }
+        .q-nav-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+        .q-nav-title { font-size: 1rem; font-weight: 600; color: var(--text-muted); }
+        .q-nav-legend { display: flex; gap: 1rem; font-size: 0.8rem; color: var(--text-muted); }
+        .legend-item { display: flex; align-items: center; gap: 0.4rem; }
+        .legend-box { width: 14px; height: 14px; border-radius: 3px; border: 1px solid var(--border); }
+        .legend-box.answered { background: var(--primary); border-color: var(--primary); }
+        .legend-box.unanswered { background: var(--card-bg); }
+        .q-nav-grid { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .q-nav-btn { width: 36px; height: 36px; border-radius: 6px; border: 2px solid var(--border); background: var(--card-bg); color: var(--text-muted); font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; justify-content: center; padding: 0; }
+        .q-nav-btn:hover { border-color: var(--primary); color: var(--primary); }
+        .q-nav-btn.answered { background: var(--primary); border-color: var(--primary); color: white; }
+        .q-nav-btn.current { transform: scale(1.1); border-color: var(--text-main); box-shadow: 0 0 0 2px var(--text-main); z-index: 1; color: var(--text-main); }
+        .q-nav-btn.answered.current { color: white; }
+
+        /* Footer Controls */
+        .footer { padding: 1.5rem 2rem; background-color: var(--bg-body); border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+        button { padding: 0.75rem 1.5rem; font-size: 1rem; font-weight: 600; border: none; border-radius: 6px; cursor: pointer; transition: all 0.2s ease; }
+        .btn-outline { background: transparent; color: var(--text-main); border: 1px solid var(--border); }
+        .btn-outline:hover:not(:disabled) { background: var(--border); }
+        .btn-primary { background: var(--primary); color: white; }
+        .btn-primary:hover { background: var(--primary-hover); }
+        .btn-submit { background: var(--success); color: white; }
+        .btn-submit:hover { background: #059669; }
+        button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+        /* Screens */
+        .screen { display: none; text-align: center; padding: 3rem 2rem; }
+        .screen.active { display: block; }
+        .screen-title { font-size: 2rem; color: var(--primary); margin-bottom: 1rem; }
+        .score-display { font-size: 4rem; font-weight: 700; color: var(--success); margin: 1rem 0; }
+        .results-list { text-align: left; margin-top: 2rem; display: flex; flex-direction: column; gap: 1.5rem; }
+        .result-item { padding: 1.5rem; border-radius: 8px; border-left: 5px solid; background: #f8fafc; }
+        .result-item.correct { border-color: var(--success); }
+        .result-item.incorrect { border-color: var(--danger); }
+        .result-item-header { font-weight: 600; margin-bottom: 0.5rem; }
+        .result-explanation { font-size: 0.9rem; color: var(--text-muted); margin-top: 0.5rem; padding-top: 0.5rem; border-top: 1px solid var(--border); }
+
+        /* Config specific styles */
+        .config-group { margin: 2rem 0; text-align: left; max-width: 400px; margin-left: auto; margin-right: auto; }
+        .config-group label { display: block; font-weight: 600; margin-bottom: 0.5rem; }
+        .config-select { width: 100%; padding: 0.75rem; border-radius: 6px; border: 1px solid var(--border); font-size: 1rem; background: var(--card-bg); }
+
+        @media (max-width: 600px) { header { flex-direction: column; gap: 1rem; text-align: center; } .footer { flex-direction: column; gap: 1rem; } .footer button { width: 100%; } }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header id="app-header-test" style="display: none;">
+        <div class="header-title">
+            <h2>IELTS Speaking Part 2</h2>
+            <p>Vocabulary Assessment (Band 6.5)</p>
+        </div>
+        <div class="timer-box" id="timer-test">
+            ⏱️ 00:00
+        </div>
+    </header>
+    
+    <div class="progress-container" id="progress-container" style="display: none;">
+        <div class="progress-bar" id="progress-bar"></div>
+    </div>
+
+    <!-- Configuration Screen -->
+    <div id="config-screen" class="screen active">
+        <h1 class="screen-title">Speaking Vocabulary Test</h1>
+        <p style="font-size: 1.1rem; margin-bottom: 1rem; color: var(--text-muted);">
+            Test your knowledge of vocabulary for describing Creative People, Exciting Activities, and Science Subjects.
+        </p>
+        
+        <div class="config-group">
+            <label for="num-questions">How many questions would you like?</label>
+            <select id="num-questions" class="config-select">
+                <option value="5">5 Questions (2:30)</option>
+                <option value="10" selected>10 Questions (5:00)</option>
+                <option value="15">15 Questions (7:30)</option>
+                <option value="20">20 Questions (10:00)</option>
+                <option value="25">25 Questions (12:30)</option>
+                <option value="30">30 Questions (15:00)</option>
+                <option value="All">All Questions</option>
+            </select>
+        </div>
+        
+        <p style="font-size: 0.9rem; margin-bottom: 2rem; color: var(--text-muted);">
+            You will have 30 seconds per question. Words are randomly sampled from the full vocabulary bank.
+        </p>
+        <button class="btn-primary" style="font-size: 1.2rem; padding: 1rem 3rem;" onclick="startTest()">Start Test</button>
+    </div>
+
+    <!-- Quiz Screen -->
+    <div id="test-screen" class="screen" style="padding: 0; text-align: left;">
+        <div class="content">
+            <div class="question-number" id="question-number">Question 1 of X</div>
+            <div class="topic-context" id="topic-context">Topic: ...</div>
+            <div class="question-text" id="question-text">Question text goes here?</div>
+            <div id="options-container" class="options-grid"></div>
+            
+            <div class="q-nav-container">
+                <div class="q-nav-header">
+                    <span class="q-nav-title">Question Navigator</span>
+                    <div class="q-nav-legend">
+                        <div class="legend-item"><div class="legend-box answered"></div> Answered</div>
+                        <div class="legend-item"><div class="legend-box unanswered"></div> Unanswered</div>
+                    </div>
+                </div>
+                <div id="q-nav-grid" class="q-nav-grid"></div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <button class="btn-outline" id="btn-prev" onclick="prevQuestion()">Previous</button>
+            <button class="btn-primary" id="btn-next" onclick="nextQuestion()">Next</button>
+            <button class="btn-submit" id="btn-submit" style="display: none;" onclick="submitTest()">Submit Test</button>
+        </div>
+    </div>
+
+    <!-- Results Screen -->
+    <div id="results-screen" class="screen">
+        <h1 class="screen-title" id="result-title">Test Complete!</h1>
+        <div class="score-display" id="score-display">0 / 0</div>
+        <p style="font-size: 1.2rem; font-weight: bold; margin-bottom: 1rem;" id="band-indicator">Indicator</p>
+        <div class="results-list" id="results-list"></div>
+        <button class="btn-primary" style="margin-top: 2rem;" onclick="restartTest()">Take Another Test</button>
+    </div>
+</div>
+
+<script>
+    // ---------------------------------------------------------
+    // Full Vocabulary Bank (30 Words across 3 Topics)
+    // ---------------------------------------------------------
+    const vocabBank = [
+        // TOPIC 1: A Creative Person
+        { topic: "A Creative Person", word: "Innovative", form: "Adjective", def: "Introducing new ideas; original and creative in thinking." },
+        { topic: "A Creative Person", word: "Visionary", form: "Noun/Adj", def: "Thinking about or planning the future with imagination or wisdom." },
+        { topic: "A Creative Person", word: "Masterpiece", form: "Noun", def: "A work of outstanding artistry, skill, or workmanship." },
+        { topic: "A Creative Person", word: "Unconventional", form: "Adjective", def: "Not based on or conforming to what is generally done or believed." },
+        { topic: "A Creative Person", word: "Dedication", form: "Noun", def: "The quality of being committed to a task or purpose." },
+        { topic: "A Creative Person", word: "Inspiration", form: "Noun", def: "The process of being mentally stimulated to do or feel something." },
+        { topic: "A Creative Person", word: "Avant-garde", form: "Adjective", def: "New and unusual or experimental ideas, especially in the arts." },
+        { topic: "A Creative Person", word: "Think outside the box", form: "Phrase", def: "To think creatively, freely, and off the beaten path." },
+        { topic: "A Creative Person", word: "Profound", form: "Adjective", def: "Very great or intense; having or showing great knowledge or insight." },
+        { topic: "A Creative Person", word: "Perseverance", form: "Noun", def: "Persistence in doing something despite difficulty or delay in achieving success." },
+
+        // TOPIC 2: An Exciting Activity
+        { topic: "An Exciting Activity", word: "Exhilarating", form: "Adjective", def: "Making one feel very happy, animated, or elated; thrilling." },
+        { topic: "An Exciting Activity", word: "Adrenaline rush", form: "Noun Phrase", def: "A physical feeling of intense excitement caused by the release of adrenaline." },
+        { topic: "An Exciting Activity", word: "Overcome", form: "Verb", def: "To succeed in dealing with a problem or difficulty (often a fear)." },
+        { topic: "An Exciting Activity", word: "Anticipation", form: "Noun", def: "A feeling of excitement about something that is going to happen." },
+        { topic: "An Exciting Activity", word: "Push my boundaries", form: "Phrase", def: "To step outside of one's comfort zone and do something challenging." },
+        { topic: "An Exciting Activity", word: "Nerve-wracking", form: "Adjective", def: "Causing stress or anxiety." },
+        { topic: "An Exciting Activity", word: "Thrilled", form: "Adjective", def: "Extremely pleased and excited." },
+        { topic: "An Exciting Activity", word: "Once-in-a-lifetime", form: "Adjective", def: "Very rare; unlikely to happen again." },
+        { topic: "An Exciting Activity", word: "Take the plunge", form: "Phrase", def: "To commit to doing something difficult or risky, especially after hesitation." },
+        { topic: "An Exciting Activity", word: "Sense of achievement", form: "Noun Phrase", def: "A feeling of pride after having done something difficult successfully." },
+
+        // TOPIC 3: A Science Subject
+        { topic: "A Science Subject", word: "Fascinated", form: "Adjective", def: "Strongly attracted and interested." },
+        { topic: "A Science Subject", word: "Breakthrough", form: "Noun", def: "A sudden, dramatic, and important discovery or development." },
+        { topic: "A Science Subject", word: "Complex", form: "Adjective", def: "Consisting of many different and connected parts; not easy to understand." },
+        { topic: "A Science Subject", word: "Application", form: "Noun", def: "The practical use or relevance of something (such as a theory or discovery)." },
+        { topic: "A Science Subject", word: "Curiosity", form: "Noun", def: "A strong desire to know or learn something." },
+        { topic: "A Science Subject", word: "Hypothesis", form: "Noun", def: "A proposed explanation made on the basis of limited evidence as a starting point for further investigation." },
+        { topic: "A Science Subject", word: "Phenomenon", form: "Noun", def: "A fact or situation that is observed to exist or happen, especially one whose cause is in question." },
+        { topic: "A Science Subject", word: "Delve into", form: "Phrasal Verb", def: "To examine something carefully in order to discover more information about it." },
+        { topic: "A Science Subject", word: "Intricate", form: "Adjective", def: "Very complicated or detailed." },
+        { topic: "A Science Subject", word: "Groundbreaking", form: "Adjective", def: "Innovative; pioneering." }
+    ];
+
+    // Helper function to generate distractors
+    function getDistractors(correctWord, count) {
+        let distractors = [];
+        let pool = vocabBank.filter(v => v.word !== correctWord);
+        // Shuffle pool
+        pool.sort(() => 0.5 - Math.random());
+        for (let i = 0; i < count; i++) {
+            if (pool[i]) distractors.push(pool[i].word);
+        }
+        return distractors;
+    }
+    
+    // Helper to build options array with correct answer at random position
+    function buildOptions(correct, distractors) {
+        let options = [correct, ...distractors];
+        options.sort(() => 0.5 - Math.random());
+        return {
+            options: options,
+            correctIndex: options.indexOf(correct)
+        };
+    }
+
+    // Generate Question Bank dynamically from vocabBank
+    function generateAllQuestions() {
+        let generatedQuestions = [];
+        
+        vocabBank.forEach(entry => {
+            // MCQ: Choose correct word for definition
+            let mcqDists = getDistractors(entry.word, 3);
+            let mcqOpts = buildOptions(entry.word, mcqDists);
+            generatedQuestions.push({
+                topic: entry.topic,
+                type: 'mcq',
+                text: `Which word or phrase best matches this definition: "${entry.def}"?`,
+                options: mcqOpts.options,
+                correct: mcqOpts.correctIndex,
+                explanation: `The word/phrase is "${entry.word}". Definition: ${entry.def}`,
+                vocabEntry: entry
+            });
+
+            // Match: Choose correct definition for word
+            let defDists = [];
+            let defPool = vocabBank.filter(v => v.def !== entry.def);
+            defPool.sort(() => 0.5 - Math.random());
+            for (let i = 0; i < 3; i++) {
+                if(defPool[i]) defDists.push(defPool[i].def);
+            }
+            let matchOpts = buildOptions(entry.def, defDists);
+            generatedQuestions.push({
+                topic: entry.topic,
+                type: 'match',
+                text: `What is the definition of "${entry.word}"?`,
+                options: matchOpts.options,
+                correct: matchOpts.correctIndex,
+                explanation: `"${entry.word}" means: ${entry.def}`,
+                vocabEntry: entry
+            });
+
+            // Fill-in-the-blank (simulated with random sentences)
+            // For a real app, you'd want hand-crafted sentences. Here we use a generic placeholder.
+            // Let's create a generic sentence frame for fill-in-the-blank.
+            generatedQuestions.push({
+                topic: entry.topic,
+                type: 'fill',
+                text: `Type the correct word/phrase (${entry.form}) that matches this definition: "${entry.def}"`,
+                correctStr: entry.word,
+                explanation: `The correct answer is "${entry.word}".`,
+                vocabEntry: entry
+            });
+            
+             // Form question (multiple choice)
+             let formOpts = buildOptions(entry.form, ["Noun", "Verb", "Adjective", "Adverb"].filter(f=>f!==entry.form).slice(0,3));
+             generatedQuestions.push({
+                topic: entry.topic,
+                type: 'form',
+                text: `What is the word form of "${entry.word}"?`,
+                options: formOpts.options,
+                correct: formOpts.correctIndex,
+                explanation: `"${entry.word}" acts as a(n) ${entry.form}.`,
+                vocabEntry: entry
+            });
+        });
+        
+        return generatedQuestions;
+    }
+
+    const allQuestions = generateAllQuestions();
+
+    // ---------------------------------------------------------
+    // App State
+    // ---------------------------------------------------------
+    let selectedQuestions = [];
+    let currentQuestion = 0;
+    let userAnswers = [];
+    let timeRemaining = 0;
+    let timerInterval = null;
+
+    // DOM Elements
+    const configScreen = document.getElementById('config-screen');
+    const testScreen = document.getElementById('test-screen');
+    const resultsScreen = document.getElementById('results-screen');
+    const progressContainer = document.getElementById('progress-container');
+    const progressBar = document.getElementById('progress-bar');
+    const appHeaderTest = document.getElementById('app-header-test');
+    const timerDisplayTest = document.getElementById('timer-test');
+    
+    function startTimer() {
+        updateTimerDisplay();
+        timerInterval = setInterval(() => {
+            timeRemaining--;
+            updateTimerDisplay();
+            if (timeRemaining <= 10) {
+                 timerDisplayTest.classList.add('warning');
+            }
+            if (timeRemaining <= 0) { 
+                clearInterval(timerInterval); 
+                submitTest(); 
+            }
+        }, 1000);
+    }
+
+    function updateTimerDisplay() {
+        const minutes = Math.floor(timeRemaining / 60);
+        const seconds = timeRemaining % 60;
+        timerDisplayTest.textContent = `⏱️ ${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    }
+
+    function startTest() {
+        // Read configuration
+        const numSelect = document.getElementById('num-questions').value;
+        const totalAvail = allQuestions.length;
+        let numToSelect = numSelect === 'All' ? totalAvail : parseInt(numSelect);
+        
+        // Ensure we don't select more than available
+        numToSelect = Math.min(numToSelect, totalAvail);
+        
+        // Shuffle and slice
+        let shuffled = [...allQuestions].sort(() => 0.5 - Math.random());
+        selectedQuestions = shuffled.slice(0, numToSelect);
+        
+        // Reset state
+        currentQuestion = 0;
+        userAnswers = new Array(selectedQuestions.length).fill(null);
+        timeRemaining = selectedQuestions.length * 30; // 30 seconds per question
+        
+        // UI transitions
+        configScreen.classList.remove('active');
+        testScreen.classList.add('active');
+        appHeaderTest.style.display = 'flex';
+        progressContainer.style.display = 'block';
+        timerDisplayTest.classList.remove('warning');
+        
+        renderQuestion();
+        startTimer();
+    }
+
+    function renderQuestion() {
+        const q = selectedQuestions[currentQuestion];
+        
+        document.getElementById('question-number').textContent = `Question ${currentQuestion + 1} of ${selectedQuestions.length}`;
+        document.getElementById('topic-context').textContent = `Context: ${q.topic}`;
+        document.getElementById('question-text').textContent = q.text;
+        progressBar.style.width = `${((currentQuestion) / selectedQuestions.length) * 100}%`;
+        
+        const container = document.getElementById('options-container');
+        container.innerHTML = ''; 
+
+        if (q.type === 'mcq' || q.type === 'match' || q.type === 'form') {
+            q.options.forEach((opt, index) => {
+                const label = document.createElement('label');
+                label.className = `option-label ${userAnswers[currentQuestion] === index ? 'selected' : ''}`;
+                
+                const input = document.createElement('input');
+                input.type = 'radio'; 
+                input.name = `q${currentQuestion}`; 
+                input.value = index;
+                input.checked = userAnswers[currentQuestion] === index;
+                
+                input.addEventListener('change', (e) => {
+                    userAnswers[currentQuestion] = parseInt(e.target.value);
+                    renderQuestion(); 
+                });
+                
+                label.appendChild(input); 
+                label.appendChild(document.createTextNode(opt));
+                container.appendChild(label);
+            });
+        } else if (q.type === 'fill') {
+            const input = document.createElement('input');
+            input.type = 'text'; 
+            input.placeholder = "Type your answer here...";
+            input.value = userAnswers[currentQuestion] || '';
+            
+            input.addEventListener('input', (e) => {
+                userAnswers[currentQuestion] = e.target.value; // Store exact string for fill
+                renderNavGrid(); // Update nav grid immediately when typing
+            });
+            container.appendChild(input);
+        }
+
+        document.getElementById('btn-prev').disabled = currentQuestion === 0;
+        if (currentQuestion === selectedQuestions.length - 1) {
+            document.getElementById('btn-next').style.display = 'none';
+            document.getElementById('btn-submit').style.display = 'block';
+        } else {
+            document.getElementById('btn-next').style.display = 'block';
+            document.getElementById('btn-submit').style.display = 'none';
+        }
+        renderNavGrid();
+    }
+
+    function renderNavGrid() {
+        const grid = document.getElementById('q-nav-grid');
+        grid.innerHTML = '';
+        
+        selectedQuestions.forEach((q, index) => {
+            const btn = document.createElement('button');
+            btn.className = 'q-nav-btn'; 
+            btn.textContent = index + 1;
+            
+            let isAnswered = false;
+            if (q.type === 'fill') {
+                 isAnswered = userAnswers[index] && userAnswers[index].trim() !== '';
+            } else {
+                 isAnswered = userAnswers[index] !== null;
+            }
+
+            if (isAnswered) btn.classList.add('answered');
+            if (index === currentQuestion) btn.classList.add('current');
+            
+            btn.onclick = () => { currentQuestion = index; renderQuestion(); };
+            grid.appendChild(btn);
+        });
+    }
+
+    function nextQuestion() { if (currentQuestion < selectedQuestions.length - 1) { currentQuestion++; renderQuestion(); } }
+    function prevQuestion() { if (currentQuestion > 0) { currentQuestion--; renderQuestion(); } }
+
+    function submitTest() {
+        clearInterval(timerInterval);
+        testScreen.classList.remove('active');
+        resultsScreen.classList.add('active');
+        progressBar.style.width = '100%';
+        appHeaderTest.style.display = 'none'; 
+        progressContainer.style.display = 'none';
+        
+        let score = 0;
+        const resultsList = document.getElementById('results-list');
+        resultsList.innerHTML = '';
+
+        selectedQuestions.forEach((q, index) => {
+            const userAnswer = userAnswers[index];
+            let isCorrect = false; 
+            let displayAnswer = "No answer provided"; 
+            let expectedAnswer = "";
+
+            if (q.type === 'mcq' || q.type === 'match' || q.type === 'form') {
+                isCorrect = userAnswer === q.correct;
+                if (userAnswer !== null) displayAnswer = q.options[userAnswer];
+                expectedAnswer = q.options[q.correct];
+            } else if (q.type === 'fill') {
+                // Case insensitive matching
+                isCorrect = userAnswer && userAnswer.trim().toLowerCase() === q.correctStr.toLowerCase();
+                if (userAnswer && userAnswer.trim() !== '') displayAnswer = userAnswer;
+                expectedAnswer = q.correctStr;
+            }
+
+            if (isCorrect) score++;
+
+            const item = document.createElement('div');
+            item.className = `result-item ${isCorrect ? 'correct' : 'incorrect'}`;
+            
+            let html = `
+                <div class="result-item-header">Q${index + 1} [${q.topic}]: ${q.text}</div>
+                <div><strong>Your Answer:</strong> ${displayAnswer} ${isCorrect ? '✅' : '❌'}</div>
+                ${!isCorrect ? `<div><strong>Correct Answer:</strong> ${expectedAnswer}</div>` : ''}
+                <div class="result-explanation">${q.explanation}</div>
+            `;
+            
+            // Add full vocab entry details if incorrect
+            if (!isCorrect && q.vocabEntry) {
+                html += `
+                    <div style="margin-top: 10px; padding: 10px; background-color: #f1f5f9; border-radius: 6px;">
+                        <strong>Vocabulary Review:</strong><br/>
+                        <em>Word:</em> ${q.vocabEntry.word} (${q.vocabEntry.form})<br/>
+                        <em>Definition:</em> ${q.vocabEntry.def}
+                    </div>
+                `;
+            }
+            
+            item.innerHTML = html;
+            resultsList.appendChild(item);
+        });
+
+        const percentage = Math.round((score / selectedQuestions.length) * 100);
+        document.getElementById('score-display').textContent = `${score} / ${selectedQuestions.length}`;
+        
+        let bandText = "";
+        let color = "";
+        if (percentage >= 80) {
+            bandText = `Outstanding! You are well prepared for Band 6.5+ vocabulary. (${percentage}%)`;
+            color = "var(--success)";
+        } else if (percentage >= 60) {
+            bandText = `Good effort! You are on track for Band 6.5, but keep reviewing. (${percentage}%)`;
+            color = "#f59e0b"; // Amber
+        } else {
+            bandText = `Keep studying! Review the flashcards to reach Band 6.5. (${percentage}%)`;
+            color = "var(--danger)";
+        }
+        
+        const bandIndicator = document.getElementById('band-indicator');
+        bandIndicator.textContent = bandText;
+        bandIndicator.style.color = color;
+    }
+
+    function restartTest() {
+        resultsScreen.classList.remove('active');
+        configScreen.classList.add('active');
+    }
+</script>
+
+</body>
+</html>

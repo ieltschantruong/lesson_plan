@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 1 Teaching Guide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+        .section-done { opacity: 0.6; transition: opacity 0.3s; }
+        /* Custom checkbox style */
+        input[type="checkbox"] { accent-color: #2563eb; width: 1.25rem; height: 1.25rem; cursor: pointer; }
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
+    </style>
+</head>
+<body class="text-slate-800 pb-20">
+
+    <!-- Top Navigation / Status Bar -->
+    <div class="sticky top-0 bg-white border-b border-slate-200 shadow-sm z-50">
+        <div class="max-w-4xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div>
+                <h1 class="text-xl font-bold text-blue-700">Lesson 1: Foundations</h1>
+                <p class="text-xs text-slate-500 font-medium tracking-wide uppercase">90 Minutes Total</p>
+            </div>
+            <div class="text-right">
+                <span class="text-sm font-semibold text-slate-600">Progress: </span>
+                <span id="progress-text" class="text-blue-600 font-bold">0 / 4</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-4 py-8 space-y-8">
+
+        <!-- Header Info -->
+        <div class="bg-blue-50 border border-blue-200 rounded-xl p-5 shadow-sm">
+            <h2 class="text-lg font-bold text-blue-900 mb-2">Goal</h2>
+            <p class="text-blue-800">Establish CD-IELTS baselines, master Listening Part 1 & 2 strategies, and eliminate 1-word Speaking answers.</p>
+        </div>
+
+        <!-- PART 1: Intro -->
+        <section id="part1" class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden transition-opacity">
+            <div class="bg-slate-50 border-b border-slate-200 p-4 flex justify-between items-center cursor-pointer" onclick="document.getElementById('check1').click()">
+                <h2 class="text-xl font-bold text-slate-800">Part 1: Intro & Reality Check <span class="text-sm font-normal text-slate-500 ml-2">(00-15m)</span></h2>
+                <input type="checkbox" id="check1" class="part-checkbox" onchange="updateProgress(this, 'part1')">
+            </div>
+            <div class="p-6 space-y-6">
+                <div>
+                    <h3 class="font-bold text-lg mb-2 text-indigo-700">1. The "Band 6.5" Mindset</h3>
+                    <ul class="space-y-3 list-disc pl-5 text-slate-600">
+                        <li><strong>Tell the student:</strong> "You do not need to be perfect to get a 6.5. In Listening and Reading, you can get 11 to 13 questions <em>wrong</em> and still score a 6.5. Our goal is to secure the 'easy' points in Parts 1 and 2, and survive the hard parts."</li>
+                        <li><strong>Tell the student:</strong> "In Speaking, a 6.0-6.5 means you can keep talking, even if you make some grammar mistakes. Fluency and willingness to speak are more important right now than perfect vocabulary."</li>
+                    </ul>
+                </div>
+                <div class="pt-4 border-t border-slate-100">
+                    <h3 class="font-bold text-lg mb-2 text-indigo-700">2. CD-IELTS Interface Briefing</h3>
+                    <ul class="space-y-3 list-disc pl-5 text-slate-600">
+                        <li><strong>No 10-Minute Transfer:</strong> Remind them they only get 2 minutes at the very end of the Listening test to check answers. They <em>must</em> type their answers into the boxes while the audio is playing.</li>
+                        <li><strong>The "Tab" Key:</strong> Teach them to use the <code>Tab</code> key on the keyboard to jump to the next answer box quickly instead of using the mouse.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- PART 2: Listening -->
+        <section id="part2" class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden transition-opacity">
+            <div class="bg-slate-50 border-b border-slate-200 p-4 flex justify-between items-center cursor-pointer" onclick="document.getElementById('check2').click()">
+                <h2 class="text-xl font-bold text-slate-800">Part 2: Listening Strategies <span class="text-sm font-normal text-slate-500 ml-2">(15-45m)</span></h2>
+                <input type="checkbox" id="check2" class="part-checkbox" onchange="updateProgress(this, 'part2')">
+            </div>
+            <div class="p-6 space-y-6">
+                
+                <!-- HARDCODED TEST LINKS -->
+                <div class="bg-amber-50 border border-amber-200 rounded-lg p-4 shadow-inner">
+                    <h3 class="font-bold text-amber-900 flex items-center mb-3">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
+                        Test Link Launchers
+                    </h3>
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <a href="https://youpass.vn/thi-thu/listening/9961" target="_blank" class="bg-amber-600 hover:bg-amber-700 text-white font-semibold py-2 px-4 rounded transition-colors shadow-sm text-center flex-1 flex items-center justify-center">
+                            Launch Part 1 Practice
+                        </a>
+                        <a href="https://youpass.vn/thi-thu/listening/9968" target="_blank" class="bg-amber-600 hover:bg-amber-700 text-white font-semibold py-2 px-4 rounded transition-colors shadow-sm text-center flex-1 flex items-center justify-center">
+                            Launch Part 2 Practice
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-lg mb-2 text-indigo-700">1. Strategy Explanation (10 mins)</h3>
+                    
+                    <div class="mb-4">
+                        <h4 class="font-semibold text-slate-800 mb-1">Part 1: Predict & Trap (Form Completion)</h4>
+                        <ul class="space-y-2 list-disc pl-5 text-slate-600 text-sm">
+                            <li><strong>Predicting:</strong> During the 30s reading time, look at blank spaces. Ask: <em>Is this a name? Number? Date? Price? Noun?</em></li>
+                            <li><strong>Trap Words (Distractors):</strong> IELTS will give a "fake" answer before or after the real one. (e.g., 3:00 PM vs 3:30 PM).</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-semibold text-slate-800 mb-1">Part 2: Synonyms & Direction (Multiple Choice/Maps)</h4>
+                        <ul class="space-y-2 list-disc pl-5 text-slate-600 text-sm">
+                            <li><strong>Multiple Choice:</strong> Highlight keywords in the <em>question</em>, not just the answers. The audio will use synonyms for the answer choices.</li>
+                            <li><strong>Maps/Plans:</strong> Quickly find the starting point (e.g., "You are here") and trace the speaker's path using directional language (opposite, next to, beyond).</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="pt-4 border-t border-slate-100">
+                    <h3 class="font-bold text-lg mb-2 text-indigo-700">2. Live Practice & Execution (20 mins)</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-start">
+                            <span class="bg-blue-100 text-blue-800 font-bold px-2 py-1 rounded text-xs mr-3 mt-0.5">STEP 1</span>
+                            <p class="text-slate-600"><strong>Part 1:</strong> Give the student 30s to predict blank types. Play the Part 1 audio. Watch them type. Stop and review distractors and spelling.</p>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="bg-blue-100 text-blue-800 font-bold px-2 py-1 rounded text-xs mr-3 mt-0.5">STEP 2</span>
+                            <p class="text-slate-600"><strong>Part 2:</strong> Give the student 30s to scan questions. Play the Part 2 audio. Watch them type.</p>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="bg-blue-100 text-blue-800 font-bold px-2 py-1 rounded text-xs mr-3 mt-0.5">STEP 3</span>
+                            <p class="text-slate-600">Review Part 2. Discuss which synonyms were used to hide the correct multiple-choice answers.</p>
+                        </div>
+                    </div>
+                    <div class="mt-4 p-3 bg-green-50 text-green-800 border border-green-200 rounded flex items-start text-sm">
+                        <span class="mr-2 text-lg">💡</span>
+                        <p><strong>Tutor Tip:</strong> Remind them that capitalization does not matter in IELTS Listening, but spelling must be 100% accurate.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PART 3: Speaking -->
+        <section id="part3" class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden transition-opacity">
+            <div class="bg-slate-50 border-b border-slate-200 p-4 flex justify-between items-center cursor-pointer" onclick="document.getElementById('check3').click()">
+                <h2 class="text-xl font-bold text-slate-800">Part 3: Speaking & "A-R-E" <span class="text-sm font-normal text-slate-500 ml-2">(45-80m)</span></h2>
+                <input type="checkbox" id="check3" class="part-checkbox" onchange="updateProgress(this, 'part3')">
+            </div>
+            <div class="p-6 space-y-6">
+                <div>
+                    <h3 class="font-bold text-lg mb-2 text-indigo-700">1. Concept Intro & Example (10 mins)</h3>
+                    <p class="text-slate-600 mb-3">Explain Part 1 lasts 4-5 mins. Biggest mistake: 1-word answers. Teach the A-R-E method (2-3 sentences long):</p>
+                    <div class="grid md:grid-cols-3 gap-3 mb-4">
+                        <div class="bg-slate-50 p-3 rounded border border-slate-200 text-center">
+                            <div class="font-black text-xl text-blue-600 mb-1">A</div>
+                            <div class="font-bold text-slate-700 text-sm">Answer</div>
+                            <div class="text-xs text-slate-500 mt-1">Directly & immediately</div>
+                        </div>
+                        <div class="bg-slate-50 p-3 rounded border border-slate-200 text-center">
+                            <div class="font-black text-xl text-blue-600 mb-1">R</div>
+                            <div class="font-bold text-slate-700 text-sm">Reason</div>
+                            <div class="text-xs text-slate-500 mt-1">Explain why</div>
+                        </div>
+                        <div class="bg-slate-50 p-3 rounded border border-slate-200 text-center">
+                            <div class="font-black text-xl text-blue-600 mb-1">E</div>
+                            <div class="font-bold text-slate-700 text-sm">Example</div>
+                            <div class="text-xs text-slate-500 mt-1">Specific detail/story</div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-slate-100 p-4 rounded-lg border border-slate-200">
+                        <p class="font-semibold text-slate-800 mb-1">Example: "Do you like your hometown?"</p>
+                        <p class="text-red-600 text-sm mb-2">❌ <strong>Bad (Band 5):</strong> Yes, I do. It's nice.</p>
+                        <p class="text-green-700 text-sm">✅ <strong>A-R-E (Band 6.5+):</strong> [A] Yes, I absolutely love living there. [R] It's a very peaceful place and the cost of living is quite low. [E] For example, I can get a huge bowl of Pho for just 30k VND near my house.</p>
+                    </div>
+                </div>
+
+                <div class="pt-4 border-t border-slate-100">
+                    <h3 class="font-bold text-lg mb-4 text-indigo-700">2. Live Practice Drill (25 mins)</h3>
+                    <p class="text-sm text-slate-600 italic mb-4">Act as the examiner. If they give a short answer, stop them and say: "Give me the Reason. Give me the Example."</p>
+                    
+                    <!-- Accordions for Topics -->
+                    <div class="space-y-3">
+                        <details class="group bg-slate-50 rounded-lg border border-slate-200 [&_summary::-webkit-details-marker]:hidden">
+                            <summary class="flex items-center justify-between p-4 cursor-pointer font-bold text-slate-800 hover:bg-slate-100">
+                                Topic Set A: Work and Study
+                                <span class="transition group-open:rotate-180">
+                                    <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                                </span>
+                            </summary>
+                            <div class="p-4 pt-0 border-t border-slate-200 mt-2 text-slate-600">
+                                <ol class="list-decimal pl-5 space-y-2">
+                                    <li>Do you work or are you a student?</li>
+                                    <li>What do you like most about your job/studies?</li>
+                                    <li>Is there anything you dislike about your daily routine?</li>
+                                    <li>What would you like to do in the future?</li>
+                                </ol>
+                            </div>
+                        </details>
+
+                        <details class="group bg-slate-50 rounded-lg border border-slate-200 [&_summary::-webkit-details-marker]:hidden">
+                            <summary class="flex items-center justify-between p-4 cursor-pointer font-bold text-slate-800 hover:bg-slate-100">
+                                Topic Set B: Hometown / Accommodation
+                                <span class="transition group-open:rotate-180">
+                                    <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                                </span>
+                            </summary>
+                            <div class="p-4 pt-0 border-t border-slate-200 mt-2 text-slate-600">
+                                <ol class="list-decimal pl-5 space-y-2">
+                                    <li>Let's talk about where you live. Do you live in a house or an apartment?</li>
+                                    <li>What is your favorite room in your home? (Why?)</li>
+                                    <li>What is the area around your home like?</li>
+                                    <li>Do you plan to live there for a long time?</li>
+                                </ol>
+                            </div>
+                        </details>
+
+                        <details class="group bg-slate-50 rounded-lg border border-slate-200 [&_summary::-webkit-details-marker]:hidden">
+                            <summary class="flex items-center justify-between p-4 cursor-pointer font-bold text-slate-800 hover:bg-slate-100">
+                                Topic Set C: Free Time (Hobbies)
+                                <span class="transition group-open:rotate-180">
+                                    <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                                </span>
+                            </summary>
+                            <div class="p-4 pt-0 border-t border-slate-200 mt-2 text-slate-600">
+                                <ol class="list-decimal pl-5 space-y-2">
+                                    <li>What do you usually do in your free time?</li>
+                                    <li>Did you have different hobbies when you were a child?</li>
+                                    <li>Is it important to have hobbies? (Why?)</li>
+                                </ol>
+                            </div>
+                        </details>
+                    </div>
+
+                    <div class="mt-4 p-3 bg-indigo-50 border border-indigo-200 rounded flex items-start text-sm text-indigo-800">
+                        <span class="mr-2 text-lg">💡</span>
+                        <div>
+                            <strong>Feedback Focus:</strong>
+                            <ul class="list-disc pl-5 mt-1">
+                                <li>Do not interrupt them while they speak.</li>
+                                <li>Wait until they finish, then correct major grammar and praise A-R-E usage.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PART 4: Wrap-up -->
+        <section id="part4" class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden transition-opacity">
+            <div class="bg-slate-50 border-b border-slate-200 p-4 flex justify-between items-center cursor-pointer" onclick="document.getElementById('check4').click()">
+                <h2 class="text-xl font-bold text-slate-800">Part 4: Wrap-up & HW <span class="text-sm font-normal text-slate-500 ml-2">(80-90m)</span></h2>
+                <input type="checkbox" id="check4" class="part-checkbox" onchange="updateProgress(this, 'part4')">
+            </div>
+            <div class="p-6 space-y-6">
+                <div>
+                    <h3 class="font-bold text-lg mb-2 text-indigo-700">1. Session Review (5 mins)</h3>
+                    <ul class="space-y-3 pl-2 text-slate-600">
+                        <li class="flex items-start">
+                            <span class="mr-2">❓</span> 
+                            <div>Ask: <em>"What is the most important thing to do during the 30s reading time?"</em> <br><span class="text-sm font-semibold text-green-700">Answer: Predict the word type.</span></div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="mr-2">❓</span> 
+                            <div>Ask: <em>"What does A-R-E stand for?"</em> <br><span class="text-sm font-semibold text-green-700">Answer: Answer, Reason, Example.</span></div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="pt-4 border-t border-slate-100">
+                    <h3 class="font-bold text-lg mb-2 text-indigo-700">2. Assign Homework (5 mins)</h3>
+                    <div class="bg-rose-50 border border-rose-200 p-4 rounded-lg">
+                        <p class="font-bold text-rose-900 flex items-center mb-1">📝 Task</p>
+                        <p class="text-rose-800 text-sm mb-3">Complete the following Listening Part 1 & 2 sections on your computer. Practice typing quickly using the Tab key.</p>
+                        
+                        <div class="flex flex-col gap-2 mb-4 bg-white p-3 rounded border border-rose-100">
+                            <a href="https://youpass.vn/thi-thu/listening/10012" target="_blank" class="text-rose-700 text-sm font-semibold hover:text-rose-900 hover:underline flex items-center">
+                                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                                Homework Link 1 (Part 1 & 2)
+                            </a>
+                            <a href="https://youpass.vn/thi-thu/listening/8750" target="_blank" class="text-rose-700 text-sm font-semibold hover:text-rose-900 hover:underline flex items-center">
+                                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                                Homework Link 2 (Part 1 & 2)
+                            </a>
+                        </div>
+
+                        <p class="font-bold text-rose-900 flex items-center mb-1">⏰ Reminder</p>
+                        <p class="text-rose-800 text-sm">Inform them of next session time and to bring their HW score.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        // Progress Tracking Logic
+        function updateProgress(checkboxElem, sectionId) {
+            const section = document.getElementById(sectionId);
+            const evt = window.event;
+            // Stop event bubbling so clicking the checkbox doesn't trigger the parent div click twice
+            if(evt) evt.stopPropagation(); 
+
+            if (checkboxElem.checked) {
+                section.classList.add('section-done');
+            } else {
+                section.classList.remove('section-done');
+            }
+
+            const checkboxes = document.querySelectorAll('.part-checkbox');
+            let checkedCount = 0;
+            checkboxes.forEach(cb => {
+                if (cb.checked) checkedCount++;
+            });
+            
+            document.getElementById('progress-text').innerText = `${checkedCount} / 4`;
+        }
+    </script>
+</body>
+</html>
