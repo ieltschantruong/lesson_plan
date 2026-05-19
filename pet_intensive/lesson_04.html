@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Chan Truong | PET Intensive Lesson 04</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#fdf2f8',  // Blush
+                            100: '#fce7f3', // Pastel Pink
+                            200: '#fbcfe8',
+                            300: '#f9a8d4',
+                            400: '#f472b6',
+                            500: '#ec4899', // Vibrant Accent
+                            800: '#9d174d', // Deep Rose for text
+                            900: '#831843', // Darkest Rose
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            background-color: #fffafb; /* Soft pastel background */
+            color: #475569;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(252, 231, 243, 0.6); /* pink-100 */
+            box-shadow: 0 4px 14px 0 rgba(252, 231, 243, 0.5); /* pink shadow */
+            transition: all 0.3s ease;
+        }
+        
+        .glass-card:hover {
+            box-shadow: 0 10px 25px -3px rgba(252, 231, 243, 0.8), 0 4px 6px -2px rgba(24bc, 231, 243, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .checkbox-custom:checked + div {
+            background-color: #ec4899; /* brand-500 */
+            border-color: #ec4899;
+        }
+        
+        .checkbox-custom:checked + div svg {
+            opacity: 1;
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #fdf2f8; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #f9a8d4; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #f472b6; 
+        }
+
+        /* Custom Detail/Summary (Accordion) Styles */
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- Sticky Progress Bar -->
+    <div class="fixed top-0 left-0 w-full h-1.5 bg-brand-100 z-50">
+        <div id="progressBar" class="h-full bg-brand-500 transition-all duration-500 ease-out" style="width: 0%;"></div>
+    </div>
+
+    <!-- Header Section -->
+    <header class="bg-gradient-to-br from-pink-100 via-rose-100 to-pink-200 text-brand-900 pt-16 pb-20 px-6 relative overflow-hidden shadow-sm">
+        <!-- Decorative background elements -->
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden opacity-30 pointer-events-none">
+            <svg class="absolute -top-24 -right-24 w-96 h-96 text-white" fill="currentColor" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50"/></svg>
+            <svg class="absolute bottom-[-10%] left-[-5%] w-64 h-64 text-brand-300" fill="currentColor" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50"/></svg>
+        </div>
+
+        <div class="max-w-5xl mx-auto relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+            <div>
+                <h2 class="text-brand-800 font-semibold tracking-widest text-sm uppercase mb-2 flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                    IELTS Chan Truong
+                </h2>
+                <h1 class="text-4xl md:text-5xl font-serif font-bold text-brand-900 leading-tight drop-shadow-sm">
+                    PET Intensive <br/><span class="text-brand-500 font-sans font-light text-3xl">Lesson 04</span>
+                </h1>
+            </div>
+            
+            <div class="flex gap-4 bg-white/50 backdrop-blur-md px-6 py-4 rounded-2xl border border-white/60 shadow-sm">
+                <div class="text-center px-4 border-r border-brand-200">
+                    <div class="text-brand-800 font-bold text-xl">90</div>
+                    <div class="text-xs text-brand-500 uppercase tracking-wider font-semibold">Minutes</div>
+                </div>
+                <div class="text-center px-4">
+                    <div class="text-brand-800 font-bold text-xl">14-16</div>
+                    <div class="text-xs text-brand-500 uppercase tracking-wider font-semibold">Students</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-5xl mx-auto px-6 w-full -mt-8 relative z-20 pb-20 flex-grow">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            
+            <!-- Left Column: Lesson Content (Main) -->
+            <div class="lg:col-span-8 space-y-6">
+                
+                <!-- Section 1: Listening -->
+                <section class="glass-card rounded-2xl p-6 md:p-8 fade-in-up" id="section-1">
+                    <div class="flex items-start justify-between mb-6">
+                        <div class="flex items-center gap-4">
+                            <div class="bg-brand-50 text-brand-500 p-3 rounded-xl">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-brand-900">1. Check Listening Test 02</h3>
+                                <p class="text-sm text-brand-400 font-medium flex items-center gap-2 mt-1">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    Review & Explain (20 mins)
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <label class="flex items-center cursor-pointer group">
+                            <input type="checkbox" class="checkbox-custom hidden" data-task="1" onchange="updateProgress()">
+                            <div class="w-8 h-8 rounded-full border-2 border-brand-200 flex items-center justify-center transition-colors group-hover:border-brand-500 bg-white shadow-inner">
+                                <svg class="w-4 h-4 text-white opacity-0 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                        </label>
+                    </div>
+                    
+                    <div class="bg-brand-50/50 border border-brand-100 rounded-xl p-5 mb-5">
+                        <p class="text-slate-600 text-sm mb-4">Review answers, analyze traps, and clarify vocabulary from the previous Mock Test.</p>
+                        <a href="https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/test_view_pet_intensive_02.html" target="_blank" class="inline-flex items-center gap-2 bg-brand-500 text-white px-5 py-2.5 rounded-lg text-sm font-medium hover:bg-brand-400 transition-colors w-full sm:w-auto justify-center shadow-md shadow-brand-200">
+                            Open Listening Test 02
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                        </a>
+                    </div>
+                </section>
+
+                <!-- Section 2: Writing -->
+                <section class="glass-card rounded-2xl p-6 md:p-8 fade-in-up delay-100" id="section-2">
+                    <div class="flex items-start justify-between mb-6">
+                        <div class="flex items-center gap-4">
+                            <div class="bg-brand-50 text-brand-500 p-3 rounded-xl">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-brand-900">2. Writing Test 1: Structures & Ideas</h3>
+                                <p class="text-sm text-brand-400 font-medium flex items-center gap-2 mt-1">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    Tasks 1 & 2 (65 mins)
+                                </p>
+                            </div>
+                        </div>
+
+                        <label class="flex items-center cursor-pointer group">
+                            <input type="checkbox" class="checkbox-custom hidden" data-task="2" onchange="updateProgress()">
+                            <div class="w-8 h-8 rounded-full border-2 border-brand-200 flex items-center justify-center transition-colors group-hover:border-brand-500 bg-white shadow-inner">
+                                <svg class="w-4 h-4 text-white opacity-0 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                        </label>
+                    </div>
+
+                    <!-- Task 1 Sub-section -->
+                    <div class="mb-8 border border-brand-100 rounded-xl p-5 bg-white shadow-sm">
+                        <h4 class="font-bold text-lg text-brand-800 flex items-center mb-3">
+                            <span class="bg-brand-100 text-brand-600 px-2 py-0.5 rounded text-sm mr-2">Task 1</span> Bar Chart
+                        </h4>
+                        <div class="bg-brand-50 p-4 rounded-lg border border-brand-100 text-slate-700 text-sm mb-5 leading-relaxed italic">
+                            "The chart below shows the changes in the percentage of households with cars in one European country between 1971 and 2001. Summarize the information by selecting and reporting the main features, and make comparisons where relevant."
+                        </div>
+                        
+                        <div class="mb-6 rounded-lg overflow-hidden border border-slate-200">
+                            <img src="https://ieltschantruong.github.io/IELTS/src/writing_questions/writing_task1_barchart_european_country_car_ownership.png" alt="Bar Chart - Car Ownership" class="w-full h-auto object-contain bg-white">
+                        </div>
+
+                        <!-- T1 Accordions -->
+                        <div class="space-y-3">
+                            <details class="group border border-brand-200 rounded-lg bg-brand-50/30 overflow-hidden">
+                                <summary class="flex justify-between items-center font-medium cursor-pointer p-4 hover:bg-brand-50 text-brand-900 transition-colors">
+                                    <span class="flex items-center">
+                                        <svg class="w-4 h-4 mr-2 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                                        Brainstormed Ideas & Structure
+                                    </span>
+                                    <span class="transition duration-300 group-open:rotate-180 text-brand-400">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                    </span>
+                                </summary>
+                                <div class="p-4 border-t border-brand-100 text-sm text-slate-700 space-y-4 bg-white">
+                                    <div>
+                                        <span class="font-semibold text-brand-600 block mb-1">1. Introduction</span>
+                                        <p>Paraphrase the prompt: The bar chart delineates the proportion of households in a European nation possessing varying numbers of cars (0, 1, or 2+) between 1971 and 2001.</p>
+                                    </div>
+                                    <div>
+                                        <span class="font-semibold text-brand-600 block mb-1">2. Overview</span>
+                                        <p>Identify 2 main trends: A consistent downward trend in households without a vehicle. Conversely, multi-car ownership generally increased, and one-car households became the most prevalent demographic.</p>
+                                    </div>
+                                    <div>
+                                        <span class="font-semibold text-brand-600 block mb-1">3. Body Paragraph 1 (Focus on 'No car' & '1 car')</span>
+                                        <ul class="list-disc pl-5 space-y-1">
+                                            <li><strong>No car:</strong> Started highest at ~47% in 1971, steady decline every decade, ending lowest at ~28% in 2001.</li>
+                                            <li><strong>1 car:</strong> Started at ~35% in 1971, dipped to ~31% in 1981, surged to peak at ~47% in 1991, ended slightly lower at ~43% in 2001. Remained the dominant group from 1991 onwards.</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <span class="font-semibold text-brand-600 block mb-1">4. Body Paragraph 2 (Focus on '2 or more cars')</span>
+                                        <ul class="list-disc pl-5 space-y-1">
+                                            <li>Started as the minority at ~16% in 1971.</li>
+                                            <li>Rose significantly to tie with 'no car' at ~28% in 1981.</li>
+                                            <li>Dipped slightly in 1991 (~21%).</li>
+                                            <li>Recovered to ~28% by 2001, matching the percentage of car-less households perfectly at the end.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </details>
+
+                            <details class="group border border-brand-200 rounded-lg bg-brand-50/30 overflow-hidden">
+                                <summary class="flex justify-between items-center font-medium cursor-pointer p-4 hover:bg-brand-50 text-brand-900 transition-colors">
+                                    <span class="flex items-center">
+                                        <svg class="w-4 h-4 mr-2 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                                        Sample Band 7.5+ Response
+                                    </span>
+                                    <span class="transition duration-300 group-open:rotate-180 text-brand-400">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                    </span>
+                                </summary>
+                                <div class="p-5 border-t border-brand-100 text-sm text-slate-800 space-y-4 bg-white leading-relaxed">
+                                    <p>The provided bar chart delineates the proportion of households in a specific European nation possessing varying numbers of cars—categorized into no car, one car, and two or more cars—across a thirty-year timeframe from 1971 to 2001.</p>
+                                    <p>Overall, it is evident that there was a consistent downward trend in the percentage of households without a vehicle. Conversely, car ownership generally increased, with one-car households becoming the most prevalent demographic by the end of the period.</p>
+                                    <p>In 1971, almost half of the households (approximately 47%) did not own a car, which was the highest proportion among the three categories. However, this figure experienced a steady decline over the ensuing decades, dropping to around 30% in 1991 and culminating at roughly 28% by 2001.</p>
+                                    <p>Regarding car owners, households with a single car initially accounted for roughly 35% in 1971, before dipping slightly to about 31% in 1981. This was followed by a dramatic surge to nearly 47% in 1991, establishing it as the dominant group, before settling at approximately 43% in 2001. Meanwhile, the proportion of families with two or more cars started as the minority at roughly 16% in 1971. This figure rose significantly to tie with 'no car' households at nearly 28% in 1981, dipped briefly to 21% in 1991, and ultimately recovered to 28% by 2001, exactly matching the percentage of car-less households at the end of the period.</p>
+                                </div>
+                            </details>
+                        </div>
+                    </div>
+
+                    <!-- Task 2 Sub-section -->
+                    <div class="border border-brand-100 rounded-xl p-5 bg-white shadow-sm">
+                        <h4 class="font-bold text-lg text-brand-800 flex items-center mb-3">
+                            <span class="bg-brand-100 text-brand-600 px-2 py-0.5 rounded text-sm mr-2">Task 2</span> Essay
+                        </h4>
+                        <div class="bg-brand-50 p-4 rounded-lg border border-brand-100 text-slate-700 text-sm mb-5 leading-relaxed italic">
+                            "In many countries, most shops and products become the same. Some people think it is a positive development, while others think it is a negative development. Discuss both views and give your own opinion."
+                        </div>
+
+                        <!-- T2 Accordions -->
+                        <div class="space-y-3">
+                            <details class="group border border-brand-200 rounded-lg bg-brand-50/30 overflow-hidden">
+                                <summary class="flex justify-between items-center font-medium cursor-pointer p-4 hover:bg-brand-50 text-brand-900 transition-colors">
+                                    <span class="flex items-center">
+                                        <svg class="w-4 h-4 mr-2 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                                        Brainstormed Ideas & Structure
+                                    </span>
+                                    <span class="transition duration-300 group-open:rotate-180 text-brand-400">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                    </span>
+                                </summary>
+                                <div class="p-4 border-t border-brand-100 text-sm text-slate-700 space-y-4 bg-white">
+                                    <div>
+                                        <span class="font-semibold text-brand-600 block mb-1">1. Introduction</span>
+                                        <p>Introduce the trend: The homogenization/globalization of retail. State thesis: While it offers convenience, it is predominantly a negative development due to the erosion of local cultural identity.</p>
+                                    </div>
+                                    <div>
+                                        <span class="font-semibold text-brand-600 block mb-1">2. Body Paragraph 1 (The 'Positive' View)</span>
+                                        <ul class="list-disc pl-5 space-y-1">
+                                            <li><strong>Convenience & Reliability:</strong> Multinational brands guarantee a certain standard of quality.</li>
+                                            <li><strong>Economic Benefits:</strong> Mass production leads to economies of scale, making standardized goods more affordable.</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <span class="font-semibold text-brand-600 block mb-1">3. Body Paragraph 2 (The 'Negative' View & Own Opinion)</span>
+                                        <ul class="list-disc pl-5 space-y-1">
+                                            <li><strong>Loss of Culture:</strong> Disappearance of traditional businesses and local artisans.</li>
+                                            <li><strong>Economic monopoly:</strong> International giants force small local shops into bankruptcy.</li>
+                                            <li><strong>Tourism impact:</strong> A monotonous global landscape discourages travel seeking authentic experiences.</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <span class="font-semibold text-brand-600 block mb-1">4. Conclusion</span>
+                                        <p>Summarize main points. Reiterate that the irreversible dilution of unique cultural identities far outweighs the superficial benefits.</p>
+                                    </div>
+                                </div>
+                            </details>
+
+                            <details class="group border border-brand-200 rounded-lg bg-brand-50/30 overflow-hidden">
+                                <summary class="flex justify-between items-center font-medium cursor-pointer p-4 hover:bg-brand-50 text-brand-900 transition-colors">
+                                    <span class="flex items-center">
+                                        <svg class="w-4 h-4 mr-2 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                                        Sample Band 8.0 Response
+                                    </span>
+                                    <span class="transition duration-300 group-open:rotate-180 text-brand-400">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                    </span>
+                                </summary>
+                                <div class="p-5 border-t border-brand-100 text-sm text-slate-800 space-y-4 bg-white leading-relaxed">
+                                    <p>In recent years, the phenomenon of globalization has led to a striking similarity in the shops and products available across different countries. While some individuals perceive this homogenization as a beneficial trend, others argue that it represents a significant cultural loss. This essay will examine both perspectives before concluding that this development, despite its conveniences, is predominantly negative due to the erosion of local cultural identity.</p>
+                                    <p>On the one hand, proponents of globalized retail argue that it brings unparalleled convenience and reliability to consumers. When multinational corporations and ubiquitous brands expand globally, they offer standardized products that guarantee a certain level of quality. For instance, a traveler visiting a foreign country can easily find familiar fast-food chains or clothing stores, ensuring they have access to predictable goods without the anxiety of trying unknown local alternatives. Furthermore, this mass production and global distribution often lead to economies of scale, making goods more affordable and accessible to the general public, thereby improving the immediate standard of living for many.</p>
+                                    <p>On the other hand, the negative implications of this trend are profound, primarily concerning the loss of cultural diversity. When international retail giants dominate the market, local businesses—which often offer unique, culturally significant products—struggle to compete and are frequently forced into bankruptcy. As local artisans and traditional shops disappear, cities begin to lose their distinctive character, resulting in a monotonous global landscape where every high street looks identical. Consequently, this not only diminishes the cultural heritage of a nation but also negatively impacts the tourism industry, as travelers increasingly seek authentic experiences rather than replicas of their own hometowns.</p>
+                                    <p>In conclusion, while the uniform availability of shops and products worldwide offers undeniable advantages in terms of convenience and consistent quality, I believe that it is largely a negative development. The detrimental impact on local businesses and the irreversible dilution of unique cultural identities far outweigh the superficial benefits of global standardization.</p>
+                                </div>
+                            </details>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Section 3: Homework -->
+                <section class="glass-card rounded-2xl p-6 md:p-8 fade-in-up delay-200" id="section-3">
+                     <div class="flex items-start justify-between mb-6">
+                        <div class="flex items-center gap-4">
+                            <div class="bg-brand-50 text-brand-500 p-3 rounded-xl">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-brand-900">3. Homework & Wrap-up</h3>
+                                <p class="text-sm text-brand-400 font-medium flex items-center gap-2 mt-1">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    5 Mins Allotted
+                                </p>
+                            </div>
+                        </div>
+
+                        <label class="flex items-center cursor-pointer group">
+                            <input type="checkbox" class="checkbox-custom hidden" data-task="3" onchange="updateProgress()">
+                            <div class="w-8 h-8 rounded-full border-2 border-brand-200 flex items-center justify-center transition-colors group-hover:border-brand-500 bg-white shadow-inner">
+                                <svg class="w-4 h-4 text-white opacity-0 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                        </label>
+                    </div>
+
+                    <div class="space-y-3">
+                        <div class="flex items-start gap-3 p-4 bg-brand-50/50 rounded-xl border border-brand-100">
+                            <div class="mt-1">
+                                <svg class="w-5 h-5 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+                            </div>
+                            <div>
+                                <p class="font-medium text-brand-900">Complete Writing Test 1 (Task 1 & 2)</p>
+                                <p class="text-sm text-slate-500">Submit your essays. Deadline: 1 week.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3 p-4 bg-brand-50/50 rounded-xl border border-brand-100">
+                            <div class="mt-1">
+                                <svg class="w-5 h-5 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+                            </div>
+                            <div>
+                                <p class="font-medium text-brand-900">Speaking Practice Preparation</p>
+                                <p class="text-sm text-slate-500">Prepare ideas and vocab for Topics 16 to 20.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Right Column: Sidebar Tracker -->
+            <div class="lg:col-span-4 relative">
+                <div class="sticky top-6 glass-card rounded-2xl p-6 fade-in-up delay-300">
+                    <h3 class="font-serif font-bold text-xl text-brand-900 mb-4 border-b border-brand-100 pb-3">Lesson Tracker</h3>
+                    
+                    <div class="mb-6">
+                        <div class="flex justify-between text-sm mb-2">
+                            <span class="text-brand-800 font-medium">Completion Progress</span>
+                            <span id="progressText" class="font-bold text-brand-500">0%</span>
+                        </div>
+                        <div class="w-full bg-brand-100 rounded-full h-2.5 shadow-inner">
+                            <div id="sideProgressBar" class="bg-brand-500 h-2.5 rounded-full transition-all duration-500" style="width: 0%"></div>
+                        </div>
+                    </div>
+
+                    <ul class="space-y-4 text-sm font-medium text-slate-600">
+                        <li class="flex items-center justify-between p-3 rounded-lg bg-brand-50/50 border border-brand-100 transition-all" id="tracker-1">
+                            <span class="flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-brand-200 transition-colors" id="dot-1"></span>
+                                Listening Review
+                            </span>
+                            <span class="text-xs bg-white text-brand-800 border border-brand-100 px-2 py-1 rounded">20m</span>
+                        </li>
+                        <li class="flex items-center justify-between p-3 rounded-lg bg-brand-50/50 border border-brand-100 transition-all" id="tracker-2">
+                            <span class="flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-brand-200 transition-colors" id="dot-2"></span>
+                                Writing Tests 1&2
+                            </span>
+                            <span class="text-xs bg-white text-brand-800 border border-brand-100 px-2 py-1 rounded">65m</span>
+                        </li>
+                        <li class="flex items-center justify-between p-3 rounded-lg bg-brand-50/50 border border-brand-100 transition-all" id="tracker-3">
+                            <span class="flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-brand-200 transition-colors" id="dot-3"></span>
+                                Wrap-up & HW
+                            </span>
+                            <span class="text-xs bg-white text-brand-800 border border-brand-100 px-2 py-1 rounded">5m</span>
+                        </li>
+                    </ul>
+
+                    <div class="mt-8 pt-6 border-t border-brand-100">
+                        <p class="text-xs text-brand-300 text-center uppercase tracking-widest font-semibold">End of Session</p>
+                        <button onclick="resetLesson()" class="w-full mt-3 py-2 border border-brand-200 text-brand-500 rounded-lg text-sm hover:bg-brand-50 hover:text-brand-700 transition-colors font-medium">
+                            Reset Tracker
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const totalTasks = 3;
+        
+        function updateProgress() {
+            const checkboxes = document.querySelectorAll('.checkbox-custom');
+            let completedTasks = 0;
+
+            checkboxes.forEach((cb) => {
+                const taskId = cb.getAttribute('data-task');
+                const trackerItem = document.getElementById(`tracker-${taskId}`);
+                const trackerDot = document.getElementById(`dot-${taskId}`);
+                const section = document.getElementById(`section-${taskId}`); // Dynamically target based on data-task id
+
+                if (cb.checked) {
+                    completedTasks++;
+                    trackerItem.classList.add('bg-brand-100', 'border-brand-300', 'text-brand-900');
+                    trackerItem.classList.remove('bg-brand-50/50', 'border-brand-100', 'text-slate-600');
+                    trackerDot.classList.add('bg-brand-500');
+                    trackerDot.classList.remove('bg-brand-200');
+                    if(section) section.classList.add('opacity-75'); // Dim slightly when done
+                } else {
+                    trackerItem.classList.remove('bg-brand-100', 'border-brand-300', 'text-brand-900');
+                    trackerItem.classList.add('bg-brand-50/50', 'border-brand-100', 'text-slate-600');
+                    trackerDot.classList.remove('bg-brand-500');
+                    trackerDot.classList.add('bg-brand-200');
+                    if(section) section.classList.remove('opacity-75');
+                }
+            });
+
+            const percentage = Math.round((completedTasks / totalTasks) * 100);
+            
+            // Animate progress bars
+            document.getElementById('progressBar').style.width = `${percentage}%`;
+            document.getElementById('sideProgressBar').style.width = `${percentage}%`;
+            document.getElementById('progressText').innerText = `${percentage}%`;
+
+            // Visual feedback if 100%
+            if(percentage === 100) {
+                document.getElementById('sideProgressBar').classList.add('bg-brand-800');
+                document.getElementById('sideProgressBar').classList.remove('bg-brand-500');
+            } else {
+                document.getElementById('sideProgressBar').classList.remove('bg-brand-800');
+                document.getElementById('sideProgressBar').classList.add('bg-brand-500');
+            }
+        }
+
+        function resetLesson() {
+            const checkboxes = document.querySelectorAll('.checkbox-custom');
+            checkboxes.forEach(cb => {
+                cb.checked = false;
+            });
+            updateProgress();
+            
+            // Scroll to top smoothly
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Initialize progress on page load
+        document.addEventListener('DOMContentLoaded', updateProgress);
+    </script>
+</body>
+</html>s
