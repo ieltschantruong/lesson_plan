@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Chan Truong - Lesson 1 Workspace</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+        }
+        .transition-all-300 {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .pastel-shadow {
+            box-shadow: 0 10px 25px -10px rgba(244, 63, 94, 0.1);
+        }
+        .pastel-shadow-blue {
+            box-shadow: 0 10px 25px -10px rgba(56, 189, 248, 0.1);
+        }
+        /* Custom Tooltip Styling */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 200px;
+            background-color: #0f172a;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 6px 8px;
+            position: absolute;
+            z-index: 10;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -100px;
+            opacity: 0;
+            transition: opacity 0.2s;
+            font-size: 10px;
+            line-height: 1.25;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+        }
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-slate-50/50 text-slate-800 antialiased min-h-screen">
+
+    <!-- TOAST NOTIFICATION CONTAINER -->
+    <div id="toastNotification" class="fixed bottom-5 right-5 px-4 py-2.5 rounded-xl text-xs font-bold text-white shadow-lg transition-all transform translate-y-10 opacity-0 pointer-events-none z-[100]">
+        Placeholder
+    </div>
+
+    <!-- STICKY HEADER / NAV -->
+    <nav class="sticky top-0 bg-white/80 backdrop-blur-md border-b border-rose-100 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center space-x-3">
+                    <span class="p-2 bg-gradient-to-tr from-rose-400 to-amber-300 rounded-xl text-white font-extrabold shadow-sm text-sm">CT</span>
+                    <div>
+                        <span class="text-md font-bold tracking-tight bg-gradient-to-r from-rose-600 to-rose-500 bg-clip-text text-transparent">IELTS Chan Truong</span>
+                        <span class="text-xs text-slate-400 ml-2 border-l border-slate-200 pl-2">Lesson 1 Companion</span>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-2 sm:space-x-4">
+                    <a href="#overview" class="text-xs sm:text-sm font-medium text-slate-600 hover:text-rose-600 px-2.5 py-1.5 rounded-lg transition-colors">Overview</a>
+                    <a href="#reading" class="text-xs sm:text-sm font-medium text-slate-600 hover:text-rose-600 px-2.5 py-1.5 rounded-lg transition-colors">Reading</a>
+                    <a href="#speaking" class="text-xs sm:text-sm font-medium text-slate-600 hover:text-rose-600 px-2.5 py-1.5 rounded-lg transition-colors">Speaking</a>
+                    <a href="#homework" class="text-xs sm:text-sm font-medium text-slate-600 hover:text-rose-600 px-2.5 py-1.5 rounded-lg transition-colors">Homework</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- LESSON TITLE BANNER -->
+    <header class="bg-gradient-to-tr from-rose-50/70 via-pink-50/40 to-sky-50/50 border-b border-rose-100 py-10 px-4 sm:px-6 lg:px-8 relative">
+        <div class="absolute inset-0 bg-[radial-gradient(#fecdd3_1px,transparent_1px)] [background-size:20px_20px] opacity-20"></div>
+        <div class="relative max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+            <div>
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-rose-100 text-rose-800 mb-3 uppercase tracking-wider">
+                    Day 1 Lesson Plan
+                </span>
+                <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-950 tracking-tight">
+                    Foundation Diagnostic & Speed Building
+                </h1>
+                <p class="text-slate-600 text-sm sm:text-base mt-2 max-w-2xl leading-relaxed">
+                    Bridging the gap between Band 6.0 and 6.5. This workspace handles live diagnostic drills, reading synonym decoding, and speaking diagnostic mock setups.
+                </p>
+            </div>
+            <div class="flex items-center gap-3">
+                <span class="px-3.5 py-2 bg-white border border-rose-100 rounded-xl text-xs font-bold text-slate-700 shadow-sm flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                    90-Min Lesson Scope
+                </span>
+            </div>
+        </div>
+    </header>
+
+    <!-- WORKSPACE CONTAINER -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-10">
+
+        <!-- SECTION 1: EXAM OVERVIEW & CHEAT SHEET -->
+        <section id="overview" class="bg-white border border-rose-100 p-6 rounded-2xl pastel-shadow space-y-4">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-4 border-b border-slate-100">
+                <div class="flex items-center space-x-3">
+                    <span class="p-2.5 bg-rose-50 rounded-xl text-rose-600">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                    </span>
+                    <div>
+                        <h2 class="text-lg font-bold text-slate-900">Exam Overview & Core Objectives</h2>
+                        <p class="text-xs text-slate-500">Essential strategy vectors for advancing past the 6.0 plateau.</p>
+                    </div>
+                </div>
+                <a href="https://ieltschantruong.github.io/IELTS/exam_intro/ietls_band_6.0_6.5_cheat_sheet.html" target="_blank" class="inline-flex items-center gap-1.5 text-xs font-bold text-rose-600 bg-rose-50 hover:bg-rose-100 px-3.5 py-2 rounded-xl transition-all-300">
+                    <span>Open Live Cheat Sheet</span>
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
+                <div class="bg-gradient-to-b from-rose-50/40 to-transparent p-4 rounded-xl border border-rose-100/50">
+                    <h3 class="text-xs font-bold text-rose-700 uppercase tracking-wider mb-2">Lexical Precision (6.0 vs 6.5)</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Band 6.0 relies on general vocabulary (e.g., "very helpful", "bad problem"). Band 6.5 requires context-specific nouns and academic verbs (e.g., "highly beneficial", "profound obstacle").
+                    </p>
+                </div>
+                <div class="bg-gradient-to-b from-sky-50/40 to-transparent p-4 rounded-xl border border-sky-100/50">
+                    <h3 class="text-xs font-bold text-sky-700 uppercase tracking-wider mb-2">Syntactic Flexibility</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        To hit 6.5, you must incorporate relative clauses, passive forms, and conditionals naturally. The examiner wants to see variable clause structures and accurate complex sentences.
+                    </p>
+                </div>
+                <div class="bg-gradient-to-b from-emerald-50/40 to-transparent p-4 rounded-xl border border-emerald-100/50">
+                    <h3 class="text-xs font-bold text-emerald-700 uppercase tracking-wider mb-2">Reading Speed Vectors</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Moving to 6.5 requires stopping the word-for-word translation habit. Students must master scanning for synonyms and scanning for textual structures (like contrasts and consequences).
+                    </p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- SECTION 2: READING DRILL & MAPPING SANDBOX -->
+        <section id="reading" class="bg-white border border-sky-100 p-6 rounded-2xl pastel-shadow-blue space-y-6">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-4 border-b border-slate-100">
+                <div class="flex items-center space-x-3">
+                    <span class="p-2.5 bg-sky-50 rounded-xl text-sky-600">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+                    </span>
+                    <div>
+                        <h2 class="text-lg font-bold text-slate-900">Reading Strategy & Live Drill</h2>
+                        <p class="text-xs text-slate-500">Breaking down logic structures and practicing Synonym-to-Synonym correspondence.</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-center gap-2">
+                    <a href="https://ieltschantruong.github.io/IELTS/learning_resources/reading/question_type_guide.html" target="_blank" class="text-xs font-semibold text-slate-600 bg-slate-100 hover:bg-slate-200 px-3 py-2 rounded-lg transition-all-300">
+                        Question Guide
+                    </a>
+                    <a href="https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/pet_intensive_03.html" target="_blank" class="text-xs font-bold text-white bg-sky-500 hover:bg-sky-600 px-3.5 py-2 rounded-lg transition-all-300 shadow-sm flex items-center gap-1">
+                        <span>Launch Drill Test 3</span>
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200/50 space-y-2.5">
+                    <h4 class="text-xs font-bold text-slate-700 uppercase tracking-wider flex items-center gap-1.5">
+                        <span class="w-1.5 h-1.5 rounded-full bg-sky-400"></span>
+                        True / False / Not Given Logic Trap
+                    </h4>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        To score 6.5, understand that <strong class="text-slate-800">FALSE</strong> means the text directly contradicts the assertion. <strong class="text-slate-800">NOT GIVEN</strong> means there is no logical way to verify the statement with the content provided. Don't guess or extrapolate.
+                    </p>
+                </div>
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200/50 space-y-2.5">
+                    <h4 class="text-xs font-bold text-slate-700 uppercase tracking-wider flex items-center gap-1.5">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                        Synonym & Paraphrasing Mechanism
+                    </h4>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Questions *never* use the same exact phrases as the passages. Find your keywords, anticipate synonyms (e.g., "overcome" vs "defeat"), and trace their matches directly to the sentence structure.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Synonym Map Interactive Sandbox -->
+            <div class="bg-sky-50/50 border border-sky-100 rounded-xl p-5 space-y-3">
+                <div>
+                    <h4 class="text-xs font-bold text-sky-800 uppercase tracking-wider">Live Synonym Mapping Workspace</h4>
+                    <p class="text-xs text-sky-700 mt-1">Use this live table to map target terms found in Test 3 during the lesson.</p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    <input id="keyWordInput" type="text" placeholder="Word in Question (e.g., initial stages)" class="text-xs bg-white border border-sky-200 rounded-lg px-3 py-2 focus:outline-none focus:ring-1 focus:ring-sky-400">
+                    <input id="synonymInput" type="text" placeholder="Paraphrase in Text (e.g., early phase)" class="text-xs bg-white border border-sky-200 rounded-lg px-3 py-2 focus:outline-none focus:ring-1 focus:ring-sky-400">
+                    <button onclick="addSynonymMap()" class="text-xs font-bold text-white bg-sky-500 hover:bg-sky-600 rounded-lg px-4 py-2 transition-colors">
+                        Add to Lesson Vocabulary
+                    </button>
+                </div>
+
+                <div class="overflow-x-auto border border-sky-200/50 rounded-lg bg-white mt-3">
+                    <table class="w-full text-left text-xs text-slate-600">
+                        <thead class="bg-sky-50 text-sky-800 font-bold uppercase tracking-wider">
+                            <tr>
+                                <th class="p-3">Target Question Term</th>
+                                <th class="p-3">Matched Text Paraphrase</th>
+                                <th class="p-3 text-right">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="synonymTableBody" class="divide-y divide-slate-100">
+                            <tr class="hover:bg-slate-50/50">
+                                <td class="p-3 font-semibold text-slate-800">decline dramatically</td>
+                                <td class="p-3 text-sky-800 font-medium">plummeted unexpectedly</td>
+                                <td class="p-3 text-right"><span class="text-[10px] bg-slate-100 text-slate-500 px-2 py-0.5 rounded">Preset</span></td>
+                            </tr>
+                            <tr class="hover:bg-slate-50/50">
+                                <td class="p-3 font-semibold text-slate-800">limited resources</td>
+                                <td class="p-3 text-sky-800 font-medium">scarcity of assets</td>
+                                <td class="p-3 text-right"><span class="text-[10px] bg-slate-100 text-slate-500 px-2 py-0.5 rounded">Preset</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- SECTION 3: SPEAKING MOCK DIAGNOSTIC & FEEDBACK INTERACTIVE TOOL -->
+        <section id="speaking" class="bg-white border border-rose-100 p-6 rounded-2xl pastel-shadow space-y-6">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-4 border-b border-slate-100">
+                <div class="flex items-center space-x-3">
+                    <span class="p-2.5 bg-rose-50 rounded-xl text-rose-600">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/></svg>
+                    </span>
+                    <div>
+                        <h2 class="text-lg font-bold text-slate-900">Diagnostic Speaking Mock & Sample Answers</h2>
+                        <p class="text-xs text-slate-500">Run a simulated test with comparative Band 5.5 vs Band 6.5+ samples.</p>
+                    </div>
+                </div>
+
+                <!-- Dynamic Live Speaking Timers -->
+                <div class="flex items-center gap-2 bg-slate-50 p-2 border border-slate-200 rounded-xl">
+                    <span id="speakingTimerLabel" class="text-xs font-semibold text-slate-600 px-1.5">Timer:</span>
+                    <span id="speakingTimerDisplay" class="text-sm font-extrabold text-rose-600 font-mono tracking-wider bg-white border border-slate-100 px-2.5 py-0.5 rounded">00:00</span>
+                    <button onclick="setSpeakingTimer(60)" class="text-[10px] font-bold px-2 py-1 bg-slate-100 hover:bg-rose-50 text-slate-700 hover:text-rose-700 rounded transition-colors">1m Prep</button>
+                    <button onclick="setSpeakingTimer(120)" class="text-[10px] font-bold px-2 py-1 bg-slate-900 hover:bg-slate-800 text-white rounded transition-colors">2m Speak</button>
+                    <button onclick="toggleSpeakingTimer()" id="speakTimerBtn" class="text-[10px] font-bold px-2.5 py-1 bg-rose-500 text-white rounded transition-colors">Play</button>
+                    <button onclick="resetSpeakingTimer()" class="p-1 bg-slate-200 hover:bg-slate-300 rounded text-slate-600">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 1121.21 8H18"/></svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Official Speaking Topics Panel -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                <!-- Question List Panel -->
+                <div class="lg:col-span-7 space-y-6">
+                    
+                    <!-- PART 1 -->
+                    <div class="border-l-4 border-rose-400 bg-rose-50/30 p-4 rounded-r-xl space-y-4">
+                        <div class="flex justify-between items-center border-b border-rose-100 pb-2">
+                            <h4 class="text-xs font-bold text-rose-800 uppercase tracking-widest">Part 1: Familiar Topics (4-5 mins)</h4>
+                            <span class="text-[10px] bg-rose-100 text-rose-800 px-2 py-0.5 rounded-full font-bold">Foundation Check</span>
+                        </div>
+
+                        <!-- Hometown Segment -->
+                        <div class="space-y-3">
+                            <h5 class="font-bold text-slate-900 text-xs flex items-center gap-1">🏡 Hometown / Current Residence</h5>
+                            
+                            <!-- Q1 -->
+                            <div class="bg-white p-3 rounded-xl border border-slate-100 shadow-sm space-y-2">
+                                <p class="text-xs font-semibold text-slate-800">1. Which town or city do you live in now?</p>
+                                <details class="group bg-slate-50/50 rounded-lg border border-slate-100 p-2 text-xs">
+                                    <summary class="font-bold text-rose-600 hover:text-rose-700 cursor-pointer select-none">Reveal Sample & Band Breakdown</summary>
+                                    <div class="mt-2 space-y-2 divide-y divide-slate-100 pt-2">
+                                        <div>
+                                            <p class="text-[11px] text-slate-500 font-bold uppercase">Band 5.5 Level (Simple/Repetitive):</p>
+                                            <p class="text-slate-600 italic">"I live in Da Nang. It is a big city and has many beautiful beaches. It is very busy now."</p>
+                                        </div>
+                                        <div class="pt-2">
+                                            <p class="text-[11px] text-emerald-600 font-bold uppercase">Band 6.5+ Level (Precise & Flexible):</p>
+                                            <p class="text-slate-800">"Currently, I <span class="tooltip text-rose-600 font-semibold bg-rose-50 px-1 rounded cursor-help">reside<span class="tooltiptext">To live in a particular place permanently or for an extended period.</span></span> in Da Nang, a <span class="tooltip text-rose-600 font-semibold bg-rose-50 px-1 rounded cursor-help">bustling coastal city<span class="tooltiptext">A very busy city located on the sea shore.</span></span> in central Vietnam. It is widely <span class="tooltip text-rose-600 font-semibold bg-rose-50 px-1 rounded cursor-help">renowned<span class="tooltiptext">Famous or highly respected.</span></span> for its breathtaking sandy beaches and rapid urban development."</p>
+                                        </div>
+                                    </div>
+                                </details>
+                            </div>
+
+                            <!-- Q2 -->
+                            <div class="bg-white p-3 rounded-xl border border-slate-100 shadow-sm space-y-2">
+                                <p class="text-xs font-semibold text-slate-800">2. Are there any things you don’t like about your area? (What are they?)</p>
+                                <details class="group bg-slate-50/50 rounded-lg border border-slate-100 p-2 text-xs">
+                                    <summary class="font-bold text-rose-600 hover:text-rose-700 cursor-pointer select-none">Reveal Sample & Band Breakdown</summary>
+                                    <div class="mt-2 space-y-2 divide-y divide-slate-100 pt-2">
+                                        <div>
+                                            <p class="text-[11px] text-slate-500 font-bold uppercase">Band 5.5 Level:</p>
+                                            <p class="text-slate-600 italic">"I don't like the traffic jam. It is bad in the afternoon and very noisy."</p>
+                                        </div>
+                                        <div class="pt-2">
+                                            <p class="text-[11px] text-emerald-600 font-bold uppercase">Band 6.5+ Level:</p>
+                                            <p class="text-slate-800">"If I had to complain about one aspect, it would be the <span class="tooltip text-rose-600 font-semibold bg-rose-50 px-1 rounded cursor-help">exorbitant cost of living<span class="tooltiptext">An extremely high price for day-to-day survival expenses.</span></span> and the heavy traffic <span class="tooltip text-rose-600 font-semibold bg-rose-50 px-1 rounded cursor-help">congestion<span class="tooltiptext">Crowded streets or gridlock.</span></span> during rush hour, which can be quite <span class="tooltip text-rose-600 font-semibold bg-rose-50 px-1 rounded cursor-help">vexing<span class="tooltiptext">Annoying, irritating, or causing frustration.</span></span>."</p>
+                                        </div>
+                                    </div>
+                                </details>
+                            </div>
+
+                            <!-- Q3 -->
+                            <div class="bg-white p-3 rounded-xl border border-slate-100 shadow-sm space-y-2">
+                                <p class="text-xs font-semibold text-slate-800">3. Do you think you will continue to live there for a long time? (Why? Why not?)</p>
+                                <details class="group bg-slate-50/50 rounded-lg border border-slate-100 p-2 text-xs">
+                                    <summary class="font-bold text-rose-600 hover:text-rose-700 cursor-pointer select-none">Reveal Sample & Band Breakdown</summary>
+                                    <div class="mt-2 space-y-2 divide-y divide-slate-100 pt-2">
+                                        <div>
+                                            <p class="text-[11px] text-slate-500 font-bold uppercase">Band 5.5 Level:</p>
+                                            <p class="text-slate-600 italic">"Yes, I will stay because my family is here and I can find a good job."</p>
+                                        </div>
+                                        <div class="pt-2">
+                                            <p class="text-[11px] text-emerald-600 font-bold uppercase">Band 6.5+ Level:</p>
+                                            <p class="text-slate-800">"Without a doubt, I plan to stay here for the <span class="tooltip text-rose-600 font-semibold bg-rose-50 px-1 rounded cursor-help">foreseeable future<span class="tooltiptext">As far in the future as can be reasonably predicted.</span></span> because it offers an <span class="tooltip text-rose-600 font-semibold bg-rose-50 px-1 rounded cursor-help">unrivaled quality of life<span class="tooltiptext">A standard of health, comfort, and happiness that is better than all others.</span></span> and abundant career prospects."</p>
+                                        </div>
+                                    </div>
+                                </details>
+                            </div>
+
+                            <!-- Q4 -->
+                            <div class="bg-white p-3 rounded-xl border border-slate-100 shadow-sm space-y-2">
+                                <p class="text-xs font-semibold text-slate-800">4. What are some changes in the area recently?</p>
+                                <details class="group bg-slate-50/50 rounded-lg border border-slate-100 p-2 text-xs">
+                                    <summary class="font-bold text-rose-600 hover:text-rose-700 cursor-pointer select-none">Reveal Sample & Band Breakdown</summary>
+                                    <div class="mt-2 space-y-2 divide-y divide-slate-100 pt-2">
+                                        <div>
+                                            <p class="text-[11px] text-slate-500 font-bold uppercase">Band 5.5 Level:</p>
+                                            <p class="text-slate-600 italic">"Recently they built many new buildings and also parks for people to sit."</p>
+                                        </div>
+                                        <div class="pt-2">
+                                            <p class="text-[11px] text-emerald-600 font-bold uppercase">Band 6.5+ Level:</p>
+                                            <p class="text-slate-800">"Lately, there has been a noticeable <span class="tooltip text-rose-600 font-semibold bg-rose-50 px-1 rounded cursor-help">surge<span class="tooltiptext">A sudden large increase.</span></span> in the construction of <span class="tooltip text-rose-600 font-semibold bg-rose-50 px-1 rounded cursor-help">high-rise developments<span class="tooltiptext">Very tall, modern buildings.</span></span> and recreational parks, which has significantly <span class="tooltip text-rose-600 font-semibold bg-rose-50 px-1 rounded cursor-help">regenerated<span class="tooltiptext">Brought new life or energy to a run-down area.</span></span> the old quarters."</p>
+                                        </div>
+                                    </div>
+                                </details>
+                            </div>
+                        </div>
+
+                        <!-- Studies / Work Focus Segment -->
+                        <div class="space-y-3 pt-2">
+                            <h5 class="font-bold text-slate-900 text-xs flex items-center gap-1">🎓 Studies / Work Focus</h5>
+                            
+                            <!-- Q1 -->
+                            <div class="bg-white p-3 rounded-xl border border-slate-100 shadow-sm space-y-2">
+                                <p class="text-xs font-semibold text-slate-800">1. What do you study?</p>
+                                <details class="group bg-slate-50/50 rounded-lg border border-slate-100 p-2 text-xs">
+                                    <summary class="font-bold text-rose-600 hover:text-rose-700 cursor-pointer select-none">Reveal Sample & Band Breakdown</summary>
+                                    <div class="mt-2 space-y-2 divide-y divide-slate-100 pt-2">
+                                        <div>
+                                            <p class="text-[11px] text-slate-500 font-bold uppercase">Band 5.5 Level:</p>
+                                            <p class="text-slate-600 italic">"I study International Business at my university. It is about trading and selling."</p>
+                                        </div>
+                                        <div class="pt-2">
+                                            <p class="text-[11px] text-emerald-600 font-bold uppercase">Band 6.5+ Level:</p>
+                                            <p class="text-slate-800">"I am currently <span class="tooltip text-rose-600 font-semibold bg-rose-50 px-1 rounded cursor-help">pursuing a degree<span class="tooltiptext">Studying continuously to achieve an academic qualification.</span></span> in International Business, which primarily deals with global market dynamics and <span class="tooltip text-rose-600 font-semibold bg-rose-50 px-1 rounded cursor-help">cross-cultural negotiation<span class="tooltiptext">Communication strategies used between people of differing cultural backgrounds.</span></span>."</p>
+                                        </div>
+                                    </div>
+                                </details>
+                            </div>
+
+                            <!-- Q2 -->
+                            <div class="bg-white p-3 rounded-xl border border-slate-100 shadow-sm space-y-2">
+                                <p class="text-xs font-semibold text-slate-800">2. What do you find most interesting about your studies? (Why?)</p>
+                                <details class="group bg-slate-50/50 rounded-lg border border-slate-100 p-2 text-xs">
+                                    <summary class="font-bold text-rose-600 hover:text-rose-700 cursor-pointer select-none">Reveal Sample & Band Breakdown</summary>
+                                    <div class="mt-2 space-y-2 divide-y divide-slate-100 pt-2">
+                                        <div>
+                                            <p class="text-[11px] text-slate-500 font-bold uppercase">Band 5.5 Level:</p>
+                                            <p class="text-slate-600 italic">"I like studying company cases. They are fun to read and teach me about business."</p>
+                                        </div>
+                                        <div class="pt-2">
+                                            <p class="text-[11px] text-emerald-600 font-bold uppercase">Band 6.5+ Level:</p>
+                                            <p class="text-slate-800">"What <span class="tooltip text-rose-600 font-semibold bg-rose-50 px-1 rounded cursor-help">captivates<span class="tooltiptext">Attracts and holds your interest/attention completely.</span></span> me the most is analyzing real-world corporate case studies, as it grants me a <span class="tooltip text-rose-600 font-semibold bg-rose-50 px-1 rounded cursor-help">profound insight<span class="tooltiptext">A deep, complex understanding.</span></span> into how market leaders navigate crisis scenarios."</p>
+                                        </div>
+                                    </div>
+                                </details>
+                            </div>
+
+                            <!-- Q3 -->
+                            <div class="bg-white p-3 rounded-xl border border-slate-100 shadow-sm space-y-2">
+                                <p class="text-xs font-semibold text-slate-800">3. Which is more important to you—the teachers or the other students on your course?</p>
+                                <details class="group bg-slate-50/50 rounded-lg border border-slate-100 p-2 text-xs">
+                                    <summary class="font-bold text-rose-600 hover:text-rose-700 cursor-pointer select-none">Reveal Sample & Band Breakdown</summary>
+                                    <div class="mt-2 space-y-2 divide-y divide-slate-100 pt-2">
+                                        <div>
+                                            <p class="text-[11px] text-slate-500 font-bold uppercase">Band 5.5 Level:</p>
+                                            <p class="text-slate-600 italic">"I think classmates are better because we can study together and play games."</p>
+                                        </div>
+                                        <div class="pt-2">
+                                            <p class="text-[11px] text-emerald-600 font-bold uppercase">Band 6.5+ Level:</p>
+                                            <p class="text-slate-800">"In my view, both factors are <span class="tooltip text-rose-600 font-semibold bg-rose-50 px-1 rounded cursor-help">interdependent<span class="tooltiptext">Depending on each other mutually.</span></span>. However, peer interaction is slightly more critical as it fosters <span class="tooltip text-rose-600 font-semibold bg-rose-50 px-1 rounded cursor-help">collaborative learning<span class="tooltiptext">An approach where students work in pairs or groups to resolve problems.</span></span> and healthy intellectual competition."</p>
+                                        </div>
+                                    </div>
+                                </details>
+                            </div>
+                        </div>
+
+                        <!-- Pets and Animals Segment -->
+                        <div class="space-y-3 pt-2">
+                            <h5 class="font-bold text-slate-900 text-xs flex items-center gap-1">🐾 Pets and Animals</h5>
+                            
+                            <!-- Q1 -->
+                            <div class="bg-white p-3 rounded-xl border border-slate-100 shadow-sm space-y-2">
+                                <p class="text-xs font-semibold text-slate-800">1. Did you want to have a pet when you were a child?</p>
+                                <details class="group bg-slate-50/50 rounded-lg border border-slate-100 p-2 text-xs">
+                                    <summary class="font-bold text-rose-600 hover:text-rose-700 cursor-pointer select-none">Reveal Sample & Band Breakdown</summary>
+                                    <div class="mt-2 space-y-2 divide-y divide-slate-100 pt-2">
+                                        <div>
+                                            <p class="text-[11px] text-slate-500 font-bold uppercase">Band 5.5 Level:</p>
+                                            <p class="text-slate-600 italic">"Yes, I wanted a dog very much because dogs are friendly and nice to play with."</p>
+                                        </div>
+                                        <div class="pt-2">
+                                            <p class="text-[11px] text-emerald-600 font-bold uppercase">Band 6.5+ Level:</p>
+                                            <p class="text-slate-800">"Indeed, I was constantly <span class="tooltip text-rose-600 font-semibold bg-rose-50 px-1 rounded cursor-help">yearning for<span class="tooltiptext">Having an intense feeling of loss or lack, desiring something greatly.</span></span> a puppy back then, as I believed it would teach me basic <span class="tooltip text-rose-600 font-semibold bg-rose-50 px-1 rounded cursor-help">personal accountability<span class="tooltiptext">Being responsible for one's actions and duties (like feeding a pet).</span></span> while offering unconditional companionship."</p>
+                                        </div>
+                                    </div>
+                                </details>
+                            </div>
+
+                            <!-- Q2 -->
+                            <div class="bg-white p-3 rounded-xl border border-slate-100 shadow-sm space-y-2">
+                                <p class="text-xs font-semibold text-slate-800">2. Would you like to have pets in the future?</p>
+                                <details class="group bg-slate-50/50 rounded-lg border border-slate-100 p-2 text-xs">
+                                    <summary class="font-bold text-rose-600 hover:text-rose-700 cursor-pointer select-none">Reveal Sample & Band Breakdown</summary>
+                                    <div class="mt-2 space-y-2 divide-y divide-slate-100 pt-2">
+                                        <div>
+                                            <p class="text-[11px] text-slate-500 font-bold uppercase">Band 5.5 Level:</p>
+                                            <p class="text-slate-600 italic">"I think maybe in the future, when I have my own house and not busy."</p>
+                                        </div>
+                                        <div class="pt-2">
+                                            <p class="text-[11px] text-emerald-600 font-bold uppercase">Band 6.5+ Level:</p>
+                                            <p class="text-slate-800">"Absolutely. I intend to <span class="tooltip text-rose-600 font-semibold bg-rose-50 px-1 rounded cursor-help">adopt<span class="tooltiptext">Taking on the legal and physical custody of an animal.</span></span> a rescue cat once my schedule becomes more <span class="tooltip text-rose-600 font-semibold bg-rose-50 px-1 rounded cursor-help">manageable<span class="tooltiptext">Easy to control or cope with.</span></span>, as pets are highly beneficial for stress alleviation."</p>
+                                        </div>
+                                    </div>
+                                </details>
+                            </div>
+
+                            <!-- Q3 -->
+                            <div class="bg-white p-3 rounded-xl border border-slate-100 shadow-sm space-y-2">
+                                <p class="text-xs font-semibold text-slate-800">3. Where do you prefer to keep your pet, indoors or outdoors?</p>
+                                <details class="group bg-slate-50/50 rounded-lg border border-slate-100 p-2 text-xs">
+                                    <summary class="font-bold text-rose-600 hover:text-rose-700 cursor-pointer select-none">Reveal Sample & Band Breakdown</summary>
+                                    <div class="mt-2 space-y-2 divide-y divide-slate-100 pt-2">
+                                        <div>
+                                            <p class="text-[11px] text-slate-500 font-bold uppercase">Band 5.5 Level:</p>
+                                            <p class="text-slate-600 italic">"Inside is better because outside is dirty and has cars that can hit the dog."</p>
+                                        </div>
+                                        <div class="pt-2">
+                                            <p class="text-[11px] text-emerald-600 font-bold uppercase">Band 6.5+ Level:</p>
+                                            <p class="text-slate-800">"I strongly <span class="tooltip text-rose-600 font-semibold bg-rose-50 px-1 rounded cursor-help">advocate for<span class="tooltiptext">To publicly support or recommend a particular action.</span></span> keeping pets indoors to ensure their physical safety, provided they are given <span class="tooltip text-rose-600 font-semibold bg-rose-50 px-1 rounded cursor-help">ample opportunities<span class="tooltiptext">More than enough chances or space.</span></span> to exercise outside under supervision."</p>
+                                        </div>
+                                    </div>
+                                </details>
+                            </div>
+
+                            <!-- Q4 -->
+                            <div class="bg-white p-3 rounded-xl border border-slate-100 shadow-sm space-y-2">
+                                <p class="text-xs font-semibold text-slate-800">4. Do you see many birds and animals where you live?</p>
+                                <details class="group bg-slate-50/50 rounded-lg border border-slate-100 p-2 text-xs">
+                                    <summary class="font-bold text-rose-600 hover:text-rose-700 cursor-pointer select-none">Reveal Sample & Band Breakdown</summary>
+                                    <div class="mt-2 space-y-2 divide-y divide-slate-100 pt-2">
+                                        <div>
+                                            <p class="text-[11px] text-slate-500 font-bold uppercase">Band 5.5 Level:</p>
+                                            <p class="text-slate-600 italic">"No, I live in city. Only some stray dogs and cats. No wild animals here."</p>
+                                        </div>
+                                        <div class="pt-2">
+                                            <p class="text-[11px] text-emerald-600 font-bold uppercase">Band 6.5+ Level:</p>
+                                            <p class="text-slate-800">"Regrettably, modern urban settings are quite <span class="tooltip text-rose-600 font-semibold bg-rose-50 px-1 rounded cursor-help">devoid of<span class="tooltiptext">Entirely lacking or free from something.</span></span> native wildlife, save for common domesticated animals and occasional sparrows nesting under house <span class="tooltip text-rose-600 font-semibold bg-rose-50 px-1 rounded cursor-help">eaves<span class="tooltiptext">The edge of a roof that sticks out over the walls.</span></span>."</p>
+                                        </div>
+                                    </div>
+                                </details>
+                            </div>
+
+                            <!-- Q5 -->
+                            <div class="bg-white p-3 rounded-xl border border-slate-100 shadow-sm space-y-2">
+                                <p class="text-xs font-semibold text-slate-800">5. Have you ever been to a zoo?</p>
+                                <details class="group bg-slate-50/50 rounded-lg border border-slate-100 p-2 text-xs">
+                                    <summary class="font-bold text-rose-600 hover:text-rose-700 cursor-pointer select-none">Reveal Sample & Band Breakdown</summary>
+                                    <div class="mt-2 space-y-2 divide-y divide-slate-100 pt-2">
+                                        <div>
+                                            <p class="text-[11px] text-slate-500 font-bold uppercase">Band 5.5 Level:</p>
+                                            <p class="text-slate-600 italic">"Yes, I went to zoo when I was young. It was fun but I felt sad for cages."</p>
+                                        </div>
+                                        <div class="pt-2">
+                                            <p class="text-[11px] text-emerald-600 font-bold uppercase">Band 6.5+ Level:</p>
+                                            <p class="text-slate-800">"Indeed, I visited a municipal park during my childhood, but I harbor <span class="tooltip text-rose-600 font-semibold bg-rose-50 px-1 rounded cursor-help">mixed feelings<span class="tooltiptext">Having opposing feelings (good and bad) about something simultaneously.</span></span> about it because keeping wild creatures in <span class="tooltip text-rose-600 font-semibold bg-rose-50 px-1 rounded cursor-help">captivity<span class="tooltiptext">The state of being kept in a confined space.</span></span> seems ethically questionable nowadays."</p>
+                                        </div>
+                                    </div>
+                                </details>
+                            </div>
+
+                            <!-- Q6 -->
+                            <div class="bg-white p-3 rounded-xl border border-slate-100 shadow-sm space-y-2">
+                                <p class="text-xs font-semibold text-slate-800">6. What kind of animals is famous in your country?</p>
+                                <details class="group bg-slate-50/50 rounded-lg border border-slate-100 p-2 text-xs">
+                                    <summary class="font-bold text-rose-600 hover:text-rose-700 cursor-pointer select-none">Reveal Sample & Band Breakdown</summary>
+                                    <div class="mt-2 space-y-2 divide-y divide-slate-100 pt-2">
+                                        <div>
+                                            <p class="text-[11px] text-slate-500 font-bold uppercase">Band 5.5 Level:</p>
+                                            <p class="text-slate-600 italic">"In Vietnam, water buffalo is famous because it helps farmers plow the rice."</p>
+                                        </div>
+                                        <div class="pt-2">
+                                            <p class="text-[11px] text-emerald-600 font-bold uppercase">Band 6.5+ Level:</p>
+                                            <p class="text-slate-800">"The water buffalo is highly symbolic in Vietnam, representing <span class="tooltip text-rose-600 font-semibold bg-rose-50 px-1 rounded cursor-help">industriousness<span class="tooltiptext">The quality of being hard-working and persistent.</span></span> and playing an integral role in the cultural history of the <span class="tooltip text-rose-600 font-semibold bg-rose-50 px-1 rounded cursor-help">rural peasantry<span class="tooltiptext">The agricultural laborers and farmers living in rural areas.</span></span>."</p>
+                                        </div>
+                                    </div>
+                                </details>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PART 2 -->
+                    <div class="border-l-4 border-sky-400 bg-sky-50/30 p-4 rounded-r-xl space-y-4">
+                        <div class="flex justify-between items-center border-b border-sky-100 pb-2">
+                            <h4 class="text-xs font-bold text-sky-800 uppercase tracking-widest">Part 2: Long Turn (3-4 mins)</h4>
+                            <span class="text-[10px] bg-sky-100 text-sky-800 px-2 py-0.5 rounded-full font-bold">2-Min Speech Practice</span>
+                        </div>
+
+                        <div class="bg-white border border-sky-100 p-4 rounded-xl space-y-2 text-xs">
+                            <h5 class="font-bold text-slate-900">Cue Card prompt:</h5>
+                            <p class="text-slate-800 font-semibold bg-sky-50 p-2.5 rounded-lg border border-sky-100">
+                                Describe a perfect job you would like to have in the future.
+                            </p>
+                            <p class="text-slate-500 font-medium">You should say:</p>
+                            <ul class="list-disc pl-4 space-y-1 text-slate-600">
+                                <li>What the job is</li>
+                                <li>How you knew it</li>
+                                <li>What skills you need for this job</li>
+                                <li>And explain why it would be the perfect job for you</li>
+                            </ul>
+                        </div>
+
+                        <details class="group bg-white rounded-xl border border-sky-100 p-3 text-xs">
+                            <summary class="font-bold text-sky-700 hover:text-sky-800 cursor-pointer select-none">Reveal High-Scoring Band 6.5+ Model Response</summary>
+                            <div class="mt-2 space-y-3 text-slate-700 leading-relaxed pt-2 border-t border-sky-100">
+                                <p>
+                                    "I would like to describe my dream job, which is to work as a <span class="tooltip text-sky-600 font-semibold bg-sky-50 px-1 rounded cursor-help">Sustainability Consultant<span class="tooltiptext">An advisor who helps organizations reduce their ecological footprint.</span></span> for an international corporate firm. I first stumbled upon this profession during a guest lecture at my university, where an environmental scientist detailed how green strategies save millions while preserving ecosystems. It immediately captured my attention as a highly noble path.
+                                </p>
+                                <p>
+                                    To excel in this role, one must possess sharp <span class="tooltip text-sky-600 font-semibold bg-sky-50 px-1 rounded cursor-help">analytical acumen<span class="tooltiptext">The ability to understand and reason logically and solve problems.</span></span> to process complex pollution data, coupled with <span class="tooltip text-sky-600 font-semibold bg-sky-50 px-1 rounded cursor-help">exemplary interpersonal skills<span class="tooltiptext">Excellent social communication abilities.</span></span> to convince stubborn stakeholders. Furthermore, deep technical knowledge of green regulations is absolutely mandatory.
+                                </p>
+                                <p>
+                                    This would be the perfect job for me because it represents a harmonious balance between a <span class="tooltip text-sky-600 font-semibold bg-sky-50 px-1 rounded cursor-help">purpose-driven life<span class="tooltiptext">A lifestyle or career dedicated to higher ideals.</span></span> and financial viability. Instead of just working for capitalistic profit, I would be actively contributing to the preservation of our planet for future generations, which is immensely <span class="tooltip text-sky-600 font-semibold bg-sky-50 px-1 rounded cursor-help">gratifying<span class="tooltiptext">Providing intense satisfaction or happiness.</span></span>."
+                                </p>
+                            </div>
+                        </details>
+                    </div>
+
+                    <!-- PART 3 -->
+                    <div class="border-l-4 border-purple-400 bg-purple-50/30 p-4 rounded-r-xl space-y-4">
+                        <div class="flex justify-between items-center border-b border-purple-100 pb-2">
+                            <h4 class="text-xs font-bold text-purple-800 uppercase tracking-widest">Part 3: Deep Abstract Discussion (4-5 mins)</h4>
+                            <span class="text-[10px] bg-purple-100 text-purple-800 px-2 py-0.5 rounded-full font-bold">Analytical Depth</span>
+                        </div>
+
+                        <div class="space-y-3 text-xs">
+                            <!-- Q1 -->
+                            <div class="bg-white p-3 rounded-xl border border-slate-100 shadow-sm space-y-2">
+                                <p class="text-xs font-semibold text-slate-800">1. What types of jobs do children usually want to do?</p>
+                                <details class="group bg-slate-50/50 rounded-lg border border-slate-100 p-2">
+                                    <summary class="font-bold text-purple-700 hover:text-purple-800 cursor-pointer select-none">Reveal Sample & Band Breakdown</summary>
+                                    <div class="mt-2 space-y-2 pt-2 border-t border-slate-100">
+                                        <p class="text-slate-800">"Generally speaking, youngsters often gravitate toward <span class="tooltip text-purple-600 font-semibold bg-purple-50 px-1 rounded cursor-help">glamorous professions<span class="tooltiptext">Jobs that are seen as prestigious, exciting, and beautiful in popular culture.</span></span> such as being an astronaut, actor, or professional athlete. This is primary due to the <span class="tooltip text-purple-600 font-semibold bg-purple-50 px-1 rounded cursor-help">vibrant representation<span class="tooltiptext">Highly colorful and appealing portrayal in movies/TV.</span></span> of these roles in mass media, which captures their childish imagination."</p>
+                                    </div>
+                                </details>
+                            </div>
+
+                            <!-- Q2 -->
+                            <div class="bg-white p-3 rounded-xl border border-slate-100 shadow-sm space-y-2">
+                                <p class="text-xs font-semibold text-slate-800">2. What are the dream jobs of people in your country?</p>
+                                <details class="group bg-slate-50/50 rounded-lg border border-slate-100 p-2">
+                                    <summary class="font-bold text-purple-700 hover:text-purple-800 cursor-pointer select-none">Reveal Sample & Band Breakdown</summary>
+                                    <div class="mt-2 space-y-2 pt-2 border-t border-slate-100">
+                                        <p class="text-slate-800">"In Vietnam, a vast majority of young adults currently aspire to join <span class="tooltip text-purple-600 font-semibold bg-purple-50 px-1 rounded cursor-help">tech-driven industries<span class="tooltiptext">Modern business fields focused on hardware/software.</span></span> or establish independent start-ups. The allure of <span class="tooltip text-purple-600 font-semibold bg-purple-50 px-1 rounded cursor-help">lucrative financial rewards<span class="tooltiptext">Highly profitable income streams.</span></span> and the freedom of entrepreneurial management seem far more appealing than traditional civil service jobs."</p>
+                                    </div>
+                                </details>
+                            </div>
+
+                            <!-- Q3 -->
+                            <div class="bg-white p-3 rounded-xl border border-slate-100 shadow-sm space-y-2">
+                                <p class="text-xs font-semibold text-slate-800">3. Why do some jobs attract more people than others?</p>
+                                <details class="group bg-slate-50/50 rounded-lg border border-slate-100 p-2">
+                                    <summary class="font-bold text-purple-700 hover:text-purple-800 cursor-pointer select-none">Reveal Sample & Band Breakdown</summary>
+                                    <div class="mt-2 space-y-2 pt-2 border-t border-slate-100">
+                                        <p class="text-slate-800">"Careers offering <span class="tooltip text-purple-600 font-semibold bg-purple-50 px-1 rounded cursor-help">prestigious social standing<span class="tooltiptext">An elite reputation inside local society.</span></span>, hefty remuneration packages, and healthy working parameters naturally draw a <span class="tooltip text-purple-600 font-semibold bg-purple-50 px-1 rounded cursor-help">disproportionate number<span class="tooltiptext">An unequal or unfairly large share.</span></span> of applicants. People universally seek security and societal validation."</p>
+                                    </div>
+                                </details>
+                            </div>
+
+                            <!-- Q4 -->
+                            <div class="bg-white p-3 rounded-xl border border-slate-100 shadow-sm space-y-2">
+                                <p class="text-xs font-semibold text-slate-800">4. Why do people choose the job they mentioned as their dream job?</p>
+                                <details class="group bg-slate-50/50 rounded-lg border border-slate-100 p-2">
+                                    <summary class="font-bold text-purple-700 hover:text-purple-800 cursor-pointer select-none">Reveal Sample & Band Breakdown</summary>
+                                    <div class="mt-2 space-y-2 pt-2 border-t border-slate-100">
+                                        <p class="text-slate-800">"It's typically a delicate mix of <span class="tooltip text-purple-600 font-semibold bg-purple-50 px-1 rounded cursor-help">intrinsic motivation<span class="tooltiptext">Performing an action purely because of internal, personal satisfaction.</span></span>, like genuine enthusiasm for the task, alongside <span class="tooltip text-purple-600 font-semibold bg-purple-50 px-1 rounded cursor-help">extrinsic forces<span class="tooltiptext">Outside elements like financial demands or peer expectations.</span></span> like parental pride or economic stability."</p>
+                                    </div>
+                                </details>
+                            </div>
+
+                            <!-- Q5 -->
+                            <div class="bg-white p-3 rounded-xl border border-slate-100 shadow-sm space-y-2">
+                                <p class="text-xs font-semibold text-slate-800">5. Why do people change their dream jobs as they grow older?</p>
+                                <details class="group bg-slate-50/50 rounded-lg border border-slate-100 p-2">
+                                    <summary class="font-bold text-purple-700 hover:text-purple-800 cursor-pointer select-none">Reveal Sample & Band Breakdown</summary>
+                                    <div class="mt-2 space-y-2 pt-2 border-t border-slate-100">
+                                        <p class="text-slate-800">"As human beings mature, their core priorities undergo a complete shift. They transition away from chasing <span class="tooltip text-purple-600 font-semibold bg-purple-50 px-1 rounded cursor-help">idealistic fantasies<span class="tooltiptext">Unrealistic, beautiful dreams lacking practical logic.</span></span> toward prioritizing <span class="tooltip text-purple-600 font-semibold bg-purple-50 px-1 rounded cursor-help">pragmatic stability<span class="tooltiptext">Real-world, reliable financial and emotional security.</span></span> and a healthy work-life equilibrium."</p>
+                                    </div>
+                                </details>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Tutor Assessment Panel -->
+                <div class="lg:col-span-5 bg-slate-50 border border-slate-200 p-4 rounded-xl flex flex-col justify-between">
+                    <div>
+                        <div class="mb-3">
+                            <h4 class="text-sm font-bold text-slate-900">Diagnostic Scorecard Evaluator</h4>
+                            <p class="text-[11px] text-slate-500">Tick observed strengths and gaps to analyze potential band progress from 5.5-6.0 to 6.5.</p>
+                        </div>
+
+                        <div class="space-y-4">
+                            <!-- Fluency -->
+                            <div class="bg-white p-3 rounded-lg border border-slate-200/60">
+                                <span class="text-[10px] font-bold text-rose-700 uppercase tracking-wider block mb-1.5">Fluency & Coherence</span>
+                                <div class="space-y-1 text-xs">
+                                    <label class="flex items-center gap-2 text-slate-600 cursor-pointer">
+                                        <input type="checkbox" onchange="evaluateMockSpeaking()" class="speak-metric-check rounded text-rose-500 border-slate-300">
+                                        <span>Speaks continuously with minimal long pauses</span>
+                                    </label>
+                                    <label class="flex items-center gap-2 text-slate-600 cursor-pointer">
+                                        <input type="checkbox" onchange="evaluateMockSpeaking()" class="speak-metric-check rounded text-rose-500 border-slate-300">
+                                        <span>Uses logical discourse connectors (Indeed, Ultimately)</span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <!-- Lexical Resource -->
+                            <div class="bg-white p-3 rounded-lg border border-slate-200/60">
+                                <span class="text-[10px] font-bold text-sky-700 uppercase tracking-wider block mb-1.5">Lexical Resource</span>
+                                <div class="space-y-1 text-xs">
+                                    <label class="flex items-center gap-2 text-slate-600 cursor-pointer">
+                                        <input type="checkbox" onchange="evaluateMockSpeaking()" class="speak-metric-check rounded text-rose-500 border-slate-300">
+                                        <span>Successfully varies vocabulary, avoiding repetition</span>
+                                    </label>
+                                    <label class="flex items-center gap-2 text-slate-600 cursor-pointer">
+                                        <input type="checkbox" onchange="evaluateMockSpeaking()" class="speak-metric-check rounded text-rose-500 border-slate-300">
+                                        <span>Uses dynamic idiom pairings (e.g. "at a crossroads")</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Grammar -->
+                            <div class="bg-white p-3 rounded-lg border border-slate-200/60">
+                                <span class="text-[10px] font-bold text-emerald-700 uppercase tracking-wider block mb-1.5">Grammar Range & Accuracy</span>
+                                <div class="space-y-1 text-xs">
+                                    <label class="flex items-center gap-2 text-slate-600 cursor-pointer">
+                                        <input type="checkbox" onchange="evaluateMockSpeaking()" class="speak-metric-check rounded text-rose-500 border-slate-300">
+                                        <span>Maintains subject-verb agreement on fast responses</span>
+                                    </label>
+                                    <label class="flex items-center gap-2 text-slate-600 cursor-pointer">
+                                        <input type="checkbox" onchange="evaluateMockSpeaking()" class="speak-metric-check rounded text-rose-500 border-slate-300">
+                                        <span>Consistently forms accurate compound-complex clauses</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Live calculated rating analysis box -->
+                    <div class="bg-rose-50/80 border border-rose-100 rounded-lg p-3.5 mt-4 text-center">
+                        <span class="text-[11px] font-bold text-rose-800 uppercase tracking-wider block">Estimated Speaking Band State</span>
+                        <div class="text-2xl font-black text-rose-600 my-1" id="estimatedSpeakingBand">
+                            Band 5.5 - 6.0
+                        </div>
+                        <p id="speakingBandAdvise" class="text-[10px] text-slate-600 leading-relaxed">
+                            Check 3 or more boxes to show stable progress towards a secure Band 6.5 competency footprint.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- SECTION 4: LESSON 1 EXHAUSTIVE HOMEWORK PACK -->
+        <section id="homework" class="bg-white border border-emerald-100 p-6 rounded-2xl pastel-shadow space-y-6">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-4 border-b border-slate-100">
+                <div class="flex items-center space-x-3">
+                    <span class="p-2.5 bg-emerald-50 rounded-xl text-emerald-600">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+                    </span>
+                    <div>
+                        <h2 class="text-lg font-bold text-slate-900">Extensive Homework Portfolio</h2>
+                        <p class="text-xs text-slate-500">Complete these mock reading tests sequentially before Day 2 to lock in scanning speed.</p>
+                    </div>
+                </div>
+
+                <!-- Dynamic Homework Tracking Indicator -->
+                <div class="bg-emerald-50 text-emerald-800 px-3 py-1.5 rounded-lg border border-emerald-100 text-xs font-bold" id="homeworkPercentDisplay">
+                    0 / 8 Tasks Completed (0%)
+                </div>
+            </div>
+
+            <!-- Detailed Grid of Homework Links -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                
+                <!-- Test 3 Card -->
+                <div class="bg-slate-50 hover:bg-slate-100/50 p-4 rounded-xl border border-slate-200/60 transition-all-300 flex justify-between items-start">
+                    <div class="space-y-1.5">
+                        <span class="text-[10px] font-bold text-rose-700 bg-rose-50 border border-rose-100 px-2 py-0.5 rounded">Core Drill</span>
+                        <h4 class="text-xs font-bold text-slate-900">PET Intensive Reading - Test 03</h4>
+                        <p class="text-[11px] text-slate-500">Analyze errors & match 100% of keywords.</p>
+                        <a href="https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/pet_intensive_03.html" target="_blank" class="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-600 hover:underline">
+                            <span>Open Test 03</span>
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                        </a>
+                    </div>
+                    <input type="checkbox" onchange="updateHomeworkScore()" class="hw-checkbox rounded text-emerald-500 border-slate-300 w-5 h-5 cursor-pointer">
+                </div>
+
+                <!-- Test 4 Card -->
+                <div class="bg-slate-50 hover:bg-slate-100/50 p-4 rounded-xl border border-slate-200/60 transition-all-300 flex justify-between items-start">
+                    <div class="space-y-1.5">
+                        <span class="text-[10px] font-bold text-sky-700 bg-sky-50 border border-sky-100 px-2 py-0.5 rounded">Speed Practice</span>
+                        <h4 class="text-xs font-bold text-slate-900">PET Intensive Reading - Test 04</h4>
+                        <p class="text-[11px] text-slate-500">Build stamina & strictly enforce 20m limits.</p>
+                        <a href="https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/pet_intensive_04.html" target="_blank" class="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-600 hover:underline">
+                            <span>Open Test 04</span>
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                        </a>
+                    </div>
+                    <input type="checkbox" onchange="updateHomeworkScore()" class="hw-checkbox rounded text-emerald-500 border-slate-300 w-5 h-5 cursor-pointer">
+                </div>
+
+                <!-- Test 5 Card -->
+                <div class="bg-slate-50 hover:bg-slate-100/50 p-4 rounded-xl border border-slate-200/60 transition-all-300 flex justify-between items-start">
+                    <div class="space-y-1.5">
+                        <span class="text-[10px] font-bold text-sky-700 bg-sky-50 border border-sky-100 px-2 py-0.5 rounded">Speed Practice</span>
+                        <h4 class="text-xs font-bold text-slate-900">PET Intensive Reading - Test 05</h4>
+                        <p class="text-[11px] text-slate-500">Analyze logic contradictions for TFNG questions.</p>
+                        <a href="https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/pet_intensive_05.html" target="_blank" class="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-600 hover:underline">
+                            <span>Open Test 05</span>
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                        </a>
+                    </div>
+                    <input type="checkbox" onchange="updateHomeworkScore()" class="hw-checkbox rounded text-emerald-500 border-slate-300 w-5 h-5 cursor-pointer">
+                </div>
+
+                <!-- Test 6 Card -->
+                <div class="bg-slate-50 hover:bg-slate-100/50 p-4 rounded-xl border border-slate-200/60 transition-all-300 flex justify-between items-start">
+                    <div class="space-y-1.5">
+                        <span class="text-[10px] font-bold text-sky-700 bg-sky-50 border border-sky-100 px-2 py-0.5 rounded">Speed Practice</span>
+                        <h4 class="text-xs font-bold text-slate-900">PET Intensive Reading - Test 06</h4>
+                        <p class="text-[11px] text-slate-500">Focus on matching headings with topic sentences.</p>
+                        <a href="https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/pet_intensive_06.html" target="_blank" class="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-600 hover:underline">
+                            <span>Open Test 06</span>
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                        </a>
+                    </div>
+                    <input type="checkbox" onchange="updateHomeworkScore()" class="hw-checkbox rounded text-emerald-500 border-slate-300 w-5 h-5 cursor-pointer">
+                </div>
+
+                <!-- Test 7 Card -->
+                <div class="bg-slate-50 hover:bg-slate-100/50 p-4 rounded-xl border border-slate-200/60 transition-all-300 flex justify-between items-start">
+                    <div class="space-y-1.5">
+                        <span class="text-[10px] font-bold text-sky-700 bg-sky-50 border border-sky-100 px-2 py-0.5 rounded">Speed Practice</span>
+                        <h4 class="text-xs font-bold text-slate-900">PET Intensive Reading - Test 07</h4>
+                        <p class="text-[11px] text-slate-500">Identify distractors and incorrect synonyms.</p>
+                        <a href="https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/pet_intensive_07.html" target="_blank" class="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-600 hover:underline">
+                            <span>Open Test 07</span>
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                        </a>
+                    </div>
+                    <input type="checkbox" onchange="updateHomeworkScore()" class="hw-checkbox rounded text-emerald-500 border-slate-300 w-5 h-5 cursor-pointer">
+                </div>
+
+                <!-- Test 8 Card -->
+                <div class="bg-slate-50 hover:bg-slate-100/50 p-4 rounded-xl border border-slate-200/60 transition-all-300 flex justify-between items-start">
+                    <div class="space-y-1.5">
+                        <span class="text-[10px] font-bold text-sky-700 bg-sky-50 border border-sky-100 px-2 py-0.5 rounded">Speed Practice</span>
+                        <h4 class="text-xs font-bold text-slate-900">PET Intensive Reading - Test 08</h4>
+                        <p class="text-[11px] text-slate-500">Hone in on sentence-completion accuracy.</p>
+                        <a href="https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/pet_intensive_08.html" target="_blank" class="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-600 hover:underline">
+                            <span>Open Test 08</span>
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                        </a>
+                    </div>
+                    <input type="checkbox" onchange="updateHomeworkScore()" class="hw-checkbox rounded text-emerald-500 border-slate-300 w-5 h-5 cursor-pointer">
+                </div>
+
+                <!-- Test 9 Card -->
+                <div class="bg-slate-50 hover:bg-slate-100/50 p-4 rounded-xl border border-slate-200/60 transition-all-300 flex justify-between items-start">
+                    <div class="space-y-1.5">
+                        <span class="text-[10px] font-bold text-sky-700 bg-sky-50 border border-sky-100 px-2 py-0.5 rounded">Speed Practice</span>
+                        <h4 class="text-xs font-bold text-slate-900">PET Intensive Reading - Test 09</h4>
+                        <p class="text-[11px] text-slate-500">Scan for complex scientific structures.</p>
+                        <a href="https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/pet_intensive_09.html" target="_blank" class="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-600 hover:underline">
+                            <span>Open Test 09</span>
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                        </a>
+                    </div>
+                    <input type="checkbox" onchange="updateHomeworkScore()" class="hw-checkbox rounded text-emerald-500 border-slate-300 w-5 h-5 cursor-pointer">
+                </div>
+
+                <!-- Test 10 Card -->
+                <div class="bg-slate-50 hover:bg-slate-100/50 p-4 rounded-xl border border-slate-200/60 transition-all-300 flex justify-between items-start">
+                    <div class="space-y-1.5">
+                        <span class="text-[10px] font-bold text-purple-700 bg-purple-50 border border-purple-100 px-2 py-0.5 rounded">Final Checkpoint</span>
+                        <h4 class="text-xs font-bold text-slate-900">PET Intensive Reading - Test 10</h4>
+                        <p class="text-[11px] text-slate-500">Comprehensive diagnostic of scanning speed & accuracy.</p>
+                        <a href="https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/pet_intensive_10.html" target="_blank" class="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-600 hover:underline">
+                            <span>Open Test 10</span>
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                        </a>
+                    </div>
+                    <input type="checkbox" onchange="updateHomeworkScore()" class="hw-checkbox rounded text-emerald-500 border-slate-300 w-5 h-5 cursor-pointer">
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-slate-400 py-12 px-4 sm:px-6 lg:px-8 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center space-x-3">
+                <span class="p-2 bg-gradient-to-tr from-rose-500 to-amber-400 rounded-xl text-white font-extrabold shadow-sm">CT</span>
+                <span class="text-lg font-bold tracking-tight text-white">IELTS Chan Truong</span>
+            </div>
+            <p class="text-xs text-slate-500">
+                &copy; 2026 IELTS Chan Truong. Designed specifically for advanced learners striving for 6.5.
+            </p>
+        </div>
+    </footer>
+
+    <!-- LIVE WORKSPACE SCRIPTS -->
+    <script>
+        function showNotification(message, type = 'success') {
+            const toast = document.getElementById('toastNotification');
+            toast.innerText = message;
+            
+            // Set dynamic background styles
+            if (type === 'error') {
+                toast.className = 'fixed bottom-5 right-5 px-4 py-2.5 rounded-xl text-xs font-bold text-white shadow-lg transition-all-300 transform translate-y-0 opacity-100 z-[100] bg-rose-500';
+            } else {
+                toast.className = 'fixed bottom-5 right-5 px-4 py-2.5 rounded-xl text-xs font-bold text-white shadow-lg transition-all-300 transform translate-y-0 opacity-100 z-[100] bg-emerald-500';
+            }
+            
+            // Trigger automatic hide sequence
+            setTimeout(() => {
+                toast.className = 'fixed bottom-5 right-5 px-4 py-2.5 rounded-xl text-xs font-bold text-white shadow-lg transition-all-300 transform translate-y-10 opacity-0 pointer-events-none z-[100] bg-slate-800';
+            }, 3500);
+        }
+
+        /* Interactive Synonym Map Tool */
+        function addSynonymMap() {
+            const keyWordInput = document.getElementById('keyWordInput');
+            const synonymInput = document.getElementById('synonymInput');
+            const tbody = document.getElementById('synonymTableBody');
+
+            const kw = keyWordInput.value.trim();
+            const syn = synonymInput.value.trim();
+
+            if (!kw || !syn) {
+                showNotification('Please fill in both inputs before adding!', 'error');
+                return;
+            }
+
+            // Create new row
+            const tr = document.createElement('tr');
+            tr.className = 'hover:bg-slate-50/50 transition-colors';
+            tr.innerHTML = `
+                <td class="p-3 font-semibold text-slate-800">${escapeHtml(kw)}</td>
+                <td class="p-3 text-sky-800 font-medium">${escapeHtml(syn)}</td>
+                <td class="p-3 text-right">
+                    <button onclick="this.closest('tr').remove(); showNotification('Item deleted.', 'error');" class="text-xs text-rose-500 hover:text-rose-700 font-bold px-2 py-1 bg-rose-50 hover:bg-rose-100 rounded-lg transition-colors">
+                        Delete
+                    </button>
+                </td>
+            `;
+            tbody.appendChild(tr);
+
+            // Reset inputs
+            keyWordInput.value = '';
+            synonymInput.value = '';
+            showNotification('New synonym combination recorded successfully!');
+        }
+
+        function escapeHtml(text) {
+            const map = {
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#039;'
+            };
+            return text.replace(/[&<>"']/g, function(m) { return map[m]; });
+        }
+
+
+        let speakTimerInterval = null;
+        let speakRemainingSeconds = 0;
+
+        function updateSpeakingTimerDisplay() {
+            const min = Math.floor(speakRemainingSeconds / 60);
+            const sec = speakRemainingSeconds % 60;
+            document.getElementById('speakingTimerDisplay').innerText = 
+                `${min.toString().padStart(2, '0')}:${sec.toString().padStart(2, '0')}`;
+        }
+
+        function setSpeakingTimer(seconds) {
+            clearInterval(speakTimerInterval);
+            speakTimerInterval = null;
+            speakRemainingSeconds = seconds;
+            updateSpeakingTimerDisplay();
+            
+            const btn = document.getElementById('speakTimerBtn');
+            btn.innerText = 'Start';
+            showNotification(`Timer loaded with ${Math.floor(seconds/60)} minutes.`);
+        }
+
+        function toggleSpeakingTimer() {
+            const btn = document.getElementById('speakTimerBtn');
+
+            if (speakTimerInterval) {
+                // Pause
+                clearInterval(speakTimerInterval);
+                speakTimerInterval = null;
+                btn.innerText = 'Resume';
+                showNotification('Timer paused.');
+            } else {
+                // Play
+                if (speakRemainingSeconds <= 0) {
+                    speakRemainingSeconds = 60; // Default fallback to 1 min
+                }
+                btn.innerText = 'Pause';
+                showNotification('Timer running.');
+                
+                speakTimerInterval = setInterval(() => {
+                    if (speakRemainingSeconds > 0) {
+                        speakRemainingSeconds--;
+                        updateSpeakingTimerDisplay();
+                    } else {
+                        clearInterval(speakTimerInterval);
+                        speakTimerInterval = null;
+                        btn.innerText = 'Completed';
+                        showNotification('Time is up!', 'error');
+                        // Flash background momentarily
+                        const wrapper = document.getElementById('speakingTimerDisplay');
+                        wrapper.classList.add('bg-rose-200', 'animate-pulse');
+                        setTimeout(() => wrapper.classList.remove('bg-rose-200', 'animate-pulse'), 2500);
+                    }
+                }, 1000);
+            }
+        }
+
+        function resetSpeakingTimer() {
+            clearInterval(speakTimerInterval);
+            speakTimerInterval = null;
+            speakRemainingSeconds = 0;
+            updateSpeakingTimerDisplay();
+            document.getElementById('speakTimerBtn').innerText = 'Play';
+            showNotification('Timer cleared.');
+        }
+
+
+        function evaluateMockSpeaking() {
+            const checks = document.querySelectorAll('.speak-metric-check');
+            let checkedCount = 0;
+            checks.forEach(chk => {
+                if (chk.checked) checkedCount++;
+            });
+
+            const bandDisplay = document.getElementById('estimatedSpeakingBand');
+            const adviseDisplay = document.getElementById('speakingBandAdvise');
+
+            if (checkedCount === 0) {
+                bandDisplay.innerText = 'Band 5.5 - 6.0';
+                bandDisplay.className = 'text-2xl font-black text-rose-600 my-1';
+                adviseDisplay.innerText = 'Begin checking student performance boxes to estimate current bands.';
+            } else if (checkedCount <= 2) {
+                bandDisplay.innerText = 'Band 6.0 (Plateau)';
+                bandDisplay.className = 'text-2xl font-black text-amber-600 my-1';
+                adviseDisplay.innerText = 'Student shows partial accuracy but requires smoother clause structures and complex linkers to cross the 6.5 boundary.';
+            } else if (checkedCount <= 4) {
+                bandDisplay.innerText = 'Band 6.5 (Target Hit)';
+                bandDisplay.className = 'text-2xl font-black text-emerald-600 my-1';
+                adviseDisplay.innerText = 'Great control over vocabulary variation and compound clauses. Work on maintaining consistency under pressure.';
+            } else {
+                bandDisplay.innerText = 'Band 7.0+ (Elite Profile)';
+                bandDisplay.className = 'text-2xl font-black text-purple-600 my-1';
+                adviseDisplay.innerText = 'Candidate shows superior flexibility, native idioms, and complex structures. Maintain speed accuracy and mental energy!';
+            }
+        }
+
+
+        /* Homework Task Checklist Tracker */
+        function updateHomeworkScore() {
+            const boxes = document.querySelectorAll('.hw-checkbox');
+            const total = boxes.length;
+            let checkedCount = 0;
+
+            boxes.forEach(bx => {
+                if (bx.checked) checkedCount++;
+            });
+
+            const percent = Math.round((checkedCount / total) * 100);
+            document.getElementById('homeworkPercentDisplay').innerText = 
+                `${checkedCount} / ${total} Tasks Completed (${percent}%)`;
+            
+            // Adjust styles dynamically depending on work progress
+            const displayBadge = document.getElementById('homeworkPercentDisplay');
+            if (percent === 100) {
+                displayBadge.className = "bg-emerald-500 text-white px-3 py-1.5 rounded-lg border border-emerald-600 text-xs font-bold animate-pulse";
+                showNotification('Fantastic! All Lesson 1 homework is complete!');
+            } else {
+                displayBadge.className = "bg-emerald-50 text-emerald-800 px-3 py-1.5 rounded-lg border border-emerald-100 text-xs font-bold";
+            }
+        }
+
+        window.onload = function() {
+            evaluateMockSpeaking();
+            updateHomeworkScore();
+        }
+    </script>
+</body>
+</html>

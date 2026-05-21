@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Chan Truong - Lesson 2 Workspace</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+        }
+        .transition-all-300 {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .pastel-shadow {
+            box-shadow: 0 10px 25px -10px rgba(56, 189, 248, 0.15);
+        }
+        .pastel-shadow-rose {
+            box-shadow: 0 10px 25px -10px rgba(244, 63, 94, 0.15);
+        }
+        /* Custom Tooltip Styling */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            cursor: help;
+        }
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 220px;
+            background-color: #0f172a;
+            color: #ffffff;
+            text-align: center;
+            border-radius: 8px;
+            padding: 8px 10px;
+            position: absolute;
+            z-index: 50;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.2s, visibility 0.2s;
+            font-size: 11px;
+            line-height: 1.35;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+            font-weight: 400;
+        }
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+        /* Style for scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen pb-12">
+
+    <!-- TOAST NOTIFICATION CONTAINER -->
+    <div id="toastNotification" class="fixed bottom-5 right-5 px-4 py-3 rounded-xl text-xs font-bold text-white shadow-xl transition-all transform translate-y-10 opacity-0 pointer-events-none z-[100]">
+        Placeholder
+    </div>
+
+    <!-- STICKY HEADER -->
+    <nav class="sticky top-0 bg-white/80 backdrop-blur-md border-b border-sky-100 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center space-x-3">
+                    <span class="p-2 bg-gradient-to-tr from-sky-400 to-indigo-400 rounded-xl text-white font-extrabold shadow-sm text-sm">CT</span>
+                    <div>
+                        <span class="text-md font-bold tracking-tight bg-gradient-to-r from-sky-600 to-indigo-600 bg-clip-text text-transparent">IELTS Chan Truong</span>
+                        <span class="text-xs text-slate-400 ml-2 border-l border-slate-200 pl-2">Lesson 2 Companion</span>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-2 sm:space-x-4">
+                    <a href="#listening" class="text-xs sm:text-sm font-medium text-slate-600 hover:text-sky-600 px-2.5 py-1.5 rounded-lg transition-colors">Listening</a>
+                    <a href="#speaking-t1" class="text-xs sm:text-sm font-medium text-slate-600 hover:text-sky-600 px-2.5 py-1.5 rounded-lg transition-colors">Speaking T1</a>
+                    <a href="#speaking-t2" class="text-xs sm:text-sm font-medium text-slate-600 hover:text-sky-600 px-2.5 py-1.5 rounded-lg transition-colors">Speaking T2</a>
+                    <a href="#homework" class="text-xs sm:text-sm font-medium text-slate-600 hover:text-sky-600 px-2.5 py-1.5 rounded-lg transition-colors">Homework</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- LESSON TITLE BANNER -->
+    <header class="bg-gradient-to-tr from-sky-50/70 via-indigo-50/40 to-emerald-50/50 border-b border-sky-100 py-10 px-4 sm:px-6 lg:px-8 relative">
+        <div class="absolute inset-0 bg-[radial-gradient(#bae6fd_1px,transparent_1px)] [background-size:20px_20px] opacity-30"></div>
+        <div class="relative max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+            <div>
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-sky-100 text-sky-800 mb-3 uppercase tracking-wider">
+                    Day 2 Lesson Plan
+                </span>
+                <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-950 tracking-tight">
+                    Listening Core Drill & Speaking Flows
+                </h1>
+                <p class="text-slate-600 text-sm sm:text-base mt-2 max-w-2xl leading-relaxed">
+                    Advancing past standard auditive speed limitations and breaking down the complex abstract parameters of Speaking Part 2 & Part 3 (Emotion & Celebrity domains).
+                </p>
+            </div>
+            <div class="flex items-center gap-3">
+                <span class="px-3.5 py-2 bg-white border border-sky-100 rounded-xl text-xs font-bold text-slate-700 shadow-sm flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-sky-500 animate-pulse"></span>
+                    90-Min Lesson Blueprint
+                </span>
+            </div>
+        </div>
+    </header>
+
+    <!-- WORKSPACE CONTAINER -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-10">
+
+        <!-- SECTION 1: LISTENING STRATEGY & DRILL -->
+        <section id="listening" class="bg-white border border-sky-100 p-6 rounded-2xl pastel-shadow space-y-6">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-4 border-b border-slate-100">
+                <div class="flex items-center space-x-3">
+                    <span class="p-2.5 bg-sky-50 rounded-xl text-sky-600">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/></svg>
+                    </span>
+                    <div>
+                        <h2 class="text-lg font-bold text-slate-900">Listening Strategy & Diagnostic Live Drill</h2>
+                        <p class="text-xs text-slate-500">Unpacking core question structures, map navigation, and auditory distraction curves.</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-center gap-2">
+                    <a href="https://ieltschantruong.github.io/IELTS/learning_resources/listening/question_type_guide.html" target="_blank" class="text-xs font-semibold text-slate-600 bg-slate-100 hover:bg-slate-200 px-3.5 py-2 rounded-lg transition-all-300">
+                        Question Guide
+                    </a>
+                    <a href="https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/test_view_pet_intensive_03.html" target="_blank" class="text-xs font-bold text-white bg-sky-500 hover:bg-sky-600 px-3.5 py-2 rounded-lg transition-all-300 shadow-sm flex items-center gap-1.5">
+                        <span>Launch Drill Test 3</span>
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Strategy Tips Matrix -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-gradient-to-b from-sky-50/30 to-transparent p-4 rounded-xl border border-sky-100/50 space-y-2">
+                    <h3 class="text-xs font-bold text-sky-700 uppercase tracking-wider flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-sky-400"></span>
+                        1. Distractor Detection
+                    </h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        To breach 6.5, watch out for speakers correcting their spelling, address details, or opinions (e.g., <span class="italic text-slate-800">"Actually, let's make that Tuesday instead"</span>). Never write down the first answer you hear without analyzing the immediate context.
+                    </p>
+                </div>
+                <div class="bg-gradient-to-b from-indigo-50/30 to-transparent p-4 rounded-xl border border-indigo-100/50 space-y-2">
+                    <h3 class="text-xs font-bold text-indigo-700 uppercase tracking-wider flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-indigo-400"></span>
+                        2. Spatial Map Pre-Emption
+                    </h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        During the 30-second reading time, trace starting junctions, compass symbols, and left/right indicators. Highlight terms like "opposite", "adjacent to", "corridor", or "bend of the road".
+                    </p>
+                </div>
+                <div class="bg-gradient-to-b from-emerald-50/30 to-transparent p-4 rounded-xl border border-emerald-100/50 space-y-2">
+                    <h3 class="text-xs font-bold text-emerald-700 uppercase tracking-wider flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                        3. Grammatical Prediction
+                    </h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Analyze blanks before listening. Determine if you require an <strong class="text-slate-800">adjective</strong>, a <strong class="text-slate-800">plural noun</strong>, or a <strong class="text-slate-800">numeric code</strong>. If the text says "a variety of ____", prepare to catch a plural noun.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Interactive Distractor Logging Tool -->
+            <div class="bg-slate-50 border border-slate-200/60 rounded-xl p-5 space-y-3">
+                <div>
+                    <h4 class="text-xs font-bold text-slate-800 uppercase tracking-wider">Tutor-Student Auditory Distractor Sandbox</h4>
+                    <p class="text-xs text-slate-500 mt-1">Found a clever distractor trap inside Test 3? Log it here to build tactical error avoidance memory.</p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    <input id="distractorOrigin" type="text" placeholder="Question / Context (e.g. Q12 Booking)" class="text-xs bg-white border border-slate-200 rounded-lg px-3 py-2 focus:outline-none focus:ring-1 focus:ring-sky-400">
+                    <input id="distractorTrap" type="text" placeholder="The Trap Word / Setup" class="text-xs bg-white border border-slate-200 rounded-lg px-3 py-2 focus:outline-none focus:ring-1 focus:ring-sky-400">
+                    <input id="distractorCorrection" type="text" placeholder="The Correct Answer Code" class="text-xs bg-white border border-slate-200 rounded-lg px-3 py-2 focus:outline-none focus:ring-1 focus:ring-sky-400">
+                </div>
+
+                <button onclick="logDistractor()" class="text-xs font-bold text-white bg-sky-500 hover:bg-sky-600 rounded-lg px-4 py-2 transition-colors w-full sm:w-auto">
+                    Log Distractor Trap
+                </button>
+
+                <div class="overflow-x-auto border border-slate-200/50 rounded-lg bg-white mt-3">
+                    <table class="w-full text-left text-xs text-slate-600">
+                        <thead class="bg-slate-50 text-slate-700 font-bold uppercase tracking-wider">
+                            <tr>
+                                <th class="p-3">Question Segment</th>
+                                <th class="p-3">The Trick / Distractor Encountered</th>
+                                <th class="p-3">True Intended Value</th>
+                                <th class="p-3 text-right">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="distractorTableBody" class="divide-y divide-slate-100">
+                            <tr class="hover:bg-slate-50/50">
+                                <td class="p-3 font-semibold text-slate-800">Section 1: Phone Booking</td>
+                                <td class="p-3 text-rose-500 font-medium">Speaker said "07700" then changed mind to "07711"</td>
+                                <td class="p-3 text-emerald-600 font-semibold">07711 900223</td>
+                                <td class="p-3 text-right"><span class="text-[10px] bg-slate-100 text-slate-500 px-2 py-0.5 rounded">Preset</span></td>
+                            </tr>
+                            <tr class="hover:bg-slate-50/50">
+                                <td class="p-3 font-semibold text-slate-800">Section 2: Visitor Map</td>
+                                <td class="p-3 text-rose-500 font-medium">Said "the cafe is adjacent to the pond, past the trees" but maps point to the pond's northern tip</td>
+                                <td class="p-3 text-emerald-600 font-semibold">Location G</td>
+                                <td class="p-3 text-right"><span class="text-[10px] bg-slate-100 text-slate-500 px-2 py-0.5 rounded">Preset</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- SECTION 2: SPEAKING MOCK TEST 1 -->
+        <section id="speaking-t1" class="bg-white border border-rose-100 p-6 rounded-2xl pastel-shadow-rose space-y-6">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-4 border-b border-slate-100">
+                <div class="flex items-center space-x-3">
+                    <span class="p-2.5 bg-rose-50 rounded-xl text-rose-600">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+                    </span>
+                    <div>
+                        <h2 class="text-lg font-bold text-slate-900">Speaking Practice Flow: Test 1</h2>
+                        <p class="text-xs text-slate-500">Focus Core: Emotions, Smiles, & Subjective Expression Dynamics.</p>
+                    </div>
+                </div>
+
+                <!-- Custom Dual Prep/Speak Timer widget -->
+                <div class="flex items-center gap-2 bg-slate-100 p-2 rounded-xl border border-slate-200">
+                    <span id="timerT1Display" class="text-sm font-extrabold text-rose-600 font-mono bg-white px-2.5 py-0.5 rounded shadow-sm border border-slate-100">00:00</span>
+                    <button onclick="runSpeakingTimer('T1', 60)" class="text-[10px] font-bold px-2 py-1 bg-rose-50 hover:bg-rose-100 text-rose-700 rounded transition-colors">1m Prep</button>
+                    <button onclick="runSpeakingTimer('T1', 120)" class="text-[10px] font-bold px-2 py-1 bg-slate-900 hover:bg-slate-800 text-white rounded transition-colors">2m Talk</button>
+                    <button onclick="resetSpeakingTimer('T1')" class="p-1 bg-slate-200 hover:bg-slate-300 rounded text-slate-600">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 1121.21 8H18"/></svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Cue Card Part 2 -->
+            <div class="border-l-4 border-rose-400 bg-rose-50/20 p-5 rounded-r-xl space-y-4">
+                <div class="flex justify-between items-center border-b border-rose-100/50 pb-2">
+                    <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-rose-100 text-rose-800 uppercase tracking-widest">Part 2 Cue Card Prompt</span>
+                    <span class="text-xs text-slate-500 font-medium">Smile & Sentiment Domain</span>
+                </div>
+                <div class="bg-white p-4 rounded-xl border border-slate-100 space-y-2">
+                    <p class="text-xs text-slate-500">Candidate Prompt Directive:</p>
+                    <p class="text-sm font-bold text-slate-900 bg-rose-50/50 border border-rose-100/30 p-3 rounded-lg leading-relaxed">
+                        Describe an occasion you remember when you saw a lot of people smiling.
+                    </p>
+                    <ul class="text-xs text-slate-600 pl-5 list-disc space-y-1">
+                        <li>Where you were and when it happened</li>
+                        <li>Who you were with</li>
+                        <li>What happened</li>
+                        <li>And explain why you remember this occasion when people smiled</li>
+                    </ul>
+                </div>
+
+                <!-- Part 2 Comparative Sample Guide -->
+                <details class="group bg-white border border-rose-200/40 rounded-xl p-3 text-xs">
+                    <summary class="font-bold text-rose-700 hover:text-rose-800 cursor-pointer select-none">
+                        Show Comparative Answers & Band Breakdown (Part 2)
+                    </summary>
+                    <div class="mt-4 space-y-3 border-t border-slate-100 pt-3">
+                        <div class="bg-slate-50 p-3 rounded-lg border border-slate-200/50">
+                            <p class="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Band 5.5 - 6.0 Level (Repetitive & Simple):</p>
+                            <p class="italic text-slate-600 leading-relaxed mt-1">
+                                "I remember a day when I saw many people smiling. It was my cousin's wedding last year. I was there with my family. The wedding was big. We ate cake and we took photos. Everyone was smiling because they were happy for the couple. I remember this because it was very fun and we got many good memories together."
+                            </p>
+                        </div>
+                        <div class="bg-emerald-50/40 p-4 rounded-lg border border-emerald-100">
+                            <p class="text-[10px] font-bold text-emerald-800 uppercase tracking-wider flex items-center gap-1.5">
+                                <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span>
+                                Band 6.5+ Level (Precise, Idiomatic, Cohesive):
+                            </p>
+                            <p class="text-slate-800 leading-relaxed mt-2 text-xs">
+                                "I’d like to share an occasion that is <span class="tooltip text-rose-600 font-bold border-b border-rose-300 bg-rose-50 px-1 rounded">vividly etched<span class="tooltiptext">Clearly remembered or permanently embedded in memory.</span></span> in my mind. It happened last autumn during my cousin's wedding ceremony in Hanoi. I was <span class="tooltip text-rose-600 font-bold border-b border-rose-300 bg-rose-50 px-1 rounded">surrounded by<span class="tooltiptext">Encircled or accompanied by.</span></span> my entire extended family, and the atmosphere was absolutely <span class="tooltip text-rose-600 font-bold border-b border-rose-300 bg-rose-50 px-1 rounded">electric<span class="tooltiptext">Extremely exciting, thrilling, or vibrant.</span></span>. 
+                                <br><br>
+                                What truly stood out was when the newlyweds stepped onto the stage and gave an unexpected, lighthearted dance performance. It was a completely <span class="tooltip text-rose-600 font-bold border-b border-rose-300 bg-rose-50 px-1 rounded">spontaneous<span class="tooltiptext">Unplanned, voluntary, or natural.</span></span> act, and the guests immediately erupted into <span class="tooltip text-rose-600 font-bold border-b border-rose-300 bg-rose-50 px-1 rounded">unbounded laughter<span class="tooltiptext">Limitless or uncontrollable happy laughing.</span></span>. Seeing a diverse crowd of older and younger relatives beaming with <span class="tooltip text-rose-600 font-bold border-b border-rose-300 bg-rose-50 px-1 rounded">sheer delight<span class="tooltiptext">Pure happiness or intense joy.</span></span> was a profoundly <span class="tooltip text-rose-600 font-bold border-b border-rose-300 bg-rose-50 px-1 rounded">heartwarming<span class="tooltiptext">Uplifting, tender, and emotionally satisfying.</span></span> sight.
+                                <br><br>
+                                I remember this distinct event so clearly because it highlights the <span class="tooltip text-rose-600 font-bold border-b border-rose-300 bg-rose-50 px-1 rounded">infectious nature<span class="tooltiptext">The quality of easily spreading to other people.</span></span> of joy. In a fast-paced world where everyone is perpetually busy, witnessing a group of people momentarily letting go of their stressors to unite in smiles was a rare, beautiful phenomenon."
+                            </p>
+                        </div>
+                    </div>
+                </details>
+            </div>
+
+            <!-- Deep Abstract Questions Part 3 -->
+            <div class="border-l-4 border-indigo-400 bg-indigo-50/20 p-5 rounded-r-xl space-y-4">
+                <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-indigo-100 text-indigo-800 uppercase tracking-widest">Part 3 Abstract Strategy Prompts</span>
+                
+                <div class="space-y-4">
+                    <!-- Q1 -->
+                    <div class="bg-white p-3 rounded-lg border border-slate-100 shadow-sm space-y-2">
+                        <p class="text-xs font-semibold text-slate-800">1. Why do people smile?</p>
+                        <details class="group text-xs text-slate-600">
+                            <summary class="font-bold text-indigo-600 cursor-pointer hover:underline">View Model Answer Breakdown</summary>
+                            <p class="mt-2 text-slate-800">
+                                "Predominantly, people utilize smiles as a social tool to signal <span class="tooltip text-rose-600 font-bold border-b border-rose-300 bg-rose-50 px-1 rounded">amenity<span class="tooltiptext">Friendliness, pleasantness, or a polite social disposition.</span></span> and build rapid rapport. On a deeper physiological level, a smile is a natural reflex to pleasurable stimuli, triggering endorphins that instantly alleviate psychological pressure."
+                            </p>
+                        </details>
+                    </div>
+
+                    <!-- Q2 -->
+                    <div class="bg-white p-3 rounded-lg border border-slate-100 shadow-sm space-y-2">
+                        <p class="text-xs font-semibold text-slate-800">2. Do children tend to smile more frequently than adults?</p>
+                        <details class="group text-xs text-slate-600">
+                            <summary class="font-bold text-indigo-600 cursor-pointer hover:underline">View Model Answer Breakdown</summary>
+                            <p class="mt-2 text-slate-800">
+                                "Without a doubt, children do. This stems from their absence of <span class="tooltip text-rose-600 font-bold border-b border-rose-300 bg-rose-50 px-1 rounded">cognitive load<span class="tooltiptext">The mental burden associated with stress, duties, or social pressures.</span></span> and social expectations. Adults are constantly preoccupied with occupational or financial issues, which naturally reduces spontaneous displays of joy."
+                            </p>
+                        </details>
+                    </div>
+
+                    <!-- Q3 -->
+                    <div class="bg-white p-3 rounded-lg border border-slate-100 shadow-sm space-y-2">
+                        <p class="text-xs font-semibold text-slate-800">3. Why do people usually smile when taking photos?</p>
+                        <details class="group text-xs text-slate-600">
+                            <summary class="font-bold text-indigo-600 cursor-pointer hover:underline">View Model Answer Breakdown</summary>
+                            <p class="mt-2 text-slate-800">
+                                "This is largely due to societal conventions and a desire to <span class="tooltip text-rose-600 font-bold border-b border-rose-300 bg-rose-50 px-1 rounded">project an ideal image<span class="tooltiptext">To display a perfect, happy, and successful version of oneself to society.</span></span> of themselves. Photographs are meant to capture milestones, and smiling ensures those memories are framed in positivity, even if it feels manufactured."
+                            </p>
+                        </details>
+                    </div>
+
+                    <!-- Q4 -->
+                    <div class="bg-white p-3 rounded-lg border border-slate-100 shadow-sm space-y-2">
+                        <p class="text-xs font-semibold text-slate-800">4. Do older people have better control over their feelings compared to young people?</p>
+                        <details class="group text-xs text-slate-600">
+                            <summary class="font-bold text-indigo-600 cursor-pointer hover:underline">View Model Answer Breakdown</summary>
+                            <p class="mt-2 text-slate-800">
+                                "In general, yes. Senior citizens have cultivated <span class="tooltip text-rose-600 font-bold border-b border-rose-300 bg-rose-50 px-1 rounded">emotional resilience<span class="tooltiptext">The capability to adapt smoothly to stressors and regulate emotional outbursts.</span></span> over decades of life experience. Young people are often driven by turbulent hormones and impulses, making them highly reactive to environmental triggers."
+                            </p>
+                        </details>
+                    </div>
+
+                    <!-- Q5 -->
+                    <div class="bg-white p-3 rounded-lg border border-slate-100 shadow-sm space-y-2">
+                        <p class="text-xs font-semibold text-slate-800">5. When is it important for people not to show their emotions?</p>
+                        <details class="group text-xs text-slate-600">
+                            <summary class="font-bold text-indigo-600 cursor-pointer hover:underline">View Model Answer Breakdown</summary>
+                            <p class="mt-2 text-slate-800">
+                                "There are critical corporate or political scenarios where displaying emotions can compromise professional negotiation. For instance, in diplomacy or board meetings, maintaining a <span class="tooltip text-rose-600 font-bold border-b border-rose-300 bg-rose-50 px-1 rounded">neutral facade<span class="tooltiptext">A flat or neutral expression that reveals no personal thoughts or emotions.</span></span> is vital to preserve authority."
+                            </p>
+                        </details>
+                    </div>
+
+                    <!-- Q6 & Q7 grouped -->
+                    <div class="bg-white p-3 rounded-lg border border-slate-100 shadow-sm space-y-2">
+                        <p class="text-xs font-semibold text-slate-800">6 & 7. Are people motivated more by their emotions or by logical thinking? Is this drive beneficial?</p>
+                        <details class="group text-xs text-slate-600">
+                            <summary class="font-bold text-indigo-600 cursor-pointer hover:underline">View Model Answer Breakdown</summary>
+                            <p class="mt-2 text-slate-800">
+                                "Despite our belief in our logical capacity, human action is profoundly <span class="tooltip text-rose-600 font-bold border-b border-rose-300 bg-rose-50 px-1 rounded">underpinned by emotion<span class="tooltiptext">Motivated, supported, or driven fundamentally by underlying feelings.</span></span>. While rational logic dictates safe choices, emotion inspires passion. However, being blindly driven by feeling can be highly <span class="tooltip text-rose-600 font-bold border-b border-rose-300 bg-rose-50 px-1 rounded">detrimental<span class="tooltiptext">Harmful, damaging, or counterproductive.</span></span> in financial or structural situations where calm calculations are necessary."
+                            </p>
+                        </details>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- SECTION 3: SPEAKING MOCK TEST 2 -->
+        <section id="speaking-t2" class="bg-white border border-indigo-100 p-6 rounded-2xl pastel-shadow space-y-6">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-4 border-b border-slate-100">
+                <div class="flex items-center space-x-3">
+                    <span class="p-2.5 bg-indigo-50 rounded-xl text-indigo-600">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.907c.961 0 1.367 1.255.583 1.876l-3.97 2.455a1 1 0 00-.364 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.971-2.455a1 1 0 00-1.17 0l-3.97 2.455c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.364-1.118L2.98 9.167c-.784-.621-.383-1.876.583-1.876h4.908a1 1 0 00.95-.69l1.519-4.674z"/></svg>
+                    </span>
+                    <div>
+                        <h2 class="text-lg font-bold text-slate-900">Speaking Practice Flow: Test 2</h2>
+                        <p class="text-xs text-slate-500">Focus Core: Influence, Fame, and the Social Constructs of Celebrity Culture.</p>
+                    </div>
+                </div>
+
+                <!-- Custom Timer widget -->
+                <div class="flex items-center gap-2 bg-slate-100 p-2 rounded-xl border border-slate-200">
+                    <span id="timerT2Display" class="text-sm font-extrabold text-indigo-600 font-mono bg-white px-2.5 py-0.5 rounded shadow-sm border border-slate-100">00:00</span>
+                    <button onclick="runSpeakingTimer('T2', 60)" class="text-[10px] font-bold px-2 py-1 bg-indigo-50 hover:bg-indigo-100 text-indigo-700 rounded transition-colors">1m Prep</button>
+                    <button onclick="runSpeakingTimer('T2', 120)" class="text-[10px] font-bold px-2 py-1 bg-slate-900 hover:bg-slate-800 text-white rounded transition-colors">2m Talk</button>
+                    <button onclick="resetSpeakingTimer('T2')" class="p-1 bg-slate-200 hover:bg-slate-300 rounded text-slate-600">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 1121.21 8H18"/></svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Cue Card Part 2 -->
+            <div class="border-l-4 border-indigo-400 bg-indigo-50/20 p-5 rounded-r-xl space-y-4">
+                <div class="flex justify-between items-center border-b border-indigo-100/50 pb-2">
+                    <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-indigo-100 text-indigo-800 uppercase tracking-widest">Part 2 Cue Card Prompt</span>
+                    <span class="text-xs text-slate-500 font-medium">Public Figure Domain</span>
+                </div>
+                <div class="bg-white p-4 rounded-xl border border-slate-100 space-y-2">
+                    <p class="text-xs text-slate-500">Candidate Prompt Directive:</p>
+                    <p class="text-sm font-bold text-slate-900 bg-indigo-50/50 border border-indigo-100/30 p-3 rounded-lg leading-relaxed">
+                        Describe a famous person who you would like to meet.
+                    </p>
+                    <ul class="text-xs text-slate-600 pl-5 list-disc space-y-1">
+                        <li>Who he/she is and what he/she does</li>
+                        <li>What he/she is famous for</li>
+                        <li>How long this person has been famous</li>
+                        <li>And explain why you would like to meet this famous person</li>
+                    </ul>
+                </div>
+
+                <!-- Part 2 Comparative Sample Guide -->
+                <details class="group bg-white border border-indigo-200/40 rounded-xl p-3 text-xs">
+                    <summary class="font-bold text-indigo-700 hover:text-indigo-800 cursor-pointer select-none">
+                        Show Comparative Answers & Band Breakdown (Part 2)
+                    </summary>
+                    <div class="mt-4 space-y-3 border-t border-slate-100 pt-3">
+                        <div class="bg-slate-50 p-3 rounded-lg border border-slate-200/50">
+                            <p class="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Band 5.5 - 6.0 Level (Simple Structure):</p>
+                            <p class="italic text-slate-600 leading-relaxed mt-1">
+                                "I want to meet a famous singer called Taylor Swift. She is famous because she writes great songs and sings them beautifully. She has been famous for a long time, maybe fifteen years. I would like to meet her because she seems friendly and I want to ask her how she writes her lyrics and songs."
+                            </p>
+                        </div>
+                        <div class="bg-emerald-50/40 p-4 rounded-lg border border-emerald-100">
+                            <p class="text-[10px] font-bold text-emerald-800 uppercase tracking-wider flex items-center gap-1.5">
+                                <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span>
+                                Band 6.5+ Level (Precise, Academic, Grammatically Diverse):
+                            </p>
+                            <p class="text-slate-800 leading-relaxed mt-2 text-xs">
+                                "I’ve long held an aspiration to meet Keanu Reeves, an <span class="tooltip text-rose-600 font-bold border-b border-rose-300 bg-rose-50 px-1 rounded">esteemed<span class="tooltiptext">Highly respected and admired.</span></span> Canadian actor renowned for his roles in blockbusters like *The Matrix* and *John Wick*. He has occupied a spot in the <span class="tooltip text-rose-600 font-bold border-b border-rose-300 bg-rose-50 px-1 rounded">limelight<span class="tooltiptext">The focus of public attention, fame, or notoriety.</span></span> for over three decades, continuously evolving as a versatile performer.
+                                <br><br>
+                                What truly distinguishes him is not just his cinematic <span class="tooltip text-rose-600 font-bold border-b border-rose-300 bg-rose-50 px-1 rounded">credentials<span class="tooltiptext">Qualifications, achievements, or training in a career field.</span></span>, but his remarkably quiet and <span class="tooltip text-rose-600 font-bold border-b border-rose-300 bg-rose-50 px-1 rounded">philanthropic lifestyle<span class="tooltiptext">A generous life dedicated to donating money and helping others.</span></span>. Unlike many contemporary celebrities who actively court sensationalism, Reeves resides in quiet humility and donates massive portions of his earnings to cancer research without seeking personal publicity.
+                                <br><br>
+                                I would jump at the chance to converse with him to understand how he maintains such absolute <span class="tooltip text-rose-600 font-bold border-b border-rose-300 bg-rose-50 px-1 rounded">equanimity<span class="tooltiptext">Mental calmness, composure, and emotional balance under pressure.</span></span> amidst the chaotic, superficial environment of Hollywood. He represents the ideal paradigm of balancing immense public success with authentic personal character."
+                            </p>
+                        </div>
+                    </div>
+                </details>
+            </div>
+
+            <!-- Deep Abstract Questions Part 3 -->
+            <div class="border-l-4 border-rose-400 bg-rose-50/20 p-5 rounded-r-xl space-y-4">
+                <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-rose-100 text-rose-800 uppercase tracking-widest">Part 3 Abstract Strategy Prompts</span>
+                
+                <div class="space-y-4">
+                    <!-- Q1 -->
+                    <div class="bg-white p-3 rounded-lg border border-slate-100 shadow-sm space-y-2">
+                        <p class="text-xs font-semibold text-slate-800">1. What kinds of famous people are often in the news in your country?</p>
+                        <details class="group text-xs text-slate-600">
+                            <summary class="font-bold text-rose-600 cursor-pointer hover:underline">View Model Answer Breakdown</summary>
+                            <p class="mt-2 text-slate-800">
+                                "Predominantly, mainstream entertainment artists, athletic heroes, and entrepreneurial figures dominate national coverage. In Vietnam, football players and social media influencers attract a <span class="tooltip text-rose-600 font-bold border-b border-rose-300 bg-rose-50 px-1 rounded">disproportionate amount<span class="tooltiptext">An unequal, massive, or unfairly large share.</span></span> of media attention because their lives feed the viral requirements of online channels."
+                            </p>
+                        </details>
+                    </div>
+
+                    <!-- Q2 -->
+                    <div class="bg-white p-3 rounded-lg border border-slate-100 shadow-sm space-y-2">
+                        <p class="text-xs font-semibold text-slate-800">2. Why do children want to become famous?</p>
+                        <details class="group text-xs text-slate-600">
+                            <summary class="font-bold text-rose-600 cursor-pointer hover:underline">View Model Answer Breakdown</summary>
+                            <p class="mt-2 text-slate-800">
+                                "Young youngsters often associate celebrity status with <span class="tooltip text-rose-600 font-bold border-b border-rose-300 bg-rose-50 px-1 rounded">unrivaled adoration<span class="tooltiptext">An extremely high, unconditional level of love and respect from public crowds.</span></span> and material affluence. They look at content platforms where creators seem to live exciting lifestyles, making them completely oblivious to the isolation and loss of privacy behind the scenes."
+                            </p>
+                        </details>
+                    </div>
+
+                    <!-- Q3 -->
+                    <div class="bg-white p-3 rounded-lg border border-slate-100 shadow-sm space-y-2">
+                        <p class="text-xs font-semibold text-slate-800">3. Are there more celebrities in the news now compared to the past?</p>
+                        <details class="group text-xs text-slate-600">
+                            <summary class="font-bold text-rose-600 cursor-pointer hover:underline">View Model Answer Breakdown</summary>
+                            <p class="mt-2 text-slate-800">
+                                "Undeniably. The democratization of broadcasting through internet avenues has led to a <span class="tooltip text-rose-600 font-bold border-b border-rose-300 bg-rose-50 px-1 rounded">proliferation of micro-celebrities<span class="tooltiptext">A rapid, massive increase of public figures famous inside tiny, specialized niches.</span></span>. In the past, fame was guarded by elite networks; today, viral algorithms can elevate a regular citizen overnight."
+                            </p>
+                        </details>
+                    </div>
+
+                    <!-- Q4 -->
+                    <div class="bg-white p-3 rounded-lg border border-slate-100 shadow-sm space-y-2">
+                        <p class="text-xs font-semibold text-slate-800">4. Do you agree that everyone enjoys reading news about celebrities?</p>
+                        <details class="group text-xs text-slate-600">
+                            <summary class="font-bold text-rose-600 cursor-pointer hover:underline">View Model Answer Breakdown</summary>
+                            <p class="mt-2 text-slate-800">
+                                "Actually, I would argue that is a misconception. While high-volume tabloid clicks suggest universal interest, a significant demographic finds celebrity culture highly <span class="tooltip text-rose-600 font-bold border-b border-rose-300 bg-rose-50 px-1 rounded">banal<span class="tooltiptext">Extremely boring, predictable, and devoid of original substance.</span></span> and actively avoids it, opting instead for socio-economic reporting."
+                            </p>
+                        </details>
+                    </div>
+
+                    <!-- Q5 & Q6 grouped -->
+                    <div class="bg-white p-3 rounded-lg border border-slate-100 shadow-sm space-y-2">
+                        <p class="text-xs font-semibold text-slate-800">5 & 6. Do people like packaged celebrities or those with genuine talent? Can fame exist without talent?</p>
+                        <details class="group text-xs text-slate-600">
+                            <summary class="font-bold text-rose-600 cursor-pointer hover:underline">View Model Answer Breakdown</summary>
+                            <p class="mt-2 text-slate-800">
+                                "Initially, manufactured personalities create dramatic viral impact, but their longevity is exceptionally brief. Audiences eventually gravitate towards individuals possessing <span class="tooltip text-rose-600 font-bold border-b border-rose-300 bg-rose-50 px-1 rounded">virtuosity<span class="tooltiptext">Superior skill, exceptional talent, or technical mastery in a particular domain.</span></span>. While fame can temporarily be generated without talent through publicity stunts, sustaining it demands genuine creative capital."
+                            </p>
+                        </details>
+                    </div>
+
+                    <!-- Q7 -->
+                    <div class="bg-white p-3 rounded-lg border border-slate-100 shadow-sm space-y-2">
+                        <p class="text-xs font-semibold text-slate-800">7. Would people still want to become famous if they knew what they are going to face?</p>
+                        <details class="group text-xs text-slate-600">
+                            <summary class="font-bold text-rose-600 cursor-pointer hover:underline">View Model Answer Breakdown</summary>
+                            <p class="mt-2 text-slate-800">
+                                "Many would still aggressively chase it because human vanity and ambition often <span class="tooltip text-rose-600 font-bold border-b border-rose-300 bg-rose-50 px-1 rounded">overshadow reason<span class="tooltiptext">To dominate or make logical thinking secondary to overwhelming impulse.</span></span>. Despite knowing the psychological tax, the pursuit of legacy and social supremacy remains an extremely potent motivator."
+                            </p>
+                        </details>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- SECTION 4: LESSON 2 EXHAUSTIVE HOMEWORK PACK -->
+        <section id="homework" class="bg-white border border-emerald-100 p-6 rounded-2xl pastel-shadow space-y-6">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-4 border-b border-slate-100">
+                <div class="flex items-center space-x-3">
+                    <span class="p-2.5 bg-emerald-50 rounded-xl text-emerald-600">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+                    </span>
+                    <div>
+                        <h2 class="text-lg font-bold text-slate-900">Extensive Homework Portfolio & Checklists</h2>
+                        <p class="text-xs text-slate-500">Complete these mock tests sequentially before Day 3 to reinforce spelling, mapping accuracy, and pacing.</p>
+                    </div>
+                </div>
+
+                <!-- Dynamic Homework Tracking Indicator -->
+                <div class="bg-emerald-50 text-emerald-800 px-3 py-1.5 rounded-lg border border-emerald-100 text-xs font-bold" id="homeworkPercentDisplay">
+                    0 / 9 Tasks Completed (0%)
+                </div>
+            </div>
+
+            <!-- Detailed Grid of Homework Links -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                
+                <!-- Test 4 Card -->
+                <div class="bg-slate-50 hover:bg-slate-100/50 p-4 rounded-xl border border-slate-200/60 transition-all-300 flex justify-between items-start">
+                    <div class="space-y-1.5">
+                        <span class="text-[10px] font-bold text-rose-700 bg-rose-50 border border-rose-100 px-2 py-0.5 rounded">Required Practice</span>
+                        <h4 class="text-xs font-bold text-slate-900">Intensive Listening - Test 04</h4>
+                        <p class="text-[11px] text-slate-500">Focus: Speed changes and spelling correction traps.</p>
+                        <a href="https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/test_view_pet_intensive_04.html" target="_blank" class="inline-flex items-center gap-1 text-[11px] font-bold text-sky-600 hover:underline">
+                            <span>Open Test 04</span>
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                        </a>
+                    </div>
+                    <input type="checkbox" onchange="updateHomeworkScore()" class="hw-checkbox rounded text-emerald-500 border-slate-300 w-5 h-5 cursor-pointer">
+                </div>
+
+                <!-- Test 5 Card -->
+                <div class="bg-slate-50 hover:bg-slate-100/50 p-4 rounded-xl border border-slate-200/60 transition-all-300 flex justify-between items-start">
+                    <div class="space-y-1.5">
+                        <span class="text-[10px] font-bold text-rose-700 bg-rose-50 border border-rose-100 px-2 py-0.5 rounded">Required Practice</span>
+                        <h4 class="text-xs font-bold text-slate-900">Intensive Listening - Test 05</h4>
+                        <p class="text-[11px] text-slate-500">Focus: Tracing Visual Directions in Part 2 maps.</p>
+                        <a href="https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/test_view_pet_intensive_05.html" target="_blank" class="inline-flex items-center gap-1 text-[11px] font-bold text-sky-600 hover:underline">
+                            <span>Open Test 05</span>
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                        </a>
+                    </div>
+                    <input type="checkbox" onchange="updateHomeworkScore()" class="hw-checkbox rounded text-emerald-500 border-slate-300 w-5 h-5 cursor-pointer">
+                </div>
+
+                <!-- Test 6 Card -->
+                <div class="bg-slate-50 hover:bg-slate-100/50 p-4 rounded-xl border border-slate-200/60 transition-all-300 flex justify-between items-start">
+                    <div class="space-y-1.5">
+                        <span class="text-[10px] font-bold text-rose-700 bg-rose-50 border border-rose-100 px-2 py-0.5 rounded">Required Practice</span>
+                        <h4 class="text-xs font-bold text-slate-900">Intensive Listening - Test 06</h4>
+                        <p class="text-[11px] text-slate-500">Focus: Synonyms and negative modifier traps in Part 3.</p>
+                        <a href="https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/test_view_pet_intensive_06.html" target="_blank" class="inline-flex items-center gap-1 text-[11px] font-bold text-sky-600 hover:underline">
+                            <span>Open Test 06</span>
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                        </a>
+                    </div>
+                    <input type="checkbox" onchange="updateHomeworkScore()" class="hw-checkbox rounded text-emerald-500 border-slate-300 w-5 h-5 cursor-pointer">
+                </div>
+
+                <!-- Test 7 Card -->
+                <div class="bg-slate-50 hover:bg-slate-100/50 p-4 rounded-xl border border-slate-200/60 transition-all-300 flex justify-between items-start">
+                    <div class="space-y-1.5">
+                        <span class="text-[10px] font-bold text-rose-700 bg-rose-50 border border-rose-100 px-2 py-0.5 rounded">Required Practice</span>
+                        <h4 class="text-xs font-bold text-slate-900">Intensive Listening - Test 07</h4>
+                        <p class="text-[11px] text-slate-500">Focus: Flowcharts and sentence-matching formats.</p>
+                        <a href="https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/test_view_pet_intensive_07.html" target="_blank" class="inline-flex items-center gap-1 text-[11px] font-bold text-sky-600 hover:underline">
+                            <span>Open Test 07</span>
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                        </a>
+                    </div>
+                    <input type="checkbox" onchange="updateHomeworkScore()" class="hw-checkbox rounded text-emerald-500 border-slate-300 w-5 h-5 cursor-pointer">
+                </div>
+
+                <!-- Test 2 Card -->
+                <div class="bg-slate-50 hover:bg-slate-100/50 p-4 rounded-xl border border-slate-200/60 transition-all-300 flex justify-between items-start">
+                    <div class="space-y-1.5">
+                        <span class="text-[10px] font-bold text-slate-700 bg-slate-200 border border-slate-300 px-2 py-0.5 rounded">Remedial Review</span>
+                        <h4 class="text-xs font-bold text-slate-900">Intensive Listening - Test 02</h4>
+                        <p class="text-[11px] text-slate-500">Analyze baseline errors in standard dictation tasks.</p>
+                        <a href="https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/test_view_pet_intensive_02.html" target="_blank" class="inline-flex items-center gap-1 text-[11px] font-bold text-sky-600 hover:underline">
+                            <span>Open Test 02</span>
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                        </a>
+                    </div>
+                    <input type="checkbox" onchange="updateHomeworkScore()" class="hw-checkbox rounded text-emerald-500 border-slate-300 w-5 h-5 cursor-pointer">
+                </div>
+
+                <!-- Test 8 Card -->
+                <div class="bg-slate-50 hover:bg-slate-100/50 p-4 rounded-xl border border-slate-200/60 transition-all-300 flex justify-between items-start">
+                    <div class="space-y-1.5">
+                        <span class="text-[10px] font-bold text-rose-700 bg-rose-50 border border-rose-100 px-2 py-0.5 rounded">Required Practice</span>
+                        <h4 class="text-xs font-bold text-slate-900">Intensive Listening - Test 08</h4>
+                        <p class="text-[11px] text-slate-500">Focus: Multi-speaker agreement dynamic mapping.</p>
+                        <a href="https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/test_view_pet_intensive_08.html" target="_blank" class="inline-flex items-center gap-1 text-[11px] font-bold text-sky-600 hover:underline">
+                            <span>Open Test 08</span>
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                        </a>
+                    </div>
+                    <input type="checkbox" onchange="updateHomeworkScore()" class="hw-checkbox rounded text-emerald-500 border-slate-300 w-5 h-5 cursor-pointer">
+                </div>
+
+                <!-- Test 9 Card -->
+                <div class="bg-slate-50 hover:bg-slate-100/50 p-4 rounded-xl border border-slate-200/60 transition-all-300 flex justify-between items-start">
+                    <div class="space-y-1.5">
+                        <span class="text-[10px] font-bold text-rose-700 bg-rose-50 border border-rose-100 px-2 py-0.5 rounded">Required Practice</span>
+                        <h4 class="text-xs font-bold text-slate-900">Intensive Listening - Test 09</h4>
+                        <p class="text-[11px] text-slate-500">Focus: Scientific nomenclature spelling prediction.</p>
+                        <a href="https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/test_view_pet_intensive_09.html" target="_blank" class="inline-flex items-center gap-1 text-[11px] font-bold text-sky-600 hover:underline">
+                            <span>Open Test 09</span>
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                        </a>
+                    </div>
+                    <input type="checkbox" onchange="updateHomeworkScore()" class="hw-checkbox rounded text-emerald-500 border-slate-300 w-5 h-5 cursor-pointer">
+                </div>
+
+                <!-- Test 10 Card -->
+                <div class="bg-slate-50 hover:bg-slate-100/50 p-4 rounded-xl border border-slate-200/60 transition-all-300 flex justify-between items-start">
+                    <div class="space-y-1.5">
+                        <span class="text-[10px] font-bold text-indigo-700 bg-indigo-50 border border-indigo-100 px-2 py-0.5 rounded">Final Checkpoint</span>
+                        <h4 class="text-xs font-bold text-slate-900">Intensive Listening - Test 10</h4>
+                        <p class="text-[11px] text-slate-500">Full-length evaluation of auditory stamina under pressure.</p>
+                        <a href="https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/test_view_pet_intensive_10.html" target="_blank" class="inline-flex items-center gap-1 text-[11px] font-bold text-sky-600 hover:underline">
+                            <span>Open Test 10</span>
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                        </a>
+                    </div>
+                    <input type="checkbox" onchange="updateHomeworkScore()" class="hw-checkbox rounded text-emerald-500 border-slate-300 w-5 h-5 cursor-pointer">
+                </div>
+
+                <!-- Speaking Preparation Card -->
+                <div class="bg-amber-50 hover:bg-amber-100/50 p-4 rounded-xl border border-amber-200/60 transition-all-300 flex justify-between items-start md:col-span-2">
+                    <div class="space-y-1.5">
+                        <span class="text-[10px] font-bold text-amber-800 bg-amber-200/50 px-2 py-0.5 rounded uppercase tracking-wider">Independent Assignment</span>
+                        <h4 class="text-xs font-bold text-amber-900">Prepare Speaking Part 2 Target Topics</h4>
+                        <p class="text-[11px] text-amber-800">Review notes for Day 3. Draft full structured plans (Introduction + chronological narrative framework + emotional resolution) for the smiling occasion and celebrity prompt profiles.</p>
+                    </div>
+                    <input type="checkbox" onchange="updateHomeworkScore()" class="hw-checkbox rounded text-amber-500 border-amber-300 w-5 h-5 cursor-pointer">
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-slate-400 py-12 px-4 sm:px-6 lg:px-8 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center space-x-3">
+                <span class="p-2 bg-gradient-to-tr from-sky-500 to-indigo-400 rounded-xl text-white font-extrabold shadow-sm">CT</span>
+                <span class="text-lg font-bold tracking-tight text-white">IELTS Chan Truong</span>
+            </div>
+            <p class="text-xs text-slate-500">
+                &copy; 2026 IELTS Chan Truong. Designed specifically for advanced learners striving for 6.5.
+            </p>
+        </div>
+    </footer>
+
+    <!-- LIVE WORKSPACE SCRIPTS -->
+    <script>
+        /* Toast notification feedback system */
+        function showNotification(message, type = 'success') {
+            const toast = document.getElementById('toastNotification');
+            toast.innerText = message;
+            
+            // Set dynamic background styles
+            if (type === 'error') {
+                toast.className = 'fixed bottom-5 right-5 px-4 py-3 rounded-xl text-xs font-bold text-white shadow-lg transition-all-300 transform translate-y-0 opacity-100 z-[100] bg-rose-500';
+            } else {
+                toast.className = 'fixed bottom-5 right-5 px-4 py-3 rounded-xl text-xs font-bold text-white shadow-lg transition-all-300 transform translate-y-0 opacity-100 z-[100] bg-emerald-500';
+            }
+            
+            // Trigger automatic hide sequence
+            setTimeout(() => {
+                toast.className = 'fixed bottom-5 right-5 px-4 py-3 rounded-xl text-xs font-bold text-white shadow-lg transition-all-300 transform translate-y-10 opacity-0 pointer-events-none z-[100] bg-slate-800';
+            }, 3500);
+        }
+
+        /* Interactive Distractor Logging Tool logic */
+        function logDistractor() {
+            const originInput = document.getElementById('distractorOrigin');
+            const trapInput = document.getElementById('distractorTrap');
+            const correctionInput = document.getElementById('distractorCorrection');
+            const tbody = document.getElementById('distractorTableBody');
+
+            const origin = originInput.value.trim();
+            const trap = trapInput.value.trim();
+            const correction = correctionInput.value.trim();
+
+            if (!origin || !trap || !correction) {
+                showNotification('All input parameters must be specified to log a distractor!', 'error');
+                return;
+            }
+
+            // Create new row
+            const tr = document.createElement('tr');
+            tr.className = 'hover:bg-slate-50/50 transition-colors';
+            tr.innerHTML = `
+                <td class="p-3 font-semibold text-slate-800">${escapeHtml(origin)}</td>
+                <td class="p-3 text-rose-500 font-medium">${escapeHtml(trap)}</td>
+                <td class="p-3 text-emerald-600 font-semibold">${escapeHtml(correction)}</td>
+                <td class="p-3 text-right">
+                    <button onclick="this.closest('tr').remove(); showNotification('Item deleted.', 'error');" class="text-xs text-rose-500 hover:text-rose-700 font-bold px-2 py-1 bg-rose-50 hover:bg-rose-100 rounded-lg transition-colors">
+                        Delete
+                    </button>
+                </td>
+            `;
+            tbody.appendChild(tr);
+
+            // Reset inputs
+            originInput.value = '';
+            trapInput.value = '';
+            correctionInput.value = '';
+            showNotification('Auditory distractor profile compiled and logged successfully!');
+        }
+
+        function escapeHtml(text) {
+            const map = {
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#039;'
+            };
+            return text.replace(/[&<>"']/g, function(m) { return map[m]; });
+        }
+
+
+        /* Dynamic Dual-Mode Speaking Timer suite */
+        let speakingTimers = {
+            T1: { interval: null, remaining: 0 },
+            T2: { interval: null, remaining: 0 }
+        };
+
+        function updateSpeakingTimerUI(timerId) {
+            const rem = speakingTimers[timerId].remaining;
+            const min = Math.floor(rem / 60);
+            const sec = rem % 60;
+            const displayStr = `${min.toString().padStart(2, '0')}:${sec.toString().padStart(2, '0')}`;
+            document.getElementById(`timer${timerId}Display`).innerText = displayStr;
+        }
+
+        function runSpeakingTimer(timerId, seconds) {
+            // Stop existing run loop if any
+            clearInterval(speakingTimers[timerId].interval);
+            speakingTimers[timerId].remaining = seconds;
+            updateSpeakingTimerUI(timerId);
+
+            showNotification(`${timerId} speaking interval set to ${seconds} seconds.`);
+
+            speakingTimers[timerId].interval = setInterval(() => {
+                if (speakingTimers[timerId].remaining > 0) {
+                    speakingTimers[timerId].remaining--;
+                    updateSpeakingTimerUI(timerId);
+                } else {
+                    clearInterval(speakingTimers[timerId].interval);
+                    speakingTimers[timerId].interval = null;
+                    showNotification(`Time's up for ${timerId}! Monitor delivery parameters.`, 'error');
+                    
+                    const el = document.getElementById(`timer${timerId}Display`);
+                    el.classList.add('bg-rose-100', 'animate-pulse');
+                    setTimeout(() => el.classList.remove('bg-rose-100', 'animate-pulse'), 3000);
+                }
+            }, 1000);
+        }
+
+        function resetSpeakingTimer(timerId) {
+            clearInterval(speakingTimers[timerId].interval);
+            speakingTimers[timerId].interval = null;
+            speakingTimers[timerId].remaining = 0;
+            updateSpeakingTimerUI(timerId);
+            showNotification(`${timerId} speaking timer cleared.`);
+        }
+
+
+        /* Homework Task Checklist Tracker */
+        function updateHomeworkScore() {
+            const boxes = document.querySelectorAll('.hw-checkbox');
+            const total = boxes.length;
+            let checkedCount = 0;
+
+            boxes.forEach(bx => {
+                if (bx.checked) checkedCount++;
+            });
+
+            const percent = Math.round((checkedCount / total) * 100);
+            document.getElementById('homeworkPercentDisplay').innerText = 
+                `${checkedCount} / ${total} Tasks Completed (${percent}%)`;
+            
+            // Adjust styles dynamically depending on progress
+            const displayBadge = document.getElementById('homeworkPercentDisplay');
+            if (percent === 100) {
+                displayBadge.className = "bg-emerald-500 text-white px-3 py-1.5 rounded-lg border border-emerald-600 text-xs font-bold animate-pulse";
+                showNotification('Magnificent! All Day 2 lesson consolidation tasks complete!');
+            } else {
+                displayBadge.className = "bg-emerald-50 text-emerald-800 px-3 py-1.5 rounded-lg border border-emerald-100 text-xs font-bold";
+            }
+        }
+
+        window.onload = function() {
+            updateHomeworkScore();
+        }
+    </script>
+</body>
+</html>
