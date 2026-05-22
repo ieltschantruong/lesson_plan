@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Chan Truong | Lesson 7 Detailed Plan</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Inter"', 'sans-serif'],
+                    },
+                    colors: {
+                        pastel: {
+                            pink: '#ffe4e6',
+                            purple: '#f3e8ff',
+                            blue: '#e0e7ff',
+                            teal: '#ccfbf1',
+                            orange: '#ffedd5',
+                            indigo: '#e0e7ff',
+                            cyan: '#cffafe',
+                            rose: '#ffe4e6'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { 
+            background-color: #fdfbfb;
+            background-image: 
+                radial-gradient(at 80% 0%, hsla(250, 50%, 95%, 1) 0px, transparent 50%),
+                radial-gradient(at 10% 30%, hsla(280, 60%, 90%, 1) 0px, transparent 50%),
+                radial-gradient(at 90% 80%, hsla(200, 60%, 90%, 1) 0px, transparent 50%),
+                radial-gradient(at 20% 90%, hsla(220, 60%, 90%, 1) 0px, transparent 50%);
+            background-attachment: fixed;
+            color: #334155;
+        }
+        
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 10px 40px -10px rgba(0,0,0,0.05);
+        }
+
+        .skill-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.25rem 0.6rem;
+            border-radius: 8px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            backdrop-filter: blur(4px);
+        }
+
+        .badge-writing { background-color: rgba(254, 226, 226, 0.7); color: #e11d48; border: 1px solid rgba(254, 205, 211, 0.5); }
+        .badge-overview { background-color: rgba(204, 251, 241, 0.7); color: #0d9488; border: 1px solid rgba(153, 246, 228, 0.5); }
+
+        .guidance-box {
+            background: linear-gradient(to right, rgba(255,255,255,0.95), rgba(255,255,255,0.7));
+            border-left: 4px solid;
+            border-radius: 0.5rem;
+            padding: 1.25rem;
+            margin-bottom: 1.25rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
+
+        /* Responsive Modal Animations */
+        .modal-overlay {
+            transition: opacity 0.25s ease-in-out;
+        }
+        .modal-container {
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease-in-out;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: rgba(203, 213, 225, 0.8); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(148, 163, 184, 0.8); }
+    </style>
+</head>
+<body class="antialiased min-h-screen pb-16">
+
+<div class="max-w-4xl mx-auto px-4 py-10 sm:px-6 lg:px-8">
+    
+    <!-- Header Block (Matches Lesson 6 exactly) -->
+    <header class="glass-panel rounded-[2rem] p-8 mb-8 relative overflow-hidden">
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-pastel-indigo rounded-full mix-blend-multiply filter blur-3xl opacity-50 z-0"></div>
+        <div class="absolute -bottom-24 -left-24 w-72 h-72 bg-pastel-purple rounded-full mix-blend-multiply filter blur-3xl opacity-50 z-0"></div>
+
+        <div class="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+            <div>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 border border-white text-[10px] font-bold text-slate-500 tracking-widest uppercase mb-3 shadow-sm">
+                    IELTS Chan Truong • Tutor 2
+                </div>
+                <h1 class="text-3xl md:text-4xl font-bold tracking-tight text-slate-800 mb-2">Lesson 7: Static Charts Masterclass</h1>
+                <p class="text-slate-500 font-medium">90-Minute Static Writing Integration</p>
+            </div>
+            
+            <div class="flex flex-col gap-2">
+                <span class="skill-badge badge-writing shadow-sm justify-center">Writing P1 (45 Min)</span>
+                <span class="skill-badge badge-overview shadow-sm justify-center">Practical Drills (45 Min)</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="space-y-8">
+        
+        <!-- Section 1: Homework Checkup -->
+        <section class="glass-panel rounded-2xl p-6 md:p-8 relative overflow-hidden bg-gradient-to-br from-white/60 to-teal-50/40">
+            <div class="absolute top-0 left-0 w-2 h-full bg-teal-400"></div>
+            
+            <div class="flex items-center justify-between gap-4 mb-5">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-teal-100 flex items-center justify-center text-teal-600 shadow-sm border border-teal-200">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <div>
+                        <h2 class="text-xl font-bold text-slate-800">1. Lesson 6 Homework Check</h2>
+                        <p class="text-sm text-slate-500">Diagnostic review of previously assigned tasks</p>
+                    </div>
+                </div>
+            </div>
+            
+            <p class="text-sm text-slate-600 mb-4">Evaluate the student's submission parameters and verify performance details across the YouPass tracking endpoints:</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- Reading Check -->
+                <div class="bg-white/80 border border-teal-100 p-4 rounded-xl shadow-sm flex flex-col justify-between">
+                    <div>
+                        <span class="text-[10px] font-bold text-teal-700 bg-teal-50 border border-teal-100 px-2.5 py-1 rounded-md uppercase tracking-wider block mb-3">Reading Submissions</span>
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between text-xs">
+                                <span class="text-slate-700 font-medium">Coffee Farmers</span>
+                                <a href="https://e-learning.youpass.vn/practice/reading/1534" target="_blank" class="text-teal-600 font-bold hover:underline flex items-center gap-1">Open Link <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg></a>
+                            </div>
+                            <div class="flex items-center justify-between text-xs">
+                                <span class="text-slate-700 font-medium">The Exploration of Mars</span>
+                                <a href="https://youpass.vn/thi-thu/reading/7878" target="_blank" class="text-teal-600 font-bold hover:underline flex items-center gap-1">Open Link <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Listening Check -->
+                <div class="bg-white/80 border border-teal-100 p-4 rounded-xl shadow-sm flex flex-col justify-between">
+                    <div>
+                        <span class="text-[10px] font-bold text-teal-700 bg-teal-50 border border-teal-100 px-2.5 py-1 rounded-md uppercase tracking-wider block mb-3">Listening Submissions</span>
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between text-xs">
+                                <span class="text-slate-700 font-medium">Forensic Linguistics</span>
+                                <a href="https://youpass.vn/thi-thu/listening/10276" target="_blank" class="text-teal-600 font-bold hover:underline flex items-center gap-1">Open Link <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg></a>
+                            </div>
+                            <div class="flex items-center justify-between text-xs">
+                                <span class="text-slate-700 font-medium">Foot Injuries Sports Players</span>
+                                <a href="https://youpass.vn/thi-thu/listening/10193" target="_blank" class="text-teal-600 font-bold hover:underline flex items-center gap-1">Open Link <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Writing P1: Static Charts Theory & Guidance (Expanded) -->
+        <section class="glass-panel rounded-2xl p-6 md:p-8 relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-2 h-full bg-rose-400"></div>
+            
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 rounded-full bg-rose-50 flex items-center justify-center text-rose-600 border border-rose-100 shadow-sm">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
+                </div>
+                <h2 class="text-2xl font-bold text-slate-800">2. Static Chart Methodologies</h2>
+            </div>
+
+            <!-- Tutoring Guidance Box 1: Core Strategy -->
+            <div class="guidance-box border-rose-400">
+                <h3 class="text-[13px] font-bold text-rose-800 uppercase tracking-wider mb-3 flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    Analytical Framework: Static Comparison & Data Grouping Logic
+                </h3>
+                <div class="space-y-3 text-sm text-slate-700">
+                    <p><strong class="text-slate-800">The 4-Step Analytical Process for Static Charts:</strong></p>
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-3 text-[12px] leading-relaxed my-3">
+                        <div class="bg-white/80 p-3 rounded-lg border border-slate-100 shadow-sm">
+                            <span class="font-bold text-slate-800 block mb-1">1. Parameter Scan</span>
+                            Analyze units (%, numbers), identify main categories, and verify the absence of chronological trends.
+                        </div>
+                        <div class="bg-white/80 p-3 rounded-lg border border-slate-100 shadow-sm">
+                            <span class="font-bold text-slate-800 block mb-1">2. Identify Extremes</span>
+                            Locate absolute maximums and minimums instantly. These form the pillars of your report.
+                        </div>
+                        <div class="bg-white/80 p-3 rounded-lg border border-slate-100 shadow-sm">
+                            <span class="font-bold text-slate-800 block mb-1">3. Cluster & Gap</span>
+                            Group secondary values into logical tiers (e.g., mid-level vs. negligible figures).
+                        </div>
+                        <div class="bg-white/80 p-3 rounded-lg border border-slate-100 shadow-sm">
+                            <span class="font-bold text-slate-800 block mb-1">4. Structural Draft</span>
+                            Allocate parameters clearly into Body 1 (dominant/upper tier) and Body 2 (secondary/lower tier).
+                        </div>
+                    </div>
+
+                    <p><strong class="text-slate-800">CBT Interface Optimization (Computer-Based Test):</strong></p>
+                    <ul class="list-disc list-inside space-y-1.5 ml-1 text-slate-600 text-[13px] bg-slate-50 p-3 rounded-lg border border-slate-100">
+                        <li><strong>Screen Highlight:</strong> Guide the student to highlight key comparison headings directly in the question prompt on screen.</li>
+                        <li><strong>The CBT Scratchpad:</strong> Train the student to note down high/low clusters quickly in the built-in scratchpad before writing, to structure paragraphs cleanly.</li>
+                        <li><strong>Parity Comparison:</strong> Make sure they target visual items of equal value (parity) on the charts. On screen, these stand out directly.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Tutoring Guidance Box 2: Advanced Grammatical Structures & Lexical references -->
+            <div class="guidance-box border-indigo-400 mt-6 bg-gradient-to-r from-white/95 to-indigo-50/20">
+                <h3 class="text-[13px] font-bold text-indigo-800 uppercase tracking-wider mb-3 flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                    Grammatical Matrix: Sentence Templates & Functional Lexicon
+                </h3>
+                <div class="space-y-4 text-sm text-slate-700">
+                    
+                    <!-- Grammatical Templates -->
+                    <div>
+                        <span class="text-[11px] font-bold text-indigo-700 bg-indigo-50 border border-indigo-100 px-2 py-0.5 rounded uppercase tracking-wide block w-fit mb-2">Advanced Grammatical Templates</span>
+                        <div class="space-y-2 text-[13px] text-slate-600 leading-relaxed">
+                            <div class="bg-white p-2.5 rounded border border-slate-100 shadow-inner">
+                                <strong>Contrastive Complex Clause:</strong><br>
+                                <span class="font-mono text-slate-500">While [Category A] made up the vast majority of [Variable X] at [Percentage], the relative figure for [Category B] was dwarfed by comparison, standing at a mere [Percentage].</span>
+                            </div>
+                            <div class="bg-white p-2.5 rounded border border-slate-100 shadow-inner">
+                                <strong>Superlative & Substantial Margins:</strong><br>
+                                <span class="font-mono text-slate-500">Topping the list by a substantial margin, [Category A] accounted for [Percentage], outstripping its nearest competitor, [Category B], by [Difference/Ratio].</span>
+                            </div>
+                            <div class="bg-white p-2.5 rounded border border-slate-100 shadow-inner">
+                                <strong>Parity & Similarity Structure:</strong><br>
+                                <span class="font-mono text-slate-500">A striking parity was observed between [Category A] and [Category B], both of which registered near-identical shares of [Percentage 1] and [Percentage 2] respectively.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Comprehensive Categorized Lexical Reference -->
+                    <div class="mt-4">
+                        <span class="text-[11px] font-bold text-indigo-700 bg-indigo-50 border border-indigo-100 px-2 py-0.5 rounded uppercase tracking-wide block w-fit mb-3">Categorized Lexical References</span>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                            <div class="bg-white p-3 rounded-lg border border-slate-100 shadow-sm space-y-2">
+                                <strong class="text-slate-800 block border-b pb-1">1. Ranking & Standings (TA & LR)</strong>
+                                <ul class="space-y-1 list-disc list-inside text-slate-600">
+                                    <li><em>Topped the list / Was the clear leader...</em></li>
+                                    <li><em>Occupied the lowest position / Bottomed out at...</em></li>
+                                    <li><em>Outnumbered / Outstripped all other parameters...</em></li>
+                                    <li><em>Preceded / Succeeded [X] in the global ranking...</em></li>
+                                </ul>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg border border-slate-100 shadow-sm space-y-2">
+                                <strong class="text-slate-800 block border-b pb-1">2. Describing Ratios & Fractions (LR)</strong>
+                                <ul class="space-y-1 list-disc list-inside text-slate-600">
+                                    <li><em>An overwhelming majority (e.g., >75%)</em></li>
+                                    <li><em>Approximately two-fifths (e.g., ~40%)</em></li>
+                                    <li><em>A mere slice / Negligible fraction (e.g., <5%)</em></li>
+                                    <li><em>A threefold difference / Doubled by comparison</em></li>
+                                </ul>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg border border-slate-100 shadow-sm space-y-2">
+                                <strong class="text-slate-800 block border-b pb-1">3. Comparison & Contrast Adverbials</strong>
+                                <ul class="space-y-1 list-disc list-inside text-slate-600">
+                                    <li><em>By stark/sharp contrast...</em></li>
+                                    <li><em>Conversely / On the flip side...</em></li>
+                                    <li><em>Mirrored this structural layout / Behaved similarly...</em></li>
+                                    <li><em>Whereas / While [Category A] registered [X]...</em></li>
+                                </ul>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg border border-slate-100 shadow-sm space-y-2">
+                                <strong class="text-slate-800 block border-b pb-1">4. Proportional & Equivalent Clauses</strong>
+                                <ul class="space-y-1 list-disc list-inside text-slate-600">
+                                    <li><em>Constituted / Accounted for / Made up...</em></li>
+                                    <li><em>Represented a dominant portion of...</em></li>
+                                    <li><em>Contributed a minor fraction to...</em></li>
+                                    <li><em>Stood at / Was recorded at a baseline of...</em></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Practical Analysis & Case Studies -->
+        <section class="glass-panel rounded-2xl p-6 md:p-8 relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-2 h-full bg-indigo-400"></div>
+            
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 rounded-full bg-indigo-50 flex items-center justify-center text-indigo-600 border border-indigo-100 shadow-sm">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"></path></svg>
+                </div>
+                <h2 class="text-2xl font-bold text-slate-800">3. Diagnostic Cases & Models</h2>
+            </div>
+
+            <div class="space-y-4">
+                <h4 class="text-sm font-bold text-slate-800 flex items-center gap-2">
+                    <svg class="w-4 h-4 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    Analytical Modules (Band 7.5 - 8.0 Targets)
+                </h4>
+                
+                <!-- Prompt 1: Pie Charts -->
+                <div class="p-4 rounded-xl border border-indigo-200 bg-white flex flex-col gap-4 hover:border-indigo-400 hover:shadow-md transition-all group">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                        <div class="flex items-center gap-4 w-full sm:w-auto">
+                            <div class="w-10 h-10 bg-indigo-50 rounded-lg flex items-center justify-center text-indigo-600 font-bold group-hover:bg-indigo-100 transition-colors shrink-0">1</div>
+                            <div>
+                                <p class="font-bold text-slate-800 text-[15px] group-hover:text-indigo-600 transition-colors">Pie Charts: Electricity Generation Sources</p>
+                                <p class="text-xs text-slate-500 mt-0.5">Focus: Morocco, India, Vietnam, and Sweden comparisons</p>
+                            </div>
+                        </div>
+                        <button onclick="openModal('pie')" class="w-full sm:w-auto text-center sm:text-right text-[11px] font-bold text-white uppercase tracking-wider bg-indigo-600 px-4 py-2.5 rounded-lg hover:bg-indigo-700 transition-colors">
+                            Inspect Model
+                        </button>
+                    </div>
+                    <div class="border-t border-slate-100 pt-4 flex flex-col md:flex-row gap-6 items-center">
+                        <img src="https://ieltschantruong.github.io/IELTS/src/writing_questions/writing_task1_piecharts_energy_sources.png" alt="Pie Charts diagram" class="max-w-[200px] h-auto object-contain rounded-lg border border-slate-200 p-2 bg-white" onerror="this.src='image_333c6b.png'">
+                        <div class="space-y-1.5 text-xs text-slate-600">
+                            <p><strong>Overview Target:</strong> India and Vietnam dominate with fossil fuels (81% and 56%). Morocco leverages hydropower (95%). Sweden has balanced hydro-nuclear production.</p>
+                            <p class="text-[11px] text-indigo-500 font-semibold uppercase tracking-wider">Source: ieltschantruong.github.io</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Prompt 2: Bar Chart -->
+                <div class="p-4 rounded-xl border border-indigo-200 bg-white flex flex-col gap-4 hover:border-indigo-400 hover:shadow-md transition-all group">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                        <div class="flex items-center gap-4 w-full sm:w-auto">
+                            <div class="w-10 h-10 bg-indigo-50 rounded-lg flex items-center justify-center text-indigo-600 font-bold group-hover:bg-indigo-100 transition-colors shrink-0">2</div>
+                            <div>
+                                <p class="font-bold text-slate-800 text-[15px] group-hover:text-indigo-600 transition-colors">Bar Chart: Household Tasks by Gender</p>
+                                <p class="text-xs text-slate-500 mt-0.5">Focus: Two-variable data comparison (Participation vs. Duration)</p>
+                            </div>
+                        </div>
+                        <button onclick="openModal('bar')" class="w-full sm:w-auto text-center sm:text-right text-[11px] font-bold text-white uppercase tracking-wider bg-indigo-600 px-4 py-2.5 rounded-lg hover:bg-indigo-700 transition-colors">
+                            Inspect Model
+                        </button>
+                    </div>
+                    <div class="border-t border-slate-100 pt-4 flex flex-col md:flex-row gap-6 items-center">
+                        <img src="https://ieltschantruong.github.io/IELTS/src/writing_questions/writing_task1_barcharts_britain_household_tasks_by_gender.png" alt="Bar Chart diagram" class="max-w-[200px] h-auto object-contain rounded-lg border border-slate-200 p-2 bg-white" onerror="this.src='image_333f6a.png'">
+                        <div class="space-y-1.5 text-xs text-slate-600">
+                            <p><strong>Overview Target:</strong> Females exhibit higher participation rates and daily durations in domestic chores (Cooking/Cleaning), whereas males dominate structural Repairs.</p>
+                            <p class="text-[11px] text-indigo-500 font-semibold uppercase tracking-wider">Source: ieltschantruong.github.io</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Prompt 3: Table -->
+                <div class="p-4 rounded-xl border border-indigo-200 bg-white flex flex-col gap-4 hover:border-indigo-400 hover:shadow-md transition-all group">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                        <div class="flex items-center gap-4 w-full sm:w-auto">
+                            <div class="w-10 h-10 bg-indigo-50 rounded-lg flex items-center justify-center text-indigo-600 font-bold group-hover:bg-indigo-100 transition-colors shrink-0">3</div>
+                            <div>
+                                <p class="font-bold text-slate-800 text-[15px] group-hover:text-indigo-600 transition-colors">Table Chart: Workforce vs Leadership Distribution</p>
+                                <p class="text-xs text-slate-500 mt-0.5">Focus: Exploring gender gaps and leadership parity boundaries</p>
+                            </div>
+                        </div>
+                        <button onclick="openModal('table')" class="w-full sm:w-auto text-center sm:text-right text-[11px] font-bold text-white uppercase tracking-wider bg-indigo-600 px-4 py-2.5 rounded-lg hover:bg-indigo-700 transition-colors">
+                            Inspect Model
+                        </button>
+                    </div>
+                    <div class="border-t border-slate-100 pt-4 flex flex-col md:flex-row gap-6 items-center">
+                        <img src="https://ieltschantruong.github.io/IELTS/src/writing_questions/writing_task1_table_women_in_workforce.png" alt="Table diagram" class="max-w-[200px] h-auto object-contain rounded-lg border border-slate-200 p-2 bg-white" onerror="this.src='image_333f8c.jpg'">
+                        <div class="space-y-1.5 text-xs text-slate-600">
+                            <p><strong>Overview Target:</strong> While female workforce proportions remain substantial (41%-48%), structural leadership gaps in Japan and Sri Lanka contrast with USA/Australia's near parities.</p>
+                            <p class="text-[11px] text-indigo-500 font-semibold uppercase tracking-wider">Source: ieltschantruong.github.io</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Prompt 4: Mixed Charts -->
+                <div class="p-4 rounded-xl border border-indigo-200 bg-white flex flex-col gap-4 hover:border-indigo-400 hover:shadow-md transition-all group">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                        <div class="flex items-center gap-4 w-full sm:w-auto">
+                            <div class="w-10 h-10 bg-indigo-50 rounded-lg flex items-center justify-center text-indigo-600 font-bold group-hover:bg-indigo-100 transition-colors shrink-0">4</div>
+                            <div>
+                                <p class="font-bold text-slate-800 text-[15px] group-hover:text-indigo-600 transition-colors">Mixed Chart: Life Expectancy Snapshot & Absolute Change</p>
+                                <p class="text-xs text-slate-500 mt-0.5">Focus: Static snapshot contrasted with 55-year absolute growth table</p>
+                            </div>
+                        </div>
+                        <button onclick="openModal('mixed')" class="w-full sm:w-auto text-center sm:text-right text-[11px] font-bold text-white uppercase tracking-wider bg-indigo-600 px-4 py-2.5 rounded-lg hover:bg-indigo-700 transition-colors">
+                            Inspect Model
+                        </button>
+                    </div>
+                    <div class="border-t border-slate-100 pt-4 flex flex-col md:flex-row gap-6 items-center">
+                        <img src="https://ieltschantruong.github.io/IELTS/src/writing_questions/writing_task_1_mixedchart_life_expectancy.png" alt="Mixed Charts diagram" class="max-w-[200px] h-auto object-contain rounded-lg border border-slate-200 p-2 bg-white" onerror="this.src='image_333faf.png'">
+                        <div class="space-y-1.5 text-xs text-slate-600">
+                            <p><strong>Overview Target:</strong> Developed nations like Japan lead final expectancy outcomes in 2008, yet developing nations like Indonesia (+15.7) show far higher historical growth rates.</p>
+                            <p class="text-[11px] text-indigo-500 font-semibold uppercase tracking-wider">Source: ieltschantruong.github.io</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Section 4: Homework Assignments -->
+        <section class="glass-panel rounded-2xl p-6 md:p-8 relative overflow-hidden bg-gradient-to-br from-white/60 to-blue-50/40">
+            <div class="absolute top-0 left-0 w-2 h-full bg-blue-400"></div>
+            
+            <div class="flex items-center gap-3 mb-5">
+                <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 shadow-sm border border-blue-200">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                </div>
+                <h2 class="text-xl font-bold text-slate-800">4. Homework Assignments</h2>
+            </div>
+            
+            <p class="text-sm text-slate-600 mb-6 font-medium">Assign the tasks below to consolidate static comparison strategies under mock-test conditions.</p>
+
+            <div class="bg-white/80 rounded-xl p-5 border border-indigo-100 shadow-sm space-y-4">
+                <div class="flex items-start gap-4">
+                    <div class="p-2.5 bg-indigo-50 text-indigo-500 rounded-lg">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+                    </div>
+                    <div>
+                        <p class="font-bold text-slate-800 text-base leading-snug">Writing Practice Assignment</p>
+                        <p class="text-xs text-slate-500 mt-1">Select and draft full academic reports for at least **two** of the in-class static tasks (from Modules 1, 2, 3, or 4).</p>
+                    </div>
+                </div>
+
+                <div class="border-t border-slate-100 pt-4 mt-2">
+                    <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Performance Standards:</p>
+                    <ul class="text-xs text-slate-600 space-y-1.5 list-disc list-inside">
+                        <li>Limit draft preparation and execution to 20 minutes per task.</li>
+                        <li>Overviews must contain no raw percentages or numbers.</li>
+                        <li>Ensure 100% trend-free comparative terminology is maintained.</li>
+                    </ul>
+                </div>
+
+                <div class="pt-2">
+                    <a href="https://youpass.vn" target="_blank" class="w-full bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold py-3 px-4 rounded-xl shadow-md transition-all flex items-center justify-center gap-2">
+                        <span>Check YouPass Assignment Feed</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</div>
+
+<!-- Modal Component System (Overlay popup for Model Answers) -->
+<div id="modalOverlay" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-50 flex items-center justify-center p-4 md:p-6 opacity-0 pointer-events-none modal-overlay">
+    <div id="modalContainer" class="bg-white rounded-3xl w-full max-w-2xl max-h-[85vh] overflow-y-auto shadow-2xl flex flex-col border border-slate-100 transform scale-95 opacity-0 modal-container">
+        
+        <!-- Modal Header -->
+        <div class="px-6 py-5 border-b border-slate-100 bg-slate-50 flex items-center justify-between sticky top-0 z-10 rounded-t-3xl">
+            <div class="flex items-center gap-3">
+                <div class="w-2.5 h-2.5 rounded-full bg-emerald-500"></div>
+                <h3 id="modalTitle" class="text-sm font-bold text-slate-800 tracking-tight">Writing Model Answer</h3>
+            </div>
+            <button onclick="closeModal()" class="p-1.5 rounded-lg bg-slate-200/60 hover:bg-slate-200 text-slate-500 hover:text-slate-700 transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+        </div>
+        
+        <!-- Modal Body Content -->
+        <div id="modalBody" class="p-6 md:p-8 space-y-6">
+            <!-- Dynamic Content Injected here -->
+        </div>
+        
+        <!-- Modal Footer -->
+        <div class="px-6 py-4 border-t border-slate-100 bg-slate-50 flex justify-end rounded-b-3xl">
+            <button onclick="closeModal()" class="bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold py-2.5 px-5 rounded-xl transition-all shadow-sm">
+                Return to Lesson Plan
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Database for Model Responses, Blueprints, & Vocabulary
+    const essaysDB = {
+        pie: {
+            title: "Pie Chart Analysis: Electricity Generation Sources",
+            intro: "The pie charts compare the proportions of electricity generated from three different sources—fossil fuel, hydropower, and nuclear power—across India, Sweden, Morocco, and Vietnam between 2003 and 2008.",
+            overview: "Overall, fossil fuel was the dominant source of electricity in India and Vietnam, whereas hydropower was the primary contributor in Sweden and Morocco. Notably, Morocco and Vietnam relied completely on non-nuclear sources during this period.",
+            details: "Looking at fossil fuel dependency, India generated the vast majority of its power from this source, accounting for 81%, with hydropower contributing 15% and nuclear power registering a marginal 4%. Similarly, in Vietnam, fossil fuel led with 56% of total electricity production, while hydropower accounted for the remaining 44%.<br><br>In contrast, hydropower played a pivotal role in the other two countries. It supplied nearly all of Morocco's electricity at 95%, with fossil fuel representing only 5%. Sweden exhibited a more balanced reliance on renewable and nuclear energy, with hydropower generating 52% and nuclear power contributing a substantial 44%, leaving fossil fuels as a negligible source at just 4%.",
+            structure: [
+                "<strong>Paragraph 1 (Introduction):</strong> Rephrase the prompt. Clearly outline the countries and three key parameters.",
+                "<strong>Paragraph 2 (Overview):</strong> Contrast the fossil-fuel reliant nations against the hydropower-reliant ones. Point out Morocco/Vietnam's lack of nuclear installations.",
+                "<strong>Paragraph 3 (Detail Group 1):</strong> Focus details on India and Vietnam. Direct comparisons of their high carbon footprints.",
+                "<strong>Paragraph 4 (Detail Group 2):</strong> Group Sweden and Morocco together. Direct comparison of Morocco's pure reliance on hydro vs Sweden's dual hydro/nuclear system."
+            ],
+            vocab: ["dominant source", "primary contributor", "relied completely", "the vast majority", "registering a marginal", "exhibited a more balanced reliance", "negligible source"]
+        },
+        bar: {
+            title: "Bar Chart Analysis: Household Chores by Gender",
+            intro: "The bar charts compare the percentage of men and women involved in four distinct household activities in Great Britain, alongside the average daily time spent on each task.",
+            overview: "Overall, a higher percentage of women engaged in cooking and cleaning compared to men, and they also spent significantly more time on these duties. Conversely, men were more active and spent more time on house repairs, while pet care exhibited relatively balanced participation between both genders.",
+            details: "In terms of culinary and cleaning duties, females showed dominant participation. Approximately 84% of women prepared meals, spending an average of 84 minutes daily, compared to only 60% of men who spent an hour. Similarly, cleaning was performed by over 60% of women for an average of 67 minutes per day, whereas only 40% of men participated, dedicating roughly 45 minutes to the task.<br><br>On the other hand, house repairs were heavily male-dominated. While only about 8% of women engaged in repairs for a mere 9 minutes daily, the male participation rate was more than double at 19%, with men dedicating an average of 19 minutes to these tasks. Lastly, pet care displayed the highest level of gender parity, with approximately 20% of both males and females participating, spending virtually equal time (19 and 20 minutes respectively).",
+            structure: [
+                "<strong>Paragraph 1 (Introduction):</strong> Rephrase the prompt, identifying the two metrics: participation rates and time duration.",
+                "<strong>Paragraph 2 (Overview):</strong> Identify clean, obvious female domains (cooking/cleaning) vs. male domains (house repairs), pointing out pet care as the exception.",
+                "<strong>Paragraph 3 (Detail Group 1):</strong> Elaborate Cooking & Cleaning parameters. Contrast male and female percentages and minutes spent.",
+                "<strong>Paragraph 4 (Detail Group 2):</strong> Group Repairs and Pet Care. Explicitly highlight the disparity in repairs and the perfect balance of pet care."
+            ],
+            vocab: ["distinct household activities", "dominant participation", "heavily male-dominated", "participation rate was more than double", "gender parity", "virtually equal time"]
+        },
+        table: {
+            title: "Table Analysis: Workforce vs Managerial Representation",
+            intro: "The table compares the percentage of women in the overall workforce with the proportion of females holding managerial positions across five countries: Australia, Egypt, Sri Lanka, Japan, and the United States.",
+            overview: "Overall, while women constituted between 20% and 48% of the workforce in all five nations, their representation in managerial roles was consistently lower, except in Australia where it was marginally higher. The United States and Australia demonstrated the highest level of gender parity in leadership.",
+            details: "In terms of the total female workforce, Japan recorded the highest proportion at 48%, followed closely by the United States at 46%, and Australia and Sri Lanka at 42% and 41% respectively. In stark contrast, Egypt had the lowest female workforce participation, with women accounting for only one-fifth (20%) of the total employees.<br><br>When looking at leadership representation, the United States and Australia stood out, with women holding 43% of managerial roles in both countries. This reflected near-perfect parity with their general workforce percentages. However, significant gender gaps were visible in the Asian nations. Despite having a 48% female workforce, only 17% of managers in Japan were women. An even larger disparity was observed in Sri Lanka, where females held a negligible 9% of managerial positions despite making up 41% of the workforce. Egypt registered a female managerial proportion of 12%.",
+            structure: [
+                "<strong>Paragraph 1 (Introduction):</strong> Paraphrase the variables compared across the 5 specific countries.",
+                "<strong>Paragraph 2 (Overview):</strong> Identify that female managers are consistently lower in proportion than workforce percentages overall, except for Australia/USA which represent high parity.",
+                "<strong>Paragraph 3 (Detail Group 1):</strong> Present workforce statistics, grouping Japan/USA/Australia together at the upper end, contrasting with Egypt's low end.",
+                "<strong>Paragraph 4 (Detail Group 2):</strong> Present managerial statistics, highlighting the immense disparity gap in Japan and Sri Lanka."
+            ],
+            vocab: ["constituted between", "consistently lower", "highest level of gender parity", "stark contrast", "one-fifth", "near-perfect parity", "significant gender gaps", "negligible"]
+        },
+        mixed: {
+            title: "Mixed Charts Analysis: Life Expectancy Snapshot & Change",
+            intro: "The mixed charts illustrate the average life expectancy across Japan, Korea, the United States, and Indonesia in 2008, alongside the absolute increase in life expectancy in these nations between 1953 and 2008.",
+            overview: "Overall, Japan recorded the highest overall life expectancy by the end of the period, while Indonesia had the lowest. However, the nations with the lowest initial expectancies—Indonesia and Korea—experienced the most substantial improvements over the 55-year timeframe.",
+            details: "In 2008, Japan led the group with an average life expectancy of approximately 82 years, followed by Korea at 79 years and the United States at 77 years. Indonesia possessed the lowest life expectancy among the four countries, with citizens expected to live to roughly 70 years of age.<br><br>Conversely, historical growth patterns revealed an inverse relationship between initial life expectancy and subsequent progress. Indonesia registered the most dramatic increase, with life expectancy rising by 15.7 years. Korea also achieved a major milestone, with an extension of 12.5 years. By contrast, the United States and Japan, which already had highly developed healthcare systems in 1953, showed much more modest gains, growing by only 3 and 3.5 years respectively.",
+            structure: [
+                "<strong>Paragraph 1 (Introduction):</strong> Clearly define the dual parameters: the bar chart represents 2008 snapshot, table represents 1953-2008 change.",
+                "<strong>Paragraph 2 (Overview):</strong> Capture the main trends: Japan highest / Indonesia lowest in 2008, but Indonesia and Korea growing fastest.",
+                "<strong>Paragraph 3 (Detail Group 1):</strong> Group and present the 2008 static data from the bar chart.",
+                "<strong>Paragraph 4 (Detail Group 2):</strong> Present the change data from the table, drawing comparative conclusions on developed vs developing nations."
+            ],
+            vocab: ["absolute increase", "most substantial improvements", "inverse relationship", "subsequent progress", "registered the most dramatic increase", "modest gains"]
+        }
+    };
+
+    function openModal(type) {
+        const data = essaysDB[type];
+        if (!data) return;
+
+        const overlay = document.getElementById('modalOverlay');
+        const container = document.getElementById('modalContainer');
+        const body = document.getElementById('modalBody');
+
+        document.getElementById('modalTitle').innerText = data.title;
+
+        // Construct HTML content inside modal
+        body.innerHTML = `
+            <div>
+                <span class="text-[10px] font-bold text-rose-600 bg-rose-50 border border-rose-100 px-2.5 py-1 rounded-md uppercase">Band 7.5 - 8.0 Model Answer</span>
+                <div class="mt-3 text-xs leading-relaxed text-slate-700 bg-slate-50 border border-slate-100 p-5 rounded-2xl">
+                    <p class="mb-3 font-semibold text-slate-800">${data.intro}</p>
+                    <p class="mb-4 italic text-slate-800 border-l-2 border-rose-300 pl-3 bg-rose-50/20 p-2.5 rounded-lg">${data.overview}</p>
+                    <p class="text-slate-600 leading-relaxed">${data.details}</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+                <div>
+                    <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-2.5">Structure Blueprint</span>
+                    <ul class="space-y-2">
+                        ${data.structure.map(item => `
+                            <li class="flex items-start text-[11px] text-slate-600 leading-relaxed">
+                                <span class="text-rose-400 font-bold mr-2">•</span>
+                                <span>${item}</span>
+                            </li>
+                        `).join('')}
+                    </ul>
+                </div>
+                <div>
+                    <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-2.5">Lexical Resources (Band 7.5+)</span>
+                    <div class="flex flex-wrap gap-1.5">
+                        ${data.vocab.map(word => `
+                            <span class="text-[11px] font-semibold text-slate-600 bg-slate-100 border border-slate-200/60 px-2.5 py-1 rounded-md">${word}</span>
+                        `).join('')}
+                    </div>
+                </div>
+            </div>
+        `;
+
+        // Animation triggers
+        overlay.classList.remove('pointer-events-none');
+        overlay.classList.add('opacity-100');
+        container.classList.remove('scale-95', 'opacity-0');
+        container.classList.add('scale-100', 'opacity-100');
+        
+        // Prevent body scrolling
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+        const overlay = document.getElementById('modalOverlay');
+        const container = document.getElementById('modalContainer');
+
+        overlay.classList.remove('opacity-100');
+        overlay.classList.add('pointer-events-none');
+        container.classList.remove('scale-100', 'opacity-100');
+        container.classList.add('scale-95', 'opacity-0');
+        
+        // Restore body scrolling
+        document.body.style.overflow = '';
+    }
+
+    // Close modal if user clicks outside of container
+    document.getElementById('modalOverlay').addEventListener('click', function(e) {
+        if (e.target === this) {
+            closeModal();
+        }
+    });
+
+    // Close on escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeModal();
+        }
+    });
+</script>
+
+</body>
+</html>

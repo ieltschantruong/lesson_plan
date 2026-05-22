@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Chan Truong | Lesson 8 Detailed Plan</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Inter"', 'sans-serif'],
+                    },
+                    colors: {
+                        pastel: {
+                            pink: '#ffe4e6',
+                            purple: '#f3e8ff',
+                            blue: '#e0e7ff',
+                            teal: '#ccfbf1',
+                            orange: '#ffedd5',
+                            indigo: '#e0e7ff',
+                            cyan: '#cffafe'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { 
+            background-color: #fdfbfb;
+            background-image: 
+                radial-gradient(at 80% 0%, hsla(250, 50%, 95%, 1) 0px, transparent 50%),
+                radial-gradient(at 10% 30%, hsla(280, 60%, 90%, 1) 0px, transparent 50%),
+                radial-gradient(at 90% 80%, hsla(200, 60%, 90%, 1) 0px, transparent 50%),
+                radial-gradient(at 20% 90%, hsla(220, 60%, 90%, 1) 0px, transparent 50%);
+            background-attachment: fixed;
+            color: #334155;
+        }
+        
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 10px 40px -10px rgba(0,0,0,0.05);
+        }
+
+        .skill-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.25rem 0.6rem;
+            border-radius: 8px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            backdrop-filter: blur(4px);
+        }
+
+        .badge-listening { background-color: rgba(243, 232, 255, 0.7); color: #9333ea; border: 1px solid rgba(233, 213, 255, 0.5); }
+        .badge-speaking { background-color: rgba(255, 237, 213, 0.7); color: #ea580c; border: 1px solid rgba(253, 216, 163, 0.5); }
+        .badge-vocab { background-color: rgba(204, 251, 241, 0.7); color: #0d9488; border: 1px solid rgba(153, 246, 228, 0.5); }
+
+        .guidance-box {
+            background: linear-gradient(to right, rgba(255,255,255,0.95), rgba(255,255,255,0.7));
+            border-left: 4px solid;
+            border-radius: 0.5rem;
+            padding: 1.25rem;
+            margin-bottom: 1.25rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: rgba(203, 213, 225, 0.8); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(148, 163, 184, 0.8); }
+    </style>
+</head>
+<body class="antialiased min-h-screen pb-16">
+
+<div class="max-w-4xl mx-auto px-4 py-10 sm:px-6 lg:px-8">
+    
+    <!-- Header Block (Matches Lesson 6 exactly) -->
+    <header class="glass-panel rounded-[2rem] p-8 mb-8 relative overflow-hidden">
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-pastel-indigo rounded-full mix-blend-multiply filter blur-3xl opacity-50 z-0"></div>
+        <div class="absolute -bottom-24 -left-24 w-72 h-72 bg-pastel-purple rounded-full mix-blend-multiply filter blur-3xl opacity-50 z-0"></div>
+
+        <div class="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+            <div>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 border border-white text-[10px] font-bold text-slate-500 tracking-widest uppercase mb-3 shadow-sm">
+                    IELTS Chan Truong • Tutor 1
+                </div>
+                <h1 class="text-3xl md:text-4xl font-bold tracking-tight text-slate-800 mb-2">Lesson 8: Self-Correction & Speaking P3</h1>
+                <p class="text-slate-500 font-medium">90-Minute Dual-Skill Integration</p>
+            </div>
+            
+            <div class="flex flex-col gap-2">
+                <span class="skill-badge badge-listening shadow-sm justify-center">Listening (45 Min)</span>
+                <span class="skill-badge badge-speaking shadow-sm justify-center">Speaking (45 Min)</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="space-y-8">
+        
+        <!-- Section 1: Vocab Assessment -->
+        <section class="glass-panel rounded-2xl p-6 md:p-8 relative overflow-hidden bg-gradient-to-br from-white/60 to-teal-50/40">
+            <div class="absolute top-0 left-0 w-2 h-full bg-teal-400"></div>
+            
+            <div class="flex items-center justify-between gap-4 mb-5">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-teal-100 flex items-center justify-center text-teal-600 shadow-sm border border-teal-200">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <div>
+                        <h2 class="text-xl font-bold text-slate-800">1. Vocabulary Evaluation Checkpoints</h2>
+                        <p class="text-sm text-slate-500">In-class verification & assessment links</p>
+                    </div>
+                </div>
+                <span class="skill-badge badge-vocab shadow-sm">Vocab Test</span>
+            </div>
+            
+            <p class="text-sm text-slate-600 mb-5">Evaluate vocabulary acquisition metrics from prior Reading (E-Training) and Listening (Maps Labeling) modules:</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <a href="https://ieltschantruong.github.io/IELTS/lesson_plan/vocab_test/reading_e_training.html" target="_blank" class="flex items-center justify-between p-4 bg-white/80 border border-teal-200 rounded-xl hover:shadow-md hover:border-teal-400 transition-all group">
+                    <div class="flex items-center gap-3">
+                        <div class="bg-teal-50 p-2.5 rounded-lg text-teal-600 group-hover:bg-teal-100 transition-colors">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                        </div>
+                        <div>
+                            <span class="block text-sm font-bold text-slate-800 group-hover:text-teal-700 transition-colors">Reading E-Training</span>
+                            <span class="block text-[11px] text-slate-500 mt-0.5">Vocab Test</span>
+                        </div>
+                    </div>
+                    <span class="text-[10px] text-teal-600 font-bold uppercase tracking-wider bg-teal-50 px-2.5 py-1.5 rounded border border-teal-100 group-hover:bg-teal-100 transition-colors">Open</span>
+                </a>
+
+                <a href="https://ieltschantruong.github.io/IELTS/lesson_plan/vocab_test/listening_maps_labeling.html" target="_blank" class="flex items-center justify-between p-4 bg-white/80 border border-teal-200 rounded-xl hover:shadow-md hover:border-teal-400 transition-all group">
+                    <div class="flex items-center gap-3">
+                        <div class="bg-teal-50 p-2.5 rounded-lg text-teal-600 group-hover:bg-teal-100 transition-colors">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                        </div>
+                        <div>
+                            <span class="block text-sm font-bold text-slate-800 group-hover:text-teal-700 transition-colors">Maps & Labeling</span>
+                            <span class="block text-[11px] text-slate-500 mt-0.5">Vocab Test</span>
+                        </div>
+                    </div>
+                    <span class="text-[10px] text-teal-600 font-bold uppercase tracking-wider bg-teal-50 px-2.5 py-1.5 rounded border border-teal-100 group-hover:bg-teal-100 transition-colors">Open</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Section 2: Listening Section -->
+        <section class="glass-panel rounded-2xl p-6 md:p-8 relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-2 h-full bg-purple-400"></div>
+            
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 rounded-full bg-purple-50 flex items-center justify-center text-purple-600 border border-purple-100 shadow-sm">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+                </div>
+                <h2 class="text-2xl font-bold text-slate-800">2. Listening Section</h2>
+            </div>
+
+            <!-- Tutoring Guidance Box: Listening MCQs & Self-Correction -->
+            <div class="guidance-box border-purple-400">
+                <h3 class="text-[13px] font-bold text-purple-800 uppercase tracking-wider mb-3 flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    Listening P3: Identifying Self-Correction & Matching Info
+                </h3>
+                <div class="space-y-3 text-sm text-slate-700">
+                    <p><strong class="text-slate-800">1. Speaker Self-Correction Patterns:</strong> In Part 3 academic discussions, speakers often state an initial choice and immediately revise it to trick passive listeners.</p>
+                    
+                    <div class="bg-white/80 p-3.5 rounded-xl border border-purple-100 shadow-sm text-xs space-y-2">
+                        <p><strong class="text-purple-800">The Trap Structure:</strong> Speaker A proposes Option X &rarr; Speaker B questions it &rarr; Speaker A corrects themselves with Option Y.</p>
+                        <p><strong class="text-purple-800">Self-Correction Signals:</strong> Train the student to register transition words like: <em>"On second thought...", "Actually, let's change that...", "No, wait, I made a mistake...", "I used to think so, but instead..."</em></p>
+                    </div>
+
+                    <p class="mt-3"><strong class="text-slate-800">2. Matching Information Strategies (CBT Focus):</strong></p>
+                    <ul class="list-disc list-inside space-y-1.5 ml-1 text-[13px] text-slate-600 bg-slate-50/50 p-3 rounded-lg border border-slate-200">
+                        <li><strong>Paraphrase Mapping:</strong> The numbered list in matching tasks (e.g., specific ideas/topics) remains static, but the options are heavily paraphrased in the audio. Focus on synonyms rather than direct keywords.</li>
+                        <li><strong>Screen Navigation:</strong> On the Computer-Based Test (CBT), matching exercises usually use drag-and-drop or select menus. Ensure the student practices looking back and forth from the static list to the moving options without losing focus.</li>
+                        <li><strong>Chronological Rule:</strong> The numbered items will always be heard in order. The lettered options are scattered. Keep your cursor hovering near the relevant list element.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- In-Class Practice Links -->
+            <div class="mt-6 space-y-4">
+                <h4 class="text-sm font-bold text-slate-800 flex items-center gap-2">
+                    <svg class="w-4 h-4 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                    Part 3 Practical Execution Links
+                </h4>
+                
+                <a href="https://youpass.vn/thi-thu/listening/10495" target="_blank" class="p-4 rounded-xl border border-purple-200 bg-white flex flex-col sm:flex-row items-center justify-between gap-4 transition-all hover:border-purple-400 hover:shadow-md group">
+                    <div class="flex items-center gap-4 w-full sm:w-auto">
+                        <div class="w-10 h-10 bg-purple-50 rounded-lg flex items-center justify-center text-purple-600 font-bold group-hover:bg-purple-100 transition-colors shrink-0">1</div>
+                        <div>
+                            <p class="font-bold text-slate-800 text-[15px] group-hover:text-purple-600 transition-colors">The Artist Samuel Prout</p>
+                            <p class="text-xs text-slate-500 mt-0.5">Focus: Section 3 Multiple Choice & Speaker Agreements</p>
+                        </div>
+                    </div>
+                    <span class="w-full sm:w-auto text-center sm:text-right text-[11px] font-bold text-purple-600 uppercase tracking-wider bg-purple-50 px-4 py-2.5 rounded-lg border border-purple-100 group-hover:bg-purple-100 transition-colors">Open Practice Set</span>
+                </a>
+                
+                <a href="https://youpass.vn/thi-thu/listening/10431" target="_blank" class="p-4 rounded-xl border border-purple-200 bg-white flex flex-col sm:flex-row items-center justify-between gap-4 transition-all hover:border-purple-400 hover:shadow-md group">
+                    <div class="flex items-center gap-4 w-full sm:w-auto">
+                        <div class="w-10 h-10 bg-purple-50 rounded-lg flex items-center justify-center text-purple-600 font-bold group-hover:bg-purple-100 transition-colors shrink-0">2</div>
+                        <div>
+                            <p class="font-bold text-slate-800 text-[15px] group-hover:text-purple-600 transition-colors">Report on Geography Field Trip</p>
+                            <p class="text-xs text-slate-500 mt-0.5">Focus: Matching Information & High-Speed Discussions</p>
+                        </div>
+                    </div>
+                    <span class="w-full sm:w-auto text-center sm:text-right text-[11px] font-bold text-purple-600 uppercase tracking-wider bg-purple-50 px-4 py-2.5 rounded-lg border border-purple-100 group-hover:bg-purple-100 transition-colors">Open Practice Set</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Section 3: Speaking Section -->
+        <section class="glass-panel rounded-2xl p-6 md:p-8 relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-2 h-full bg-orange-400"></div>
+            
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 rounded-full bg-orange-50 flex items-center justify-center text-orange-600 border border-orange-100 shadow-sm">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+                </div>
+                <h2 class="text-2xl font-bold text-slate-800">3. Speaking Section</h2>
+            </div>
+
+            <!-- Tutoring Guidance Box: Speaking Part 3 A.R.E.A -->
+            <div class="guidance-box border-orange-400">
+                <h3 class="text-[13px] font-bold text-orange-800 uppercase tracking-wider mb-3 flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    Speaking Part 3 Execution: Utilizing the A.R.E.A Framework
+                </h3>
+                <div class="space-y-4 text-sm text-slate-700">
+                    <p><strong class="text-slate-800">Connecting Part 2 Storytelling to Part 3 Abstract Logic:</strong> Help the student shift away from concrete personal stories (Part 2) to broader societal and objective viewpoints (Part 3).</p>
+                    
+                    <div>
+                        <span class="text-[11px] font-bold text-orange-700 bg-orange-50 border border-orange-100 px-2 py-0.5 rounded uppercase tracking-wide block w-fit mb-2">The A.R.E.A Structure</span>
+                        <div class="grid grid-cols-1 md:grid-cols-4 gap-3 text-xs">
+                            <div class="bg-white/85 p-3 rounded-lg border border-slate-100 shadow-sm">
+                                <span class="font-bold text-orange-600 block mb-1">A — Answer</span>
+                                Answer the question directly using synonyms from the prompt. Avoid "Yes" or "No" answers.
+                            </div>
+                            <div class="bg-white/85 p-3 rounded-lg border border-slate-100 shadow-sm">
+                                <span class="font-bold text-orange-600 block mb-1">R — Reason</span>
+                                Explain *why* you hold this view. Introduce connecting words like "due to the fact that..." or "primarily because...".
+                            </div>
+                            <div class="bg-white/85 p-3 rounded-lg border border-slate-100 shadow-sm">
+                                <span class="font-bold text-orange-600 block mb-1">E — Example</span>
+                                Provide a general or social example (avoid personal "I" stories if possible; use "In major cities..." or "According to surveys...").
+                            </div>
+                            <div class="bg-white/85 p-3 rounded-lg border border-slate-100 shadow-sm">
+                                <span class="font-bold text-orange-600 block mb-1">A — Alternative</span>
+                                Wrap up by presenting a counter-perspective or conditional outcome: "Otherwise, we might see..." or "Unless this is resolved..."
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Speaking Practice Resource -->
+            <div class="mt-6">
+                <h4 class="text-sm font-bold text-slate-800 mb-3 flex items-center gap-2">
+                    <svg class="w-4 h-4 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    Speaking Part 2 & Part 3 Practice
+                </h4>
+                <a href="https://ieltschantruong.github.io/IELTS/learning_resources/speaking/part2_3/news_and_ads.html" target="_blank" class="p-4 rounded-xl border border-orange-200 bg-white flex flex-col sm:flex-row items-center justify-between gap-4 transition-all hover:border-orange-400 hover:shadow-md group">
+                    <div class="flex items-center gap-4 w-full sm:w-auto">
+                        <div class="w-10 h-10 bg-orange-50 rounded-lg flex items-center justify-center text-orange-600 font-bold group-hover:bg-orange-100 transition-colors shrink-0">P3</div>
+                        <div>
+                            <p class="font-bold text-slate-800 text-[15px] group-hover:text-orange-600 transition-colors">News & Advertisements Study</p>
+                            <p class="text-xs text-slate-500 mt-0.5">Focus: Linking opinions and structured A.R.E.A delivery</p>
+                        </div>
+                    </div>
+                    <span class="w-full sm:w-auto text-center sm:text-right text-[11px] font-bold text-orange-600 uppercase tracking-wider bg-orange-50 px-4 py-2.5 rounded-lg border border-orange-100 group-hover:bg-orange-100 transition-colors">Launch Resource</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Section 4: Homework Assignments -->
+        <section class="glass-panel rounded-2xl p-6 md:p-8 relative overflow-hidden bg-gradient-to-br from-white/60 to-blue-50/40">
+            <div class="absolute top-0 left-0 w-2 h-full bg-blue-400"></div>
+            
+            <div class="flex items-center gap-3 mb-5">
+                <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 shadow-sm border border-blue-200">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                </div>
+                <h2 class="text-xl font-bold text-slate-800">4. Homework Assignments</h2>
+            </div>
+            
+            <p class="text-sm text-slate-600 mb-6 font-medium">Assign the exercises below to consolidate Part 3 Listening strategies and build Nature/Geography-related Speaking vocabulary.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Listening Homework Section -->
+                <div>
+                    <h3 class="text-xs font-bold text-purple-500 uppercase tracking-widest border-b border-purple-100 pb-2 mb-3">Listening Drills (YouPass)</h3>
+                    <div class="space-y-3">
+                        <a href="https://youpass.vn/thi-thu/listening/10273" target="_blank" class="block p-3 rounded-lg border border-purple-200 bg-white/80 text-xs hover:border-purple-400 hover:shadow-sm transition-all">
+                            <span class="font-bold text-slate-800 block">Fruit Research</span>
+                            <span class="text-slate-400 block mt-0.5">Practice 10273 • Part 3 Academic Matching</span>
+                        </a>
+                        <a href="https://youpass.vn/thi-thu/listening/10146" target="_blank" class="block p-3 rounded-lg border border-purple-200 bg-white/80 text-xs hover:border-purple-400 hover:shadow-sm transition-all">
+                            <span class="font-bold text-slate-800 block">Art Exhibition</span>
+                            <span class="text-slate-400 block mt-0.5">Practice 10146 • Part 3 Distractor Navigation</span>
+                        </a>
+                        <a href="https://youpass.vn/thi-thu/listening/10117" target="_blank" class="block p-3 rounded-lg border border-purple-200 bg-white/80 text-xs hover:border-purple-400 hover:shadow-sm transition-all">
+                            <span class="font-bold text-slate-800 block">Music Psychology Presentation</span>
+                            <span class="text-slate-400 block mt-0.5">Practice 10117 • Follow Change of Agreement</span>
+                        </a>
+                        <a href="https://youpass.vn/thi-thu/listening/9966" target="_blank" class="block p-3 rounded-lg border border-purple-200 bg-white/80 text-xs hover:border-purple-400 hover:shadow-sm transition-all">
+                            <span class="font-bold text-slate-800 block">Laboratory Group Project</span>
+                            <span class="text-slate-400 block mt-0.5">Practice 9966 • Track Multiple Speakers</span>
+                        </a>
+                        <a href="https://youpass.vn/thi-thu/listening/9711" target="_blank" class="block p-3 rounded-lg border border-purple-200 bg-white/80 text-xs hover:border-purple-400 hover:shadow-sm transition-all">
+                            <span class="font-bold text-slate-800 block">Personal Support Workers Programme</span>
+                            <span class="text-slate-400 block mt-0.5">Practice 9711 • Identifying Self-Correction</span>
+                        </a>
+                        <a href="https://youpass.vn/thi-thu/listening/8756" target="_blank" class="block p-3 rounded-lg border border-purple-200 bg-white/80 text-xs hover:border-purple-400 hover:shadow-sm transition-all">
+                            <span class="font-bold text-slate-800 block">Geography presentation</span>
+                            <span class="text-slate-400 block mt-0.5">Practice 8756 • Section 3 Multiple Choice</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Speaking Homework Section -->
+                <div>
+                    <h3 class="text-xs font-bold text-orange-500 uppercase tracking-widest border-b border-orange-100 pb-2 mb-3">Speaking & Vocab Preparation</h3>
+                    <a href="https://ieltschantruong.github.io/IELTS/learning_resources/speaking/part2_3/nature_and_geography.html" target="_blank" class="p-4 rounded-xl border border-orange-200 bg-white flex flex-col justify-between h-fit gap-3 hover:border-orange-400 hover:shadow-md transition-all group">
+                        <div class="flex items-center gap-3">
+                            <div class="p-2 bg-orange-50 text-orange-500 rounded-lg group-hover:bg-orange-100 transition-colors">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 002 2h2a2.5 2.5 0 002.5-2.5V14a2 2 0 012-2h.09M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            </div>
+                            <div>
+                                <p class="font-bold text-slate-800 text-sm group-hover:text-orange-600 transition-colors leading-snug">Nature & Geography Prep</p>
+                                <p class="text-[11px] font-semibold text-slate-400 mt-1 uppercase tracking-wider">Speaking Vocab & Part 2</p>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-600 leading-relaxed mt-2 border-t border-slate-100 pt-3">
+                            Develop key topical vocabulary for geographical formations, natural events, and environmental issues. Practice describing a geographic feature or environmental concern using the A.R.E.A formula.
+                        </p>
+                        <span class="text-center text-[11px] font-bold text-orange-600 uppercase tracking-wider bg-orange-50 px-3 py-2.5 rounded-lg border border-orange-100 group-hover:bg-orange-100 transition-colors mt-2 block w-full">Open Speaking Resource</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</div>
+
+</body>
+</html>
