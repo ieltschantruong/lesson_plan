@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Chan Truong | PET Intensive Lesson 16</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#fdf2f8',  // Blush
+                            100: '#fce7f3', // Pastel Pink
+                            200: '#fbcfe8',
+                            300: '#f9a8d4',
+                            400: '#f472b6',
+                            500: '#ec4899', // Vibrant Accent
+                            800: '#9d174d', // Deep Rose for text
+                            900: '#831843', // Darkest Rose
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            background-color: #fffafb; /* Soft pastel background */
+            color: #475569;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(252, 231, 243, 0.6); /* pink-100 */
+            box-shadow: 0 4px 14px 0 rgba(252, 231, 243, 0.5); /* pink shadow */
+            transition: all 0.3s ease;
+        }
+        
+        .glass-card:hover {
+            box-shadow: 0 10px 25px -3px rgba(252, 231, 243, 0.8), 0 4px 6px -2px rgba(24bc, 231, 243, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .checkbox-custom:checked + div {
+            background-color: #ec4899; /* brand-500 */
+            border-color: #ec4899;
+        }
+        
+        .checkbox-custom:checked + div svg {
+            opacity: 1;
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #fdf2f8; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #f9a8d4; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #f472b6; 
+        }
+
+        /* Accordion summaries style removal */
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- Sticky Progress Bar -->
+    <div class="fixed top-0 left-0 w-full h-1.5 bg-brand-100 z-50">
+        <div id="progressBar" class="h-full bg-brand-500 transition-all duration-500 ease-out" style="width: 0%;"></div>
+    </div>
+
+    <!-- Header Section -->
+    <header class="bg-gradient-to-br from-pink-100 via-rose-100 to-pink-200 text-brand-900 pt-16 pb-20 px-6 relative overflow-hidden shadow-sm">
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden opacity-30 pointer-events-none">
+            <svg class="absolute -top-24 -right-24 w-96 h-96 text-white" fill="currentColor" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50"/></svg>
+            <svg class="absolute bottom-[-10%] left-[-5%] w-64 h-64 text-brand-300" fill="currentColor" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50"/></svg>
+        </div>
+
+        <div class="max-w-5xl mx-auto relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+            <div>
+                <h2 class="text-brand-800 font-semibold tracking-widest text-sm uppercase mb-2 flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                    IELTS Chan Truong
+                </h2>
+                <h1 class="text-4xl md:text-5xl font-serif font-bold text-brand-900 leading-tight drop-shadow-sm">
+                    PET Intensive <br/><span class="text-brand-500 font-sans font-light text-3xl">Lesson 16</span>
+                </h1>
+            </div>
+            
+            <div class="flex gap-4 bg-white/50 backdrop-blur-md px-6 py-4 rounded-2xl border border-white/60 shadow-sm">
+                <div class="text-center px-4 border-r border-brand-200">
+                    <div class="text-brand-800 font-bold text-xl">90</div>
+                    <div class="text-xs text-brand-500 uppercase tracking-wider font-semibold">Minutes</div>
+                </div>
+                <div class="text-center px-4">
+                    <div class="text-brand-800 font-bold text-xl">14-16</div>
+                    <div class="text-xs text-brand-500 uppercase tracking-wider font-semibold">Students</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-5xl mx-auto px-6 w-full -mt-8 relative z-20 pb-20 flex-grow">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            
+            <!-- Left Column: Lesson Content -->
+            <div class="lg:col-span-8 space-y-6">
+                
+                <!-- Section 1: Speaking Part 2 & 3 Vocab & Practices -->
+                <section class="glass-card rounded-2xl p-6 md:p-8 fade-in-up" id="section-1">
+                    <div class="flex items-start justify-between mb-6">
+                        <div class="flex items-center gap-4">
+                            <div class="bg-brand-50 text-brand-500 p-3 rounded-xl">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-brand-900">1. Speaking Part 2 & 3: Practice</h3>
+                                <p class="text-sm text-brand-400 font-medium flex items-center gap-2 mt-1">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    Pages 52 to 59 (35 mins)
+                                </p>
+                            </div>
+                        </div>
+
+                        <label class="flex items-center cursor-pointer group">
+                            <input type="checkbox" class="checkbox-custom hidden" data-task="1" onchange="updateProgress()">
+                            <div class="w-8 h-8 rounded-full border-2 border-brand-200 flex items-center justify-center transition-colors group-hover:border-brand-500 bg-white shadow-inner">
+                                <svg class="w-4 h-4 text-white opacity-0 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                        </label>
+                    </div>
+
+                    <p class="text-slate-600 text-sm mb-6 leading-relaxed">Study high-scoring vocabulary, idioms, and natural monologues. Expand each card below to view custom **Band 7.5+ Sample Responses** and Part 3 abstract structures:</p>
+
+                    <!-- Cue Card Accordions -->
+                    <div class="space-y-4">
+                        
+                        <!-- Topic 1 -->
+                        <details class="group border border-brand-200 rounded-lg bg-white overflow-hidden shadow-sm hover:border-brand-400 transition-colors">
+                            <summary class="flex justify-between items-center font-medium cursor-pointer p-4 hover:bg-brand-50/50 text-brand-900 transition-colors">
+                                <span class="flex items-center gap-3">
+                                    <span class="w-7 h-7 bg-brand-100 text-brand-800 rounded-full flex items-center justify-center font-bold text-xs">01</span>
+                                    <span class="font-serif text-sm md:text-base font-bold text-slate-800">Describe a long journey you had and would like to take again</span>
+                                </span>
+                                <svg class="w-5 h-5 transition duration-300 group-open:rotate-180 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </summary>
+                            <div class="p-5 border-t border-brand-100 text-sm text-slate-800 space-y-4 bg-brand-50/10 leading-relaxed">
+                                <div class="mb-2 bg-brand-50 p-3 rounded border border-brand-100">
+                                    <p class="text-xs font-bold text-brand-800 mb-1">Part 2 Cue Card Bullets:</p>
+                                    <p class="text-xs text-slate-600">You should say: Where you went; How you traveled; What you did on the journey; And explain why you would like to go on this journey again.</p>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg border border-brand-200 shadow-sm">
+                                    <p class="text-xs font-bold text-brand-800 mb-2 flex items-center gap-1.5">
+                                        <svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+                                        Band 7.5+ Sample Response (Monologue):
+                                    </p>
+                                    <p class="text-xs text-slate-700 italic leading-relaxed">
+                                        "I would like to reminisce about an extraordinarily long and breathtaking journey that I took last year along the Ha Giang Loop in northern Vietnam. I traveled with two of my closest friends, and we decided to do the loop on motorbikes, which we rented locally. This gave us the absolute autonomy to traverse the rugged, winding mountain passes at our own pace and pull over whenever we encountered a particularly awe-inspiring view. On our way, we rode through vast pine forests, stopped at rustic local villages, and stayed at family homestays where we ate traditional food. What made the trip so memorable was the breathtaking scenic beauty of the towering limestone karsts and deep, verdant valleys. I would leap at the chance to embark on this journey again because modern life can be extremely fast-paced and overwhelming. Being on the open road with no distractions was incredibly therapeutic; it allowed me to disconnect completely from my academic responsibilities and fully recharge my batteries. Going back would allow me to experience that profound peace of mind once more."
+                                    </p>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg border border-brand-200 shadow-sm">
+                                    <p class="text-xs font-bold text-brand-800 mb-2">Lexical Masterclass (Detailed Vocab & Idioms):</p>
+                                    <div class="space-y-3 text-xs">
+                                        <div>
+                                            <span class="font-semibold text-brand-600">1. Traverse (verb)</span> /trəˈvɜːs/
+                                            <p class="text-slate-600 text-[11px] mt-0.5"><strong>Definition:</strong> To travel across or through a path or region. <br/><strong>Collocations:</strong> Traverse rugged terrain, traverse mountain passes. <br/><strong>Example:</strong> It takes extreme focus to traverse the narrow, winding pathways of the highlands.</p>
+                                        </div>
+                                        <div>
+                                            <span class="font-semibold text-brand-600">2. Therapeutic (adjective)</span> /ˌθerəˈpjuːtɪk/
+                                            <p class="text-slate-600 text-[11px] mt-0.5"><strong>Definition:</strong> Having a healing, relaxing, or beneficial effect on the body or mind. <br/><strong>Collocations:</strong> Highly therapeutic effect, therapeutic environment. <br/><strong>Example:</strong> Sitting quietly by the river after a long ride was incredibly therapeutic.</p>
+                                        </div>
+                                        <div>
+                                            <span class="font-semibold text-brand-600">3. Off the beaten track (idiom)</span>
+                                            <p class="text-slate-600 text-[11px] mt-0.5"><strong>Definition:</strong> Located in a remote area, far away from where most people live or travel. <br/><strong>Example:</strong> We deliberately chose to visit homestays that were situated far off the beaten track.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bg-brand-50/50 p-4 rounded-lg border border-brand-200 text-xs">
+                                    <p class="font-bold text-brand-800 mb-1.5">Part 3 Analytical Extension:</p>
+                                    <p class="text-[11px] text-slate-700"><strong>Q: Why do some people prefer long-distance journeys over quick vacations?</strong><br/><em>Ans (OREO):</em> From my perspective, long-distance journeys are preferred because they facilitate a deeper, more organic connection with the destination. This is due to the fact that quick holidays are often rushed and commercialized, leaving little time for authentic exploration. For example, a traveler driving across a country interacts with diverse rural cultures, whereas a resort tourist remains in a highly curated bubble. Therefore, long-distance travel is fundamentally a transformative experience rather than mere superficial relaxation.</p>
+                                </div>
+                            </div>
+                        </details>
+
+                        <!-- Topic 2 -->
+                        <details class="group border border-brand-200 rounded-lg bg-white overflow-hidden shadow-sm hover:border-brand-400 transition-colors">
+                            <summary class="flex justify-between items-center font-medium cursor-pointer p-4 hover:bg-brand-50/50 text-brand-900 transition-colors">
+                                <span class="flex items-center gap-3">
+                                    <span class="w-7 h-7 bg-brand-100 text-brand-800 rounded-full flex items-center justify-center font-bold text-xs">02</span>
+                                    <span class="font-serif text-sm md:text-base font-bold text-slate-800">Describe a person you know who enjoys working for a family business</span>
+                                </span>
+                                <svg class="w-5 h-5 transition duration-300 group-open:rotate-180 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </summary>
+                            <div class="p-5 border-t border-brand-100 text-sm text-slate-800 space-y-4 bg-brand-50/10 leading-relaxed">
+                                <div class="mb-2 bg-brand-50 p-3 rounded border border-brand-100">
+                                    <p class="text-xs font-bold text-brand-800 mb-1">Part 2 Cue Card Bullets:</p>
+                                    <p class="text-xs text-slate-600">You should say: Who this person is; What family business they work for; What their daily responsibilities are; And explain why you think they enjoy working there.</p>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg border border-brand-200 shadow-sm">
+                                    <p class="text-xs font-bold text-brand-800 mb-2 flex items-center gap-1.5">
+                                        <svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+                                        Band 7.5+ Sample Response (Monologue):
+                                    </p>
+                                    <p class="text-xs text-slate-700 italic leading-relaxed">
+                                        "I'm going to talk about my older cousin, Minh, who is incredibly passionate about working for his family’s traditional lacquerware workshop in Binh Duong province. This business is a key element of our family's heritage, having been passed down through three consecutive generations. Minh's primary responsibilities include managing raw material logistics, supervising the younger artisans, and spearheading their digital marketing campaigns to reach international buyers. Minh absolutely loves his job because it is his primary source of livelihood and gives him a deep sense of purpose. He prefers this over climbing a corporate ladder because he enjoys the flat organizational structure where he can call the shots alongside his father. Furthermore, he feels that he is directly preserving a vanishing craft. He puts his heart and soul into every piece, finding immense joy in seeing his family's legacy thrive in the modern era."
+                                    </p>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg border border-brand-200 shadow-sm">
+                                    <p class="text-xs font-bold text-brand-800 mb-2">Lexical Masterclass (Detailed Vocab & Idioms):</p>
+                                    <div class="space-y-3 text-xs">
+                                        <div>
+                                            <span class="font-semibold text-brand-600">1. Livelihood (noun)</span> /ˈlaɪvlihʊd/
+                                            <p class="text-slate-600 text-[11px] mt-0.5"><strong>Definition:</strong> The means of securing the necessities of life, such as money to pay for food and housing. <br/><strong>Collocations:</strong> Secure a livelihood, sole source of livelihood. <br/><strong>Example:</strong> For many villagers, weaving is not just a hobby but their primary livelihood.</p>
+                                        </div>
+                                        <div>
+                                            <span class="font-semibold text-brand-600">2. Call the shots (idiom)</span>
+                                            <p class="text-slate-600 text-[11px] mt-0.5"><strong>Definition:</strong> To make the important decisions; to be in control of a situation. <br/><strong>Example:</strong> Since Minh became a co-director, he has the authority to call the shots on overseas trade.</p>
+                                        </div>
+                                        <div>
+                                            <span class="font-semibold text-brand-600">3. Put one's heart and soul into (idiom)</span>
+                                            <p class="text-slate-600 text-[11px] mt-0.5"><strong>Definition:</strong> To do something with maximum effort, energy, and complete dedication. <br/><strong>Example:</strong> Minh put his heart and soul into restoring the workshop's historic furnace.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bg-brand-50/50 p-4 rounded-lg border border-brand-200 text-xs">
+                                    <p class="font-bold text-brand-800 mb-1.5">Part 3 Analytical Extension:</p>
+                                    <p class="text-[11px] text-slate-700"><strong>Q: What are the main advantages and disadvantages of working in a family business?</strong><br/><em>Ans (OREO):</em> In my view, the paramount benefit of a family enterprise is the unparalleled level of mutual trust and shared long-term vision. This is because family members are typically motivated by pride and legacy rather than short-term financial gains, which creates a highly supportive workspace. However, the prominent drawback is the blurring of personal and professional boundaries, which can lead to severe domestic arguments. For instance, a disagreement over business budgets during dinner can easily strain family relationships. Therefore, while family businesses offer incredible stability, they require strict boundary management to avoid internal friction.</p>
+                                </div>
+                            </div>
+                        </details>
+
+                        <!-- Topic 3 -->
+                        <details class="group border border-brand-200 rounded-lg bg-white overflow-hidden shadow-sm hover:border-brand-400 transition-colors">
+                            <summary class="flex justify-between items-center font-medium cursor-pointer p-4 hover:bg-brand-50/50 text-brand-900 transition-colors">
+                                <span class="flex items-center gap-3">
+                                    <span class="w-7 h-7 bg-brand-100 text-brand-800 rounded-full flex items-center justify-center font-bold text-xs">03</span>
+                                    <span class="font-serif text-sm md:text-base font-bold text-slate-800">Describe a group activity you took part in</span>
+                                </span>
+                                <svg class="w-5 h-5 transition duration-300 group-open:rotate-180 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </summary>
+                            <div class="p-5 border-t border-brand-100 text-sm text-slate-800 space-y-4 bg-brand-50/10 leading-relaxed">
+                                <div class="mb-2 bg-brand-50 p-3 rounded border border-brand-100">
+                                    <p class="text-xs font-bold text-brand-800 mb-1">Part 2 Cue Card Bullets:</p>
+                                    <p class="text-xs text-slate-600">You should say: What the activity was; When and where you did it; Who you did it with; And explain what you contributed and how you felt about it.</p>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg border border-brand-200 shadow-sm">
+                                    <p class="text-xs font-bold text-brand-800 mb-2 flex items-center gap-1.5">
+                                        <svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+                                        Band 7.5+ Sample Response (Monologue):
+                                    </p>
+                                    <p class="text-xs text-slate-700 italic leading-relaxed">
+                                        "I'd like to describe an extremely rewarding group activity I participated in last autumn. It was a local charity flood-relief drive organized by our neighborhood youth center in Da Nang. Our objective was to collect, organize, and package dry rations, warm clothes, and clean water to distribute to communities affected by a tropical storm. I worked alongside a team of around fifteen other student volunteers. We set up our operations in the local community hall and worked tirelessly for three days straight. My specific role was to manage the inventory and coordinate the loading logistics for the transport vehicles. The team spirit was absolutely contagious; everyone pulled their weight and worked hand-in-hand to hit our targets. As the saying goes, 'many hands make light work,' and we managed to pack over five hundred relief boxes in record time. Completing this task gave me a profound sense of accomplishment and reinforced the importance of social cohesion during crises."
+                                    </p>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg border border-brand-200 shadow-sm">
+                                    <p class="text-xs font-bold text-brand-800 mb-2">Lexical Masterclass (Detailed Vocab & Idioms):</p>
+                                    <div class="space-y-3 text-xs">
+                                        <div>
+                                            <span class="font-semibold text-brand-600">1. Collaborate (verb)</span> /kəˈlæbəreɪt/
+                                            <p class="text-slate-600 text-[11px] mt-0.5"><strong>Definition:</strong> To work jointly on an activity or project, especially to produce or create something. <br/><strong>Collocations:</strong> Collaborate closely, collaborate on a project. <br/><strong>Example:</strong> Team members must collaborate effectively to achieve the desired outcome.</p>
+                                        </div>
+                                        <div>
+                                            <span class="font-semibold text-brand-600">2. Pull one's weight (idiom)</span>
+                                            <p class="text-slate-600 text-[11px] mt-0.5"><strong>Definition:</strong> To do one's fair share of work or effort in a collective task. <br/><strong>Example:</strong> In our volunteer team, everyone pulled their weight, so no one felt overwhelmed.</p>
+                                        </div>
+                                        <div>
+                                            <span class="font-semibold text-brand-600">3. Many hands make light work (proverb)</span>
+                                            <p class="text-slate-600 text-[11px] mt-0.5"><strong>Definition:</strong> Large tasks are completed quickly and easily when many people work together. <br/><strong>Example:</strong> Packing those boxes seemed daunting, but many hands make light work.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bg-brand-50/50 p-4 rounded-lg border border-brand-200 text-xs">
+                                    <p class="font-bold text-brand-800 mb-1.5">Part 3 Analytical Extension:</p>
+                                    <p class="text-[11px] text-slate-700"><strong>Q: Is it better for children to study in groups or individually?</strong><br/><em>Ans (OREO):</em> In my estimation, studying in groups is vastly superior for a child's holistic development. This is because group tasks cultivate vital interpersonal skills, such as active listening, compromise, and empathy, which cannot be developed in isolation. For instance, children working on a science project together must divide roles and solve conflicts constructively. Therefore, while solitary study is effective for memorization, group study is far more effective for preparing children for real-world collaboration.</p>
+                                </div>
+                            </div>
+                        </details>
+
+                        <!-- Topic 4 -->
+                        <details class="group border border-brand-200 rounded-lg bg-white overflow-hidden shadow-sm hover:border-brand-400 transition-colors">
+                            <summary class="flex justify-between items-center font-medium cursor-pointer p-4 hover:bg-brand-50/50 text-brand-900 transition-colors">
+                                <span class="flex items-center gap-3">
+                                    <span class="w-7 h-7 bg-brand-100 text-brand-800 rounded-full flex items-center justify-center font-bold text-xs">04</span>
+                                    <span class="font-serif text-sm md:text-base font-bold text-slate-800">Describe one of your grandparents' job</span>
+                                </span>
+                                <svg class="w-5 h-5 transition duration-300 group-open:rotate-180 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </summary>
+                            <div class="p-5 border-t border-brand-100 text-sm text-slate-800 space-y-4 bg-brand-50/10 leading-relaxed">
+                                <div class="mb-2 bg-brand-50 p-3 rounded border border-brand-100">
+                                    <p class="text-xs font-bold text-brand-800 mb-1">Part 2 Cue Card Bullets:</p>
+                                    <p class="text-xs text-slate-600">You should say: What your grandparent's job was; Where they worked; What their daily tasks were; And explain how you felt about their job.</p>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg border border-brand-200 shadow-sm">
+                                    <p class="text-xs font-bold text-brand-800 mb-2 flex items-center gap-1.5">
+                                        <svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+                                        Band 7.5+ Sample Response (Monologue):
+                                    </p>
+                                    <p class="text-xs text-slate-700 italic leading-relaxed">
+                                        "I would like to describe the noble job of my grandfather, who worked as a dedicated rural country doctor in a remote agricultural village in Ha Tinh province. He practiced medicine during a time of immense economic hardship, when basic clinics and surgical tools were incredibly scarce. His daily responsibilities were vast; he had to treat everything from minor agricultural injuries to severe seasonal illnesses, often walking miles on foot to visit bedridden patients. To my grandfather, medicine was not merely a profession, but a true vocation driven by pure altruism. He frequently treated impoverished families free of charge, accepting fresh produce or simple hand-made gifts as tokens of appreciation instead. I have always looked up to him for his absolute devotion and integrity. His presence made a world of difference in that village, and hearing the locals speak of him with such profound respect makes me incredibly proud of his legacy."
+                                    </p>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg border border-brand-200 shadow-sm">
+                                    <p class="text-xs font-bold text-brand-800 mb-2">Lexical Masterclass (Detailed Vocab & Idioms):</p>
+                                    <div class="space-y-3 text-xs">
+                                        <div>
+                                            <span class="font-semibold text-brand-600">1. Vocation (noun)</span> /vəʊˈkeɪʃn/
+                                            <p class="text-slate-600 text-[11px] mt-0.5"><strong>Definition:</strong> A strong feeling of suitability for a particular career or occupation; a calling. <br/><strong>Collocations:</strong> A true vocation, follow one's vocation. <br/><strong>Example:</strong> Nursing is more than a job; it is a vocation that demands deep patience.</p>
+                                        </div>
+                                        <div>
+                                            <span class="font-semibold text-brand-600">2. Look up to (phrasal verb)</span>
+                                            <p class="text-slate-600 text-[11px] mt-0.5"><strong>Definition:</strong> To respect, admire, and view someone as a role model. <br/><strong>Example:</strong> I have always looked up to my grandfather for his selflessness and strong principles.</p>
+                                        </div>
+                                        <div>
+                                            <span class="font-semibold text-brand-600">3. Make a world of difference (idiom)</span>
+                                            <p class="text-slate-600 text-[11px] mt-0.5"><strong>Definition:</strong> To have a very major, positive effect on a situation or person. <br/><strong>Example:</strong> Planting trees around the local school has made a world of difference to the temperature.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bg-brand-50/50 p-4 rounded-lg border border-brand-200 text-xs">
+                                    <p class="font-bold text-brand-800 mb-1.5">Part 3 Analytical Extension:</p>
+                                    <p class="text-[11px] text-slate-700"><strong>Q: How have working conditions changed since your grandparents' generation?</strong><br/><em>Ans (OREO):</em> From my perspective, working conditions have undergone a massive transformation, primarily due to rapid digitalization. In the past, labor was heavily physical, localized, and relationship-driven, requiring long hours of manual craft. Today, however, the workforce is highly digitized, allowing for flexible remote-working arrangements but also creating high screen fatigue. For example, my grandfather worked in physical clinics, whereas modern doctors often conduct virtual consultations. Therefore, while modern professionals enjoy greater convenience, they also face more mental stress than previous generations.</p>
+                                </div>
+                            </div>
+                        </details>
+
+                        <!-- Topic 5 -->
+                        <details class="group border border-brand-200 rounded-lg bg-white overflow-hidden shadow-sm hover:border-brand-400 transition-colors">
+                            <summary class="flex justify-between items-center font-medium cursor-pointer p-4 hover:bg-brand-50/50 text-brand-900 transition-colors">
+                                <span class="flex items-center gap-3">
+                                    <span class="w-7 h-7 bg-brand-100 text-brand-800 rounded-full flex items-center justify-center font-bold text-xs">05</span>
+                                    <span class="font-serif text-sm md:text-base font-bold text-slate-800">Describe an exciting activity you have tried for the first time</span>
+                                </span>
+                                <svg class="w-5 h-5 transition duration-300 group-open:rotate-180 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </summary>
+                            <div class="p-5 border-t border-brand-100 text-sm text-slate-800 space-y-4 bg-brand-50/10 leading-relaxed">
+                                <div class="mb-2 bg-brand-50 p-3 rounded border border-brand-100">
+                                    <p class="text-xs font-bold text-brand-800 mb-1">Part 2 Cue Card Bullets:</p>
+                                    <p class="text-xs text-slate-600">You should say: What the activity was; When and where you tried it; How you did it; And explain why you found it exciting.</p>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg border border-brand-200 shadow-sm">
+                                    <p class="text-xs font-bold text-brand-800 mb-2 flex items-center gap-1.5">
+                                        <svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+                                        Band 7.5+ Sample Response (Monologue):
+                                    </p>
+                                    <p class="text-xs text-slate-700 italic leading-relaxed">
+                                        "I want to share my experience of trying paragliding for the very first time. This took place last September during the annual ripening rice festival in Mu Cang Chai, which is famous for its gorgeous terraced fields. Under the direct supervision of a certified tandem pilot, I was strapped into a harness, given safety instructions, and told to run off the edge of a high cliff. Stepping off that cliff triggered an immediate, intense adrenaline rush. Within seconds, we caught a warm updraft and were gliding smoothly over the golden, cascading valleys. It was an otherworldly sensation; seeing the miniature houses, winding rivers, and vast yellow fields from a bird's-eye view was absolutely mind-blowing. I found it exciting because it forced me to break out of my comfort zone and face my fear of heights. Taking that literal leap of faith gave me an unparalleled sense of freedom and left me completely awestruck by the sheer beauty of nature."
+                                    </p>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg border border-brand-200 shadow-sm">
+                                    <p class="text-xs font-bold text-brand-800 mb-2">Lexical Masterclass (Detailed Vocab & Idioms):</p>
+                                    <div class="space-y-3 text-xs">
+                                        <div>
+                                            <span class="font-semibold text-brand-600">1. Otherworldly (adjective)</span> /ˌʌðəˈwɜːldli/
+                                            <p class="text-slate-600 text-[11px] mt-0.5"><strong>Definition:</strong> Relating to an imaginative, beautiful, or spiritual world; strangely beautiful and peaceful. <br/><strong>Example:</strong> The silent underwater world of Nha Trang has an otherworldly charm.</p>
+                                        </div>
+                                        <div>
+                                            <span class="font-semibold text-brand-600">2. Take the plunge (idiom)</span>
+                                            <p class="text-slate-600 text-[11px] mt-0.5"><strong>Definition:</strong> To make a bold, risky, or decisive move after a period of hesitation. <br/><strong>Example:</strong> I hesitated for months before deciding to take the plunge and sign up for paragliding.</p>
+                                        </div>
+                                        <div>
+                                            <span class="font-semibold text-brand-600">3. Mind-blowing (adjective)</span>
+                                            <p class="text-slate-600 text-[11px] mt-0.5"><strong>Definition:</strong> Extremely impressive, exciting, or shocking to the mind. <br/><strong>Example:</strong> The panoramic view of the golden valley from a thousand meters above was absolutely mind-blowing.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bg-brand-50/50 p-4 rounded-lg border border-brand-200 text-xs">
+                                    <p class="font-bold text-brand-800 mb-1.5">Part 3 Analytical Extension:</p>
+                                    <p class="text-[11px] text-slate-700"><strong>Q: Why are extreme sports becoming more popular among young people today?</strong><br/><em>Ans (OREO):</em> In my estimation, the rising popularity of extreme sports is a direct reaction to the highly structured, sedentary nature of modern lifestyles. This is because young people seek intense physical thrills to escape their daily screens and routines. For example, high-pressure office workers often take up rock climbing or skydiving to experience a pure adrenaline rush that clears their minds. Therefore, extreme sports serve as a healthy psychological outlet to build resilience and feel a sense of raw excitement.</p>
+                                </div>
+                            </div>
+                        </details>
+
+                        <!-- Topic 6 -->
+                        <details class="group border border-brand-200 rounded-lg bg-white overflow-hidden shadow-sm hover:border-brand-400 transition-colors">
+                            <summary class="flex justify-between items-center font-medium cursor-pointer p-4 hover:bg-brand-50/50 text-brand-900 transition-colors">
+                                <span class="flex items-center gap-3">
+                                    <span class="w-7 h-7 bg-brand-100 text-brand-800 rounded-full flex items-center justify-center font-bold text-xs">06</span>
+                                    <span class="font-serif text-sm md:text-base font-bold text-slate-800">Describe a time when you told your friend an important truth</span>
+                                </span>
+                                <svg class="w-5 h-5 transition duration-300 group-open:rotate-180 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </summary>
+                            <div class="p-5 border-t border-brand-100 text-sm text-slate-800 space-y-4 bg-brand-50/10 leading-relaxed">
+                                <div class="mb-2 bg-brand-50 p-3 rounded border border-brand-100">
+                                    <p class="text-xs font-bold text-brand-800 mb-1">Part 2 Cue Card Bullets:</p>
+                                    <p class="text-xs text-slate-600">You should say: Who the friend was; What the truth was; How you broke the news to them; And explain how they reacted and how it affected your friendship.</p>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg border border-brand-200 shadow-sm">
+                                    <p class="text-xs font-bold text-brand-800 mb-2 flex items-center gap-1.5">
+                                        <svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+                                        Band 7.5+ Sample Response (Monologue):
+                                    </p>
+                                    <p class="text-xs text-slate-700 italic leading-relaxed">
+                                        "I'd like to talk about a difficult time when I had to tell my best friend, Huy, a bitter truth about his business partner. Huy and his partner had recently launched a small startup, but I discovered through a mutual acquaintance in accounting that his partner was secretly mismanaging their shared investments. I knew that sharing this would be a bitter pill for Huy to swallow, but I felt that true friendship demanded brutal honesty rather than comfortable silence. I invited Huy over to my apartment for a quiet dinner to break the news privately. When I showed him the financial discrepancy records, he was initially taken aback and became defensive, almost refusing to believe me. However, because we have a rock-solid, long-term friendship, he took a step back and decided to audit the books himself. While it was a painful process that ultimately led to the dissolution of his partnership, it saved him from severe financial ruin. In the end, this experience cleared the air and made our friendship even stronger."
+                                    </p>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg border border-brand-200 shadow-sm">
+                                    <p class="text-xs font-bold text-brand-800 mb-2">Lexical Masterclass (Detailed Vocab & Idioms):</p>
+                                    <div class="space-y-3 text-xs">
+                                        <div>
+                                            <span class="font-semibold text-brand-600">1. Brutal honesty (noun phrase)</span>
+                                            <p class="text-slate-600 text-[11px] mt-0.5"><strong>Definition:</strong> Expressing the absolute, unvarnished truth even if it is uncomfortable or causes emotional pain. <br/><strong>Example:</strong> True friendship occasionally requires brutal honesty rather than polite flattery.</p>
+                                        </div>
+                                        <div>
+                                            <span class="font-semibold text-brand-600">2. Bitter pill to swallow (idiom)</span>
+                                            <p class="text-slate-600 text-[11px] mt-0.5"><strong>Definition:</strong> An unpleasant fact or situation that is difficult to accept but must be faced. <br/><strong>Example:</strong> Admitting that his business partner was untrustworthy was a bitter pill to swallow for Huy.</p>
+                                        </div>
+                                        <div>
+                                            <span class="font-semibold text-brand-600">3. Clear the air (idiom)</span>
+                                            <p class="text-slate-600 text-[11px] mt-0.5"><strong>Definition:</strong> To defuse tension, remove anger, or clarify misunderstandings by discussing them openly. <br/><strong>Example:</strong> Sitting down to clear the air helped the co-founders align their vision once more.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bg-brand-50/50 p-4 rounded-lg border border-brand-200 text-xs">
+                                    <p class="font-bold text-brand-800 mb-1.5">Part 3 Analytical Extension:</p>
+                                    <p class="text-[11px] text-slate-700"><strong>Q: Do you think honesty is always the best policy in a friendship?</strong><br/><em>Ans (OREO):</em> In my view, while honesty is the cornerstone of any sustainable friendship, it must be balanced with empathy and tact. This is because absolute, blunt truth delivered without sensitivity can sometimes cause unnecessary emotional harm and fracture trust. For example, if a friend asks for feedback on a creative project they worked hard on, constructive, encouraging critique is far more helpful than harsh, unhelpful criticism. Therefore, honesty should always be the policy, but the *delivery* of that honesty must be handled with great care.</p>
+                                </div>
+                            </div>
+                        </details>
+
+                        <!-- Topic 7 -->
+                        <details class="group border border-brand-200 rounded-lg bg-white overflow-hidden shadow-sm hover:border-brand-400 transition-colors">
+                            <summary class="flex justify-between items-center font-medium cursor-pointer p-4 hover:bg-brand-50/50 text-brand-900 transition-colors">
+                                <span class="flex items-center gap-3">
+                                    <span class="w-7 h-7 bg-brand-100 text-brand-800 rounded-full flex items-center justify-center font-bold text-xs">07</span>
+                                    <span class="font-serif text-sm md:text-base font-bold text-slate-800">Describe an interesting discussion you had with your friend</span>
+                                </span>
+                                <svg class="w-5 h-5 transition duration-300 group-open:rotate-180 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </summary>
+                            <div class="p-5 border-t border-brand-100 text-sm text-slate-800 space-y-4 bg-brand-50/10 leading-relaxed">
+                                <div class="mb-2 bg-brand-50 p-3 rounded border border-brand-100">
+                                    <p class="text-xs font-bold text-brand-800 mb-1">Part 2 Cue Card Bullets:</p>
+                                    <p class="text-xs text-slate-600">You should say: What the discussion was about; When and where you had it; Who you discussed it with; And explain why you found the discussion interesting.</p>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg border border-brand-200 shadow-sm">
+                                    <p class="text-xs font-bold text-brand-800 mb-2 flex items-center gap-1.5">
+                                        <svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+                                        Band 7.5+ Sample Response (Monologue):
+                                    </p>
+                                    <p class="text-xs text-slate-700 italic leading-relaxed">
+                                        "I'd like to describe an incredibly stimulating, thought-provoking discussion I had with my classmate, Lan, on a rainy Sunday afternoon. We were sitting in a quiet, cozy coffee shop in the heart of Hanoi. Our conversation began with our current university majors but quickly sparked a debate regarding the societal impacts of Artificial Intelligence on human creativity. Lan was of the opinion that advanced generative AI models would completely replace human novelists and painters within a decade, citing their speed and vast database of knowledge. On the other hand, I strongly disagreed, arguing that art requires authentic, subjective emotional depth and life experiences that machines simply cannot replicate. Our discussion was fascinating because it forced both of us to think outside the box and define what truly makes us human. It was a wonderful exercise in critical thinking that gave me a lot of food for thought long after we left the cafe."
+                                    </p>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg border border-brand-200 shadow-sm">
+                                    <p class="text-xs font-bold text-brand-800 mb-2">Lexical Masterclass (Detailed Vocab & Idioms):</p>
+                                    <div class="space-y-3 text-xs">
+                                        <div>
+                                            <span class="font-semibold text-brand-600">1. Thought-provoking (adjective)</span> /ˈθɔːt prəvəʊkɪŋ/
+                                            <p class="text-slate-600 text-[11px] mt-0.5"><strong>Definition:</strong> Stimulating active thought, interest, or reflection. <br/><strong>Collocations:</strong> Thought-provoking film, thought-provoking question. <br/><strong>Example:</strong> The speaker raised several thought-provoking points about ethical technology use.</p>
+                                        </div>
+                                        <div>
+                                            <span class="font-semibold text-brand-600">2. Spark a debate (collocation)</span>
+                                            <p class="text-slate-600 text-[11px] mt-0.5"><strong>Definition:</strong> To trigger a public or personal discussion, argument, or disagreement. <br/><strong>Example:</strong> The proposal to ban personal vehicles in the city center has sparked a heated debate.</p>
+                                        </div>
+                                        <div>
+                                            <span class="font-semibold text-brand-600">3. Food for thought (idiom)</span>
+                                            <p class="text-slate-600 text-[11px] mt-0.5"><strong>Definition:</strong> Anything that provides mental stimulus or material for reflection and contemplation. <br/><strong>Example:</strong> Reading the essay on global warming gave me plenty of food for thought.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bg-brand-50/50 p-4 rounded-lg border border-brand-200 text-xs">
+                                    <p class="font-bold text-brand-800 mb-1.5">Part 3 Analytical Extension:</p>
+                                    <p class="text-[11px] text-slate-700"><strong>Q: Why is it important to discuss topics with people who hold different opinions?</strong><br/><em>Ans (OREO):</em> In my view, engaging with opposing viewpoints is crucial for cognitive development and preventing intellectual isolation. This is because discussing opposing ideas forces us to re-examine our own beliefs, challenge our biases, and build empathy. For example, debating a classmate on environmental regulations might help one understand the economic challenges faced by small businesses. Therefore, constructive discussions with diverse minds are essential for developing a well-rounded and objective worldview.</p>
+                                </div>
+                            </div>
+                        </details>
+
+                        <!-- Topic 8 -->
+                        <details class="group border border-brand-200 rounded-lg bg-white overflow-hidden shadow-sm hover:border-brand-400 transition-colors">
+                            <summary class="flex justify-between items-center font-medium cursor-pointer p-4 hover:bg-brand-50/50 text-brand-900 transition-colors">
+                                <span class="flex items-center gap-3">
+                                    <span class="w-7 h-7 bg-brand-100 text-brand-800 rounded-full flex items-center justify-center font-bold text-xs">08</span>
+                                    <span class="font-serif text-sm md:text-base font-bold text-slate-800">Describe an important decision that you made</span>
+                                </span>
+                                <svg class="w-5 h-5 transition duration-300 group-open:rotate-180 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </summary>
+                            <div class="p-5 border-t border-brand-100 text-sm text-slate-800 space-y-4 bg-brand-50/10 leading-relaxed">
+                                <div class="mb-2 bg-brand-50 p-3 rounded border border-brand-100">
+                                    <p class="text-xs font-bold text-brand-800 mb-1">Part 2 Cue Card Bullets:</p>
+                                    <p class="text-xs text-slate-600">You should say: What decision it was; Why you had to make it; What options were available; And explain why it was an important decision for you.</p>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg border border-brand-200 shadow-sm">
+                                    <p class="text-xs font-bold text-brand-800 mb-2 flex items-center gap-1.5">
+                                        <svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+                                        Band 7.5+ Sample Response (Monologue):
+                                    </p>
+                                    <p class="text-xs text-slate-700 italic leading-relaxed">
+                                        "The most significant, defining decision I made was leaving a stable, well-paying job in corporate banking to pursue a career in graphic design. I stood at a major crossroads in my life; my parents wanted me to play it safe and stay in banking, while I craved creative fulfillment and professional autonomy. I spent several sleepless nights weighing the pros and cons, burning the midnight oil to build a basic design portfolio. I had two options: remain in my comfortable but unexciting office job, or take a massive leap of faith into a highly competitive creative industry. Ultimately, I chose to resign. This decision shaped my life completely. It was incredibly risky, but it allowed me to align my career with my natural passions. Today, running my own successful boutique design studio, I feel genuinely fulfilled, proving that taking calculated risks is sometimes essential for personal growth."
+                                    </p>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg border border-brand-200 shadow-sm">
+                                    <p class="text-xs font-bold text-brand-800 mb-2">Lexical Masterclass (Detailed Vocab & Idioms):</p>
+                                    <div class="space-y-3 text-xs">
+                                        <div>
+                                            <span class="font-semibold text-brand-600">1. Crossroads (noun)</span> /ˈkrɒsrəʊdz/
+                                            <p class="text-slate-600 text-[11px] mt-0.5"><strong>Definition:</strong> A point at which a crucial, life-changing decision must be made. <br/><strong>Example:</strong> After graduation, many students find themselves at a major career crossroads.</p>
+                                        </div>
+                                        <div>
+                                            <span class="font-semibold text-brand-600">2. Weigh the pros and cons (idiom)</span>
+                                            <p class="text-slate-600 text-[11px] mt-0.5"><strong>Definition:</strong> To carefully consider the advantages and disadvantages of a situation before acting. <br/><strong>Example:</strong> You should weigh the pros and cons before committing to an expensive loan.</p>
+                                        </div>
+                                        <div>
+                                            <span class="font-semibold text-brand-600">3. Take a leap of faith (idiom)</span>
+                                            <p class="text-slate-600 text-[11px] mt-0.5"><strong>Definition:</strong> To make a bold choice without knowing the outcome, trusting that things will turn out well. <br/><strong>Example:</strong> Relocating to a new country without a pre-arranged job was a major leap of faith.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bg-brand-50/50 p-4 rounded-lg border border-brand-200 text-xs">
+                                    <p class="font-bold text-brand-800 mb-1.5">Part 3 Analytical Extension:</p>
+                                    <p class="text-[11px] text-slate-700"><strong>Q: Why do some people find it incredibly difficult to make simple decisions?</strong><br/><em>Ans (OREO):</em> In my estimation, difficulty with decision-making often stems from choice overload and fear of regret. This is because modern consumers are presented with an overwhelming array of options for even the simplest goods, causing decision fatigue. For instance, selecting a simple stream on a video platform can take hours due to the sheer volume of choices. Therefore, a fear of making a suboptimal choice often leads to analysis paralysis, hindering fast and effective decision-making.</p>
+                                </div>
+                            </div>
+                        </details>
+
+                    </div>
+                </section>
+
+                <!-- Section 2: Writing Test 4 Structures & Ideas -->
+                <section class="glass-card rounded-2xl p-6 md:p-8 fade-in-up delay-100" id="section-2">
+                    <div class="flex items-start justify-between mb-6">
+                        <div class="flex items-center gap-4">
+                            <div class="bg-brand-50 text-brand-500 p-3 rounded-xl">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-brand-900">2. Writing Test 4: Tasks 1 & 2</h3>
+                                <p class="text-sm text-brand-400 font-medium flex items-center gap-2 mt-1">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    Structures & Ideas Brainstorming (40 mins)
+                                </p>
+                            </div>
+                        </div>
+
+                        <label class="flex items-center cursor-pointer group">
+                            <input type="checkbox" class="checkbox-custom hidden" data-task="2" onchange="updateProgress()">
+                            <div class="w-8 h-8 rounded-full border-2 border-brand-200 flex items-center justify-center transition-colors group-hover:border-brand-500 bg-white shadow-inner">
+                                <svg class="w-4 h-4 text-white opacity-0 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                        </label>
+                    </div>
+
+                    <!-- Task 1 Area -->
+                    <div class="mb-8 border border-brand-100 rounded-xl p-5 bg-white shadow-sm">
+                        <h4 class="font-bold text-lg text-brand-800 flex items-center mb-3">
+                            <span class="bg-brand-100 text-brand-600 px-2 py-0.5 rounded text-sm mr-2">Task 1</span> Map Comparison
+                        </h4>
+                        <div class="bg-brand-50 p-4 rounded-lg border border-brand-100 text-slate-700 text-sm mb-5 leading-relaxed italic">
+                            "The map below shows the changes that have taken place at a zoo in Australia between 1960 and now. Summarize the information by selecting and reporting the main features, and make comparisons where relevant."
+                        </div>
+                        
+                        <div class="mb-6 rounded-lg overflow-hidden border border-slate-200">
+                            <!-- Integrated Diagram Link -->
+                            <img src="https://ieltschantruong.github.io/IELTS/src/writing_questions/writing_task1_maps_australian_zoo.png" alt="Zoo Map 1960 vs Now" class="w-full h-auto object-contain bg-white">
+                        </div>
+
+                        <!-- Accordions for Task 1 -->
+                        <div class="space-y-3">
+                            <details class="group border border-brand-200 rounded-lg bg-brand-50/30 overflow-hidden">
+                                <summary class="flex justify-between items-center font-medium cursor-pointer p-4 hover:bg-brand-50 text-brand-900 transition-colors">
+                                    <span class="flex items-center">
+                                        <svg class="w-4 h-4 mr-2 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                                        Brainstormed Ideas & Structure
+                                    </span>
+                                    <svg class="w-5 h-5 transition duration-300 group-open:rotate-180 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                </summary>
+                                <div class="p-4 border-t border-brand-100 text-sm text-slate-700 space-y-4 bg-white">
+                                    <div>
+                                        <span class="font-semibold text-brand-600 block mb-1">1. Introduction</span>
+                                        <p>Paraphrase the prompt: The two maps illustrate structural modifications made to an Australian zoo from 1960 to the present day.</p>
+                                    </div>
+                                    <div>
+                                        <span class="font-semibold text-brand-600 block mb-1">2. Overview</span>
+                                        <p>Identify major structural modifications: Overall, the zoo has modernized its layout. Key updates include the reorganization of animal enclosures (African animals moved and birds/chimps replaced), the introduction of ferry access and an additional northern entrance, the expansion of the gift shop, and the installation of a cable car system.</p>
+                                    </div>
+                                    <div>
+                                        <span class="font-semibold text-brand-600 block mb-1">3. Body Paragraph 1 (Western & Northern Zoo Sectors)</span>
+                                        <ul class="list-disc pl-5 space-y-1">
+                                            <li><strong>Northwest Enclosure:</strong> "African animals" (1960) has been replaced with "Wild animals".</li>
+                                            <li><strong>Southwest Enclosure:</strong> "Australian animals" remains in its original position.</li>
+                                            <li><strong>Northern Boundary:</strong> A new entrance and ferry station have been constructed along the harbor, facilitating water transport.</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <span class="font-semibold text-brand-600 block mb-1">4. Body Paragraph 2 (Central, Southern & Eastern Sectors)</span>
+                                        <ul class="list-disc pl-5 space-y-1">
+                                            <li><strong>Center:</strong> "African animals" now resides in the center, next to the "seal show" (which replaced the old bird enclosure). The "chimpanzees" enclosure has been removed.</li>
+                                            <li><strong>Gift Shop:</strong> The southern gift shop has been completely rebuilt into a much larger, multi-story facility.</li>
+                                            <li><strong>Transit (Cable Car):</strong> A new cable car transit line runs diagonally from the new gift shop area to the northeastern picnic zone.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </details>
+
+                            <details class="group border border-brand-200 rounded-lg bg-brand-50/30 overflow-hidden">
+                                <summary class="flex justify-between items-center font-medium cursor-pointer p-4 hover:bg-brand-50 text-brand-900 transition-colors">
+                                    <span class="flex items-center">
+                                        <svg class="w-4 h-4 mr-2 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                                        Sample Band 8.0 Response
+                                    </span>
+                                    <svg class="w-5 h-5 transition duration-300 group-open:rotate-180 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                </summary>
+                                <div class="p-5 border-t border-brand-100 text-sm text-slate-800 space-y-4 bg-white leading-relaxed">
+                                    <p>The two maps illustrate the transformation of an Australian zoo from 1960 to the present day.</p>
+                                    <p>Overall, the zoo has undergone extensive modernization, characterized by reorganized animal enclosures, upgraded transportation links, and expanded visitor facilities. Notably, the introduction of water-based transit, an additional entrance, and a cable car system have significantly enhanced accessibility and navigation throughout the park.</p>
+                                    <p>In the western half of the zoo, the southwestern "Australian animals" enclosure has remained unchanged. In contrast, the northwestern area, which housed "African animals" in 1960, has been converted into a "Wild animals" enclosure. At the northern boundary, the harbor now features a ferry terminal and a secondary entrance gate, allowing direct access for marine commuters. Meanwhile, the "African animals" exhibit has been relocated to the center-south of the zoo, adjacent to the "seal show," which occupies the former "birds" enclosure. The central "chimpanzees" exhibit has been entirely cleared.</p>
+                                    <p>In the southern sector, the original gift shop has been demolished and replaced by a substantially larger, modern facility. From this new gift shop, a diagonal cable car line has been installed, connecting the south-central area directly to the picnic tables in the northeast. The picnic area itself has been preserved, though additional trees have been planted nearby to provide shade.</p>
+                                </div>
+                            </details>
+                        </div>
+                    </div>
+
+                    <!-- Task 2 Area -->
+                    <div class="border border-brand-100 rounded-xl p-5 bg-white shadow-sm">
+                        <h4 class="font-bold text-lg text-brand-800 flex items-center mb-3">
+                            <span class="bg-brand-100 text-brand-600 px-2 py-0.5 rounded text-sm mr-2">Task 2</span> Essay
+                        </h4>
+                        <div class="bg-brand-50 p-4 rounded-lg border border-brand-100 text-slate-700 text-sm mb-5 leading-relaxed italic">
+                            "Some people think paying taxes is a big enough contribution to their society, while others think people have more responsibilities as members of society than only paying taxes. Discuss both views and give your own opinion."
+                        </div>
+
+                        <!-- Accordions for Task 2 -->
+                        <div class="space-y-3">
+                            <details class="group border border-brand-200 rounded-lg bg-brand-50/30 overflow-hidden">
+                                <summary class="flex justify-between items-center font-medium cursor-pointer p-4 hover:bg-brand-50 text-brand-900 transition-colors">
+                                    <span class="flex items-center">
+                                        <svg class="w-4 h-4 mr-2 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                                        Brainstormed Ideas & Structure
+                                    </span>
+                                    <svg class="w-5 h-5 transition duration-300 group-open:rotate-180 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                </summary>
+                                <div class="p-4 border-t border-brand-100 text-sm text-slate-700 space-y-4 bg-white">
+                                    <div>
+                                        <span class="font-semibold text-brand-600 block mb-1">1. Introduction</span>
+                                        <p>State debate: Is paying taxes a citizen's sole societal obligation, or do they have broader moral responsibilities? Thesis: Taxes are crucial, but active civic engagement is vital for a functional, moral society.</p>
+                                    </div>
+                                    <div>
+                                        <span class="font-semibold text-brand-600 block mb-1">2. Body Paragraph 1: Why taxes are considered sufficient</span>
+                                        <ul class="list-disc pl-5 space-y-1">
+                                            <li><strong>Economic Backbone:</strong> Taxes fund healthcare, infrastructure, education, and defense.</li>
+                                            <li><strong>Professional Division of Labor:</strong> Paying taxes allows the state to hire professional police, teachers, and sanitation workers, freeing citizens to focus on their private careers.</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <span class="font-semibold text-brand-600 block mb-1">3. Body Paragraph 2: Why active civic duties are necessary (My Opinion)</span>
+                                        <ul class="list-disc pl-5 space-y-1">
+                                            <li><strong>Social Cohesion:</strong> Community volunteering, caring for vulnerable populations, and local cleanup groups solve immediate local issues that government budgets cannot directly address.</li>
+                                            <li><strong>Moral & Civic Responsibility:</strong> A passive society that only pays taxes becomes highly individualistic. Active participation builds empathy, community trust, and a cleaner environment.</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <span class="font-semibold text-brand-600 block mb-1">4. Conclusion</span>
+                                        <p>Reiterate: Taxes keep the state's physical engine running, but active civic involvement is the soul that keeps communities empathetic and cohesive.</p>
+                                    </div>
+                                </div>
+                            </details>
+
+                            <details class="group border border-brand-200 rounded-lg bg-brand-50/30 overflow-hidden">
+                                <summary class="flex justify-between items-center font-medium cursor-pointer p-4 hover:bg-brand-50 text-brand-900 transition-colors">
+                                    <span class="flex items-center">
+                                        <svg class="w-4 h-4 mr-2 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                                        Sample Band 8.0 Response
+                                    </span>
+                                    <svg class="w-5 h-5 transition duration-300 group-open:rotate-180 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                </summary>
+                                <div class="p-5 border-t border-brand-100 text-sm text-slate-800 space-y-4 bg-white leading-relaxed">
+                                    <p>Opinions are divided on whether paying taxes constitutes a citizen's entire duty to their nation, or if being a member of a society carries broader social responsibilities. While taxes provide the essential financial foundation for public services, I believe that active civic participation is indispensable for a healthy and compassionate society.</p>
+                                    <p>On the one hand, many argue that paying taxes is the most substantial and sufficient contribution a person can make to their country. Tax revenues serve as the financial backbone of the state, directly funding critical public infrastructure, healthcare systems, schools, and law enforcement. By fulfilling this legal obligation, citizens provide the government with the necessary resources to manage society professionally. Proponents of this view suggest that since taxpayers work to support their households and pay substantial income taxes, they should be free to focus on their private careers, leaving public management to government bodies.</p>
+                                    <p>On the other hand, a purely transactional relationship with the state fails to address the socio-emotional needs of a community. Active civic responsibilities, such as volunteering at local shelters, assisting the elderly, or participating in neighborhood cleanup drives, foster social cohesion and mutual trust. Governments, regardless of their budget size, cannot solve every hyper-local issue or eliminate loneliness and neglect. Furthermore, a society where individuals only pay taxes and ignore their neighbors becomes individualistic and disconnected. Caring for the environment, supporting local charity drives, and engaging in constructive local debates are moral duties that cultivate empathy and keep a community together.</p>
+                                    <p>In conclusion, while paying taxes is a vital legal duty that keeps the state's physical infrastructure functioning, it represents only the bare minimum of civic obligation. Truly prosperous and cohesive societies rely on the active, moral, and volunteer contributions of citizens who understand that membership in a community requires empathy and action beyond a financial transaction.</p>
+                                </div>
+                            </details>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section 3: Vocab Test -->
+                <section class="glass-card rounded-2xl p-6 md:p-8 fade-in-up delay-200" id="section-3">
+                    <div class="flex items-start justify-between mb-6">
+                        <div class="flex items-center gap-4">
+                            <div class="bg-brand-50 text-brand-500 p-3 rounded-xl">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-brand-900">3. Vocab Test: Reading Test 05</h3>
+                                <p class="text-sm text-brand-400 font-medium flex items-center gap-2 mt-1">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    Class Assessment Checkpoint (10 mins)
+                                </p>
+                            </div>
+                        </div>
+
+                        <label class="flex items-center cursor-pointer group">
+                            <input type="checkbox" class="checkbox-custom hidden" data-task="3" onchange="updateProgress()">
+                            <div class="w-8 h-8 rounded-full border-2 border-brand-200 flex items-center justify-center transition-colors group-hover:border-brand-500 bg-white shadow-inner">
+                                <svg class="w-4 h-4 text-white opacity-0 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                        </label>
+                    </div>
+
+                    <div class="bg-brand-50/50 border border-brand-100 rounded-xl p-5 mb-5">
+                        <h4 class="font-semibold text-brand-900 mb-2">Reading Vocabulary Verification</h4>
+                        <p class="text-slate-600 text-sm mb-4">Complete the vocabulary checkpoint to test your mastery of the advanced collocations and context synonyms studied from Reading Test 05.</p>
+                        <a href="https://ieltschantruong.github.io/IELTS/lesson_plan/pet_intensive/vocab_test_reading05.docx" target="_blank" class="inline-flex items-center gap-2 bg-brand-500 text-white px-5 py-2.5 rounded-lg text-sm font-medium hover:bg-brand-400 transition-colors w-full sm:w-auto justify-center shadow-md shadow-brand-200">
+                            Download Vocab Test (DOCX)
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                        </a>
+                    </div>
+                </section>
+
+                <!-- Section 4: Homework -->
+                <section class="glass-card rounded-2xl p-6 md:p-8 fade-in-up delay-300" id="section-4">
+                     <div class="flex items-start justify-between mb-6">
+                        <div class="flex items-center gap-4">
+                            <div class="bg-brand-50 text-brand-500 p-3 rounded-xl">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-brand-900">4. Homework Assignment</h3>
+                                <p class="text-sm text-brand-400 font-medium flex items-center gap-2 mt-1">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    Wrap-up & Directives (5 mins)
+                                </p>
+                            </div>
+                        </div>
+
+                        <label class="flex items-center cursor-pointer group">
+                            <input type="checkbox" class="checkbox-custom hidden" data-task="4" onchange="updateProgress()">
+                            <div class="w-8 h-8 rounded-full border-2 border-brand-200 flex items-center justify-center transition-colors group-hover:border-brand-500 bg-white shadow-inner">
+                                <svg class="w-4 h-4 text-white opacity-0 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                        </label>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        
+                        <!-- HW Task 1: Do Reading Test 06 -->
+                        <a href="https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/pet_intensive_06.html" target="_blank" class="flex items-start gap-3 p-4 bg-white border border-brand-100 rounded-xl hover:border-brand-400 hover:shadow-md transition-all group">
+                            <div class="bg-brand-50 p-2 rounded-lg group-hover:bg-brand-100 text-brand-600 transition-colors">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                            </div>
+                            <div>
+                                <p class="font-medium text-brand-900 text-sm">Do Reading Test 06</p>
+                                <p class="text-xs text-slate-500 mt-1">Complete the full Reading Mock Test 06 (Passages 1, 2, and 3) under strict time conditions.</p>
+                                <span class="text-xs text-brand-500 font-semibold mt-1 inline-block">Access Test &rarr;</span>
+                            </div>
+                        </a>
+
+                        <!-- HW Task 2: Speaking Topics 60-63 -->
+                        <div class="flex items-start gap-3 p-4 bg-white border border-brand-100 rounded-xl hover:shadow-sm">
+                            <div class="bg-brand-50 p-2 rounded-lg text-brand-600">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+                            </div>
+                            <div>
+                                <p class="font-medium text-brand-900 text-sm">Prepare Speaking Topics (pp. 60-63)</p>
+                                <p class="text-xs text-slate-500 mt-1">Research vocabulary, outline responses, and prepare speech notes for the next speaking check.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+            </div>
+
+            <!-- Right Column: Sidebar Tracker -->
+            <div class="lg:col-span-4 relative">
+                <div class="sticky top-6 glass-card rounded-2xl p-6 fade-in-up delay-300">
+                    <h3 class="font-serif font-bold text-xl text-brand-900 mb-4 border-b border-brand-100 pb-3">Lesson Tracker</h3>
+                    
+                    <div class="mb-6">
+                        <div class="flex justify-between text-sm mb-2">
+                            <span class="text-brand-800 font-medium">Completion Progress</span>
+                            <span id="progressText" class="font-bold text-brand-500">0%</span>
+                        </div>
+                        <div class="w-full bg-brand-100 rounded-full h-2.5 shadow-inner">
+                            <div id="sideProgressBar" class="bg-brand-500 h-2.5 rounded-full transition-all duration-500" style="width: 0%"></div>
+                        </div>
+                    </div>
+
+                    <ul class="space-y-4 text-sm font-medium text-slate-600">
+                        <li class="flex items-center justify-between p-3 rounded-lg bg-brand-50/50 border border-brand-100 transition-all" id="tracker-1">
+                            <span class="flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-brand-200 transition-colors" id="dot-1"></span>
+                                Speaking (pp. 52-59)
+                            </span>
+                            <span class="text-xs bg-white text-brand-800 border border-brand-100 px-2 py-1 rounded">35m</span>
+                        </li>
+                        <li class="flex items-center justify-between p-3 rounded-lg bg-brand-50/50 border border-brand-100 transition-all" id="tracker-2">
+                            <span class="flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-brand-200 transition-colors" id="dot-2"></span>
+                                Writing structures & ideas
+                            </span>
+                            <span class="text-xs bg-white text-brand-800 border border-brand-100 px-2 py-1 rounded">40m</span>
+                        </li>
+                        <li class="flex items-center justify-between p-3 rounded-lg bg-brand-50/50 border border-brand-100 transition-all" id="tracker-3">
+                            <span class="flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-brand-200 transition-colors" id="dot-3"></span>
+                                Reading 05 Vocab Test
+                            </span>
+                            <span class="text-xs bg-white text-brand-800 border border-brand-100 px-2 py-1 rounded">10m</span>
+                        </li>
+                        <li class="flex items-center justify-between p-3 rounded-lg bg-brand-50/50 border border-brand-100 transition-all" id="tracker-4">
+                            <span class="flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-brand-200 transition-colors" id="dot-4"></span>
+                                Wrap-up & Homework
+                            </span>
+                            <span class="text-xs bg-white text-brand-800 border border-brand-100 px-2 py-1 rounded">5m</span>
+                        </li>
+                    </ul>
+
+                    <div class="mt-8 pt-6 border-t border-brand-100">
+                        <p class="text-xs text-brand-300 text-center uppercase tracking-widest font-semibold">End of Session</p>
+                        <button onclick="resetLesson()" class="w-full mt-3 py-2 border border-brand-200 text-brand-500 rounded-lg text-sm hover:bg-brand-50 hover:text-brand-700 transition-colors font-medium">
+                            Reset Tracker
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const totalTasks = 4;
+        
+        function updateProgress() {
+            const checkboxes = document.querySelectorAll('.checkbox-custom');
+            let completedTasks = 0;
+
+            checkboxes.forEach((cb) => {
+                const taskId = cb.getAttribute('data-task');
+                const trackerItem = document.getElementById(`tracker-${taskId}`);
+                const trackerDot = document.getElementById(`dot-${taskId}`);
+                const section = document.getElementById(`section-${taskId}`);
+
+                if (cb.checked) {
+                    completedTasks++;
+                    if (trackerItem) {
+                        trackerItem.classList.add('bg-brand-100', 'border-brand-300', 'text-brand-900');
+                        trackerItem.classList.remove('bg-brand-50/50', 'border-brand-100', 'text-slate-600');
+                    }
+                    if (trackerDot) {
+                        trackerDot.classList.add('bg-brand-500');
+                        trackerDot.classList.remove('bg-brand-200');
+                    }
+                    if (section) section.classList.add('opacity-75'); // Dim slightly when done
+                } else {
+                    if (trackerItem) {
+                        trackerItem.classList.remove('bg-brand-100', 'border-brand-300', 'text-brand-900');
+                        trackerItem.classList.add('bg-brand-50/50', 'border-brand-100', 'text-slate-600');
+                    }
+                    if (trackerDot) {
+                        trackerDot.classList.remove('bg-brand-500');
+                        trackerDot.classList.add('bg-brand-200');
+                    }
+                    if (section) section.classList.remove('opacity-75');
+                }
+            });
+
+            const percentage = Math.round((completedTasks / totalTasks) * 100);
+            
+            // Animate progress bars
+            document.getElementById('progressBar').style.width = `${percentage}%`;
+            document.getElementById('sideProgressBar').style.width = `${percentage}%`;
+            document.getElementById('progressText').innerText = `${percentage}%`;
+
+            // Visual feedback if 100%
+            if(percentage === 100) {
+                document.getElementById('sideProgressBar').classList.add('bg-brand-800');
+                document.getElementById('sideProgressBar').classList.remove('bg-brand-500');
+            } else {
+                document.getElementById('sideProgressBar').classList.remove('bg-brand-800');
+                document.getElementById('sideProgressBar').classList.add('bg-brand-500');
+            }
+        }
+
+        function resetLesson() {
+            const checkboxes = document.querySelectorAll('.checkbox-custom');
+            checkboxes.forEach(cb => {
+                cb.checked = false;
+            });
+            updateProgress();
+            
+            // Scroll to top smoothly
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Initialize progress on page load
+        document.addEventListener('DOMContentLoaded', updateProgress);
+    </script>
+</body>
+</html>

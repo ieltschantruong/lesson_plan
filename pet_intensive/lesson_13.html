@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Chan Truong | PET Intensive Lesson 13</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#fdf2f8',  // Blush
+                            100: '#fce7f3', // Pastel Pink
+                            200: '#fbcfe8',
+                            300: '#f9a8d4',
+                            400: '#f472b6',
+                            500: '#ec4899', // Vibrant Accent
+                            800: '#9d174d', // Deep Rose for text
+                            900: '#831843', // Darkest Rose
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            background-color: #fffafb; /* Soft pastel background */
+            color: #475569;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(252, 231, 243, 0.6); /* pink-100 */
+            box-shadow: 0 4px 14px 0 rgba(252, 231, 243, 0.5); /* pink shadow */
+            transition: all 0.3s ease;
+        }
+        
+        .glass-card:hover {
+            box-shadow: 0 10px 25px -3px rgba(252, 231, 243, 0.8), 0 4px 6px -2px rgba(24bc, 231, 243, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .checkbox-custom:checked + div {
+            background-color: #ec4899; /* brand-500 */
+            border-color: #ec4899;
+        }
+        
+        .checkbox-custom:checked + div svg {
+            opacity: 1;
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #fdf2f8; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #f9a8d4; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #f472b6; 
+        }
+
+        /* Accordion summaries style removal */
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- Sticky Progress Bar -->
+    <div class="fixed top-0 left-0 w-full h-1.5 bg-brand-100 z-50">
+        <div id="progressBar" class="h-full bg-brand-500 transition-all duration-500 ease-out" style="width: 0%;"></div>
+    </div>
+
+    <!-- Header Section -->
+    <header class="bg-gradient-to-br from-pink-100 via-rose-100 to-pink-200 text-brand-900 pt-16 pb-20 px-6 relative overflow-hidden shadow-sm">
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden opacity-30 pointer-events-none">
+            <svg class="absolute -top-24 -right-24 w-96 h-96 text-white" fill="currentColor" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50"/></svg>
+            <svg class="absolute bottom-[-10%] left-[-5%] w-64 h-64 text-brand-300" fill="currentColor" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50"/></svg>
+        </div>
+
+        <div class="max-w-5xl mx-auto relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+            <div>
+                <h2 class="text-brand-800 font-semibold tracking-widest text-sm uppercase mb-2 flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                    IELTS Chan Truong
+                </h2>
+                <h1 class="text-4xl md:text-5xl font-serif font-bold text-brand-900 leading-tight drop-shadow-sm">
+                    PET Intensive <br/><span class="text-brand-500 font-sans font-light text-3xl">Lesson 13</span>
+                </h1>
+            </div>
+            
+            <div class="flex gap-4 bg-white/50 backdrop-blur-md px-6 py-4 rounded-2xl border border-white/60 shadow-sm">
+                <div class="text-center px-4 border-r border-brand-200">
+                    <div class="text-brand-800 font-bold text-xl">90</div>
+                    <div class="text-xs text-brand-500 uppercase tracking-wider font-semibold">Minutes</div>
+                </div>
+                <div class="text-center px-4">
+                    <div class="text-brand-800 font-bold text-xl">14-16</div>
+                    <div class="text-xs text-brand-500 uppercase tracking-wider font-semibold">Students</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-5xl mx-auto px-6 w-full -mt-8 relative z-20 pb-20 flex-grow">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            
+            <!-- Left Column: Lesson Content (Main) -->
+            <div class="lg:col-span-8 space-y-6">
+                
+                <!-- Section 1: Reading Test 04 Passage 3 Check -->
+                <section class="glass-card rounded-2xl p-6 md:p-8 fade-in-up" id="section-1">
+                    <div class="flex items-start justify-between mb-6">
+                        <div class="flex items-center gap-4">
+                            <div class="bg-brand-50 text-brand-500 p-3 rounded-xl">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-brand-900">1. Reading Test 04 - Passage 3 Check</h3>
+                                <p class="text-sm text-brand-400 font-medium flex items-center gap-2 mt-1">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    Detailed Explanation (20 mins)
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <label class="flex items-center cursor-pointer group">
+                            <input type="checkbox" class="checkbox-custom hidden" data-task="1" onchange="updateProgress()">
+                            <div class="w-8 h-8 rounded-full border-2 border-brand-200 flex items-center justify-center transition-colors group-hover:border-brand-500 bg-white shadow-inner">
+                                <svg class="w-4 h-4 text-white opacity-0 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                        </label>
+                    </div>
+                    
+                    <div class="bg-brand-50/50 border border-brand-100 rounded-xl p-5 mb-5">
+                        <h4 class="font-semibold text-brand-900 mb-2">Reading Test 04 Review</h4>
+                        <p class="text-slate-600 text-sm mb-4">Go over answers for Passage 3. Break down the logic behind difficult questions, analyze paraphrasing clues, and build key vocabulary connections.</p>
+                        <a href="https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/pet_intensive_04.html" target="_blank" class="inline-flex items-center gap-2 bg-brand-500 text-white px-5 py-2.5 rounded-lg text-sm font-medium hover:bg-brand-400 transition-colors w-full sm:w-auto justify-center shadow-md shadow-brand-200">
+                            Open Reading Test 04
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                        </a>
+                    </div>
+                </section>
+
+                <!-- Section 2: Listening Test 5 Check -->
+                <section class="glass-card rounded-2xl p-6 md:p-8 fade-in-up delay-100" id="section-2">
+                    <div class="flex items-start justify-between mb-6">
+                        <div class="flex items-center gap-4">
+                            <div class="bg-brand-50 text-brand-500 p-3 rounded-xl">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-brand-900">2. Listening Test 5 Check & Explain</h3>
+                                <p class="text-sm text-brand-400 font-medium flex items-center gap-2 mt-1">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    Class Review & Script Analysis (25 mins)
+                                </p>
+                            </div>
+                        </div>
+
+                        <label class="flex items-center cursor-pointer group">
+                            <input type="checkbox" class="checkbox-custom hidden" data-task="2" onchange="updateProgress()">
+                            <div class="w-8 h-8 rounded-full border-2 border-brand-200 flex items-center justify-center transition-colors group-hover:border-brand-500 bg-white shadow-inner">
+                                <svg class="w-4 h-4 text-white opacity-0 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                        </label>
+                    </div>
+
+                    <div class="bg-brand-50/50 border border-brand-100 rounded-xl p-5 mb-5">
+                        <h4 class="font-semibold text-brand-900 mb-2">Listening Mock Test 05</h4>
+                        <p class="text-slate-600 text-sm mb-4">Analyze complex audio segments, expose trick keywords, evaluate fast speech linking sounds, and review the transcripts in detail.</p>
+                        <a href="https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/test_view_pet_intensive_05.html" target="_blank" class="inline-flex items-center gap-2 bg-brand-500 text-white px-5 py-2.5 rounded-lg text-sm font-medium hover:bg-brand-400 transition-colors w-full sm:w-auto justify-center shadow-md shadow-brand-200">
+                            Open Listening Test 05
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                        </a>
+                    </div>
+                </section>
+
+                <!-- Section 3: Speaking Part 2 & 3 Overview -->
+                <section class="glass-card rounded-2xl p-6 md:p-8 fade-in-up delay-200" id="section-3">
+                    <div class="flex items-start justify-between mb-6">
+                        <div class="flex items-center gap-4">
+                            <div class="bg-brand-50 text-brand-500 p-3 rounded-xl">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-brand-900">3. Speaking Part 2 & 3: Overview</h3>
+                                <p class="text-sm text-brand-400 font-medium flex items-center gap-2 mt-1">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    Frameworks & Active Strategies (40 mins)
+                                </p>
+                            </div>
+                        </div>
+
+                        <label class="flex items-center cursor-pointer group">
+                            <input type="checkbox" class="checkbox-custom hidden" data-task="3" onchange="updateProgress()">
+                            <div class="w-8 h-8 rounded-full border-2 border-brand-200 flex items-center justify-center transition-colors group-hover:border-brand-500 bg-white shadow-inner">
+                                <svg class="w-4 h-4 text-white opacity-0 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                        </label>
+                    </div>
+
+                    <p class="text-slate-600 text-sm mb-6 leading-relaxed">Master standard execution structures for the Individual Long Turn (Part 2) and the Analytical Discussion (Part 3) with our high-scoring speaking templates.</p>
+
+                    <!-- Accordions for Speaking Overview -->
+                    <div class="space-y-3">
+                        
+                        <!-- Part 2 Accordion -->
+                        <details class="group border border-brand-200 rounded-lg bg-brand-50/30 overflow-hidden">
+                            <summary class="flex justify-between items-center font-medium cursor-pointer p-4 hover:bg-brand-50 text-brand-900 transition-colors">
+                                <span class="flex items-center font-serif text-base font-bold">
+                                    <svg class="w-5 h-5 mr-2 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+                                    Speaking Part 2: Individual Long Turn (1-2 Mins)
+                                </span>
+                                <span class="transition duration-300 group-open:rotate-180 text-brand-400">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                </span>
+                            </summary>
+                            <div class="p-5 border-t border-brand-100 text-sm text-slate-800 space-y-4 bg-white leading-relaxed">
+                                <div class="border-l-4 border-brand-500 pl-3 py-1 bg-brand-50/50 rounded-r-lg">
+                                    <p class="font-bold text-brand-800">What is Part 2?</p>
+                                    <p class="text-xs text-slate-600">The examiner gives you a task card with a specific topic and 3-4 bullet points. You have **1 minute to prepare** and take notes, and you must **speak continuously for 1 to 2 minutes**.</p>
+                                </div>
+                                
+                                <div>
+                                    <span class="font-bold text-brand-800 block mb-1">The PPF Strategy (Past-Present-Future)</span>
+                                    <p class="text-xs text-slate-600 mb-2">If you struggle to speak for the full 2 minutes, structure your content across time horizons to expand your response effortlessly:</p>
+                                    <ul class="list-disc pl-5 text-xs text-slate-600 space-y-1">
+                                        <li><strong>Past Context:</strong> How did you first discover this topic/experience? (e.g., "Initially, back when I was a student...")</li>
+                                        <li><strong>Present Reality:</strong> What is the current situation? Describe the details, people, and objects involved using sensory adjectives.</li>
+                                        <li><strong>Future Outlook:</strong> What are your plans, hopes, or predictions regarding this topic in the future?</li>
+                                    </ul>
+                                </div>
+
+                                <div>
+                                    <span class="font-bold text-brand-800 block mb-1">Note-Taking Strategy (The 1-Minute Rule)</span>
+                                    <p class="text-xs text-slate-600">Do not write full sentences. Write **keywords, powerful adjectives, and 2-3 advanced idioms**. Organize notes in a quick spider-diagram representing the core bullet points.</p>
+                                </div>
+                            </div>
+                        </details>
+
+                        <!-- Part 3 Accordion -->
+                        <details class="group border border-brand-200 rounded-lg bg-brand-50/30 overflow-hidden">
+                            <summary class="flex justify-between items-center font-medium cursor-pointer p-4 hover:bg-brand-50 text-brand-900 transition-colors">
+                                <span class="flex items-center font-serif text-base font-bold">
+                                    <svg class="w-5 h-5 mr-2 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path></svg>
+                                    Speaking Part 3: Deep Analytical Discussion (4-5 Mins)
+                                </span>
+                                <span class="transition duration-300 group-open:rotate-180 text-brand-400">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                </span>
+                            </summary>
+                            <div class="p-5 border-t border-brand-100 text-sm text-slate-800 space-y-4 bg-white leading-relaxed">
+                                <div class="border-l-4 border-brand-500 pl-3 py-1 bg-brand-50/50 rounded-r-lg">
+                                    <p class="font-bold text-brand-800">What is Part 3?</p>
+                                    <p class="text-xs text-slate-600">A two-way conversational discussion with the examiner exploring abstract, conceptual topics linked directly to the theme of Part 2. Focus shifts from *personal* experiences to *general/societal* perspectives.</p>
+                                </div>
+
+                                <div>
+                                    <span class="font-bold text-brand-800 block mb-1">The OREO Expansion Framework</span>
+                                    <p class="text-xs text-slate-600 mb-2">Structure every response into a coherent logical chain to demonstrate high coherence and cohesion (CC):</p>
+                                    <ul class="list-decimal pl-5 text-xs text-slate-600 space-y-1">
+                                        <li><strong>Opinion (O):</strong> Express a clear, immediate stance. (e.g., "From my perspective, it is highly likely that...")</li>
+                                        <li><strong>Reason (R):</strong> Explain *why* you hold this stance. Use cause-and-effect connectors (e.g., "This is primarily because...", "As a consequence...")</li>
+                                        <li><strong>Example (E):</strong> Provide a concrete illustration, statistic, or observation from society. (e.g., "To illustrate, in many metropolitan areas...")</li>
+                                        <li><strong>Opinion Restated/Link (O):</strong> Conclude and tie the thought together. (e.g., "Therefore, it is evident that...")</li>
+                                    </ul>
+                                </div>
+
+                                <div>
+                                    <span class="font-bold text-brand-800 block mb-1">Key Lexical Markers</span>
+                                    <div class="grid grid-cols-2 gap-3 mt-1.5">
+                                        <div class="bg-brand-50/40 p-2 rounded border border-brand-100">
+                                            <p class="text-xs font-semibold text-brand-800">For Delaying / Thinking:</p>
+                                            <p class="text-[11px] text-slate-500">"That is an intriguing question, let me ponder that for a moment..."</p>
+                                        </div>
+                                        <div class="bg-brand-50/40 p-2 rounded border border-brand-100">
+                                            <p class="text-xs font-semibold text-brand-800">For Expressing Contrast:</p>
+                                            <p class="text-[11px] text-slate-500">"On the flip side...", "While some might argue otherwise, I believe..."</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </details>
+
+                    </div>
+                </section>
+
+                <!-- Section 4: Homework -->
+                <section class="glass-card rounded-2xl p-6 md:p-8 fade-in-up delay-300" id="section-4">
+                     <div class="flex items-start justify-between mb-6">
+                        <div class="flex items-center gap-4">
+                            <div class="bg-brand-50 text-brand-500 p-3 rounded-xl">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-brand-900">4. Homework Assignment</h3>
+                                <p class="text-sm text-brand-400 font-medium flex items-center gap-2 mt-1">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    Wrap-up & Guidance (5 mins)
+                                </p>
+                            </div>
+                        </div>
+
+                        <label class="flex items-center cursor-pointer group">
+                            <input type="checkbox" class="checkbox-custom hidden" data-task="4" onchange="updateProgress()">
+                            <div class="w-8 h-8 rounded-full border-2 border-brand-200 flex items-center justify-center transition-colors group-hover:border-brand-500 bg-white shadow-inner">
+                                <svg class="w-4 h-4 text-white opacity-0 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                        </label>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        
+                        <!-- HW Task 1: Prep Speaking P2&3 -->
+                        <div class="flex items-start gap-3 p-4 bg-white border border-brand-100 rounded-xl hover:shadow-sm">
+                            <div class="bg-brand-50 p-2 rounded-lg text-brand-600">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+                            </div>
+                            <div>
+                                <p class="font-medium text-brand-900 text-sm">Prep Speaking P2 & P3 (pp. 47-51)</p>
+                                <p class="text-xs text-slate-500 mt-1">Review topics, structure cue card drafts, and draft practice outlines for Part 3.</p>
+                            </div>
+                        </div>
+
+                        <!-- HW Task 2: Reading Test 04 Vocab Study -->
+                        <a href="https://ieltschantruong.github.io/IELTS/lesson_plan/pet_intensive/vocab_learning_reading_mock04.html" target="_blank" class="flex items-start gap-3 p-4 bg-white border border-brand-100 rounded-xl hover:border-brand-400 hover:shadow-md transition-all group">
+                            <div class="bg-brand-50 p-2 rounded-lg group-hover:bg-brand-100 text-brand-600 transition-colors">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                            </div>
+                            <div>
+                                <p class="font-medium text-brand-900 text-sm">Learn Reading Test 04 Vocab</p>
+                                <p class="text-xs text-slate-500 mt-1">Study definitions and examples for Reading mock 04 terms.</p>
+                                <span class="text-xs text-brand-500 font-semibold mt-1.5 inline-block">Learn Vocab &rarr;</span>
+                            </div>
+                        </a>
+
+                        <!-- HW Task 3: Reading Test 04 Vocab Test -->
+                        <a href="https://ieltschantruong.github.io/IELTS/lesson_plan/pet_intensive/vocab_testing_reading_mock04.html" target="_blank" class="flex items-start gap-3 p-4 bg-white border border-brand-100 rounded-xl hover:border-brand-400 hover:shadow-md transition-all group">
+                            <div class="bg-brand-50 p-2 rounded-lg group-hover:bg-brand-100 text-brand-600 transition-colors">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            </div>
+                            <div>
+                                <p class="font-medium text-brand-900 text-sm">Do Reading Test 04 Vocab Test</p>
+                                <p class="text-xs text-slate-500 mt-1">Verify retention with the interactive vocabulary checkpoint.</p>
+                                <span class="text-xs text-brand-500 font-semibold mt-1.5 inline-block">Start Test &rarr;</span>
+                            </div>
+                        </a>
+
+                        <!-- HW Task 4: Reading Test 05 Passage 1 -->
+                        <a href="https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/pet_intensive_05.html" target="_blank" class="flex items-start gap-3 p-4 bg-white border border-brand-100 rounded-xl hover:border-brand-400 hover:shadow-md transition-all group">
+                            <div class="bg-brand-50 p-2 rounded-lg group-hover:bg-brand-100 text-brand-600 transition-colors">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                            </div>
+                            <div>
+                                <p class="font-medium text-brand-900 text-sm">Do Reading Test 05 - Passage 1</p>
+                                <p class="text-xs text-slate-500 mt-1">Complete Passage 1 of Test 05 under timed classroom rules.</p>
+                                <span class="text-xs text-brand-500 font-semibold mt-1.5 inline-block">Access Test &rarr;</span>
+                            </div>
+                        </a>
+
+                    </div>
+                </section>
+            </div>
+
+            <!-- Right Column: Sidebar Tracker -->
+            <div class="lg:col-span-4 relative">
+                <div class="sticky top-6 glass-card rounded-2xl p-6 fade-in-up delay-400">
+                    <h3 class="font-serif font-bold text-xl text-brand-900 mb-4 border-b border-brand-100 pb-3">Lesson Tracker</h3>
+                    
+                    <div class="mb-6">
+                        <div class="flex justify-between text-sm mb-2">
+                            <span class="text-brand-800 font-medium">Completion Progress</span>
+                            <span id="progressText" class="font-bold text-brand-500">0%</span>
+                        </div>
+                        <div class="w-full bg-brand-100 rounded-full h-2.5 shadow-inner">
+                            <div id="sideProgressBar" class="bg-brand-500 h-2.5 rounded-full transition-all duration-500" style="width: 0%"></div>
+                        </div>
+                    </div>
+
+                    <ul class="space-y-4 text-sm font-medium text-slate-600">
+                        <li class="flex items-center justify-between p-3 rounded-lg bg-brand-50/50 border border-brand-100 transition-all" id="tracker-1">
+                            <span class="flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-brand-200 transition-colors" id="dot-1"></span>
+                                Reading 04 P3 Check
+                            </span>
+                            <span class="text-xs bg-white text-brand-800 border border-brand-100 px-2 py-1 rounded">20m</span>
+                        </li>
+                        <li class="flex items-center justify-between p-3 rounded-lg bg-brand-50/50 border border-brand-100 transition-all" id="tracker-2">
+                            <span class="flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-brand-200 transition-colors" id="dot-2"></span>
+                                Listening 05 Check
+                            </span>
+                            <span class="text-xs bg-white text-brand-800 border border-brand-100 px-2 py-1 rounded">25m</span>
+                        </li>
+                        <li class="flex items-center justify-between p-3 rounded-lg bg-brand-50/50 border border-brand-100 transition-all" id="tracker-3">
+                            <span class="flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-brand-200 transition-colors" id="dot-3"></span>
+                                Speaking P2&3 Overview
+                            </span>
+                            <span class="text-xs bg-white text-brand-800 border border-brand-100 px-2 py-1 rounded">40m</span>
+                        </li>
+                        <li class="flex items-center justify-between p-3 rounded-lg bg-brand-50/50 border border-brand-100 transition-all" id="tracker-4">
+                            <span class="flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-brand-200 transition-colors" id="dot-4"></span>
+                                Homework Assignment
+                            </span>
+                            <span class="text-xs bg-white text-brand-800 border border-brand-100 px-2 py-1 rounded">5m</span>
+                        </li>
+                    </ul>
+
+                    <div class="mt-8 pt-6 border-t border-brand-100">
+                        <p class="text-xs text-brand-300 text-center uppercase tracking-widest font-semibold">End of Session</p>
+                        <button onclick="resetLesson()" class="w-full mt-3 py-2 border border-brand-200 text-brand-500 rounded-lg text-sm hover:bg-brand-50 hover:text-brand-700 transition-colors font-medium">
+                            Reset Tracker
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const totalTasks = 4;
+        
+        function updateProgress() {
+            const checkboxes = document.querySelectorAll('.checkbox-custom');
+            let completedTasks = 0;
+
+            checkboxes.forEach((cb) => {
+                const taskId = cb.getAttribute('data-task');
+                const trackerItem = document.getElementById(`tracker-${taskId}`);
+                const trackerDot = document.getElementById(`dot-${taskId}`);
+                const section = document.getElementById(`section-${taskId}`);
+
+                if (cb.checked) {
+                    completedTasks++;
+                    if (trackerItem) {
+                        trackerItem.classList.add('bg-brand-100', 'border-brand-300', 'text-brand-900');
+                        trackerItem.classList.remove('bg-brand-50/50', 'border-brand-100', 'text-slate-600');
+                    }
+                    if (trackerDot) {
+                        trackerDot.classList.add('bg-brand-500');
+                        trackerDot.classList.remove('bg-brand-200');
+                    }
+                    if (section) section.classList.add('opacity-75'); // Dim slightly when done
+                } else {
+                    if (trackerItem) {
+                        trackerItem.classList.remove('bg-brand-100', 'border-brand-300', 'text-brand-900');
+                        trackerItem.classList.add('bg-brand-50/50', 'border-brand-100', 'text-slate-600');
+                    }
+                    if (trackerDot) {
+                        trackerDot.classList.remove('bg-brand-500');
+                        trackerDot.classList.add('bg-brand-200');
+                    }
+                    if (section) section.classList.remove('opacity-75');
+                }
+            });
+
+            const percentage = Math.round((completedTasks / totalTasks) * 100);
+            
+            // Animate progress bars
+            document.getElementById('progressBar').style.width = `${percentage}%`;
+            document.getElementById('sideProgressBar').style.width = `${percentage}%`;
+            document.getElementById('progressText').innerText = `${percentage}%`;
+
+            // Visual feedback if 100%
+            if(percentage === 100) {
+                document.getElementById('sideProgressBar').classList.add('bg-brand-800');
+                document.getElementById('sideProgressBar').classList.remove('bg-brand-500');
+            } else {
+                document.getElementById('sideProgressBar').classList.remove('bg-brand-800');
+                document.getElementById('sideProgressBar').classList.add('bg-brand-500');
+            }
+        }
+
+        function resetLesson() {
+            const checkboxes = document.querySelectorAll('.checkbox-custom');
+            checkboxes.forEach(cb => {
+                cb.checked = false;
+            });
+            updateProgress();
+            
+            // Scroll to top smoothly
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Initialize progress on page load
+        document.addEventListener('DOMContentLoaded', updateProgress);
+    </script>
+</body>
+</html>

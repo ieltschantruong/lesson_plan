@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Chan Truong | PET Intensive Lesson 14</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#fdf2f8',  // Blush
+                            100: '#fce7f3', // Pastel Pink
+                            200: '#fbcfe8',
+                            300: '#f9a8d4',
+                            400: '#f472b6',
+                            500: '#ec4899', // Vibrant Accent
+                            800: '#9d174d', // Deep Rose for text
+                            900: '#831843', // Darkest Rose
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            background-color: #fffafb; /* Soft pastel background */
+            color: #475569;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(252, 231, 243, 0.6); /* pink-100 */
+            box-shadow: 0 4px 14px 0 rgba(252, 231, 243, 0.5); /* pink shadow */
+            transition: all 0.3s ease;
+        }
+        
+        .glass-card:hover {
+            box-shadow: 0 10px 25px -3px rgba(252, 231, 243, 0.8), 0 4px 6px -2px rgba(24bc, 231, 243, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .checkbox-custom:checked + div {
+            background-color: #ec4899; /* brand-500 */
+            border-color: #ec4899;
+        }
+        
+        .checkbox-custom:checked + div svg {
+            opacity: 1;
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #fdf2f8; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #f9a8d4; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #f472b6; 
+        }
+
+        /* Accordion summaries style removal */
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- Sticky Progress Bar -->
+    <div class="fixed top-0 left-0 w-full h-1.5 bg-brand-100 z-50">
+        <div id="progressBar" class="h-full bg-brand-500 transition-all duration-500 ease-out" style="width: 0%;"></div>
+    </div>
+
+    <!-- Header Section -->
+    <header class="bg-gradient-to-br from-pink-100 via-rose-100 to-pink-200 text-brand-900 pt-16 pb-20 px-6 relative overflow-hidden shadow-sm">
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden opacity-30 pointer-events-none">
+            <svg class="absolute -top-24 -right-24 w-96 h-96 text-white" fill="currentColor" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50"/></svg>
+            <svg class="absolute bottom-[-10%] left-[-5%] w-64 h-64 text-brand-300" fill="currentColor" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50"/></svg>
+        </div>
+
+        <div class="max-w-5xl mx-auto relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+            <div>
+                <h2 class="text-brand-800 font-semibold tracking-widest text-sm uppercase mb-2 flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                    IELTS Chan Truong
+                </h2>
+                <h1 class="text-4xl md:text-5xl font-serif font-bold text-brand-900 leading-tight drop-shadow-sm">
+                    PET Intensive <br/><span class="text-brand-500 font-sans font-light text-3xl">Lesson 14</span>
+                </h1>
+            </div>
+            
+            <div class="flex gap-4 bg-white/50 backdrop-blur-md px-6 py-4 rounded-2xl border border-white/60 shadow-sm">
+                <div class="text-center px-4 border-r border-brand-200">
+                    <div class="text-brand-800 font-bold text-xl">90</div>
+                    <div class="text-xs text-brand-500 uppercase tracking-wider font-semibold">Minutes</div>
+                </div>
+                <div class="text-center px-4">
+                    <div class="text-brand-800 font-bold text-xl">14-16</div>
+                    <div class="text-xs text-brand-500 uppercase tracking-wider font-semibold">Students</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-5xl mx-auto px-6 w-full -mt-8 relative z-20 pb-20 flex-grow">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            
+            <!-- Left Column: Lesson Content (Main) -->
+            <div class="lg:col-span-8 space-y-6">
+                
+                <!-- Section 1: Reading Test 05 Passage 1 Check -->
+                <section class="glass-card rounded-2xl p-6 md:p-8 fade-in-up" id="section-1">
+                    <div class="flex items-start justify-between mb-6">
+                        <div class="flex items-center gap-4">
+                            <div class="bg-brand-50 text-brand-500 p-3 rounded-xl">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-brand-900">1. Reading Test 05 - Passage 1</h3>
+                                <p class="text-sm text-brand-400 font-medium flex items-center gap-2 mt-1">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    Check & Explain (20 mins)
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <label class="flex items-center cursor-pointer group">
+                            <input type="checkbox" class="checkbox-custom hidden" data-task="1" onchange="updateProgress()">
+                            <div class="w-8 h-8 rounded-full border-2 border-brand-200 flex items-center justify-center transition-colors group-hover:border-brand-500 bg-white shadow-inner">
+                                <svg class="w-4 h-4 text-white opacity-0 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                        </label>
+                    </div>
+                    
+                    <div class="bg-brand-50/50 border border-brand-100 rounded-xl p-5 mb-5">
+                        <h4 class="font-semibold text-brand-900 mb-2">Reading Passage 1 Evaluation</h4>
+                        <p class="text-slate-600 text-sm mb-4">Go over answers for Reading Test 05 Passage 1. Highlight critical scanning frameworks, address tricky trap choices, and build logical vocabulary mappings.</p>
+                        <a href="https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/pet_intensive_05.html" target="_blank" class="inline-flex items-center gap-2 bg-brand-500 text-white px-5 py-2.5 rounded-lg text-sm font-medium hover:bg-brand-400 transition-colors w-full sm:w-auto justify-center shadow-md shadow-brand-200">
+                            Open Reading Test 05
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                        </a>
+                    </div>
+                </section>
+
+                <!-- Section 2: Speaking Part 2 & 3 Vocab Explain & Practices -->
+                <section class="glass-card rounded-2xl p-6 md:p-8 fade-in-up delay-100" id="section-2">
+                    <div class="flex items-start justify-between mb-6">
+                        <div class="flex items-center gap-4">
+                            <div class="bg-brand-50 text-brand-500 p-3 rounded-xl">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-brand-900">2. Speaking Part 2 & 3: Practice</h3>
+                                <p class="text-sm text-brand-400 font-medium flex items-center gap-2 mt-1">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    Prompt-Specific Ideas & Vocab (55 mins)
+                                </p>
+                            </div>
+                        </div>
+
+                        <label class="flex items-center cursor-pointer group">
+                            <input type="checkbox" class="checkbox-custom hidden" data-task="2" onchange="updateProgress()">
+                            <div class="w-8 h-8 rounded-full border-2 border-brand-200 flex items-center justify-center transition-colors group-hover:border-brand-500 bg-white shadow-inner">
+                                <svg class="w-4 h-4 text-white opacity-0 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                        </label>
+                    </div>
+
+                    <p class="text-slate-600 text-sm mb-6 leading-relaxed">Study idiomatic collocations and structure active peer evaluations across **5 newly curated topics**. Open each card to access key brainstorm structures, high-scoring model responses, and abstract Part 3 ideas:</p>
+
+                    <!-- Cue Card Accordions -->
+                    <div class="space-y-4">
+                        
+                        <!-- Topic 1 -->
+                        <details class="group border border-brand-200 rounded-lg bg-white overflow-hidden shadow-sm hover:border-brand-400 transition-colors">
+                            <summary class="flex justify-between items-center font-medium cursor-pointer p-4 hover:bg-brand-50/50 text-brand-900 transition-colors">
+                                <span class="flex items-center gap-3">
+                                    <span class="w-7 h-7 bg-brand-100 text-brand-800 rounded-full flex items-center justify-center font-bold text-xs">01</span>
+                                    <span class="font-serif text-sm md:text-base font-bold text-slate-800">Describe a time when the electricity suddenly went off</span>
+                                </span>
+                                <span class="transition duration-300 group-open:rotate-180 text-brand-400">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                </span>
+                            </summary>
+                            <div class="p-5 border-t border-brand-100 text-sm text-slate-800 space-y-4 bg-brand-50/10 leading-relaxed">
+                                <div>
+                                    <span class="font-bold text-brand-800 block mb-1">Part 2 Cue Card Bullets:</span>
+                                    <p class="text-xs text-slate-600">You should say: When it happened; Where you were; What you were doing; And explain how you handled the situation / how you felt.</p>
+                                </div>
+                                
+                                <div class="bg-brand-50/50 p-4 rounded-lg border border-brand-200">
+                                    <p class="text-xs font-bold text-brand-800 mb-1.5 flex items-center gap-1.5">
+                                        <svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+                                        Band 7.5+ Sample Response (Part 2 monologue):
+                                    </p>
+                                    <p class="text-xs text-slate-700 italic leading-relaxed">
+                                        "I'd like to talk about a memorable power outage that occurred last summer. I was at home in my apartment, right in the middle of preparing for a crucial university final exam on my desktop computer. It was a scorching hot July evening, so I had the air conditioning running at full blast. Suddenly, without any warning, all the lights went out, and the hum of the AC died instantly. The entire neighborhood was plunged into pitch-black darkness. Initially, I panicked like a headless chicken because I hadn't saved my latest revision notes on the system. However, I soon realized panicking wouldn't help. I managed to locate my smartphone using its screen light and lit some scented candles. Since I couldn't study anymore, I went out onto the balcony to get some fresh air. Surprisingly, many of my neighbors had done the same. We ended up chatting, laughing, and sharing cold snacks under the starlight for a couple of hours. In the end, it was a blessing in disguise as it forced me to take a much-needed break and connect with my community."
+                                    </p>
+                                </div>
+
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div class="bg-white p-3 rounded-lg border border-brand-100 shadow-sm">
+                                        <p class="text-xs font-semibold text-brand-800 mb-1">Lexical Resource & Idioms:</p>
+                                        <ul class="list-disc pl-4 text-[11px] text-slate-600 space-y-1">
+                                            <li><strong>Power outage / Blackout:</strong> Sudden loss of electricity.</li>
+                                            <li><strong>Plunge into darkness:</strong> To instantly become pitch black.</li>
+                                            <li><strong>Like a headless chicken:</strong> Acting in a panicked, disorganized way.</li>
+                                            <li><strong>Blessing in disguise:</strong> Something bad that turned out positive.</li>
+                                        </ul>
+                                    </div>
+                                    <div class="bg-white p-3 rounded-lg border border-brand-100 shadow-sm">
+                                        <p class="text-xs font-semibold text-brand-800 mb-1">Part 3 Abstract Extension:</p>
+                                        <p class="text-[11px] text-slate-600"><strong>Q: How dependent is modern society on electricity?</strong><br/><em>Ans (OREO):</em> Highly reliant. If a grid failure occurs, our critical communication infrastructures, banking networks, and logistics channels immediately freeze, causing massive economic friction.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </details>
+
+                        <!-- Topic 2 -->
+                        <details class="group border border-brand-200 rounded-lg bg-white overflow-hidden shadow-sm hover:border-brand-400 transition-colors">
+                            <summary class="flex justify-between items-center font-medium cursor-pointer p-4 hover:bg-brand-50/50 text-brand-900 transition-colors">
+                                <span class="flex items-center gap-3">
+                                    <span class="w-7 h-7 bg-brand-100 text-brand-800 rounded-full flex items-center justify-center font-bold text-xs">02</span>
+                                    <span class="font-serif text-sm md:text-base font-bold text-slate-800">Describe a time when you broke something</span>
+                                </span>
+                                <span class="transition duration-300 group-open:rotate-180 text-brand-400">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                </span>
+                            </summary>
+                            <div class="p-5 border-t border-brand-100 text-sm text-slate-800 space-y-4 bg-brand-50/10 leading-relaxed">
+                                <div>
+                                    <span class="font-bold text-brand-800 block mb-1">Part 2 Cue Card Bullets:</span>
+                                    <p class="text-xs text-slate-600">You should say: What you broke; When/how it happened; How expensive/important it was; And explain how you felt and what you did afterward.</p>
+                                </div>
+
+                                <div class="bg-brand-50/50 p-4 rounded-lg border border-brand-200">
+                                    <p class="text-xs font-bold text-brand-800 mb-1.5 flex items-center gap-1.5">
+                                        <svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+                                        Band 7.5+ Sample Response (Part 2 monologue):
+                                    </p>
+                                    <p class="text-xs text-slate-700 italic leading-relaxed">
+                                        "I'm going to share an incident where I accidentally broke an irreplaceable family heirloom. This happened about two years ago during a spring cleaning session at my parents' house. I was dusting a high oak shelf in our living room when my elbow accidentally brushed against an antique porcelain vase that belonged to my late grandmother. I've always been a bit of a butterfingers, and in that split second, the vase slipped off the edge and shattered into pieces on the hardwood floor. It was of immense sentimental value to my mother, so my heart sank instantly and I felt completely mortified. However, instead of trying to sweep it under the rug, I decided to face the music. I carefully collected the fragments and went straight to my mother to apologize. While she was initially devastated, she appreciated my honesty. We later spent an afternoon using a special golden adhesive to piece it back together, creating a unique 'kintsugi' style vase that still holds a proud place in our home."
+                                    </p>
+                                </div>
+
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div class="bg-white p-3 rounded-lg border border-brand-100 shadow-sm">
+                                        <p class="text-xs font-semibold text-brand-800 mb-1">Lexical Resource & Idioms:</p>
+                                        <ul class="list-disc pl-4 text-[11px] text-slate-600 space-y-1">
+                                            <li><strong>Shatter into pieces:</strong> To break catastrophically into tiny fragments.</li>
+                                            <li><strong>Butterfingers:</strong> Clumsy, prone to dropping objects.</li>
+                                            <li><strong>Of sentimental value / Irreplaceable:</strong> Intangibly precious.</li>
+                                            <li><strong>Face the music:</strong> To accept criticism or punishment for an action.</li>
+                                        </ul>
+                                    </div>
+                                    <div class="bg-white p-3 rounded-lg border border-brand-100 shadow-sm">
+                                        <p class="text-xs font-semibold text-brand-800 mb-1">Part 3 Abstract Extension:</p>
+                                        <p class="text-[11px] text-slate-600"><strong>Q: Why do some people prefer repairing old things rather than buying new ones?</strong><br/><em>Ans:</em> Due to environmental concerns (minimizing e-waste) or intense emotional connection, as vintage items hold historical stories that modern goods cannot replicate.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </details>
+
+                        <!-- Topic 3 -->
+                        <details class="group border border-brand-200 rounded-lg bg-white overflow-hidden shadow-sm hover:border-brand-400 transition-colors">
+                            <summary class="flex justify-between items-center font-medium cursor-pointer p-4 hover:bg-brand-50/50 text-brand-900 transition-colors">
+                                <span class="flex items-center gap-3">
+                                    <span class="w-7 h-7 bg-brand-100 text-brand-800 rounded-full flex items-center justify-center font-bold text-xs">03</span>
+                                    <span class="font-serif text-sm md:text-base font-bold text-slate-800">Describe a piece of technology that you find difficult to use</span>
+                                </span>
+                                <span class="transition duration-300 group-open:rotate-180 text-brand-400">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                </span>
+                            </summary>
+                            <div class="p-5 border-t border-brand-100 text-sm text-slate-800 space-y-4 bg-brand-50/10 leading-relaxed">
+                                <div>
+                                    <span class="font-bold text-brand-800 block mb-1">Part 2 Cue Card Bullets:</span>
+                                    <p class="text-xs text-slate-600">You should say: What piece of technology it is; What you use it for; Why you find it difficult to use; And explain how you feel about using it.</p>
+                                </div>
+
+                                <div class="bg-brand-50/50 p-4 rounded-lg border border-brand-200">
+                                    <p class="text-xs font-bold text-brand-800 mb-1.5 flex items-center gap-1.5">
+                                        <svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+                                        Band 7.5+ Sample Response (Part 2 monologue):
+                                    </p>
+                                    <p class="text-xs text-slate-700 italic leading-relaxed">
+                                        "I would like to describe a piece of technology that presented a remarkably steep learning curve for me: a professional digital audio workstation, or DAW, called Pro Tools. I purchased this software about a year ago because I wanted to learn how to produce my own music and edit podcasts. However, upon opening it, I was immediately overwhelmed by its counterintuitive layout and the endless array of dials, sliders, and menus. Unlike basic editing apps, it felt completely user-unfriendly, and the detailed user manual was about as clear as mud. Every time I tried to import an audio track or route my microphone, the system would freeze or output no sound. I felt incredibly frustrated and ready to throw in the towel. Nevertheless, I decided to tackle the problem by watching structured online video tutorials. It took me months of daily trial and error to grasp the basic signal routing, but now I can navigate it with relative ease, though it still challenges me occasionally."
+                                    </p>
+                                </div>
+
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div class="bg-white p-3 rounded-lg border border-brand-100 shadow-sm">
+                                        <p class="text-xs font-semibold text-brand-800 mb-1">Lexical Resource & Idioms:</p>
+                                        <ul class="list-disc pl-4 text-[11px] text-slate-600 space-y-1">
+                                            <li><strong>Steep learning curve:</strong> Very hard to master initially.</li>
+                                            <li><strong>Counterintuitive layout:</strong> Design elements that defy logical usage.</li>
+                                            <li><strong>Glitchy / Buggy:</strong> Prone to frequent errors and malfunctions.</li>
+                                            <li><strong>Clear as mud:</strong> Entirely confusing, not clear at all.</li>
+                                        </ul>
+                                    </div>
+                                    <div class="bg-white p-3 rounded-lg border border-brand-100 shadow-sm">
+                                        <p class="text-xs font-semibold text-brand-800 mb-1">Part 3 Abstract Extension:</p>
+                                        <p class="text-[11px] text-slate-600"><strong>Q: Do you think elder generations are left behind by modern technology?</strong><br/><em>Ans:</em> Indubitably. The rapid acceleration of digital tools and smart systems creates a digital divide, as intuitive touchscreens are often counterintuitive for seniors.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </details>
+
+                        <!-- Topic 4 -->
+                        <details class="group border border-brand-200 rounded-lg bg-white overflow-hidden shadow-sm hover:border-brand-400 transition-colors">
+                            <summary class="flex justify-between items-center font-medium cursor-pointer p-4 hover:bg-brand-50/50 text-brand-900 transition-colors">
+                                <span class="flex items-center gap-3">
+                                    <span class="w-7 h-7 bg-brand-100 text-brand-800 rounded-full flex items-center justify-center font-bold text-xs">04</span>
+                                    <span class="font-serif text-sm md:text-base font-bold text-slate-800">Describe a website that sells second-hand items</span>
+                                </span>
+                                <span class="transition duration-300 group-open:rotate-180 text-brand-400">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                </span>
+                            </summary>
+                            <div class="p-5 border-t border-brand-100 text-sm text-slate-800 space-y-4 bg-brand-50/10 leading-relaxed">
+                                <div>
+                                    <span class="font-bold text-brand-800 block mb-1">Part 2 Cue Card Bullets:</span>
+                                    <p class="text-xs text-slate-600">You should say: What website it is; How you first discovered it; What products are sold there; And explain why you like or dislike using this website.</p>
+                                </div>
+
+                                <div class="bg-brand-50/50 p-4 rounded-lg border border-brand-200">
+                                    <p class="text-xs font-bold text-brand-800 mb-1.5 flex items-center gap-1.5">
+                                        <svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+                                        Band 7.5+ Sample Response (Part 2 monologue):
+                                    </p>
+                                    <p class="text-xs text-slate-700 italic leading-relaxed">
+                                        "I'd like to talk about a second-hand marketplace website called Vinted, which specializes in pre-loved clothing and vintage accessories. I first stumbled upon this platform last year when I was looking to declutter my wardrobe and transition to a more sustainable lifestyle. The website operates as a peer-to-peer marketplace where users upload pictures of clothes they no longer wear. What I love about Vinted is the sheer thrill of the bargain hunt; you can find high-quality designer items that are virtually brand-new for dirt cheap—often a mere fraction of their original retail price. It's a steal compared to buying brand new items from high-end retail stores, which can easily cost an arm and a leg. The website's user interface is highly intuitive, allowing you to sort items by size, brand, and condition, making second-hand shopping a breeze."
+                                    </p>
+                                </div>
+
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div class="bg-white p-3 rounded-lg border border-brand-100 shadow-sm">
+                                        <p class="text-xs font-semibold text-brand-800 mb-1">Lexical Resource & Idioms:</p>
+                                        <ul class="list-disc pl-4 text-[11px] text-slate-600 space-y-1">
+                                            <li><strong>Pre-loved goods / Vintage:</strong> Second-hand possessions.</li>
+                                            <li><strong>Bargain hunt:</strong> Looking extensively for inexpensive purchases.</li>
+                                            <li><strong>Dirt cheap / A steal:</strong> Extremely inexpensive, incredible value.</li>
+                                            <li><strong>Cost an arm and a leg:</strong> Exorbitantly expensive (used in contrast).</li>
+                                        </ul>
+                                    </div>
+                                    <div class="bg-white p-3 rounded-lg border border-brand-100 shadow-sm">
+                                        <p class="text-xs font-semibold text-brand-800 mb-1">Part 3 Abstract Extension:</p>
+                                        <p class="text-[11px] text-slate-600"><strong>Q: Why has the second-hand market grown in recent years?</strong><br/><em>Ans:</em> Consumers are increasingly eco-conscious, aiming to curb fast fashion and mass manufacturing while hunting for distinctive, vintage items at accessible prices.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </details>
+
+                        <!-- Topic 5 -->
+                        <details class="group border border-brand-200 rounded-lg bg-white overflow-hidden shadow-sm hover:border-brand-400 transition-colors">
+                            <summary class="flex justify-between items-center font-medium cursor-pointer p-4 hover:bg-brand-50/50 text-brand-900 transition-colors">
+                                <span class="flex items-center gap-3">
+                                    <span class="w-7 h-7 bg-brand-100 text-brand-800 rounded-full flex items-center justify-center font-bold text-xs">05</span>
+                                    <span class="font-serif text-sm md:text-base font-bold text-slate-800">Describe a website you often visit</span>
+                                </span>
+                                <span class="transition duration-300 group-open:rotate-180 text-brand-400">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                </span>
+                            </summary>
+                            <div class="p-5 border-t border-brand-100 text-sm text-slate-800 space-y-4 bg-brand-50/10 leading-relaxed">
+                                <div>
+                                    <span class="font-bold text-brand-800 block mb-1">Part 2 Cue Card Bullets:</span>
+                                    <p class="text-xs text-slate-600">You should say: What website it is; What you do on this website; How you first heard of it; And explain why you find yourself visiting it frequently.</p>
+                                </div>
+
+                                <div class="bg-brand-50/50 p-4 rounded-lg border border-brand-200">
+                                    <p class="text-xs font-bold text-brand-800 mb-1.5 flex items-center gap-1.5">
+                                        <svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+                                        Band 7.5+ Sample Response (Part 2 monologue):
+                                    </p>
+                                    <p class="text-xs text-slate-700 italic leading-relaxed">
+                                        "I'm going to talk about Wikipedia, a website that I find myself visiting almost daily. It is a free online encyclopedia that I first discovered back in my primary school days when searching for research materials. I utilize this website for a wide array of purposes, ranging from verifying quick historical figures to keeping abreast of complex global scientific developments. What makes Wikipedia so appealing is its wealth of information coupled with its highly intuitive interface. You can search for virtually any obscure concept and find an extensive, well-referenced breakdown. I often find myself falling down internet rabbit holes, scrolling endlessly through hyperlinked articles for hours. Despite critics pointing out its open-source editing nature, the community's dedication to quality control is top-notch, making it an invaluable digital portal for me."
+                                    </p>
+                                </div>
+
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div class="bg-white p-3 rounded-lg border border-brand-100 shadow-sm">
+                                        <p class="text-xs font-semibold text-brand-800 mb-1">Lexical Resource & Idioms:</p>
+                                        <ul class="list-disc pl-4 text-[11px] text-slate-600 space-y-1">
+                                            <li><strong>Highly intuitive interface:</strong> Extremely easy navigation.</li>
+                                            <li><strong>Scroll endlessly:</strong> Mindless, continuous consuming of feeds.</li>
+                                            <li><strong>Keep abreast of:</strong> To stay fully updated on current news or events.</li>
+                                            <li><strong>Wealth of information:</strong> Enormous volume of useful resources.</li>
+                                        </ul>
+                                    </div>
+                                    <div class="bg-white p-3 rounded-lg border border-brand-100 shadow-sm">
+                                        <p class="text-xs font-semibold text-brand-800 mb-1">Part 3 Abstract Extension:</p>
+                                        <p class="text-[11px] text-slate-600"><strong>Q: Will online portals completely replace physical educational venues?</strong><br/><em>Ans:</em> Unlikely. Although web platforms offer exceptional asynchronous learning structures, physical locations remain crucial for interactive development and socio-emotional growth.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </details>
+
+                    </div>
+                </section>
+
+                <!-- Section 3: Vocab Test -->
+                <section class="glass-card rounded-2xl p-6 md:p-8 fade-in-up delay-200" id="section-3">
+                    <div class="flex items-start justify-between mb-6">
+                        <div class="flex items-center gap-4">
+                            <div class="bg-brand-50 text-brand-500 p-3 rounded-xl">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-brand-900">3. Vocab Test: Reading Test 04</h3>
+                                <p class="text-sm text-brand-400 font-medium flex items-center gap-2 mt-1">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    Class Checkpoint (10 mins)
+                                </p>
+                            </div>
+                        </div>
+
+                        <label class="flex items-center cursor-pointer group">
+                            <input type="checkbox" class="checkbox-custom hidden" data-task="3" onchange="updateProgress()">
+                            <div class="w-8 h-8 rounded-full border-2 border-brand-200 flex items-center justify-center transition-colors group-hover:border-brand-500 bg-white shadow-inner">
+                                <svg class="w-4 h-4 text-white opacity-0 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                        </label>
+                    </div>
+
+                    <div class="bg-brand-50/50 border border-brand-100 rounded-xl p-5 mb-5">
+                        <h4 class="font-semibold text-brand-900 mb-2">Reading Vocabulary Verification</h4>
+                        <p class="text-slate-600 text-sm mb-4">Complete the vocabulary test checking key collocations, synonyms, and context structures studied from Reading Test 04.</p>
+                        <a href="https://ieltschantruong.github.io/IELTS/lesson_plan/pet_intensive/vocab_test_reading04.docx" target="_blank" class="inline-flex items-center gap-2 bg-brand-500 text-white px-5 py-2.5 rounded-lg text-sm font-medium hover:bg-brand-400 transition-colors w-full sm:w-auto justify-center shadow-md shadow-brand-200">
+                            Download Vocab Test (DOCX)
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                        </a>
+                    </div>
+                </section>
+
+                <!-- Section 4: Homework -->
+                <section class="glass-card rounded-2xl p-6 md:p-8 fade-in-up delay-300" id="section-4">
+                     <div class="flex items-start justify-between mb-6">
+                        <div class="flex items-center gap-4">
+                            <div class="bg-brand-50 text-brand-500 p-3 rounded-xl">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-brand-900">4. Homework Assignment</h3>
+                                <p class="text-sm text-brand-400 font-medium flex items-center gap-2 mt-1">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    Wrap-up & Takeaways (5 mins)
+                                </p>
+                            </div>
+                        </div>
+
+                        <label class="flex items-center cursor-pointer group">
+                            <input type="checkbox" class="checkbox-custom hidden" data-task="4" onchange="updateProgress()">
+                            <div class="w-8 h-8 rounded-full border-2 border-brand-200 flex items-center justify-center transition-colors group-hover:border-brand-500 bg-white shadow-inner">
+                                <svg class="w-4 h-4 text-white opacity-0 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                        </label>
+                    </div>
+
+                    <div class="space-y-3">
+                        <a href="https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/pet_intensive_05.html" target="_blank" class="block p-4 bg-white rounded-xl border border-brand-100 hover:border-brand-400 hover:shadow-md hover:shadow-brand-100 transition-all group">
+                            <div class="flex items-start gap-3">
+                                <div class="bg-brand-50 p-2 rounded-lg group-hover:bg-brand-100 text-brand-600 transition-colors">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                                </div>
+                                <div class="flex-grow">
+                                    <p class="font-medium text-brand-900 text-sm">Do Reading Test 05 - Passage 2 & 3</p>
+                                    <p class="text-xs text-slate-500 mt-1">Complete Passage 2 and 3 of Mock Test 05 under exam conditions prior to the next lesson check.</p>
+                                    <span class="text-xs text-brand-500 font-semibold mt-2 inline-block">Access Reading Portal &rarr;</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Right Column: Sidebar Tracker -->
+            <div class="lg:col-span-4 relative">
+                <div class="sticky top-6 glass-card rounded-2xl p-6 fade-in-up delay-400">
+                    <h3 class="font-serif font-bold text-xl text-brand-900 mb-4 border-b border-brand-100 pb-3">Lesson Tracker</h3>
+                    
+                    <div class="mb-6">
+                        <div class="flex justify-between text-sm mb-2">
+                            <span class="text-brand-800 font-medium">Completion Progress</span>
+                            <span id="progressText" class="font-bold text-brand-500">0%</span>
+                        </div>
+                        <div class="w-full bg-brand-100 rounded-full h-2.5 shadow-inner">
+                            <div id="sideProgressBar" class="bg-brand-500 h-2.5 rounded-full transition-all duration-500" style="width: 0%"></div>
+                        </div>
+                    </div>
+
+                    <ul class="space-y-4 text-sm font-medium text-slate-600">
+                        <li class="flex items-center justify-between p-3 rounded-lg bg-brand-50/50 border border-brand-100 transition-all" id="tracker-1">
+                            <span class="flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-brand-200 transition-colors" id="dot-1"></span>
+                                Reading 05 P1 Check
+                            </span>
+                            <span class="text-xs bg-white text-brand-800 border border-brand-100 px-2 py-1 rounded">20m</span>
+                        </li>
+                        <li class="flex items-center justify-between p-3 rounded-lg bg-brand-50/50 border border-brand-100 transition-all" id="tracker-2">
+                            <span class="flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-brand-200 transition-colors" id="dot-2"></span>
+                                Speaking P2&3 Prep
+                            </span>
+                            <span class="text-xs bg-white text-brand-800 border border-brand-100 px-2 py-1 rounded">55m</span>
+                        </li>
+                        <li class="flex items-center justify-between p-3 rounded-lg bg-brand-50/50 border border-brand-100 transition-all" id="tracker-3">
+                            <span class="flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-brand-200 transition-colors" id="dot-3"></span>
+                                Vocab Test (Reading 04)
+                            </span>
+                            <span class="text-xs bg-white text-brand-800 border border-brand-100 px-2 py-1 rounded">10m</span>
+                        </li>
+                        <li class="flex items-center justify-between p-3 rounded-lg bg-brand-50/50 border border-brand-100 transition-all" id="tracker-4">
+                            <span class="flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-brand-200 transition-colors" id="dot-4"></span>
+                                Wrap-up & Homework
+                            </span>
+                            <span class="text-xs bg-white text-brand-800 border border-brand-100 px-2 py-1 rounded">5m</span>
+                        </li>
+                    </ul>
+
+                    <div class="mt-8 pt-6 border-t border-brand-100">
+                        <p class="text-xs text-brand-300 text-center uppercase tracking-widest font-semibold">End of Session</p>
+                        <button onclick="resetLesson()" class="w-full mt-3 py-2 border border-brand-200 text-brand-500 rounded-lg text-sm hover:bg-brand-50 hover:text-brand-700 transition-colors font-medium">
+                            Reset Tracker
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const totalTasks = 4;
+        
+        function updateProgress() {
+            const checkboxes = document.querySelectorAll('.checkbox-custom');
+            let completedTasks = 0;
+
+            checkboxes.forEach((cb) => {
+                const taskId = cb.getAttribute('data-task');
+                const trackerItem = document.getElementById(`tracker-${taskId}`);
+                const trackerDot = document.getElementById(`dot-${taskId}`);
+                const section = document.getElementById(`section-${taskId}`);
+
+                if (cb.checked) {
+                    completedTasks++;
+                    if (trackerItem) {
+                        trackerItem.classList.add('bg-brand-100', 'border-brand-300', 'text-brand-900');
+                        trackerItem.classList.remove('bg-brand-50/50', 'border-brand-100', 'text-slate-600');
+                    }
+                    if (trackerDot) {
+                        trackerDot.classList.add('bg-brand-500');
+                        trackerDot.classList.remove('bg-brand-200');
+                    }
+                    if (section) section.classList.add('opacity-75'); // Dim slightly when done
+                } else {
+                    if (trackerItem) {
+                        trackerItem.classList.remove('bg-brand-100', 'border-brand-300', 'text-brand-900');
+                        trackerItem.classList.add('bg-brand-50/50', 'border-brand-100', 'text-slate-600');
+                    }
+                    if (trackerDot) {
+                        trackerDot.classList.remove('bg-brand-500');
+                        trackerDot.classList.add('bg-brand-200');
+                    }
+                    if (section) section.classList.remove('opacity-75');
+                }
+            });
+
+            const percentage = Math.round((completedTasks / totalTasks) * 100);
+            
+            // Animate progress bars
+            document.getElementById('progressBar').style.width = `${percentage}%`;
+            document.getElementById('sideProgressBar').style.width = `${percentage}%`;
+            document.getElementById('progressText').innerText = `${percentage}%`;
+
+            // Visual feedback if 100%
+            if(percentage === 100) {
+                document.getElementById('sideProgressBar').classList.add('bg-brand-800');
+                document.getElementById('sideProgressBar').classList.remove('bg-brand-500');
+            } else {
+                document.getElementById('sideProgressBar').classList.remove('bg-brand-800');
+                document.getElementById('sideProgressBar').classList.add('bg-brand-500');
+            }
+        }
+
+        function resetLesson() {
+            const checkboxes = document.querySelectorAll('.checkbox-custom');
+            checkboxes.forEach(cb => {
+                cb.checked = false;
+            });
+            updateProgress();
+            
+            // Scroll to top smoothly
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Initialize progress on page load
+        document.addEventListener('DOMContentLoaded', updateProgress);
+    </script>
+</body>
+</html>
