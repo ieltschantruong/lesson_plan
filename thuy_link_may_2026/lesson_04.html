@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Chan Truong - Lesson 4 Workspace</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+        }
+        .transition-all-300 {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .pastel-shadow-violet {
+            box-shadow: 0 10px 25px -10px rgba(139, 92, 246, 0.15);
+        }
+        .pastel-shadow-emerald {
+            box-shadow: 0 10px 25px -10px rgba(16, 185, 129, 0.15);
+        }
+        /* Hide scrollbars for simple visual aesthetics */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen pb-12">
+
+    <!-- TOAST NOTIFICATION SYSTEM -->
+    <div id="toastNotification" class="fixed bottom-5 right-5 px-4 py-3 rounded-xl text-xs font-bold text-white shadow-xl transition-all transform translate-y-10 opacity-0 pointer-events-none z-[100] bg-slate-900">
+        Workspace Initialized
+    </div>
+
+    <!-- STICKY NAVBAR -->
+    <nav class="sticky top-0 bg-white/80 backdrop-blur-md border-b border-violet-100 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center space-x-3">
+                    <span class="p-2 bg-gradient-to-tr from-violet-400 to-indigo-400 rounded-xl text-white font-extrabold shadow-sm text-sm">CT</span>
+                    <div>
+                        <span class="text-md font-bold tracking-tight bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text text-transparent">IELTS Chan Truong</span>
+                        <span class="text-xs text-slate-400 ml-2 border-l border-slate-200 pl-2">Lesson 4 Companion</span>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-2 sm:space-x-4">
+                    <a href="#speaking-cheat" class="text-xs sm:text-sm font-medium text-slate-600 hover:text-violet-600 px-2.5 py-1.5 rounded-lg transition-colors">Speaking Drill</a>
+                    <a href="#intensive-board" class="text-xs sm:text-sm font-medium text-slate-600 hover:text-violet-600 px-2.5 py-1.5 rounded-lg transition-colors">Intensive Board</a>
+                    <a href="#scorecard" class="text-xs sm:text-sm font-medium text-slate-600 hover:text-violet-600 px-2.5 py-1.5 rounded-lg transition-colors">Scorecard</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- LESSON TITLE BANNER -->
+    <header class="bg-gradient-to-tr from-violet-50/70 via-indigo-50/40 to-sky-50/50 border-b border-violet-100 py-10 px-4 sm:px-6 lg:px-8 relative">
+        <div class="absolute inset-0 bg-[radial-gradient(#ddd6fe_1px,transparent_1px)] [background-size:20px_20px] opacity-35"></div>
+        <div class="relative max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+            <div>
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-violet-100 text-violet-800 mb-3 uppercase tracking-wider">
+                    Day 4 Lesson Plan
+                </span>
+                <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-950 tracking-tight">
+                    Speaking Elite Fluency & Idea Generation
+                </h1>
+                <p class="text-slate-600 text-sm sm:text-base mt-2 max-w-2xl leading-relaxed">
+                    Intensive verbal simulation block. Transitioning from Band 6.0 structures to continuous, coherent Band 6.5+ conceptual arguments across four major test templates.
+                </p>
+            </div>
+            <div class="flex items-center gap-3">
+                <span class="px-3.5 py-2 bg-white border border-violet-100 rounded-xl text-xs font-bold text-slate-700 shadow-sm flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-violet-500 animate-pulse"></span>
+                    Elite Speaking Practice
+                </span>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN LESSON WORKSPACE CONTAINER -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-10">
+
+        <!-- SECTION 1: SPEAKING STRATEGY DRILL -->
+        <section id="speaking-cheat" class="bg-white border border-violet-100 p-6 rounded-2xl pastel-shadow-violet space-y-6">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-4 border-b border-slate-100">
+                <div class="flex items-center space-x-3">
+                    <span class="p-2.5 bg-violet-50 rounded-xl text-violet-600">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+                    </span>
+                    <div>
+                        <h2 class="text-lg font-bold text-slate-900">Speaking Core Strategy Cheat Sheet</h2>
+                        <p class="text-xs text-slate-500">Official speaking descriptors and transitions needed to cross the 6.5 threshold.</p>
+                    </div>
+                </div>
+                
+                <a href="https://ieltschantruong.github.io/IELTS/learning_resources/speaking/cheat_sheet_6_6.5.html" target="_blank" class="text-xs font-bold text-white bg-violet-500 hover:bg-violet-600 px-4 py-2 rounded-lg transition-all-300 shadow-sm flex items-center gap-1.5">
+                    <span>Open Strategy Sheet</span>
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                </a>
+            </div>
+
+            <!-- Transition Strategy Matrix -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-gradient-to-b from-violet-50/30 to-transparent p-4 rounded-xl border border-violet-100/50 space-y-2">
+                    <h3 class="text-xs font-bold text-violet-800 uppercase tracking-wider flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-violet-400"></span>
+                        Avoid "I Think" Loops
+                    </h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        To hit 6.5, replace repetitive personal opinions with structural, objective observations (e.g., "From my perspective...", "It is widely perceived that...", "Predominantly...").
+                    </p>
+                </div>
+                <div class="bg-gradient-to-b from-indigo-50/30 to-transparent p-4 rounded-xl border border-indigo-100/50 space-y-2">
+                    <h3 class="text-xs font-bold text-indigo-800 uppercase tracking-wider flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-indigo-400"></span>
+                        Self-Correction Control
+                    </h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Errors occur under pressure. Do not spiral or repeat words multiple times. Smoothly rephrase the sentence once using professional transitions (e.g., "Or rather...", "What I meant to say is...").
+                    </p>
+                </div>
+                <div class="bg-gradient-to-b from-fuchsia-50/30 to-transparent p-4 rounded-xl border border-fuchsia-100/50 space-y-2">
+                    <h3 class="text-xs font-bold text-fuchsia-800 uppercase tracking-wider flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-fuchsia-400"></span>
+                        Structure Complex Themes
+                    </h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Structure Part 3 answers using the **SEEL Method**: **S**tate the main argument clearly, **E**xplain your logic, provide a concrete **E**xample, and **L**ink back to the question.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- SECTION 2: INTENSIVE PRACTICE BOARD -->
+        <section id="intensive-board" class="bg-white border border-slate-200 rounded-2xl p-6 pastel-shadow-violet space-y-6">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-4 border-b border-slate-100">
+                <div>
+                    <h2 class="text-lg font-bold text-slate-900">Live Speaking Practice Board</h2>
+                    <p class="text-xs text-slate-500">Run through the four high-frequency speaking test profiles with structured models.</p>
+                </div>
+
+                <!-- Custom Dual Prep/Speak Timer widget -->
+                <div class="flex items-center gap-2 bg-slate-100 p-2 rounded-xl border border-slate-200">
+                    <span id="speakingTimerDisplay" class="text-sm font-extrabold text-violet-600 font-mono bg-white px-2.5 py-0.5 rounded shadow-sm border border-slate-100">00:00</span>
+                    <button onclick="runTimer(60)" class="text-[10px] font-bold px-2 py-1 bg-violet-50 hover:bg-violet-100 text-violet-700 rounded transition-colors">1m Prep</button>
+                    <button onclick="runTimer(120)" class="text-[10px] font-bold px-2 py-1 bg-slate-900 hover:bg-slate-800 text-white rounded transition-colors">2m Speak</button>
+                    <button onclick="resetTimer()" class="p-1 bg-slate-200 hover:bg-slate-300 rounded text-slate-600">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 1121.21 8H18"/></svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- TABBED TEST CARDS (Tests 1 - 4) -->
+            <div class="space-y-4">
+                
+                <!-- TEST 1: MOVIE THEME -->
+                <div class="bg-white border border-slate-200 rounded-xl overflow-hidden transition-all-300 hover:border-violet-200">
+                    <button onclick="toggleAccordion('test1')" class="w-full text-left p-4 bg-gradient-to-r from-violet-50/40 to-transparent flex justify-between items-center hover:from-violet-50 transition-colors">
+                        <div class="flex items-center space-x-3">
+                            <span class="px-2.5 py-1 bg-violet-100 text-violet-800 text-xs font-bold rounded-lg uppercase tracking-wider">Test 1</span>
+                            <h3 class="text-sm font-bold text-slate-900">Describe a movie you enjoyed watching (Creative Arts Domain)</h3>
+                        </div>
+                        <span id="chevron-test1" class="transform transition-transform duration-300">
+                            <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </span>
+                    </button>
+
+                    <div id="content-test1" class="hidden p-4 border-t border-slate-100 space-y-4 text-xs">
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                            <!-- Prompt & Checklist -->
+                            <div class="bg-slate-50 border border-slate-200/60 p-4 rounded-xl space-y-3">
+                                <span class="text-[10px] font-bold text-slate-500 uppercase block tracking-wider">Part 2 Cue Card Guide:</span>
+                                <p class="text-slate-800 font-bold leading-relaxed bg-white border border-slate-100 p-3 rounded-lg shadow-sm">
+                                    Describe a movie you enjoyed watching.<br>
+                                    • Where and when you saw it<br>
+                                    • Who you saw the movie with<br>
+                                    • What the movie was about<br>
+                                    • And explain why you enjoyed watching this movie
+                                </p>
+                                
+                                <span class="text-[10px] font-bold text-slate-500 uppercase block tracking-wider">Part 3 Direct Discussion Prompts:</span>
+                                <ul class="space-y-2 text-slate-700 pl-4 list-decimal font-medium">
+                                    <li>In your country, what kinds of movies do people like to watch?</li>
+                                    <li>Do people like to watch movies at home or in the cinema?</li>
+                                    <li>Why don't some people enjoy watching movies?</li>
+                                    <li>What qualities do people need to be good actors?</li>
+                                    <li>Which is more important for an actor, acting skills or appearance?</li>
+                                    <li>Do you agree or disagree that being an actor is a difficult job?</li>
+                                    <li>How important are famous actors to the success of a movie?</li>
+                                </ul>
+                            </div>
+
+                            <!-- Comparative Answers with highlighted tooltip definitions -->
+                            <div class="space-y-3">
+                                <span class="text-[10px] font-bold text-slate-500 uppercase block tracking-wider">Comparative Case Analysis:</span>
+                                
+                                <div class="bg-slate-100 p-3 rounded-lg border border-slate-200/50">
+                                    <p class="text-[9px] font-bold text-slate-500 uppercase">Band 5.5 - 6.0 Level (Simple & Repetitive):</p>
+                                    <p class="italic text-slate-600 leading-relaxed mt-1">
+                                        "I want to tell you about a movie called Interstellar. I went to the cinema with my best friend last year to see it. It is a science-fiction movie about a group of astronauts who go to space to find a new planet for humans to live. I liked this movie because the story is very exciting and the graphics look so real. It was a good movie and made me happy."
+                                    </p>
+                                </div>
+
+                                <div class="bg-emerald-50/40 p-4 rounded-lg border border-emerald-100">
+                                    <p class="text-[9px] font-bold text-emerald-800 uppercase tracking-wider flex items-center gap-1">
+                                        <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-ping"></span>
+                                        Band 6.5+ Level (Cohesive, Idiomatic, Precise):
+                                    </p>
+                                    <p class="text-slate-800 leading-relaxed mt-2 text-xs">
+                                        "I’d like to speak about a film that left an indelible impression on me, which is Interstellar. I watched this 
+                                        <!-- Tooltip wrapper -->
+                                        <span class="relative group inline-block cursor-help border-b border-dashed border-violet-500 font-semibold text-violet-700 bg-violet-50 px-1 rounded">
+                                            cinematic masterpiece
+                                            <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-56 p-2 bg-slate-900 text-white text-[10px] rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50 text-center shadow-lg font-normal leading-relaxed">
+                                                An outstanding movie of high artistic value.
+                                            </span>
+                                        </span> 
+                                        at a premium theater in Da Nang roughly a year ago, accompanied by my classmate. The movie delivers a 
+                                        <span class="relative group inline-block cursor-help border-b border-dashed border-violet-500 font-semibold text-violet-700 bg-violet-50 px-1 rounded">
+                                            captivating narrative
+                                            <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-56 p-2 bg-slate-900 text-white text-[10px] rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50 text-center shadow-lg font-normal leading-relaxed">
+                                                A highly interesting, attention-grabbing story.
+                                            </span>
+                                        </span> 
+                                        centering on an audacious group of space explorers searching for a habitable planet to secure human survival.
+                                        <br><br>
+                                        I was absolutely mesmerized by its visual effects, which were paired with an 
+                                        <span class="relative group inline-block cursor-help border-b border-dashed border-violet-500 font-semibold text-violet-700 bg-violet-50 px-1 rounded">
+                                            emotionally resonant
+                                            <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-56 p-2 bg-slate-900 text-white text-[10px] rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50 text-center shadow-lg font-normal leading-relaxed">
+                                                Evoking deep emotional connections and feelings.
+                                            </span>
+                                        </span> 
+                                        musical score. Ultimately, I thoroughly enjoyed the film because it wasn’t merely passive entertainment; rather, it explored a 
+                                        <span class="relative group inline-block cursor-help border-b border-dashed border-violet-500 font-semibold text-violet-700 bg-violet-50 px-1 rounded">
+                                            thought-provoking theme
+                                            <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-56 p-2 bg-slate-900 text-white text-[10px] rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50 text-center shadow-lg font-normal leading-relaxed">
+                                                An idea that inspires deep logical thinking.
+                                            </span>
+                                        </span> 
+                                        regarding the preservation of human consciousness and love crossing spatial dimensions, elevated by 
+                                        <span class="relative group inline-block cursor-help border-b border-dashed border-violet-500 font-semibold text-violet-700 bg-violet-50 px-1 rounded">
+                                            stellar performances
+                                            <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-56 p-2 bg-slate-900 text-white text-[10px] rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50 text-center shadow-lg font-normal leading-relaxed">
+                                                Exceptional acting and delivery by movie stars.
+                                            </span>
+                                        </span> 
+                                        from the cast."
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TEST 2: IMAGINATION THEME -->
+                <div class="bg-white border border-slate-200 rounded-xl overflow-hidden transition-all-300 hover:border-violet-200">
+                    <button onclick="toggleAccordion('test2')" class="w-full text-left p-4 bg-gradient-to-r from-violet-50/40 to-transparent flex justify-between items-center hover:from-violet-50 transition-colors">
+                        <div class="flex items-center space-x-3">
+                            <span class="px-2.5 py-1 bg-violet-100 text-violet-800 text-xs font-bold rounded-lg uppercase tracking-wider">Test 2</span>
+                            <h3 class="text-sm font-bold text-slate-900">Describe a time you needed to use your imagination (Cognitive Domain)</h3>
+                        </div>
+                        <span id="chevron-test2" class="transform transition-transform duration-300">
+                            <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </span>
+                    </button>
+
+                    <div id="content-test2" class="hidden p-4 border-t border-slate-100 space-y-4 text-xs">
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                            <!-- Prompt & Checklist -->
+                            <div class="bg-slate-50 border border-slate-200/60 p-4 rounded-xl space-y-3">
+                                <span class="text-[10px] font-bold text-slate-500 uppercase block tracking-wider">Part 2 Cue Card Guide:</span>
+                                <p class="text-slate-800 font-bold leading-relaxed bg-white border border-slate-100 p-3 rounded-lg shadow-sm">
+                                    Describe a time you needed to use your imagination.<br>
+                                    • What you needed to do<br>
+                                    • Why you had to use your imagination<br>
+                                    • Was it easy or difficult to do this<br>
+                                    • And explain how you felt about it
+                                </p>
+                                
+                                <span class="text-[10px] font-bold text-slate-500 uppercase block tracking-wider">Part 3 Direct Discussion Prompts:</span>
+                                <ul class="space-y-2 text-slate-700 pl-4 list-decimal font-medium">
+                                    <li>What kinds of games do children need to use imagination to play?</li>
+                                    <li>Is it very important for teachers to encourage children to use their imagination?</li>
+                                    <li>Do you think reading stories needs more imagination or watching cartoons?</li>
+                                    <li>What are some jobs that require a good imagination?</li>
+                                    <li>Do scientists need to use their imagination?</li>
+                                </ul>
+                            </div>
+
+                            <!-- Comparative Answers with highlighted tooltip definitions -->
+                            <div class="space-y-3">
+                                <span class="text-[10px] font-bold text-slate-500 uppercase block tracking-wider">Comparative Case Analysis:</span>
+                                
+                                <div class="bg-slate-100 p-3 rounded-lg border border-slate-200/50">
+                                    <p class="text-[9px] font-bold text-slate-500 uppercase">Band 5.5 - 6.0 Level:</p>
+                                    <p class="italic text-slate-600 leading-relaxed mt-1">
+                                        "I remember a time when I had to design a logo for my university project. It was very hard because I am not a creative person. I had to use my imagination to think of cool colors and icons that represent clean energy. I drew many pictures on a paper until I found a good one. I felt very happy after finishing this project."
+                                    </p>
+                                </div>
+
+                                <div class="bg-emerald-50/40 p-4 rounded-lg border border-emerald-100">
+                                    <p class="text-[9px] font-bold text-emerald-800 uppercase tracking-wider flex items-center gap-1">
+                                        <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span>
+                                        Band 6.5+ Level (Cohesive, Idiomatic, Precise):
+                                    </p>
+                                    <p class="text-slate-800 leading-relaxed mt-2 text-xs">
+                                        "I’d like to recount an occasion when I had to rely heavily on my creative thinking, which occurred during my university's business project where I had to craft a brand identity. The goal was to 
+                                        <span class="relative group inline-block cursor-help border-b border-dashed border-violet-500 font-semibold text-violet-700 bg-violet-50 px-1 rounded">
+                                            foster creativity
+                                            <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-56 p-2 bg-slate-900 text-white text-[10px] rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50 text-center shadow-lg font-normal leading-relaxed">
+                                                To nurture or develop imaginative thinking skills.
+                                            </span>
+                                        </span> 
+                                        by showcasing a sustainable tech brand. It required a massive amount of 
+                                        <span class="relative group inline-block cursor-help border-b border-dashed border-violet-500 font-semibold text-violet-700 bg-violet-50 px-1 rounded">
+                                            out-of-the-box thinking
+                                            <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-56 p-2 bg-slate-900 text-white text-[10px] rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50 text-center shadow-lg font-normal leading-relaxed">
+                                                Highly creative, unique, and unconventional ideas.
+                                            </span>
+                                        </span> 
+                                        to stand out.
+                                        <br><br>
+                                        It was initially quite challenging because I had to 
+                                        <span class="relative group inline-block cursor-help border-b border-dashed border-violet-500 font-semibold text-violet-700 bg-violet-50 px-1 rounded">
+                                            conceptualize
+                                            <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-56 p-2 bg-slate-900 text-white text-[10px] rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50 text-center shadow-lg font-normal leading-relaxed">
+                                                To form a mental concept or visual idea of something.
+                                            </span>
+                                        </span> 
+                                        visual elements representing clean air and digital convenience without using clichéd green icons. This task tested my 
+                                        <span class="relative group inline-block cursor-help border-b border-dashed border-violet-500 font-semibold text-violet-700 bg-violet-50 px-1 rounded">
+                                            cognitive flexibility
+                                            <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-56 p-2 bg-slate-900 text-white text-[10px] rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50 text-center shadow-lg font-normal leading-relaxed">
+                                                The mental capability to switch between diverse ideas.
+                                            </span>
+                                        </span> 
+                                        immensely. In the end, I felt an overwhelming sense of accomplishment because pushing my boundaries allowed me to expand my 
+                                        <span class="relative group inline-block cursor-help border-b border-dashed border-violet-500 font-semibold text-violet-700 bg-violet-50 px-1 rounded">
+                                            problem-solving skills
+                                            <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-56 p-2 bg-slate-900 text-white text-[10px] rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50 text-center shadow-lg font-normal leading-relaxed">
+                                                Capabilities to systematically solve tricky issues.
+                                            </span>
+                                        </span> 
+                                        and realize that creativity can be intentionally cultivated."
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TEST 3: TRAVEL THEME -->
+                <div class="bg-white border border-slate-200 rounded-xl overflow-hidden transition-all-300 hover:border-violet-200">
+                    <button onclick="toggleAccordion('test3')" class="w-full text-left p-4 bg-gradient-to-r from-violet-50/40 to-transparent flex justify-between items-center hover:from-violet-50 transition-colors">
+                        <div class="flex items-center space-x-3">
+                            <span class="px-2.5 py-1 bg-violet-100 text-violet-800 text-xs font-bold rounded-lg uppercase tracking-wider">Test 3</span>
+                            <h3 class="text-sm font-bold text-slate-900">Describe a car, motorbike or bicycle trip you think would be interesting (Infrastructure / Tourism)</h3>
+                        </div>
+                        <span id="chevron-test3" class="transform transition-transform duration-300">
+                            <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </span>
+                    </button>
+
+                    <div id="content-test3" class="hidden p-4 border-t border-slate-100 space-y-4 text-xs">
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                            <!-- Prompt & Checklist -->
+                            <div class="bg-slate-50 border border-slate-200/60 p-4 rounded-xl space-y-3">
+                                <span class="text-[10px] font-bold text-slate-500 uppercase block tracking-wider">Part 2 Cue Card Guide:</span>
+                                <p class="text-slate-800 font-bold leading-relaxed bg-white border border-slate-100 p-3 rounded-lg shadow-sm">
+                                    Describe a car, motorbike or bicycle trip that you think would be interesting.<br>
+                                    • Where you want to go<br>
+                                    • Who you want to go with<br>
+                                    • How easy or difficult the trip would be<br>
+                                    • And explain why you think using a car, motorbike or bicycle for this trip would be interesting
+                                </p>
+                                
+                                <span class="text-[10px] font-bold text-slate-500 uppercase block tracking-wider">Part 3 Direct Discussion Prompts:</span>
+                                <ul class="space-y-2 text-slate-700 pl-4 list-decimal font-medium">
+                                    <li>Are bicycles and motorbikes popular in your country?</li>
+                                    <li>Which form of vehicle is more popular in your country, bikes, cars or motorcycles?</li>
+                                    <li>What is the best thing about public transport in the area you live?</li>
+                                    <li>Do you agree that more and more people want to buy cars these days?</li>
+                                    <li>How do people travel today in cities and in the countryside?</li>
+                                    <li>Do city planners consider the needs of pedestrians enough?</li>
+                                    <li>What impact can an inadequate transport or transportation system have on a country?</li>
+                                </ul>
+                            </div>
+
+                            <!-- Comparative Answers with highlighted tooltip definitions -->
+                            <div class="space-y-3">
+                                <span class="text-[10px] font-bold text-slate-500 uppercase block tracking-wider">Comparative Case Analysis:</span>
+                                
+                                <div class="bg-slate-100 p-3 rounded-lg border border-slate-200/50">
+                                    <p class="text-[9px] font-bold text-slate-500 uppercase">Band 5.5 - 6.0 Level:</p>
+                                    <p class="italic text-slate-600 leading-relaxed mt-1">
+                                        "I want to go on a motorcycle trip from Da Nang to Hue. I will go with my friends on a weekend. The trip is not very difficult because the road is big, but going over the Hai Van pass can be dangerous if it rains. Riding a motorcycle is great because you can see beautiful mountains and beaches easily and stop to take pictures."
+                                    </p>
+                                </div>
+
+                                <div class="bg-emerald-50/40 p-4 rounded-lg border border-emerald-100">
+                                    <p class="text-[9px] font-bold text-emerald-800 uppercase tracking-wider flex items-center gap-1">
+                                        <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span>
+                                        Band 6.5+ Level (Cohesive, Idiomatic, Precise):
+                                    </p>
+                                    <p class="text-slate-800 leading-relaxed mt-2 text-xs">
+                                        "I’ve long contemplated embarking on a motorbike journey along the rugged coastal highways of central Vietnam, specifically from Da Nang to Hue. I plan to organize this 
+                                        <span class="relative group inline-block cursor-help border-b border-dashed border-violet-500 font-semibold text-violet-700 bg-violet-50 px-1 rounded">
+                                            exhilarating journey
+                                            <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-56 p-2 bg-slate-900 text-white text-[10px] rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50 text-center shadow-lg font-normal leading-relaxed">
+                                                A highly exciting and thrilling travel experience.
+                                            </span>
+                                        </span> 
+                                        with my close companions who share my passion for travel. We prefer taking an 
+                                        <span class="relative group inline-block cursor-help border-b border-dashed border-violet-500 font-semibold text-violet-700 bg-violet-50 px-1 rounded">
+                                            unconventional route
+                                            <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-56 p-2 bg-slate-900 text-white text-[10px] rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50 text-center shadow-lg font-normal leading-relaxed">
+                                                A route that is not commonly taken or touristy.
+                                            </span>
+                                        </span> 
+                                        crossing over the iconic pass to witness the 
+                                        <span class="relative group inline-block cursor-help border-b border-dashed border-violet-500 font-semibold text-violet-700 bg-violet-50 px-1 rounded">
+                                            scenic landscapes
+                                            <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-56 p-2 bg-slate-900 text-white text-[10px] rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50 text-center shadow-lg font-normal leading-relaxed">
+                                                Beautiful, sweeping natural views of the countryside.
+                                            </span>
+                                        </span> 
+                                        firsthand.
+                                        <br><br>
+                                        Admittedly, navigating the steep hairpin turns could turn into an 
+                                        <span class="relative group inline-block cursor-help border-b border-dashed border-violet-500 font-semibold text-violet-700 bg-violet-50 px-1 rounded">
+                                            arduous trek
+                                            <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-56 p-2 bg-slate-900 text-white text-[10px] rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50 text-center shadow-lg font-normal leading-relaxed">
+                                                A physically demanding and challenging journey.
+                                            </span>
+                                        </span> 
+                                        especially during inclement weather. Nonetheless, traveling on two wheels is uniquely interesting as it grants an unparalleled 
+                                        <span class="relative group inline-block cursor-help border-b border-dashed border-violet-500 font-semibold text-violet-700 bg-violet-50 px-1 rounded">
+                                            sense of autonomy
+                                            <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-56 p-2 bg-slate-900 text-white text-[10px] rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50 text-center shadow-lg font-normal leading-relaxed">
+                                                A feeling of total independence and self-direction.
+                                            </span>
+                                        </span> 
+                                        allowing us to pause and absorb the atmosphere in a way that is simply impossible within the confines of a tour bus."
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TEST 4: QUIETNESS THEME -->
+                <div class="bg-white border border-slate-200 rounded-xl overflow-hidden transition-all-300 hover:border-violet-200">
+                    <button onclick="toggleAccordion('test4')" class="w-full text-left p-4 bg-gradient-to-r from-violet-50/40 to-transparent flex justify-between items-center hover:from-violet-50 transition-colors">
+                        <div class="flex items-center space-x-3">
+                            <span class="px-2.5 py-1 bg-violet-100 text-violet-800 text-xs font-bold rounded-lg uppercase tracking-wider">Test 4</span>
+                            <h3 class="text-sm font-bold text-slate-900">Describe a place you enjoyed visiting that was very quiet (Sensory Experience / Spatial)</h3>
+                        </div>
+                        <span id="chevron-test4" class="transform transition-transform duration-300">
+                            <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </span>
+                    </button>
+
+                    <div id="content-test4" class="hidden p-4 border-t border-slate-100 space-y-4 text-xs">
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                            <!-- Prompt & Checklist -->
+                            <div class="bg-slate-50 border border-slate-200/60 p-4 rounded-xl space-y-3">
+                                <span class="text-[10px] font-bold text-slate-500 uppercase block tracking-wider">Part 2 Cue Card Guide:</span>
+                                <p class="text-slate-800 font-bold leading-relaxed bg-white border border-slate-100 p-3 rounded-lg shadow-sm">
+                                    Describe a place you enjoyed visiting that was very quiet.<br>
+                                    • When you went there<br>
+                                    • Where this place is and why you wanted to visit it<br>
+                                    • What you will do when you go there<br>
+                                    • And explain why you enjoyed visiting this place
+                                </p>
+                                
+                                <span class="text-[10px] font-bold text-slate-500 uppercase block tracking-wider">Part 3 Direct Discussion Prompts:</span>
+                                <ul class="space-y-2 text-slate-700 pl-4 list-decimal font-medium">
+                                    <li>In your country, what quiet places do people like to go?</li>
+                                    <li>Why do some people don't like quiet places?</li>
+                                    <li>Are there more or fewer quiet places now than in the past?</li>
+                                    <li>Can a place ever be completely quiet?</li>
+                                    <li>Can people listen to music while doing something else?</li>
+                                    <li>What are the benefits of quietness for people of all ages?</li>
+                                    <li>Do you agree or disagree that people today feel uncomfortable if there is no noise?</li>
+                                </ul>
+                            </div>
+
+                            <!-- Comparative Answers with highlighted tooltip definitions -->
+                            <div class="space-y-3">
+                                <span class="text-[10px] font-bold text-slate-500 uppercase block tracking-wider">Comparative Case Analysis:</span>
+                                
+                                <div class="bg-slate-100 p-3 rounded-lg border border-slate-200/50">
+                                    <p class="text-[9px] font-bold text-slate-500 uppercase">Band 5.5 - 6.0 Level:</p>
+                                    <p class="italic text-slate-600 leading-relaxed mt-1">
+                                        "I want to talk about a small library in Hue city. I visited it last summer because I wanted a quiet space to read books. This place is very quiet, and nobody talks loud. I sat there for hours, read my novels, and drank coffee. I liked it because it was peaceful and helped me escape the noisy streets."
+                                    </p>
+                                </div>
+
+                                <div class="bg-emerald-50/40 p-4 rounded-lg border border-emerald-100">
+                                    <p class="text-[9px] font-bold text-emerald-800 uppercase tracking-wider flex items-center gap-1">
+                                        <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span>
+                                        Band 6.5+ Level (Cohesive, Idiomatic, Precise):
+                                    </p>
+                                    <p class="text-slate-800 leading-relaxed mt-2 text-xs">
+                                        "I’d like to share my experience of visiting a small, independent archive library in the outskirts of Hue. I stumbled upon this 
+                                        <span class="relative group inline-block cursor-help border-b border-dashed border-violet-500 font-semibold text-violet-700 bg-violet-50 px-1 rounded">
+                                            serene sanctuary
+                                            <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-56 p-2 bg-slate-900 text-white text-[10px] rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50 text-center shadow-lg font-normal leading-relaxed">
+                                                A peaceful, quiet, and highly relaxing location.
+                                            </span>
+                                        </span> 
+                                        last summer when I desperately sought an environment where I could 
+                                        <span class="relative group inline-block cursor-help border-b border-dashed border-violet-500 font-semibold text-violet-700 bg-violet-50 px-1 rounded">
+                                            rejuvenate
+                                            <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-56 p-2 bg-slate-900 text-white text-[10px] rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50 text-center shadow-lg font-normal leading-relaxed">
+                                                To refresh, energize, and renew mental stamina.
+                                            </span>
+                                        </span> 
+                                        my mental energy before final exams.
+                                        <br><br>
+                                        The library was virtually empty, enveloped in a rare 
+                                        <span class="relative group inline-block cursor-help border-b border-dashed border-violet-500 font-semibold text-violet-700 bg-violet-50 px-1 rounded">
+                                            solitude
+                                            <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-56 p-2 bg-slate-900 text-white text-[10px] rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50 text-center shadow-lg font-normal leading-relaxed">
+                                                The peaceful and positive state of being alone.
+                                            </span>
+                                        </span> 
+                                        that is hard to locate within the 
+                                        <span class="relative group inline-block cursor-help border-b border-dashed border-violet-500 font-semibold text-violet-700 bg-violet-50 px-1 rounded">
+                                            cacophony of urban life
+                                            <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-56 p-2 bg-slate-900 text-white text-[10px] rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50 text-center shadow-lg font-normal leading-relaxed">
+                                                The loud, chaotic, and harsh noise of modern cities.
+                                            </span>
+                                        </span>. 
+                                        I thoroughly enjoyed this visit because it offered the perfect backdrop for practicing deep 
+                                        <span class="relative group inline-block cursor-help border-b border-dashed border-violet-500 font-semibold text-violet-700 bg-violet-50 px-1 rounded">
+                                            mindfulness
+                                            <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-56 p-2 bg-slate-900 text-white text-[10px] rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50 text-center shadow-lg font-normal leading-relaxed">
+                                                A mental state of calm focus on the present moment.
+                                            </span>
+                                        </span> 
+                                        and catching up on reading without constant notifications or digital distractions."
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- SECTION 3: TUTOR DIAGNOSTIC SCORECARD -->
+        <section id="scorecard" class="bg-white border border-violet-100 p-6 rounded-2xl pastel-shadow-violet space-y-6">
+            <div class="flex items-center space-x-3 pb-4 border-b border-slate-100">
+                <span class="p-2.5 bg-violet-50 rounded-xl text-violet-600">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 002 2h2a2 2 0 002-2z"/></svg>
+                </span>
+                <div>
+                    <h2 class="text-lg font-bold text-slate-900">Live Diagnostic Evaluator</h2>
+                    <p class="text-xs text-slate-500">Tutors can toggle checkpoints live during mock speech delivery to analyze active band status.</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                    <span class="text-[10px] font-bold text-violet-800 uppercase block tracking-wider mb-2">Fluency & Coherence</span>
+                    <div class="space-y-2 text-xs text-slate-600">
+                        <label class="flex items-start gap-2 cursor-pointer">
+                            <input type="checkbox" onchange="updateBand()" class="metric-chk rounded border-slate-300 text-violet-600">
+                            <span>Speaks for 2 mins with minimal self-correction</span>
+                        </label>
+                        <label class="flex items-start gap-2 cursor-pointer">
+                            <input type="checkbox" onchange="updateBand()" class="metric-chk rounded border-slate-300 text-violet-600">
+                            <span>Varies discourse linkers effortlessly</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                    <span class="text-[10px] font-bold text-violet-800 uppercase block tracking-wider mb-2">Lexical Resource</span>
+                    <div class="space-y-2 text-xs text-slate-600">
+                        <label class="flex items-start gap-2 cursor-pointer">
+                            <input type="checkbox" onchange="updateBand()" class="metric-chk rounded border-slate-300 text-violet-600">
+                            <span>Avoids simplistic repeats (good/bad/happy)</span>
+                        </label>
+                        <label class="flex items-start gap-2 cursor-pointer">
+                            <input type="checkbox" onchange="updateBand()" class="metric-chk rounded border-slate-300 text-violet-600">
+                            <span>Uses idioms/collocations correctly</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                    <span class="text-[10px] font-bold text-violet-800 uppercase block tracking-wider mb-2">Grammatical Range</span>
+                    <div class="space-y-2 text-xs text-slate-600">
+                        <label class="flex items-start gap-2 cursor-pointer">
+                            <input type="checkbox" onchange="updateBand()" class="metric-chk rounded border-slate-300 text-violet-600">
+                            <span>Accurate subject-verb agreement under pressure</span>
+                        </label>
+                        <label class="flex items-start gap-2 cursor-pointer">
+                            <input type="checkbox" onchange="updateBand()" class="metric-chk rounded border-slate-300 text-violet-600">
+                            <span>Forms complex conditional/passive structures</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                    <span class="text-[10px] font-bold text-violet-800 uppercase block tracking-wider mb-2">Pronunciation</span>
+                    <div class="space-y-2 text-xs text-slate-600">
+                        <label class="flex items-start gap-2 cursor-pointer">
+                            <input type="checkbox" onchange="updateBand()" class="metric-chk rounded border-slate-300 text-violet-600">
+                            <span>Maintains correct word stress patterns</span>
+                        </label>
+                        <label class="flex items-start gap-2 cursor-pointer">
+                            <input type="checkbox" onchange="updateBand()" class="metric-chk rounded border-slate-300 text-violet-600">
+                            <span>Speech remains clear & intelligible throughout</span>
+                        </label>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Calculated Band Result Block -->
+            <div class="bg-violet-50 rounded-xl p-4 border border-violet-100 flex flex-col sm:flex-row justify-between items-center gap-4">
+                <div>
+                    <span class="text-[10px] font-bold text-violet-800 uppercase tracking-widest block mb-1">Estimated Speaking Performance</span>
+                    <p id="estimatedBandDisplay" class="text-xl font-extrabold text-violet-700">Band 5.5 - 6.0 State</p>
+                </div>
+                <div class="text-xs text-slate-600 max-w-md leading-relaxed" id="tutorAdviceDisplay">
+                    Check 3 or more parameters to track transitions toward a reliable Band 6.5 competency footprint.
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-slate-400 py-12 px-4 sm:px-6 lg:px-8 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center space-x-3">
+                <span class="p-2 bg-gradient-to-tr from-violet-500 to-indigo-400 rounded-xl text-white font-extrabold shadow-sm">CT</span>
+                <span class="text-lg font-bold tracking-tight text-white">IELTS Chan Truong</span>
+            </div>
+            <p class="text-xs text-slate-500">
+                &copy; 2026 IELTS Chan Truong. Designed specifically for advanced learners striving for 6.5.
+            </p>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE SCRIPTS -->
+    <script>
+        /* Toast notification feedback system */
+        function showNotification(message, type = 'success') {
+            const toast = document.getElementById('toastNotification');
+            toast.innerText = message;
+            
+            if (type === 'error') {
+                toast.className = 'fixed bottom-5 right-5 px-4 py-3 rounded-xl text-xs font-bold text-white shadow-lg transition-all transform translate-y-0 opacity-100 z-[100] bg-rose-500';
+            } else {
+                toast.className = 'fixed bottom-5 right-5 px-4 py-3 rounded-xl text-xs font-bold text-white shadow-lg transition-all transform translate-y-0 opacity-100 z-[100] bg-violet-600';
+            }
+            
+            setTimeout(() => {
+                toast.className = 'fixed bottom-5 right-5 px-4 py-3 rounded-xl text-xs font-bold text-white shadow-lg transition-all transform translate-y-10 opacity-0 pointer-events-none z-[100] bg-slate-900';
+            }, 3000);
+        }
+
+        /* Speaking Timer Engine */
+        let activeTimer = null;
+        let remainingSeconds = 0;
+
+        function updateTimerUI() {
+            const min = Math.floor(remainingSeconds / 60);
+            const sec = remainingSeconds % 60;
+            document.getElementById('speakingTimerDisplay').innerText = 
+                `${min.toString().padStart(2, '0')}:${sec.toString().padStart(2, '0')}`;
+        }
+
+        function runTimer(seconds) {
+            clearInterval(activeTimer);
+            remainingSeconds = seconds;
+            updateTimerUI();
+            
+            showNotification(`Timer loaded with ${seconds} seconds.`);
+
+            activeTimer = setInterval(() => {
+                if (remainingSeconds > 0) {
+                    remainingSeconds--;
+                    updateTimerUI();
+                } else {
+                    clearInterval(activeTimer);
+                    activeTimer = null;
+                    showNotification(`Time's up! Check performance metrics.`, 'error');
+                }
+            }, 1000);
+        }
+
+        function resetTimer() {
+            clearInterval(activeTimer);
+            activeTimer = null;
+            remainingSeconds = 0;
+            updateTimerUI();
+            showNotification('Speaking timer cleared.');
+        }
+
+        /* Accordion panel logic */
+        function toggleAccordion(id) {
+            const keys = ['test1', 'test2', 'test3', 'test4'];
+            keys.forEach(key => {
+                const block = document.getElementById(`content-${key}`);
+                const chevron = document.getElementById(`chevron-${key}`);
+                
+                if (key === id) {
+                    if (block.classList.contains('hidden')) {
+                        block.classList.remove('hidden');
+                        chevron.classList.add('rotate-180');
+                        showNotification(`Analyzing ${key.toUpperCase()} elements.`);
+                    } else {
+                        block.classList.add('hidden');
+                        chevron.classList.remove('rotate-180');
+                    }
+                } else {
+                    block.classList.add('hidden');
+                    chevron.classList.remove('rotate-180');
+                }
+            });
+        }
+
+        /* Scorecard dynamic update logic */
+        function updateBand() {
+            const chks = document.querySelectorAll('.metric-chk');
+            let checkCount = 0;
+            chks.forEach(chk => {
+                if (chk.checked) checkCount++;
+            });
+
+            const bandDisplay = document.getElementById('estimatedBandDisplay');
+            const advice = document.getElementById('tutorAdviceDisplay');
+
+            if (checkCount === 0) {
+                bandDisplay.innerText = 'Band 5.5 - 6.0 State';
+                advice.innerText = 'Check 3 or more parameters to track transitions toward a reliable Band 6.5 competency footprint.';
+            } else if (checkCount <= 3) {
+                bandDisplay.innerText = 'Band 6.0 (Mid-level)';
+                advice.innerText = 'The candidate is demonstrating basic coherence but requires elevated idiomatic choice and complex syntactic variations.';
+            } else if (checkCount <= 6) {
+                bandDisplay.innerText = 'Band 6.5 (Target Attained)';
+                advice.innerText = 'Excellent job! The student maintains clear structural control over conditional arguments and collocations under timed pressure.';
+            } else {
+                bandDisplay.innerText = 'Band 7.0+ (Advanced Mastery)';
+                advice.innerText = 'Superb performance. The student demonstrates native fluency with sophisticated vocabulary and flawless stress patterns.';
+            }
+        }
+
+        window.onload = function() {
+            toggleAccordion('test1');
+        }
+    </script>
+</body>
+</html>

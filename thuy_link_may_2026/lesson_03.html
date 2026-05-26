@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Chan Truong - Lesson 3 Workspace</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+        }
+        .transition-all-300 {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .pastel-shadow-emerald {
+            box-shadow: 0 10px 25px -10px rgba(16, 185, 129, 0.15);
+        }
+        .pastel-shadow-violet {
+            box-shadow: 0 10px 25px -10px rgba(139, 92, 246, 0.15);
+        }
+        /* Custom Tooltip Styling */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            cursor: help;
+        }
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 240px;
+            background-color: #0f172a;
+            color: #ffffff;
+            text-align: center;
+            border-radius: 8px;
+            padding: 8px 12px;
+            position: absolute;
+            z-index: 50;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.25s, visibility 0.25s;
+            font-size: 11px;
+            line-height: 1.4;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+            font-weight: 400;
+        }
+        .tooltip .tooltiptext::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #0f172a transparent transparent transparent;
+        }
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+        /* Smooth Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen pb-12">
+
+    <!-- TOAST NOTIFICATION SYSTEM -->
+    <div id="toastNotification" class="fixed bottom-5 right-5 px-4 py-3 rounded-xl text-xs font-bold text-white shadow-xl transition-all transform translate-y-10 opacity-0 pointer-events-none z-[100] bg-slate-900">
+        Workspace Initialized
+    </div>
+
+    <!-- STICKY HEADER -->
+    <nav class="sticky top-0 bg-white/80 backdrop-blur-md border-b border-emerald-100 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center space-x-3">
+                    <span class="p-2 bg-gradient-to-tr from-emerald-400 to-indigo-400 rounded-xl text-white font-extrabold shadow-sm text-sm">CT</span>
+                    <div>
+                        <span class="text-md font-bold tracking-tight bg-gradient-to-r from-emerald-600 to-indigo-600 bg-clip-text text-transparent">IELTS Chan Truong</span>
+                        <span class="text-xs text-slate-400 ml-2 border-l border-slate-200 pl-2">Lesson 3 Companion</span>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-2 sm:space-x-4">
+                    <a href="#writing-guides" class="text-xs sm:text-sm font-medium text-slate-600 hover:text-emerald-600 px-2.5 py-1.5 rounded-lg transition-colors">Writing Hub</a>
+                    <a href="#speaking-app" class="text-xs sm:text-sm font-medium text-slate-600 hover:text-emerald-600 px-2.5 py-1.5 rounded-lg transition-colors">Speaking P2</a>
+                    <a href="#essay-ideator" class="text-xs sm:text-sm font-medium text-slate-600 hover:text-emerald-600 px-2.5 py-1.5 rounded-lg transition-colors">Drafting Sandbox</a>
+                    <a href="#homework" class="text-xs sm:text-sm font-medium text-slate-600 hover:text-emerald-600 px-2.5 py-1.5 rounded-lg transition-colors">Homework</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- LESSON TITLE BANNER -->
+    <header class="bg-gradient-to-tr from-emerald-50/70 via-indigo-50/40 to-sky-50/50 border-b border-emerald-100 py-10 px-4 sm:px-6 lg:px-8 relative">
+        <div class="absolute inset-0 bg-[radial-gradient(#a7f3d0_1px,transparent_1px)] [background-size:20px_20px] opacity-35"></div>
+        <div class="relative max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+            <div>
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 mb-3 uppercase tracking-wider">
+                    Day 3 Lesson Plan
+                </span>
+                <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-950 tracking-tight">
+                    Writing Tactics & Tech Domain Speaking
+                </h1>
+                <p class="text-slate-600 text-sm sm:text-base mt-2 max-w-2xl leading-relaxed">
+                    Transitioning to output. Mastering complex comparisons in Task 1, outlining structural debates in Task 2, and delivering structured descriptions in Speaking Part 2.
+                </p>
+            </div>
+            <div class="flex items-center gap-3">
+                <span class="px-3.5 py-2 bg-white border border-emerald-100 rounded-xl text-xs font-bold text-slate-700 shadow-sm flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                    90-Min Lesson Blueprint
+                </span>
+            </div>
+        </div>
+    </header>
+
+    <!-- WORKSPACE CONTAINER -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-10">
+
+        <!-- SECTION 1: WRITING STRATEGY & REFERENCE RESOURCES -->
+        <section id="writing-guides" class="bg-white border border-emerald-100 p-6 rounded-2xl pastel-shadow-emerald space-y-6">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-4 border-b border-slate-100">
+                <div class="flex items-center space-x-3">
+                    <span class="p-2.5 bg-emerald-50 rounded-xl text-emerald-600">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/></svg>
+                    </span>
+                    <div>
+                        <h2 class="text-lg font-bold text-slate-900">Writing Core Resource Hub</h2>
+                        <p class="text-xs text-slate-500">Official writing guides, vocabulary frameworks, and template architectures for Band 6.5+.</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-center gap-2">
+                    <a href="https://ieltschantruong.github.io/IELTS/learning_resources/writing/task_1_guide.html" target="_blank" class="text-xs font-semibold text-emerald-700 bg-emerald-50 hover:bg-emerald-100 px-3.5 py-2 rounded-lg transition-all-300">
+                        Task 1 Guide
+                    </a>
+                    <a href="https://ieltschantruong.github.io/IELTS/learning_resources/writing/task_2_guide.html" target="_blank" class="text-xs font-bold text-white bg-emerald-500 hover:bg-emerald-600 px-3.5 py-2 rounded-lg transition-all-300 shadow-sm flex items-center gap-1.5">
+                        <span>Task 2 Guide</span>
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Strategy Tips Matrices -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Task 1 strategies -->
+                <div class="bg-gradient-to-b from-emerald-50/30 to-transparent p-4 rounded-xl border border-emerald-100/50 space-y-2">
+                    <h3 class="text-xs font-bold text-emerald-800 uppercase tracking-wider flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                        Task 1 Comparative Strategy (Pie Charts)
+                    </h3>
+                    <ul class="text-xs text-slate-600 space-y-2 leading-relaxed">
+                        <li>• <strong class="text-slate-800">Draft an accurate Overview:</strong> Never include numbers in your overview. State the overall visual trend (e.g., "North America and Africa collectively hold the majority of... while timber production is concentrated in...").</li>
+                        <li>• <strong class="text-slate-800">Group logically:</strong> Group regions with high parameters into Body Paragraph 1 and lesser percentages into Body Paragraph 2.</li>
+                        <li>• <strong class="text-slate-800">Use precise comparison structures:</strong> Practice phrases like "dramatically outnumbers", "stands in stark contrast to", and "represents the smallest fraction of".</li>
+                    </ul>
+                </div>
+                <!-- Task 2 strategies -->
+                <div class="bg-gradient-to-b from-indigo-50/30 to-transparent p-4 rounded-xl border border-indigo-100/50 space-y-2">
+                    <h3 class="text-xs font-bold text-indigo-800 uppercase tracking-wider flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-indigo-400 animate-ping"></span>
+                        Task 2 Discussion & Opinion Strategy
+                    </h3>
+                    <ul class="text-xs text-slate-600 space-y-2 leading-relaxed">
+                        <li>• <strong class="text-slate-800">Outline balanced paragraphs:</strong> Body 1 must outline horizontal city structures; Body 2 must discuss vertical housing; and your own opinion must be consistently integrated.</li>
+                        <li>• <strong class="text-slate-800">Maintain clear topic sentences:</strong> Every body paragraph must start with a distinct, single argument statement (no messy multiple thoughts).</li>
+                        <li>• <strong class="text-slate-800">Emphasize Task Achievement (6.5 target):</strong> Avoid generalizations. Back up your points with concrete scenarios (e.g., "In highly-populated hubs like Tokyo... vertical living optimization is vital").</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- SECTION 2: SPEAKING MOCK PRACTICE (App/Software Domain) -->
+        <section id="speaking-app" class="bg-white border border-rose-100 p-6 rounded-2xl pastel-shadow-violet space-y-6">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-4 border-b border-slate-100">
+                <div class="flex items-center space-x-3">
+                    <span class="p-2.5 bg-rose-50 rounded-xl text-rose-600">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+                    </span>
+                    <div>
+                        <h2 class="text-lg font-bold text-slate-900">Speaking Practice Flow: Technology Domain</h2>
+                        <p class="text-xs text-slate-500">Delivering highly cohesive descriptions of mobile apps or computer software applications.</p>
+                    </div>
+                </div>
+
+                <!-- Custom Dual Prep/Speak Timer widget -->
+                <div class="flex items-center gap-2 bg-slate-100 p-2 rounded-xl border border-slate-200">
+                    <span id="timerT3Display" class="text-sm font-extrabold text-rose-600 font-mono bg-white px-2.5 py-0.5 rounded shadow-sm border border-slate-100">00:00</span>
+                    <button onclick="runSpeakingTimer('T3', 60)" class="text-[10px] font-bold px-2 py-1 bg-rose-50 hover:bg-rose-100 text-rose-700 rounded transition-colors">1m Prep</button>
+                    <button onclick="runSpeakingTimer('T3', 120)" class="text-[10px] font-bold px-2 py-1 bg-slate-900 hover:bg-slate-800 text-white rounded transition-colors">2m Talk</button>
+                    <button onclick="resetSpeakingTimer('T3')" class="p-1 bg-slate-200 hover:bg-slate-300 rounded text-slate-600">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 1121.21 8H18"/></svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Cue Card Part 2 Prompt -->
+            <div class="border-l-4 border-rose-400 bg-rose-50/20 p-5 rounded-r-xl space-y-4">
+                <div class="flex justify-between items-center border-b border-rose-100/50 pb-2">
+                    <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-rose-100 text-rose-800 uppercase tracking-widest">Part 2 Cue Card Prompt</span>
+                    <span class="text-xs text-slate-500 font-medium">Digital Product Domain</span>
+                </div>
+                <div class="bg-white p-4 rounded-xl border border-slate-100 space-y-2">
+                    <p class="text-xs text-slate-500">Candidate Prompt Directive:</p>
+                    <p class="text-sm font-bold text-slate-900 bg-rose-50/50 border border-rose-100/30 p-3 rounded-lg leading-relaxed">
+                        Describe an app or software you often use on your phone or computer.
+                    </p>
+                    <ul class="text-xs text-slate-600 pl-5 list-disc space-y-1">
+                        <li>What it is</li>
+                        <li>How long you have used it</li>
+                        <li>How you use it</li>
+                        <li>And explain how you feel about it</li>
+                    </ul>
+                </div>
+
+                <!-- Part 2 Comparative Sample Guide -->
+                <details class="group bg-white border border-rose-200/40 rounded-xl p-3 text-xs">
+                    <summary class="font-bold text-rose-700 hover:text-rose-800 cursor-pointer select-none">
+                        Show Comparative Answers & Band Breakdown (Part 2 App/Software)
+                    </summary>
+                    <div class="mt-4 space-y-3 border-t border-slate-100 pt-3">
+                        <div class="bg-slate-50 p-3 rounded-lg border border-slate-200/50">
+                            <p class="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Band 5.5 - 6.0 Level (Repetitive / Basic Vocabulary):</p>
+                            <p class="italic text-slate-600 leading-relaxed mt-1">
+                                "I want to talk about Notion. It is an app for my computer and phone. I have used it for one year. I use it to write my school notes and make schedules. It is very useful and keeps me from forgetting my homework. I like it because it is nice and easy to understand."
+                            </p>
+                        </div>
+                        <div class="bg-emerald-50/40 p-4 rounded-lg border border-emerald-100">
+                            <p class="text-[10px] font-bold text-emerald-800 uppercase tracking-wider flex items-center gap-1.5">
+                                <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-ping"></span>
+                                Band 6.5+ Level (Cohesive, Idiomatic, Precise):
+                            </p>
+                            <p class="text-slate-800 leading-relaxed mt-2 text-xs">
+                                "I’d like to speak about a software program that has become an <span class="tooltip text-rose-600 font-bold border-b border-rose-300 bg-rose-50 px-1 rounded">indispensable utility<span class="tooltiptext">An absolutely necessary and highly useful tool or digital resource.</span></span> in my daily life, which is Notion. It’s essentially a <span class="tooltip text-rose-600 font-bold border-b border-rose-300 bg-rose-50 px-1 rounded">comprehensive workspace<span class="tooltiptext">An all-in-one digital application that handles document writing, database structures, and management tasks.</span></span> that combines document writing, task management, and databases. I’ve been actively using it for roughly two years, ever since I entered university and realized my study materials were scattered everywhere.
+                                <br><br>
+                                In terms of how I navigate it, I rely on it to <span class="tooltip text-rose-600 font-bold border-b border-rose-300 bg-rose-50 px-1 rounded">streamline my academic schedule<span class="tooltiptext">To make school plans and daily routines more efficient, organized, and straightforward.</span></span>. I have designed custom pages to track my homework assignments, coordinate group projects, and archive class lectures. Because the app <span class="tooltip text-rose-600 font-bold border-b border-rose-300 bg-rose-50 px-1 rounded">seamlessly syncs<span class="tooltiptext">Automatically updates files and details identically across mobile phones, tablets, and computers instantly.</span></span> across my phone and laptop, I can capture unexpected ideas or log a fast checklist on the move.
+                                <br><br>
+                                Ultimately, I harbor extremely positive feelings toward this app. Before adopting it, I suffered constant <span class="tooltip text-rose-600 font-bold border-b border-rose-300 bg-rose-50 px-1 rounded">cognitive fatigue<span class="tooltiptext">Mental exhaustion or tiredness caused by keeping too many details, deadlines, and responsibilities in one's head.</span></span> trying to remember deadlines. Now, having a single, centralized database allows me to keep my focus where it counts. While some criticize its learning curve, once you master its <span class="tooltip text-rose-600 font-bold border-b border-rose-300 bg-rose-50 px-1 rounded">intuitive user interface<span class="tooltiptext">An easy-to-use software design where menus and buttons are structured naturally and logically.</span></span>, the productivity returns are immense."
+                            </p>
+                        </div>
+                    </div>
+                </details>
+            </div>
+        </section>
+
+
+        <!-- SECTION 3: INTERACTIVE ESSAY PLANNING & BRAINSTORMING TOOL -->
+        <section id="essay-ideator" class="bg-white border border-slate-200/60 rounded-2xl p-6 pastel-shadow-emerald space-y-6">
+            <div>
+                <h2 class="text-lg font-bold text-slate-900">Interactive Drafting Sandbox</h2>
+                <p class="text-xs text-slate-500">Practice outlining both homework tasks with your tutor during the live lesson.</p>
+            </div>
+
+            <!-- Essay Part 1: Pie Charts visualizer and compare builder -->
+            <div class="border-t border-slate-100 pt-4 space-y-4">
+                <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-100 text-emerald-800 uppercase tracking-widest">Task 1: World's Forest & Timber Pie Charts</span>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
+                    <div class="bg-slate-100 border border-slate-200 rounded-xl p-3 flex justify-center">
+                        <img src="https://ieltschantruong.github.io/IELTS/src/writing_questions/writing_task_1_piecharts_world_forest_timber.png" alt="World's Forest & Timber Pie Charts Diagram" class="rounded-lg max-h-[350px] object-contain" onerror="this.onerror=null; this.src='https://placehold.co/500x350/f1f5f9/0f172a?text=Pie+Charts+Diagram+Unavailable'">
+                    </div>
+                    
+                    <div class="space-y-3 text-xs text-slate-600">
+                        <h4 class="font-bold text-slate-900">Key Features of the Diagram:</h4>
+                        <p class="leading-relaxed">
+                            This task requires selecting and reporting the main features of world forest distribution and timber volume across five main regions (Africa, North America, South America, Asia, and Europe).
+                        </p>
+                        <div class="bg-emerald-50/50 border border-emerald-100 rounded-lg p-3 space-y-2">
+                            <span class="font-bold text-emerald-800 block text-[11px]">Comparison Points to Capture:</span>
+                            <ul class="list-disc pl-4 space-y-1">
+                                <li><strong>Dominance:</strong> North America and South America collectively contain over half of the global timber distribution, while holding a smaller ratio of the actual forest area.</li>
+                                <li><strong>Discrepancies:</strong> Africa represents a significant portion of world forest area but a minor proportion of timber volume.</li>
+                                <li><strong>Balance:</strong> Europe's proportion of forest and timber volume remains relatively proportional.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Essay Part 2: Vertical vs Horizontal City Brainstorm -->
+            <div class="border-t border-slate-100 pt-4 space-y-4">
+                <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-indigo-100 text-indigo-800 uppercase tracking-widest">Task 2 Debate: Vertical vs Horizontal Cities</span>
+                
+                <p class="text-xs text-slate-600 leading-relaxed">
+                    <strong>Prompt:</strong> Some people think that it is best to live in a horizontal city while others think of a vertical city. Discuss both views and give your opinion.
+                </p>
+
+                <!-- Comparison Matrix Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                    <div class="bg-slate-50 border border-slate-200/60 rounded-xl p-4 space-y-2">
+                        <h4 class="font-bold text-slate-900 flex items-center gap-1.5 text-rose-700">
+                            <span class="w-2 h-2 rounded-full bg-rose-400"></span>
+                            View A: Horizontal Living (Low-rise, Sprawling)
+                        </h4>
+                        <ul class="list-disc pl-4 space-y-1.5 text-slate-600">
+                            <li><strong>Pros:</strong> Spacious gardens, sense of neighborhood community, safer from structural disasters, lower cost of initial family homes.</li>
+                            <li><strong>Cons:</strong> Severe urban sprawl, deforestation of surrounding landscapes, extreme commuter distances, increased greenhouse emissions.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-slate-50 border border-slate-200/60 rounded-xl p-4 space-y-2">
+                        <h4 class="font-bold text-slate-900 flex items-center gap-1.5 text-sky-700">
+                            <span class="w-2 h-2 rounded-full bg-sky-400"></span>
+                            View B: Vertical Living (High-rise, Dense)
+                        </h4>
+                        <ul class="list-disc pl-4 space-y-1.5 text-slate-600">
+                            <li><strong>Pros:</strong> Extremely land-efficient, shorter commutes, unified municipal services, preserves rural lands from structural destruction.</li>
+                            <li><strong>Cons:</strong> Overcrowding, high maintenance fees, risk of social isolation, highly dependent on modern elevators and continuous electrical grids.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Typing Workspace Sandbox -->
+            <div class="bg-slate-50 border border-slate-200 rounded-xl p-5 space-y-3">
+                <div class="flex justify-between items-center">
+                    <div>
+                        <h4 class="text-xs font-bold text-slate-800 uppercase tracking-wider">Live Brainstorming Sandbox</h4>
+                        <p class="text-xs text-slate-500 mt-1">Draft outlines, body thesis lines, or lexical pairings together during your lesson.</p>
+                    </div>
+                    <button onclick="copyDraftToClipboard()" class="text-xs font-bold bg-white border border-slate-300 hover:bg-slate-100 text-slate-700 px-3 py-1.5 rounded-lg transition-colors flex items-center gap-1">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m-5 4h5M9 14h5m-4 4h4"/></svg>
+                        Copy Draft
+                    </button>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="space-y-1.5">
+                        <label for="task1Draft" class="text-[10px] font-bold text-slate-500 uppercase block">Task 1 (Forest comparison) Key Groupings Draft:</label>
+                        <textarea id="task1Draft" rows="6" placeholder="Draft Overview / Comparison groups (e.g. Body 1: South America & North America...)" class="w-full text-xs bg-white border border-slate-200 rounded-lg p-3 focus:outline-none focus:ring-1 focus:ring-emerald-400 font-mono"></textarea>
+                    </div>
+                    <div class="space-y-1.5">
+                        <label for="task2Draft" class="text-[10px] font-bold text-slate-500 uppercase block">Task 2 (Vertical vs Horizontal) Essay Outline Draft:</label>
+                        <textarea id="task2Draft" rows="6" placeholder="Draft Thesis Statement & key supports (e.g. Body 1: Sprawl vs Body 2: Land efficiency...)" class="w-full text-xs bg-white border border-slate-200 rounded-lg p-3 focus:outline-none focus:ring-1 focus:ring-emerald-400 font-mono"></textarea>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- SECTION 4: LESSON 3 EXHAUSTIVE HOMEWORK PACK -->
+        <section id="homework" class="bg-white border border-emerald-100 p-6 rounded-2xl pastel-shadow space-y-6">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-4 border-b border-slate-100">
+                <div class="flex items-center space-x-3">
+                    <span class="p-2.5 bg-emerald-50 rounded-xl text-emerald-600">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+                    </span>
+                    <div>
+                        <h2 class="text-lg font-bold text-slate-900">Day 3 Assignment Portfolio</h2>
+                        <p class="text-xs text-slate-500">Ensure essays are completed within timed conditions, saving outlines for Day 4 analysis.</p>
+                    </div>
+                </div>
+
+                <!-- Dynamic Homework Tracking Indicator -->
+                <div class="bg-emerald-50 text-emerald-800 px-3 py-1.5 rounded-lg border border-emerald-100 text-xs font-bold" id="homeworkPercentDisplay">
+                    0 / 3 Tasks Completed (0%)
+                </div>
+            </div>
+
+            <!-- Detailed Grid of Homework Links -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <!-- Task 1 Card -->
+                <div class="bg-slate-50 hover:bg-slate-100/50 p-4 rounded-xl border border-slate-200/60 transition-all-300 flex justify-between items-start">
+                    <div class="space-y-1.5">
+                        <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 border border-emerald-100 px-2 py-0.5 rounded">Task 1 Writing</span>
+                        <h4 class="text-xs font-bold text-slate-900">World Forest Pie Charts</h4>
+                        <p class="text-[11px] text-slate-500">Draft full summary comparison. Target: 150-180 words inside 20 minutes.</p>
+                    </div>
+                    <input type="checkbox" onchange="updateHomeworkScore()" class="hw-checkbox rounded text-emerald-500 border-slate-300 w-5 h-5 cursor-pointer">
+                </div>
+
+                <!-- Task 2 Card -->
+                <div class="bg-slate-50 hover:bg-slate-100/50 p-4 rounded-xl border border-slate-200/60 transition-all-300 flex justify-between items-start">
+                    <div class="space-y-1.5">
+                        <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 border border-emerald-100 px-2 py-0.5 rounded">Task 2 Writing</span>
+                        <h4 class="text-xs font-bold text-slate-900">Horizontal vs Vertical City</h4>
+                        <p class="text-[11px] text-slate-500">Discuss both perspectives & express opinion. Target: 250-280 words inside 40 minutes.</p>
+                        <a href="https://ieltschantruong.github.io/IELTS/learning_resources/writing/task2_samples.html" target="_blank" class="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-600 hover:underline">
+                            <span>Open Task 2 Samples & Brainstorm</span>
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                        </a>
+                    </div>
+                    <input type="checkbox" onchange="updateHomeworkScore()" class="hw-checkbox rounded text-emerald-500 border-slate-300 w-5 h-5 cursor-pointer">
+                </div>
+
+                <!-- Speaking Prep Card -->
+                <div class="bg-slate-50 hover:bg-slate-100/50 p-4 rounded-xl border border-slate-200/60 transition-all-300 flex justify-between items-start">
+                    <div class="space-y-1.5">
+                        <span class="text-[10px] font-bold text-indigo-700 bg-indigo-50 border border-indigo-100 px-2 py-0.5 rounded">Speaking Preparation</span>
+                        <h4 class="text-xs font-bold text-slate-900">App/Software Cue Card Practice</h4>
+                        <p class="text-[11px] text-slate-500">Prepare full structured notes for the phone/computer app description, using advanced linkers.</p>
+                    </div>
+                    <input type="checkbox" onchange="updateHomeworkScore()" class="hw-checkbox rounded text-emerald-500 border-slate-300 w-5 h-5 cursor-pointer">
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-slate-400 py-12 px-4 sm:px-6 lg:px-8 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center space-x-3">
+                <span class="p-2 bg-gradient-to-tr from-emerald-500 to-indigo-400 rounded-xl text-white font-extrabold shadow-sm">CT</span>
+                <span class="text-lg font-bold tracking-tight text-white">IELTS Chan Truong</span>
+            </div>
+            <p class="text-xs text-slate-500">
+                &copy; 2026 IELTS Chan Truong. Designed specifically for advanced learners striving for 6.5.
+            </p>
+        </div>
+    </footer>
+
+    <!-- LIVE WORKSPACE SCRIPTS -->
+    <script>
+        /* Toast notification feedback system */
+        function showNotification(message, type = 'success') {
+            const toast = document.getElementById('toastNotification');
+            toast.innerText = message;
+            
+            // Set dynamic background styles
+            if (type === 'error') {
+                toast.className = 'fixed bottom-5 right-5 px-4 py-3 rounded-xl text-xs font-bold text-white shadow-lg transition-all-300 transform translate-y-0 opacity-100 z-[100] bg-rose-500';
+            } else {
+                toast.className = 'fixed bottom-5 right-5 px-4 py-3 rounded-xl text-xs font-bold text-white shadow-lg transition-all-300 transform translate-y-0 opacity-100 z-[100] bg-emerald-500';
+            }
+            
+            // Trigger automatic hide sequence
+            setTimeout(() => {
+                toast.className = 'fixed bottom-5 right-5 px-4 py-3 rounded-xl text-xs font-bold text-white shadow-lg transition-all-300 transform translate-y-10 opacity-0 pointer-events-none z-[100] bg-slate-800';
+            }, 3500);
+        }
+
+        /* Dynamic Dual-Mode Speaking Timer suite */
+        let speakingTimers = {
+            T3: { interval: null, remaining: 0 }
+        };
+
+        function updateSpeakingTimerUI(timerId) {
+            const rem = speakingTimers[timerId].remaining;
+            const min = Math.floor(rem / 60);
+            const sec = rem % 60;
+            const displayStr = `${min.toString().padStart(2, '0')}:${sec.toString().padStart(2, '0')}`;
+            document.getElementById(`timer${timerId}Display`).innerText = displayStr;
+        }
+
+        function runSpeakingTimer(timerId, seconds) {
+            // Stop existing run loop if any
+            clearInterval(speakingTimers[timerId].interval);
+            speakingTimers[timerId].remaining = seconds;
+            updateSpeakingTimerUI(timerId);
+
+            showNotification(`${timerId} speaking interval set to ${seconds} seconds.`);
+
+            speakingTimers[timerId].interval = setInterval(() => {
+                if (speakingTimers[timerId].remaining > 0) {
+                    speakingTimers[timerId].remaining--;
+                    updateSpeakingTimerUI(timerId);
+                } else {
+                    clearInterval(speakingTimers[timerId].interval);
+                    speakingTimers[timerId].interval = null;
+                    showNotification(`Time's up for ${timerId}! Monitor delivery parameters.`, 'error');
+                    
+                    const el = document.getElementById(`timer${timerId}Display`);
+                    el.classList.add('bg-rose-100', 'animate-pulse');
+                    setTimeout(() => el.classList.remove('bg-rose-100', 'animate-pulse'), 3000);
+                }
+            }, 1000);
+        }
+
+        function resetSpeakingTimer(timerId) {
+            clearInterval(speakingTimers[timerId].interval);
+            speakingTimers[timerId].interval = null;
+            speakingTimers[timerId].remaining = 0;
+            updateSpeakingTimerUI(timerId);
+            showNotification(`${timerId} speaking timer cleared.`);
+        }
+
+        /* Clipboard Copy Utility for Essay Draft Sandboxes */
+        function copyDraftToClipboard() {
+            const t1 = document.getElementById('task1Draft').value.trim();
+            const t2 = document.getElementById('task2Draft').value.trim();
+            
+            if (!t1 && !t2) {
+                showNotification('No draft text to copy!', 'error');
+                return;
+            }
+
+            const collectiveStr = `=== IELTS Chan Truong - Lesson 3 Outlines ===\n\n[Task 1 Outline]:\n${t1}\n\n[Task 2 Outline]:\n${t2}`;
+            
+            // Temporary element for copying
+            const el = document.createElement('textarea');
+            el.value = collectiveStr;
+            document.body.appendChild(el);
+            el.select();
+            document.execCommand('copy');
+            document.body.removeChild(el);
+
+            showNotification('Outlines copied to clipboard successfully!');
+        }
+
+        /* Homework Task Checklist Tracker */
+        function updateHomeworkScore() {
+            const boxes = document.querySelectorAll('.hw-checkbox');
+            const total = boxes.length;
+            let checkedCount = 0;
+
+            boxes.forEach(bx => {
+                if (bx.checked) checkedCount++;
+            });
+
+            const percent = Math.round((checkedCount / total) * 100);
+            document.getElementById('homeworkPercentDisplay').innerText = 
+                `${checkedCount} / ${total} Tasks Completed (${percent}%)`;
+            
+            // Adjust styles dynamically depending on progress
+            const displayBadge = document.getElementById('homeworkPercentDisplay');
+            if (percent === 100) {
+                displayBadge.className = "bg-emerald-500 text-white px-3 py-1.5 rounded-lg border border-emerald-600 text-xs font-bold animate-pulse";
+                showNotification('Magnificent! All Day 3 assignments compiled successfully!');
+            } else {
+                displayBadge.className = "bg-emerald-50 text-emerald-800 px-3 py-1.5 rounded-lg border border-emerald-100 text-xs font-bold";
+            }
+        }
+
+        window.onload = function() {
+            updateHomeworkScore();
+        }
+    </script>
+</body>
+</html>
