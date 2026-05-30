@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Chan Truong | Lesson 10 Detailed Plan</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Inter"', 'sans-serif'],
+                    },
+                    colors: {
+                        pastel: {
+                            pink: '#ffe4e6',
+                            purple: '#f3e8ff',
+                            blue: '#e0e7ff',
+                            teal: '#ccfbf1',
+                            orange: '#ffedd5',
+                            indigo: '#e0e7ff',
+                            cyan: '#cffafe',
+                            rose: '#ffe4e6'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { 
+            background-color: #fdfbfb;
+            background-image: 
+                radial-gradient(at 80% 0%, hsla(250, 50%, 95%, 1) 0px, transparent 50%),
+                radial-gradient(at 10% 30%, hsla(188, 60%, 90%, 1) 0px, transparent 50%),
+                radial-gradient(at 90% 80%, hsla(200, 60%, 90%, 1) 0px, transparent 50%),
+                radial-gradient(at 20% 90%, hsla(220, 60%, 90%, 1) 0px, transparent 50%);
+            background-attachment: fixed;
+            color: #334155;
+        }
+        
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 10px 40px -10px rgba(0,0,0,0.05);
+        }
+
+        .skill-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.25rem 0.6rem;
+            border-radius: 8px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            backdrop-filter: blur(4px);
+        }
+
+        .badge-writing { background-color: rgba(254, 226, 226, 0.7); color: #e11d48; border: 1px solid rgba(254, 205, 211, 0.5); }
+        .badge-health { background-color: rgba(204, 251, 241, 0.7); color: #0d9488; border: 1px solid rgba(153, 246, 228, 0.5); }
+
+        .guidance-box {
+            background: linear-gradient(to right, rgba(255,255,255,0.95), rgba(255,255,255,0.7));
+            border-left: 4px solid;
+            border-radius: 0.5rem;
+            padding: 1.25rem;
+            margin-bottom: 1.25rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
+
+        /* Responsive Modal Animations */
+        .modal-overlay {
+            transition: opacity 0.25s ease-in-out;
+        }
+        .modal-container {
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease-in-out;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: rgba(203, 213, 225, 0.8); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(148, 163, 184, 0.8); }
+    </style>
+</head>
+<body class="antialiased min-h-screen pb-16">
+
+<div class="max-w-4xl mx-auto px-4 py-10 sm:px-6 lg:px-8">
+    
+    <!-- Header Block (Matches Lesson 6/7/8/9 exactly) -->
+    <header class="glass-panel rounded-[2rem] p-8 mb-8 relative overflow-hidden">
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-pastel-indigo rounded-full mix-blend-multiply filter blur-3xl opacity-50 z-0"></div>
+        <div class="absolute -bottom-24 -left-24 w-72 h-72 bg-pastel-purple rounded-full mix-blend-multiply filter blur-3xl opacity-50 z-0"></div>
+
+        <div class="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+            <div>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 border border-white text-[10px] font-bold text-slate-500 tracking-widest uppercase mb-3 shadow-sm">
+                    IELTS Chan Truong • Tutor 2
+                </div>
+                <h1 class="text-3xl md:text-4xl font-bold tracking-tight text-slate-800 mb-2">Lesson 10: Discussion Essays & Health</h1>
+                <p class="text-slate-500 font-medium">90-Minute Writing & Lifestyle Focus</p>
+            </div>
+            
+            <div class="flex flex-col gap-2">
+                <span class="skill-badge badge-writing shadow-sm justify-center">Writing T2 (45 Min)</span>
+                <span class="skill-badge badge-health shadow-sm justify-center">Health Topic (45 Min)</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="space-y-8">
+        
+        <!-- Section 1: Discussion Essays Guidance -->
+        <section class="glass-panel rounded-2xl p-6 md:p-8 relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-2 h-full bg-rose-400"></div>
+            
+            <div class="flex items-center justify-between gap-4 mb-6">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-rose-50 flex items-center justify-center text-rose-600 border border-rose-100 shadow-sm">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-slate-800">1. Writing Task 2 | Discussion Essays</h2>
+                        <p class="text-sm text-slate-500">Deconstructing "Discuss both views & give your opinion"</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tutoring Guidance Box: Essay Structure -->
+            <div class="guidance-box border-rose-400">
+                <h3 class="text-[13px] font-bold text-rose-800 uppercase tracking-wider mb-3 flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                    Golden Structure Rules for Discussion Prompts
+                </h3>
+                <div class="space-y-4 text-sm text-slate-700">
+                    <p>Discussion Essays require a highly objective structural execution. The student must thoroughly evaluate both perspectives before delivering their own stance to secure Band 7.0+ in Task Achievement (TA).</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                        <div class="bg-white/80 p-3.5 rounded-lg border border-slate-100 shadow-sm space-y-1.5">
+                            <strong class="text-slate-800 block">The Balanced 4-Paragraph Model</strong>
+                            <p><strong>1. Introduction:</strong> Paraphrase the debate and state a clear, direct thesis presenting your opinion.</p>
+                            <p><strong>2. Body Paragraph A (View 1):</strong> Discuss View 1 objectively. State *why* people hold this perspective, using general/impersonal examples.</p>
+                            <p><strong>3. Body Paragraph B (View 2 & Opinion):</strong> Discuss View 2, showing why you find it stronger. Integrate your own view smoothly here.</p>
+                            <p><strong>4. Conclusion:</strong> Re-summarize both standpoints and firmly restate your final personal conclusion.</p>
+                        </div>
+                        <div class="bg-rose-50/40 p-3.5 rounded-lg border border-rose-100/50 space-y-2">
+                            <strong class="text-rose-900 block font-bold">Key Tutoring Milestones</strong>
+                            <p><strong>Avoid Early Bias:</strong> Teach the student not to dismiss View 1 immediately in Body A. Use phrases like: <em>"Proponents of this idea argue that..."</em> or <em>"This view is often supported by those who believe..."</em></p>
+                            <p><strong>Distinct Personal Voice:</strong> Keep the student's personal view aligned with their thesis throughout. This is vital to prevent "shifting perspectives" which penalizes Coherence & Cohesion (CC).</p>
+                        </div>
+                    </div>
+
+                    <!-- Phrase Bank & Vocabulary Expansion -->
+                    <div class="mt-4 border-t border-rose-100 pt-4">
+                        <strong class="text-rose-900 block text-xs font-bold uppercase tracking-wider mb-2.5">Academic Discussion Phrase Bank (Band 7.0+ Target)</strong>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-[11px] leading-relaxed">
+                            <div class="bg-white/80 p-3 rounded-lg border border-slate-100 shadow-sm space-y-1.5">
+                                <span class="font-bold text-slate-800 block border-b border-slate-100 pb-1">Introduction & Thesis Formulas</span>
+                                <p>• <em>"While compelling arguments can be marshaled on both sides, my firm conviction lies with..."</em></p>
+                                <p>• <em>"The debate surrounding [X] is highly multifaceted, with one camp championing... while opponents maintain..."</em></p>
+                                <p>• <em>"This essay will critically evaluate both perspectives before arguing that..."</em></p>
+                            </div>
+                            <div class="bg-white/80 p-3 rounded-lg border border-slate-100 shadow-sm space-y-1.5">
+                                <span class="font-bold text-slate-800 block border-b border-slate-100 pb-1">Evaluating Third-Party Views (Body A)</span>
+                                <p>• <em>"Proponents of this standpoint argue that..."</em> <span class="text-slate-400 font-medium">(Vital for maintaining impersonal objectivity)</span></p>
+                                <p>• <em>"This view is often supported by those who advocate for..."</em></p>
+                                <p>• <em>"The primary justification offered by supporters is that..."</em></p>
+                            </div>
+                            <div class="bg-white/80 p-3 rounded-lg border border-slate-100 shadow-sm space-y-1.5">
+                                <span class="font-bold text-slate-800 block border-b border-slate-100 pb-1">Transitioning to Personal Opinion (Body B)</span>
+                                <p>• <em>"Nonetheless, there are highly persuasive grounds to suggest that..."</em></p>
+                                <p>• <em>"Despite the validity of the aforementioned argument, I am inclined to support the view that..."</em></p>
+                                <p>• <em>"A far more profound perspective, however, focuses on..."</em></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lexical & Topical Focus: Health & Lifestyle -->
+            <div class="mt-8 space-y-5">
+                <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                    <h3 class="text-base font-bold text-slate-800 flex items-center gap-2">
+                        <svg class="w-4 h-4 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                        Topical Framework: Health & Lifestyle
+                    </h3>
+                    <a href="https://ieltschantruong.github.io/IELTS/lesson_plan/vocab/writing_health_lifestyle.html" target="_blank" class="text-xs font-bold text-teal-600 bg-teal-50 border border-teal-100 px-3 py-1.5 rounded-lg hover:bg-teal-100 transition-colors flex items-center gap-1">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                        Health Vocab Sheet
+                    </a>
+                </div>
+
+                <p class="text-sm text-slate-600">Break down these three real-test health and education prompts. Guide the student to map reasons, examples, and target vocabulary for each standpoint.</p>
+
+                <div class="space-y-6">
+                    <!-- Prompt 1 -->
+                    <div class="bg-white border border-slate-100/80 p-5 rounded-2xl shadow-sm hover:shadow-md transition-all">
+                        <div class="flex items-start gap-3 mb-4">
+                            <span class="flex-shrink-0 w-6 h-6 rounded-full bg-rose-100 text-rose-700 text-xs font-bold flex items-center justify-center mt-0.5">1</span>
+                            <h4 class="text-sm font-bold text-slate-800 italic leading-snug">
+                                "Some people believe that governments should limit working hours to improve people's health and well-being. Others think individuals should be free to decide how many hours they work."
+                            </h4>
+                        </div>
+                        <div class="pl-9 space-y-3.5">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+                                <div class="bg-slate-50 p-3 rounded-lg border border-slate-100">
+                                    <strong class="text-slate-700 block mb-1">View A: Govt Intervention</strong>
+                                    <p class="text-slate-500 leading-relaxed">Prevents employee exploitation, combats occupational burnout, reduces cardiovascular conditions linked to chronic overwork.</p>
+                                </div>
+                                <div class="bg-slate-50 p-3 rounded-lg border border-slate-100">
+                                    <strong class="text-slate-700 block mb-1">View B: Individual Autonomy</strong>
+                                    <p class="text-slate-500 leading-relaxed">Promotes financial flexibility, allows personal career progression, recognizes different financial baselines.</p>
+                                </div>
+                            </div>
+                            <button onclick="openModal('workHours')" class="w-full bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold py-2.5 px-4 rounded-xl shadow-sm transition-all flex items-center justify-center gap-2">
+                                <span>Inspect Model Essay (Band 8.0)</span>
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Prompt 2 -->
+                    <div class="bg-white border border-slate-100/80 p-5 rounded-2xl shadow-sm hover:shadow-md transition-all">
+                        <div class="flex items-start gap-3 mb-4">
+                            <span class="flex-shrink-0 w-6 h-6 rounded-full bg-rose-100 text-rose-700 text-xs font-bold flex items-center justify-center mt-0.5">2</span>
+                            <h4 class="text-sm font-bold text-slate-800 italic leading-snug">
+                                "Some people think schools should place greater emphasis on teaching students about mental health and emotional well-being. Others believe academic subjects should remain the main focus of education."
+                            </h4>
+                        </div>
+                        <div class="pl-9 space-y-3.5">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+                                <div class="bg-slate-50 p-3 rounded-lg border border-slate-100">
+                                    <strong class="text-slate-700 block mb-1">View A: Emotional/Mental Curriculums</strong>
+                                    <p class="text-slate-500 leading-relaxed">Addresses youth anxiety epidemics, provides coping mechanisms for stress, reduces downstream clinical conditions.</p>
+                                </div>
+                                <div class="bg-slate-50 p-3 rounded-lg border border-slate-100">
+                                    <strong class="text-slate-700 block mb-1">View B: Pure Academic Priority</strong>
+                                    <p class="text-slate-500 leading-relaxed">Ensures economic readiness, supports standardized performance metrics, keeps mental care as a parental duty.</p>
+                                </div>
+                            </div>
+                            <button onclick="openModal('mentalHealth')" class="w-full bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold py-2.5 px-4 rounded-xl shadow-sm transition-all flex items-center justify-center gap-2">
+                                <span>Inspect Model Essay (Band 8.0)</span>
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Prompt 3 -->
+                    <div class="bg-white border border-slate-100/80 p-5 rounded-2xl shadow-sm hover:shadow-md transition-all">
+                        <div class="flex items-start gap-3 mb-4">
+                            <span class="flex-shrink-0 w-6 h-6 rounded-full bg-rose-100 text-rose-700 text-xs font-bold flex items-center justify-center mt-0.5">3</span>
+                            <h4 class="text-sm font-bold text-slate-800 italic leading-snug">
+                                "Some people believe that modern cities make it difficult for residents to maintain a healthy lifestyle. Others think city living offers more opportunities for health and fitness than living in rural areas."
+                            </h4>
+                        </div>
+                        <div class="pl-9 space-y-3.5">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+                                <div class="bg-slate-50 p-3 rounded-lg border border-slate-100">
+                                    <strong class="text-slate-700 block mb-1">View A: City lifestyle barriers</strong>
+                                    <p class="text-slate-500 leading-relaxed">High air pollution, light/noise pollution disrupts circadian sleep rhythm, sedentary desk-bound occupations.</p>
+                                </div>
+                                <div class="bg-slate-50 p-3 rounded-lg border border-slate-100">
+                                    <strong class="text-slate-700 block mb-1">View B: Urban wellness amenities</strong>
+                                    <p class="text-slate-500 leading-relaxed">State-of-the-art gyms, walkability networks (parks, trails), concentrated access to medical care and organic produce.</p>
+                                </div>
+                            </div>
+                            <button onclick="openModal('cityLiving')" class="w-full bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold py-2.5 px-4 rounded-xl shadow-sm transition-all flex items-center justify-center gap-2">
+                                <span>Inspect Model Essay (Band 8.0)</span>
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Homework -->
+        <section class="glass-panel rounded-2xl p-6 md:p-8 relative overflow-hidden bg-gradient-to-br from-white/60 to-blue-50/40">
+            <div class="absolute top-0 left-0 w-2 h-full bg-blue-400"></div>
+            
+            <div class="flex items-center gap-3 mb-5">
+                <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 shadow-sm border border-blue-200">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                </div>
+                <h2 class="text-xl font-bold text-slate-800">2. Homework Assignments</h2>
+            </div>
+            
+            <p class="text-sm text-slate-600 mb-6 font-medium">Assign the tasks below to consolidate discussion structures and integrate academic health terminology:</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Task A -->
+                <div class="bg-white/80 p-4 rounded-xl border border-slate-150 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <span class="text-[10px] font-bold text-teal-700 bg-teal-50 border border-teal-100 px-2.5 py-1 rounded-md uppercase tracking-wider block mb-3">Vocabulary Consolidation</span>
+                        <p class="text-xs text-slate-600 leading-relaxed mb-4">
+                            Learn and construct unique sample sentences for at least 15 target vocabulary items from the **Health & Lifestyle** sheet.
+                        </p>
+                    </div>
+                    <a href="https://ieltschantruong.github.io/IELTS/lesson_plan/vocab/writing_health_lifestyle.html" target="_blank" class="text-center text-xs font-bold text-teal-600 bg-teal-50 hover:bg-teal-100/80 transition-colors py-2 rounded-lg border border-teal-100">Review Vocab List</a>
+                </div>
+
+                <!-- Task B -->
+                <div class="bg-white/80 p-4 rounded-xl border border-slate-150 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <span class="text-[10px] font-bold text-rose-700 bg-rose-50 border border-rose-100 px-2.5 py-1 rounded-md uppercase tracking-wider block mb-3">Essays Practice</span>
+                        <p class="text-xs text-slate-600 leading-relaxed mb-4">
+                            Select one of the three Health discussion prompts from class and draft a full 250+ word essay following the balanced 4-paragraph model.
+                        </p>
+                    </div>
+                    <a href="https://classroom.google.com" target="_blank" class="text-center text-xs font-bold text-rose-600 bg-rose-50 hover:bg-rose-100/80 transition-colors py-2 rounded-lg border border-rose-100">Submit on Google Classroom</a>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</div>
+
+<!-- Modal Overlay Backdrop System (Overlay popup for Model Answers) -->
+<div id="modalOverlay" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-50 flex items-center justify-center p-4 md:p-6 opacity-0 pointer-events-none modal-overlay">
+    <div id="modalContainer" class="bg-white rounded-[2rem] w-full max-w-3xl max-h-[85vh] overflow-y-auto shadow-2xl flex flex-col border border-slate-100 transform scale-95 opacity-0 modal-container">
+        
+        <!-- Modal Header -->
+        <div class="px-6 py-5 border-b border-slate-100 bg-slate-50 flex items-center justify-between sticky top-0 z-10 rounded-t-[2rem]">
+            <div class="flex items-center gap-3">
+                <div class="w-2.5 h-2.5 rounded-full bg-rose-500"></div>
+                <h3 id="modalTitle" class="text-sm font-bold text-slate-800 tracking-tight">Writing Model Answer</h3>
+            </div>
+            <button onclick="closeModal()" class="p-1.5 rounded-lg bg-slate-200/60 hover:bg-slate-200 text-slate-500 hover:text-slate-700 transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+        </div>
+        
+        <!-- Modal Body Content -->
+        <div id="modalBody" class="p-6 md:p-8 space-y-6">
+            <!-- Dynamic Content Injected here -->
+        </div>
+        
+        <!-- Modal Footer -->
+        <div class="px-6 py-4 border-t border-slate-100 bg-slate-50 flex justify-end rounded-b-[2rem]">
+            <button onclick="closeModal()" class="bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold py-2.5 px-5 rounded-xl transition-all shadow-sm">
+                Return to Lesson Plan
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Database for Model Responses, Blueprints, & Vocabulary
+    const essaysDB = {
+        workHours: {
+            title: "Discussion Model: Government-limited Working Hours",
+            intro: "In today's fast-paced society, the balance between professional commitments and personal well-being is a subject of constant debate. While some argue that governments should enforce a legal limit on working hours to safeguard public health, others contend that individuals should retain complete autonomy over their working schedules.",
+            overview: "In my opinion, although individual freedom is highly valuable, some level of governmental intervention is necessary to prevent exploitation and combat systemic burnout.",
+            details: "On the one hand, proponents of government intervention emphasize the negative impacts of chronic overwork. Legal caps protect employees from workplace exploitation and the pressure to work unsustainable hours. For instance, in France, the statutory 35-hour work week is widely credited with maintaining high productivity levels while reducing occupational stress and stress-related illnesses.<br><br>On the other hand, advocates for individual autonomy argue that employees should be free to decide their own hours. For self-employed professionals or those looking to secure early retirement, the ability to work longer hours is a vital means of personal career progression and financial flexibility. This perspective values personal responsibility and market-driven flexibility over state regulation.<br><br>In conclusion, while individuals should have some flexibility, I believe governments must set sensible legal boundaries. Without state-regulated work limits, the competitive nature of modern job markets would inevitably lead to widespread burnout, ultimately placing a heavy burden on public healthcare systems.",
+            structure: [
+                "<strong>Paragraph 1 (Introduction):</strong> Paraphrase prompt standpoints; introduce clear thesis supporting state-regulated working hours.",
+                "<strong>Paragraph 2 (View 1):</strong> Focus on negative physical/mental outcomes of chronic overwork; cite France's 35-hour week as a supportive model.",
+                "<strong>Paragraph 3 (View 2):</strong> Discuss individual autonomy arguments (financial flexibility, career progression, personal responsibility).",
+                "<strong>Paragraph 4 (Conclusion):</strong> Summarize both sides; firmly restate the thesis that government intervention is essential to prevent public wellness collapse."
+            ],
+            vocab: ["systemic burnout", "occupational stress", "statutory", "individual autonomy", "widespread burnout", "state-regulated limits", "workplace exploitation"]
+        },
+        mentalHealth: {
+            title: "Discussion Model: Mental Health vs. Academic Focus",
+            intro: "The rise of mental health challenges among young people has sparked a critical debate about the primary focus of school curricula. While some advocates propose that emotional well-being should be integrated into standard lessons, others maintain that schools must prioritize traditional academic disciplines to ensure future career readiness.",
+            overview: "In my opinion, emotional self-regulation and mental health literacy are foundational skills that enhance, rather than detract from, academic achievement.",
+            details: "On the one hand, those who support integrating emotional well-being into school curriculums argue that student stress and anxiety have reached unprecedented levels. Modern students face immense pressure from social media and exams, which often leads to clinical mental health issues. By teaching healthy coping mechanisms early on, schools can empower children to navigate emotional challenges. This proactive approach helps prevent long-term psychiatric difficulties and creates a supportive learning environment.<br><br>On the other hand, traditionalists argue that schools are primarily academic institutions. They believe the core mission of education is to equip students with specialized knowledge in science, mathematics, and literacy. From this perspective, focusing on non-academic subjects risks diluting educational standards and weakening students' competitiveness in the global economy, leaving mental care as a private family responsibility.<br><br>In conclusion, while academic subjects are undoubtedly vital, I believe that emotional well-being is a necessary foundation for learning. A student suffering from chronic anxiety cannot perform at their academic best; therefore, incorporating mental health education is essential for both emotional and academic success.",
+            structure: [
+                "<strong>Paragraph 1 (Introduction):</strong> Paraphrase the educational conflict; state thesis that emotional well-being is vital for academic success.",
+                "<strong>Paragraph 2 (View 1):</strong> Discuss emotional curriculum benefits (combatting anxiety, teaching coping mechanisms, preventing psychiatric challenges).",
+                "<strong>Paragraph 3 (View 2):</strong> Detail academic prioritization (career readiness, global competitiveness, preventing curriculum dilution).",
+                "<strong>Paragraph 4 (Conclusion):</strong> Highlight the codependency of mental stability and academic achievement; restate final support for integrated mental education."
+            ],
+            vocab: ["school curricula", "academic disciplines", "emotional self-regulation", "mental health literacy", "proactive approach", "curriculum dilution", "chronic anxiety"]
+        },
+        cityLiving: {
+            title: "Discussion Model: Urban Living vs. Healthy Lifestyle",
+            intro: "Urban centers are frequently scrutinized for their impact on the health of their residents. While critics argue that modern cities present significant obstacles to healthy living, supporters maintain that urban areas offer unparalleled access to fitness amenities and health services compared to rural regions.",
+            overview: "In my opinion, despite the environmental challenges of cities, urban life offers far better resources for maintaining health and physical fitness.",
+            details: "On the one hand, critics of urban living point to the environmental and occupational hazards of cities. Air pollution, noise, and congested spaces are known contributors to respiratory conditions and chronic stress. Furthermore, the fast-paced nature of city life often leaves residents time-poor, leading to a reliance on processed fast food and a sedentary, desk-bound lifestyle. For instance, urban workers are statistically more prone to physical inactivity due to long commutes and long office hours.<br><br>On the other hand, proponents argue that cities provide unmatched opportunities for healthy living. Urban residents have concentrated access to top-tier fitness centers, public parks, running paths, and specialized medical facilities. Additionally, the demand for healthy lifestyles in cities has created a thriving market for organic foods and wellness services that are rarely available in rural areas. This concentrated infrastructure makes it easier for residents to prioritize their health.<br><br>In conclusion, although city air pollution and high stress are genuine concerns, I believe the urban environment is ultimately more conducive to a healthy lifestyle. The concentration of gym facilities, green spaces, and advanced medical care gives city dwellers a significant advantage over those in more isolated areas.",
+            structure: [
+                "<strong>Paragraph 1 (Introduction):</strong> Paraphrase prompt (urban barriers vs urban fitness opportunities); introduce thesis supporting city resources.",
+                "<strong>Paragraph 2 (View 1):</strong> Address urban barriers (congestion, respiratory conditions, noise pollution, processed foods, sedentary jobs).",
+                "<strong>Paragraph 3 (View 2):</strong> Highlight urban opportunities (top-tier fitness centers, green spaces, organic food access, medical infrastructure).",
+                "<strong>Paragraph 4 (Conclusion):</strong> Balance the view; restate that city living ultimately provides better health resources."
+            ],
+            vocab: ["respiratory conditions", "chronic stress", "sedentary lifestyle", "unmatched opportunities", "wellness services", "concentrated infrastructure", "physically active"]
+        }
+    };
+
+    function openModal(type) {
+        const data = essaysDB[type];
+        if (!data) return;
+
+        const overlay = document.getElementById('modalOverlay');
+        const container = document.getElementById('modalContainer');
+        const body = document.getElementById('modalBody');
+
+        document.getElementById('modalTitle').innerText = data.title;
+
+        // Construct HTML content inside modal
+        body.innerHTML = `
+            <div>
+                <span class="text-[10px] font-bold text-rose-600 bg-rose-50 border border-rose-100 px-2.5 py-1 rounded-md uppercase">Band 8.0 Model Discussion Essay</span>
+                <div class="mt-3 text-xs leading-relaxed text-slate-700 bg-slate-50 border border-slate-100 p-5 rounded-2xl">
+                    <p class="mb-3 font-semibold text-slate-800">${data.intro}</p>
+                    <p class="mb-4 italic text-slate-800 border-l-2 border-rose-300 pl-3 bg-white/40 p-2 rounded">${data.overview}</p>
+                    <p class="text-slate-600 leading-relaxed">${data.details}</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+                <div>
+                    <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-2.5">Structure Blueprint</span>
+                    <ul class="space-y-2">
+                        ${data.structure.map(item => `
+                            <li class="flex items-start text-[11px] text-slate-600">
+                                <span class="text-rose-400 font-bold mr-2">•</span>
+                                <span>${item}</span>
+                            </li>
+                        `).join('')}
+                    </ul>
+                </div>
+                <div>
+                    <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-2.5">Lexical Resources (Health & Lifestyle)</span>
+                    <div class="flex flex-wrap gap-1.5">
+                        ${data.vocab.map(word => `
+                            <span class="text-[11px] font-semibold text-slate-600 bg-slate-100 border border-slate-200/60 px-2.5 py-1 rounded-md">${word}</span>
+                        `).join('')}
+                    </div>
+                </div>
+            </div>
+        `;
+
+        // Animation triggers
+        overlay.classList.remove('pointer-events-none');
+        overlay.classList.add('opacity-100');
+        container.classList.remove('scale-95', 'opacity-0');
+        container.classList.add('scale-100', 'opacity-100');
+        
+        // Prevent body scrolling
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+        const overlay = document.getElementById('modalOverlay');
+        const container = document.getElementById('modalContainer');
+
+        overlay.classList.remove('opacity-100');
+        overlay.classList.add('pointer-events-none');
+        container.classList.remove('scale-100', 'opacity-100');
+        container.classList.add('scale-95', 'opacity-0');
+        
+        // Restore body scrolling
+        document.body.style.overflow = '';
+    }
+
+    // Close modal if user clicks outside of container
+    document.getElementById('modalOverlay').addEventListener('click', function(e) {
+        if (e.target === this) {
+            closeModal();
+        }
+    });
+
+    // Close on escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeModal();
+        }
+    });
+</script>
+
+</body>
+</html>
