@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 02 | IELTS Chan Truong</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Plus Jakarta Sans & Cormorant Garamond -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                    },
+                    colors: {
+                        chic: {
+                            50: '#fffbfb',   // Luxurious warm ivory
+                            100: '#fef1f2',  // Ultra soft blush pink
+                            200: '#fde2e4',  // Rose water pastel
+                            300: '#f9bec7',  // Soft peony
+                            400: '#f497a9',  // Vintage rose
+                            500: '#e56b8f',  // Dusty rose-gold accent
+                            600: '#be5272',  // Deep raspberry accent
+                            700: '#9d3b56',  // Deep berry wood
+                            800: '#752a3d',  // Royal maroon
+                            900: '#4a1523',  // Dark black cherry
+                        },
+                        sand: {
+                            50: '#faf8f6',   // Champagne cream background
+                            100: '#f5f0eb',  // Warm sand accent
+                            200: '#e8ded4',  // Pale taupe
+                            300: '#d5c4b3',  // Muted oak
+                            900: '#1c1714',  // Rich charcoal-espresso
+                        }
+                    },
+                    boxShadow: {
+                        'chic': '0 10px 40px -15px rgba(229, 107, 143, 0.08)',
+                        'chic-hover': '0 20px 50px -10px rgba(229, 107, 143, 0.15)',
+                        'lux': '0 30px 60px -20px rgba(28, 23, 20, 0.03)'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #faf8f6;
+            color: #1c1714;
+        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #faf8f6; }
+        ::-webkit-scrollbar-thumb { background: #fde2e4; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #f497a9; }
+        
+        .transition-lux {
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+    </style>
+</head>
+<body class="antialiased font-sans">
+
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-50 bg-white/70 backdrop-blur-xl border-b border-chic-100 shadow-[0_2px_15px_-3px_rgba(229,107,143,0.03)]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Branding -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-chic-600 via-chic-400 to-chic-200 flex items-center justify-center text-white font-bold text-sm shadow-[0_4px_15px_rgba(229,107,143,0.25)]">
+                        <span class="font-serif italic text-base">CT</span>
+                    </div>
+                    <div>
+                        <div class="text-lg tracking-widest font-serif font-bold text-sand-900 uppercase">
+                            IELTS <span class="text-chic-500 font-normal italic lowercase text-xl ml-1 font-serif">Chan Truong</span>
+                        </div>
+                        <div class="text-[9px] tracking-widest uppercase font-semibold text-sand-300">Fluency Accelerator Framework</div>
+                    </div>
+                </div>
+
+                <!-- Right Side Actions -->
+                <div class="flex items-center space-x-4">
+                    <a href="ielts-roadmap.html" class="text-xs font-bold uppercase tracking-wider text-sand-900 hover:text-chic-500 transition-lux flex items-center gap-2">
+                        <i class="fa-solid fa-arrow-left"></i> Back to Roadmap
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        
+        <!-- Hero Section -->
+        <section class="mb-10">
+            <div class="bg-white rounded-3xl p-8 md:p-12 border border-chic-100 shadow-chic relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-chic-100/40 rounded-full blur-3xl -z-10"></div>
+                
+                <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
+                    <div>
+                        <span class="bg-chic-100 text-chic-700 text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full inline-block mb-4">
+                            Lesson 02 Plan
+                        </span>
+                        <h1 class="text-4xl md:text-5xl font-serif text-sand-900 leading-tight mb-3">
+                            Response Expansion & <br><span class="italic font-normal text-chic-500">Natural Filler Framing</span>
+                        </h1>
+                        <p class="text-sm text-sand-900/70 max-w-xl leading-relaxed">
+                            Now that initial speaking speed barriers have been cracked, we prioritize <strong>Coherence and structural breathing</strong>. We target replacing hesitations with sophisticated native filler templates while introducing systematic response expansion tools.
+                        </p>
+                    </div>
+
+                    <!-- Lesson Stat Board -->
+                    <div class="bg-sand-50/70 border border-sand-100 rounded-2xl p-6 lg:w-80 w-full space-y-4 shadow-lux">
+                        <h3 class="text-xs uppercase font-bold text-chic-700 tracking-widest flex items-center gap-2">
+                            <i class="fa-solid fa-clock-rotate-left"></i> Session Breakdown
+                        </h3>
+                        <div class="grid grid-cols-2 gap-4 text-xs">
+                            <div>
+                                <span class="block text-[10px] text-sand-300 uppercase tracking-wider font-bold">Total Duration</span>
+                                <span class="font-semibold text-sand-900">90 Minutes</span>
+                            </div>
+                            <div>
+                                <span class="block text-[10px] text-sand-300 uppercase tracking-wider font-bold">IELTS Target</span>
+                                <span class="font-semibold text-chic-600 font-serif italic">Part 1 Mastery</span>
+                            </div>
+                            <div>
+                                <span class="block text-[10px] text-sand-300 uppercase tracking-wider font-bold">Topic Areas</span>
+                                <span class="font-semibold text-sand-900">5 Key Resources</span>
+                            </div>
+                            <div>
+                                <span class="block text-[10px] text-sand-300 uppercase tracking-wider font-bold">Key Protocol</span>
+                                <span class="font-semibold text-chic-600">Expansion & Fillers</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive 90-Minute Class Timer -->
+        <section class="mb-10">
+            <div class="bg-gradient-to-r from-chic-900 to-chic-800 text-white rounded-3xl p-6 md:p-8 shadow-chic flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden">
+                <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-chic-700/20 rounded-full blur-2xl"></div>
+                
+                <div class="space-y-1">
+                    <span class="text-chic-300 text-xs font-bold uppercase tracking-widest block">Live Class Tracker</span>
+                    <h3 class="text-lg md:text-xl font-serif">Pacing Control Dashboard</h3>
+                    <p class="text-xs text-white/60">Tutors and students can track active pacing with this session timer.</p>
+                </div>
+
+                <!-- Timer Counter -->
+                <div class="flex items-center space-x-6">
+                    <div class="text-center">
+                        <span id="timer-display" class="text-4xl md:text-5xl font-mono font-bold tracking-wider block text-chic-100">90:00</span>
+                        <span class="text-[9px] uppercase tracking-widest text-chic-300 block mt-1">Remaining Time</span>
+                    </div>
+                    
+                    <div class="flex flex-col gap-2">
+                        <button id="btn-timer-toggle" onclick="toggleTimer()" class="bg-chic-500 hover:bg-chic-400 text-white px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-lux flex items-center justify-center gap-1 shadow-md">
+                            <i class="fa-solid fa-play" id="timer-icon"></i> <span id="timer-btn-text">Start</span>
+                        </button>
+                        <button onclick="resetTimer()" class="border border-white/20 hover:bg-white/10 text-white px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-wider transition-lux">
+                            Reset
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dynamic Lesson Flow Plan -->
+        <section class="mb-10">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
+                <!-- Left Column: Material Links & Guided Study (5 Key Topics) -->
+                <div class="lg:col-span-2 space-y-8">
+                    <div class="bg-white rounded-3xl p-6 md:p-8 border border-chic-100 shadow-chic">
+                        <div class="border-b border-chic-100 pb-4 mb-6">
+                            <span class="text-chic-500 text-xs tracking-widest font-bold uppercase block">Official Learning Curations</span>
+                            <h2 class="text-2xl font-serif text-sand-900 mt-1">Syllabus Materials & Links</h2>
+                            <p class="text-xs text-sand-900/60 mt-1">These topics represent high-probability personal lifestyle and routines concepts tested in IELTS Part 1.</p>
+                        </div>
+
+                        <div class="space-y-6">
+                            <!-- Material Link 1: Hobby -->
+                            <div class="p-6 rounded-2xl bg-sand-50/50 border border-sand-100 hover:border-chic-200 transition-lux flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                                <div class="space-y-1 max-w-md">
+                                    <span class="text-chic-600 text-[10px] uppercase font-bold tracking-wider">Part 1 Module A</span>
+                                    <h4 class="font-serif font-bold text-lg text-sand-900">Hobby & Leisure Activities</h4>
+                                    <p class="text-xs text-sand-900/60 leading-relaxed">
+                                        Advanced lexicons regarding creative flow, personal escapism, physical release, and modern-day decompression methods.
+                                    </p>
+                                </div>
+                                <a href="https://ieltschantruong.github.io/IELTS/learning_resources/speaking/part1/hobby.html" target="_blank" class="bg-white hover:bg-chic-50 border border-chic-200 text-chic-700 hover:text-chic-800 text-xs font-semibold px-4 py-2.5 rounded-full transition-lux flex items-center gap-2 whitespace-nowrap shadow-sm">
+                                    <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i> Open Material
+                                </a>
+                            </div>
+
+                            <!-- Material Link 2: Plan & Schedule -->
+                            <div class="p-6 rounded-2xl bg-sand-50/50 border border-sand-100 hover:border-chic-200 transition-lux flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                                <div class="space-y-1 max-w-md">
+                                    <span class="text-chic-600 text-[10px] uppercase font-bold tracking-wider">Part 1 Module B</span>
+                                    <h4 class="font-serif font-bold text-lg text-sand-900">Plans & Schedules</h4>
+                                    <p class="text-xs text-sand-900/60 leading-relaxed">
+                                        Vocabulary pools covering time management tools, digital calendaring, agile scheduling adjustments, and structured prioritization.
+                                    </p>
+                                </div>
+                                <a href="https://ieltschantruong.github.io/IELTS/learning_resources/speaking/part1/plan_schedule.html" target="_blank" class="bg-white hover:bg-chic-50 border border-chic-200 text-chic-700 hover:text-chic-800 text-xs font-semibold px-4 py-2.5 rounded-full transition-lux flex items-center gap-2 whitespace-nowrap shadow-sm">
+                                    <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i> Open Material
+                                </a>
+                            </div>
+
+                            <!-- Material Link 3: Morning Routine -->
+                            <div class="p-6 rounded-2xl bg-sand-50/50 border border-sand-100 hover:border-chic-200 transition-lux flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                                <div class="space-y-1 max-w-md">
+                                    <span class="text-chic-600 text-[10px] uppercase font-bold tracking-wider">Part 1 Module C</span>
+                                    <h4 class="font-serif font-bold text-lg text-sand-900">Morning Routine</h4>
+                                    <p class="text-xs text-sand-900/60 leading-relaxed">
+                                        Descriptive structures regarding sunrise habits, cognitive activation phases, commuter rituals, and early daily disciplines.
+                                    </p>
+                                </div>
+                                <a href="https://ieltschantruong.github.io/IELTS/learning_resources/speaking/part1/morning_routine.html" target="_blank" class="bg-white hover:bg-chic-50 border border-chic-200 text-chic-700 hover:text-chic-800 text-xs font-semibold px-4 py-2.5 rounded-full transition-lux flex items-center gap-2 whitespace-nowrap shadow-sm">
+                                    <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i> Open Material
+                                </a>
+                            </div>
+
+                            <!-- Material Link 4: Being Busy -->
+                            <div class="p-6 rounded-2xl bg-sand-50/50 border border-sand-100 hover:border-chic-200 transition-lux flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                                <div class="space-y-1 max-w-md">
+                                    <span class="text-chic-600 text-[10px] uppercase font-bold tracking-wider">Part 1 Module D</span>
+                                    <h4 class="font-serif font-bold text-lg text-sand-900">Being Busy</h4>
+                                    <p class="text-xs text-sand-900/60 leading-relaxed">
+                                        Syntactic constructions for heavy workloads, high-stress phases, dividing attention under tight deadlines, and avoiding burnout.
+                                    </p>
+                                </div>
+                                <a href="https://ieltschantruong.github.io/IELTS/learning_resources/speaking/part1/being_busy.html" target="_blank" class="bg-white hover:bg-chic-50 border border-chic-200 text-chic-700 hover:text-chic-800 text-xs font-semibold px-4 py-2.5 rounded-full transition-lux flex items-center gap-2 whitespace-nowrap shadow-sm">
+                                    <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i> Open Material
+                                </a>
+                            </div>
+
+                            <!-- Material Link 5: Staying Up -->
+                            <div class="p-6 rounded-2xl bg-sand-50/50 border border-sand-100 hover:border-chic-200 transition-lux flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                                <div class="space-y-1 max-w-md">
+                                    <span class="text-chic-600 text-[10px] uppercase font-bold tracking-wider">Part 1 Module E</span>
+                                    <h4 class="font-serif font-bold text-lg text-sand-900">Staying Up Late</h4>
+                                    <p class="text-xs text-sand-900/60 leading-relaxed">
+                                        Idioms and structures discussing nocturnal productivity, circadian shifts, evening screen-time impact, and recovery sleep.
+                                    </p>
+                                </div>
+                                <a href="https://ieltschantruong.github.io/IELTS/learning_resources/speaking/part1/staying_up.html" target="_blank" class="bg-white hover:bg-chic-50 border border-chic-200 text-chic-700 hover:text-chic-800 text-xs font-semibold px-4 py-2.5 rounded-full transition-lux flex items-center gap-2 whitespace-nowrap shadow-sm">
+                                    <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i> Open Material
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Expansion & Filler Simulator -->
+                    <div class="bg-white rounded-3xl p-6 md:p-8 border border-chic-100 shadow-chic">
+                        <div class="border-b border-chic-100 pb-4 mb-6">
+                            <span class="text-chic-500 text-xs tracking-widest font-bold uppercase block">"Pause & Breathe" System</span>
+                            <h2 class="text-2xl font-serif text-sand-900 mt-1">Expansion & Filler Mitigation Simulator</h2>
+                            <p class="text-xs text-sand-900/60 mt-2">
+                                Practice expanding your answer naturally while eradicating empty stalling words ("eto/ano"). Tutors can select topics to generate customized prompt drills. Speak continuously and follow the structural helper indicators!
+                            </p>
+                        </div>
+
+                        <!-- Prompt Interface -->
+                        <div class="bg-sand-50/50 border border-sand-100 rounded-2xl p-6 md:p-8 text-center space-y-6 relative overflow-hidden min-h-[250px] flex flex-col justify-center items-center">
+                            <!-- Topic Indicator -->
+                            <span id="drill-topic" class="bg-chic-100 text-chic-700 text-[9px] uppercase tracking-widest font-bold px-2.5 py-1 rounded-full">
+                                Topic: Click a category below to start
+                            </span>
+                            
+                            <!-- Prompt Text -->
+                            <p id="drill-prompt-text" class="text-lg md:text-xl font-serif text-sand-900 font-medium px-4">
+                                "The key is to replace hesitation with brief silent breathing or elegant structures like 'To be perfectly frank...' or 'As a matter of fact...'"
+                            </p>
+
+                            <!-- Structural Helper Guide -->
+                            <div class="bg-white border border-chic-100 rounded-xl p-3 w-full max-w-lg shadow-sm">
+                                <span class="text-[9px] uppercase font-bold text-chic-500 block mb-1">Coherence expansion Blueprint:</span>
+                                <p id="expansion-formula" class="text-xs text-sand-900/70 font-mono">
+                                    [Direct Answer] + [Sophisticated Transition Filler] + [Target Detail/Contrast]
+                                </p>
+                            </div>
+
+                            <!-- Live Reflex Timer Indicator -->
+                            <div class="flex items-center gap-2">
+                                <span class="text-[10px] uppercase font-bold text-sand-300">Tempo Buffer:</span>
+                                <div class="w-24 bg-chic-100 h-2.5 rounded-full overflow-hidden flex">
+                                    <div id="reflex-bar" class="bg-green-400 h-full w-full transition-all duration-[2000ms] ease-linear"></div>
+                                </div>
+                                <span id="reflex-status" class="text-[10px] font-bold text-green-500 uppercase">Ready</span>
+                            </div>
+                        </div>
+
+                        <!-- Interactive Action Buttons -->
+                        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2 mt-6">
+                            <button onclick="generatePrompt('hobby')" class="bg-chic-50 hover:bg-chic-100 border border-chic-200 text-chic-700 text-[11px] font-bold uppercase tracking-wider py-2.5 rounded-full transition-lux text-center">
+                                <i class="fa-solid fa-gamepad"></i> Hobbies
+                            </button>
+                            <button onclick="generatePrompt('schedule')" class="bg-chic-50 hover:bg-chic-100 border border-chic-200 text-chic-700 text-[11px] font-bold uppercase tracking-wider py-2.5 rounded-full transition-lux text-center">
+                                <i class="fa-solid fa-calendar-days"></i> Schedules
+                            </button>
+                            <button onclick="generatePrompt('morning')" class="bg-chic-50 hover:bg-chic-100 border border-chic-200 text-chic-700 text-[11px] font-bold uppercase tracking-wider py-2.5 rounded-full transition-lux text-center">
+                                <i class="fa-solid fa-mug-saucer"></i> Morning
+                            </button>
+                            <button onclick="generatePrompt('busy')" class="bg-chic-50 hover:bg-chic-100 border border-chic-200 text-chic-700 text-[11px] font-bold uppercase tracking-wider py-2.5 rounded-full transition-lux text-center">
+                                <i class="fa-solid fa-laptop-code"></i> Busy
+                            </button>
+                            <button onclick="generatePrompt('stayup')" class="bg-chic-50 hover:bg-chic-100 border border-chic-200 text-chic-700 text-[11px] font-bold uppercase tracking-wider py-2.5 rounded-full transition-lux text-center">
+                                <i class="fa-solid fa-moon"></i> Stay Up
+                            </button>
+                        </div>
+                        <div class="flex justify-center mt-4">
+                            <button onclick="generatePrompt('random')" class="bg-chic-500 hover:bg-chic-600 text-white text-xs font-bold uppercase tracking-wider px-6 py-3 rounded-full transition-lux shadow-sm">
+                                <i class="fa-solid fa-shuffle"></i> Random Topic Mix
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Right Column: Interactive Lesson Agenda -->
+                <div class="lg:col-span-1 space-y-6">
+                    <div class="bg-white rounded-3xl p-6 border border-chic-100 shadow-chic">
+                        <h3 class="font-serif font-bold text-xl text-sand-900 mb-4 pb-2 border-b border-chic-100 flex items-center gap-2">
+                            <i class="fa-solid fa-list-check text-chic-500"></i> Lesson Itinerary
+                        </h3>
+
+                        <!-- Step 1 -->
+                        <div class="space-y-3 mb-6 relative pl-6 border-l border-chic-200">
+                            <span class="absolute left-[-5px] top-0.5 w-2.5 h-2.5 rounded-full bg-chic-400"></span>
+                            <div class="flex justify-between items-center text-xs">
+                                <span class="font-bold text-sand-900">1. Homework & Warm-up</span>
+                                <span class="text-chic-600 font-mono">15m</span>
+                            </div>
+                            <p class="text-[11px] text-sand-900/60 leading-relaxed">
+                                Review recordings submitted for Lesson 01 (Work & Hometown). Establish immediate vocal momentum with general hobby associations.
+                            </p>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div class="space-y-3 mb-6 relative pl-6 border-l border-chic-200">
+                            <span class="absolute left-[-5px] top-0.5 w-2.5 h-2.5 rounded-full bg-chic-400"></span>
+                            <div class="flex justify-between items-center text-xs">
+                                <span class="font-bold text-sand-900">2. Systematic Expansion</span>
+                                <span class="font-bold text-sand-900">30m</span>
+                            </div>
+                            <p class="text-[11px] text-sand-900/60 leading-relaxed">
+                                Deploy structural expansion templates over Planning & Morning Routine materials. Train response expansion beyond staccato 6.0 thresholds.
+                            </p>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="space-y-3 mb-6 relative pl-6 border-l border-chic-200">
+                            <span class="absolute left-[-5px] top-0.5 w-2.5 h-2.5 rounded-full bg-chic-400"></span>
+                            <div class="flex justify-between items-center text-xs">
+                                <span class="font-bold text-sand-900">3. "Pause & Breathe" Drills</span>
+                                <span class="text-chic-600 font-mono">35m</span>
+                            </div>
+                            <p class="text-[11px] text-sand-900/60 leading-relaxed">
+                                Active filler-word mitigation targeting Being Busy & Staying Up. Focus strictly on silencing "eto/ano" stalling moments and replacing them with native filler sequences.
+                            </p>
+                        </div>
+
+                        <!-- Step 4 -->
+                        <div class="space-y-3 relative pl-6">
+                            <span class="absolute left-[-5px] top-0.5 w-2.5 h-2.5 rounded-full bg-chic-500"></span>
+                            <div class="flex justify-between items-center text-xs">
+                                <span class="font-bold text-sand-900">4. Review & Recording Assignment</span>
+                                <span class="text-chic-600 font-mono">10m</span>
+                            </div>
+                            <p class="text-[11px] text-sand-900/60 leading-relaxed">
+                                Set evaluation parameters, compile pronunciation notes, and review in-portal recording guidelines for the homework submission.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Homework Portal & Recording Process -->
+        <section class="mb-10">
+            <div class="bg-white rounded-3xl p-8 border border-chic-100 shadow-chic">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6 pb-4 border-b border-chic-100">
+                    <div>
+                        <span class="text-chic-500 text-xs tracking-widest font-bold uppercase block">Self-Managed Fluency Loop</span>
+                        <h2 class="text-2xl font-serif text-sand-900 mt-1">Lesson 02 Homework Portal</h2>
+                    </div>
+                    <span class="bg-red-50 text-red-500 border border-red-100 text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1.5">
+                        <i class="fa-solid fa-triangle-exclamation"></i> Action Required
+                    </span>
+                </div>
+
+                <!-- Process Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                    <!-- Step 1 Card -->
+                    <div class="bg-sand-50/50 p-5 rounded-2xl border border-sand-100 flex flex-col justify-between">
+                        <div>
+                            <span class="text-chic-300 font-serif italic text-3xl font-bold">01</span>
+                            <h4 class="font-semibold text-sm text-sand-900 mt-3 mb-1">Access Materials</h4>
+                            <p class="text-[11px] text-sand-900/60 leading-relaxed">
+                                Open the 5 specified links (Hobby, Schedules, Morning Routines, Being Busy, Staying Up) and study the vocabulary targets.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 Card -->
+                    <div class="bg-sand-50/50 p-5 rounded-2xl border border-sand-100 flex flex-col justify-between">
+                        <div>
+                            <span class="text-chic-300 font-serif italic text-3xl font-bold">02</span>
+                            <h4 class="font-semibold text-sm text-sand-900 mt-3 mb-1">Record In-Page</h4>
+                            <p class="text-[11px] text-sand-900/60 leading-relaxed">
+                                Use the built-in recording modules directly inside each of the designated official material pages to capture your spoken responses.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 Card -->
+                    <div class="bg-sand-50/50 p-5 rounded-2xl border border-sand-100 flex flex-col justify-between">
+                        <div>
+                            <span class="text-chic-300 font-serif italic text-3xl font-bold">03</span>
+                            <h4 class="font-semibold text-sm text-sand-900 mt-3 mb-1">Export Files</h4>
+                            <p class="text-[11px] text-sand-900/60 leading-relaxed">
+                                Download the recorded audio assets directly to your system and upload them to your personal student Google Drive folder.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 Card -->
+                    <div class="bg-sand-50/50 p-5 rounded-2xl border border-sand-100 flex flex-col justify-between">
+                        <div>
+                            <span class="text-chic-300 font-serif italic text-3xl font-bold">04</span>
+                            <h4 class="font-semibold text-sm text-sand-900 mt-3 mb-1">Google Sheet Link</h4>
+                            <p class="text-[11px] text-sand-900/60 leading-relaxed">
+                                Attach the shared Google Drive links to the corresponding row in your Student Tracker Google Doc for coach evaluation.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Sticky Notes Workspace -->
+        <section class="mb-10 bg-white p-8 rounded-3xl border border-chic-100 shadow-chic relative">
+            <div class="absolute -top-3 right-8 bg-chic-500 text-white text-[10px] uppercase font-bold tracking-widest px-3 py-1 rounded-full shadow-md">
+                <i class="fa-solid fa-pen-fancy"></i> Active Notepad
+            </div>
+            <h3 class="font-serif font-bold text-xl text-sand-900 mb-2">Lesson 02 Vocabulary & Notes</h3>
+            <p class="text-xs text-sand-900/60 mb-4">Scribble targeted synonyms, phrasing adaptations, or filler alternatives. Data is synchronized in your local browser storage.</p>
+            <textarea id="lesson-notes-02" class="w-full h-36 p-4 bg-sand-50 border border-chic-100 rounded-xl text-xs focus:ring-1 focus:ring-chic-500 focus:outline-none text-sand-900 font-sans" placeholder="Example: 'Instead of saying 'eto...', use 'Basically, if you look at it from another angle...' or take a silent pause...'"></textarea>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-sand-900 text-sand-50/40 py-12 border-t border-sand-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+            <div class="text-sm uppercase tracking-widest font-serif font-bold text-sand-50">IELTS <span class="text-chic-400 italic lowercase font-normal text-base font-serif">Chan Truong</span></div>
+            <p class="text-xs max-w-md mx-auto">High-performance English training systematically engineered for global software engineers based in Tokyo.</p>
+            <div class="text-[10px] text-sand-500 pt-4">&copy; 2026 IELTS Chan Truong. Engineered for Academic Success.</div>
+        </div>
+    </footer>
+
+    <!-- JS Logic -->
+    <script>
+        // 1. Pacing Timer Control
+        let timerSeconds = 90 * 60; // 90 Minutes
+        let timerInterval = null;
+        const timerDisplay = document.getElementById('timer-display');
+        const timerBtnText = document.getElementById('timer-btn-text');
+        const timerIcon = document.getElementById('timer-icon');
+
+        function updateTimerUI() {
+            let m = Math.floor(timerSeconds / 60);
+            let s = timerSeconds % 60;
+            timerDisplay.textContent = `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+        }
+
+        function toggleTimer() {
+            if (timerInterval) {
+                // Pause timer
+                clearInterval(timerInterval);
+                timerInterval = null;
+                timerBtnText.textContent = "Resume";
+                timerIcon.className = "fa-solid fa-play";
+            } else {
+                // Start timer
+                timerInterval = setInterval(() => {
+                    if (timerSeconds > 0) {
+                        timerSeconds--;
+                        updateTimerUI();
+                    } else {
+                        clearInterval(timerInterval);
+                        timerInterval = null;
+                        // Never use alert() as requested. Instead, change background highlight of timer display.
+                        timerDisplay.className = "text-4xl md:text-5xl font-mono font-bold tracking-wider block text-red-500 animate-pulse";
+                    }
+                }, 1000);
+                timerBtnText.textContent = "Pause";
+                timerIcon.className = "fa-solid fa-pause";
+            }
+        }
+
+        function resetTimer() {
+            clearInterval(timerInterval);
+            timerInterval = null;
+            timerSeconds = 90 * 60;
+            updateTimerUI();
+            timerDisplay.className = "text-4xl md:text-5xl font-mono font-bold tracking-wider block text-chic-100";
+            timerBtnText.textContent = "Start";
+            timerIcon.className = "fa-solid fa-play";
+        }
+
+        // 2. Notepad Sync with LocalStorage
+        const notesArea = document.getElementById('lesson-notes-02');
+        if (localStorage.getItem('ielts_lesson02_notes')) {
+            notesArea.value = localStorage.getItem('ielts_lesson02_notes');
+        }
+        notesArea.addEventListener('input', () => {
+            localStorage.setItem('ielts_lesson02_notes', notesArea.value);
+        });
+
+        // 3. Prompt Databank for "Pause & Breathe" Simulator (5 Specified Speaking Materials)
+        const prompts = {
+            hobby: [
+                "Do you have any hobbies that you actively pursue over weekends?",
+                "Is there a new hobby or creative pursuit you would love to adopt in the future?",
+                "Do you think hobbies should be strictly productive, or purely for decompression?",
+                "How do hobbies in modern Tokyo contrast with those from your childhood?"
+            ],
+            schedule: [
+                "Do you prefer to organize your daily schedule meticulously or keep it spontaneous?",
+                "How do you prioritize high-pressure items when you face a crowded planner?",
+                "Is there any tool or digital application that you rely on to manage your appointments?",
+                "Has your approach to planning changed significantly since you started your career?"
+            ],
+            morning: [
+                "Could you describe your typical morning schedule on a working day?",
+                "Do you consider yourself a morning person, or do you require hours to fully wake up?",
+                "What is the very first activity you perform upon getting out of bed?",
+                "Is your morning routine during weekends different from your routine during weekdays?"
+            ],
+            busy: [
+                "Are you currently experiencing a highly active and hectic phase in your career?",
+                "How do you handle personal relationships when your professional workload intensifies?",
+                "When you find yourself exceptionally busy, how do you manage to wind down?",
+                "Do you enjoy the challenge of a high-pressure, busy workspace or prefer slow pacing?"
+            ],
+            stayup: [
+                "How frequently do you find yourself staying up late into the night?",
+                "What is the primary factor that causes you to lose sleep or remain awake late?",
+                "Do you feel your intellectual output is higher late at night compared to early mornings?",
+                "How do you feel physically the morning after staying awake past midnight?"
+            ]
+        };
+
+        const formulaBlueprints = {
+            hobby: "[Direct Answer] + [Transition: Speaking of decompression...] + [Active Lexicon (e.g. cognitive outlet/flow-state)]",
+            schedule: "[Direct Answer] + [Transition: From an analytical standpoint...] + [Contrast with digital/agile tracking]",
+            morning: "[Direct Answer] + [Transition: To kickstart my day...] + [Circadian/early transit specifics]",
+            busy: "[Direct Answer] + [Transition: When tasks pile up...] + [Mitigation strategies or cognitive load]",
+            stayup: "[Direct Answer] + [Transition: When midnight rolls around...] + [Nocturnal habits vs biological balance]"
+        };
+
+        function generatePrompt(category) {
+            let selectedList = [];
+            let catName = "";
+            let keyWord = "";
+
+            if (category === 'hobby') {
+                selectedList = prompts.hobby;
+                catName = "Topic: Hobby & Leisure Focus";
+                keyWord = "hobby";
+            } else if (category === 'schedule') {
+                selectedList = prompts.schedule;
+                catName = "Topic: Plans & Schedules Focus";
+                keyWord = "schedule";
+            } else if (category === 'morning') {
+                selectedList = prompts.morning;
+                catName = "Topic: Morning Routine Focus";
+                keyWord = "morning";
+            } else if (category === 'busy') {
+                selectedList = prompts.busy;
+                catName = "Topic: Being Busy Focus";
+                keyWord = "busy";
+            } else if (category === 'stayup') {
+                selectedList = prompts.stayup;
+                catName = "Topic: Staying Up Late Focus";
+                keyWord = "stayup";
+            } else {
+                // Random selection
+                const keys = Object.keys(prompts);
+                const randomKey = keys[Math.floor(Math.random() * keys.length)];
+                selectedList = prompts[randomKey];
+                catName = `Topic: Random Selection [${randomKey.toUpperCase()}]`;
+                keyWord = randomKey;
+            }
+
+            const randomIdx = Math.floor(Math.random() * selectedList.length);
+            const promptStr = selectedList[randomIdx];
+
+            // Update UI elements
+            document.getElementById('drill-topic').textContent = catName;
+            document.getElementById('drill-prompt-text').textContent = `"${promptStr}"`;
+            document.getElementById('expansion-formula').textContent = formulaBlueprints[keyWord];
+
+            // Reset Reflex Timer Animation (Filler-word mitigation challenge)
+            const bar = document.getElementById('reflex-bar');
+            const status = document.getElementById('reflex-status');
+
+            // Reset transitions instantly
+            bar.style.transition = 'none';
+            bar.style.width = '100%';
+            bar.className = 'bg-green-400 h-full';
+            status.textContent = 'Begin Speaking!';
+            status.className = 'text-[10px] font-bold text-green-500 uppercase';
+
+            // Trigger latency countdown animation
+            setTimeout(() => {
+                bar.style.transition = 'width 2000ms linear';
+                bar.style.width = '0%';
+                
+                // Color transition to warning
+                setTimeout(() => {
+                    bar.className = 'bg-red-500 h-full';
+                    status.textContent = 'Eradicate Filler Words!';
+                    status.className = 'text-[10px] font-bold text-red-500 uppercase animate-pulse';
+                }, 1500);
+            }, 50);
+        }
+    </script>
+</body>
+</html>

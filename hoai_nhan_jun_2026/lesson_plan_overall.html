@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Chan Truong | Accelerated Fluency Plan</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Plus Jakarta Sans (Sleek Sans) & Cormorant Garamond (Chic Editorial Serif) -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for chic icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                    },
+                    colors: {
+                        chic: {
+                            50: '#fffbfb',   // Pure luxurious warm ivory
+                            100: '#fef1f2',  // Ultra soft blush
+                            200: '#fde2e4',  // Rose water pastel
+                            300: '#f9bec7',  // Soft peony pink
+                            400: '#f497a9',  // Vintage rose
+                            500: '#e56b8f',  // Dusty rose-gold accent
+                            600: '#be5272',  // Chic raspberry deep accent
+                            700: '#9d3b56',  // Deep berry wood
+                            800: '#752a3d',  // Royal maroon
+                            900: '#4a1523',  // Dark black cherry
+                        },
+                        sand: {
+                            50: '#faf8f6',   // Champagne cream background
+                            100: '#f5f0eb',  // Warm sand accent
+                            200: '#e8ded4',  // Pale taupe
+                            300: '#d5c4b3',  // Muted oak
+                            900: '#1c1714',  // Rich charcoal-espresso
+                        }
+                    },
+                    boxShadow: {
+                        'chic': '0 10px 40px -15px rgba(229, 107, 143, 0.08)',
+                        'chic-hover': '0 20px 50px -10px rgba(229, 107, 143, 0.15)',
+                        'lux': '0 30px 60px -20px rgba(28, 23, 20, 0.03)'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #faf8f6;
+            color: #1c1714;
+        }
+        /* Custom scrollbar matching the palette */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #faf8f6; }
+        ::-webkit-scrollbar-thumb { background: #fde2e4; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #f497a9; }
+        
+        .transition-lux {
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Sticky Horizontal Navigation Bar -->
+    <header class="sticky top-0 z-50 bg-white/70 backdrop-blur-xl border-b border-chic-100 shadow-[0_2px_15px_-3px_rgba(229,107,143,0.03)]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Branding / Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-chic-600 via-chic-400 to-chic-200 flex items-center justify-center text-white font-bold text-sm shadow-[0_4px_15px_rgba(229,107,143,0.25)]">
+                        <span class="font-serif italic text-base">CT</span>
+                    </div>
+                    <div>
+                        <div class="text-lg tracking-widest font-serif font-bold text-sand-900 uppercase">
+                            IELTS <span class="text-chic-500 font-normal italic lowercase text-xl ml-1 font-serif">Chan Truong</span>
+                        </div>
+                        <div class="text-[9px] tracking-widest uppercase font-semibold text-sand-300">Fluency Accelerator Framework</div>
+                    </div>
+                </div>
+
+                <!-- Desktop Horizontal Menu Links -->
+                <nav class="hidden md:flex items-center space-x-8 text-xs font-semibold uppercase tracking-wider text-sand-900">
+                    <a href="#overview" class="hover:text-chic-500 transition-lux">Overview</a>
+                    <a href="#fluency-methods" class="hover:text-chic-500 transition-lux">Fluency Frameworks</a>
+                    <a href="#topic-bank" class="hover:text-chic-500 transition-lux">45 Topics</a>
+                    <a href="#adaptation" class="hover:text-chic-500 transition-lux">Isolation Strategy</a>
+                    <a href="#sessions" class="bg-chic-50 hover:bg-chic-100 border border-chic-200 text-chic-700 px-4 py-2 rounded-full transition-lux flex items-center gap-2">
+                        <i class="fa-solid fa-graduation-cap"></i> 20-Session Plan
+                    </a>
+                </nav>
+
+                <!-- Progress Header Stats -->
+                <div class="hidden lg:flex items-center space-x-4 border-l border-chic-100 pl-6">
+                    <div class="text-right">
+                        <span class="block text-[10px] uppercase font-bold text-sand-300 tracking-wider">Your Progress</span>
+                        <span id="progress-text" class="text-xs font-bold text-chic-600 font-serif italic">0 of 20 Completed (0%)</span>
+                    </div>
+                    <div class="w-24 bg-chic-100 h-2 rounded-full overflow-hidden">
+                        <div id="progress-bar" class="bg-gradient-to-r from-chic-400 to-chic-600 h-full w-0 transition-all duration-500"></div>
+                    </div>
+                </div>
+
+                <!-- Mobile Navigation Button -->
+                <button id="mobile-menu-btn" class="md:hidden p-2 text-sand-900 focus:outline-none" aria-label="Toggle Menu">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Container -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white/95 border-b border-chic-100 px-4 pt-2 pb-6 space-y-3 shadow-lg">
+            <a href="#overview" class="block py-2 text-sm font-semibold text-sand-900 border-b border-sand-50">Overview</a>
+            <a href="#fluency-methods" class="block py-2 text-sm font-semibold text-sand-900 border-b border-sand-50">Fluency Frameworks</a>
+            <a href="#topic-bank" class="block py-2 text-sm font-semibold text-sand-900 border-b border-sand-50">45 Topics</a>
+            <a href="#adaptation" class="block py-2 text-sm font-semibold text-sand-900 border-b border-sand-50">Isolation Strategy</a>
+            <a href="#sessions" class="block py-2 text-sm font-semibold text-chic-600 font-bold">20-Session Breakdown</a>
+            <!-- Mobile progress bar display -->
+            <div class="pt-4 border-t border-chic-100 flex flex-col gap-2">
+                <span id="mobile-progress-text" class="text-xs font-bold text-chic-600 font-serif">Progress: 0 of 20 Completed</span>
+                <div class="w-full bg-chic-100 h-2 rounded-full overflow-hidden">
+                    <div id="mobile-progress-bar" class="bg-gradient-to-r from-chic-400 to-chic-600 h-full w-0 transition-all duration-500"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+
+        <!-- Hero & Student Profile Section -->
+        <section id="overview" class="mb-16 scroll-mt-24">
+            <div class="bg-white rounded-3xl p-8 md:p-12 border border-chic-100 shadow-chic relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-chic-100/40 rounded-full blur-3xl -z-10"></div>
+                
+                <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-10">
+                    <div class="max-w-xl">
+                        <span class="text-chic-500 text-xs tracking-widest font-bold uppercase block mb-3">Custom Student Program</span>
+                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif text-sand-900 leading-tight mb-4">
+                            Band 6.5 <span class="italic font-normal font-serif text-chic-500">Accelerated</span> Fluency Roadmap
+                        </h1>
+                        <p class="text-sm text-sand-900/70 leading-relaxed font-sans mb-6">
+                            Tailored explicitly for a high-performing developer stationed in Tokyo. Re-engineering analytical mastery of syntax into high-frequency, instinctual conversational flow under pressure.
+                        </p>
+                        
+                        <!-- Visual Roadmap Quick Stats -->
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-6 border-t border-chic-100">
+                            <div>
+                                <span class="block text-[10px] text-sand-300 uppercase tracking-wider font-bold">Timeline</span>
+                                <span class="text-sm font-semibold text-sand-900">10 Weeks / Aug '26</span>
+                            </div>
+                            <div>
+                                <span class="block text-[10px] text-sand-300 uppercase tracking-wider font-bold">Current Band</span>
+                                <span class="text-sm font-semibold text-chic-600">6.0 (Hesitant)</span>
+                            </div>
+                            <div>
+                                <span class="block text-[10px] text-sand-300 uppercase tracking-wider font-bold">Target Band</span>
+                                <span class="text-sm font-semibold text-chic-600 font-serif italic font-bold">6.5+ (Fluid)</span>
+                            </div>
+                            <div>
+                                <span class="block text-[10px] text-sand-300 uppercase tracking-wider font-bold">Approach</span>
+                                <span class="text-sm font-semibold text-sand-900">Fluency First</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Client Detail Card (Chic Glassmorphic Grid) -->
+                    <div class="lg:w-96 w-full bg-sand-50/50 rounded-2xl p-6 border border-sand-100 shadow-lux">
+                        <h3 class="text-xs uppercase font-bold text-chic-700 tracking-widest mb-4 flex items-center gap-2">
+                            <i class="fa-solid fa-id-card"></i> Student Dossier
+                        </h3>
+                        <ul class="space-y-4 text-xs font-sans text-sand-900/80">
+                            <li class="flex justify-between items-center py-2 border-b border-sand-100">
+                                <span class="font-bold">Primary Role</span>
+                                <span class="text-right text-chic-700 font-semibold bg-white px-2.5 py-1 rounded-full border border-chic-100">Software Developer (Tokyo)</span>
+                            </li>
+                            <li class="flex justify-between items-center py-2 border-b border-sand-100">
+                                <span class="font-bold">Core Strengths</span>
+                                <span class="text-right font-medium">Lexical Resource, Technical Ideation</span>
+                            </li>
+                            <li class="flex justify-between items-center py-2 border-b border-sand-100">
+                                <span class="font-bold">Primary Barrier</span>
+                                <span class="text-right text-red-500 font-semibold flex items-center gap-1">
+                                    <i class="fa-solid fa-triangle-exclamation text-[10px]"></i> Cognitive Lag & Hesitation
+                                </span>
+                            </li>
+                            <li class="flex justify-between items-center py-2">
+                                <span class="font-bold">Environment</span>
+                                <span class="text-right text-sand-900 italic">No English outside class</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Fluency Frameworks -->
+        <section id="fluency-methods" class="mb-16 scroll-mt-24">
+            <div class="text-center max-w-xl mx-auto mb-10">
+                <span class="text-chic-500 text-xs tracking-widest font-bold uppercase block">Methodology</span>
+                <h2 class="text-3xl md:text-4xl font-serif text-sand-900 mt-2">Core Fluency Protocols</h2>
+                <div class="w-12 h-0.5 bg-chic-500 mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Method 1 -->
+                <div class="bg-white p-6 rounded-2xl border border-chic-100 shadow-chic hover:shadow-chic-hover hover:-translate-y-1 transition-lux group">
+                    <div class="w-12 h-12 rounded-full bg-chic-100 flex items-center justify-center text-chic-600 mb-6 group-hover:bg-chic-500 group-hover:text-white transition-lux">
+                        <span class="font-serif italic text-lg font-bold">01</span>
+                    </div>
+                    <h3 class="font-serif font-bold text-lg text-sand-900 mb-2">The 4-3-2 Method</h3>
+                    <p class="text-[10px] uppercase font-bold text-chic-500 tracking-wider mb-2">Paul Nation Applied Linguistics</p>
+                    <p class="text-xs text-sand-900/70 leading-relaxed font-sans">
+                        Students deliver a cue card in 4 minutes, immediate repeat in 3 minutes, and final iteration in 2 minutes. Eliminates structural cognitive load, locking focus onto physical pacing and rhythmic momentum.
+                    </p>
+                </div>
+
+                <!-- Method 2 -->
+                <div class="bg-white p-6 rounded-2xl border border-chic-100 shadow-chic hover:shadow-chic-hover hover:-translate-y-1 transition-lux group">
+                    <div class="w-12 h-12 rounded-full bg-chic-100 flex items-center justify-center text-chic-600 mb-6 group-hover:bg-chic-500 group-hover:text-white transition-lux">
+                        <span class="font-serif italic text-lg font-bold">02</span>
+                    </div>
+                    <h3 class="font-serif font-bold text-lg text-sand-900 mb-2">Rapid-Fire Q&A</h3>
+                    <p class="text-[10px] uppercase font-bold text-chic-500 tracking-wider mb-2">PTE Speaking Drills</p>
+                    <p class="text-xs text-sand-900/70 leading-relaxed font-sans">
+                        10-15 straightforward prompts asked in immediate succession. The candidate has exactly 1 second to begin speaking. Forces her logic-driven mind to bypass over-calculation and build reflex patterns.
+                    </p>
+                </div>
+
+                <!-- Method 3 -->
+                <div class="bg-white p-6 rounded-2xl border border-chic-100 shadow-chic hover:shadow-chic-hover hover:-translate-y-1 transition-lux group">
+                    <div class="w-12 h-12 rounded-full bg-chic-100 flex items-center justify-center text-chic-600 mb-6 group-hover:bg-chic-500 group-hover:text-white transition-lux">
+                        <span class="font-serif italic text-lg font-bold">03</span>
+                    </div>
+                    <h3 class="font-serif font-bold text-lg text-sand-900 mb-2">Connected Speech</h3>
+                    <p class="text-[10px] uppercase font-bold text-chic-500 tracking-wider mb-2">Shadowing & Linking</p>
+                    <p class="text-xs text-sand-900/70 leading-relaxed font-sans">
+                        Systematic shadowing of high-scoring mock exams. Focuses on link transitions (consonant-to-vowel) and weak form contractions, eliminating typical staccato rhythm barriers.
+                    </p>
+                </div>
+
+                <!-- Method 4 -->
+                <div class="bg-white p-6 rounded-2xl border border-chic-100 shadow-chic hover:shadow-chic-hover hover:-translate-y-1 transition-lux group">
+                    <div class="w-12 h-12 rounded-full bg-chic-100 flex items-center justify-center text-chic-600 mb-6 group-hover:bg-chic-500 group-hover:text-white transition-lux">
+                        <span class="font-serif italic text-lg font-bold">04</span>
+                    </div>
+                    <h3 class="font-serif font-bold text-lg text-sand-900 mb-2">"Pause & Breathe"</h3>
+                    <p class="text-[10px] uppercase font-bold text-chic-500 tracking-wider mb-2">Filler Mitigation Protocol</p>
+                    <p class="text-xs text-sand-900/70 leading-relaxed font-sans">
+                        Replaces cultural stalling sounds ("eto/ano") with structured silence or elite native transitional fillers. Preserves the coherence band criteria, keeping physical breathing synced with dynamic speech output.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Searchable Topic Bank Section -->
+        <section id="topic-bank" class="mb-16 scroll-mt-24">
+            <div class="bg-white p-8 rounded-3xl border border-chic-100 shadow-chic">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
+                    <div>
+                        <span class="text-chic-500 text-xs tracking-widest font-bold uppercase block">Academic Assets</span>
+                        <h2 class="text-2xl md:text-3xl font-serif text-sand-900 mt-1">Interactive Topic Bank (45 Essential Topics)</h2>
+                    </div>
+                    <!-- Search bar -->
+                    <div class="relative w-full md:w-72">
+                        <input type="text" id="topic-search" placeholder="Filter topics..." class="w-full pl-10 pr-4 py-2 border border-chic-200 rounded-full text-xs font-medium text-sand-900 focus:outline-none focus:ring-1 focus:ring-chic-500 focus:border-chic-500 transition-lux bg-sand-50">
+                        <i class="fa-solid fa-search absolute left-4 top-3 text-sand-300 text-xs"></i>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Tier 1 -->
+                    <div class="bg-sand-50/50 border border-sand-100 rounded-2xl p-6">
+                        <div class="flex items-center justify-between mb-4 pb-2 border-b border-chic-100">
+                            <h4 class="font-serif font-bold text-base text-sand-900">Tier 1: Personal & Conversational</h4>
+                            <span class="bg-chic-100 text-chic-700 text-[9px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full">Part 1</span>
+                        </div>
+                        <ul id="tier-1-list" class="space-y-2 text-xs text-sand-900/80">
+                            <li class="topic-item flex items-center justify-between"><span class="font-medium">1. Work, IT, Software Dev</span> <span class="text-[10px] text-chic-500 font-serif italic">Familiar</span></li>
+                            <li class="topic-item flex items-center justify-between"><span class="font-medium">2. Hometown & Urban Infrastructure</span> <span class="text-[10px] text-chic-500 font-serif italic">Familiar</span></li>
+                            <li class="topic-item flex items-center justify-between"><span class="font-medium">3. Daily Schedule & Time Blocking</span> <span class="text-[10px] text-chic-500 font-serif italic">Familiar</span></li>
+                            <li class="topic-item flex items-center justify-between"><span class="font-medium">4. Hobbies, Unwinding & Downtime</span> <span class="text-[10px] text-chic-500 font-serif italic">Familiar</span></li>
+                            <li class="topic-item flex items-center justify-between"><span class="font-medium">5. Food, Culinary Arts & Gastronomy</span> <span class="text-[10px] text-chic-500 font-serif italic">Familiar</span></li>
+                            <li class="topic-item flex items-center justify-between"><span class="font-medium">6. Public Transportation Systems</span> <span class="text-[10px] text-chic-500 font-serif italic">Familiar</span></li>
+                            <li class="topic-item flex items-center justify-between"><span class="font-medium">7. Meteorological Shifts & Seasons</span> <span class="text-[10px] text-chic-500 font-serif italic">Familiar</span></li>
+                            <li class="topic-item flex items-center justify-between"><span class="font-medium">8. Residential Structures & Housing</span> <span class="text-[10px] text-chic-500 font-serif italic">Familiar</span></li>
+                            <li class="topic-item flex items-center justify-between"><span class="font-medium">9. Interpersonal Relationships & Family</span> <span class="text-[10px] text-chic-500 font-serif italic">Familiar</span></li>
+                            <li class="topic-item flex items-center justify-between"><span class="font-medium">10. Weekend Escapes & Staycations</span> <span class="text-[10px] text-chic-500 font-serif italic">Familiar</span></li>
+                            <li class="topic-item flex items-center justify-between"><span class="font-medium">11. Consumerism & Retail Spending</span> <span class="text-[10px] text-chic-500 font-serif italic">Familiar</span></li>
+                            <li class="topic-item flex items-center justify-between"><span class="font-medium">12. Physical Exercise & Wellbeing</span> <span class="text-[10px] text-chic-500 font-serif italic">Familiar</span></li>
+                            <li class="topic-item flex items-center justify-between"><span class="font-medium">13. Soundtracks, Music & Audio Therapy</span> <span class="text-[10px] text-chic-500 font-serif italic">Familiar</span></li>
+                            <li class="topic-item flex items-center justify-between"><span class="font-medium">14. Lit, Non-Fiction & Book Trends</span> <span class="text-[10px] text-chic-500 font-serif italic">Familiar</span></li>
+                            <li class="topic-item flex items-center justify-between"><span class="font-medium">15. Multilingualism & SLA Processes</span> <span class="text-[10px] text-chic-500 font-serif italic">Familiar</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Tier 2 -->
+                    <div class="bg-sand-50/50 border border-sand-100 rounded-2xl p-6">
+                        <div class="flex items-center justify-between mb-4 pb-2 border-b border-chic-100">
+                            <h4 class="font-serif font-bold text-base text-sand-900">Tier 2: Storytelling & Anecdotes</h4>
+                            <span class="bg-chic-100 text-chic-700 text-[9px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full">Part 2</span>
+                        </div>
+                        <ul id="tier-2-list" class="space-y-2 text-xs text-sand-900/80">
+                            <li class="topic-item flex items-center justify-between"><span class="font-medium">16. A Memorable Journey/Adventure</span> <span class="text-[10px] text-chic-500 font-serif italic">Narrative</span></li>
+                            <li class="topic-item flex items-center justify-between"><span class="font-medium">17. An Influential Device/Gadget</span> <span class="text-[10px] text-chic-500 font-serif italic">Narrative</span></li>
+                            <li class="topic-item flex items-center justify-between"><span class="font-medium">18. A Leader You Greatly Admire</span> <span class="text-[10px] text-chic-500 font-serif italic">Narrative</span></li>
+                            <li class="topic-item flex items-center justify-between"><span class="font-medium">19. A Core Nostalgic Memory</span> <span class="text-[10px] text-chic-500 font-serif italic">Narrative</span></li>
+                            <li class="topic-item flex items-center justify-between"><span class="font-medium">20. A Prominent Commercial Success</span> <span class="text-[10px] text-chic-500 font-serif italic">Narrative</span></li>
+                            <li class="topic-item flex items-center justify-between"><span class="font-medium">21. A Milestone Achievement</span> <span class="text-[10px] text-chic-500 font-serif italic">Narrative</span></li>
+                            <li class="topic-item flex items-center justify-between"><span class="font-medium">22. An Act of Giving/Gifting</span> <span class="text-[10px] text-chic-500 font-serif italic">Narrative</span></li>
+                            <li class="topic-item flex items-center justify-between"><span class="font-medium">23. Navigating an Emergency/Problem</span> <span class="text-[10px] text-chic-500 font-serif italic">Narrative</span></li>
+                            <li class="topic-item flex items-center justify-between"><span class="font-medium">24. An Scenic Natural Landscape</span> <span class="text-[10px] text-chic-500 font-serif italic">Narrative</span></li>
+                            <li class="topic-item flex items-center justify-between"><span class="font-medium">25. A Structural Masterpiece</span> <span class="text-[10px] text-chic-500 font-serif italic">Narrative</span></li>
+                            <li class="topic-item flex items-center justify-between"><span class="font-medium">26. An Intellectual Dialogue</span> <span class="text-[10px] text-chic-500 font-serif italic">Narrative</span></li>
+                            <li class="topic-item flex items-center justify-between"><span class="font-medium">27. Media That Redefined Your Outlook</span> <span class="text-[10px] text-chic-500 font-serif italic">Narrative</span></li>
+                            <li class="topic-item flex items-center justify-between"><span class="font-medium">28. Acquiring a High-Value Skill</span> <span class="text-[10px] text-chic-500 font-serif italic">Narrative</span></li>
+                            <li class="topic-item flex items-center justify-between"><span class="font-medium">29. Designing & Hosting an Event</span> <span class="text-[10px] text-chic-500 font-serif italic">Narrative</span></li>
+                            <li class="topic-item flex items-center justify-between"><span class="font-medium">30. Managing a Hectic Period</span> <span class="text-[10px] text-chic-500 font-serif italic">Narrative</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Tier 3 -->
+                    <div class="bg-sand-50/50 border border-sand-100 rounded-2xl p-6">
+                        <div class="flex items-center justify-between mb-4 pb-2 border-b border-chic-100">
+                            <h4 class="font-serif font-bold text-base text-sand-900">Tier 3: Abstract & Analytical</h4>
+                            <span class="bg-chic-100 text-chic-700 text-[9px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full">Part 3</span>
+                        </div>
+                        <ul id="tier-3-list" class="space-y-2 text-xs text-sand-900/80">
+                            <li class="topic-item flex items-center justify-between"><span class="font-medium">31. AI & Autonomous Innovations</span> <span class="text-[10px] text-chic-500 font-serif italic">Abstract</span></li>
+                            <li class="topic-item flex items-center justify-between"><span class="font-medium">32. Ecological Preservation Strategies</span> <span class="text-[10px] text-chic-500 font-serif italic">Abstract</span></li>
+                            <li class="topic-item flex items-center justify-between"><span class="font-medium">33. Cultural Homogenization</span> <span class="text-[10px] text-chic-500 font-serif italic">Abstract</span></li>
+                            <li class="topic-item flex items-center justify-between"><span class="font-medium">34. Progressive Educational Systems</span> <span class="text-[10px] text-chic-500 font-serif italic">Abstract</span></li>
+                            <li class="topic-item flex items-center justify-between"><span class="font-medium">35. Remote Work & Async Cultures</span> <span class="text-[10px] text-chic-500 font-serif italic">Abstract</span></li>
+                            <li class="topic-item flex items-center justify-between"><span class="font-medium">36. Misinformation & Digital Media</span> <span class="text-[10px] text-chic-500 font-serif italic">Abstract</span></li>
+                            <li class="topic-item flex items-center justify-between"><span class="font-medium">37. Public Health & Preventive Measures</span> <span class="text-[10px] text-chic-500 font-serif italic">Abstract</span></li>
+                            <li class="topic-item flex items-center justify-between"><span class="font-medium">38. Modern Consumer Psychology</span> <span class="text-[10px] text-chic-500 font-serif italic">Abstract</span></li>
+                            <li class="topic-item flex items-center justify-between"><span class="font-medium">39. Urbanization & Megacity Operations</span> <span class="text-[10px] text-chic-500 font-serif italic">Abstract</span></li>
+                            <li class="topic-item flex items-center justify-between"><span class="font-medium">40. Astropolitical & Space Policies</span> <span class="text-[10px] text-chic-500 font-serif italic">Abstract</span></li>
+                            <li class="topic-item flex items-center justify-between"><span class="font-medium">41. The Future of Logistics & Mobility</span> <span class="text-[10px] text-chic-500 font-serif italic">Abstract</span></li>
+                            <li class="topic-item flex items-center justify-between"><span class="font-medium">42. Workplace Burnout Dynamics</span> <span class="text-[10px] text-chic-500 font-serif italic">Abstract</span></li>
+                            <li class="topic-item flex items-center justify-between"><span class="font-medium">43. Cryptography & Personal Sovereignty</span> <span class="text-[10px] text-chic-500 font-serif italic">Abstract</span></li>
+                            <li class="topic-item flex items-center justify-between"><span class="font-medium">44. Generational Cognitive Divides</span> <span class="text-[10px] text-chic-500 font-serif italic">Abstract</span></li>
+                            <li class="topic-item flex items-center justify-between"><span class="font-medium">45. Contemporary Fine Arts Preservation</span> <span class="text-[10px] text-chic-500 font-serif italic">Abstract</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Environment Mitigation Strategy -->
+        <section id="adaptation" class="mb-16 scroll-mt-24">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Explanatory Side Box -->
+                <div class="lg:col-span-1 flex flex-col justify-center">
+                    <span class="text-chic-500 text-xs tracking-widest font-bold uppercase block">Tokyo Survival Strategy</span>
+                    <h2 class="text-3xl font-serif text-sand-900 mt-2 mb-4">Combating English Isolation</h2>
+                    <p class="text-xs text-sand-900/70 leading-relaxed font-sans mb-6">
+                        Since her professional environment in Tokyo is non-verbal and technically specialized, we must manufacture self-directed speaking feedback loops that seamlessly sync with daily operations.
+                    </p>
+                    <div class="p-4 bg-chic-50 rounded-xl border border-chic-200">
+                        <span class="text-xs font-bold text-chic-700 block mb-1">Target Action Plan:</span>
+                        <p class="text-[11px] text-sand-900/80">30 minutes of continuous daily verbalization using low-barrier, self-paced active rehearsal methods.</p>
+                    </div>
+                </div>
+
+                <!-- Tactics Cards -->
+                <div class="lg:col-span-2 grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="bg-white p-6 rounded-2xl border border-chic-100 shadow-chic">
+                        <div class="text-chic-500 text-xl mb-4"><i class="fa-solid fa-duck"></i></div>
+                        <h4 class="font-serif font-bold text-base text-sand-900 mb-2">"Rubber Ducking"</h4>
+                        <p class="text-xs text-sand-900/70 leading-relaxed">
+                            As a developer, she can vocalize her software debugging and system architectures aloud exclusively in English, transforming professional isolation into high-density active speaking practice.
+                        </p>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl border border-chic-100 shadow-chic">
+                        <div class="text-chic-500 text-xl mb-4"><i class="fa-solid fa-microphone-lines"></i></div>
+                        <h4 class="font-serif font-bold text-base text-sand-900 mb-2">AI Verbal Commutes</h4>
+                        <p class="text-xs text-sand-900/70 leading-relaxed">
+                            10 minutes of interactive voice mode prompts during daily transport. Forcing immediate oral responses to mock examiners without visual syntax support.
+                        </p>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl border border-chic-100 shadow-chic">
+                        <div class="text-chic-500 text-xl mb-4"><i class="fa-solid fa-waveform"></i></div>
+                        <h4 class="font-serif font-bold text-base text-sand-900 mb-2">WhatsApp Journals</h4>
+                        <p class="text-xs text-sand-900/70 leading-relaxed">
+                            Submitting 3 bi-weekly unscripted 2-minute raw recordings straight to the tutor. Mimicking sudden, natural stream-of-consciousness narratives with no preparation.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 20-Session Plan Section -->
+        <section id="sessions" class="scroll-mt-24">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-10 pb-6 border-b border-chic-100">
+                <div>
+                    <span class="text-chic-500 text-xs tracking-widest font-bold uppercase block">Interactive Masterclass</span>
+                    <h2 class="text-3xl font-serif text-sand-900 mt-1">The 20-Session Step-by-Step Pathway</h2>
+                    <p class="text-xs text-sand-900/60 mt-1">Toggle tabs to view specific phases. Tick checkboxes to record your progress.</p>
+                </div>
+                
+                <!-- Dynamic Filter Tabs -->
+                <div class="flex flex-wrap gap-2">
+                    <button onclick="filterPhase('all')" class="phase-tab active text-xs font-semibold px-4 py-2 rounded-full border border-chic-200 bg-white text-sand-900 hover:bg-chic-50 transition-lux focus:outline-none shadow-sm">All</button>
+                    <button onclick="filterPhase('p1')" class="phase-tab text-xs font-semibold px-4 py-2 rounded-full border border-chic-200 bg-white text-sand-900 hover:bg-chic-50 transition-lux focus:outline-none shadow-sm">P1: Part 1 Reflexes</button>
+                    <button onclick="filterPhase('p2')" class="phase-tab text-xs font-semibold px-4 py-2 rounded-full border border-chic-200 bg-white text-sand-900 hover:bg-chic-50 transition-lux focus:outline-none shadow-sm">P2: Part 2 Stamina</button>
+                    <button onclick="filterPhase('p3')" class="phase-tab text-xs font-semibold px-4 py-2 rounded-full border border-chic-200 bg-white text-sand-900 hover:bg-chic-50 transition-lux focus:outline-none shadow-sm">P3: Part 3 Depth</button>
+                    <button onclick="filterPhase('p4')" class="phase-tab text-xs font-semibold px-4 py-2 rounded-full border border-chic-200 bg-white text-sand-900 hover:bg-chic-50 transition-lux focus:outline-none shadow-sm">P4: Final Polish</button>
+                </div>
+            </div>
+
+            <!-- Sessions Display Grid -->
+            <div class="space-y-8">
+                
+                <!-- PHASE 1 HEAD -->
+                <div class="phase-header p1-group" id="phase-1-anchor">
+                    <h3 class="text-xs uppercase font-bold tracking-widest text-chic-500 bg-chic-100/50 inline-block px-4 py-1.5 rounded-full mb-2">Phase 1: Breaking Perfectionism & Part 1 Reflexes</h3>
+                </div>
+
+                <!-- Session 1 -->
+                <div class="session-card-el p1-group bg-white rounded-3xl border border-chic-100 p-6 md:p-8 shadow-chic hover:shadow-chic-hover transition-lux flex flex-col md:flex-row gap-6 items-start" data-session-id="1">
+                    <div class="flex items-center gap-3 md:flex-col md:items-center">
+                        <input type="checkbox" id="chk-s1" class="session-chk w-5 h-5 accent-chic-500 rounded border-chic-300 focus:ring-0 cursor-pointer" onclick="toggleSessionProgress('1')">
+                        <span class="text-3xl font-serif italic text-chic-300">01</span>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                            <h4 class="text-xl font-serif font-bold text-sand-900">Baseline Assessment & Rapid-Fire Activation</h4>
+                            <span class="bg-chic-100 text-chic-700 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">Part 1</span>
+                        </div>
+                        <p class="text-xs text-sand-900/80 mb-4"><strong>Syllabus Integration:</strong> Work/IT & Hometown (Topics 1, 2) | <strong>Focus Protocol:</strong> Diagnostic Evaluation & Rapid-Fire Drills</p>
+                        <ul class="space-y-2 text-xs text-sand-900/70 pl-4 list-disc mb-6">
+                            <li><span class="font-bold text-sand-900">00-15m:</span> Intros, programmatic alignments, establishing target goals and performance logs.</li>
+                            <li><span class="font-bold text-sand-900">15-45m:</span> Diagnostic evaluation of full P1/P2/P3 sequence; recording metrics.</li>
+                            <li><span class="font-bold text-sand-900">45-75m:</span> 30-item high-intensity quick response drilling; eliminating cognitive perfectionism.</li>
+                            <li><span class="font-bold text-sand-900">75-90m:</span> Playback analysis isolating key hesitation patterns and repetitive native placeholders.</li>
+                        </ul>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4 border-t border-sand-100 bg-sand-50/40 p-4 rounded-xl text-xs">
+                            <div>
+                                <span class="text-chic-600 font-semibold block mb-1">Success Metrics & Benchmarks</span>
+                                <p class="text-sand-900/70">Reducing initial latency gaps to under 1.5 seconds on direct Tier 1 personal prompts.</p>
+                            </div>
+                            <div>
+                                <span class="text-chic-600 font-semibold block mb-1">Homework Allocation</span>
+                                <p class="text-sand-900/70">Configure ChatGPT Voice App; record and submit three 1-minute responses for personal profiles.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Session 2 -->
+                <div class="session-card-el p1-group bg-white rounded-3xl border border-chic-100 p-6 md:p-8 shadow-chic hover:shadow-chic-hover transition-lux flex flex-col md:flex-row gap-6 items-start" data-session-id="2">
+                    <div class="flex items-center gap-3 md:flex-col md:items-center">
+                        <input type="checkbox" id="chk-s2" class="session-chk w-5 h-5 accent-chic-500 rounded border-chic-300 focus:ring-0 cursor-pointer" onclick="toggleSessionProgress('2')">
+                        <span class="text-3xl font-serif italic text-chic-300">02</span>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                            <h4 class="text-xl font-serif font-bold text-sand-900">Response Expansion & Natural Filler Framing</h4>
+                            <span class="bg-chic-100 text-chic-700 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">Part 1</span>
+                        </div>
+                        <p class="text-xs text-sand-900/80 mb-4"><strong>Syllabus Integration:</strong> Hobbies & Time Blocking (Topics 3, 4) | <strong>Focus Protocol:</strong> "Pause & Breathe" Systematic Insertion</p>
+                        <ul class="space-y-2 text-xs text-sand-900/70 pl-4 list-disc mb-6">
+                            <li><span class="font-bold text-sand-900">00-15m:</span> Warm-up drills checking automatic reflex speed against hobby prompts.</li>
+                            <li><span class="font-bold text-sand-900">15-45m:</span> Replacing "eto/ano" stalling triggers with clean structural pauses or native transitions.</li>
+                            <li><span class="font-bold text-sand-900">45-75m:</span> Implementing the 3-Sentence Rule (Direct Response + Specific Detail + Exemplification).</li>
+                            <li><span class="font-bold text-sand-900">75-90m:</span> Corrective feedback focusing strictly on pacing smoothness over syntactic perfection.</li>
+                        </ul>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4 border-t border-sand-100 bg-sand-50/40 p-4 rounded-xl text-xs">
+                            <div>
+                                <span class="text-chic-600 font-semibold block mb-1">Success Metrics & Benchmarks</span>
+                                <p class="text-sand-900/70">Complete eradication of Japanese vocal filler elements across a continuous 5-minute set.</p>
+                            </div>
+                            <div>
+                                <span class="text-chic-600 font-semibold block mb-1">Homework Allocation</span>
+                                <p class="text-sand-900/70">Produce 5 audio journals using 3-Sentence templates covering time blocking schedules.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Session 3 -->
+                <div class="session-card-el p1-group bg-white rounded-3xl border border-chic-100 p-6 md:p-8 shadow-chic hover:shadow-chic-hover transition-lux flex flex-col md:flex-row gap-6 items-start" data-session-id="3">
+                    <div class="flex items-center gap-3 md:flex-col md:items-center">
+                        <input type="checkbox" id="chk-s3" class="session-chk w-5 h-5 accent-chic-500 rounded border-chic-300 focus:ring-0 cursor-pointer" onclick="toggleSessionProgress('3')">
+                        <span class="text-3xl font-serif italic text-chic-300">03</span>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                            <h4 class="text-xl font-serif font-bold text-sand-900">Cadence Rhythm & Phonetic Connected Speech</h4>
+                            <span class="bg-chic-100 text-chic-700 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">Part 1</span>
+                        </div>
+                        <p class="text-xs text-sand-900/80 mb-4"><strong>Syllabus Integration:</strong> Transit Systems & Culinary (Topics 5, 6) | <strong>Focus Protocol:</strong> Active Shadowing Drills</p>
+                        <ul class="space-y-2 text-xs text-sand-900/70 pl-4 list-disc mb-6">
+                            <li><span class="font-bold text-sand-900">00-15m:</span> Review of submitted time blocking homework responses.</li>
+                            <li><span class="font-bold text-sand-900">15-45m:</span> Isolating linking sounds and weak-form contractions in classic high-scoring responses.</li>
+                            <li><span class="font-bold text-sand-900">45-75m:</span> Practicing sentence segmentation and rhythmic breathing points over Transit prompts.</li>
+                            <li><span class="font-bold text-sand-900">75-90m:</span> Continuous 15-minute P1 simulation focusing on cadence.</li>
+                        </ul>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4 border-t border-sand-100 bg-sand-50/40 p-4 rounded-xl text-xs">
+                            <div>
+                                <span class="text-chic-600 font-semibold block mb-1">Success Metrics & Benchmarks</span>
+                                <p class="text-sand-900/70">Correct integration of key phrasal links (e.g., "lot of", "kind of") without breath interruption.</p>
+                            </div>
+                            <div>
+                                <span class="text-chic-600 font-semibold block mb-1">Homework Allocation</span>
+                                <p class="text-sand-900/70">15 minutes of daily active audio shadowing using the provided high-frequency tracks.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Session 4 -->
+                <div class="session-card-el p1-group bg-white rounded-3xl border border-chic-100 p-6 md:p-8 shadow-chic hover:shadow-chic-hover transition-lux flex flex-col md:flex-row gap-6 items-start" data-session-id="4">
+                    <div class="flex items-center gap-3 md:flex-col md:items-center">
+                        <input type="checkbox" id="chk-s4" class="session-chk w-5 h-5 accent-chic-500 rounded border-chic-300 focus:ring-0 cursor-pointer" onclick="toggleSessionProgress('4')">
+                        <span class="text-3xl font-serif italic text-chic-300">04</span>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                            <h4 class="text-xl font-serif font-bold text-sand-900">Lexical Agility & High-Speed Reformulation</h4>
+                            <span class="bg-chic-100 text-chic-700 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">Part 1</span>
+                        </div>
+                        <p class="text-xs text-sand-900/80 mb-4"><strong>Syllabus Integration:</strong> Housing & Weather Dynamics (Topics 7, 8) | <strong>Focus Protocol:</strong> Real-Time Synonymous Reformulation</p>
+                        <ul class="space-y-2 text-xs text-sand-900/70 pl-4 list-disc mb-6">
+                            <li><span class="font-bold text-sand-900">00-15m:</span> Reviewing connection patterns and phonetic links.</li>
+                            <li><span class="font-bold text-sand-900">15-45m:</span> Synonymous replacement games under timer constraint to activate latent technical vocabulary.</li>
+                            <li><span class="font-bold text-sand-900">45-75m:</span> Applying agile vocabulary shifts specifically to Housing and Weather templates.</li>
+                            <li><span class="font-bold text-sand-900">75-90m:</span> Error feedback and targeted lexical upgrading.</li>
+                        </ul>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4 border-t border-sand-100 bg-sand-50/40 p-4 rounded-xl text-xs">
+                            <div>
+                                <span class="text-chic-600 font-semibold block mb-1">Success Metrics & Benchmarks</span>
+                                <p class="text-sand-900/70">Substituting core items smoothly mid-phrase without halting basic flow structures.</p>
+                            </div>
+                            <div>
+                                <span class="text-chic-600 font-semibold block mb-1">Homework Allocation</span>
+                                <p class="text-sand-900/70">Record housing reviews using 5 targeted, highly descriptive synonym variables.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Session 5 -->
+                <div class="session-card-el p1-group bg-white rounded-3xl border border-chic-100 p-6 md:p-8 shadow-chic hover:shadow-chic-hover transition-lux flex flex-col md:flex-row gap-6 items-start" data-session-id="5">
+                    <div class="flex items-center gap-3 md:flex-col md:items-center">
+                        <input type="checkbox" id="chk-s5" class="session-chk w-5 h-5 accent-chic-500 rounded border-chic-300 focus:ring-0 cursor-pointer" onclick="toggleSessionProgress('5')">
+                        <span class="text-3xl font-serif italic text-chic-300">05</span>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                            <h4 class="text-xl font-serif font-bold text-sand-900">Phase 1 Consolidation & Endurance Drills</h4>
+                            <span class="bg-chic-100 text-chic-700 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">Part 1</span>
+                        </div>
+                        <p class="text-xs text-sand-900/80 mb-4"><strong>Syllabus Integration:</strong> Relationships, Retail & Music (Topics 9, 10, 11) | <strong>Focus Protocol:</strong> Deep Mock Simulation</p>
+                        <ul class="space-y-2 text-xs text-sand-900/70 pl-4 list-disc mb-6">
+                            <li><span class="font-bold text-sand-900">00-30m:</span> Three continuous full-length P1 assessments back-to-back using novel topics.</li>
+                            <li><span class="font-bold text-sand-900">30-60m:</span> Self-directed playback review isolating remaining pacing gaps.</li>
+                            <li><span class="font-bold text-sand-900">60-90m:</span> Instant real-time rebuilds of identified weak response sets.</li>
+                        </ul>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4 border-t border-sand-100 bg-sand-50/40 p-4 rounded-xl text-xs">
+                            <div>
+                                <span class="text-chic-600 font-semibold block mb-1">Success Metrics & Benchmarks</span>
+                                <p class="text-sand-900/70">Maintaining stable, uninterrupted 6.5 pacing structures throughout the block.</p>
+                            </div>
+                            <div>
+                                <span class="text-chic-600 font-semibold block mb-1">Homework Allocation</span>
+                                <p class="text-sand-900/70">Initiate English software "rubber-ducking" daily. Prepare base layouts for "Memorable Trips".</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PHASE 2 HEAD -->
+                <div class="phase-header p2-group" id="phase-2-anchor">
+                    <h3 class="text-xs uppercase font-bold tracking-widest text-chic-500 bg-chic-100/50 inline-block px-4 py-1.5 rounded-full mb-2">Phase 2: Sustained Speech & Part 2 Storytelling</h3>
+                </div>
+
+                <!-- Session 6 -->
+                <div class="session-card-el p2-group bg-white rounded-3xl border border-chic-100 p-6 md:p-8 shadow-chic hover:shadow-chic-hover transition-lux flex flex-col md:flex-row gap-6 items-start" data-session-id="6">
+                    <div class="flex items-center gap-3 md:flex-col md:items-center">
+                        <input type="checkbox" id="chk-s6" class="session-chk w-5 h-5 accent-chic-500 rounded border-chic-300 focus:ring-0 cursor-pointer" onclick="toggleSessionProgress('6')">
+                        <span class="text-3xl font-serif italic text-chic-300">06</span>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                            <h4 class="text-xl font-serif font-bold text-sand-900">The 4-3-2 Rhythmic Rehearsal Method</h4>
+                            <span class="bg-chic-100 text-chic-700 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">Part 2</span>
+                        </div>
+                        <p class="text-xs text-sand-900/80 mb-4"><strong>Syllabus Integration:</strong> A Memorable Journey (Topic 16) | <strong>Focus Protocol:</strong> 4-3-2 Structural Repetition</p>
+                        <ul class="space-y-2 text-xs text-sand-900/70 pl-4 list-disc mb-6">
+                            <li><span class="font-bold text-sand-900">00-15m:</span> Introduction to Part 2 structures; mapping visual mind-maps over text notes.</li>
+                            <li><span class="font-bold text-sand-900">15-60m:</span> Implementing the 4-3-2 protocol for Topic 16 (4m run / feedback / 3m run / feedback / 2m run).</li>
+                            <li><span class="font-bold text-sand-900">60-90m:</span> Analyzing performance gains, focusing on structural transitions and narrative arc.</li>
+                        </ul>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4 border-t border-sand-100 bg-sand-50/40 p-4 rounded-xl text-xs">
+                            <div>
+                                <span class="text-chic-600 font-semibold block mb-1">Success Metrics & Benchmarks</span>
+                                <p class="text-sand-900/70">The 2-minute run must exhibit a 50% drop in overall pausing frequency vs the 4-minute draft.</p>
+                            </div>
+                            <div>
+                                <span class="text-chic-600 font-semibold block mb-1">Homework Allocation</span>
+                                <p class="text-sand-900/70">Submit a 2-minute recording covering "An Important Technological Device".</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Session 7 -->
+                <div class="session-card-el p2-group bg-white rounded-3xl border border-chic-100 p-6 md:p-8 shadow-chic hover:shadow-chic-hover transition-lux flex flex-col md:flex-row gap-6 items-start" data-session-id="7">
+                    <div class="flex items-center gap-3 md:flex-col md:items-center">
+                        <input type="checkbox" id="chk-s7" class="session-chk w-5 h-5 accent-chic-500 rounded border-chic-300 focus:ring-0 cursor-pointer" onclick="toggleSessionProgress('7')">
+                        <span class="text-3xl font-serif italic text-chic-300">07</span>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                            <h4 class="text-xl font-serif font-bold text-sand-900">Chronological Narrative Scaffolding (PPF)</h4>
+                            <span class="bg-chic-100 text-chic-700 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">Part 2</span>
+                        </div>
+                        <p class="text-xs text-sand-900/80 mb-4"><strong>Syllabus Integration:</strong> Tech & Issue Resolution (Topics 17, 23) | <strong>Focus Protocol:</strong> Past-Present-Future Scaffolding</p>
+                        <ul class="space-y-2 text-xs text-sand-900/70 pl-4 list-disc mb-6">
+                            <li><span class="font-bold text-sand-900">00-10m:</span> Diagnostic homework playback critique.</li>
+                            <li><span class="font-bold text-sand-900">10-30m:</span> Formatting Past-Present-Future (PPF) skeletons to avoid premature end-stoppage before 2 minutes.</li>
+                            <li><span class="font-bold text-sand-900">30-70m:</span> Practicing PPF timelines using Topic 23 ("An Actioned Resolution").</li>
+                            <li><span class="font-bold text-sand-900">70-90m:</span> Pronunciation audits; monitoring consonant transitions and linking.</li>
+                        </ul>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4 border-t border-sand-100 bg-sand-50/40 p-4 rounded-xl text-xs">
+                            <div>
+                                <span class="text-chic-600 font-semibold block mb-1">Success Metrics & Benchmarks</span>
+                                <p class="text-sand-900/70">Maintaining stable delivery right to the 2-minute mark with zero examiner prompts.</p>
+                            </div>
+                            <div>
+                                <span class="text-chic-600 font-semibold block mb-1">Homework Allocation</span>
+                                <p class="text-sand-900/70">Draft structural PPF outlines for 3 different Tier 2 storytelling subjects.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Session 8 -->
+                <div class="session-card-el p2-group bg-white rounded-3xl border border-chic-100 p-6 md:p-8 shadow-chic hover:shadow-chic-hover transition-lux flex flex-col md:flex-row gap-6 items-start" data-session-id="8">
+                    <div class="flex items-center gap-3 md:flex-col md:items-center">
+                        <input type="checkbox" id="chk-s8" class="session-chk w-5 h-5 accent-chic-500 rounded border-chic-300 focus:ring-0 cursor-pointer" onclick="toggleSessionProgress('8')">
+                        <span class="text-3xl font-serif italic text-chic-300">08</span>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                            <h4 class="text-xl font-serif font-bold text-sand-900">Adjectival Chunking & Sensory Illustration</h4>
+                            <span class="bg-chic-100 text-chic-700 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">Part 2</span>
+                        </div>
+                        <p class="text-xs text-sand-900/80 mb-4"><strong>Syllabus Integration:</strong> Role Models & Natural Vistas (Topics 18, 24) | <strong>Focus Protocol:</strong> Advanced Noun-Phrase Chunking</p>
+                        <ul class="space-y-2 text-xs text-sand-900/70 pl-4 list-disc mb-6">
+                            <li><span class="font-bold text-sand-900">00-15m:</span> P1 Rapid-fire warm-up to secure automatic response times.</li>
+                            <li><span class="font-bold text-sand-900">15-45m:</span> Organizing descriptive sequences into cohesive blocks rather than choppy, broken declarations.</li>
+                            <li><span class="font-bold text-sand-900">45-75m:</span> 1-minute prep / 2-minute speaking assessments on Role Models.</li>
+                            <li><span class="font-bold text-sand-900">75-90m:</span> Lexical resource evaluation and transition flow corrections.</li>
+                        </ul>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4 border-t border-sand-100 bg-sand-50/40 p-4 rounded-xl text-xs">
+                            <div>
+                                <span class="text-chic-600 font-semibold block mb-1">Success Metrics & Benchmarks</span>
+                                <p class="text-sand-900/70">Cohesive and rapid production of complex descriptive clauses without structural blocks.</p>
+                            </div>
+                            <div>
+                                <span class="text-chic-600 font-semibold block mb-1">Homework Allocation</span>
+                                <p class="text-sand-900/70">Record sensory descriptions detailing a key peer or colleague.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Session 9 -->
+                <div class="session-card-el p2-group bg-white rounded-3xl border border-chic-100 p-6 md:p-8 shadow-chic hover:shadow-chic-hover transition-lux flex flex-col md:flex-row gap-6 items-start" data-session-id="9">
+                    <div class="flex items-center gap-3 md:flex-col md:items-center">
+                        <input type="checkbox" id="chk-s9" class="session-chk w-5 h-5 accent-chic-500 rounded border-chic-300 focus:ring-0 cursor-pointer" onclick="toggleSessionProgress('9')">
+                        <span class="text-3xl font-serif italic text-chic-300">09</span>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                            <h4 class="text-xl font-serif font-bold text-sand-900">The "Pivot" Recovery Blueprint</h4>
+                            <span class="bg-chic-100 text-chic-700 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">Part 2</span>
+                        </div>
+                        <p class="text-xs text-sand-900/80 mb-4"><strong>Syllabus Integration:</strong> Goals & Event Coordination (Topics 21, 29) | <strong>Focus Protocol:</strong> Real-Time Pivot Strategy</p>
+                        <ul class="space-y-2 text-xs text-sand-900/70 pl-4 list-disc mb-6">
+                            <li><span class="font-bold text-sand-900">00-20m:</span> Tactical training: using transitional anchors to navigate accidental lapses or content dead-ends.</li>
+                            <li><span class="font-bold text-sand-900">20-60m:</span> Unprepared cue-card challenges; forcing active content-pivoting with under 30s prep.</li>
+                            <li><span class="font-bold text-sand-900">60-90m:</span> Error mitigation and instant lexical transitions.</li>
+                        </ul>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4 border-t border-sand-100 bg-sand-50/40 p-4 rounded-xl text-xs">
+                            <div>
+                                <span class="text-chic-600 font-semibold block mb-1">Success Metrics & Benchmarks</span>
+                                <p class="text-sand-900/70">Seamlessly executing pivot transitions under cognitive fatigue without vocal drops.</p>
+                            </div>
+                            <div>
+                                <span class="text-chic-600 font-semibold block mb-1">Homework Allocation</span>
+                                <p class="text-sand-900/70">Complete two random cue-card sets via ChatGPT Voice; review the transcripts for stalling.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Session 10 -->
+                <div class="session-card-el p2-group bg-white rounded-3xl border border-chic-100 p-6 md:p-8 shadow-chic hover:shadow-chic-hover transition-lux flex flex-col md:flex-row gap-6 items-start" data-session-id="10">
+                    <div class="flex items-center gap-3 md:flex-col md:items-center">
+                        <input type="checkbox" id="chk-s10" class="session-chk w-5 h-5 accent-chic-500 rounded border-chic-300 focus:ring-0 cursor-pointer" onclick="toggleSessionProgress('10')">
+                        <span class="text-3xl font-serif italic text-chic-300">10</span>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                            <h4 class="text-xl font-serif font-bold text-sand-900">Mid-Term Assessment & Milestones</h4>
+                            <span class="bg-chic-100 text-chic-700 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">P1 & P2</span>
+                        </div>
+                        <p class="text-xs text-sand-900/80 mb-4"><strong>Syllabus Integration:</strong> Randomized T1 & T2 sets | <strong>Focus Protocol:</strong> Formal Mock Conditions</p>
+                        <ul class="space-y-2 text-xs text-sand-900/70 pl-4 list-disc mb-6">
+                            <li><span class="font-bold text-sand-900">00-10m:</span> Psychological grounding, focus drills, and physiological relaxation.</li>
+                            <li><span class="font-bold text-sand-900">10-40m:</span> Formal Mock Exam Block 1 (strict pacing and exam compliance).</li>
+                            <li><span class="font-bold text-sand-900">40-70m:</span> Formal Mock Exam Block 2 (utilizing contrasting topic sets).</li>
+                            <li><span class="font-bold text-sand-900">70-90m:</span> In-depth evaluation against official 6.5 rubric descriptors; identifying key progress shifts.</li>
+                        </ul>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4 border-t border-sand-100 bg-sand-50/40 p-4 rounded-xl text-xs">
+                            <div>
+                                <span class="text-chic-600 font-semibold block mb-1">Success Metrics & Benchmarks</span>
+                                <p class="text-sand-900/70">Exhibiting consistent 6.5 fluency and coherence metrics across a full 10-minute trial.</p>
+                            </div>
+                            <div>
+                                <span class="text-chic-600 font-semibold block mb-1">Homework Allocation</span>
+                                <p class="text-sand-900/70">Analyze the diagnostic progress log; implement structural corrections in notes.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PHASE 3 HEAD -->
+                <div class="phase-header p3-group" id="phase-3-anchor">
+                    <h3 class="text-xs uppercase font-bold tracking-widest text-chic-500 bg-chic-100/50 inline-block px-4 py-1.5 rounded-full mb-2">Phase 3: Deep Dive Discussion & Part 3 Analytical Agility</h3>
+                </div>
+
+                <!-- Session 11 -->
+                <div class="session-card-el p3-group bg-white rounded-3xl border border-chic-100 p-6 md:p-8 shadow-chic hover:shadow-chic-hover transition-lux flex flex-col md:flex-row gap-6 items-start" data-session-id="11">
+                    <div class="flex items-center gap-3 md:flex-col md:items-center">
+                        <input type="checkbox" id="chk-s11" class="session-chk w-5 h-5 accent-chic-500 rounded border-chic-300 focus:ring-0 cursor-pointer" onclick="toggleSessionProgress('11')">
+                        <span class="text-3xl font-serif italic text-chic-300">11</span>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                            <h4 class="text-xl font-serif font-bold text-sand-900">Analytical Response Structuring (AREA)</h4>
+                            <span class="bg-chic-100 text-chic-700 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">Part 3</span>
+                        </div>
+                        <p class="text-xs text-sand-900/80 mb-4"><strong>Syllabus Integration:</strong> AI & Ecological Policies (Topics 31, 32) | <strong>Focus Protocol:</strong> The AREA Structural Framework</p>
+                        <ul class="space-y-2 text-xs text-sand-900/70 pl-4 list-disc mb-6">
+                            <li><span class="font-bold text-sand-900">00-15m:</span> Overview of structural transitions inside the Part 3 framework.</li>
+                            <li><span class="font-bold text-sand-900">15-45m:</span> Mastering the AREA template (Assertion + Reason + Example + Alternative).</li>
+                            <li><span class="font-bold text-sand-900">45-75m:</span> Drilling AREA skeletons using familiar software and technical prompts.</li>
+                            <li><span class="font-bold text-sand-900">75-90m:</span> Analyzing coherence metrics and connective choices (e.g., "consequently", "thereby").</li>
+                        </ul>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4 border-t border-sand-100 bg-sand-50/40 p-4 rounded-xl text-xs">
+                            <div>
+                                <span class="text-chic-600 font-semibold block mb-1">Success Metrics & Benchmarks</span>
+                                <p class="text-sand-900/70">Consistently delivering cohesive, multi-clause analytical replies without pausing.</p>
+                            </div>
+                            <div>
+                                <span class="text-chic-600 font-semibold block mb-1">Homework Allocation</span>
+                                <p class="text-sand-900/70">Draft structural AREA templates for 3 abstract ecological preservation topics.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Session 12 -->
+                <div class="session-card-el p3-group bg-white rounded-3xl border border-chic-100 p-6 md:p-8 shadow-chic hover:shadow-chic-hover transition-lux flex flex-col md:flex-row gap-6 items-start" data-session-id="12">
+                    <div class="flex items-center gap-3 md:flex-col md:items-center">
+                        <input type="checkbox" id="chk-s12" class="session-chk w-5 h-5 accent-chic-500 rounded border-chic-300 focus:ring-0 cursor-pointer" onclick="toggleSessionProgress('12')">
+                        <span class="text-3xl font-serif italic text-chic-300">12</span>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                            <h4 class="text-xl font-serif font-bold text-sand-900">Opinion Defense & Counter-Argumentation</h4>
+                            <span class="bg-chic-100 text-chic-700 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">Part 3</span>
+                        </div>
+                        <p class="text-xs text-sand-900/80 mb-4"><strong>Syllabus Integration:</strong> Education & Remote Work (Topics 34, 35) | <strong>Focus Protocol:</strong> Devil's Advocate Verbal Drills</p>
+                        <ul class="space-y-2 text-xs text-sand-900/70 pl-4 list-disc mb-6">
+                            <li><span class="font-bold text-sand-900">00-15m:</span> warm-up: Part 2 rehearsal on educational milestones.</li>
+                            <li><span class="font-bold text-sand-900">15-50m:</span> Handling unexpected counterpoints; practicing concession and polite defense.</li>
+                            <li><span class="font-bold text-sand-900">50-80m:</span> Counter-argument drills focusing on virtual workspace structures and flex schedules.</li>
+                            <li><span class="font-bold text-sand-900">80-90m:</span> Intonation audits; monitoring dynamic pitch variation.</li>
+                        </ul>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4 border-t border-sand-100 bg-sand-50/40 p-4 rounded-xl text-xs">
+                            <div>
+                                <span class="text-chic-600 font-semibold block mb-1">Success Metrics & Benchmarks</span>
+                                <p class="text-sand-900/70">Maintaining structural fluency metrics under immediate debate/interruption conditions.</p>
+                            </div>
+                            <div>
+                                <span class="text-chic-600 font-semibold block mb-1">Homework Allocation</span>
+                                <p class="text-sand-900/70">Submit a 3-minute recording debating AI applications in contemporary software development.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Session 13 -->
+                <div class="session-card-el p3-group bg-white rounded-3xl border border-chic-100 p-6 md:p-8 shadow-chic hover:shadow-chic-hover transition-lux flex flex-col md:flex-row gap-6 items-start" data-session-id="13">
+                    <div class="flex items-center gap-3 md:flex-col md:items-center">
+                        <input type="checkbox" id="chk-s13" class="session-chk w-5 h-5 accent-chic-500 rounded border-chic-300 focus:ring-0 cursor-pointer" onclick="toggleSessionProgress('13')">
+                        <span class="text-3xl font-serif italic text-chic-300">13</span>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                            <h4 class="text-xl font-serif font-bold text-sand-900">Hypothetical & Speculative Projections</h4>
+                            <span class="bg-chic-100 text-chic-700 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">Part 3</span>
+                        </div>
+                        <p class="text-xs text-sand-900/80 mb-4"><strong>Syllabus Integration:</strong> Future Mobility & Megacities (Topics 39, 41) | <strong>Focus Protocol:</strong> Speculative Grammatical Framing</p>
+                        <ul class="space-y-2 text-xs text-sand-900/70 pl-4 list-disc mb-6">
+                            <li><span class="font-bold text-sand-900">00-15m:</span> Review of hypothetical structures and complex conditionals.</li>
+                            <li><span class="font-bold text-sand-900">15-60m:</span> Projection exercises focused entirely on urbanization and advanced transit frameworks.</li>
+                            <li><span class="font-bold text-sand-900">60-80m:</span> Model answer shadowing; targeting elite speculative templates.</li>
+                            <li><span class="font-bold text-sand-900">80-90m:</span> Diagnostic assessment of grammar-fluency balance.</li>
+                        </ul>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4 border-t border-sand-100 bg-sand-50/40 p-4 rounded-xl text-xs">
+                            <div>
+                                <span class="text-chic-600 font-semibold block mb-1">Success Metrics & Benchmarks</span>
+                                <p class="text-sand-900/70">Cohesive production of conditional speculation sets without sentence fragmentation.</p>
+                            </div>
+                            <div>
+                                <span class="text-chic-600 font-semibold block mb-1">Homework Allocation</span>
+                                <p class="text-sand-900/70">Listen to a 10-minute urban design talk; shadow the speaker's speculative patterns for 2 minutes.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Session 14 -->
+                <div class="session-card-el p3-group bg-white rounded-3xl border border-chic-100 p-6 md:p-8 shadow-chic hover:shadow-chic-hover transition-lux flex flex-col md:flex-row gap-6 items-start" data-session-id="14">
+                    <div class="flex items-center gap-3 md:flex-col md:items-center">
+                        <input type="checkbox" id="chk-s14" class="session-chk w-5 h-5 accent-chic-500 rounded border-chic-300 focus:ring-0 cursor-pointer" onclick="toggleSessionProgress('14')">
+                        <span class="text-3xl font-serif italic text-chic-300">14</span>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                            <h4 class="text-xl font-serif font-bold text-sand-900">Comparative Structuring & Contrast Transitions</h4>
+                            <span class="bg-chic-100 text-chic-700 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">Part 3</span>
+                        </div>
+                        <p class="text-xs text-sand-900/80 mb-4"><strong>Syllabus Integration:</strong> Demographics & Digital Medias (Topics 36, 44) | <strong>Focus Protocol:</strong> Dynamic Comparative Frameworks</p>
+                        <ul class="space-y-2 text-xs text-sand-900/70 pl-4 list-disc mb-6">
+                            <li><span class="font-bold text-sand-900">00-15m:</span> P1 Rapid-fire warm-up ensuring active oral speed.</li>
+                            <li><span class="font-bold text-sand-900">15-45m:</span> Formatting comparative connectors (e.g., "whereas", "conversely").</li>
+                            <li><span class="font-bold text-sand-900">45-80m:</span> Drilling contrast-based prompts regarding generational technology divides.</li>
+                            <li><span class="font-bold text-sand-900">80-90m:</span> Evaluating transition effectiveness and response balance.</li>
+                        </ul>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4 border-t border-sand-100 bg-sand-50/40 p-4 rounded-xl text-xs">
+                            <div>
+                                <span class="text-chic-600 font-semibold block mb-1">Success Metrics & Benchmarks</span>
+                                <p class="text-sand-900/70">Smoothly using complex comparative setups without losing conversational rhythm.</p>
+                            </div>
+                            <div>
+                                <span class="text-chic-600 font-semibold block mb-1">Homework Allocation</span>
+                                <p class="text-sand-900/70">Create a 2-minute comparative audio log analyzing junior vs senior engineering practices.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Session 15 -->
+                <div class="session-card-el p3-group bg-white rounded-3xl border border-chic-100 p-6 md:p-8 shadow-chic hover:shadow-chic-hover transition-lux flex flex-col md:flex-row gap-6 items-start" data-session-id="15">
+                    <div class="flex items-center gap-3 md:flex-col md:items-center">
+                        <input type="checkbox" id="chk-s15" class="session-chk w-5 h-5 accent-chic-500 rounded border-chic-300 focus:ring-0 cursor-pointer" onclick="toggleSessionProgress('15')">
+                        <span class="text-3xl font-serif italic text-chic-300">15</span>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                            <h4 class="text-xl font-serif font-bold text-sand-900">The "Buying Time" Blueprint for Obscure Prompts</h4>
+                            <span class="bg-chic-100 text-chic-700 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">Part 3</span>
+                        </div>
+                        <p class="text-xs text-sand-900/80 mb-4"><strong>Syllabus Integration:</strong> Fine Arts & Consumer Psychology (Topics 38, 45) | <strong>Focus Protocol:</strong> Fluid Deliberate Stalling</p>
+                        <ul class="space-y-2 text-xs text-sand-900/70 pl-4 list-disc mb-6">
+                            <li><span class="font-bold text-sand-900">00-20m:</span> Structural practice using academic placeholder setups for highly abstract topics.</li>
+                            <li><span class="font-bold text-sand-900">20-70m:</span> Obscure prompts exercise; forcing rapid reasoning on unfamiliar concepts using AREA.</li>
+                            <li><span class="font-bold text-sand-900">70-90m:</span> Continuous P3 simulation and assessment feedback.</li>
+                        </ul>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4 border-t border-sand-100 bg-sand-50/40 p-4 rounded-xl text-xs">
+                            <div>
+                                <span class="text-chic-600 font-semibold block mb-1">Success Metrics & Benchmarks</span>
+                                <p class="text-sand-900/70">Maintaining calm vocal structures and avoiding silent voids when faced with complex items.</p>
+                            </div>
+                            <div>
+                                <span class="text-chic-600 font-semibold block mb-1">Homework Allocation</span>
+                                <p class="text-sand-900/70">Get 5 random abstract items from ChatGPT; practice structural stalling aloud.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PHASE 4 HEAD -->
+                <div class="phase-header p4-group" id="phase-4-anchor">
+                    <h3 class="text-xs uppercase font-bold tracking-widest text-chic-500 bg-chic-100/50 inline-block px-4 py-1.5 rounded-full mb-2">Phase 4: Full Simulation & Refinement</h3>
+                </div>
+
+                <!-- Session 16 -->
+                <div class="session-card-el p4-group bg-white rounded-3xl border border-chic-100 p-6 md:p-8 shadow-chic hover:shadow-chic-hover transition-lux flex flex-col md:flex-row gap-6 items-start" data-session-id="16">
+                    <div class="flex items-center gap-3 md:flex-col md:items-center">
+                        <input type="checkbox" id="chk-s16" class="session-chk w-5 h-5 accent-chic-500 rounded border-chic-300 focus:ring-0 cursor-pointer" onclick="toggleSessionProgress('16')">
+                        <span class="text-3xl font-serif italic text-chic-300">16</span>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                            <h4 class="text-xl font-serif font-bold text-sand-900">Vocal Stamina & Fatigue Drills</h4>
+                            <span class="bg-chic-100 text-chic-700 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">Full Test</span>
+                        </div>
+                        <p class="text-xs text-sand-900/80 mb-4"><strong>Syllabus Integration:</strong> Randomized Tier 1, 2 & 3 lists | <strong>Focus Protocol:</strong> Double Back-to-Back Mock Testing</p>
+                        <ul class="space-y-2 text-xs text-sand-900/70 pl-4 list-disc mb-6">
+                            <li><span class="font-bold text-sand-900">00-15m:</span> Pre-test physical focus setups and rhythmic exercises.</li>
+                            <li><span class="font-bold text-sand-900">15-30m:</span> Full Trial Simulation 1 (14 minutes).</li>
+                            <li><span class="font-bold text-sand-900">30-45m:</span> Full Trial Simulation 2 (14 minutes), designed to push vocal stamina.</li>
+                            <li><span class="font-bold text-sand-900">45-90m:</span> Comprehensive critique isolating any slight drops in flow during the latter half.</li>
+                        </ul>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4 border-t border-sand-100 bg-sand-50/40 p-4 rounded-xl text-xs">
+                            <div>
+                                <span class="text-chic-600 font-semibold block mb-1">Success Metrics & Benchmarks</span>
+                                <p class="text-sand-900/70">Maintaining stable flow metrics even under mental fatigue during Trial 2.</p>
+                            </div>
+                            <div>
+                                <span class="text-chic-600 font-semibold block mb-1">Homework Allocation</span>
+                                <p class="text-sand-900/70">Record a continuous 30-minute self-reflective talk about your development goals.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Session 17 -->
+                <div class="session-card-el p4-group bg-white rounded-3xl border border-chic-100 p-6 md:p-8 shadow-chic hover:shadow-chic-hover transition-lux flex flex-col md:flex-row gap-6 items-start" data-session-id="17">
+                    <div class="flex items-center gap-3 md:flex-col md:items-center">
+                        <input type="checkbox" id="chk-s17" class="session-chk w-5 h-5 accent-chic-500 rounded border-chic-300 focus:ring-0 cursor-pointer" onclick="toggleSessionProgress('17')">
+                        <span class="text-3xl font-serif italic text-chic-300">17</span>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                            <h4 class="text-xl font-serif font-bold text-sand-900">Refining Part 2 Lexical Flows</h4>
+                            <span class="bg-chic-100 text-chic-700 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">Part 2</span>
+                        </div>
+                        <p class="text-xs text-sand-900/80 mb-4"><strong>Syllabus Integration:</strong> Advanced Tier 2 prompts | <strong>Focus Protocol:</strong> Advanced Lexical Integration</p>
+                        <ul class="space-y-2 text-xs text-sand-900/70 pl-4 list-disc mb-6">
+                            <li><span class="font-bold text-sand-900">00-45m:</span> Re-introducing high-value technical vocabulary smoothly into personal narratives without halting flow.</li>
+                            <li><span class="font-bold text-sand-900">45-75m:</span> 3x Part 2 Mock tests focusing on descriptive lexicon.</li>
+                            <li><span class="font-bold text-sand-900">75-90m:</span> Individualized pronunciation feedback and flow checks.</li>
+                        </ul>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4 border-t border-sand-100 bg-sand-50/40 p-4 rounded-xl text-xs">
+                            <div>
+                                <span class="text-chic-600 font-semibold block mb-1">Success Metrics & Benchmarks</span>
+                                <p class="text-sand-900/70">Integrating complex, technical phrasing into everyday topics without pausing to search for words.</p>
+                            </div>
+                            <div>
+                                <span class="text-chic-600 font-semibold block mb-1">Homework Allocation</span>
+                                <p class="text-sand-900/70">Review all Tier 2 prompts and outline core narrative flows for each.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Session 18 -->
+                <div class="session-card-el p4-group bg-white rounded-3xl border border-chic-100 p-6 md:p-8 shadow-chic hover:shadow-chic-hover transition-lux flex flex-col md:flex-row gap-6 items-start" data-session-id="18">
+                    <div class="flex items-center gap-3 md:flex-col md:items-center">
+                        <input type="checkbox" id="chk-s18" class="session-chk w-5 h-5 accent-chic-500 rounded border-chic-300 focus:ring-0 cursor-pointer" onclick="toggleSessionProgress('18')">
+                        <span class="text-3xl font-serif italic text-chic-300">18</span>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                            <h4 class="text-xl font-serif font-bold text-sand-900">Stress Inoculation & Interruption Management</h4>
+                            <span class="bg-chic-100 text-chic-700 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">Full Test</span>
+                        </div>
+                        <p class="text-xs text-sand-900/80 mb-4"><strong>Syllabus Integration:</strong> Mixed Tier 2 & 3 sets | <strong>Focus Protocol:</strong> Harsh Examiner Sim</p>
+                        <ul class="space-y-2 text-xs text-sand-900/70 pl-4 list-disc mb-6">
+                            <li><span class="font-bold text-sand-900">00-15m:</span> Overview of test-day realities (abrupt timing cuts, disengaged examiners).</li>
+                            <li><span class="font-bold text-sand-900">15-35m:</span> Full Mock Session 3 (tutor uses interruptions to challenge focus).</li>
+                            <li><span class="font-bold text-sand-900">35-60m:</span> Review: Did pacing/linking break down under simulated stress?</li>
+                            <li><span class="font-bold text-sand-900">60-90m:</span> Targeted practice repairing any flow issues identified during testing.</li>
+                        </ul>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4 border-t border-sand-100 bg-sand-50/40 p-4 rounded-xl text-xs">
+                            <div>
+                                <span class="text-chic-600 font-semibold block mb-1">Success Metrics & Benchmarks</span>
+                                <p class="text-sand-900/70">Successfully preserving structural flow even when interrupted mid-response.</p>
+                            </div>
+                            <div>
+                                <span class="text-chic-600 font-semibold block mb-1">Homework Allocation</span>
+                                <p class="text-sand-900/70">Practice using ChatGPT voice, choosing prompts designed to interrupt you.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Session 19 -->
+                <div class="session-card-el p4-group bg-white rounded-3xl border border-chic-100 p-6 md:p-8 shadow-chic hover:shadow-chic-hover transition-lux flex flex-col md:flex-row gap-6 items-start" data-session-id="19">
+                    <div class="flex items-center gap-3 md:flex-col md:items-center">
+                        <input type="checkbox" id="chk-s19" class="session-chk w-5 h-5 accent-chic-500 rounded border-chic-300 focus:ring-0 cursor-pointer" onclick="toggleSessionProgress('19')">
+                        <span class="text-3xl font-serif italic text-chic-300">19</span>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                            <h4 class="text-xl font-serif font-bold text-sand-900">Official Exam Dress Rehearsal</h4>
+                            <span class="bg-chic-100 text-chic-700 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">Full Test</span>
+                        </div>
+                        <p class="text-xs text-sand-900/80 mb-4"><strong>Syllabus Integration:</strong> Randomized Selection | <strong>Focus Protocol:</strong> Strict Standard Conditions</p>
+                        <ul class="space-y-2 text-xs text-sand-900/70 pl-4 list-disc mb-6">
+                            <li><span class="font-bold text-sand-900">00-15m:</span> Light warm-up drills to establish rhythm.</li>
+                            <li><span class="font-bold text-sand-900">15-30m:</span> Full Mock Session 4 under standard, formal exam guidelines.</li>
+                            <li><span class="font-bold text-sand-900">30-45m:</span> Detailed score analysis and feedback mapped against 6.5 band descriptors.</li>
+                            <li><span class="font-bold text-sand-900">45-90m:</span> Troubleshooting final problem spots (complex conditional structures under stress).</li>
+                        </ul>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4 border-t border-sand-100 bg-sand-50/40 p-4 rounded-xl text-xs">
+                            <div>
+                                <span class="text-chic-600 font-semibold block mb-1">Success Metrics & Benchmarks</span>
+                                <p class="text-sand-900/70">A clean, confident performance meeting 6.5+ band requirements across all parameters.</p>
+                            </div>
+                            <div>
+                                <span class="text-chic-600 font-semibold block mb-1">Homework Allocation</span>
+                                <p class="text-sand-900/70">Take a break. Light English listening practice only (films/shows, no heavy study).</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Session 20 -->
+                <div class="session-card-el p4-group bg-white rounded-3xl border border-chic-100 p-6 md:p-8 shadow-chic hover:shadow-chic-hover transition-lux flex flex-col md:flex-row gap-6 items-start" data-session-id="20">
+                    <div class="flex items-center gap-3 md:flex-col md:items-center">
+                        <input type="checkbox" id="chk-s20" class="session-chk w-5 h-5 accent-chic-500 rounded border-chic-300 focus:ring-0 cursor-pointer" onclick="toggleSessionProgress('20')">
+                        <span class="text-3xl font-serif italic text-chic-300">20</span>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                            <h4 class="text-xl font-serif font-bold text-sand-900">Peak Confidence & Final Strategy Review</h4>
+                            <span class="bg-chic-100 text-chic-700 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">Full Test</span>
+                        </div>
+                        <p class="text-xs text-sand-900/80 mb-4"><strong>Syllabus Integration:</strong> Confidence Builders | <strong>Focus Protocol:</strong> Positive Reinforcement</p>
+                        <ul class="space-y-2 text-xs text-sand-900/70 pl-4 list-disc mb-6">
+                            <li><span class="font-bold text-sand-900">00-20m:</span> Comparing Session 1 vs Session 19 audio logs to visually confirm progress.</li>
+                            <li><span class="font-bold text-sand-900">20-40m:</span> Light, encouraging final Mock Session 5 (focusing on flow and confidence).</li>
+                            <li><span class="font-bold text-sand-900">40-60m:</span> Final Q&A, exam logistics, and morning-of warm-up planning.</li>
+                            <li><span class="font-bold text-sand-900">60-90m:</span> Light, conversational ending on a highly fluent note.</li>
+                        </ul>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4 border-t border-sand-100 bg-sand-50/40 p-4 rounded-xl text-xs">
+                            <div>
+                                <span class="text-chic-600 font-semibold block mb-1">Success Metrics & Benchmarks</span>
+                                <p class="text-sand-900/70">Entering the test-ready state with complete confidence in your fluency techniques.</p>
+                            </div>
+                            <div>
+                                <span class="text-chic-600 font-semibold block mb-1">Homework Allocation</span>
+                                <p class="text-sand-900/70">Execute your morning warm-up; approach the August 2026 exam with absolute confidence!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Interactive Sticky Notes Workspace -->
+        <section class="mt-16 bg-white p-8 rounded-3xl border border-chic-100 shadow-chic relative">
+            <div class="absolute -top-3 right-8 bg-chic-500 text-white text-[10px] uppercase font-bold tracking-widest px-3 py-1 rounded-full shadow-md">
+                <i class="fa-solid fa-pen-fancy"></i> Active Note pad
+            </div>
+            <h3 class="font-serif font-bold text-xl text-sand-900 mb-2">My Vocabulary & Fluency Notes</h3>
+            <p class="text-xs text-sand-900/60 mb-4">Scribble active phrasing or targeted synonyms here during self-study. Data is saved in your local browser storage.</p>
+            <textarea id="study-notes" class="w-full h-32 p-4 bg-sand-50 border border-chic-100 rounded-xl text-xs focus:ring-1 focus:ring-chic-500 focus:outline-none text-sand-900 font-sans" placeholder="Type structural idioms (e.g., 'With reference to...', 'This essentially boils down to...') or targets here..."></textarea>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-sand-900 text-sand-50/40 py-12 mt-20 border-t border-sand-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+            <div class="text-sm uppercase tracking-widest font-serif font-bold text-sand-50">IELTS <span class="text-chic-400 italic lowercase font-normal text-base font-serif">Chan Truong</span></div>
+            <p class="text-xs max-w-md mx-auto">High-performance English training systematically engineered for global software engineers based in Tokyo.</p>
+            <div class="text-[10px] text-sand-500 pt-4">&copy; 2026 IELTS Chan Truong. Engineered for Academic Success.</div>
+        </div>
+    </footer>
+
+    <!-- Logic script -->
+    <script>
+        // 1. Mobile Menu Toggle Control
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 2. Dynamic Study Note Storage
+        const notesArea = document.getElementById('study-notes');
+        
+        // Load initial state
+        if (localStorage.getItem('ielts_fluency_notes')) {
+            notesArea.value = localStorage.getItem('ielts_fluency_notes');
+        }
+
+        notesArea.addEventListener('input', () => {
+            localStorage.setItem('ielts_fluency_notes', notesArea.value);
+        });
+
+        // 3. Search & Filter Topics Bank
+        const topicSearch = document.getElementById('topic-search');
+        const topicItems = document.querySelectorAll('.topic-item');
+
+        topicSearch.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase().trim();
+            topicItems.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                if (text.includes(query)) {
+                    item.classList.remove('hidden');
+                    item.classList.add('flex');
+                } else {
+                    item.classList.remove('flex');
+                    item.classList.add('hidden');
+                }
+            });
+        });
+
+        // 4. Session Checkbox Progress Tracker via LocalStorage
+        function toggleSessionProgress(sessionId) {
+            const chk = document.getElementById(`chk-s${sessionId}`);
+            localStorage.setItem(`ielts_session_${sessionId}`, chk.checked ? "completed" : "pending");
+            updateGlobalProgress();
+        }
+
+        function updateGlobalProgress() {
+            let completedCount = 0;
+            const totalSessions = 20;
+
+            for (let i = 1; i <= totalSessions; i++) {
+                const status = localStorage.getItem(`ielts_session_${i}`);
+                const chk = document.getElementById(`chk-s${i}`);
+                if (status === "completed") {
+                    completedCount++;
+                    if (chk) chk.checked = true;
+                } else {
+                    if (chk) chk.checked = false;
+                }
+            }
+
+            const percentage = Math.round((completedCount / totalSessions) * 100);
+
+            // Update UI Bars & Texts
+            const bar = document.getElementById('progress-bar');
+            const txt = document.getElementById('progress-text');
+            const mobBar = document.getElementById('mobile-progress-bar');
+            const mobTxt = document.getElementById('mobile-progress-text');
+
+            if (bar) bar.style.width = `${percentage}%`;
+            if (txt) txt.textContent = `${completedCount} of 20 Completed (${percentage}%)`;
+            if (mobBar) mobBar.style.width = `${percentage}%`;
+            if (mobTxt) mobTxt.textContent = `Progress: ${completedCount} of 20 Completed`;
+        }
+
+        // Initialize progress checking on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            updateGlobalProgress();
+        });
+
+        // 5. Phase Sorting Navigation Tabs
+        function filterPhase(phaseCode) {
+            const tabs = document.querySelectorAll('.phase-tab');
+            const sCards = document.querySelectorAll('.session-card-el');
+            const pHeaders = document.querySelectorAll('.phase-header');
+
+            // Reset tabs styling
+            tabs.forEach(tab => {
+                tab.classList.remove('bg-chic-500', 'text-white', 'active');
+                tab.classList.add('bg-white', 'text-sand-900');
+            });
+
+            // Find clicked tab to style
+            event.currentTarget.classList.remove('bg-white', 'text-sand-900');
+            event.currentTarget.classList.add('bg-chic-500', 'text-white', 'active');
+
+            if (phaseCode === 'all') {
+                sCards.forEach(card => card.classList.remove('hidden'));
+                pHeaders.forEach(head => head.classList.remove('hidden'));
+            } else {
+                // Hide all first
+                sCards.forEach(card => card.classList.add('hidden'));
+                pHeaders.forEach(head => head.classList.add('hidden'));
+
+                if (phaseCode === 'p1') {
+                    document.querySelectorAll('.p1-group').forEach(el => el.classList.remove('hidden'));
+                } else if (phaseCode === 'p2') {
+                    document.querySelectorAll('.p2-group').forEach(el => el.classList.remove('hidden'));
+                } else if (phaseCode === 'p3') {
+                    document.querySelectorAll('.p3-group').forEach(el => el.classList.remove('hidden'));
+                } else if (phaseCode === 'p4') {
+                    document.querySelectorAll('.p4-group').forEach(el => el.classList.remove('hidden'));
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>

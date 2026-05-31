@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 01 | IELTS Chan Truong</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Plus Jakarta Sans (Modern Sans) & Cormorant Garamond (Chic Editorial Serif) -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                    },
+                    colors: {
+                        chic: {
+                            50: '#fffbfb',   // Luxurious warm ivory
+                            100: '#fef1f2',  // Ultra soft blush pink
+                            200: '#fde2e4',  // Rose water pastel
+                            300: '#f9bec7',  // Soft peony
+                            400: '#f497a9',  // Vintage rose
+                            500: '#e56b8f',  // Dusty rose-gold accent
+                            600: '#be5272',  // Deep raspberry accent
+                            700: '#9d3b56',  // Deep berry wood
+                            800: '#752a3d',  // Royal maroon
+                            900: '#4a1523',  // Dark black cherry
+                        },
+                        sand: {
+                            50: '#faf8f6',   // Champagne cream background
+                            100: '#f5f0eb',  // Warm sand accent
+                            200: '#e8ded4',  // Pale taupe
+                            300: '#d5c4b3',  // Muted oak
+                            900: '#1c1714',  // Rich charcoal-espresso
+                        }
+                    },
+                    boxShadow: {
+                        'chic': '0 10px 40px -15px rgba(229, 107, 143, 0.08)',
+                        'chic-hover': '0 20px 50px -10px rgba(229, 107, 143, 0.15)',
+                        'lux': '0 30px 60px -20px rgba(28, 23, 20, 0.03)'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #faf8f6;
+            color: #1c1714;
+        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #faf8f6; }
+        ::-webkit-scrollbar-thumb { background: #fde2e4; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #f497a9; }
+        
+        .transition-lux {
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+    </style>
+</head>
+<body class="antialiased font-sans">
+
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-50 bg-white/70 backdrop-blur-xl border-b border-chic-100 shadow-[0_2px_15px_-3px_rgba(229,107,143,0.03)]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Branding -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-chic-600 via-chic-400 to-chic-200 flex items-center justify-center text-white font-bold text-sm shadow-[0_4px_15px_rgba(229,107,143,0.25)]">
+                        <span class="font-serif italic text-base">CT</span>
+                    </div>
+                    <div>
+                        <div class="text-lg tracking-widest font-serif font-bold text-sand-900 uppercase">
+                            IELTS <span class="text-chic-500 font-normal italic lowercase text-xl ml-1 font-serif">Chan Truong</span>
+                        </div>
+                        <div class="text-[9px] tracking-widest uppercase font-semibold text-sand-300">Fluency Accelerator Framework</div>
+                    </div>
+                </div>
+
+                <!-- Right Side Actions -->
+                <div class="flex items-center space-x-4">
+                    <a href="ielts-roadmap.html" class="text-xs font-bold uppercase tracking-wider text-sand-900 hover:text-chic-500 transition-lux flex items-center gap-2">
+                        <i class="fa-solid fa-arrow-left"></i> Back to Roadmap
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        
+        <!-- Hero Section -->
+        <section class="mb-10">
+            <div class="bg-white rounded-3xl p-8 md:p-12 border border-chic-100 shadow-chic relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-chic-100/40 rounded-full blur-3xl -z-10"></div>
+                
+                <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
+                    <div>
+                        <span class="bg-chic-100 text-chic-700 text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full inline-block mb-4">
+                            Lesson 01 Plan
+                        </span>
+                        <h1 class="text-4xl md:text-5xl font-serif text-sand-900 leading-tight mb-3">
+                            Baseline Activation & <br><span class="italic font-normal text-chic-500">Rapid-Fire Flow</span>
+                        </h1>
+                        <p class="text-sm text-sand-900/70 max-w-xl leading-relaxed">
+                            Since baseline evaluations were finalized on greeting day, we hit the ground running with zero structural downtime. Today is purely focused on overriding perfectionist software engineer tendencies with immediate spontaneous speech templates.
+                        </p>
+                    </div>
+
+                    <!-- Lesson Stat Board -->
+                    <div class="bg-sand-50/70 border border-sand-100 rounded-2xl p-6 lg:w-80 w-full space-y-4 shadow-lux">
+                        <h3 class="text-xs uppercase font-bold text-chic-700 tracking-widest flex items-center gap-2">
+                            <i class="fa-solid fa-clock-rotate-left"></i> Session Breakdown
+                        </h3>
+                        <div class="grid grid-cols-2 gap-4 text-xs">
+                            <div>
+                                <span class="block text-[10px] text-sand-300 uppercase tracking-wider font-bold">Total Duration</span>
+                                <span class="font-semibold text-sand-900">90 Minutes</span>
+                            </div>
+                            <div>
+                                <span class="block text-[10px] text-sand-300 uppercase tracking-wider font-bold">IELTS Target</span>
+                                <span class="font-semibold text-chic-600 font-serif italic">Part 1 Focus</span>
+                            </div>
+                            <div>
+                                <span class="block text-[10px] text-sand-300 uppercase tracking-wider font-bold">Topic Areas</span>
+                                <span class="font-semibold text-sand-900">Work & Hometown</span>
+                            </div>
+                            <div>
+                                <span class="block text-[10px] text-sand-300 uppercase tracking-wider font-bold">Key Protocol</span>
+                                <span class="font-semibold text-chic-600">Rapid-Fire Reflexes</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive 90-Minute Class Timer -->
+        <section class="mb-10">
+            <div class="bg-gradient-to-r from-chic-900 to-chic-800 text-white rounded-3xl p-6 md:p-8 shadow-chic flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden">
+                <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-chic-700/20 rounded-full blur-2xl"></div>
+                
+                <div class="space-y-1">
+                    <span class="text-chic-300 text-xs font-bold uppercase tracking-widest block">Live Class Tracker</span>
+                    <h3 class="text-lg md:text-xl font-serif">Pacing Control Dashboard</h3>
+                    <p class="text-xs text-white/60">Tutors and students can track active pacing with this session timer.</p>
+                </div>
+
+                <!-- Timer Counter -->
+                <div class="flex items-center space-x-6">
+                    <div class="text-center">
+                        <span id="timer-display" class="text-4xl md:text-5xl font-mono font-bold tracking-wider block text-chic-100">90:00</span>
+                        <span class="text-[9px] uppercase tracking-widest text-chic-300 block mt-1">Remaining Time</span>
+                    </div>
+                    
+                    <div class="flex flex-col gap-2">
+                        <button id="btn-timer-toggle" onclick="toggleTimer()" class="bg-chic-500 hover:bg-chic-400 text-white px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-lux flex items-center justify-center gap-1 shadow-md">
+                            <i class="fa-solid fa-play" id="timer-icon"></i> <span id="timer-btn-text">Start</span>
+                        </button>
+                        <button onclick="resetTimer()" class="border border-white/20 hover:bg-white/10 text-white px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-wider transition-lux">
+                            Reset
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dynamic Lesson Flow Plan -->
+        <section class="mb-10">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
+                <!-- Left Column: Material Links & Guided Study (Work/Study & Hometown) -->
+                <div class="lg:col-span-2 space-y-8">
+                    <div class="bg-white rounded-3xl p-6 md:p-8 border border-chic-100 shadow-chic">
+                        <div class="border-b border-chic-100 pb-4 mb-6">
+                            <span class="text-chic-500 text-xs tracking-widest font-bold uppercase block">Official Learning Curations</span>
+                            <h2 class="text-2xl font-serif text-sand-900 mt-1">Syllabus Materials & Links</h2>
+                        </div>
+
+                        <div class="space-y-6">
+                            <!-- Material Link 1 -->
+                            <div class="p-6 rounded-2xl bg-sand-50/50 border border-sand-100 hover:border-chic-200 transition-lux flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                                <div class="space-y-1 max-w-md">
+                                    <span class="text-chic-600 text-[10px] uppercase font-bold tracking-wider">Part 1 Focus Module A</span>
+                                    <h4 class="font-serif font-bold text-lg text-sand-900">Work & Study Resources</h4>
+                                    <p class="text-xs text-sand-900/60 leading-relaxed">
+                                        Core structures detailing specialized software environments, developer schedules, professional priorities, and technological expression.
+                                    </p>
+                                </div>
+                                <a href="https://ieltschantruong.github.io/IELTS/learning_resources/speaking/part1/work_study.html" target="_blank" class="bg-white hover:bg-chic-50 border border-chic-200 text-chic-700 hover:text-chic-800 text-xs font-semibold px-4 py-2.5 rounded-full transition-lux flex items-center gap-2 whitespace-nowrap shadow-sm">
+                                    <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i> Open Material
+                                </a>
+                            </div>
+
+                            <!-- Material Link 2 -->
+                            <div class="p-6 rounded-2xl bg-sand-50/50 border border-sand-100 hover:border-chic-200 transition-lux flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                                <div class="space-y-1 max-w-md">
+                                    <span class="text-chic-600 text-[10px] uppercase font-bold tracking-wider">Part 1 Focus Module B</span>
+                                    <h4 class="font-serif font-bold text-lg text-sand-900">Hometown & Tokyo Assets</h4>
+                                    <p class="text-xs text-sand-900/60 leading-relaxed">
+                                        Vocabulary pools centered on modern metropolitan living, urban layouts, infrastructure, weather variations, and Tokyo's unique daily transit networks.
+                                    </p>
+                                </div>
+                                <a href="https://ieltschantruong.github.io/IELTS/learning_resources/speaking/part1/hometown.html" target="_blank" class="bg-white hover:bg-chic-50 border border-chic-200 text-chic-700 hover:text-chic-800 text-xs font-semibold px-4 py-2.5 rounded-full transition-lux flex items-center gap-2 whitespace-nowrap shadow-sm">
+                                    <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i> Open Material
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Spontaneous Rapid-Fire Drill Tool -->
+                    <div class="bg-white rounded-3xl p-6 md:p-8 border border-chic-100 shadow-chic">
+                        <div class="border-b border-chic-100 pb-4 mb-6">
+                            <span class="text-chic-500 text-xs tracking-widest font-bold uppercase block">PTE-Based Fluency Drill</span>
+                            <h2 class="text-2xl font-serif text-sand-900 mt-1">Rapid-Fire Reflex Simulator</h2>
+                            <p class="text-xs text-sand-900/60 mt-2">
+                                Tutors can click to generate randomized prompt cards during live classes. The candidate has exactly 1.5 seconds to start speaking before the latency indicator turns red!
+                            </p>
+                        </div>
+
+                        <!-- Prompt Interface -->
+                        <div class="bg-sand-50/50 border border-sand-100 rounded-2xl p-6 md:p-8 text-center space-y-6 relative overflow-hidden min-h-[220px] flex flex-col justify-center items-center">
+                            <!-- Topic Indicator -->
+                            <span id="drill-topic" class="bg-chic-100 text-chic-700 text-[9px] uppercase tracking-widest font-bold px-2.5 py-1 rounded-full">
+                                Topic: Work & Career
+                            </span>
+                            
+                            <!-- Prompt Text -->
+                            <p id="drill-prompt-text" class="text-lg md:text-xl font-serif text-sand-900 font-medium px-4">
+                                "Click 'Generate Prompt' to start the reflex drill."
+                            </p>
+
+                            <!-- Live Reflex Timer Indicator -->
+                            <div class="flex items-center gap-2">
+                                <span class="text-[10px] uppercase font-bold text-sand-300">Reaction Buffer:</span>
+                                <div class="w-20 bg-chic-100 h-2.5 rounded-full overflow-hidden flex">
+                                    <div id="reflex-bar" class="bg-green-400 h-full w-full transition-all duration-[1500ms] ease-linear"></div>
+                                </div>
+                                <span id="reflex-status" class="text-[10px] font-bold text-green-500 uppercase">Ready</span>
+                            </div>
+                        </div>
+
+                        <!-- Interactive Action Buttons -->
+                        <div class="flex flex-wrap gap-3 justify-center mt-6">
+                            <button onclick="generatePrompt('work')" class="bg-chic-50 hover:bg-chic-100 border border-chic-200 text-chic-700 text-xs font-bold uppercase tracking-wider px-5 py-3 rounded-full transition-lux">
+                                <i class="fa-solid fa-briefcase"></i> Work Prompts
+                            </button>
+                            <button onclick="generatePrompt('hometown')" class="bg-chic-50 hover:bg-chic-100 border border-chic-200 text-chic-700 text-xs font-bold uppercase tracking-wider px-5 py-3 rounded-full transition-lux">
+                                <i class="fa-solid fa-house-chimney"></i> Hometown Prompts
+                            </button>
+                            <button onclick="generatePrompt('random')" class="bg-chic-500 hover:bg-chic-600 text-white text-xs font-bold uppercase tracking-wider px-6 py-3 rounded-full transition-lux shadow-sm">
+                                <i class="fa-solid fa-shuffle"></i> Random Mix
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Right Column: Interactive Lesson Agenda -->
+                <div class="lg:col-span-1 space-y-6">
+                    <div class="bg-white rounded-3xl p-6 border border-chic-100 shadow-chic">
+                        <h3 class="font-serif font-bold text-xl text-sand-900 mb-4 pb-2 border-b border-chic-100 flex items-center gap-2">
+                            <i class="fa-solid fa-list-check text-chic-500"></i> Lesson Itinerary
+                        </h3>
+
+                        <!-- Step 1 -->
+                        <div class="space-y-3 mb-6 relative pl-6 border-l border-chic-200">
+                            <span class="absolute left-[-5px] top-0.5 w-2.5 h-2.5 rounded-full bg-chic-400"></span>
+                            <div class="flex justify-between items-center text-xs">
+                                <span class="font-bold text-sand-900">1. Grounding & Focus Setup</span>
+                                <span class="text-chic-600 font-mono">15m</span>
+                            </div>
+                            <p class="text-[11px] text-sand-900/60 leading-relaxed">
+                                Review student expectations, analyze baseline speaking speeds, and introduce core transition techniques to shift away from excessive developer precision.
+                            </p>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div class="space-y-3 mb-6 relative pl-6 border-l border-chic-200">
+                            <span class="absolute left-[-5px] top-0.5 w-2.5 h-2.5 rounded-full bg-chic-400"></span>
+                            <div class="flex justify-between items-center text-xs">
+                                <span class="font-bold text-sand-900">2. Structured Module Drills</span>
+                                <span class="font-bold text-sand-900">40m</span>
+                            </div>
+                            <p class="text-[11px] text-sand-900/60 leading-relaxed">
+                                Go through Work & Hometown links. Break down sample questions, analyze advanced lexical assets, and practice phonetic links within native sample answers.
+                            </p>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="space-y-3 mb-6 relative pl-6 border-l border-chic-200">
+                            <span class="absolute left-[-5px] top-0.5 w-2.5 h-2.5 rounded-full bg-chic-400"></span>
+                            <div class="flex justify-between items-center text-xs">
+                                <span class="font-bold text-sand-900">3. Rapid-Fire Reflexes</span>
+                                <span class="text-chic-600 font-mono">25m</span>
+                            </div>
+                            <p class="text-[11px] text-sand-900/60 leading-relaxed">
+                                High-intensity 1.5-second prompt answer series. Tutor flashes random questions; the candidate must speak immediately using formulaic speech anchors.
+                            </p>
+                        </div>
+
+                        <!-- Step 4 -->
+                        <div class="space-y-3 relative pl-6">
+                            <span class="absolute left-[-5px] top-0.5 w-2.5 h-2.5 rounded-full bg-chic-500"></span>
+                            <div class="flex justify-between items-center text-xs">
+                                <span class="font-bold text-sand-900">4. Review & Assignment Brief</span>
+                                <span class="text-chic-600 font-mono">10m</span>
+                            </div>
+                            <p class="text-[11px] text-sand-900/60 leading-relaxed">
+                                Outline performance markers, save notes, and structure the Recording Submission Task.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Homework Portal & Recording Process -->
+        <section class="mb-10">
+            <div class="bg-white rounded-3xl p-8 border border-chic-100 shadow-chic">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6 pb-4 border-b border-chic-100">
+                    <div>
+                        <span class="text-chic-500 text-xs tracking-widest font-bold uppercase block">Self-Managed Fluency Loop</span>
+                        <h2 class="text-2xl font-serif text-sand-900 mt-1">Lesson 01 Homework Portal</h2>
+                    </div>
+                    <span class="bg-red-50 text-red-500 border border-red-100 text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1.5">
+                        <i class="fa-solid fa-triangle-exclamation"></i> Action Required
+                    </span>
+                </div>
+
+                <!-- Process Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                    <!-- Step 1 Card -->
+                    <div class="bg-sand-50/50 p-5 rounded-2xl border border-sand-100 flex flex-col justify-between">
+                        <div>
+                            <span class="text-chic-300 font-serif italic text-3xl font-bold">01</span>
+                            <h4 class="font-semibold text-sm text-sand-900 mt-3 mb-1">Access Materials</h4>
+                            <p class="text-[11px] text-sand-900/60 leading-relaxed">
+                                Open the Hometown and Work/Study links provided above. Study the vocabulary pools thoroughly.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 Card -->
+                    <div class="bg-sand-50/50 p-5 rounded-2xl border border-sand-100 flex flex-col justify-between">
+                        <div>
+                            <span class="text-chic-300 font-serif italic text-3xl font-bold">02</span>
+                            <h4 class="font-semibold text-sm text-sand-900 mt-3 mb-1">Record In-Page</h4>
+                            <p class="text-[11px] text-sand-900/60 leading-relaxed">
+                                Use the built-in microphone recorder located inside each of the official material links to capture your answers in high fidelity.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 Card -->
+                    <div class="bg-sand-50/50 p-5 rounded-2xl border border-sand-100 flex flex-col justify-between">
+                        <div>
+                            <span class="text-chic-300 font-serif italic text-3xl font-bold">03</span>
+                            <h4 class="font-semibold text-sm text-sand-900 mt-3 mb-1">Download Files</h4>
+                            <p class="text-[11px] text-sand-900/60 leading-relaxed">
+                                Export the recorded files directly to your device and drop them in your shared student Google Drive.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 Card -->
+                    <div class="bg-sand-50/50 p-5 rounded-2xl border border-sand-100 flex flex-col justify-between">
+                        <div>
+                            <span class="text-chic-300 font-serif italic text-3xl font-bold">04</span>
+                            <h4 class="font-semibold text-sm text-sand-900 mt-3 mb-1">Update Tracker</h4>
+                            <p class="text-[11px] text-sand-900/60 leading-relaxed">
+                                Copy the Google Drive share link and paste it into the student Google Tracking sheet for your coach to review.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Sticky Notes Workspace -->
+        <section class="mb-10 bg-white p-8 rounded-3xl border border-chic-100 shadow-chic relative">
+            <div class="absolute -top-3 right-8 bg-chic-500 text-white text-[10px] uppercase font-bold tracking-widest px-3 py-1 rounded-full shadow-md">
+                <i class="fa-solid fa-pen-fancy"></i> Active Notepad
+            </div>
+            <h3 class="font-serif font-bold text-xl text-sand-900 mb-2">Lesson 01 Vocabulary & Notes</h3>
+            <p class="text-xs text-sand-900/60 mb-4">Scribble active phrasing or targeted synonyms here during self-study. Data is saved in your local browser storage.</p>
+            <textarea id="lesson-notes" class="w-full h-36 p-4 bg-sand-50 border border-chic-100 rounded-xl text-xs focus:ring-1 focus:ring-chic-500 focus:outline-none text-sand-900 font-sans" placeholder="Example: 'From an engineering perspective, Tokyo is exceptionally hyper-connected...'"></textarea>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-sand-900 text-sand-50/40 py-12 border-t border-sand-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+            <div class="text-sm uppercase tracking-widest font-serif font-bold text-sand-50">IELTS <span class="text-chic-400 italic lowercase font-normal text-base font-serif">Chan Truong</span></div>
+            <p class="text-xs max-w-md mx-auto">High-performance English training systematically engineered for global software engineers based in Tokyo.</p>
+            <div class="text-[10px] text-sand-500 pt-4">&copy; 2026 IELTS Chan Truong. Engineered for Academic Success.</div>
+        </div>
+    </footer>
+
+    <!-- JS Logic -->
+    <script>
+        // 1. Pacing Timer Control
+        let timerSeconds = 90 * 60; // 90 Minutes
+        let timerInterval = null;
+        const timerDisplay = document.getElementById('timer-display');
+        const timerBtnText = document.getElementById('timer-btn-text');
+        const timerIcon = document.getElementById('timer-icon');
+
+        function updateTimerUI() {
+            let m = Math.floor(timerSeconds / 60);
+            let s = timerSeconds % 60;
+            timerDisplay.textContent = `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+        }
+
+        function toggleTimer() {
+            if (timerInterval) {
+                // Pause timer
+                clearInterval(timerInterval);
+                timerInterval = null;
+                timerBtnText.textContent = "Resume";
+                timerIcon.className = "fa-solid fa-play";
+            } else {
+                // Start timer
+                timerInterval = setInterval(() => {
+                    if (timerSeconds > 0) {
+                        timerSeconds--;
+                        updateTimerUI();
+                    } else {
+                        clearInterval(timerInterval);
+                        timerInterval = null;
+                        alert("Lesson time completed!");
+                    }
+                }, 1000);
+                timerBtnText.textContent = "Pause";
+                timerIcon.className = "fa-solid fa-pause";
+            }
+        }
+
+        function resetTimer() {
+            clearInterval(timerInterval);
+            timerInterval = null;
+            timerSeconds = 90 * 60;
+            updateTimerUI();
+            timerBtnText.textContent = "Start";
+            timerIcon.className = "fa-solid fa-play";
+        }
+
+        // 2. Notepad Sync with LocalStorage
+        const notesArea = document.getElementById('lesson-notes');
+        if (localStorage.getItem('ielts_lesson01_notes')) {
+            notesArea.value = localStorage.getItem('ielts_lesson01_notes');
+        }
+        notesArea.addEventListener('input', () => {
+            localStorage.setItem('ielts_lesson01_notes', notesArea.value);
+        });
+
+        // 3. Prompt Databank for Reflex Simulator
+        const prompts = {
+            work: [
+                "What made you choose your career in software development?",
+                "What is the most challenging aspect of your daily workspace?",
+                "Do you prefer working on collaborative teams or on solitary projects?",
+                "How has modern technology changed your daily work environment in Tokyo?",
+                "Is it easy to strike a healthy work-life balance in your industry?"
+            ],
+            hometown: [
+                "Is your hometown a good place for young professionals to settle?",
+                "How does the public transit network compare to Tokyo’s transit systems?",
+                "What is the most unique cultural landmark in your city?",
+                "How have meteorological shifts affected outdoor activities in your hometown?",
+                "Would you consider relocating permanently, or is your current city your favorite?"
+            ]
+        };
+
+        function generatePrompt(category) {
+            let selectedList = [];
+            let catName = "";
+
+            if (category === 'work') {
+                selectedList = prompts.work;
+                catName = "Topic: Work & Study Focus";
+            } else if (category === 'hometown') {
+                selectedList = prompts.hometown;
+                catName = "Topic: Hometown & Living Focus";
+            } else {
+                // Random mix
+                const keys = Object.keys(prompts);
+                const randomKey = keys[Math.floor(Math.random() * keys.length)];
+                selectedList = prompts[randomKey];
+                catName = randomKey === 'work' ? "Topic: Work & Study Focus" : "Topic: Hometown & Living Focus";
+            }
+
+            const randomIdx = Math.floor(Math.random() * selectedList.length);
+            const promptStr = selectedList[randomIdx];
+
+            // Update UI elements
+            document.getElementById('drill-topic').textContent = catName;
+            document.getElementById('drill-prompt-text').textContent = `"${promptStr}"`;
+
+            // Reset Reflex Timer Animation (PTE Latency Challenge)
+            const bar = document.getElementById('reflex-bar');
+            const status = document.getElementById('reflex-status');
+
+            // Reset transitions instantly
+            bar.style.transition = 'none';
+            bar.style.width = '100%';
+            bar.className = 'bg-green-400 h-full';
+            status.textContent = 'Speak Now!';
+            status.className = 'text-[10px] font-bold text-green-500 uppercase';
+
+            // Trigger latency countdown animation
+            setTimeout(() => {
+                bar.style.transition = 'width 1500ms linear';
+                bar.style.width = '0%';
+                
+                // Color transition to warning
+                setTimeout(() => {
+                    bar.className = 'bg-red-500 h-full';
+                    status.textContent = 'Latency warning';
+                    status.className = 'text-[10px] font-bold text-red-500 uppercase';
+                }, 1000);
+            }, 50);
+        }
+    </script>
+</body>
+</html>
