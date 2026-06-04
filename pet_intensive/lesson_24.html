@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Chan Truong | PET Intensive Lesson 24</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#fdf2f8',  // Blush
+                            100: '#fce7f3', // Pastel Pink
+                            200: '#fbcfe8',
+                            300: '#f9a8d4',
+                            400: '#f472b6',
+                            500: '#ec4899', // Vibrant Accent
+                            800: '#9d174d', // Deep Rose for text
+                            900: '#831843', // Darkest Rose
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            background-color: #fffafb; /* Soft pastel background */
+            color: #475569;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(252, 231, 243, 0.6); /* pink-100 */
+            box-shadow: 0 4px 14px 0 rgba(252, 231, 243, 0.5); /* pink shadow */
+            transition: all 0.3s ease;
+        }
+        
+        .glass-card:hover {
+            box-shadow: 0 10px 25px -3px rgba(252, 231, 243, 0.8), 0 4px 6px -2px rgba(24bc, 231, 243, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .checkbox-custom:checked + div {
+            background-color: #ec4899; /* brand-500 */
+            border-color: #ec4899;
+        }
+        
+        .checkbox-custom:checked + div svg {
+            opacity: 1;
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #fdf2f8; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #f9a8d4; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #f472b6; 
+        }
+
+        /* Accordion summaries style removal */
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <div class="fixed top-0 left-0 w-full h-1.5 bg-brand-100 z-50">
+        <div id="progressBar" class="h-full bg-brand-500 transition-all duration-500 ease-out" style="width: 0%;"></div>
+    </div>
+
+    <!-- Header Section -->
+    <header class="bg-gradient-to-br from-pink-100 via-rose-100 to-pink-200 text-brand-900 pt-16 pb-20 px-6 relative overflow-hidden shadow-sm">
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden opacity-30 pointer-events-none">
+            <svg class="absolute -top-24 -right-24 w-96 h-96 text-white" fill="currentColor" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50"/></svg>
+            <svg class="absolute bottom-[-10%] left-[-5%] w-64 h-64 text-brand-300" fill="currentColor" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50"/></svg>
+        </div>
+
+        <div class="max-w-5xl mx-auto relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+            <div>
+                <h2 class="text-brand-800 font-semibold tracking-widest text-sm uppercase mb-2 flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                    IELTS Chan Truong
+                </h2>
+                <h1 class="text-4xl md:text-5xl font-serif font-bold text-brand-900 leading-tight drop-shadow-sm">
+                    PET Intensive <br/><span class="text-brand-500 font-sans font-light text-3xl">Lesson 24</span>
+                </h1>
+            </div>
+            
+            <div class="flex gap-4 bg-white/50 backdrop-blur-md px-6 py-4 rounded-2xl border border-white/60 shadow-sm">
+                <div class="text-center px-4 border-r border-brand-200">
+                    <div class="text-brand-800 font-bold text-xl">90</div>
+                    <div class="text-xs text-brand-500 uppercase tracking-wider font-semibold">Minutes</div>
+                </div>
+                <div class="text-center px-4">
+                    <div class="text-brand-800 font-bold text-xl">14-16</div>
+                    <div class="text-xs text-brand-500 uppercase tracking-wider font-semibold">Students</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Grid -->
+    <main class="max-w-5xl mx-auto px-6 w-full -mt-8 relative z-20 pb-20 flex-grow">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            
+            <!-- Left Column: Lesson Content -->
+            <div class="lg:col-span-8 space-y-6">
+                
+                <!-- Section 1: Listening Check -->
+                <section class="glass-card rounded-2xl p-6 md:p-8 fade-in-up" id="section-1">
+                    <div class="flex items-start justify-between mb-6">
+                        <div class="flex items-center gap-4">
+                            <div class="bg-brand-50 text-brand-500 p-3 rounded-xl">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-brand-900">1. Listening Test 09 Practice & Check</h3>
+                                <p class="text-sm text-brand-400 font-medium flex items-center gap-2 mt-1">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    Practice, Check & Deconstruct (35 mins)
+                                </p>
+                            </div>
+                        </div>
+
+                        <label class="flex items-center cursor-pointer group">
+                            <input type="checkbox" class="checkbox-custom hidden" data-task="1" onchange="updateProgress()">
+                            <div class="w-8 h-8 rounded-full border-2 border-brand-200 flex items-center justify-center transition-colors group-hover:border-brand-500 bg-white shadow-inner">
+                                <svg class="w-4 h-4 text-white opacity-0 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                        </label>
+                    </div>
+
+                    <div class="bg-brand-50/50 border border-brand-100 rounded-xl p-5 mb-5">
+                        <h4 class="font-semibold text-brand-900 mb-2">Listening Mock Test 09 Review</h4>
+                        <p class="text-slate-600 text-sm mb-4">Go over answers for Listening Mock Test 09. Evaluate key spelling variations, pinpoint audio traps, resolve complex map label descriptors, and audit student response forms.</p>
+                        <a href="https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/test_view_pet_intensive_09.html" target="_blank" class="inline-flex items-center gap-2 bg-brand-500 text-white px-5 py-2.5 rounded-lg text-sm font-medium hover:bg-brand-400 transition-colors w-full sm:w-auto justify-center shadow-md shadow-brand-200">
+                            Open Listening Test 09
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                        </a>
+                    </div>
+                </section>
+
+                <!-- Section 2: Speaking Part 2 & 3 -->
+                <section class="glass-card rounded-2xl p-6 md:p-8 fade-in-up delay-100" id="section-2">
+                    <div class="flex items-start justify-between mb-6">
+                        <div class="flex items-center gap-4">
+                            <div class="bg-brand-50 text-brand-500 p-3 rounded-xl">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-brand-900">2. Speaking Part 2 & 3: Practice</h3>
+                                <p class="text-sm text-brand-400 font-medium flex items-center gap-2 mt-1">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    Pages 77 to 82 (50 mins)
+                                </p>
+                            </div>
+                        </div>
+
+                        <label class="flex items-center cursor-pointer group">
+                            <input type="checkbox" class="checkbox-custom hidden" data-task="2" onchange="updateProgress()">
+                            <div class="w-8 h-8 rounded-full border-2 border-brand-200 flex items-center justify-center transition-colors group-hover:border-brand-500 bg-white shadow-inner">
+                                <svg class="w-4 h-4 text-white opacity-0 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                        </label>
+                    </div>
+
+                    <p class="text-slate-600 text-sm mb-6 leading-relaxed">Study high-scoring vocabulary, collocations, and fully developed monologues. Expand each card below to view custom **Band 7.5+ Sample Responses**, **Lexical Masterclasses**, and structured **Part 3 extensions**:</p>
+
+                    <!-- Cue Card Accordions -->
+                    <div class="space-y-4">
+                        
+                        <!-- Topic 1: Lost your way -->
+                        <details class="group border border-brand-200 rounded-lg bg-white overflow-hidden shadow-sm hover:border-brand-400 transition-colors">
+                            <summary class="flex justify-between items-center font-medium cursor-pointer p-4 hover:bg-brand-50/50 text-brand-900 transition-colors">
+                                <span class="flex items-center gap-3">
+                                    <span class="w-7 h-7 bg-brand-100 text-brand-800 rounded-full flex items-center justify-center font-bold text-xs">01</span>
+                                    <span class="font-serif text-sm md:text-base font-bold text-slate-800">Describe an occasion when you lost your way</span>
+                                </span>
+                                <svg class="w-5 h-5 transition duration-300 group-open:rotate-180 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg>
+                            </summary>
+                            <div class="p-5 border-t border-brand-100 text-sm text-slate-800 space-y-4 bg-brand-50/10 leading-relaxed">
+                                <div class="mb-2 bg-brand-50 p-3 rounded border border-brand-100">
+                                    <p class="text-xs font-bold text-brand-800 mb-1">Part 2 Cue Card Bullets:</p>
+                                    <p class="text-xs text-slate-600">You should say: Where you were going; Who you were with; How you lost your way; And explain how you felt and handled the situation.</p>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg border border-brand-200 shadow-sm">
+                                    <p class="text-xs font-bold text-brand-800 mb-2 flex items-center gap-1.5">
+                                        <svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+                                        Band 7.5+ Sample Response (Monologue):
+                                    </p>
+                                    <p class="text-xs text-slate-700 italic leading-relaxed">
+                                        "I’d like to share an occasion when I became completely disoriented while trekking in the lush mountain valleys surrounding Sapa with my cousin. We had planned to hike to a secluded waterfall based on hand-drawn maps we received at our homestay. However, as deep mountain fog swept in rapidly, we missed a critical fork in the trail and found ourselves essentially in the middle of nowhere. Since there was no cellular coverage whatsoever, our digital maps were useless, and my heart sank immediately. We had to keep our heads, so we decided to retrace our steps calmly and follow a small stream downhill. Fortunately, we crossed paths with a local farmer who kindly pointed us back toward the main trail. It was a nerve-wracking experience, but it taught me an invaluable lesson about preparing alternative navigational backups."
+                                    </p>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg border border-brand-200 shadow-sm">
+                                    <p class="text-xs font-bold text-brand-800 mb-2">Lexical Masterclass (Detailed Vocab & Idioms):</p>
+                                    <div class="space-y-3 text-xs">
+                                        <div>
+                                            <span class="font-semibold text-brand-600">1. Disoriented (adjective)</span> /dɪsˈɔː.ri.en.tɪd/
+                                            <p class="text-slate-600 text-[11px] mt-0.5"><strong>Definition:</strong> Confused and not knowing where you are or which direction you are facing. <br/><strong>Collocations:</strong> Become disoriented, completely disoriented. <br/><strong>Example:</strong> The dense mist on the mountain passes caused us to become disoriented within minutes.</p>
+                                        </div>
+                                        <div>
+                                            <span class="font-semibold text-brand-600">2. Navigational (adjective)</span> /ˌnæv.ɪˈɡeɪ.ʃən.əl/
+                                            <p class="text-slate-600 text-[11px] mt-0.5"><strong>Definition:</strong> Relating to finding the way to a destination. <br/><strong>Collocations:</strong> Navigational backup, navigational skills. <br/><strong>Example:</strong> In remote regions, carrying offline navigational tools is an absolute necessity.</p>
+                                        </div>
+                                        <div>
+                                            <span class="font-semibold text-brand-600">3. Get one's bearings (idiom)</span>
+                                            <p class="text-slate-600 text-[11px] mt-0.5"><strong>Definition:</strong> To find out exactly where you are or what you should do next. <br/><strong>Example:</strong> We paused at the top of the ridge to look at the landscape and try to get our bearings.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bg-brand-50/50 p-4 rounded-lg border border-brand-200 text-xs">
+                                    <p class="font-bold text-brand-800 mb-1.5">Part 3 Analytical Extension:</p>
+                                    <p class="text-[11px] text-slate-700"><strong>Q: How has the widespread usage of GPS and smartphone navigation changed human cognitive mapping?</strong><br/><em>Ans (OREO):</em> In my view, relying heavily on automated GPS tools has significantly weakened our organic navigational skills. This is because users passively follow turn-by-turn voice directions instead of actively processing landmark signals and spatial layouts. For instance, many drivers fail to remember basic routes they traverse daily without digital assistance. Therefore, while modern technology offers incredible convenience, it has diluted our natural ability to map environments mentally.</p>
+                                </div>
+                            </div>
+                        </details>
+
+                        <!-- Topic 2: Outdoor Sport -->
+                        <details class="group border border-brand-200 rounded-lg bg-white overflow-hidden shadow-sm hover:border-brand-400 transition-colors">
+                            <summary class="flex justify-between items-center font-medium cursor-pointer p-4 hover:bg-brand-50/50 text-brand-900 transition-colors">
+                                <span class="flex items-center gap-3">
+                                    <span class="w-7 h-7 bg-brand-100 text-brand-800 rounded-full flex items-center justify-center font-bold text-xs">02</span>
+                                    <span class="font-serif text-sm md:text-base font-bold text-slate-800">Describe an outdoor sport you would like to try for the first time</span>
+                                </span>
+                                <svg class="w-5 h-5 transition duration-300 group-open:rotate-180 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg>
+                            </summary>
+                            <div class="p-5 border-t border-brand-100 text-sm text-slate-800 space-y-4 bg-brand-50/10 leading-relaxed">
+                                <div class="mb-2 bg-brand-50 p-3 rounded border border-brand-100">
+                                    <p class="text-xs font-bold text-brand-800 mb-1">Part 2 Cue Card Bullets:</p>
+                                    <p class="text-xs text-slate-600">You should say: What sport it is; Where you can do it; What equipment is needed; And explain why you would like to try this outdoor sport.</p>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg border border-brand-200 shadow-sm">
+                                    <p class="text-xs font-bold text-brand-800 mb-2 flex items-center gap-1.5">
+                                        <svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+                                        Band 7.5+ Sample Response (Monologue):
+                                    </p>
+                                    <p class="text-xs text-slate-700 italic leading-relaxed">
+                                        "An outdoor sport that I have been deeply yearning to try is windsurfing, which is a fantastic combination of sailing and surfing. I would love to try this at the coastal town of Mui Ne, which is widely celebrated for its consistent, strong winds and excellent wave conditions. The necessary equipment consists of a specialized board, a rig containing a mast, boom, and sail, alongside safety gear like a life vest and a wetsuit. I want to try this sport because it seems like an incredibly exhilarating way to harness the raw momentum of both wind and water. While I know it has a notoriously steep learning curve and demands robust core strength, I am eager to break out of my comfort zone, dive headfirst into this challenge, and experience the sheer thrill of gliding across the ocean waves."
+                                    </p>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg border border-brand-200 shadow-sm">
+                                    <p class="text-xs font-bold text-brand-800 mb-2">Lexical Masterclass (Detailed Vocab & Idioms):</p>
+                                    <div class="space-y-3 text-xs">
+                                        <div>
+                                            <span class="font-semibold text-brand-600">1. Exhilarating (adjective)</span> /ɪɡˈzɪl.ə.reɪ.tɪŋ/
+                                            <p class="text-slate-600 text-[11px] mt-0.5"><strong>Definition:</strong> Making you feel extremely happy, excited, and full of energy. <br/><strong>Collocations:</strong> Exhilarating experience, exhilarating ride. <br/><strong>Example:</strong> Gliding across open water at high speeds is an exhilarating sensation like no other.</p>
+                                        </div>
+                                        <div>
+                                            <span class="font-semibold text-brand-600">2. Momentum (noun)</span> /məˈmen.təm/
+                                            <p class="text-slate-600 text-[11px] mt-0.5"><strong>Definition:</strong> The force or speed with which something moves. <br/><strong>Collocations:</strong> Gain momentum, gather momentum. <br/><strong>Example:</strong> The sail caught a sudden gust, helping the board gather momentum across the water.</p>
+                                        </div>
+                                        <div>
+                                            <span class="font-semibold text-brand-600">3. Dive headfirst into (idiom)</span>
+                                            <p class="text-slate-600 text-[11px] mt-0.5"><strong>Definition:</strong> To start doing something with immense enthusiasm and energy without hesitation. <br/><strong>Example:</strong> Instead of worrying about falling, I decided to dive headfirst into my first windsurfing lesson.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bg-brand-50/50 p-4 rounded-lg border border-brand-200 text-xs">
+                                    <p class="font-bold text-brand-800 mb-1.5">Part 3 Analytical Extension:</p>
+                                    <p class="text-[11px] text-slate-700"><strong>Q: Why are modern metropolitan youths showing a growing preference for adventurous outdoor sports over traditional team sports?</strong><br/><em>Ans (OREO):</em> In my estimation, the shift toward extreme outdoor sports is a direct reaction to the highly structured, sedentary nature of urban lives. Adventurous sports like windsurfing or rock climbing offer a pure, sensory adrenaline rush that traditional sports like soccer cannot replicate, alongside a profound escape into nature. For example, a young corporate professional gains deep therapeutic release from navigating open waves. Therefore, these sports serve as active, psychological outlets to conquer fears and experience raw freedom.</p>
+                                </div>
+                            </div>
+                        </details>
+
+                        <!-- Topic 3: Unusual Building -->
+                        <details class="group border border-brand-200 rounded-lg bg-white overflow-hidden shadow-sm hover:border-brand-400 transition-colors">
+                            <summary class="flex justify-between items-center font-medium cursor-pointer p-4 hover:bg-brand-50/50 text-brand-900 transition-colors">
+                                <span class="flex items-center gap-3">
+                                    <span class="w-7 h-7 bg-brand-100 text-brand-800 rounded-full flex items-center justify-center font-bold text-xs">03</span>
+                                    <span class="font-serif text-sm md:text-base font-bold text-slate-800">Describe an unusual but interesting building you would like to visit</span>
+                                </span>
+                                <svg class="w-5 h-5 transition duration-300 group-open:rotate-180 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg>
+                            </summary>
+                            <div class="p-5 border-t border-brand-100 text-sm text-slate-800 space-y-4 bg-brand-50/10 leading-relaxed">
+                                <div class="mb-2 bg-brand-50 p-3 rounded border border-brand-100">
+                                    <p class="text-xs font-bold text-brand-800 mb-1">Part 2 Cue Card Bullets:</p>
+                                    <p class="text-xs text-slate-600">You should say: Where this building is; What it looks like; How you first learned about it; And explain why you would like to visit this unusual building.</p>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg border border-brand-200 shadow-sm">
+                                    <p class="text-xs font-bold text-brand-800 mb-2 flex items-center gap-1.5">
+                                        <svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+                                        Band 7.5+ Sample Response (Monologue):
+                                    </p>
+                                    <p class="text-xs text-slate-700 italic leading-relaxed">
+                                        "An unusual but completely fascinating landmark that I am highly eager to visit is the famous 'Crazy House' (officially named Hang Nga Guesthouse) located in the mountainous city of Da Lat. This extraordinary architectural masterpiece resembles a giant, organic banyan tree, featuring twisted, cave-like stone pathways, spiderweb windows, and animal-themed guestrooms built directly into its structure. I first stumbled upon this building in an online art magazine highlighting avant-garde structures. I want to visit this place because it completely breaks the mold of traditional, rigid urban planning. It is a stunning, physical manifestation of artistic expression, showing a beautiful juxtaposition between man-made structures and the chaotic, majestic forms of raw nature. Standing inside its twisted corridors would be an absolute feast for the eyes."
+                                    </p>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg border border-brand-200 shadow-sm">
+                                    <p class="text-xs font-bold text-brand-800 mb-2">Lexical Masterclass (Detailed Vocab & Idioms):</p>
+                                    <div class="space-y-3 text-xs">
+                                        <div>
+                                            <span class="font-semibold text-brand-600">1. Avant-garde (adjective)</span> /ˌæv.ɒ̃ˈɡɑːd/
+                                            <p class="text-slate-600 text-[11px] mt-0.5"><strong>Definition:</strong> Ultra-modern, highly innovative, and experimenting with new style concepts. <br/><strong>Example:</strong> The architect's avant-garde approach to using recycled plastics has won global acclaim.</p>
+                                        </div>
+                                        <div>
+                                            <span class="font-semibold text-brand-600">2. Architectural (adjective)</span> /ˌɑː.kɪˈtek.tʃər.əl/
+                                            <p class="text-slate-600 text-[11px] mt-0.5"><strong>Definition:</strong> Relating to the design and construction of buildings. <br/><strong>Collocations:</strong> Architectural masterpiece, architectural styles. <br/><strong>Example:</strong> The historic cathedral is celebrated for its unique Goth-style architectural features.</p>
+                                        </div>
+                                        <div>
+                                            <span class="font-semibold text-brand-600">3. Break the mold (idiom)</span>
+                                            <p class="text-slate-600 text-[11px] mt-0.5"><strong>Definition:</strong> To do something completely different from what has been done before, rejecting conventional limits. <br/><strong>Example:</strong> Designing a house that looks like a giant tree really broke the mold of standard modern housing.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bg-brand-50/50 p-4 rounded-lg border border-brand-200 text-xs">
+                                    <p class="font-bold text-brand-800 mb-1.5">Part 3 Analytical Extension:</p>
+                                    <p class="text-[11px] text-slate-700"><strong>Q: Should municipal governments invest heavily in preserving historic buildings, even if the maintenance costs are exceptionally high?</strong><br/><em>Ans (OREO):</em> In my view, safeguarding historical architecture is paramount for maintaining a city's cultural identity. This is because historic buildings serve as a tangible link to a community’s past struggles, aesthetic achievements, and historical narrative, which modern glass skyscrapers cannot replicate. For example, preserving traditional wooden townhouses in Hoi An sustains the city's historical soul and local tourist economy. Therefore, these landmarks prevent cultural erosion and deserve public funding despite high maintenance costs.</p>
+                                </div>
+                            </div>
+                        </details>
+
+                        <!-- Topic 4: Environmental Person -->
+                        <details class="group border border-brand-200 rounded-lg bg-white overflow-hidden shadow-sm hover:border-brand-400 transition-colors">
+                            <summary class="flex justify-between items-center font-medium cursor-pointer p-4 hover:bg-brand-50/50 text-brand-900 transition-colors">
+                                <span class="flex items-center gap-3">
+                                    <span class="w-7 h-7 bg-brand-100 text-brand-800 rounded-full flex items-center justify-center font-bold text-xs">04</span>
+                                    <span class="font-serif text-sm md:text-base font-bold text-slate-800">Describe a person who helps to protect the environment</span>
+                                </span>
+                                <svg class="w-5 h-5 transition duration-300 group-open:rotate-180 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg>
+                            </summary>
+                            <div class="p-5 border-t border-brand-100 text-sm text-slate-800 space-y-4 bg-brand-50/10 leading-relaxed">
+                                <div class="mb-2 bg-brand-50 p-3 rounded border border-brand-100">
+                                    <p class="text-xs font-bold text-brand-800 mb-1">Part 2 Cue Card Bullets:</p>
+                                    <p class="text-xs text-slate-600">You should say: Who this person is; How you know him/her; What they do to protect the environment; And explain why you admire this person.</p>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg border border-brand-200 shadow-sm">
+                                    <p class="text-xs font-bold text-brand-800 mb-2 flex items-center gap-1.5">
+                                        <svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+                                        Band 7.5+ Sample Response (Monologue):
+                                    </p>
+                                    <p class="text-xs text-slate-700 italic leading-relaxed">
+                                        "I would love to tell you about an exceptional, eco-conscious classmate named Lan, who is incredibly active in green initiatives. We met during our freshman orientation, and we've collaborated on multiple school projects since. Lan runs a highly successful community-driven zero-waste advocacy campaign in our neighborhood. Every single weekend, she organizes a group of student volunteers to clean up local riverside parks and sort recyclable plastics. Furthermore, she conducts informative workshops at primary schools, teaching young kids the importance of reducing single-use packaging. I deeply admire Lan because she truly leads by example; she lives a completely plastic-free lifestyle, carrying her own reusable containers everywhere. Her absolute devotion and infectious energy prove that any single person, with enough passion, can make a monumental difference in protecting our local ecosystems."
+                                    </p>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg border border-brand-200 shadow-sm">
+                                    <p class="text-xs font-bold text-brand-800 mb-2">Lexical Masterclass (Detailed Vocab & Idioms):</p>
+                                    <div class="space-y-3 text-xs">
+                                        <div>
+                                            <span class="font-semibold text-brand-600">1. Eco-conscious (adjective)</span> /ˌiː.kəʊˈkɒn.ʃəs/
+                                            <p class="text-slate-600 text-[11px] mt-0.5"><strong>Definition:</strong> Showing deep concern for the preservation of the environment and minimizing pollution. <br/><strong>Collocations:</strong> Eco-conscious consumer, eco-conscious lifestyle. <br/><strong>Example:</strong> Purchasing locally sourced items is a key habit of eco-conscious citizens.</p>
+                                        </div>
+                                        <div>
+                                            <span class="font-semibold text-brand-600">2. Advocacy (noun)</span> /ˈæd.və.kə.si/
+                                            <p class="text-slate-600 text-[11px] mt-0.5"><strong>Definition:</strong> Public support for or recommendation of a particular cause or policy. <br/><strong>Collocations:</strong> Environmental advocacy, legal advocacy. <br/><strong>Example:</strong> Her non-profit organization is dedicated to clean water advocacy in remote delta communities.</p>
+                                        </div>
+                                        <div>
+                                            <span class="font-semibold text-brand-600">3. Lead by example (idiom)</span>
+                                            <p class="text-slate-600 text-[11px] mt-0.5"><strong>Definition:</strong> To guide or influence others through your own personal, positive actions instead of words. <br/><strong>Example:</strong> Lan always leads by example, showing up first at the weekend community cleanups.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bg-brand-50/50 p-4 rounded-lg border border-brand-200 text-xs">
+                                    <p class="font-bold text-brand-800 mb-1.5">Part 3 Analytical Extension:</p>
+                                    <p class="text-[11px] text-slate-700"><strong>Q: What is the most effective way for public educational institutions to instill active environmental values in children?</strong><br/><em>Ans (OREO):</em> In my view, integrating hands-on ecological projects directly into the primary school curriculum is highly effective. This is because theoretical textbook lectures fail to foster actual empathy, whereas real experiences build a lifetime bond with nature. For example, schools managing small organic gardens teach children about biodiversity and food waste through daily care. Therefore, physical engagement develops actual eco-conscious citizens far better than classroom exams.</p>
+                                </div>
+                            </div>
+                        </details>
+
+                        <!-- Topic 5: Old family thing -->
+                        <details class="group border border-brand-200 rounded-lg bg-white overflow-hidden shadow-sm hover:border-brand-400 transition-colors">
+                            <summary class="flex justify-between items-center font-medium cursor-pointer p-4 hover:bg-brand-50/50 text-brand-900 transition-colors">
+                                <span class="flex items-center gap-3">
+                                    <span class="w-7 h-7 bg-brand-100 text-brand-800 rounded-full flex items-center justify-center font-bold text-xs">05</span>
+                                    <span class="font-serif text-sm md:text-base font-bold text-slate-800">Describe an important old thing that your family has kept for a long time</span>
+                                </span>
+                                <svg class="w-5 h-5 transition duration-300 group-open:rotate-180 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg>
+                            </summary>
+                            <div class="p-5 border-t border-brand-100 text-sm text-slate-800 space-y-4 bg-brand-50/10 leading-relaxed">
+                                <div class="mb-2 bg-brand-50 p-3 rounded border border-brand-100">
+                                    <p class="text-xs font-bold text-brand-800 mb-1">Part 2 Cue Card Bullets:</p>
+                                    <p class="text-xs text-slate-600">You should say: What this thing is; How your family got it; How long your family has kept it; And explain why this old thing is so important to your family.</p>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg border border-brand-200 shadow-sm">
+                                    <p class="text-xs font-bold text-brand-800 mb-2 flex items-center gap-1.5">
+                                        <svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+                                        Band 7.5+ Sample Response (Monologue):
+                                    </p>
+                                    <p class="text-xs text-slate-700 italic leading-relaxed">
+                                        "I want to share the story of a precious mechanical Swiss watch inherited from my great-grandfather, which is an invaluable family heirloom. This beautiful watch was originally purchased in the late 1940s, and it has been preserved by our family for almost eighty years. It features an elegant silver dial, a worn brown leather strap, and a visible mechanical movement that still winds perfectly. What makes this old watch so important to us is its immense sentimental value. It has accompanied our family through thick and thin, surviving various socio-economic transitions and wars. To me, it is a brilliant symbol of historical resilience and family continuity. Staring at its rhythmic hands ticking smoothly is a grounding reminder of my ancestors' struggles and successes, proving that some objects possess a timeless soul that digital replacements can never replicate."
+                                    </p>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg border border-brand-200 shadow-sm">
+                                    <p class="text-xs font-bold text-brand-800 mb-2">Lexical Masterclass (Detailed Vocab & Idioms):</p>
+                                    <div class="space-y-3 text-xs">
+                                        <div>
+                                            <span class="font-semibold text-brand-600">1. Heirloom (noun)</span> /ˈeə.luːm/
+                                            <p class="text-slate-600 text-[11px] mt-0.5"><strong>Definition:</strong> A valuable object that has belonged to a family for several generations. <br/><strong>Collocations:</strong> Family heirloom, cherished heirloom. <br/><strong>Example:</strong> Her mother gave her a vintage jade necklace as a treasured family heirloom.</p>
+                                        </div>
+                                        <div>
+                                            <span class="font-semibold text-brand-600">2. Sentimental (adjective)</span> /ˌsen.tɪˈmen.təl/
+                                            <p class="text-slate-600 text-[11px] mt-0.5"><strong>Definition:</strong> Relating to feelings of tenderness, nostalgia, or sadness. <br/><strong>Collocations:</strong> Sentimental value, sentimental attachment. <br/><strong>Example:</strong> Although the old wooden desk was practically worthless, it held deep sentimental value for my father.</p>
+                                        </div>
+                                        <div>
+                                            <span class="font-semibold text-brand-600">3. Through thick and thin (idiom)</span>
+                                            <p class="text-slate-600 text-[11px] mt-0.5"><strong>Definition:</strong> Under all circumstances, surviving both the good times and very difficult challenges. <br/><strong>Example:</strong> My parents stood by each other through thick and thin for over forty years.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bg-brand-50/50 p-4 rounded-lg border border-brand-200 text-xs">
+                                    <p class="font-bold text-brand-800 mb-1.5">Part 3 Analytical Extension:</p>
+                                    <p class="text-[11px] text-slate-700"><strong>Q: Why do some cultures place a significantly higher value on preserving antique objects than others?</strong><br/><em>Ans (OREO):</em> In my view, cultures that emphasize ancestral worship and family legacy naturally prioritize the preservation of antiques. This is because ancient objects are viewed as sacred conduits of historical continuity, grounding current generations in their ancestral origins. For instance, in many traditional East Asian households, families maintain shrines featuring historic tools and heirlooms to pay respect. Therefore, keeping these items is a vital moral duty that preserves collective memory and resists modern individualistic consumerism.</p>
+                                </div>
+                            </div>
+                        </details>
+
+                        <!-- Topic 6: Natural Talent -->
+                        <details class="group border border-brand-200 rounded-lg bg-white overflow-hidden shadow-sm hover:border-brand-400 transition-colors">
+                            <summary class="flex justify-between items-center font-medium cursor-pointer p-4 hover:bg-brand-50/50 text-brand-900 transition-colors">
+                                <span class="flex items-center gap-3">
+                                    <span class="w-7 h-7 bg-brand-100 text-brand-800 rounded-full flex items-center justify-center font-bold text-xs">06</span>
+                                    <span class="font-serif text-sm md:text-base font-bold text-slate-800">Describe a natural talent (sports, music, etc.) you want to improve</span>
+                                </span>
+                                <svg class="w-5 h-5 transition duration-300 group-open:rotate-180 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg>
+                            </summary>
+                            <div class="p-5 border-t border-brand-100 text-sm text-slate-800 space-y-4 bg-brand-50/10 leading-relaxed">
+                                <div class="mb-2 bg-brand-50 p-3 rounded border border-brand-100">
+                                    <p class="text-xs font-bold text-brand-800 mb-1">Part 2 Cue Card Bullets:</p>
+                                    <p class="text-xs text-slate-600">You should say: What this natural talent is; How you discovered you had it; How you want to improve it; And explain why you want to improve this natural talent.</p>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg border border-brand-200 shadow-sm">
+                                    <p class="text-xs font-bold text-brand-800 mb-2 flex items-center gap-1.5">
+                                        <svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+                                        Band 7.5+ Sample Response (Monologue):
+                                    </p>
+                                    <p class="text-xs text-slate-700 italic leading-relaxed">
+                                        "A natural talent that I have always wanted to systematically improve is playing the piano by ear. I discovered this gift during childhood, when I realized I could replicate simple melodies on a toy keyboard without any formal sheet music. While I am not a child prodigy by any means, I possess an intuitive sense of pitch and melody. Currently, I want to elevate this skill to absolute mastery by studying advanced jazz improvisation and music theory under a certified tutor. I want to improve this talent because music is my ultimate psychological sanctuary; it allows me to translate my raw emotions into complex, beautiful harmonies. Enhancing this skill would not only boost my personal confidence but also let me connect on a much deeper level with listeners, playing moving songs that truly strike a chord."
+                                    </p>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg border border-brand-200 shadow-sm">
+                                    <p class="text-xs font-bold text-brand-800 mb-2">Lexical Masterclass (Detailed Vocab & Idioms):</p>
+                                    <div class="space-y-3 text-xs">
+                                        <div>
+                                            <span class="font-semibold text-brand-600">1. Prodigy (noun)</span> /ˈprɒd.ɪ.dʒi/
+                                            <p class="text-slate-600 text-[11px] mt-0.5"><strong>Definition:</strong> A young person who has an exceptional natural ability or talent for something. <br/><strong>Collocations:</strong> Child prodigy, musical prodigy. <br/><strong>Example:</strong> At only six, the child prodigy played complex Bach sonatas flawlessly.</p>
+                                        </div>
+                                        <div>
+                                            <span class="font-semibold text-brand-600">2. Mastery (noun)</span> /ˈmɑː.stər.i/
+                                            <p class="text-slate-600 text-[11px] mt-0.5"><strong>Definition:</strong> Complete control, deep understanding, or elite skill in a particular subject or activity. <br/><strong>Collocations:</strong> Absolute mastery, gain mastery over. <br/><strong>Example:</strong> Achieving absolute mastery of the violin requires thousands of hours of deliberate practice.</p>
+                                        </div>
+                                        <div>
+                                            <span class="font-semibold text-brand-600">3. Strike a chord (idiom)</span>
+                                            <p class="text-slate-600 text-[11px] mt-0.5"><strong>Definition:</strong> To create a strong, emotional response or connect deeply with others. <br/><strong>Example:</strong> Her moving performance of the folk song struck a chord with the older audience.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bg-brand-50/50 p-4 rounded-lg border border-brand-200 text-xs">
+                                    <p class="font-bold text-brand-800 mb-1.5">Part 3 Analytical Extension:</p>
+                                    <p class="text-[11px] text-slate-700"><strong>Q: Do you believe natural talent is more important than hard work (deliberate practice) in achieving elite mastery in creative fields?</strong><br/><em>Ans (OREO):</em> In my estimation, deliberate practice and hard work far outweigh raw, natural talent. This is because talent only provides an initial, baseline advantage, whereas continuous, structured effort is what develops the actual skill into elite mastery. For example, a child born with perfect pitch must still study music theory and practice scale exercises for decades to become an actual concert pianist. Therefore, as the proverb goes, practice makes perfect, and grit is the key driver of long-term success.</p>
+                                </div>
+                            </div>
+                        </details>
+
+                    </div>
+                </section>
+
+                <!-- Section 3: Homework & Wrap-up -->
+                <section class="glass-card rounded-2xl p-6 md:p-8 fade-in-up delay-200" id="section-3">
+                     <div class="flex items-start justify-between mb-6">
+                        <div class="flex items-center gap-4">
+                            <div class="bg-brand-50 text-brand-500 p-3 rounded-xl">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-brand-900">3. Homework & Session Wrap-up</h3>
+                                <p class="text-sm text-brand-400 font-medium flex items-center gap-2 mt-1">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    Wrap-up Directives (5 mins)
+                                </p>
+                            </div>
+                        </div>
+
+                        <label class="flex items-center cursor-pointer group">
+                            <input type="checkbox" class="checkbox-custom hidden" data-task="3" onchange="updateProgress()">
+                            <div class="w-8 h-8 rounded-full border-2 border-brand-200 flex items-center justify-center transition-colors group-hover:border-brand-500 bg-white shadow-inner">
+                                <svg class="w-4 h-4 text-white opacity-0 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                        </label>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            
+                            <!-- Homework Task 1: Learn Speaking P2 & 3 Pages 77-82 Vocab -->
+                            <div class="flex items-start gap-3 p-4 bg-white border border-brand-100 rounded-xl hover:shadow-sm">
+                                <div class="bg-brand-50 p-2 rounded-lg text-brand-600">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+                                </div>
+                                <div>
+                                    <p class="font-medium text-brand-900 text-sm">Review Speaking P2 & 3 (pp. 77-82)</p>
+                                    <p class="text-xs text-slate-500 mt-1">Review the sample monologues, phonetic definitions, and collocations for lost way, outdoor sport, unusual building, environmentalist, family heirloom, and talent topics.</p>
+                                </div>
+                            </div>
+
+                            <!-- Homework Task 2: Prepare Listening Test 09 Vocab -->
+                            <div class="flex items-start gap-3 p-4 bg-white border border-brand-100 rounded-xl hover:shadow-sm">
+                                <div class="bg-brand-50 p-2 rounded-lg text-brand-600">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                                </div>
+                                <div>
+                                    <p class="font-medium text-brand-900 text-sm">Review Listening 09 Vocab</p>
+                                    <p class="text-xs text-slate-500 mt-1">Check transcripts from Listening Mock Test 09 and write out confusing spelling mistakes or distractors in your error log.</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Right Column: Sidebar Tracker -->
+            <div class="lg:col-span-4 relative">
+                <div class="sticky top-6 glass-card rounded-2xl p-6 fade-in-up delay-300">
+                    <h3 class="font-serif font-bold text-xl text-brand-900 mb-4 border-b border-brand-100 pb-3">Lesson Tracker</h3>
+                    
+                    <div class="mb-6">
+                        <div class="flex justify-between text-sm mb-2">
+                            <span class="text-brand-800 font-medium">Completion Progress</span>
+                            <span id="progressText" class="font-bold text-brand-500">0%</span>
+                        </div>
+                        <div class="w-full bg-brand-100 rounded-full h-2.5 shadow-inner">
+                            <div id="sideProgressBar" class="bg-brand-500 h-2.5 rounded-full transition-all duration-500" style="width: 0%"></div>
+                        </div>
+                    </div>
+
+                    <ul class="space-y-4 text-sm font-medium text-slate-600">
+                        <li class="flex items-center justify-between p-3 rounded-lg bg-brand-50/50 border border-brand-100 transition-all" id="tracker-1">
+                            <span class="flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-brand-200 transition-colors" id="dot-1"></span>
+                                Listening Test 09 Check
+                            </span>
+                            <span class="text-xs bg-white text-brand-800 border border-brand-100 px-2 py-1 rounded">35m</span>
+                        </li>
+                        <li class="flex items-center justify-between p-3 rounded-lg bg-brand-50/50 border border-brand-100 transition-all" id="tracker-2">
+                            <span class="flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-brand-200 transition-colors" id="dot-2"></span>
+                                Speaking (Pages 77–82)
+                            </span>
+                            <span class="text-xs bg-white text-brand-800 border border-brand-100 px-2 py-1 rounded">50m</span>
+                        </li>
+                        <li class="flex items-center justify-between p-3 rounded-lg bg-brand-50/50 border border-brand-100 transition-all" id="tracker-3">
+                            <span class="flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-brand-200 transition-colors" id="dot-3"></span>
+                                Wrap-up & Homework
+                            </span>
+                            <span class="text-xs bg-white text-brand-800 border border-brand-100 px-2 py-1 rounded">5m</span>
+                        </li>
+                    </ul>
+
+                    <div class="mt-8 pt-6 border-t border-brand-100">
+                        <p class="text-xs text-brand-300 text-center uppercase tracking-widest font-semibold">End of Session</p>
+                        <button onclick="resetLesson()" class="w-full mt-3 py-2 border border-brand-200 text-brand-500 rounded-lg text-sm hover:bg-brand-50 hover:text-brand-700 transition-colors font-medium">
+                            Reset Tracker
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const totalTasks = 3;
+        
+        function updateProgress() {
+            const checkboxes = document.querySelectorAll('.checkbox-custom');
+            let completedTasks = 0;
+
+            checkboxes.forEach((cb) => {
+                const taskId = cb.getAttribute('data-task');
+                const trackerItem = document.getElementById(`tracker-${taskId}`);
+                const trackerDot = document.getElementById(`dot-${taskId}`);
+                const section = document.getElementById(`section-${taskId}`);
+
+                if (cb.checked) {
+                    completedTasks++;
+                    if (trackerItem) {
+                        trackerItem.classList.add('bg-brand-100', 'border-brand-300', 'text-brand-900');
+                        trackerItem.classList.remove('bg-brand-50/50', 'border-brand-100', 'text-slate-600');
+                    }
+                    if (trackerDot) {
+                        trackerDot.classList.add('bg-brand-500');
+                        trackerDot.classList.remove('bg-brand-200');
+                    }
+                    if (section) section.classList.add('opacity-75'); // Dim slightly when done
+                } else {
+                    if (trackerItem) {
+                        trackerItem.classList.remove('bg-brand-100', 'border-brand-300', 'text-brand-900');
+                        trackerItem.classList.add('bg-brand-50/50', 'border-brand-100', 'text-slate-600');
+                    }
+                    if (trackerDot) {
+                        trackerDot.classList.remove('bg-brand-500');
+                        trackerDot.classList.add('bg-brand-200');
+                    }
+                    if (section) section.classList.remove('opacity-75');
+                }
+            });
+
+            const percentage = Math.round((completedTasks / totalTasks) * 100);
+            
+            // Animate progress bars
+            document.getElementById('progressBar').style.width = `${percentage}%`;
+            document.getElementById('sideProgressBar').style.width = `${percentage}%`;
+            document.getElementById('progressText').innerText = `${percentage}%`;
+
+            // Visual feedback if 100%
+            if(percentage === 100) {
+                document.getElementById('sideProgressBar').classList.add('bg-brand-800');
+                document.getElementById('sideProgressBar').classList.remove('bg-brand-500');
+            } else {
+                document.getElementById('sideProgressBar').classList.remove('bg-brand-800');
+                document.getElementById('sideProgressBar').classList.add('bg-brand-500');
+            }
+        }
+
+        function resetLesson() {
+            const checkboxes = document.querySelectorAll('.checkbox-custom');
+            checkboxes.forEach(cb => {
+                cb.checked = false;
+            });
+            updateProgress();
+            
+            // Scroll to top smoothly
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Initialize progress on page load
+        document.addEventListener('DOMContentLoaded', updateProgress);
+    </script>
+</body>
+</html>

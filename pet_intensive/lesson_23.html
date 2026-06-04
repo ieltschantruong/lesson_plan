@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Chan Truong | PET Intensive Lesson 23</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#fdf2f8',  // Blush
+                            100: '#fce7f3', // Pastel Pink
+                            200: '#fbcfe8',
+                            300: '#f9a8d4',
+                            400: '#f472b6',
+                            500: '#ec4899', // Vibrant Accent
+                            800: '#9d174d', // Deep Rose for text
+                            900: '#831843', // Darkest Rose
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            background-color: #fffafb; /* Soft pastel background */
+            color: #475569;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(252, 231, 243, 0.6); /* pink-100 */
+            box-shadow: 0 4px 14px 0 rgba(252, 231, 243, 0.5); /* pink shadow */
+            transition: all 0.3s ease;
+        }
+        
+        .glass-card:hover {
+            box-shadow: 0 10px 25px -3px rgba(252, 231, 243, 0.8), 0 4px 6px -2px rgba(24bc, 231, 243, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .checkbox-custom:checked + div {
+            background-color: #ec4899; /* brand-500 */
+            border-color: #ec4899;
+        }
+        
+        .checkbox-custom:checked + div svg {
+            opacity: 1;
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #fdf2f8; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #f9a8d4; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #f472b6; 
+        }
+
+        /* Accordion summaries style removal */
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <div class="fixed top-0 left-0 w-full h-1.5 bg-brand-100 z-50">
+        <div id="progressBar" class="h-full bg-brand-500 transition-all duration-500 ease-out" style="width: 0%;"></div>
+    </div>
+
+    <!-- Header Section -->
+    <header class="bg-gradient-to-br from-pink-100 via-rose-100 to-pink-200 text-brand-900 pt-16 pb-20 px-6 relative overflow-hidden shadow-sm">
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden opacity-30 pointer-events-none">
+            <svg class="absolute -top-24 -right-24 w-96 h-96 text-white" fill="currentColor" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50"/></svg>
+            <svg class="absolute bottom-[-10%] left-[-5%] w-64 h-64 text-brand-300" fill="currentColor" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50"/></svg>
+        </div>
+
+        <div class="max-w-5xl mx-auto relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+            <div>
+                <h2 class="text-brand-800 font-semibold tracking-widest text-sm uppercase mb-2 flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                    IELTS Chan Truong
+                </h2>
+                <h1 class="text-4xl md:text-5xl font-serif font-bold text-brand-900 leading-tight drop-shadow-sm">
+                    PET Intensive <br/><span class="text-brand-500 font-sans font-light text-3xl">Lesson 23</span>
+                </h1>
+            </div>
+            
+            <div class="flex gap-4 bg-white/50 backdrop-blur-md px-6 py-4 rounded-2xl border border-white/60 shadow-sm">
+                <div class="text-center px-4 border-r border-brand-200">
+                    <div class="text-brand-800 font-bold text-xl">90</div>
+                    <div class="text-xs text-brand-500 uppercase tracking-wider font-semibold">Minutes</div>
+                </div>
+                <div class="text-center px-4">
+                    <div class="text-brand-800 font-bold text-xl">14-16</div>
+                    <div class="text-xs text-brand-500 uppercase tracking-wider font-semibold">Students</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Grid -->
+    <main class="max-w-5xl mx-auto px-6 w-full -mt-8 relative z-20 pb-20 flex-grow">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            
+            <!-- Left Column: Lesson Content -->
+            <div class="lg:col-span-8 space-y-6">
+                
+                <!-- Section 1: Reading Check -->
+                <section class="glass-card rounded-2xl p-6 md:p-8 fade-in-up" id="section-1">
+                    <div class="flex items-start justify-between mb-6">
+                        <div class="flex items-center gap-4">
+                            <div class="bg-brand-50 text-brand-500 p-3 rounded-xl">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-brand-900">1. Reading Test 09 Check & Explain</h3>
+                                <p class="text-sm text-brand-400 font-medium flex items-center gap-2 mt-1">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    Practice, Check & Deconstruct (25 mins)
+                                </p>
+                            </div>
+                        </div>
+
+                        <label class="flex items-center cursor-pointer group">
+                            <input type="checkbox" class="checkbox-custom hidden" data-task="1" onchange="updateProgress()">
+                            <div class="w-8 h-8 rounded-full border-2 border-brand-200 flex items-center justify-center transition-colors group-hover:border-brand-500 bg-white shadow-inner">
+                                <svg class="w-4 h-4 text-white opacity-0 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                        </label>
+                    </div>
+
+                    <div class="bg-brand-50/50 border border-brand-100 rounded-xl p-5 mb-5">
+                        <h4 class="font-semibold text-brand-900 mb-2">Reading Mock Test 09 Review</h4>
+                        <p class="text-slate-600 text-sm mb-4">Go over answers for Reading Mock Test 09. Evaluate lexical items, identify structural logic, analyze complex distractors, and build logical error mapping.</p>
+                        <a href="https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/pet_intensive_09.html" target="_blank" class="inline-flex items-center gap-2 bg-brand-500 text-white px-5 py-2.5 rounded-lg text-sm font-medium hover:bg-brand-400 transition-colors w-full sm:w-auto justify-center shadow-md shadow-brand-200">
+                            Open Reading Test 09
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                        </a>
+                    </div>
+                </section>
+
+                <!-- Section 2: Speaking Part 2 & 3 -->
+                <section class="glass-card rounded-2xl p-6 md:p-8 fade-in-up delay-100" id="section-2">
+                    <div class="flex items-start justify-between mb-6">
+                        <div class="flex items-center gap-4">
+                            <div class="bg-brand-50 text-brand-500 p-3 rounded-xl">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-brand-900">2. Speaking Part 2 & 3: Practice</h3>
+                                <p class="text-sm text-brand-400 font-medium flex items-center gap-2 mt-1">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    Pages 73 to 76 (60 mins)
+                                </p>
+                            </div>
+                        </div>
+
+                        <label class="flex items-center cursor-pointer group">
+                            <input type="checkbox" class="checkbox-custom hidden" data-task="2" onchange="updateProgress()">
+                            <div class="w-8 h-8 rounded-full border-2 border-brand-200 flex items-center justify-center transition-colors group-hover:border-brand-500 bg-white shadow-inner">
+                                <svg class="w-4 h-4 text-white opacity-0 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                        </label>
+                    </div>
+
+                    <p class="text-slate-600 text-sm mb-6 leading-relaxed">Study high-scoring vocabulary, collocations, and fully developed monologues. Expand each card below to view custom **Band 7.5+ Sample Responses**, **Lexical Masterclasses**, and structured **Part 3 extensions**:</p>
+
+                    <!-- Cue Card Accordions -->
+                    <div class="space-y-4">
+                        
+                        <!-- Topic 1: Traditional Story -->
+                        <details class="group border border-brand-200 rounded-lg bg-white overflow-hidden shadow-sm hover:border-brand-400 transition-colors">
+                            <summary class="flex justify-between items-center font-medium cursor-pointer p-4 hover:bg-brand-50/50 text-brand-900 transition-colors">
+                                <span class="flex items-center gap-3">
+                                    <span class="w-7 h-7 bg-brand-100 text-brand-800 rounded-full flex items-center justify-center font-bold text-xs">01</span>
+                                    <span class="font-serif text-sm md:text-base font-bold text-slate-800">Describe an interesting traditional story</span>
+                                </span>
+                                <svg class="w-5 h-5 transition duration-300 group-open:rotate-180 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg>
+                            </summary>
+                            <div class="p-5 border-t border-brand-100 text-sm text-slate-800 space-y-4 bg-brand-50/10 leading-relaxed">
+                                <div class="mb-2 bg-brand-50 p-3 rounded border border-brand-100">
+                                    <p class="text-xs font-bold text-brand-800 mb-1">Part 2 Cue Card Bullets:</p>
+                                    <p class="text-xs text-slate-600">You should say: What the story is; How you first learned about it; Who the main characters are; And explain why you find this traditional story so interesting.</p>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg border border-brand-200 shadow-sm">
+                                    <p class="text-xs font-bold text-brand-800 mb-2 flex items-center gap-1.5">
+                                        <svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+                                        Band 7.5+ Sample Response (Monologue):
+                                    </p>
+                                    <p class="text-xs text-slate-700 italic leading-relaxed">
+                                        "I'd like to talk about a highly fascinating traditional Vietnamese legend known as 'The Legend of Saint Giong' or 'Thanh Giong.' I first learned about this story in early childhood, when my grandmother would narrate it as a bedtime tale. The main character is a three-year-old boy who, despite his age, had never spoken or walked. However, when the nation faced a massive foreign invasion, he suddenly stood up, grew into a giant, rode a flaming iron horse, and brandished a sword to single-handedly defeat the invaders. I think this story is deeply interesting because Giong did not fight for personal glory or a royal title; after securing victory, he immediately flew up to the heavens, leaving behind a legacy of absolute selflessness. It beautifully captures the spirit of national unity and heroic patriotism that has defined our cultural history for centuries."
+                                    </p>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg border border-brand-200 shadow-sm">
+                                    <p class="text-xs font-bold text-brand-800 mb-2">Lexical Masterclass (Detailed Vocab & Idioms):</p>
+                                    <div class="space-y-3 text-xs">
+                                        <div>
+                                            <span class="font-semibold text-brand-600">1. Narrate (verb)</span> /ˈnær.eɪt/
+                                            <p class="text-slate-600 text-[11px] mt-0.5"><strong>Definition:</strong> To tell a story or describe a series of events. <br/><strong>Collocations:</strong> Narrate a tale, narrate in detail. <br/><strong>Example:</strong> Elders used to narrate folk tales to pass historical values to grandchildren.</p>
+                                        </div>
+                                        <div>
+                                            <span class="font-semibold text-brand-600">2. Brandish (verb)</span> /ˈbræn.dɪʃ/
+                                            <p class="text-slate-600 text-[11px] mt-0.5"><strong>Definition:</strong> To wave something (especially a weapon) in a triumphant, aggressive, or excited way. <br/><strong>Example:</strong> In the traditional play, the actor brandished a golden sword to symbolize victory.</p>
+                                        </div>
+                                        <div>
+                                            <span class="font-semibold text-brand-600">3. Blessing in disguise (idiom)</span>
+                                            <p class="text-slate-600 text-[11px] mt-0.5"><strong>Definition:</strong> A misfortune or obstacle that eventually results in a highly positive outcome. <br/><strong>Example:</strong> The bamboo forest being burned down was a blessing in disguise as it provided Saint Giong with perfect makeshift weapons.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bg-brand-50/50 p-4 rounded-lg border border-brand-200 text-xs">
+                                    <p class="font-bold text-brand-800 mb-1.5">Part 3 Analytical Extension:</p>
+                                    <p class="text-[11px] text-slate-700"><strong>Q: Why is it important to preserve folk tales and traditional legends in a modern, digital society?</strong><br/><em>Ans (OREO):</em> In my estimation, safeguarding cultural myths is paramount for preserving national identity. This is because folk tales encapsulate a society's core values, historical struggles, and moral compass that digital platforms cannot replicate. For example, stories like Saint Giong teach children courage and collective responsibility rather than individualism. Therefore, preserving these narratives prevents cultural erosion and binds communities together across generations.</p>
+                                </div>
+                            </div>
+                        </details>
+
+                        <!-- Topic 2: Foreign Food -->
+                        <details class="group border border-brand-200 rounded-lg bg-white overflow-hidden shadow-sm hover:border-brand-400 transition-colors">
+                            <summary class="flex justify-between items-center font-medium cursor-pointer p-4 hover:bg-brand-50/50 text-brand-900 transition-colors">
+                                <span class="flex items-center gap-3">
+                                    <span class="w-7 h-7 bg-brand-100 text-brand-800 rounded-full flex items-center justify-center font-bold text-xs">02</span>
+                                    <span class="font-serif text-sm md:text-base font-bold text-slate-800">Describe a kind of foreign food you like and you have had</span>
+                                </span>
+                                <svg class="w-5 h-5 transition duration-300 group-open:rotate-180 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg>
+                            </summary>
+                            <div class="p-5 border-t border-brand-100 text-sm text-slate-800 space-y-4 bg-brand-50/10 leading-relaxed">
+                                <div class="mb-2 bg-brand-50 p-3 rounded border border-brand-100">
+                                    <p class="text-xs font-bold text-brand-800 mb-1">Part 2 Cue Card Bullets:</p>
+                                    <p class="text-xs text-slate-600">You should say: What the food is; Where you had it; How often you eat it; And explain why you enjoy this foreign food so much.</p>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg border border-brand-200 shadow-sm">
+                                    <p class="text-xs font-bold text-brand-800 mb-2 flex items-center gap-1.5">
+                                        <svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+                                        Band 7.5+ Sample Response (Monologue):
+                                    </p>
+                                    <p class="text-xs text-slate-700 italic leading-relaxed">
+                                        "I would love to share my passion for authentic Japanese Ramen, particularly Tonkotsu Ramen, which I first tasted at a small, cozy noodle bar in Ho Chi Minh City about a year ago. It has since become a monthly culinary treat for me. This dish consists of wheat noodles served in a rich, velvety pork bone broth that has been simmered for hours, topped with tender chashu pork, a soft-boiled egg, and seaweed. What makes this foreign food so enjoyable is the striking complexity of its flavors. The broth has an intensely savory, umami profile that completely blankets the palate. Eating a steaming bowl of ramen is not just a basic meal; it is a highly therapeutic and comforting experience, especially during the rainy season. It represents a beautiful culinary masterpiece where every single ingredient has been prepared with extreme precision."
+                                    </p>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg border border-brand-200 shadow-sm">
+                                    <p class="text-xs font-bold text-brand-800 mb-2">Lexical Masterclass (Detailed Vocab & Idioms):</p>
+                                    <div class="space-y-3 text-xs">
+                                        <div>
+                                            <span class="font-semibold text-brand-600">1. Velvety (adjective)</span> /ˈvel.və.ti/
+                                            <p class="text-slate-600 text-[11px] mt-0.5"><strong>Definition:</strong> Having a smooth, soft, and luxurious texture or flavor. <br/><strong>Collocations:</strong> Velvety texture, velvety broth. <br/><strong>Example:</strong> The slow-simmered bone broth had a velvety consistency that warmed me instantly.</p>
+                                        </div>
+                                        <div>
+                                            <span class="font-semibold text-brand-600">2. Umami (noun/adjective)</span> /uːˈmɑː.mi/
+                                            <p class="text-slate-600 text-[11px] mt-0.5"><strong>Definition:</strong> A category of taste in food corresponding to the flavor of glutamates, characterized as savory or meaty. <br/><strong>Example:</strong> Mushrooms, seaweed, and fermented soy are highly praised for their natural umami.</p>
+                                        </div>
+                                        <div>
+                                            <span class="font-semibold text-brand-600">3. Suit one's palate (idiom)</span>
+                                            <p class="text-slate-600 text-[11px] mt-0.5"><strong>Definition:</strong> To be highly agreeable, delicious, or satisfying to someone's personal taste. <br/><strong>Example:</strong> While some find raw seafood strange, Japanese sushi perfectly suits my palate.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bg-brand-50/50 p-4 rounded-lg border border-brand-200 text-xs">
+                                    <p class="font-bold text-brand-800 mb-1.5">Part 3 Analytical Extension:</p>
+                                    <p class="text-[11px] text-slate-700"><strong>Q: How has the globalization of cuisine affected local culinary traditions in urban areas?</strong><br/><em>Ans (OREO):</em> From my perspective, food globalization has acted as a double-edged sword. This is because while it introduces urbanites to incredibly diverse palates, it occasionally threatens the survival of traditional, low-margin street stalls. For instance, the rise of international fast-food chains has led younger generations to neglect local historical dishes. Therefore, while culinary diversity should be embraced, local governments must actively support and promote traditional gastronomy to maintain cultural heritage.</p>
+                                </div>
+                            </div>
+                        </details>
+
+                        <!-- Topic 3: Different Cultural Background Person -->
+                        <details class="group border border-brand-200 rounded-lg bg-white overflow-hidden shadow-sm hover:border-brand-400 transition-colors">
+                            <summary class="flex justify-between items-center font-medium cursor-pointer p-4 hover:bg-brand-50/50 text-brand-900 transition-colors">
+                                <span class="flex items-center gap-3">
+                                    <span class="w-7 h-7 bg-brand-100 text-brand-800 rounded-full flex items-center justify-center font-bold text-xs">03</span>
+                                    <span class="font-serif text-sm md:text-base font-bold text-slate-800">Describe a person from a different cultural background with whom you enjoy spending time</span>
+                                </span>
+                                <svg class="w-5 h-5 transition duration-300 group-open:rotate-180 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" stroke-id="9" d="M19 9l-7 7-7-7"></path></svg>
+                            </summary>
+                            <div class="p-5 border-t border-brand-100 text-sm text-slate-800 space-y-4 bg-brand-50/10 leading-relaxed">
+                                <div class="mb-2 bg-brand-50 p-3 rounded border border-brand-100">
+                                    <p class="text-xs font-bold text-brand-800 mb-1">Part 2 Cue Card Bullets:</p>
+                                    <p class="text-xs text-slate-600">You should say: Who this person is; How you met; What you do together; And explain why you enjoy spending time with him/her.</p>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg border border-brand-200 shadow-sm">
+                                    <p class="text-xs font-bold text-brand-800 mb-2 flex items-center gap-1.5">
+                                        <svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+                                        Band 7.5+ Sample Response (Monologue):
+                                    </p>
+                                    <p class="text-xs text-slate-700 italic leading-relaxed">
+                                        "I'd love to describe my good friend, Sarah, who is an exchange student from Germany. We crossed paths last autumn during our university's global orientation week, and we hit it off immediately. Despite our diverse upbringings, we share a deep passion for history and hiking. On weekends, we often explore old temples around Hue or hike up nearby hills, trading stories about our respective nations. I thoroughly enjoy spending time with Sarah because she acts as an intellectual mirror. Her direct, analytical European perspective always challenges my assumptions and offers a striking contrast to our more indirect communication styles. Speaking with her is an absolute masterclass in cross-cultural empathy. She is extremely open-minded, and our endless discussions over cups of local salt coffee have definitely broadened my horizons and dissolved several of my preconceived notions about Western lifestyles."
+                                    </p>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg border border-brand-200 shadow-sm">
+                                    <p class="text-xs font-bold text-brand-800 mb-2">Lexical Masterclass (Detailed Vocab & Idioms):</p>
+                                    <div class="space-y-3 text-xs">
+                                        <div>
+                                            <span class="font-semibold text-brand-600">1. Cross-cultural (adjective)</span> /ˌkrɒsˈkʌl.tʃər.əl/
+                                            <p class="text-slate-600 text-[11px] mt-0.5"><strong>Definition:</strong> Relating to a comparison or interaction between different cultures. <br/><strong>Example:</strong> Participating in exchange programs fosters essential cross-cultural communication skills.</p>
+                                        </div>
+                                        <div>
+                                            <span class="font-semibold text-brand-600">2. Broaden one's horizons (idiom)</span>
+                                            <p class="text-slate-600 text-[11px] mt-0.5"><strong>Definition:</strong> To expand someone's range of knowledge, interests, or general experience. <br/><strong>Example:</strong> Traveling solo and interacting with locals will significantly broaden your horizons.</p>
+                                        </div>
+                                        <div>
+                                            <span class="font-semibold text-brand-600">3. Preconceived notion (noun phrase)</span>
+                                            <p class="text-slate-600 text-[11px] mt-0.5"><strong>Definition:</strong> An opinion or belief formed beforehand without actual experience or evidence. <br/><strong>Example:</strong> We should approach new communities without any preconceived notions.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bg-brand-50/50 p-4 rounded-lg border border-brand-200 text-xs">
+                                    <p class="font-bold text-brand-800 mb-1.5">Part 3 Analytical Extension:</p>
+                                    <p class="text-[11px] text-slate-700"><strong>Q: Why are cross-cultural friendships highly beneficial for university students?</strong><br/><em>Ans (OREO):</em> In my view, fostering friendships across diverse backgrounds is essential for preparing students for a globalized workforce. This is because daily interactions break down systemic stereotypes and nurture high-level interpersonal adaptability. For instance, collaborating with international peers on group projects teaches students how to navigate varying communication styles and expectations. Therefore, cross-cultural friendships develop robust global citizens who possess high cultural intelligence.</p>
+                                </div>
+                            </div>
+                        </details>
+
+                        <!-- Topic 4: Place with trees -->
+                        <details class="group border border-brand-200 rounded-lg bg-white overflow-hidden shadow-sm hover:border-brand-400 transition-colors">
+                            <summary class="flex justify-between items-center font-medium cursor-pointer p-4 hover:bg-brand-50/50 text-brand-900 transition-colors">
+                                <span class="flex items-center gap-3">
+                                    <span class="w-7 h-7 bg-brand-100 text-brand-800 rounded-full flex items-center justify-center font-bold text-xs">04</span>
+                                    <span class="font-serif text-sm md:text-base font-bold text-slate-800">Describe a place with a lot of trees that you would like to visit (e.g. a forest)</span>
+                                </span>
+                                <svg class="w-5 h-5 transition duration-300 group-open:rotate-180 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg>
+                            </summary>
+                            <div class="p-5 border-t border-brand-100 text-sm text-slate-800 space-y-4 bg-brand-50/10 leading-relaxed">
+                                <div class="mb-2 bg-brand-50 p-3 rounded border border-brand-100">
+                                    <p class="text-xs font-bold text-brand-800 mb-1">Part 2 Cue Card Bullets:</p>
+                                    <p class="text-xs text-slate-600">You should say: Where this place is; What it looks like; Who you would like to go with; And explain why you would like to visit this place with trees.</p>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg border border-brand-200 shadow-sm">
+                                    <p class="text-xs font-bold text-brand-800 mb-2 flex items-center gap-1.5">
+                                        <svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+                                        Band 7.5+ Sample Response (Monologue):
+                                    </p>
+                                    <p class="text-xs text-slate-700 italic leading-relaxed">
+                                        "A majestic wooded area that I am incredibly eager to visit is the ancient Yakushima Forest, located on a remote island in southern Japan. This magical place is world-renowned for its primeval, moss-draped cedar trees, some of which are thousands of years old. The forest floor is described as an otherworldly carpet of vibrant green ferns and moss-covered roots, with thick mist frequently weaving through the massive canopy. I would love to explore this natural sanctuary alongside my younger sister, who is an aspiring landscape photographer. The primary reason I yearn to visit Yakushima is to experience 'Shinrin-yoku' or forest bathing. In our fast-paced, screen-dominated urban lives, I find myself completely drained. I believe walking in such a serene, historic wilderness would have a highly therapeutic, grounding effect, helping me decompress and reconnect with the quiet majesty of our planet's pristine ecosystems."
+                                    </p>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg border border-brand-200 shadow-sm">
+                                    <p class="text-xs font-bold text-brand-800 mb-2">Lexical Masterclass (Detailed Vocab & Idioms):</p>
+                                    <div class="space-y-3 text-xs">
+                                        <div>
+                                            <span class="font-semibold text-brand-600">1. Primeval (adjective)</span> /praɪˈmiː.vəl/
+                                            <p class="text-slate-600 text-[11px] mt-0.5"><strong>Definition:</strong> Belonging to the earliest times in the history of the world; ancient and undisturbed by human activity. <br/><strong>Example:</strong> Walking through the primeval jungle felt like traveling back millions of years.</p>
+                                        </div>
+                                        <div>
+                                            <span class="font-semibold text-brand-600">2. Canopy (noun)</span> /ˈkæn.ə.pi/
+                                            <p class="text-slate-600 text-[11px] mt-0.5"><strong>Definition:</strong> The high, leafy roof formed by the uppermost branches of trees in a forest. <br/><strong>Collocations:</strong> Dense canopy, forest canopy. <br/><strong>Example:</strong> The thick jungle canopy blocked out almost all sunlight, keeping the forest floor cool.</p>
+                                        </div>
+                                        <div>
+                                            <span class="font-semibold text-brand-600">3. Forest bathing (noun phrase)</span>
+                                            <p class="text-slate-600 text-[11px] mt-0.5"><strong>Definition:</strong> The practice of spending calm, quiet time in a forest to improve physical and mental health (derived from Japanese *Shinrin-yoku*). <br/><strong>Example:</strong> Doctors frequently recommend forest bathing as a natural way to reduce stress levels.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bg-brand-50/50 p-4 rounded-lg border border-brand-200 text-xs">
+                                    <p class="font-bold text-brand-800 mb-1.5">Part 3 Analytical Extension:</p>
+                                    <p class="text-[11px] text-slate-700"><strong>Q: Why are municipal governments investing in creating small 'pocket forests' in dense urban spaces?</strong><br/><em>Ans (OREO):</em> In my estimation, introducing mini-forests into concrete jungles is highly beneficial. This is because urban trees act as natural air-purifying filters, mitigating the heat island effect while offering citizens an essential psychological retreat. For example, pocket forests in Tokyo have successfully lowered local ambient temperatures while reducing resident stress levels. Therefore, urban forestry is a vital component of sustainable, liveable city planning.</p>
+                                </div>
+                            </div>
+                        </details>
+
+                    </div>
+                </section>
+
+                <!-- Section 3: Homework & Wrap-up -->
+                <section class="glass-card rounded-2xl p-6 md:p-8 fade-in-up delay-200" id="section-3">
+                     <div class="flex items-start justify-between mb-6">
+                        <div class="flex items-center gap-4">
+                            <div class="bg-brand-50 text-brand-500 p-3 rounded-xl">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-brand-900">3. Homework & Session Wrap-up</h3>
+                                <p class="text-sm text-brand-400 font-medium flex items-center gap-2 mt-1">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    Wrap-up Directives (5 mins)
+                                </p>
+                            </div>
+                        </div>
+
+                        <label class="flex items-center cursor-pointer group">
+                            <input type="checkbox" class="checkbox-custom hidden" data-task="3" onchange="updateProgress()">
+                            <div class="w-8 h-8 rounded-full border-2 border-brand-200 flex items-center justify-center transition-colors group-hover:border-brand-500 bg-white shadow-inner">
+                                <svg class="w-4 h-4 text-white opacity-0 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                        </label>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            
+                            <!-- Homework Task 1: Learn Speaking P2 & 3 Pages 73-76 Vocab -->
+                            <div class="flex items-start gap-3 p-4 bg-white border border-brand-100 rounded-xl hover:shadow-sm">
+                                <div class="bg-brand-50 p-2 rounded-lg text-brand-600">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+                                </div>
+                                <div>
+                                    <p class="font-medium text-brand-900 text-sm">Review Speaking P2 & 3 (pp. 73-76)</p>
+                                    <p class="text-xs text-slate-500 mt-1">Review the sample responses, collocations, idioms, and OREO outlines for the traditional story, foreign food, cultural friend, and place with trees.</p>
+                                </div>
+                            </div>
+
+                            <!-- Homework Task 2: Prepare Reading Test 09 Vocab -->
+                            <div class="flex items-start gap-3 p-4 bg-white border border-brand-100 rounded-xl hover:shadow-sm">
+                                <div class="bg-brand-50 p-2 rounded-lg text-brand-600">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                                </div>
+                                <div>
+                                    <p class="font-medium text-brand-900 text-sm">Prepare Reading 09 Vocabulary</p>
+                                    <p class="text-xs text-slate-500 mt-1">Review challenging vocabulary and phrases from the Reading Mock Test 09 passages.</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Right Column: Sidebar Tracker -->
+            <div class="lg:col-span-4 relative">
+                <div class="sticky top-6 glass-card rounded-2xl p-6 fade-in-up delay-300">
+                    <h3 class="font-serif font-bold text-xl text-brand-900 mb-4 border-b border-brand-100 pb-3">Lesson Tracker</h3>
+                    
+                    <div class="mb-6">
+                        <div class="flex justify-between text-sm mb-2">
+                            <span class="text-brand-800 font-medium">Completion Progress</span>
+                            <span id="progressText" class="font-bold text-brand-500">0%</span>
+                        </div>
+                        <div class="w-full bg-brand-100 rounded-full h-2.5 shadow-inner">
+                            <div id="sideProgressBar" class="bg-brand-500 h-2.5 rounded-full transition-all duration-500" style="width: 0%"></div>
+                        </div>
+                    </div>
+
+                    <ul class="space-y-4 text-sm font-medium text-slate-600">
+                        <li class="flex items-center justify-between p-3 rounded-lg bg-brand-50/50 border border-brand-100 transition-all" id="tracker-1">
+                            <span class="flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-brand-200 transition-colors" id="dot-1"></span>
+                                Reading Test 09 Check
+                            </span>
+                            <span class="text-xs bg-white text-brand-800 border border-brand-100 px-2 py-1 rounded">25m</span>
+                        </li>
+                        <li class="flex items-center justify-between p-3 rounded-lg bg-brand-50/50 border border-brand-100 transition-all" id="tracker-2">
+                            <span class="flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-brand-200 transition-colors" id="dot-2"></span>
+                                Speaking (Pages 73–76)
+                            </span>
+                            <span class="text-xs bg-white text-brand-800 border border-brand-100 px-2 py-1 rounded">60m</span>
+                        </li>
+                        <li class="flex items-center justify-between p-3 rounded-lg bg-brand-50/50 border border-brand-100 transition-all" id="tracker-3">
+                            <span class="flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-brand-200 transition-colors" id="dot-3"></span>
+                                Wrap-up & Homework
+                            </span>
+                            <span class="text-xs bg-white text-brand-800 border border-brand-100 px-2 py-1 rounded">5m</span>
+                        </li>
+                    </ul>
+
+                    <div class="mt-8 pt-6 border-t border-brand-100">
+                        <p class="text-xs text-brand-300 text-center uppercase tracking-widest font-semibold">End of Session</p>
+                        <button onclick="resetLesson()" class="w-full mt-3 py-2 border border-brand-200 text-brand-500 rounded-lg text-sm hover:bg-brand-50 hover:text-brand-700 transition-colors font-medium">
+                            Reset Tracker
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const totalTasks = 3;
+        
+        function updateProgress() {
+            const checkboxes = document.querySelectorAll('.checkbox-custom');
+            let completedTasks = 0;
+
+            checkboxes.forEach((cb) => {
+                const taskId = cb.getAttribute('data-task');
+                const trackerItem = document.getElementById(`tracker-${taskId}`);
+                const trackerDot = document.getElementById(`dot-${taskId}`);
+                const section = document.getElementById(`section-${taskId}`);
+
+                if (cb.checked) {
+                    completedTasks++;
+                    if (trackerItem) {
+                        trackerItem.classList.add('bg-brand-100', 'border-brand-300', 'text-brand-900');
+                        trackerItem.classList.remove('bg-brand-50/50', 'border-brand-100', 'text-slate-600');
+                    }
+                    if (trackerDot) {
+                        trackerDot.classList.add('bg-brand-500');
+                        trackerDot.classList.remove('bg-brand-200');
+                    }
+                    if (section) section.classList.add('opacity-75'); // Dim slightly when done
+                } else {
+                    if (trackerItem) {
+                        trackerItem.classList.remove('bg-brand-100', 'border-brand-300', 'text-brand-900');
+                        trackerItem.classList.add('bg-brand-50/50', 'border-brand-100', 'text-slate-600');
+                    }
+                    if (trackerDot) {
+                        trackerDot.classList.remove('bg-brand-500');
+                        trackerDot.classList.add('bg-brand-200');
+                    }
+                    if (section) section.classList.remove('opacity-75');
+                }
+            });
+
+            const percentage = Math.round((completedTasks / totalTasks) * 100);
+            
+            // Animate progress bars
+            document.getElementById('progressBar').style.width = `${percentage}%`;
+            document.getElementById('sideProgressBar').style.width = `${percentage}%`;
+            document.getElementById('progressText').innerText = `${percentage}%`;
+
+            // Visual feedback if 100%
+            if(percentage === 100) {
+                document.getElementById('sideProgressBar').classList.add('bg-brand-800');
+                document.getElementById('sideProgressBar').classList.remove('bg-brand-500');
+            } else {
+                document.getElementById('sideProgressBar').classList.remove('bg-brand-800');
+                document.getElementById('sideProgressBar').classList.add('bg-brand-500');
+            }
+        }
+
+        function resetLesson() {
+            const checkboxes = document.querySelectorAll('.checkbox-custom');
+            checkboxes.forEach(cb => {
+                cb.checked = false;
+            });
+            updateProgress();
+            
+            // Scroll to top smoothly
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Initialize progress on page load
+        document.addEventListener('DOMContentLoaded', updateProgress);
+    </script>
+</body>
+</html>

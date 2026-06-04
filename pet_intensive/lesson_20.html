@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Chan Truong | PET Intensive Lesson 20</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#fdf2f8',  // Blush
+                            100: '#fce7f3', // Pastel Pink
+                            200: '#fbcfe8',
+                            300: '#f9a8d4',
+                            400: '#f472b6',
+                            500: '#ec4899', // Vibrant Accent
+                            800: '#9d174d', // Deep Rose for text
+                            900: '#831843', // Darkest Rose
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            background-color: #fffafb; /* Soft pastel background */
+            color: #475569;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(252, 231, 243, 0.6); /* pink-100 */
+            box-shadow: 0 4px 14px 0 rgba(252, 231, 243, 0.5); /* pink shadow */
+            transition: all 0.3s ease;
+        }
+        
+        .glass-card:hover {
+            box-shadow: 0 10px 25px -3px rgba(252, 231, 243, 0.8), 0 4px 6px -2px rgba(24bc, 231, 243, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .checkbox-custom:checked + div {
+            background-color: #ec4899; /* brand-500 */
+            border-color: #ec4899;
+        }
+        
+        .checkbox-custom:checked + div svg {
+            opacity: 1;
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #fdf2f8; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #f9a8d4; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #f472b6; 
+        }
+
+        /* Accordion summaries style removal */
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- Sticky Progress Bar -->
+    <div class="fixed top-0 left-0 w-full h-1.5 bg-brand-100 z-50">
+        <div id="progressBar" class="h-full bg-brand-500 transition-all duration-500 ease-out" style="width: 0%;"></div>
+    </div>
+
+    <!-- Header Section -->
+    <header class="bg-gradient-to-br from-pink-100 via-rose-100 to-pink-200 text-brand-900 pt-16 pb-20 px-6 relative overflow-hidden shadow-sm">
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden opacity-30 pointer-events-none">
+            <svg class="absolute -top-24 -right-24 w-96 h-96 text-white" fill="currentColor" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50"/></svg>
+            <svg class="absolute bottom-[-10%] left-[-5%] w-64 h-64 text-brand-300" fill="currentColor" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50"/></svg>
+        </div>
+
+        <div class="max-w-5xl mx-auto relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+            <div>
+                <h2 class="text-brand-800 font-semibold tracking-widest text-sm uppercase mb-2 flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                    IELTS Chan Truong
+                </h2>
+                <h1 class="text-4xl md:text-5xl font-serif font-bold text-brand-900 leading-tight drop-shadow-sm">
+                    PET Intensive <br/><span class="text-brand-500 font-sans font-light text-3xl">Lesson 20</span>
+                </h1>
+            </div>
+            
+            <div class="flex gap-4 bg-white/50 backdrop-blur-md px-6 py-4 rounded-2xl border border-white/60 shadow-sm">
+                <div class="text-center px-4 border-r border-brand-200">
+                    <div class="text-brand-800 font-bold text-xl">90</div>
+                    <div class="text-xs text-brand-500 uppercase tracking-wider font-semibold">Minutes</div>
+                </div>
+                <div class="text-center px-4">
+                    <div class="text-brand-800 font-bold text-xl">14-16</div>
+                    <div class="text-xs text-brand-500 uppercase tracking-wider font-semibold">Students</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-5xl mx-auto px-6 w-full -mt-8 relative z-20 pb-20 flex-grow">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            
+            <!-- Left Column: Lesson Content -->
+            <div class="lg:col-span-8 space-y-6">
+                
+                <!-- Section 1: Listening Test 08 -->
+                <section class="glass-card rounded-2xl p-6 md:p-8 fade-in-up" id="section-1">
+                    <div class="flex items-start justify-between mb-6">
+                        <div class="flex items-center gap-4">
+                            <div class="bg-brand-50 text-brand-500 p-3 rounded-xl">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-brand-900">1. Listening Test 08 Check & Explain</h3>
+                                <p class="text-sm text-brand-400 font-medium flex items-center gap-2 mt-1">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    Practice, Check & Deconstruct (35 mins)
+                                </p>
+                            </div>
+                        </div>
+
+                        <label class="flex items-center cursor-pointer group">
+                            <input type="checkbox" class="checkbox-custom hidden" data-task="1" onchange="updateProgress()">
+                            <div class="w-8 h-8 rounded-full border-2 border-brand-200 flex items-center justify-center transition-colors group-hover:border-brand-500 bg-white shadow-inner">
+                                <svg class="w-4 h-4 text-white opacity-0 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                        </label>
+                    </div>
+
+                    <div class="bg-brand-50/50 border border-brand-100 rounded-xl p-5 mb-5">
+                        <h4 class="font-semibold text-brand-900 mb-2">Listening Mock Test 08 Review</h4>
+                        <p class="text-slate-600 text-sm mb-4">Go over answers, highlight phonetic linkages, address map-labelling traps, and examine complex spelling and transcription details.</p>
+                        <a href="https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/test_view_pet_intensive_08.html" target="_blank" class="inline-flex items-center gap-2 bg-brand-500 text-white px-5 py-2.5 rounded-lg text-sm font-medium hover:bg-brand-400 transition-colors w-full sm:w-auto justify-center shadow-md shadow-brand-200">
+                            Open Listening Test 08
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                        </a>
+                    </div>
+                </section>
+
+                <!-- Section 2: Writing Test 5 -->
+                <section class="glass-card rounded-2xl p-6 md:p-8 fade-in-up delay-100" id="section-2">
+                    <div class="flex items-start justify-between mb-6">
+                        <div class="flex items-center gap-4">
+                            <div class="bg-brand-50 text-brand-500 p-3 rounded-xl">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-brand-900">2. Writing Test 5: Tasks 1 & 2</h3>
+                                <p class="text-sm text-brand-400 font-medium flex items-center gap-2 mt-1">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    Structures & Ideas Brainstorming (40 mins)
+                                </p>
+                            </div>
+                        </div>
+
+                        <label class="flex items-center cursor-pointer group">
+                            <input type="checkbox" class="checkbox-custom hidden" data-task="2" onchange="updateProgress()">
+                            <div class="w-8 h-8 rounded-full border-2 border-brand-200 flex items-center justify-center transition-colors group-hover:border-brand-500 bg-white shadow-inner">
+                                <svg class="w-4 h-4 text-white opacity-0 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                        </label>
+                    </div>
+
+                    <!-- Task 1 Area -->
+                    <div class="mb-8 border border-brand-100 rounded-xl p-5 bg-white shadow-sm">
+                        <h4 class="font-bold text-lg text-brand-800 flex items-center mb-3">
+                            <span class="bg-brand-100 text-brand-600 px-2 py-0.5 rounded text-sm mr-2">Task 1</span> Table Analysis
+                        </h4>
+                        <div class="bg-brand-50 p-4 rounded-lg border border-brand-100 text-slate-700 text-sm mb-5 leading-relaxed italic">
+                            "The graph below shows the percentage of adults in urban and rural areas who took part in four types of activities in 1990 and 2000. Summarize the information by selecting and reporting the main features, and make comparisons where relevant."
+                        </div>
+                        
+                        <div class="mb-6 rounded-lg overflow-hidden border border-slate-200">
+                            <!-- Verbatim Image Link -->
+                            <img src="image_693543.png" alt="Activities Table - Urban and Rural" class="w-full h-auto object-contain bg-white">
+                        </div>
+
+                        <!-- Accordions for Task 1 -->
+                        <div class="space-y-3">
+                            <details class="group border border-brand-200 rounded-lg bg-brand-50/30 overflow-hidden">
+                                <summary class="flex justify-between items-center font-medium cursor-pointer p-4 hover:bg-brand-50 text-brand-900 transition-colors">
+                                    <span class="flex items-center">
+                                        <svg class="w-4 h-4 mr-2 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                                        Brainstormed Ideas & Structure
+                                    </span>
+                                    <svg class="w-5 h-5 transition duration-300 group-open:rotate-180 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                </summary>
+                                <div class="p-4 border-t border-brand-100 text-sm text-slate-700 space-y-4 bg-white">
+                                    <div>
+                                        <span class="font-semibold text-brand-600 block mb-1">1. Introduction</span>
+                                        <p>Paraphrase the prompt: The table contrasts the percentages of urban and rural adults participating in four different leisure activities (reading, animated play, playing, and photography) across two distinct years: 1990 and 2000.</p>
+                                    </div>
+                                    <div>
+                                        <span class="font-semibold text-brand-600 block mb-1">2. Overview</span>
+                                        <p>Highlight key trends: Reading was by far the most popular activity for both urban and rural demographics across both years, ending in an equal peak of 78% in 2000. Photography saw notable increases in both areas, while animated play remained the least common pastime.</p>
+                                    </div>
+                                    <div>
+                                        <span class="font-semibold text-brand-600 block mb-1">3. Body Paragraph 1 (Reading & Photography)</span>
+                                        <ul class="list-disc pl-5 space-y-1">
+                                            <li><strong>Reading:</strong> High interest overall. Urban rates rose from 61% in 1990 to 78% in 2000. Rural rates also climbed from 71% to match the urban peak at 78% by 2000.</li>
+                                            <li><strong>Photography:</strong> Showed prominent growth. Urban rates grew from 7% to 17%, while rural participation nearly doubled, surging from 14% to 26%.</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <span class="font-semibold text-brand-600 block mb-1">4. Body Paragraph 2 (Animated Play & Playing)</span>
+                                        <ul class="list-disc pl-5 space-y-1">
+                                            <li><strong>Animated Play:</strong> Remained completely static at 10% for urban areas. Rural participation decreased slightly from 18% in 1990 to 14% in 2000.</li>
+                                            <li><strong>Playing:</strong> Exhibited a downward trend in urban sectors, falling from 21% to 14%. However, rural rates remained entirely static at 26% across both years.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </details>
+
+                            <details class="group border border-brand-200 rounded-lg bg-brand-50/30 overflow-hidden">
+                                <summary class="flex justify-between items-center font-medium cursor-pointer p-4 hover:bg-brand-50 text-brand-900 transition-colors">
+                                    <span class="flex items-center">
+                                        <svg class="w-4 h-4 mr-2 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                                        Sample Band 8.0 Response
+                                    </span>
+                                    <svg class="w-5 h-5 transition duration-300 group-open:rotate-180 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                </summary>
+                                <div class="p-5 border-t border-brand-100 text-sm text-slate-800 space-y-4 bg-white leading-relaxed">
+                                    <p>The table compares the percentages of adults residing in urban and rural settings who engaged in four types of leisure activities—reading, animated play, playing, and photography—during the years 1990 and 2000.</p>
+                                    <p>Overall, reading was consistently the most popular activity for both urban and rural adults across both years, experiencing noticeable growth to reach an equal peak by 2000. Additionally, photography saw upward trends in both demographics, while animated play remained the least preferred pastime. Playing witnessed stable participation in rural areas but dropped in urban centers.</p>
+                                    <p>In terms of reading and photography, reading was highly favored, starting at 61% for urban dwellers and 71% for rural residents in 1990, before climbing to a tied peak of 78% in 2000. Photography also experienced significant growth over the ten-year period, with urban participation rising from 7% to 17%, and rural engagement nearly doubling from 14% to 26%.</p>
+                                    <p>Concerning animated play and playing, animated play remained completely unchanged at 10% in urban areas, while rural participation decreased slightly from 18% in 1990 to 14% in 2000. Meanwhile, engagement in playing exhibited divergent trends; urban participation declined significantly from 21% to 14%, whereas rural playing rates remained completely static at 26% across both years.</p>
+                                </div>
+                            </details>
+                        </div>
+                    </div>
+
+                    <!-- Task 2 Area -->
+                    <div class="border border-brand-100 rounded-xl p-5 bg-white shadow-sm">
+                        <h4 class="font-bold text-lg text-brand-800 flex items-center mb-3">
+                            <span class="bg-brand-100 text-brand-600 px-2 py-0.5 rounded text-sm mr-2">Task 2</span> Essay
+                        </h4>
+                        <div class="bg-brand-50 p-4 rounded-lg border border-brand-100 text-slate-700 text-sm mb-5 leading-relaxed italic">
+                            "Some professionals, such as teachers and doctors make a great contribution to society so they should be paid more than sports athletes and entertainment stars. To what extent do you agree or disagree?"
+                        </div>
+
+                        <!-- Accordions for Task 2 -->
+                        <div class="space-y-3">
+                            <details class="group border border-brand-200 rounded-lg bg-brand-50/30 overflow-hidden">
+                                <summary class="flex justify-between items-center font-medium cursor-pointer p-4 hover:bg-brand-50 text-brand-900 transition-colors">
+                                    <span class="flex items-center">
+                                        <svg class="w-4 h-4 mr-2 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                                        Brainstormed Ideas & Structure
+                                    </span>
+                                    <svg class="w-5 h-5 transition duration-300 group-open:rotate-180 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                </summary>
+                                <div class="p-4 border-t border-brand-100 text-sm text-slate-700 space-y-4 bg-white">
+                                    <div>
+                                        <span class="font-semibold text-brand-600 block mb-1">1. Introduction</span>
+                                        <p>Paraphrase hook: The income disparity between public service professionals (doctors, educators) and entertainment celebrities (athletes, actors). State thesis: While public servants deserve vastly superior baseline remuneration due to their foundational contributions, a direct comparison is complex due to market-driven commercial revenues.</p>
+                                    </div>
+                                    <div>
+                                        <span class="font-semibold text-brand-600 block mb-1">2. Body Paragraph 1 (Why Public Servants Deserve Higher Pay)</span>
+                                        <ul class="list-disc pl-5 space-y-1">
+                                            <li><strong>Societal Foundation:</strong> Doctors save lives, and teachers cultivate human capital. Society cannot function sustainably without them.</li>
+                                            <li><strong>Economic Stability:</strong> Underpaid teachers and doctors lead to brain drain, deteriorating healthcare systems, and educational decay.</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <span class="font-semibold text-brand-600 block mb-1">3. Body Paragraph 2 (Why Celebrities Earn More - Market Reality)</span>
+                                        <ul class="list-disc pl-5 space-y-1">
+                                            <li><strong>Commercial Scaling:</strong> A surgeon can save one patient at a time, but a movie star or soccer player entertains millions simultaneously, generating massive advertisement, broadcasting, and merchandise revenues.</li>
+                                            <li><strong>Short-lived Careers:</strong> Athletic and media careers are highly volatile, brief, and prone to career-ending injuries.</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <span class="font-semibold text-brand-600 block mb-1">4. Conclusion</span>
+                                        <p>Summarize: While commercial market forces explain why celebrities command astronomical wages, governments must subsidize and heavily elevate the compensation of healthcare and educational professionals to reflect their intrinsic, monumental value.</p>
+                                    </div>
+                                </div>
+                            </details>
+
+                            <details class="group border border-brand-200 rounded-lg bg-brand-50/30 overflow-hidden">
+                                <summary class="flex justify-between items-center font-medium cursor-pointer p-4 hover:bg-brand-50 text-brand-900 transition-colors">
+                                    <span class="flex items-center">
+                                        <svg class="w-4 h-4 mr-2 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                                        Sample Band 8.0 Response
+                                    </span>
+                                    <svg class="w-5 h-5 transition duration-300 group-open:rotate-180 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                </summary>
+                                <div class="p-5 border-t border-brand-100 text-sm text-slate-800 space-y-4 bg-white leading-relaxed">
+                                    <p>The vast earnings gap between essential public professionals, such as educators and physicians, and elite entertainment figures, including sports stars and actors, has sparked intense debate. While I agree that the baseline salaries of teachers and doctors should be heavily increased to match their monumental societal contributions, I believe that the astronomical income of stars is a result of market-driven dynamics that cannot be easily regulated by standard wage caps.</p>
+                                    <p>On the one hand, public sector professionals form the bedrock of any stable civilization. Doctors are responsible for safeguarding public health and preserving human lives, while teachers nurture the intellectual capital of future generations. Without their expertise, a country would face severe educational decline and systemic health crises. Underpaying these crucial pillars leads to a shortage of talent and brain drain, as talented graduates avoid these fields in favor of more lucrative corporate careers. Therefore, the moral and practical value of these services dictates that they should receive superior compensation packages from public-sector budgets.</p>
+                                    <p>On the other hand, the multi-million dollar paychecks of athletes and entertainers are dictated by the economics of scale and consumer demand. Unlike a doctor, who can only treat one patient at a time, a soccer star or a prominent musician can entertain millions of viewers simultaneously through digital media, broadcasting, and merchandise. This immense reach generates colossal revenues from advertising, tickets, and television rights. Because celebrities represent the primary revenue-driving asset for their respective commercial industries, their high income is a proportional share of the profits they generate. Additionally, the career span of a professional athlete or entertainer is typically brief and volatile, requiring them to accumulate wealth in a highly restricted period.</p>
+                                    <p>In conclusion, while market-driven forces explain why entertainment stars command such vast fortunes, this does not excuse the systemic underfunding of essential public services. Governments must aggressively subsidize and elevate the remuneration of healthcare and education professionals to reflect their true value, even if they can never realistically match the commercially generated wealth of global celebrities.</p>
+                                </div>
+                            </details>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section 3: Vocab Test -->
+                <section class="glass-card rounded-2xl p-6 md:p-8 fade-in-up delay-200" id="section-3">
+                    <div class="flex items-start justify-between mb-6">
+                        <div class="flex items-center gap-4">
+                            <div class="bg-brand-50 text-brand-500 p-3 rounded-xl">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 112 2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-brand-900">3. Vocab Test: Speaking Topics 47-68</h3>
+                                <p class="text-sm text-brand-400 font-medium flex items-center gap-2 mt-1">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    Lexical Checkpoints (10 mins)
+                                </p>
+                            </div>
+                        </div>
+
+                        <label class="flex items-center cursor-pointer group">
+                            <input type="checkbox" class="checkbox-custom hidden" data-task="3" onchange="updateProgress()">
+                            <div class="w-8 h-8 rounded-full border-2 border-brand-200 flex items-center justify-center transition-colors group-hover:border-brand-500 bg-white shadow-inner">
+                                <svg class="w-4 h-4 text-white opacity-0 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                        </label>
+                    </div>
+
+                    <div class="bg-brand-50/50 border border-brand-100 rounded-xl p-5">
+                        <p class="text-slate-600 text-sm mb-4">Complete the comprehensive vocabulary check evaluating advanced vocabulary, idioms, and collocations studied in the Speaking Part 2 and Part 3 modules from pages 47 through 68.</p>
+                        <a href="https://ieltschantruong.github.io/IELTS/lesson_plan/pet_intensive/vocab_test_speaking_p23_47_68.docx" target="_blank" class="inline-flex items-center gap-2 bg-brand-500 text-white px-5 py-2.5 rounded-lg text-sm font-medium hover:bg-brand-400 transition-colors w-full sm:w-auto justify-center shadow-md shadow-brand-200">
+                            Download Vocab Test (DOCX)
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                        </a>
+                    </div>
+                </section>
+
+                <!-- Section 4: Homework -->
+                <section class="glass-card rounded-2xl p-6 md:p-8 fade-in-up delay-300" id="section-4">
+                     <div class="flex items-start justify-between mb-6">
+                        <div class="flex items-center gap-4">
+                            <div class="bg-brand-50 text-brand-500 p-3 rounded-xl">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-brand-900">4. Homework Assignment</h3>
+                                <p class="text-sm text-brand-400 font-medium flex items-center gap-2 mt-1">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    Wrap-up & Guidance (5 mins)
+                                </p>
+                            </div>
+                        </div>
+
+                        <label class="flex items-center cursor-pointer group">
+                            <input type="checkbox" class="checkbox-custom hidden" data-task="4" onchange="updateProgress()">
+                            <div class="w-8 h-8 rounded-full border-2 border-brand-200 flex items-center justify-center transition-colors group-hover:border-brand-500 bg-white shadow-inner">
+                                <svg class="w-4 h-4 text-white opacity-0 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                        </label>
+                    </div>
+
+                    <div class="space-y-3">
+                        <a href="https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/pet_intensive_08.html" target="_blank" class="block p-4 bg-white rounded-xl border border-brand-100 hover:border-brand-400 hover:shadow-md hover:shadow-brand-100 transition-all group">
+                            <div class="flex items-start gap-3">
+                                <div class="bg-brand-50 p-2 rounded-lg group-hover:bg-brand-100 text-brand-600 transition-colors">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                                </div>
+                                <div class="flex-grow">
+                                    <p class="font-medium text-brand-900 text-sm">Do Reading Test 08</p>
+                                    <p class="text-xs text-slate-500 mt-1">Complete the full Reading Mock Test 08 under strict exam timing boundaries.</p>
+                                    <span class="text-xs text-brand-500 font-semibold mt-2 inline-block">Access Reading Portal &rarr;</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Right Column: Sidebar Tracker -->
+            <div class="lg:col-span-4 relative">
+                <div class="sticky top-6 glass-card rounded-2xl p-6 fade-in-up delay-300">
+                    <h3 class="font-serif font-bold text-xl text-brand-900 mb-4 border-b border-brand-100 pb-3">Lesson Tracker</h3>
+                    
+                    <div class="mb-6">
+                        <div class="flex justify-between text-sm mb-2">
+                            <span class="text-brand-800 font-medium">Completion Progress</span>
+                            <span id="progressText" class="font-bold text-brand-500">0%</span>
+                        </div>
+                        <div class="w-full bg-brand-100 rounded-full h-2.5 shadow-inner">
+                            <div id="sideProgressBar" class="bg-brand-500 h-2.5 rounded-full transition-all duration-500" style="width: 0%"></div>
+                        </div>
+                    </div>
+
+                    <ul class="space-y-4 text-sm font-medium text-slate-600">
+                        <li class="flex items-center justify-between p-3 rounded-lg bg-brand-50/50 border border-brand-100 transition-all" id="tracker-1">
+                            <span class="flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-brand-200 transition-colors" id="dot-1"></span>
+                                Listening Test 08 Review
+                            </span>
+                            <span class="text-xs bg-white text-brand-800 border border-brand-100 px-2 py-1 rounded">35m</span>
+                        </li>
+                        <li class="flex items-center justify-between p-3 rounded-lg bg-brand-50/50 border border-brand-100 transition-all" id="tracker-2">
+                            <span class="flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-brand-200 transition-colors" id="dot-2"></span>
+                                Writing structures & ideas
+                            </span>
+                            <span class="text-xs bg-white text-brand-800 border border-brand-100 px-2 py-1 rounded">40m</span>
+                        </li>
+                        <li class="flex items-center justify-between p-3 rounded-lg bg-brand-50/50 border border-brand-100 transition-all" id="tracker-3">
+                            <span class="flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-brand-200 transition-colors" id="dot-3"></span>
+                                Speaking Vocab Test
+                            </span>
+                            <span class="text-xs bg-white text-brand-800 border border-brand-100 px-2 py-1 rounded">10m</span>
+                        </li>
+                        <li class="flex items-center justify-between p-3 rounded-lg bg-brand-50/50 border border-brand-100 transition-all" id="tracker-4">
+                            <span class="flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-brand-200 transition-colors" id="dot-4"></span>
+                                Wrap-up & Homework
+                            </span>
+                            <span class="text-xs bg-white text-brand-800 border border-brand-100 px-2 py-1 rounded">5m</span>
+                        </li>
+                    </ul>
+
+                    <div class="mt-8 pt-6 border-t border-brand-100">
+                        <p class="text-xs text-brand-300 text-center uppercase tracking-widest font-semibold">End of Session</p>
+                        <button onclick="resetLesson()" class="w-full mt-3 py-2 border border-brand-200 text-brand-500 rounded-lg text-sm hover:bg-brand-50 hover:text-brand-700 transition-colors font-medium">
+                            Reset Tracker
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const totalTasks = 4;
+        
+        function updateProgress() {
+            const checkboxes = document.querySelectorAll('.checkbox-custom');
+            let completedTasks = 0;
+
+            checkboxes.forEach((cb) => {
+                const taskId = cb.getAttribute('data-task');
+                const trackerItem = document.getElementById(`tracker-${taskId}`);
+                const trackerDot = document.getElementById(`dot-${taskId}`);
+                const section = document.getElementById(`section-${taskId}`);
+
+                if (cb.checked) {
+                    completedTasks++;
+                    if (trackerItem) {
+                        trackerItem.classList.add('bg-brand-100', 'border-brand-300', 'text-brand-900');
+                        trackerItem.classList.remove('bg-brand-50/50', 'border-brand-100', 'text-slate-600');
+                    }
+                    if (trackerDot) {
+                        trackerDot.classList.add('bg-brand-500');
+                        trackerDot.classList.remove('bg-brand-200');
+                    }
+                    if (section) section.classList.add('opacity-75'); // Dim slightly when done
+                } else {
+                    if (trackerItem) {
+                        trackerItem.classList.remove('bg-brand-100', 'border-brand-300', 'text-brand-900');
+                        trackerItem.classList.add('bg-brand-50/50', 'border-brand-100', 'text-slate-600');
+                    }
+                    if (trackerDot) {
+                        trackerDot.classList.remove('bg-brand-500');
+                        trackerDot.classList.add('bg-brand-200');
+                    }
+                    if (section) section.classList.remove('opacity-75');
+                }
+            });
+
+            const percentage = Math.round((completedTasks / totalTasks) * 100);
+            
+            // Animate progress bars
+            document.getElementById('progressBar').style.width = `${percentage}%`;
+            document.getElementById('sideProgressBar').style.width = `${percentage}%`;
+            document.getElementById('progressText').innerText = `${percentage}%`;
+
+            // Visual feedback if 100%
+            if(percentage === 100) {
+                document.getElementById('sideProgressBar').classList.add('bg-brand-800');
+                document.getElementById('sideProgressBar').classList.remove('bg-brand-500');
+            } else {
+                document.getElementById('sideProgressBar').classList.remove('bg-brand-800');
+                document.getElementById('sideProgressBar').classList.add('bg-brand-500');
+            }
+        }
+
+        function resetLesson() {
+            const checkboxes = document.querySelectorAll('.checkbox-custom');
+            checkboxes.forEach(cb => {
+                cb.checked = false;
+            });
+            updateProgress();
+            
+            // Scroll to top smoothly
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Initialize progress on page load
+        document.addEventListener('DOMContentLoaded', updateProgress);
+    </script>
+</body>
+</html>
