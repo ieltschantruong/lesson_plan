@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Chan Truong | Lesson 13 Detailed Plan</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Inter"', 'sans-serif'],
+                    },
+                    colors: {
+                        pastel: {
+                            pink: '#ffe4e6',
+                            purple: '#f3e8ff',
+                            blue: '#e0e7ff',
+                            teal: '#ccfbf1',
+                            orange: '#ffedd5',
+                            indigo: '#e0e7ff',
+                            cyan: '#cffafe'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { 
+            background-color: #fdfbfb;
+            background-image: 
+                radial-gradient(at 80% 0%, hsla(250, 50%, 95%, 1) 0px, transparent 50%),
+                radial-gradient(at 10% 30%, hsla(280, 60%, 90%, 1) 0px, transparent 50%),
+                radial-gradient(at 90% 80%, hsla(200, 60%, 90%, 1) 0px, transparent 50%),
+                radial-gradient(at 20% 90%, hsla(220, 60%, 90%, 1) 0px, transparent 50%);
+            background-attachment: fixed;
+            color: #334155;
+        }
+        
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 10px 40px -10px rgba(0,0,0,0.05);
+        }
+
+        .skill-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.25rem 0.6rem;
+            border-radius: 8px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            backdrop-filter: blur(4px);
+        }
+
+        .badge-reading { background-color: rgba(224, 231, 255, 0.7); color: #4f46e5; border: 1px solid rgba(199, 210, 254, 0.5); }
+        .badge-speaking { background-color: rgba(255, 237, 213, 0.7); color: #ea580c; border: 1px solid rgba(253, 216, 163, 0.5); }
+
+        .guidance-box {
+            background: linear-gradient(to right, rgba(255,255,255,0.95), rgba(255,255,255,0.7));
+            border-left: 4px solid;
+            border-radius: 0.5rem;
+            padding: 1.25rem;
+            margin-bottom: 1.25rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
+
+        .topic-card {
+            background: linear-gradient(to bottom right, #ffffff, #fffbeb);
+            border: 1px solid rgba(253, 230, 138, 0.5);
+        }
+
+        .modal-overlay {
+            transition: opacity 0.25s ease-in-out;
+        }
+        .modal-container {
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease-in-out;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: rgba(203, 213, 225, 0.8); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(148, 163, 184, 0.8); }
+    </style>
+</head>
+<body class="antialiased min-h-screen pb-16">
+
+<div class="max-w-4xl mx-auto px-4 py-10 sm:px-6 lg:px-8">
+    
+    <!-- Header Block (Standardized visual template) -->
+    <header class="glass-panel rounded-[2rem] p-8 mb-8 relative overflow-hidden">
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-pastel-indigo rounded-full mix-blend-multiply filter blur-3xl opacity-50 z-0"></div>
+        <div class="absolute -bottom-24 -left-24 w-72 h-72 bg-pastel-purple rounded-full mix-blend-multiply filter blur-3xl opacity-50 z-0"></div>
+
+        <div class="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+            <div>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 border border-white text-[10px] font-bold text-slate-500 tracking-widest uppercase mb-3 shadow-sm">
+                    IELTS Chan Truong • Tutor 1
+                </div>
+                <h1 class="text-3xl md:text-4xl font-bold tracking-tight text-slate-800 mb-2">Lesson 13: Matching Info & Storytelling Tenses</h1>
+                <p class="text-slate-500 font-medium">90-Minute Dual-Skill Integration</p>
+            </div>
+            
+            <div class="flex flex-col gap-2">
+                <span class="skill-badge badge-reading shadow-sm justify-center">Reading (45 Min)</span>
+                <span class="skill-badge badge-speaking shadow-sm justify-center">Speaking P2 (45 Min)</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="space-y-8">
+        
+        <!-- Section 1: Reading Section -->
+        <section class="glass-panel rounded-2xl p-6 md:p-8 relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-2 h-full bg-indigo-400"></div>
+            
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-indigo-50 flex items-center justify-center text-indigo-600 border border-indigo-100 shadow-sm">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-slate-800">1. Reading: Matching Information</h2>
+                        <p class="text-sm text-slate-500">Locating specific arguments & detailed ideas across paragraphs</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tutoring Guidance Box -->
+            <div class="guidance-box border-indigo-400">
+                <h3 class="text-[13px] font-bold text-indigo-800 uppercase tracking-wider mb-3 flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    Matching Info Strategy: Scanning for Functional Outlines
+                </h3>
+                <div class="space-y-3 text-sm text-slate-700">
+                    <p>Unlike <strong>Matching Headings</strong> (which looks for global main ideas of paragraphs), <strong>Matching Information</strong> requires finding a highly specific, localized piece of detail hidden within a paragraph. Questions often appear as: <em>"Which paragraph contains... a reference to, an explanation of, a comparison between..."</em></p>
+                    
+                    <div class="bg-indigo-50/50 p-4 rounded-xl border border-indigo-100 shadow-sm space-y-2 text-xs">
+                        <p><strong class="text-indigo-900 uppercase tracking-wide font-bold">Execution Methodologies (Tackling Steps):</strong></p>
+                        <p><strong>1. Understand the Functional Prompts:</strong> Teach the student to recognize the "type" of information needed:
+                            <ul class="list-disc list-inside space-y-1 pl-2 text-slate-600 mt-1">
+                                <li><em>"a definition of..."</em> &rarr; Look for copular verbs, brackets, or relative clauses (e.g., "referred to as", "which is defined as").</li>
+                                <li><em>"a comparison..."</em> &rarr; Scan for comparative structures, comparative adjectives, or words like "unlike", "similar to", "balanced against".</li>
+                                <li><em>"numerical evidence..."</em> &rarr; Target statistics, percentages, years, ratios.</li>
+                            </ul>
+                        </p>
+                        <p><strong>2. Skim, Don't Translate:</strong> The statements are always heavily paraphrased. Tell the student to read the statements first, circle the key concepts, and then skim the paragraphs to search for contextual synonyms rather than literal matching words.</p>
+                        <p><strong>3. Non-Sequential Order Warning:</strong> Remind the student that this question type is **not** in chronological order. Tell them to do this task *after* other sequential tasks (like Gap-filling or T/F/NG) so they already have some familiarity with the passage layout.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- In-Class Practice Exercise Link -->
+            <div class="mt-6">
+                <h4 class="text-sm font-bold text-slate-800 mb-3 flex items-center gap-2">
+                    <svg class="w-4 h-4 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                    Passage Practice
+                </h4>
+                <a href="https://youpass.vn/thi-thu/reading/7356" target="_blank" class="p-4 rounded-xl border border-indigo-200 bg-white flex flex-col sm:flex-row items-center justify-between gap-4 transition-all hover:border-indigo-400 hover:shadow-md group">
+                    <div class="flex items-center gap-4 w-full sm:w-auto">
+                        <div class="w-10 h-10 bg-indigo-50 rounded-lg flex items-center justify-center text-indigo-600 font-bold group-hover:bg-indigo-100 transition-colors shrink-0">P3</div>
+                        <div>
+                            <p class="font-bold text-slate-800 text-[15px] group-hover:text-indigo-600 transition-colors">Reducing the Effects of Climate Change</p>
+                            <p class="text-xs text-slate-500 mt-0.5">Focus: Paragraph Matching Information & logical sequencing</p>
+                        </div>
+                    </div>
+                    <span class="w-full sm:w-auto text-center sm:text-right text-[11px] font-bold text-indigo-600 uppercase tracking-wider bg-indigo-50 px-4 py-2.5 rounded-lg border border-indigo-100 group-hover:bg-indigo-100 transition-colors shrink-0">Execute on YouPass</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Section 2: Speaking Section -->
+        <section class="glass-panel rounded-2xl p-6 md:p-8 relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-2 h-full bg-orange-400"></div>
+            
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 rounded-full bg-orange-50 flex items-center justify-center text-orange-500 border border-orange-100 shadow-sm">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+                </div>
+                <h2 class="text-2xl font-bold text-slate-800">2. Speaking Part 2: Narrative Storytelling</h2>
+            </div>
+
+            <!-- Tutoring Guidance: Narrative Tenses -->
+            <div class="guidance-box border-orange-400">
+                <h3 class="text-[13px] font-bold text-orange-800 uppercase tracking-wider mb-2 flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    Strategy: Narrative Tenses for Dynamic Monologues
+                </h3>
+                <div class="space-y-3 text-sm text-slate-700">
+                    <p>To reach Band 6.5+ in grammatical range and coherence, students must move beyond repetitive past simple structures (<em>"I went there", "I saw that"</em>). Enforce standard sequencing rules utilizing complex narrative tenses:</p>
+                    <ul class="list-disc list-inside space-y-1.5 ml-1 text-slate-600 text-xs">
+                        <li><strong>Past Simple (Main Action):</strong> To describe sequential completed actions. (<em>"We hiked up to the viewpoint."</em>)</li>
+                        <li><strong>Past Continuous (Background Setting):</strong> To build atmospheres or describe temporary parallel events. (<em>"While we were driving up, the mist was rolling in."</em>)</li>
+                        <li><strong>Past Perfect (Retrospective Setup):</strong> To introduce background experiences preceding the main story. (<em>"Before that trip, I had never witnessed a real waterfall."</em>)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">In-Class Live Cue Card Practice (Click to inspect Band 6.5-7.0 Sample answers)</p>
+
+            <!-- Topic 1 -->
+            <div class="topic-card rounded-xl p-5 mb-4 shadow-sm relative">
+                <div class="absolute top-0 right-0 bg-orange-100 text-orange-700 text-[10px] font-bold px-2 py-1 rounded-bl-lg rounded-tr-xl border-l border-b border-orange-200">CUE CARD 1</div>
+                <h4 class="text-[15px] font-bold text-slate-800 mb-3 w-11/12">Describe a beautiful natural landscape you have visited.</h4>
+                <div class="bg-white/80 rounded p-3 text-sm text-slate-600 border border-orange-100/60">
+                    <p class="font-semibold text-slate-800 mb-1">Prompt parameters:</p>
+                    <ul class="list-none space-y-1 text-xs">
+                        <li>• <span class="font-medium">Where it was?</span></li>
+                        <li>• <span class="font-medium">When you went there?</span></li>
+                        <li>• <span class="font-medium">What the landscape looked like?</span></li>
+                        <li>• <span class="font-medium">And explain why you found it beautiful.</span></li>
+                    </ul>
+                </div>
+                <button onclick="openModal('naturalLandscape')" class="mt-4 w-full py-2 bg-orange-50 text-orange-700 hover:bg-orange-100 border border-orange-200 rounded-lg text-xs font-bold transition-colors flex justify-center items-center gap-2 group">
+                    <svg class="w-4 h-4 text-orange-500 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+                    View Band 6.5-7.0 Sample Story
+                </button>
+            </div>
+
+            <!-- Topic 2 -->
+            <div class="topic-card rounded-xl p-5 shadow-sm relative">
+                <div class="absolute top-0 right-0 bg-orange-100 text-orange-700 text-[10px] font-bold px-2 py-1 rounded-bl-lg rounded-tr-xl border-l border-b border-orange-200">CUE CARD 2</div>
+                <h4 class="text-[15px] font-bold text-slate-800 mb-3 w-11/12">Describe a park or garden in your city that you like.</h4>
+                <div class="bg-white/80 rounded p-3 text-sm text-slate-600 border border-orange-100/60">
+                    <p class="font-semibold text-slate-800 mb-1">Prompt parameters:</p>
+                    <ul class="list-none space-y-1 text-xs">
+                        <li>• <span class="font-medium">Where the park/garden is?</span></li>
+                        <li>• <span class="font-medium">What it looks like?</span></li>
+                        <li>• <span class="font-medium">What people do there?</span></li>
+                        <li>• <span class="font-medium">And explain why you like it.</span></li>
+                    </ul>
+                </div>
+                <button onclick="openModal('parkGarden')" class="mt-4 w-full py-2 bg-orange-50 text-orange-700 hover:bg-orange-100 border border-orange-200 rounded-lg text-xs font-bold transition-colors flex justify-center items-center gap-2 group">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+                    View Band 6.5-7.0 Sample Story
+                </button>
+            </div>
+        </section>
+
+        <!-- Section 3: Homework Section -->
+        <section class="glass-panel rounded-2xl p-6 md:p-8 relative overflow-hidden bg-gradient-to-br from-white/60 to-blue-50/40">
+            <div class="absolute top-0 left-0 w-2 h-full bg-blue-400"></div>
+            
+            <div class="flex items-center gap-3 mb-5">
+                <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 shadow-sm border border-blue-200">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                </div>
+                <h2 class="text-xl font-bold text-slate-800">3. Homework Assignments</h2>
+            </div>
+            
+            <p class="text-sm text-slate-600 mb-6 font-medium">Assign the following exercises to consolidate matching-info reading accuracy and geography monologue mechanics:</p>
+
+            <div class="bg-white/80 rounded-xl p-5 border border-indigo-100 shadow-sm space-y-4">
+                <div class="flex items-start gap-4">
+                    <div class="p-2.5 bg-orange-50 text-orange-500 rounded-lg shadow-sm">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+                    </div>
+                    <div>
+                        <p class="font-bold text-slate-800 text-base leading-snug">Speaking Part 2 Recordings: Geography</p>
+                        <p class="text-xs text-slate-500 mt-1">Prepare notes and record comprehensive answers for all <strong>8 remaining geography topics</strong> on the reference list. Ensure strict implementation of past perfect, past continuous, and past simple tenses.</p>
+                    </div>
+                </div>
+
+                <div class="pt-2">
+                    <a href="https://ieltschantruong.github.io/IELTS/learning_resources/speaking/part2_3/nature_and_geography.html" target="_blank" class="w-full bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold py-3 px-4 rounded-xl shadow-md transition-all flex items-center justify-center gap-2">
+                        <span>Open Remaining Geography Topics List</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</div>
+
+<!-- Modal Component System (Overlay popup for Model Answers) -->
+<div id="modalOverlay" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-50 flex items-center justify-center p-4 md:p-6 opacity-0 pointer-events-none modal-overlay">
+    <div id="modalContainer" class="bg-white rounded-3xl w-full max-w-2xl max-h-[85vh] overflow-y-auto shadow-2xl flex flex-col border border-slate-100 transform scale-95 opacity-0 modal-container">
+        
+        <!-- Modal Header -->
+        <div class="px-6 py-5 border-b border-slate-100 bg-slate-50 flex items-center justify-between sticky top-0 z-10 rounded-t-3xl">
+            <div class="flex items-center gap-3">
+                <div class="w-2.5 h-2.5 rounded-full bg-orange-500"></div>
+                <h3 id="modalTitle" class="text-sm font-bold text-slate-800 tracking-tight">Speaking Model Answer</h3>
+            </div>
+            <button onclick="closeModal()" class="p-1.5 rounded-lg bg-slate-200/60 hover:bg-slate-200 text-slate-500 hover:text-slate-700 transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+        </div>
+        
+        <!-- Modal Body Content -->
+        <div id="modalBody" class="p-6 md:p-8 space-y-6">
+            <!-- Dynamic Content Injected here -->
+        </div>
+        
+        <!-- Modal Footer -->
+        <div class="px-6 py-4 border-t border-slate-100 bg-slate-50 flex justify-end rounded-b-3xl">
+            <button onclick="closeModal()" class="bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold py-2.5 px-5 rounded-xl transition-all shadow-sm">
+                Return to Lesson Plan
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Database for Speaking Responses & Structural Blueprints
+    const speakingDB = {
+        naturalLandscape: {
+            title: "Model Story: Beautiful Natural Landscape (Dalat Highlands)",
+            topic: "Describe a beautiful natural landscape you have visited.",
+            outline: "Dalands Pine Forests & Mist, Highland Lake.",
+            story: `"I’d like to describe an absolutely stunning natural landscape that I visited about a year ago, which is the pine-covered hills surrounding Dalat in the Central Highlands of Vietnam.<br><br>Before going on this trip, <strong>I had only ever seen</strong> photos of Dalat in travel magazines, so I didn't fully comprehend how breathtaking it would be. We woke up extremely early, around 5:00 AM, to catch the sunrise. As we were driving up the steep mountain pass, <strong>the mist was rolling over the valley</strong>, and the air felt incredibly crisp and fresh.<br><br>When we reached the top of the pass, the landscape that unfolded before us was incredible. Thousands of towering pine trees stretched as far as the eye could see, their green tops piercing through a thick blanket of white fog. Nearby, a perfectly still, mirrored lake lay at the base of the hills, reflecting the golden light of the early morning sun. It looked like a classical painting.<br><br>The reason I found this scene so incredibly beautiful was the absolute tranquility of the moment. Back in my bustling city, I’m constantly surrounded by traffic noises and concrete buildings, so standing there while <strong>the sun was slowly burning off the fog</strong> was a deeply meditative experience. It left a lasting impression on me, and it made me appreciate the raw beauty of the highlands."`,
+            grammar: [
+                "<strong>Past Perfect (Had only ever seen):</strong> Establishes background experience prior to the main narrative timeline.",
+                "<strong>Past Continuous (The mist was rolling... sun was slowly burning):</strong> Paints a vivid environmental background setting.",
+                "<strong>Past Simple (We woke up... we reached):</strong> Moves the sequential action points of the story forward."
+            ],
+            adjectives: ["Pine-covered hills", "Breathtaking", "Steep mountain pass", "Crisp and fresh", "Towering pines", "Blanket of white fog", "Absolute tranquility", "Deeply meditative"]
+        },
+        parkGarden: {
+            title: "Model Story: Urban Sanctuary Park (Tao Dan Park)",
+            topic: "Describe a park or garden in your city that you like.",
+            outline: "Tao Dan Park, District 1, Ho Chi Minh City.",
+            story: `"I'm going to talk about a park in my city that I absolutely adore, which is Tao Dan Park, located right in the heart of District 1 in Ho Chi Minh City.<br><br>Before I started my university studies nearby, <strong>I had rarely visited</strong> this green space because I thought it was just a typical, boring city park. However, it has since become my favorite escape from the chaotic urban environment.<br><br>The park is quite large and covered in magnificent, century-old trees that form a massive canopy, keeping the ground cool even in the heat of midday. There are beautifully manicured gardens filled with vibrant orchids and tropical plants, along with tranquil stone pathways twisting between open lawns.<br><br>Every morning, the park is incredibly lively. While <strong>older residents are practicing Tai Chi</strong> under the shade, younger groups are jogging along the paved paths. My favorite spot is a small corner where local bird enthusiasts gather; they bring their caged birds, and <strong>the air is filled with beautiful birdsong</strong> while people sit nearby chatting and drinking iced coffee.<br><br>I find this park exceptionally beautiful because of the sharp contrast it creates against the concrete jungle surrounding it. It’s an urban sanctuary where you can instantly feel a sense of calm the moment you walk beneath those ancient trees."`,
+            grammar: [
+                "<strong>Past Perfect (I had rarely visited... I started):</strong> Sets up previous behavior before the present routine became established.",
+                "<strong>Past Continuous (Older residents were practicing... groups were jogging):</strong> Captures background, ongoing actions occurring simultaneously in the park setting.",
+                "<strong>Sequencing structures:</strong> Moves smoothly from spatial details to functional human actions."
+            ],
+            adjectives: ["Heart of the city", "Century-old trees", "Manicured gardens", "Tranquil stone pathways", "Lively morning routine", "Vibrant orchids", "Urban sanctuary", "Sharp contrast"]
+        }
+    };
+
+    function openModal(type) {
+        const data = speakingDB[type];
+        if (!data) return;
+
+        const overlay = document.getElementById('modalOverlay');
+        const container = document.getElementById('modalContainer');
+        const body = document.getElementById('modalBody');
+
+        document.getElementById('modalTitle').innerText = data.title;
+
+        // Construct HTML content inside modal matching Lesson 5
+        body.innerHTML = `
+            <div>
+                <span class="text-[10px] font-bold text-orange-600 bg-orange-50 border border-orange-100 px-2.5 py-1 rounded-md uppercase">Band 6.5 - 7.0 Storyboard</span>
+                <div class="mt-3 text-xs leading-relaxed text-slate-700 bg-slate-50 border border-slate-100 p-5 rounded-2xl">
+                    <p class="mb-4 italic text-slate-800 border-l-2 border-orange-300 pl-3 bg-white/40 p-2 rounded">
+                        <strong>Topic:</strong> ${data.topic}
+                    </p>
+                    <p class="text-slate-600 leading-relaxed">${data.story}</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+                <div>
+                    <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-2.5">Narrative Tense Execution</span>
+                    <ul class="space-y-2">
+                        ${data.grammar.map(item => `
+                            <li class="flex items-start text-[11px] text-slate-600">
+                                <span class="text-orange-400 font-bold mr-2">•</span>
+                                <span>${item}</span>
+                            </li>
+                        `).join('')}
+                    </ul>
+                </div>
+                <div>
+                    <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-2.5">Sensory Adjectives & Lexis</span>
+                    <div class="flex flex-wrap gap-1.5">
+                        ${data.adjectives.map(word => `
+                            <span class="text-[11px] font-semibold text-slate-600 bg-slate-100 border border-slate-200/60 px-2.5 py-1 rounded-md">${word}</span>
+                        `).join('')}
+                    </div>
+                </div>
+            </div>
+        `;
+
+        // Animation triggers
+        overlay.classList.remove('pointer-events-none');
+        overlay.classList.add('opacity-100');
+        container.classList.remove('scale-95', 'opacity-0');
+        container.classList.add('scale-100', 'opacity-100');
+        
+        // Prevent body scrolling
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+        const overlay = document.getElementById('modalOverlay');
+        const container = document.getElementById('modalContainer');
+
+        overlay.classList.remove('opacity-100');
+        overlay.classList.add('pointer-events-none');
+        container.classList.remove('scale-100', 'opacity-100');
+        container.classList.add('scale-95', 'opacity-0');
+        
+        // Restore body scrolling
+        document.body.style.overflow = '';
+    }
+
+    // Close modal if user clicks outside of container
+    document.getElementById('modalOverlay').addEventListener('click', function(e) {
+        if (e.target === this) {
+            closeModal();
+        }
+    });
+
+    // Close on escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeModal();
+        }
+    });
+</script>
+
+</body>
+</html>

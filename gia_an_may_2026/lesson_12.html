@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Chan Truong | Lesson 12 Detailed Plan</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Inter"', 'sans-serif'],
+                    },
+                    colors: {
+                        pastel: {
+                            pink: '#ffe4e6',
+                            purple: '#f3e8ff',
+                            blue: '#e0e7ff',
+                            teal: '#ccfbf1',
+                            orange: '#ffedd5',
+                            indigo: '#e0e7ff',
+                            cyan: '#cffafe'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { 
+            background-color: #fdfbfb;
+            background-image: 
+                radial-gradient(at 80% 0%, hsla(250, 50%, 95%, 1) 0px, transparent 50%),
+                radial-gradient(at 10% 30%, hsla(280, 60%, 90%, 1) 0px, transparent 50%),
+                radial-gradient(at 90% 80%, hsla(200, 60%, 90%, 1) 0px, transparent 50%),
+                radial-gradient(at 20% 90%, hsla(220, 60%, 90%, 1) 0px, transparent 50%);
+            background-attachment: fixed;
+            color: #334155;
+        }
+        
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 10px 40px -10px rgba(0,0,0,0.05);
+        }
+
+        .skill-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.25rem 0.6rem;
+            border-radius: 8px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            backdrop-filter: blur(4px);
+        }
+
+        .badge-speaking { background-color: rgba(255, 237, 213, 0.7); color: #ea580c; border: 1px solid rgba(253, 216, 163, 0.5); }
+        .badge-vocab { background-color: rgba(204, 251, 241, 0.7); color: #0d9488; border: 1px solid rgba(153, 246, 228, 0.5); }
+
+        .guidance-box {
+            background: linear-gradient(to right, rgba(255,255,255,0.95), rgba(255,255,255,0.7));
+            border-left: 4px solid;
+            border-radius: 0.5rem;
+            padding: 1.25rem;
+            margin-bottom: 1.25rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
+
+        /* Accordion transition utility */
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s cubic-bezier(0, 1, 0, 1), padding 0.3s ease;
+        }
+        .accordion-content.open {
+            max-height: 1000px;
+            padding-top: 1rem;
+            transition: max-height 0.3s cubic-bezier(0.95, 0.05, 0.795, 0.035), padding 0.3s ease;
+        }
+        .arrow-rotate {
+            transition: transform 0.2s ease-in-out;
+        }
+        .arrow-rotate.rotated {
+            transform: rotate(180deg);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: rgba(203, 213, 225, 0.8); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(148, 163, 184, 0.8); }
+    </style>
+</head>
+<body class="antialiased min-h-screen pb-16">
+
+<div class="max-w-4xl mx-auto px-4 py-10 sm:px-6 lg:px-8">
+    
+    <!-- Header Block (Matches Lesson 6 exactly) -->
+    <header class="glass-panel rounded-[2rem] p-8 mb-8 relative overflow-hidden">
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-pastel-indigo rounded-full mix-blend-multiply filter blur-3xl opacity-50 z-0"></div>
+        <div class="absolute -bottom-24 -left-24 w-72 h-72 bg-pastel-purple rounded-full mix-blend-multiply filter blur-3xl opacity-50 z-0"></div>
+
+        <div class="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+            <div>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 border border-white text-[10px] font-bold text-slate-500 tracking-widest uppercase mb-3 shadow-sm">
+                    IELTS Chan Truong • Tutor 1
+                </div>
+                <h1 class="text-3xl md:text-4xl font-bold tracking-tight text-slate-800 mb-2">Lesson 12: Part 3 Societal Logic & Natural Geography</h1>
+                <p class="text-slate-500 font-medium">90-Minute Advanced Speaking Masterclass</p>
+            </div>
+            
+            <div class="flex flex-col gap-2">
+                <span class="skill-badge badge-speaking shadow-sm justify-center">Speaking P3 (60 Min)</span>
+                <span class="skill-badge badge-vocab shadow-sm justify-center">Topical Vocab (30 Min)</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="space-y-8">
+        
+        <!-- Section 1: Speaking Part 3 (News & Ads) -->
+        <section class="glass-panel rounded-2xl p-6 md:p-8 relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-2 h-full bg-orange-400"></div>
+            
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-orange-50 flex items-center justify-center text-orange-600 border border-orange-100 shadow-sm">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-slate-800">1. Speaking Part 3: News & Ads</h2>
+                        <p class="text-sm text-slate-500">Deconstructing macro-societal discussion questions</p>
+                    </div>
+                </div>
+                
+                <!-- News and Ads Target Resource Link -->
+                <a href="https://ieltschantruong.github.io/IELTS/learning_resources/speaking/part2_3/news_and_ads.html" target="_blank" class="flex items-center gap-1.5 px-3 py-1.5 bg-orange-50 text-orange-700 text-xs font-bold rounded-lg border border-orange-100/60 hover:bg-orange-100 transition-colors whitespace-nowrap">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                    Topic Resource List
+                </a>
+            </div>
+
+            <!-- Tutoring Guidance Box -->
+            <div class="guidance-box border-orange-400">
+                <h3 class="text-[13px] font-bold text-orange-800 uppercase tracking-wider mb-3 flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    A.R.E.A Strategy: Transitioning from Part 2 to Part 3
+                </h3>
+                <div class="space-y-3 text-sm text-slate-700">
+                    <p>In Speaking Part 3, examiners assess the student's ability to analyze issues objectively rather than personally. Remind the student to never use personal pronouns (<em>"I", "me", "my"</em>) as anchors for reasons—they must speak on behalf of <strong>society, generations, or consumer trends</strong>.</p>
+                    <p>Enforce strict usage of the <strong>A.R.E.A framework</strong> to target a fluent, coherent Band 7.0+ output:</p>
+                    <ul class="list-disc list-inside space-y-1.5 ml-1 text-slate-600 text-[13px]">
+                        <li><strong>[A] Answer:</strong> Present a direct stance using advanced paraphrasing.</li>
+                        <li><strong>[R] Reason:</strong> Connect logically using structural adverbials (<em>"principally due to...", "attributable to..."</em>).</li>
+                        <li><strong>[E] Example:</strong> Cite objective data, trends, or generalized real-world scenarios.</li>
+                        <li><strong>[A] Alternative / Answer Pivot:</strong> Conclude by considering a counterpoint or conditional outcome (<em>"Conversely, without this,..."</em>).</li>
+                    </ul>
+                </div>
+            </div>
+
+            <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">In-Class Interactive Practice Questions (Click to expand suggested structure maps)</p>
+            
+            <div class="space-y-3">
+                <!-- Question 1 -->
+                <div class="border border-slate-150 rounded-xl bg-white/80 overflow-hidden shadow-sm hover:border-orange-200 transition-colors">
+                    <button onclick="toggleAccordion(1)" class="w-full text-left px-5 py-4 flex justify-between items-center gap-3">
+                        <span class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                            <span class="text-orange-500 font-bold">Q1.</span> Do you think advertisements on television are effective?
+                        </span>
+                        <svg id="arrow-1" class="w-4 h-4 text-slate-400 arrow-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="acc-1" class="accordion-content px-5 pb-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="text-xs text-slate-600 space-y-2">
+                            <p><strong>[Answer Blueprint]</strong> Yes, television ads remain exceptionally potent despite the rise of digital marketing.</p>
+                            <p><strong>[Reason Matrix]</strong> This is because television captures a captive, multi-generational audience, offering highly immersive audio-visual experiences.</p>
+                            <p><strong>[Example Case]</strong> For instance, major fast-moving consumer goods (FMCG) corporations continue to invest millions in prime-time slots because of the immediate impact on brand recognition.</p>
+                            <p><strong>[Alternative Angle]</strong> If television ads were obsolete, companies would have completely transitioned their budgets to online streaming channels, which is not yet the case.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 2 -->
+                <div class="border border-slate-150 rounded-xl bg-white/80 overflow-hidden shadow-sm hover:border-orange-200 transition-colors">
+                    <button onclick="toggleAccordion(2)" class="w-full text-left px-5 py-4 flex justify-between items-center gap-3">
+                        <span class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                            <span class="text-orange-500 font-bold">Q2.</span> How do advertisements influence children's choices?
+                        </span>
+                        <svg id="arrow-2" class="w-4 h-4 text-slate-400 arrow-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="acc-2" class="accordion-content px-5 pb-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="text-xs text-slate-600 space-y-2">
+                            <p><strong>[Answer Blueprint]</strong> Advertisements play a significant role in shaping the consumption habits of young demographics.</p>
+                            <p><strong>[Reason Matrix]</strong> Children are highly impressionable and lack the cognitive defenses to identify persuasive commercial intents.</p>
+                            <p><strong>[Example Case]</strong> For example, toy campaigns often use bright colors, fast-paced rhythms, and catchphrases, driving children to demand these items from their parents.</p>
+                            <p><strong>[Alternative Angle]</strong> Without regulatory oversight on youth-directed ads, we risk creating a generation driven strictly by impulsive consumerism.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 3 -->
+                <div class="border border-slate-150 rounded-xl bg-white/80 overflow-hidden shadow-sm hover:border-orange-200 transition-colors">
+                    <button onclick="toggleAccordion(3)" class="w-full text-left px-5 py-4 flex justify-between items-center gap-3">
+                        <span class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                            <span class="text-orange-500 font-bold">Q3.</span> Should there be stricter regulations on advertising junk food?
+                        </span>
+                        <svg id="arrow-3" class="w-4 h-4 text-slate-400 arrow-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="acc-3" class="accordion-content px-5 pb-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="text-xs text-slate-600 space-y-2">
+                            <p><strong>[Answer Blueprint]</strong> Imposing rigorous restrictions on marketing unhealthy food items is absolutely essential.</p>
+                            <p><strong>[Reason Matrix]</strong> Doing so addresses the global childhood obesity epidemic and lessens downstream pressures on public health infrastructure.</p>
+                            <p><strong>[Example Case]</strong> Nations like the UK have banned junk food commercials before 9 PM to protect vulnerable youth from constant exposure to hyper-processed foods.</p>
+                            <p><strong>[Alternative Angle]</strong> Conversely, leaving the market unregulated would inevitably result in soaring healthcare costs due to chronic diet-related conditions.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 4 -->
+                <div class="border border-slate-150 rounded-xl bg-white/80 overflow-hidden shadow-sm hover:border-orange-200 transition-colors">
+                    <button onclick="toggleAccordion(4)" class="w-full text-left px-5 py-4 flex justify-between items-center gap-3">
+                        <span class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                            <span class="text-orange-500 font-bold">Q4.</span> In what ways do advertisers try to manipulate consumers?
+                        </span>
+                        <svg id="arrow-4" class="w-4 h-4 text-slate-400 arrow-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="acc-4" class="accordion-content px-5 pb-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="text-xs text-slate-600 space-y-2">
+                            <p><strong>[Answer Blueprint]</strong> Marketing agencies deploy an array of psychological strategies to influence consumer choices.</p>
+                            <p><strong>[Reason Matrix]</strong> This involves creating a false sense of scarcity, exploiting social insecurities, or overstating the utility of products.</p>
+                            <p><strong>[Example Case]</strong> For instance, e-commerce websites often use countdown timers or phrases like "only 2 items left" to trigger artificial urgency and prompt immediate purchases.</p>
+                            <p><strong>[Alternative Angle]</strong> If consumers were taught media literacy from an early age, these manipulative tactics would be significantly less effective.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 5 -->
+                <div class="border border-slate-150 rounded-xl bg-white/80 overflow-hidden shadow-sm hover:border-orange-200 transition-colors">
+                    <button onclick="toggleAccordion(5)" class="w-full text-left px-5 py-4 flex justify-between items-center gap-3">
+                        <span class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                            <span class="text-orange-500 font-bold">Q5.</span> Do you think celebrity endorsements are effective?
+                        </span>
+                        <svg id="arrow-5" class="w-5 h-5 text-slate-400 arrow-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="acc-5" class="accordion-content px-5 pb-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="text-xs text-slate-600 space-y-2">
+                            <p><strong>[Answer Blueprint]</strong> Aligning products with prominent public figures remains a highly lucrative marketing strategy.</p>
+                            <p><strong>[Reason Matrix]</strong> This tactic relies on the psychological principle of social proof, transferring the trust and prestige associated with the celebrity directly to the brand.</p>
+                            <p><strong>[Example Case]</strong> A classic example is Nike's partnership with high-profile athletes, which has systematically driven international shoe sales for decades.</p>
+                            <p><strong>[Alternative Angle]</strong> However, if a celebrity's reputation is compromised by a public scandal, it can immediately damage the endorsed brand's image by association.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 6 -->
+                <div class="border border-slate-150 rounded-xl bg-white/80 overflow-hidden shadow-sm hover:border-orange-200 transition-colors">
+                    <button onclick="toggleAccordion(6)" class="w-full text-left px-5 py-4 flex justify-between items-center gap-3">
+                        <span class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                            <span class="text-orange-500 font-bold">Q6.</span> How has advertising changed since the introduction of the internet?
+                        </span>
+                        <svg id="arrow-6" class="w-6 h-6 text-slate-400 arrow-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="acc-6" class="accordion-content px-5 pb-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="text-xs text-slate-600 space-y-2">
+                            <p><strong>[Answer Blueprint]</strong> The digital age has completely revolutionized the advertising landscape, moving it away from traditional print and broadcast models.</p>
+                            <p><strong>[Reason Matrix]</strong> The primary driver is data-driven targeting, which allows businesses to track user behavior and deliver highly personalized ads in real-time.</p>
+                            <p><strong>[Example Case]</strong> In contrast to local newspaper ads, modern social media platforms show users products based on their recent web searches and locations.</p>
+                            <p><strong>[Alternative Angle]</strong> Without the internet, advertising would still be a passive, untargeted medium with much lower return-on-investment metrics.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 7 -->
+                <div class="border border-slate-150 rounded-xl bg-white/80 overflow-hidden shadow-sm hover:border-orange-200 transition-colors">
+                    <button onclick="toggleAccordion(7)" class="w-full text-left px-5 py-4 flex justify-between items-center gap-3">
+                        <span class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                            <span class="text-orange-500 font-bold">Q7.</span> Is it ethical to target advertisements specifically at children?
+                        </span>
+                        <svg id="arrow-7" class="w-7 h-7 text-slate-400 arrow-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="acc-7" class="accordion-content px-5 pb-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="text-xs text-slate-600 space-y-2">
+                            <p><strong>[Answer Blueprint]</strong> Targeting children with persuasive marketing is fundamentally unethical.</p>
+                            <p><strong>[Reason Matrix]</strong> At early stages of development, children cannot distinguish between entertaining content and commercial exploitation, making them vulnerable to manipulation.</p>
+                            <p><strong>[Example Case]</strong> Fast food chains often bundle cheap toys with calorie-dense meals, establishing unhealthy dietary preferences in children that can persist into adulthood.</p>
+                            <p><strong>[Alternative Angle]</strong> If we prioritize ethical marketing standards, advertising directly to children under twelve should be strictly banned, as is done in Sweden.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 8 -->
+                <div class="border border-slate-150 rounded-xl bg-white/80 overflow-hidden shadow-sm hover:border-orange-200 transition-colors">
+                    <button onclick="toggleAccordion(8)" class="w-full text-left px-5 py-4 flex justify-between items-center gap-3">
+                        <span class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                            <span class="text-orange-500 font-bold">Q8.</span> What are the negative effects of being constantly surrounded by ads?
+                        </span>
+                        <svg id="arrow-8" class="w-8 h-8 text-slate-400 arrow-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="acc-8" class="accordion-content px-5 pb-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="text-xs text-slate-600 space-y-2">
+                            <p><strong>[Answer Blueprint]</strong> Living in a hyper-advertised environment has several negative psychological and behavioral effects on citizens.</p>
+                            <p><strong>[Reason Matrix]</strong> It leads to constant mental fatigue, increases consumer anxiety, and encourages unsustainable levels of consumption.</p>
+                            <p><strong>[Example Case]</strong> Studies have linked the constant exposure to idealized lifestyles in ads with rising levels of self-doubt and financial stress among younger populations.</p>
+                            <p><strong>[Alternative Angle]</strong> Unless people actively practice digital disconnection, this constant exposure will continue to negatively impact mental well-being and fuel consumer debt.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 9 -->
+                <div class="border border-slate-150 rounded-xl bg-white/80 overflow-hidden shadow-sm hover:border-orange-200 transition-colors">
+                    <button onclick="toggleAccordion(9)" class="w-full text-left px-5 py-4 flex justify-between items-center gap-3">
+                        <span class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                            <span class="text-orange-500 font-bold">Q9.</span> Do you think pop-up ads on websites should be banned?
+                        </span>
+                        <svg id="arrow-9" class="w-9 h-9 text-slate-400 arrow-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="acc-9" class="accordion-content px-5 pb-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="text-xs text-slate-600 space-y-2">
+                            <p><strong>[Answer Blueprint]</strong> Yes, pop-up ads should be strictly banned or heavily restricted.</p>
+                            <p><strong>[Reason Matrix]</strong> They degrade the user experience, disrupt navigation, and are frequently used to distribute malicious software.</p>
+                            <p><strong>[Example Case]</strong> A vast majority of internet users now install third-party ad-blockers to bypass pop-ups and speed up page load times.</p>
+                            <p><strong>[Alternative Angle]</strong> Alternatively, websites should use non-intrusive banner ads that do not compromise user safety or hijack screen space.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 10 -->
+                <div class="border border-slate-150 rounded-xl bg-white/80 overflow-hidden shadow-sm hover:border-orange-200 transition-colors">
+                    <button onclick="toggleAccordion(10)" class="w-full text-left px-5 py-4 flex justify-between items-center gap-3">
+                        <span class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                            <span class="text-orange-500 font-bold">Q10.</span> How will advertising change in the next 10 years?
+                        </span>
+                        <svg id="arrow-10" class="w-10 h-10 text-slate-400 arrow-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="acc-10" class="accordion-content px-5 pb-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="text-xs text-slate-600 space-y-2">
+                            <p><strong>[Answer Blueprint]</strong> Advertising is set to become even more integrated into our daily lives through advanced technologies like artificial intelligence and virtual environments.</p>
+                            <p><strong>[Reason Matrix]</strong> We will likely see a shift from passive screens to contextual, real-time product placements tailored to personal biometrics.</p>
+                            <p><strong>[Example Case]</strong> In virtual reality spaces, advertisements might change dynamically depending on the user's focus, mood, or biometric response.</p>
+                            <p><strong>[Alternative Angle]</strong> If privacy regulations become significantly stricter worldwide, the industry may be forced to scale back data harvesting and return to contextual, print-style ads.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Speaking P3 Vocab Explaining (Geography) -->
+        <section class="glass-panel rounded-2xl p-6 md:p-8 relative overflow-hidden bg-gradient-to-br from-white/60 to-teal-50/40">
+            <div class="absolute top-0 left-0 w-2 h-full bg-teal-400"></div>
+            
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-5">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-teal-100 flex items-center justify-center text-teal-600 shadow-sm border border-teal-200">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <div>
+                        <h2 class="text-xl font-bold text-slate-800">2. Vocab Explaining: Nature & Geography</h2>
+                        <p class="text-sm text-slate-500">Developing precision vocabulary for physical features & structures</p>
+                    </div>
+                </div>
+                <span class="skill-badge badge-vocab shadow-sm font-bold">Topical Vocab</span>
+            </div>
+            
+            <p class="text-sm text-slate-600 mb-6">
+                Help the student master descriptive vocabulary for geographical formations, natural events, and environmental parameters. Use paraphrasing techniques to work through abstract natural topics:
+            </p>
+
+            <a href="https://ieltschantruong.github.io/IELTS/learning_resources/speaking/part2_3/nature_and_geography.html" target="_blank" class="flex items-center justify-between p-4 bg-white/80 border border-teal-200 rounded-xl hover:shadow-md hover:border-teal-400 transition-all group">
+                <div class="flex items-center gap-4">
+                    <div class="bg-teal-50 p-2.5 rounded-lg text-teal-600 group-hover:bg-teal-100 transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                    </div>
+                    <div>
+                        <span class="block text-[15px] font-bold text-slate-800 group-hover:text-teal-700 transition-colors">Geography & Nature Vocab Sheet</span>
+                        <span class="block text-xs text-slate-500 mt-0.5">Topical Lexicon & Speaking Part 2 Prompt Map</span>
+                    </div>
+                </div>
+                <span class="text-xs text-teal-600 font-bold uppercase tracking-wider bg-teal-50 px-3 py-1.5 rounded border border-teal-100 group-hover:bg-teal-100 transition-colors">Open List &rarr;</span>
+            </a>
+        </section>
+
+        <!-- Section 4: Homework Section -->
+        <section class="glass-panel rounded-2xl p-6 md:p-8 relative overflow-hidden bg-gradient-to-br from-white/60 to-blue-50/40">
+            <div class="absolute top-0 left-0 w-2 h-full bg-blue-400"></div>
+            
+            <div class="flex items-center gap-3 mb-5">
+                <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 shadow-sm border border-blue-200">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                </div>
+                <h2 class="text-xl font-bold text-slate-800">4. Homework Assignments</h2>
+            </div>
+            
+            <p class="text-sm text-slate-600 mb-6 font-medium">Assign the exercises below to consolidate Part 3 and Part 2 speaking delivery and expand topical vocabulary:</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Speaking Recordings -->
+                <div class="bg-white/80 p-4 rounded-xl border border-slate-150 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <span class="text-[10px] font-bold text-orange-700 bg-orange-50 border border-orange-100 px-2.5 py-1 rounded-md uppercase tracking-wider block mb-3">Speaking Recordings</span>
+                        <p class="text-xs text-slate-600 leading-relaxed mb-4">
+                            Select 5 questions from the **News & Ads** section. Use the A.R.E.A structure to record and submit your audio drafts for detailed feedback.
+                        </p>
+                    </div>
+                    <a href="https://ieltschantruong.github.io/IELTS/learning_resources/speaking/part2_3/news_and_ads.html" target="_blank" class="text-center text-xs font-bold text-orange-600 bg-orange-50 hover:bg-orange-100/80 transition-colors py-2 rounded-lg border border-orange-100">Review Questions</a>
+                </div>
+
+                <!-- Speaking P2 Prep -->
+                <div class="bg-white/80 p-4 rounded-xl border border-slate-150 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <span class="text-[10px] font-bold text-teal-700 bg-teal-50 border border-teal-100 px-2.5 py-1 rounded-md uppercase tracking-wider block mb-3">Geography Prep</span>
+                        <p class="text-xs text-slate-600 leading-relaxed mb-4">
+                            Draft a full Part 2 cue card outline for a geography/nature topic. Incorporate at least 10 high-level vocabulary items from the resource sheet.
+                        </p>
+                    </div>
+                    <a href="https://ieltschantruong.github.io/IELTS/learning_resources/speaking/part2_3/nature_and_geography.html" target="_blank" class="text-center text-xs font-bold text-teal-600 bg-teal-50 hover:bg-teal-100/80 transition-colors py-2 rounded-lg border border-teal-100">Open Vocab Sheet</a>
+                </div>
+
+                <!-- Vocab Study -->
+                <div class="bg-white/80 p-4 rounded-xl border border-slate-150 shadow-sm col-span-1 md:col-span-2 flex flex-col justify-between">
+                    <div>
+                        <span class="text-[10px] font-bold text-purple-700 bg-purple-50 border border-purple-100 px-2.5 py-1 rounded-md uppercase tracking-wider block mb-2">Test Preparation</span>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Study all newly acquired vocabulary from **News & Ads** AND **Geography** sheets in preparation for the cumulative vocabulary assessment in Lesson 13.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</div>
+
+<script>
+    function toggleAccordion(id) {
+        const content = document.getElementById(`acc-${id}`);
+        const arrow = document.getElementById(`arrow-${id}`);
+        
+        if (content.classList.contains('open')) {
+            content.classList.remove('open');
+            arrow.classList.remove('rotated');
+        } else {
+            // Close all accordions first for clean navigation
+            for (let i = 1; i <= 10; i++) {
+                const otherContent = document.getElementById(`acc-${i}`);
+                const otherArrow = document.getElementById(`arrow-${i}`);
+                if (otherContent) otherContent.classList.remove('open');
+                if (otherArrow) otherArrow.classList.remove('rotated');
+            }
+            
+            content.classList.add('open');
+            arrow.classList.add('rotated');
+        }
+    }
+</script>
+
+</body>
+</html>
