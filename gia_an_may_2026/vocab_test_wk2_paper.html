@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speaking Vocab Test: Media & Nature | IELTS Chan Truong</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Times+New+Roman:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #475569; /* Slate background simulating a desk */
+            background-image: radial-gradient(#334155 1px, transparent 1px);
+            background-size: 20px 20px;
+            font-family: 'Times New Roman', Times, serif; /* Classic exam paper font */
+            color: #000;
+            padding: 2rem 1rem;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+        }
+
+        .exam-paper {
+            background-color: #fff;
+            width: 100%;
+            max-width: 900px;
+            padding: 4rem 5rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            position: relative;
+            /* Slight paper texture */
+            background-image: linear-gradient(90deg, rgba(0,0,0,0.02) 1px, transparent 1px),
+                              linear-gradient(rgba(0,0,0,0.02) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        @media (max-width: 768px) {
+            body { padding: 0; background: #fff; }
+            .exam-paper { padding: 2rem 1.5rem; box-shadow: none; }
+        }
+
+        /* Input styling to look like blank lines */
+        .blank-input {
+            border: none;
+            border-bottom: 1.5px solid #000;
+            background: transparent;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 1.1rem;
+            font-style: italic;
+            color: #1e3a8a; /* Blue ink color */
+            text-align: center;
+            outline: none;
+            padding: 0 5px;
+            margin: 0 5px;
+            border-radius: 0;
+            transition: all 0.2s;
+        }
+        
+        .blank-input:focus {
+            background-color: rgba(253, 253, 150, 0.3);
+            border-bottom: 2px solid #2563eb;
+        }
+
+        .blank-input.graded-correct {
+            color: #16a34a; /* Green ink */
+            border-bottom-color: #16a34a;
+        }
+
+        .blank-input.graded-incorrect {
+            color: #dc2626; /* Red ink */
+            border-bottom-color: #dc2626;
+            text-decoration: line-through;
+        }
+
+        /* Multiple Choice Grid */
+        .mcq-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 640px) {
+            .mcq-grid { grid-template-columns: 1fr; gap: 0.5rem; }
+        }
+
+        .mcq-option {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+        }
+
+        .mcq-option input[type="radio"] {
+            appearance: none;
+            width: 14px;
+            height: 14px;
+            border: 1.5px solid #000;
+            border-radius: 50%;
+            outline: none;
+            position: relative;
+        }
+
+        .mcq-option input[type="radio"]:checked::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 8px;
+            height: 8px;
+            background-color: #1e3a8a; /* Blue ink */
+            border-radius: 50%;
+        }
+
+        /* Red Pen Correction styling */
+        .correction-text {
+            color: #dc2626; /* Red ink */
+            font-weight: bold;
+            font-size: 1rem;
+            font-style: italic;
+            margin-left: 0.5rem;
+            font-family: 'Comic Sans MS', 'Chalkboard SE', sans-serif; /* Handwriting feel */
+        }
+        
+        .mark-icon {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            vertical-align: middle;
+            margin-left: 5px;
+        }
+
+        /* Typography spacing */
+        h1, h2, h3, p, li { line-height: 1.6; }
+        .section-title { font-weight: bold; margin-top: 2rem; margin-bottom: 1rem; text-transform: uppercase; }
+        .word-bank { 
+            text-align: center; 
+            font-style: italic; 
+            margin: 1.5rem 0; 
+            padding: 1.5rem;
+            border: 1px solid #000;
+            background: #fafafa;
+            word-spacing: 1.5rem;
+            line-height: 2.5;
+        }
+
+        /* Floating Submit Bar */
+        .submit-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(5px);
+            border-top: 1px solid #cbd5e1;
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1);
+            z-index: 50;
+        }
+        
+        .hide-print { display: flex; }
+        @media print {
+            .hide-print, .submit-bar { display: none !important; }
+            body { background: white; padding: 0; }
+            .exam-paper { padding: 0; box-shadow: none; max-width: 100%; }
+            .word-bank { word-spacing: 1rem; padding: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="exam-paper" id="test-container">
+        
+        <!-- Header -->
+        <div class="flex justify-between items-start text-sm mb-8">
+            <div class="flex flex-col gap-2">
+                <div class="flex items-end gap-2">
+                    <span class="font-bold">Name:</span>
+                    <input type="text" class="blank-input w-48" placeholder="Student Name">
+                </div>
+                <div class="flex items-end gap-2">
+                    <span class="font-bold">Date:</span>
+                    <input type="text" class="blank-input w-32">
+                </div>
+            </div>
+            <div class="text-right italic font-bold">
+                IELTS Chan Truong 2026<br>
+                Target Band: 6.5 - 7.0+
+            </div>
+        </div>
+
+        <div class="text-center mb-10">
+            <h1 class="text-3xl font-bold uppercase tracking-wider mb-2">Speaking Vocab Test: Media & Nature</h1>
+            <h2 class="text-lg font-bold italic text-slate-600">Complete 80-Question Review</h2>
+        </div>
+
+        <!-- Grade Display (Hidden until submit) -->
+        <div id="grade-display" class="hidden absolute top-8 right-8 w-24 h-24 border-4 border-red-600 rounded-full flex flex-col items-center justify-center text-red-600 transform rotate-12 bg-white/80 backdrop-blur-sm z-10 shadow-lg">
+            <span class="text-3xl font-black font-sans leading-none" id="final-score">0</span>
+            <span class="text-sm font-bold border-t-2 border-red-600 w-16 text-center mt-1 pt-1 font-sans">/80</span>
+        </div>
+
+        <form id="vocab-form" onsubmit="event.preventDefault(); gradeTest();">
+
+            <div class="section">
+                <div class="section-title flex gap-4">
+                    <span>I.</span>
+                    <span>Fill in each blank with one suitable word from the NATURE list below.</span>
+                </div>
+                
+                <div class="word-bank font-bold text-lg">
+                    ecosystem &nbsp;&nbsp; topography &nbsp;&nbsp; deforestation &nbsp;&nbsp; archipelago &nbsp;&nbsp; peninsula &nbsp;&nbsp; habitat &nbsp;&nbsp; erosion &nbsp;&nbsp; sanctuary &nbsp;&nbsp; metropolis &nbsp;&nbsp; altitude
+                </div>
+
+                <div class="space-y-5 ml-6">
+                    <div class="q-item" data-q="1">1. The city of Tokyo is a bustling <input type="text" class="blank-input w-32" id="q1" autocomplete="off"> that perfectly blends modern architecture with natural parks.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="2">2. The <input type="text" class="blank-input w-32" id="q2" autocomplete="off"> of the region features steep mountains and deep river valleys.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="3">3. Indonesia is the largest <input type="text" class="blank-input w-32" id="q3" autocomplete="off"> in the world, consisting of thousands of islands.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="4">4. The destruction of their natural <input type="text" class="blank-input w-32" id="q4" autocomplete="off"> threatens the survival of orangutans.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="5">5. Coastal <input type="text" class="blank-input w-32" id="q5" autocomplete="off"> has caused several houses to collapse into the sea.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="6">6. The elephant <input type="text" class="blank-input w-32" id="q6" autocomplete="off"> provides a safe haven for rescued animals.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="7">7. At high <input type="text" class="blank-input w-32" id="q7" autocomplete="off">, the air becomes thinner and it's harder to breathe.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="8">8. The Iberian <input type="text" class="blank-input w-32" id="q8" autocomplete="off"> includes the countries of Spain and Portugal.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="9">9. Pollution can have a devastating effect on the fragile marine <input type="text" class="blank-input w-32" id="q9" autocomplete="off">.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="10">10. <input type="text" class="blank-input w-32" id="q10" autocomplete="off"> is a major contributor to global climate change due to the clearing of trees.<span class="correction-area"></span></div>
+                </div>
+            </div>
+
+            <div class="section mt-10">
+                <div class="section-title flex gap-4">
+                    <span>II.</span>
+                    <span>Fill in each blank with one suitable phrase from the NEWS & MEDIA list below.</span>
+                </div>
+                
+                <div class="word-bank font-bold text-lg">
+                    broadsheet &nbsp;&nbsp; tabloid &nbsp;&nbsp; clickbait &nbsp;&nbsp; slogan &nbsp;&nbsp; jingle &nbsp;&nbsp; word-of-mouth &nbsp;&nbsp; target audience &nbsp;&nbsp; brand awareness &nbsp;&nbsp; mainstream media &nbsp;&nbsp; information overload
+                </div>
+
+                <div class="space-y-5 ml-6">
+                    <div class="q-item" data-q="11">11. Advertisers carefully research their <input type="text" class="blank-input w-40" id="q11" autocomplete="off"> to ensure their campaigns are effective.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="12">12. I can't get that annoying radio <input type="text" class="blank-input w-24" id="q12" autocomplete="off"> out of my head.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="13">13. Many small businesses rely heavily on positive <input type="text" class="blank-input w-40" id="q13" autocomplete="off"> recommendations.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="14">14. Some people prefer alternative news sources because they distrust the <input type="text" class="blank-input w-40" id="q14" autocomplete="off">.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="15">15. The primary goal of this marketing campaign is to increase <input type="text" class="blank-input w-40" id="q15" autocomplete="off"> among young adults.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="16">16. A catchy <input type="text" class="blank-input w-24" id="q16" autocomplete="off"> can make a brand instantly recognizable.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="17">17. Many online articles use <input type="text" class="blank-input w-32" id="q17" autocomplete="off"> headlines that exaggerate the actual content.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="18">18. I prefer reading a <input type="text" class="blank-input w-32" id="q18" autocomplete="off"> because it offers more in-depth analysis of global events.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="19">19. A <input type="text" class="blank-input w-32" id="q19" autocomplete="off"> tends to focus more on celebrity scandals than hard news.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="20">20. With the constant stream of news notifications, many people suffer from <input type="text" class="blank-input w-40" id="q20" autocomplete="off">.<span class="correction-area"></span></div>
+                </div>
+            </div>
+
+            <div class="section mt-10">
+                <div class="section-title flex gap-4">
+                    <span>III.</span>
+                    <span>Complete the NATURE & GEOGRAPHY expressions in the sentences below by filling in exactly <span class="font-bold underline">ONE</span> suitable word.</span>
+                </div>
+
+                <div class="space-y-5 ml-6">
+                    <div class="q-item" data-q="21">21. The cabin we rented was in the middle of <input type="text" class="blank-input w-28" id="q21" autocomplete="off">, perfect for stargazing.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="22">22. I prefer visiting places that are off the <input type="text" class="blank-input w-28" id="q22" autocomplete="off"> track rather than famous tourist traps.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="23">23. My recycling effort feels like a <input type="text" class="blank-input w-24" id="q23" autocomplete="off"> in the ocean compared to industrial pollution.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="24">24. Don't worry about the light rain; you're making a mountain out of a <input type="text" class="blank-input w-28" id="q24" autocomplete="off">.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="25">25. The coastal town managed to <input type="text" class="blank-input w-28" id="q25" autocomplete="off"> the storm despite the heavy flooding.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="26">26. Plastic straws in the ocean are just the <input type="text" class="blank-input w-24" id="q26" autocomplete="off"> of the iceberg when it comes to pollution.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="27">27. My house is just a stone's <input type="text" class="blank-input w-24" id="q27" autocomplete="off"> away from a beautiful national park.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="28">28. Going camping for the weekend is a great way to get back to <input type="text" class="blank-input w-28" id="q28" autocomplete="off">.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="29">29. You can't control the weather; <input type="text" class="blank-input w-28" id="q29" autocomplete="off"> Nature always has her own plans.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="30">30. Switching to solar power might cost the <input type="text" class="blank-input w-24" id="q30" autocomplete="off"> initially, but it saves money long-term.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="31">31. The farmers I met were incredibly <input type="text" class="blank-input w-24" id="q31" autocomplete="off"> to earth and welcoming.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="32">32. Illegal logging threatens to wipe <input type="text" class="blank-input w-24" id="q32" autocomplete="off"> entire species of indigenous wildlife.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="33">33. Moving from the polluted city to the countryside was a real breath of <input type="text" class="blank-input w-24" id="q33" autocomplete="off"> air.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="34">34. Whenever he goes hiking in the mountains, he is completely in his <input type="text" class="blank-input w-28" id="q34" autocomplete="off">.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="35">35. We should all try to reduce our carbon <input type="text" class="blank-input w-28" id="q35" autocomplete="off"> by using public transport.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="36">36. Standing on the cliff edge, I was amazed by the endless <input type="text" class="blank-input w-28" id="q36" autocomplete="off"> of the ocean.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="37">37. Without proper water management, this fertile land could turn into a barren <input type="text" class="blank-input w-32" id="q37" autocomplete="off">.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="38">38. The tropical rainforest was lush and <input type="text" class="blank-input w-28" id="q38" autocomplete="off"> after the heavy monsoon rains.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="39">39. My grandmother has a green <input type="text" class="blank-input w-24" id="q39" autocomplete="off">; her garden is always full of blooming flowers.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="40">40. Children should spend more time playing in the great <input type="text" class="blank-input w-28" id="q40" autocomplete="off"> instead of looking at screens.<span class="correction-area"></span></div>
+                </div>
+            </div>
+
+            <div class="section mt-10">
+                <div class="section-title flex gap-4">
+                    <span>IV.</span>
+                    <span>Complete the NEWS & MEDIA expressions in the sentences below by filling in exactly <span class="font-bold underline">ONE</span> suitable word.</span>
+                </div>
+
+                <div class="space-y-5 ml-6">
+                    <div class="q-item" data-q="41">41. I make an effort to stay <input type="text" class="blank-input w-28" id="q41" autocomplete="off"> by reading a variety of news sources every morning.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="42">42. Nowadays, we are constantly <input type="text" class="blank-input w-32" id="q42" autocomplete="off"> with advertisements on social media and television.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="43">43. Companies pay a premium for a <input type="text" class="blank-input w-24" id="q43" autocomplete="off"> time slot because that's when viewership is highest.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="44">44. It's easy to fall for a deceptive marketing <input type="text" class="blank-input w-24" id="q44" autocomplete="off"> when the product promises unrealistic results.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="45">45. Some advertisements cross the <input type="text" class="blank-input w-24" id="q45" autocomplete="off"> by exploiting people's deep insecurities.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="46">46. Given the prevalence of fake news, it's wise to take everything you read online with a grain of <input type="text" class="blank-input w-24" id="q46" autocomplete="off">.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="47">47. The media plays a significant role in <input type="text" class="blank-input w-28" id="q47" autocomplete="off"> public opinion on important political issues.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="48">48. Social media is a double-edged <input type="text" class="blank-input w-24" id="q48" autocomplete="off">; it connects people but can also spread misinformation rapidly.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="49">49. Journalists shouldn't <input type="text" class="blank-input w-32" id="q49" autocomplete="off"> the truth; they need to report the facts objectively.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="50">50. Algorithms are designed to <input type="text" class="blank-input w-24" id="q50" autocomplete="off"> to our specific tastes by showing us personalized content.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="51">51. The company launched an online campaign to reach a wider <input type="text" class="blank-input w-32" id="q51" autocomplete="off">.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="52">52. Advertisers love cinemas because they have a <input type="text" class="blank-input w-28" id="q52" autocomplete="off"> audience waiting for the film to start.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="53">53. The report tended to <input type="text" class="blank-input w-24" id="q53" autocomplete="off"> over the negative environmental impacts of the project.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="54">54. Tabloids often <input type="text" class="blank-input w-24" id="q54" autocomplete="off"> minor celebrity disagreements completely out of proportion.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="55">55. The paparazzi frequently <input type="text" class="blank-input w-24" id="q55" autocomplete="off"> into the private lives of public figures, which is a gross invasion of privacy.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="56">56. A free press is essential to hold politicians <input type="text" class="blank-input w-32" id="q56" autocomplete="off"> for their actions.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="57">57. The new feature turned out to be a mere marketing <input type="text" class="blank-input w-28" id="q57" autocomplete="off"> rather than a useful improvement.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="58">58. Some weight-loss commercials unfortunately <input type="text" class="blank-input w-24" id="q58" autocomplete="off"> on people's vulnerabilities.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="59">59. When analyzing political speeches, it's often necessary to read between the <input type="text" class="blank-input w-24" id="q59" autocomplete="off"> to understand the true message.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="60">60. The story quickly gained <input type="text" class="blank-input w-28" id="q60" autocomplete="off"> on social media and went viral within hours.<span class="correction-area"></span></div>
+                </div>
+            </div>
+
+            <div class="section mt-10">
+                <div class="section-title flex gap-4">
+                    <span>IV.</span>
+                    <span>Complete the NEWS & MEDIA expressions by filling in exactly <span class="font-bold underline">ONE</span> suitable word.</span>
+                </div>
+
+                <div class="space-y-4 ml-6 columns-1 md:columns-2 gap-8">
+                    <div class="q-item break-inside-avoid" data-q="41">41. Stay <input type="text" class="blank-input w-24" id="q41" autocomplete="off"><span class="correction-area block"></span></div>
+                    <div class="q-item break-inside-avoid" data-q="42">42. Be <input type="text" class="blank-input w-24" id="q42" autocomplete="off"> with ads<span class="correction-area block"></span></div>
+                    <div class="q-item break-inside-avoid" data-q="43">43. A <input type="text" class="blank-input w-24" id="q43" autocomplete="off"> time slot<span class="correction-area block"></span></div>
+                    <div class="q-item break-inside-avoid" data-q="44">44. A marketing <input type="text" class="blank-input w-24" id="q44" autocomplete="off"><span class="correction-area block"></span></div>
+                    <div class="q-item break-inside-avoid" data-q="45">45. Cross the <input type="text" class="blank-input w-24" id="q45" autocomplete="off"><span class="correction-area block"></span></div>
+                    <div class="q-item break-inside-avoid" data-q="46">46. Take with a grain of <input type="text" class="blank-input w-24" id="q46" autocomplete="off"><span class="correction-area block"></span></div>
+                    <div class="q-item break-inside-avoid" data-q="47">47. To <input type="text" class="blank-input w-24" id="q47" autocomplete="off"> public opinion<span class="correction-area block"></span></div>
+                    <div class="q-item break-inside-avoid" data-q="48">48. A double-edged <input type="text" class="blank-input w-24" id="q48" autocomplete="off"><span class="correction-area block"></span></div>
+                    <div class="q-item break-inside-avoid" data-q="49">49. To <input type="text" class="blank-input w-24" id="q49" autocomplete="off"> the truth<span class="correction-area block"></span></div>
+                    <div class="q-item break-inside-avoid" data-q="50">50. To <input type="text" class="blank-input w-24" id="q50" autocomplete="off"> to tastes<span class="correction-area block"></span></div>
+                    <div class="q-item break-inside-avoid" data-q="51">51. Reach a wider <input type="text" class="blank-input w-24" id="q51" autocomplete="off"><span class="correction-area block"></span></div>
+                    <div class="q-item break-inside-avoid" data-q="52">52. A <input type="text" class="blank-input w-24" id="q52" autocomplete="off"> audience<span class="correction-area block"></span></div>
+                    <div class="q-item break-inside-avoid" data-q="53">53. To <input type="text" class="blank-input w-24" id="q53" autocomplete="off"> over something<span class="correction-area block"></span></div>
+                    <div class="q-item break-inside-avoid" data-q="54">54. To <input type="text" class="blank-input w-24" id="q54" autocomplete="off"> out of proportion<span class="correction-area block"></span></div>
+                    <div class="q-item break-inside-avoid" data-q="55">55. To <input type="text" class="blank-input w-24" id="q55" autocomplete="off"> into a private life<span class="correction-area block"></span></div>
+                    <div class="q-item break-inside-avoid" data-q="56">56. Hold someone <input type="text" class="blank-input w-24" id="q56" autocomplete="off"><span class="correction-area block"></span></div>
+                    <div class="q-item break-inside-avoid" data-q="57">57. A mere marketing <input type="text" class="blank-input w-24" id="q57" autocomplete="off"><span class="correction-area block"></span></div>
+                    <div class="q-item break-inside-avoid" data-q="58">58. To <input type="text" class="blank-input w-24" id="q58" autocomplete="off"> on vulnerabilities<span class="correction-area block"></span></div>
+                    <div class="q-item break-inside-avoid" data-q="59">59. Read between the <input type="text" class="blank-input w-24" id="q59" autocomplete="off"><span class="correction-area block"></span></div>
+                    <div class="q-item break-inside-avoid" data-q="60">60. To gain <input type="text" class="blank-input w-24" id="q60" autocomplete="off"><span class="correction-area block"></span></div>
+                </div>
+            </div>
+
+            <div class="section mt-10">
+                <div class="section-title flex gap-4">
+                    <span>V.</span>
+                    <span>Choose the correct answer that defines or is synonymous with the given phrase.</span>
+                </div>
+
+                <div class="space-y-6 ml-6">
+                    <div class="q-item" data-q="61">
+                        <div>61. What term describes a long-term shift in global temperatures?</div>
+                        <div class="mcq-grid pl-5">
+                            <label class="mcq-option"><input type="radio" name="q61" value="a"> a. climate change</label>
+                            <label class="mcq-option"><input type="radio" name="q61" value="b"> b. topography</label>
+                            <label class="mcq-option"><input type="radio" name="q61" value="c"> c. habitat</label>
+                        </div>
+                        <span class="correction-area pl-5 block"></span>
+                    </div>
+                    <div class="q-item" data-q="62">
+                        <div>62. "Flora and fauna" refers to:</div>
+                        <div class="mcq-grid pl-5">
+                            <label class="mcq-option"><input type="radio" name="q62" value="a"> a. Rocks & minerals</label>
+                            <label class="mcq-option"><input type="radio" name="q62" value="b"> b. Plants & animals</label>
+                            <label class="mcq-option"><input type="radio" name="q62" value="c"> c. Weather & climate</label>
+                        </div>
+                        <span class="correction-area pl-5 block"></span>
+                    </div>
+                    <div class="q-item" data-q="63">
+                        <div>63. Which word means "awe-inspiring in quality"?</div>
+                        <div class="mcq-grid pl-5">
+                            <label class="mcq-option"><input type="radio" name="q63" value="a"> a. breathtaking</label>
+                            <label class="mcq-option"><input type="radio" name="q63" value="b"> b. pristine</label>
+                            <label class="mcq-option"><input type="radio" name="q63" value="c"> c. arid</label>
+                        </div>
+                        <span class="correction-area pl-5 block"></span>
+                    </div>
+                    <div class="q-item" data-q="64">
+                        <div>64. "Pristine" is closest in meaning to:</div>
+                        <div class="mcq-grid pl-5">
+                            <label class="mcq-option"><input type="radio" name="q64" value="a"> a. polluted</label>
+                            <label class="mcq-option"><input type="radio" name="q64" value="b"> b. unspoiled</label>
+                            <label class="mcq-option"><input type="radio" name="q64" value="c"> c. crowded</label>
+                        </div>
+                        <span class="correction-area pl-5 block"></span>
+                    </div>
+                    <div class="q-item" data-q="65">
+                        <div>65. An "arid" environment is:</div>
+                        <div class="mcq-grid pl-5">
+                            <label class="mcq-option"><input type="radio" name="q65" value="a"> a. lush</label>
+                            <label class="mcq-option"><input type="radio" name="q65" value="b"> b. wet</label>
+                            <label class="mcq-option"><input type="radio" name="q65" value="c"> c. dry</label>
+                        </div>
+                        <span class="correction-area pl-5 block"></span>
+                    </div>
+                    <div class="q-item" data-q="66">
+                        <div>66. A journalist who is "unbiased" is:</div>
+                        <div class="mcq-grid pl-5">
+                            <label class="mcq-option"><input type="radio" name="q66" value="a"> a. impartial</label>
+                            <label class="mcq-option"><input type="radio" name="q66" value="b"> b. prejudiced</label>
+                            <label class="mcq-option"><input type="radio" name="q66" value="c"> c. corrupt</label>
+                        </div>
+                        <span class="correction-area pl-5 block"></span>
+                    </div>
+                    <div class="q-item" data-q="67">
+                        <div>67. An article giving the editor's opinion is called an:</div>
+                        <div class="mcq-grid pl-5">
+                            <label class="mcq-option"><input type="radio" name="q67" value="a"> a. endorsement</label>
+                            <label class="mcq-option"><input type="radio" name="q67" value="b"> b. editorial</label>
+                            <label class="mcq-option"><input type="radio" name="q67" value="c"> c. slogan</label>
+                        </div>
+                        <span class="correction-area pl-5 block"></span>
+                    </div>
+                    <div class="q-item" data-q="68">
+                        <div>68. Messages that affect your mind without you realizing it are:</div>
+                        <div class="mcq-grid pl-5">
+                            <label class="mcq-option"><input type="radio" name="q68" value="a"> a. persuasive</label>
+                            <label class="mcq-option"><input type="radio" name="q68" value="b"> b. subliminal</label>
+                            <label class="mcq-option"><input type="radio" name="q68" value="c"> c. mainstream</label>
+                        </div>
+                        <span class="correction-area pl-5 block"></span>
+                    </div>
+                    <div class="q-item" data-q="69">
+                        <div>69. Deeply researching a single topic to uncover facts is called:</div>
+                        <div class="mcq-grid pl-5">
+                            <label class="mcq-option"><input type="radio" name="q69" value="a"> a. clickbait</label>
+                            <label class="mcq-option"><input type="radio" name="q69" value="b"> b. investigative journalism</label>
+                            <label class="mcq-option"><input type="radio" name="q69" value="c"> c. sensationalism</label>
+                        </div>
+                        <span class="correction-area pl-5 block"></span>
+                    </div>
+                    <div class="q-item" data-q="70">
+                        <div>70. A "rural" area is characteristic of the:</div>
+                        <div class="mcq-grid pl-5">
+                            <label class="mcq-option"><input type="radio" name="q70" value="a"> a. city</label>
+                            <label class="mcq-option"><input type="radio" name="q70" value="b"> b. countryside</label>
+                            <label class="mcq-option"><input type="radio" name="q70" value="c"> c. coastline</label>
+                        </div>
+                        <span class="correction-area pl-5 block"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section mt-10">
+                <div class="section-title flex gap-4">
+                    <span>VI.</span>
+                    <span>Fill in each blank with the <span class="font-bold underline">suitable form</span> of the word in brackets.</span>
+                </div>
+                
+                <div class="space-y-4 ml-6">
+                    <div class="q-item" data-q="71">71. The Amazon rainforest is renowned for its rich <input type="text" class="blank-input w-32" id="q71" autocomplete="off">. <span class="font-bold italic">(diverse)</span><span class="correction-area"></span></div>
+                    <div class="q-item" data-q="72">72. Wildlife <input type="text" class="blank-input w-32" id="q72" autocomplete="off"> programs are essential for saving endangered species. <span class="font-bold italic">(conserve)</span><span class="correction-area"></span></div>
+                    <div class="q-item" data-q="73">73. Iceland utilizes <input type="text" class="blank-input w-32" id="q73" autocomplete="off"> energy to heat homes in an eco-friendly way. <span class="font-bold italic">(thermal)</span><span class="correction-area"></span></div>
+                    <div class="q-item" data-q="74">74. Kangaroos are <input type="text" class="blank-input w-32" id="q74" autocomplete="off"> to Australia. <span class="font-bold italic">(indigene)</span><span class="correction-area"></span></div>
+                    <div class="q-item" data-q="75">75. The media's reliance on <input type="text" class="blank-input w-32" id="q75" autocomplete="off"> often obscures the real facts. <span class="font-bold italic">(sensational)</span><span class="correction-area"></span></div>
+                    <div class="q-item" data-q="76">76. Strict <input type="text" class="blank-input w-32" id="q76" autocomplete="off"> laws prevent citizens from accessing diverse viewpoints. <span class="font-bold italic">(censor)</span><span class="correction-area"></span></div>
+                    <div class="q-item" data-q="77">77. Celebrity <input type="text" class="blank-input w-32" id="q77" autocomplete="off"> can significantly boost sales of a product. <span class="font-bold italic">(endorse)</span><span class="correction-area"></span></div>
+                    <div class="q-item" data-q="78">78. The most successful advertisements are those that are highly <input type="text" class="blank-input w-32" id="q78" autocomplete="off">. <span class="font-bold italic">(persuade)</span><span class="correction-area"></span></div>
+                    <div class="q-item" data-q="79">79. Corporate <input type="text" class="blank-input w-32" id="q79" autocomplete="off"> is essential for funding major sporting events. <span class="font-bold italic">(sponsor)</span><span class="correction-area"></span></div>
+                    <div class="q-item" data-q="80">80. Before sharing an article, it is important to <input type="text" class="blank-input w-32" id="q80" autocomplete="off"> the information. <span class="font-bold italic">(verification)</span><span class="correction-area"></span></div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+    <div class="submit-bar">
+        <div class="text-sm text-slate-500 italic hidden md:block">Double-check your spelling before submitting!</div>
+        <button type="button" onclick="window.print()" class="px-6 py-2 border-2 border-slate-300 rounded-lg text-slate-700 font-bold hover:bg-slate-100 transition-colors flex items-center gap-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+            Print Blank Test
+        </button>
+        <button type="button" onclick="gradeTest()" class="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold shadow-lg shadow-blue-500/30 transition-colors text-lg flex items-center gap-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            Submit for Grading
+        </button>
+    </div>
+
+    <script>
+        // Answer Key for all 80 Questions
+        const answerKey = {
+            // Section I (Nature Bank)
+            q1: ["metropolis"], q2: ["topography"], q3: ["archipelago"], q4: ["habitat"], q5: ["erosion"],
+            q6: ["sanctuary"], q7: ["altitude"], q8: ["peninsula"], q9: ["ecosystem"], q10: ["deforestation"],
+            
+            // Section II (News Bank)
+            q11: ["target audience", "target-audience"], q12: ["jingle"], q13: ["word-of-mouth", "word of mouth"],
+            q14: ["mainstream media"], q15: ["brand awareness"], q16: ["slogan"], q17: ["clickbait"],
+            q18: ["broadsheet"], q19: ["tabloid"], q20: ["information overload"],
+            
+            // Section III (Nature Expressions)
+            q21: ["nowhere"], q22: ["beaten"], q23: ["drop"], q24: ["molehill"], q25: ["weather"],
+            q26: ["tip"], q27: ["throw"], q28: ["nature"], q29: ["mother"], q30: ["earth"],
+            q31: ["down"], q32: ["out"], q33: ["fresh"], q34: ["element"], q35: ["footprint"],
+            q36: ["horizons", "horizon"], q37: ["wasteland"], q38: ["verdant"], q39: ["thumb"], q40: ["outdoors"],
+            
+            // Section IV (News Expressions)
+            q41: ["informed"], q42: ["bombarded"], q43: ["prime"], q44: ["ploy"], q45: ["line"],
+            q46: ["salt"], q47: ["shape", "shaping"], q48: ["sword"], q49: ["sugarcoat"], q50: ["cater"],
+            q51: ["demographic"], q52: ["captive"], q53: ["gloss"], q54: ["blow"], q55: ["pry"],
+            q56: ["accountable"], q57: ["gimmick"], q58: ["prey"], q59: ["lines", "line"], q60: ["traction"],
+            
+            // Section V (MCQ)
+            q61: "a", q62: "b", q63: "a", q64: "b", q65: "c", q66: "a", q67: "b", q68: "b", q69: "b", q70: "b",
+            
+            // Section VI (Word Form)
+            q71: ["biodiversity"], q72: ["conservation"], q73: ["geothermal"], q74: ["indigenous"],
+            q75: ["sensationalism"], q76: ["censorship"], q77: ["endorsement", "endorsements"],
+            q78: ["persuasive"], q79: ["sponsorship"], q80: ["verify"]
+        };
+
+        const tickSVG = `<svg class="mark-icon text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>`;
+        const crossSVG = `<svg class="mark-icon text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 18L18 6M6 6l12 12"></path></svg>`;
+
+        function gradeTest() {
+            let score = 0;
+            let totalQuestions = Object.keys(answerKey).length;
+
+            for (let id in answerKey) {
+                let isCorrect = false;
+                let userAnswer = "";
+                let expectedAnswer = "";
+                const container = document.querySelector(`.q-item[data-q="${id.replace('q', '')}"]`);
+                if(!container) continue; // safety check
+                
+                const correctionArea = container.querySelector('.correction-area');
+                correctionArea.innerHTML = '';
+                
+                // Handle Text Inputs (Sections I, II, III, IV, VI)
+                if (Array.isArray(answerKey[id])) {
+                    const inputEl = document.getElementById(id);
+                    inputEl.classList.remove('graded-correct', 'graded-incorrect');
+                    
+                    userAnswer = inputEl.value.trim().toLowerCase();
+                    expectedAnswer = answerKey[id][0]; // primary answer
+                    
+                    if (answerKey[id].includes(userAnswer)) {
+                        isCorrect = true;
+                        inputEl.classList.add('graded-correct');
+                        correctionArea.innerHTML = tickSVG;
+                    } else {
+                        inputEl.classList.add('graded-incorrect');
+                        correctionArea.innerHTML = crossSVG + ` <span class="correction-text">${expectedAnswer}</span>`;
+                    }
+                    inputEl.readOnly = true;
+                } 
+                // Handle Radio Buttons (Section V)
+                else {
+                    const radios = document.getElementsByName(id);
+                    expectedAnswer = answerKey[id];
+                    
+                    for (let radio of radios) {
+                        radio.disabled = true;
+                        if (radio.checked) userAnswer = radio.value;
+                    }
+
+                    if (userAnswer === expectedAnswer) {
+                        isCorrect = true;
+                        correctionArea.innerHTML = tickSVG;
+                    } else {
+                        correctionArea.innerHTML = crossSVG + ` <span class="correction-text">Correct answer: ${expectedAnswer.toUpperCase()}</span>`;
+                    }
+                }
+
+                if (isCorrect) score++;
+            }
+
+            // Display Final Score
+            const gradeDisplay = document.getElementById('grade-display');
+            document.getElementById('final-score').textContent = score;
+            
+            // Calculate percentage for styling
+            const percentage = (score / totalQuestions) * 100;
+            if(percentage >= 80) {
+                gradeDisplay.className = "absolute top-8 right-8 w-28 h-28 border-[5px] border-green-600 rounded-full flex flex-col items-center justify-center text-green-600 transform rotate-12 bg-white/90 backdrop-blur-sm z-10 shadow-xl";
+                gradeDisplay.querySelector('.border-t-2').className = "text-sm font-bold border-t-[3px] border-green-600 w-16 text-center mt-1 pt-1 font-sans";
+            } else if (percentage >= 60) {
+                gradeDisplay.className = "absolute top-8 right-8 w-28 h-28 border-[5px] border-blue-600 rounded-full flex flex-col items-center justify-center text-blue-600 transform -rotate-12 bg-white/90 backdrop-blur-sm z-10 shadow-xl";
+                gradeDisplay.querySelector('.border-t-2').className = "text-sm font-bold border-t-[3px] border-blue-600 w-16 text-center mt-1 pt-1 font-sans";
+            } else {
+                gradeDisplay.className = "absolute top-8 right-8 w-28 h-28 border-[5px] border-red-600 rounded-full flex flex-col items-center justify-center text-red-600 transform rotate-12 bg-white/90 backdrop-blur-sm z-10 shadow-xl";
+                gradeDisplay.querySelector('.border-t-2').className = "text-sm font-bold border-t-[3px] border-red-600 w-16 text-center mt-1 pt-1 font-sans";
+            }
+            
+            gradeDisplay.querySelector('.border-t-2').innerHTML = `/${totalQuestions}`;
+            gradeDisplay.classList.remove('hidden');
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            const submitBar = document.querySelector('.submit-bar');
+            submitBar.innerHTML = `
+                <button type="button" onclick="location.reload()" class="px-8 py-3 bg-slate-800 hover:bg-slate-900 text-white rounded-lg font-bold shadow-lg transition-colors text-lg flex items-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                    Clear Answers & Retake
+                </button>
+            `;
+        }
+    </script>
+</body>
+</html>
