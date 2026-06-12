@@ -140,8 +140,16 @@
             padding: 1.5rem;
             border: 1px solid #000;
             background: #fafafa;
-            word-spacing: 1.5rem;
-            line-height: 2.5;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            column-gap: 2rem;
+            row-gap: 1rem;
+            line-height: 1.5;
+        }
+        
+        .word-bank span {
+            white-space: nowrap; /* Ensures phrases like "target audience" stay on one line */
         }
 
         /* Floating Submit Bar */
@@ -167,7 +175,7 @@
             .hide-print, .submit-bar { display: none !important; }
             body { background: white; padding: 0; }
             .exam-paper { padding: 0; box-shadow: none; max-width: 100%; }
-            .word-bank { word-spacing: 1rem; padding: 1rem; }
+            .word-bank { gap: 1.5rem; padding: 1rem; }
         }
     </style>
 </head>
@@ -189,7 +197,7 @@
             </div>
             <div class="text-right italic font-bold">
                 IELTS Chan Truong 2026<br>
-                Target Band: 6.5 - 7.0+
+                Target Band: 6.5 - 7.5+
             </div>
         </div>
 
@@ -213,7 +221,16 @@
                 </div>
                 
                 <div class="word-bank font-bold text-lg">
-                    ecosystem &nbsp;&nbsp; topography &nbsp;&nbsp; deforestation &nbsp;&nbsp; archipelago &nbsp;&nbsp; peninsula &nbsp;&nbsp; habitat &nbsp;&nbsp; erosion &nbsp;&nbsp; sanctuary &nbsp;&nbsp; metropolis &nbsp;&nbsp; altitude
+                    <span>ecosystem</span>
+                    <span>topography</span>
+                    <span>deforestation</span>
+                    <span>archipelago</span>
+                    <span>peninsula</span>
+                    <span>habitat</span>
+                    <span>erosion</span>
+                    <span>sanctuary</span>
+                    <span>metropolis</span>
+                    <span>altitude</span>
                 </div>
 
                 <div class="space-y-5 ml-6">
@@ -237,7 +254,16 @@
                 </div>
                 
                 <div class="word-bank font-bold text-lg">
-                    broadsheet &nbsp;&nbsp; tabloid &nbsp;&nbsp; clickbait &nbsp;&nbsp; slogan &nbsp;&nbsp; jingle &nbsp;&nbsp; word-of-mouth &nbsp;&nbsp; target audience &nbsp;&nbsp; brand awareness &nbsp;&nbsp; mainstream media &nbsp;&nbsp; information overload
+                    <span>broadsheet</span>
+                    <span>tabloid</span>
+                    <span>clickbait</span>
+                    <span>slogan</span>
+                    <span>jingle</span>
+                    <span>word-of-mouth</span>
+                    <span>target audience</span>
+                    <span>brand awareness</span>
+                    <span>mainstream media</span>
+                    <span>information overload</span>
                 </div>
 
                 <div class="space-y-5 ml-6">
