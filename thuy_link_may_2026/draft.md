@@ -701,3 +701,14 @@ Part 3
 • Why do people learn foreign languages?
 • Can technology help language learning?
 • Should schools teach more foreign languages?
+
+# Lesson 5 | Mock Test
+- Reading: https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/pet_intensive_07.html 
+- Listening: https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/test_view_pet_intensive_07.html 
+
+# Lesson 6 | Mock Test
+- Writing: https://ieltschantruong.github.io/IELTS/learning_resources/writing/mock_test/testing_tool.html
+ + Task 1: The picture below shows the plan of museum in 1998 and after some changes was made in 2008. Summarize the information by selecting and reporting the main features, and make comparisons where relevant.
+ {Diagram: https://ieltschantruong.github.io/IELTS/src/writing_questions/writing_task1_maps_museum_1998_2008.png}
+ + Task 2: In many places large amounts of food are wasted. What might be the reasons for this problem? What can best be done to reduce food waste?
+- Speaking: https://ieltschantruong.github.io/IELTS/learning_resources/speaking/mock_test/speaking_mock_02.html

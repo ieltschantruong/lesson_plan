@@ -224,5 +224,69 @@ https://ieltschantruong.github.io/IELTS/lesson_plan/pet_intensive/vocab_test_spe
 # Lesson 18:
 1. Reading Test 07 - Passage 1&2 | Practice,Check & Explain: https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/pet_intensive_07.html
 2. Listening Test 7 | Check & Explain: https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/test_view_pet_intensive_07.html
-3. Vocab Test | Reading Test 06 Vocab: https://ieltschantruong.github.io/IELTS/lesson_plan/pet_intensive/vocab_test_reading06.docx
-4. Homework
+3. Vocab Test
+ - Reading Test 06 Vocab: https://ieltschantruong.github.io/IELTS/lesson_plan/pet_intensive/vocab_test_reading06.docx
+  - Listening Test 07 Vocab: https://ieltschantruong.github.io/IELTS/lesson_plan/pet_intensive/vocab_test_listening07.docx
+4. Homework:
+- Complete Reading Test 07 Passage 3: https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/pet_intensive_07.html
+- Speaking P2&3 pages 64->68 preparation
+
+# Lesson 19: 
+1. Reading Test 07 P3 | Check & Explain: https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/pet_intensive_07.html
+2. Speaking Part 2&3: Vocab explain & practices | Pages 64->68
+- Describe a shop/store you enjoy visiting
+- Describe an article on health you read in a magazine or on the Internet
+- Describe a time when you saw something in the sky (e.g. flying kites, birds, sunset, etc.)
+- Describe a gift you would like to give to someone
+- Describe your first day at school that you remember
+3. Homework:
+- Review Speaking Vocab Pages 47->68
+
+# Lesson 20: 
+1. Listening Test 8 | Practice, Check & Explain: https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/test_view_pet_intensive_08.html
+2. Writing Test 5 (Task 1+2): Structures + Ideas
+    - Task 1: The graph below shows the percentage of adults in urban and rural areas who took part in four types of activities in 1990 and 2000.Summarize the information by selecting and reporting the main features, and make comparisons where relevant.
+    {Diagram: https://ieltschantruong.github.io/IELTS/src/writing_questions/writing_task1_table_acticities_urban_rural.png}
+    - Task 2: Some professionals, such as teachers and doctors make a great contribution to society so they should be paid more than sport athletes and entertainment stars. To what extent do you agree or disagree?
+3. Vocab Test | Speaking 47-68: https://ieltschantruong.github.io/IELTS/lesson_plan/pet_intensive/vocab_test_speaking_p23_47_68.docx
+4. Homework:
+- Complete Reading Test 08: https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/pet_intensive_08.html
+
+# Lesson 21: 
+1. Reading Test 08 | Check & Explain: https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/pet_intensive_08.html
+2. Speaking Part 2&3: Vocab explain & practices | Pages 69->72
+ - Describe an old person who has an interesting life and you enjoy talking to him/her
+ - Describe a good friend who is important to you
+ - Describe a friend of yours who is good at music/singing
+ - Describe a great dinner you and your friends or family members enjoyed
+
+# Lesson 22:
+Writing Mock Test 1 (Practice + Overall assessment)
+
+# Lesson 23:
+1. Reading Test 09 | Check & Explain: https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/pet_intensive_09.html
+2. Speaking Part 2&3: Vocab explain & practices | Pages 73->76
+ - Describe an interesting traditional story
+ - Describe a kind of foreign food you like and you have had
+ - Describe a person from a different cultural background with whom you enjoy spending time
+ - Describe a place with a lot of trees that you would like to visit (e.g. a forest)
+
+# Lesson 24: 
+1. Listening Test 9 | Practice, Check & Explain: https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/test_view_pet_intensive_09.html
+2. Speaking Part 2&3: Vocab explain & practices | Pages 77->82
+ - Describe an occasion when you lost your way
+ - Describe an outdoor sport you would like to try for the first time
+ - Describe an unusual but interesting building you would like to visit
+ - Describe a person who helps to protect the environment
+ - Describe an important old thing that your family has kept for a long time
+ - Describe a natural talent (sports, music, etc.) you want to improve
+
+# Lesson 25:
+1. Writing Mock Test 2 (Practice + Overall assessment)
+2. Homework:
+ - Complete Reading T10: https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/pet_intensive_10.html
+ - Complete Listening T10: https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/test_view_pet_intensive_10.html
+
+ # Lesson 26: 
+ 1. Reading Test 10 | Check & Explain: https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/pet_intensive_10.html
+ 2. Listening T10 | Check & Explain: https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/test_view_pet_intensive_10.html
