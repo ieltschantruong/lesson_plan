@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Chan Truong - Lesson 22</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* 
+          GLASSMORPHIC MODERN CHIC THEME 
+          Pinkish Pastel Palette
+        */
+        body { 
+            font-family: 'Inter', sans-serif; 
+            /* Soft pastel mesh gradient background */
+            background-color: #fdf2f8;
+            background-image: 
+                radial-gradient(at 0% 0%, #ffe4e6 0px, transparent 50%),
+                radial-gradient(at 100% 0%, #fce7f3 0px, transparent 50%),
+                radial-gradient(at 100% 100%, #fbcfe8 0px, transparent 50%),
+                radial-gradient(at 0% 100%, #fdf2f8 0px, transparent 50%),
+                radial-gradient(at 50% 50%, #fff1f2 0px, transparent 50%);
+            background-attachment: fixed;
+            color: #4c0519; /* rose-950 */
+        }
+        
+        .slide { display: none; opacity: 0; transition: opacity 0.5s ease, transform 0.5s ease; transform: translateY(20px); }
+        .slide.active { display: block; opacity: 1; transform: translateY(0); }
+        
+        /* Custom scrollbar matching the theme */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: transparent; } 
+        ::-webkit-scrollbar-thumb { background: rgba(244, 114, 182, 0.4); border-radius: 10px; border: 2px solid transparent; background-clip: padding-box; } 
+        ::-webkit-scrollbar-thumb:hover { background: rgba(225, 29, 72, 0.5); border: 2px solid transparent; background-clip: padding-box; } 
+        
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
+        .hidden-answer { display: none; }
+
+        /* --- GLASSMORPHISM UTILITIES --- */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 10px 40px -10px rgba(225, 29, 72, 0.15);
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.45);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: inset 0 2px 4px 0 rgba(255, 255, 255, 0.3), 0 4px 15px -5px rgba(225, 29, 72, 0.05);
+        }
+        .glass-button {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.5));
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 15px -5px rgba(225, 29, 72, 0.15);
+            transition: all 0.3s ease;
+        }
+        .glass-button:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px -5px rgba(225, 29, 72, 0.25);
+        }
+        
+        .hover-lift { transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease; }
+        .hover-lift:hover { transform: translateY(-4px); box-shadow: 0 15px 30px -10px rgba(225, 29, 72, 0.2); }
+    </style>
+</head>
+<body class="h-screen flex flex-col overflow-hidden">
+
+    <!-- Header / Navigation (Frosted Glass) -->
+    <header class="glass-card border-b border-white/60 z-20 shrink-0 relative">
+        <div class="p-4 flex justify-between items-center max-w-7xl mx-auto w-full">
+            <div>
+                <h1 class="text-2xl font-extrabold tracking-tight text-rose-950">IELTS Chan Truong <span class="text-rose-600 font-semibold ml-2 px-3 py-1 bg-white/50 border border-white/60 rounded-full text-base shadow-sm">Class 5.5-6.5</span></h1>
+                <p class="text-sm text-rose-900/70 mt-1.5 flex items-center gap-2 font-medium">
+                    <span class="w-2 h-2 rounded-full bg-pink-400 shadow-[0_0_8px_rgba(244,114,182,0.8)]"></span> Lesson 22: Reading & Speaking
+                </p>
+            </div>
+            <div class="flex items-center gap-4">
+                <span id="slide-counter" class="font-bold text-rose-900 px-4 py-1.5 glass-panel rounded-full">1 / 6</span>
+                <div class="flex gap-3">
+                    <button onclick="prevSlide()" class="glass-button text-rose-800 px-5 py-2.5 rounded-full font-semibold flex items-center gap-2">
+                        <span>←</span> Prev
+                    </button>
+                    <button onclick="nextSlide()" class="bg-gradient-to-r from-pink-500 to-rose-400 hover:from-pink-400 hover:to-rose-300 text-white px-6 py-2.5 rounded-full shadow-lg shadow-pink-500/30 transition-all hover:shadow-pink-500/50 hover:-translate-y-0.5 font-bold flex items-center gap-2">
+                        Next <span>→</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Progress Bar -->
+        <div class="h-1 bg-white/40 w-full absolute bottom-0 left-0">
+            <div id="progress-bar" class="h-full bg-gradient-to-r from-pink-400 to-rose-500 transition-all duration-500 ease-out shadow-[0_0_10px_rgba(244,114,182,0.5)]" style="width: 16.66%;"></div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 overflow-y-auto p-8 relative">
+        <div class="max-w-5xl mx-auto pb-24">
+
+            <!-- SLIDE 1: Intro -->
+            <div class="slide active" id="slide-0">
+                <div class="text-center py-16">
+                    <div class="inline-block mb-6 px-5 py-2 rounded-full glass-panel text-rose-600 font-bold text-sm tracking-widest uppercase shadow-sm">Lesson Overview</div>
+                    <h2 class="text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-rose-950 to-pink-700 mb-6 tracking-tight drop-shadow-sm">Reading & Speaking</h2>
+                    <p class="text-xl text-rose-900/70 mb-16 max-w-2xl mx-auto font-medium leading-relaxed">Today's session focuses on Unit 7 Workbook reading comprehension and Speaking Part 1 & 2 covering Celebrities and Fame.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto text-left">
+                        <div class="glass-card p-8 rounded-3xl hover-lift relative overflow-hidden group">
+                            <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-purple-400 to-pink-400 opacity-80"></div>
+                            <div class="w-14 h-14 glass-panel rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-sm group-hover:scale-110 transition-transform">📖</div>
+                            <h3 class="text-2xl font-bold mb-4 text-rose-950">Part 1: Reading</h3>
+                            <ul class="text-rose-900/80 space-y-3 font-medium">
+                                <li class="flex items-start gap-3"><span class="text-pink-400 mt-1">✦</span> Complete IELTS WB | Unit 7</li>
+                                <li class="flex items-start gap-3"><span class="text-pink-400 mt-1">✦</span> Yellow Book Vocab (Pg 55-56)</li>
+                            </ul>
+                        </div>
+                        <div class="glass-card p-8 rounded-3xl hover-lift relative overflow-hidden group">
+                            <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-pink-400 to-rose-400 opacity-80"></div>
+                            <div class="w-14 h-14 glass-panel rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-sm group-hover:scale-110 transition-transform">🗣️</div>
+                            <h3 class="text-2xl font-bold mb-4 text-rose-950">Part 2: Speaking</h3>
+                            <ul class="text-rose-900/80 space-y-3 font-medium">
+                                <li class="flex items-start gap-3"><span class="text-rose-400 mt-1">✦</span> <strong>Part 1:</strong> Celebrities</li>
+                                <li class="flex items-start gap-3"><span class="text-rose-400 mt-1">✦</span> <strong>Part 2:</strong> Describe a Famous Person</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <button onclick="nextSlide()" class="mt-16 bg-gradient-to-r from-rose-900 to-pink-800 hover:from-rose-800 hover:to-pink-700 text-white px-10 py-4 rounded-full text-lg font-bold shadow-[0_10px_25px_rgba(159,18,57,0.3)] transition-all hover:shadow-[0_15px_35px_rgba(159,18,57,0.4)] hover:-translate-y-1 flex items-center gap-3 mx-auto">
+                        Begin Lesson <span class="text-xl">✨</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- SLIDE 2: Reading - Work Book -->
+            <div class="slide" id="slide-1">
+                <div class="flex items-center gap-4 mb-10">
+                    <span class="w-12 h-12 rounded-2xl glass-panel flex items-center justify-center text-2xl shadow-sm">📖</span>
+                    <div>
+                        <span class="text-pink-600 font-extrabold text-xs tracking-widest uppercase">Reading</span>
+                        <h2 class="text-3xl font-extrabold text-rose-950">Complete IELTS Work Book | Unit 7</h2>
+                    </div>
+                </div>
+
+                <div class="glass-card p-14 rounded-3xl mb-6 text-center">
+                    <div class="w-24 h-24 glass-panel rounded-full flex items-center justify-center mx-auto mb-8 shadow-inner">
+                        <span class="text-5xl drop-shadow-md">🔗</span>
+                    </div>
+                    <h3 class="text-3xl font-extrabold text-rose-950 mb-4">Reading Passage Check & Explanation</h3>
+                    <p class="text-xl text-rose-900/70 mb-10 max-w-xl mx-auto font-medium leading-relaxed">Open the external reading materials to review the workbook passage and answer keys with the class.</p>
+                    
+                    <a href="http://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/passage_complete_ielts_5.5_6.5_wb_unit7.html" target="_blank" class="inline-flex items-center gap-3 bg-gradient-to-r from-pink-500 to-rose-400 hover:from-pink-400 hover:to-rose-300 text-white font-bold py-4 px-10 rounded-full shadow-lg shadow-pink-500/30 transition-all hover:-translate-y-1 hover:shadow-pink-500/50 text-lg">
+                        Open Reading Answers <span>↗</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- SLIDE 3: Reading - Vocabulary Exercises (Pg 55-56) -->
+            <div class="slide" id="slide-2">
+                <div class="flex items-center gap-4 mb-10">
+                    <span class="w-12 h-12 rounded-2xl glass-panel flex items-center justify-center text-2xl shadow-sm">📝</span>
+                    <div>
+                        <span class="text-pink-600 font-extrabold text-xs tracking-widest uppercase">Reading</span>
+                        <h2 class="text-3xl font-extrabold text-rose-950">Vocabulary Exercises (Yellow Book Pg 55-56)</h2>
+                    </div>
+                </div>
+
+                <!-- Exercise 1 -->
+                <div class="glass-card rounded-3xl mb-8 exercise-container overflow-hidden">
+                    <div class="p-8 md:p-10">
+                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
+                            <div class="flex items-center gap-4">
+                                <h3 class="text-2xl font-bold text-rose-950">Exercise 1</h3>
+                                <span class="glass-panel text-rose-800 px-4 py-1.5 rounded-full text-sm font-bold tracking-wide">Categorization</span>
+                            </div>
+                            <button onclick="toggleAnswers(this)" class="glass-button text-rose-800 font-bold py-2.5 px-5 rounded-xl flex items-center justify-center gap-2 text-sm shadow-sm">
+                                ✨ Reveal Answers
+                            </button>
+                        </div>
+                        <p class="text-lg mb-8 text-rose-900/80 font-medium">Which of the following characteristics describe firstborns? Which describe middle children? Which describe youngest children?</p>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10 text-lg font-medium text-rose-950/90">
+                            <div class="space-y-2">
+                                <p><span class="font-extrabold text-pink-400 mr-2">A.</span> well-organized <span class="text-cyan-600 font-bold">high achievers</span></p>
+                                <p><span class="font-extrabold text-pink-400 mr-2">B.</span> good <span class="text-cyan-600 font-bold">mediators</span> and <span class="text-cyan-600 font-bold">negotiators</span></p>
+                                <p><span class="font-extrabold text-pink-400 mr-2">C.</span> <span class="text-cyan-600 font-bold">take the lead</span> in terms of organization and responsibility</p>
+                                <p><span class="font-extrabold text-pink-400 mr-2">D.</span> have good <span class="text-cyan-600 font-bold">diplomacy</span> skills</p>
+                                <p><span class="font-extrabold text-pink-400 mr-2">E.</span> have an overdeveloped sense of <span class="text-cyan-600 font-bold">entitlement</span></p>
+                                <p><span class="font-extrabold text-pink-400 mr-2">F.</span> be <span class="text-cyan-600 font-bold">authoritative</span></p>
+                                <p><span class="font-extrabold text-pink-400 mr-2">G.</span> be driven</p>
+                            </div>
+                            <div class="space-y-2">
+                                <p><span class="font-extrabold text-pink-400 mr-2">H.</span> be <span class="text-cyan-600 font-bold">naughty</span></p>
+                                <p><span class="font-extrabold text-pink-400 mr-2">I.</span> be likely to <span class="text-cyan-600 font-bold">rebel</span></p>
+                                <p><span class="font-extrabold text-pink-400 mr-2">J.</span> be <span class="text-cyan-600 font-bold">extroverted</span></p>
+                                <p><span class="font-extrabold text-pink-400 mr-2">K.</span> be <span class="text-cyan-600 font-bold">cerebral</span></p>
+                                <p><span class="font-extrabold text-pink-400 mr-2">L.</span> be <span class="text-cyan-600 font-bold">unyielding</span></p>
+                                <p><span class="font-extrabold text-pink-400 mr-2">M.</span> be <span class="text-cyan-600 font-bold">spoilt</span></p>
+                            </div>
+                        </div>
+
+                        <div class="space-y-6">
+                            <div class="flex items-center gap-4 p-4 glass-panel rounded-2xl">
+                                <span class="w-48 text-cyan-600 font-bold italic tracking-wide uppercase">FIRSTBORNS (6)</span>
+                                <div class="flex-1 border-b-2 border-dashed border-rose-300 relative h-8">
+                                    <span class="hidden-answer absolute bottom-1 left-2 text-rose-700 font-black text-xl">A, C, F, G, K, L</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4 p-4 glass-panel rounded-2xl">
+                                <span class="w-48 text-cyan-600 font-bold italic tracking-wide uppercase">MIDDLE CHILDREN (3)</span>
+                                <div class="flex-1 border-b-2 border-dashed border-rose-300 relative h-8">
+                                    <span class="hidden-answer absolute bottom-1 left-2 text-rose-700 font-black text-xl">B, D, I</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4 p-4 glass-panel rounded-2xl">
+                                <span class="w-48 text-cyan-600 font-bold italic tracking-wide uppercase">YOUNGEST CHILDREN (4)</span>
+                                <div class="flex-1 border-b-2 border-dashed border-rose-300 relative h-8">
+                                    <span class="hidden-answer absolute bottom-1 left-2 text-rose-700 font-black text-xl">E, H, J, M</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Exercise 2 -->
+                <div class="glass-card rounded-3xl mb-8 exercise-container overflow-hidden">
+                    <div class="p-8 md:p-10">
+                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
+                            <div class="flex items-center gap-4">
+                                <h3 class="text-2xl font-bold text-rose-950">Exercise 2</h3>
+                                <span class="glass-panel text-rose-800 px-4 py-1.5 rounded-full text-sm font-bold tracking-wide">Multiple Choice</span>
+                            </div>
+                            <button onclick="toggleAnswers(this)" class="glass-button text-rose-800 font-bold py-2.5 px-5 rounded-xl flex items-center justify-center gap-2 text-sm shadow-sm">
+                                ✨ Reveal Answers
+                            </button>
+                        </div>
+                        <p class="text-lg mb-8 text-rose-900/80 font-medium">Choose the correct meaning of the following words by circling A or B.</p>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 text-lg font-medium">
+                            <!-- Left Column -->
+                            <div class="space-y-6">
+                                <div>
+                                    <p class="font-black text-rose-950 mb-2">1 <span class="text-cyan-600 ml-1">hamper</span></p>
+                                    <div class="pl-4 space-y-1">
+                                        <p><span class="hidden-answer bg-pink-200 px-2 rounded-md font-bold text-rose-900 shadow-sm border border-pink-300">A. prevent</span> <span class="answer-mask text-rose-900/80">A. prevent</span></p>
+                                        <p class="text-rose-900/80">B. promote</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="font-black text-rose-950 mb-2">2 <span class="text-cyan-600 ml-1">pamper</span></p>
+                                    <div class="pl-4 space-y-1">
+                                        <p class="text-rose-900/80">A. overlook</p>
+                                        <p><span class="hidden-answer bg-pink-200 px-2 rounded-md font-bold text-rose-900 shadow-sm border border-pink-300">B. take care of</span> <span class="answer-mask text-rose-900/80">B. take care of</span></p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="font-black text-rose-950 mb-2">3 <span class="text-cyan-600 ml-1">nurture</span></p>
+                                    <div class="pl-4 space-y-1">
+                                        <p><span class="hidden-answer bg-pink-200 px-2 rounded-md font-bold text-rose-900 shadow-sm border border-pink-300">A. care for</span> <span class="answer-mask text-rose-900/80">A. care for</span></p>
+                                        <p class="text-rose-900/80">B. ruin</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="font-black text-rose-950 mb-2">4 <span class="text-cyan-600 ml-1">reiterate</span></p>
+                                    <div class="pl-4 space-y-1">
+                                        <p><span class="hidden-answer bg-pink-200 px-2 rounded-md font-bold text-rose-900 shadow-sm border border-pink-300">A. repeat</span> <span class="answer-mask text-rose-900/80">A. repeat</span></p>
+                                        <p class="text-rose-900/80">B. reject</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Right Column -->
+                            <div class="space-y-6">
+                                <div>
+                                    <p class="font-black text-rose-950 mb-2">5 <span class="text-cyan-600 ml-1">confront</span></p>
+                                    <div class="pl-4 space-y-1">
+                                        <p class="text-rose-900/80">A. come up with</p>
+                                        <p><span class="hidden-answer bg-pink-200 px-2 rounded-md font-bold text-rose-900 shadow-sm border border-pink-300">B. face up to</span> <span class="answer-mask text-rose-900/80">B. face up to</span></p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="font-black text-rose-950 mb-2">6 <span class="text-cyan-600 ml-1">attribute something to something</span></p>
+                                    <div class="pl-4 space-y-1">
+                                        <p><span class="hidden-answer bg-pink-200 px-2 rounded-md font-bold text-rose-900 shadow-sm border border-pink-300">A. think something is the result of something else</span> <span class="answer-mask text-rose-900/80">A. think something is the result of something else</span></p>
+                                        <p class="text-rose-900/80">B. think something is the cause of something else</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="font-black text-rose-950 mb-2">7 <span class="text-cyan-600 ml-1">appoint somebody to something</span></p>
+                                    <div class="pl-4 space-y-1">
+                                        <p class="text-rose-900/80">A. complain to somebody</p>
+                                        <p><span class="hidden-answer bg-pink-200 px-2 rounded-md font-bold text-rose-900 shadow-sm border border-pink-300">B. choose somebody for a job</span> <span class="answer-mask text-rose-900/80">B. choose somebody for a job</span></p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="font-black text-rose-950 mb-2">8 <span class="text-cyan-600 ml-1">entitle somebody to something</span></p>
+                                    <div class="pl-4 space-y-1">
+                                        <p><span class="hidden-answer bg-pink-200 px-2 rounded-md font-bold text-rose-900 shadow-sm border border-pink-300">A. give somebody the right</span> <span class="answer-mask text-rose-900/80">A. give somebody the right</span></p>
+                                        <p class="text-rose-900/80">B. protect somebody from something</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 4: Speaking P1 | Celebrities - Exercise -->
+            <div class="slide" id="slide-3">
+                <div class="flex items-center gap-4 mb-10">
+                    <span class="w-12 h-12 rounded-2xl glass-panel flex items-center justify-center text-2xl shadow-sm">🗣️</span>
+                    <div>
+                        <span class="text-rose-500 font-extrabold text-xs tracking-widest uppercase">Speaking Part 1</span>
+                        <h2 class="text-3xl font-extrabold text-rose-950">Topic: Celebrities (Vocabulary)</h2>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-3xl mb-8 exercise-container overflow-hidden">
+                    <div class="p-8 md:p-10">
+                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
+                            <div class="flex items-center gap-4">
+                                <h3 class="text-2xl font-bold text-rose-950">Exercise 4</h3>
+                                <span class="glass-panel text-rose-800 px-4 py-1.5 rounded-full text-sm font-bold tracking-wide">Multiple Choice</span>
+                            </div>
+                            <button onclick="toggleAnswers(this)" class="glass-button text-rose-800 font-bold py-2.5 px-5 rounded-xl flex items-center justify-center gap-2 text-sm shadow-sm">
+                                ✨ Reveal Answers
+                            </button>
+                        </div>
+                        <p class="text-lg mb-8 text-rose-900/80 font-medium">Choose the correct answer to each of the following questions below.</p>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 text-[1.05rem] font-medium">
+                            <!-- Left Column (1-6) -->
+                            <div class="space-y-6">
+                                <div>
+                                    <p class="font-black text-rose-950 mb-2">1 Phuong Ly <span class="text-cyan-600">rises to stardom</span> since collaborating with JustaTee.</p>
+                                    <div class="pl-4 space-y-1">
+                                        <p><span class="hidden-answer bg-pink-200 px-2 rounded-md font-bold text-rose-900 shadow-sm border border-pink-300">A. She becomes famous since cooperating with JustaTee.</span> <span class="answer-mask text-rose-900/80">A. She becomes famous since cooperating with JustaTee.</span></p>
+                                        <p class="text-rose-900/80">B. She remains infamous after working with JustaTee.</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="font-black text-rose-950 mb-2">2 John Legend is a <span class="text-cyan-600">versatile</span> artist.</p>
+                                    <div class="pl-4 space-y-1">
+                                        <p><span class="hidden-answer bg-pink-200 px-2 rounded-md font-bold text-rose-900 shadow-sm border border-pink-300">A. He is able to do many different things well.</span> <span class="answer-mask text-rose-900/80">A. He is able to do many different things well.</span></p>
+                                        <p class="text-rose-900/80">B. His talent is restricted to a comedian.</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="font-black text-rose-950 mb-2">3 Ha Anh Tuan is a Vietnamese <span class="text-cyan-600">A-lister</span>.</p>
+                                    <div class="pl-4 space-y-1">
+                                        <p class="text-rose-900/80">A. Ha Anh Tuan is an up-and-coming singer in Vietnam.</p>
+                                        <p><span class="hidden-answer bg-pink-200 px-2 rounded-md font-bold text-rose-900 shadow-sm border border-pink-300">B. Ha Anh Tuan is one of the most famous celebrities in Vietnam.</span> <span class="answer-mask text-rose-900/80">B. Ha Anh Tuan is one of the most famous celebrities in Vietnam.</span></p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="font-black text-rose-950 mb-2">4 Kate Winslet is a global <span class="text-cyan-600">household name</span>.</p>
+                                    <div class="pl-4 space-y-1">
+                                        <p><span class="hidden-answer bg-pink-200 px-2 rounded-md font-bold text-rose-900 shadow-sm border border-pink-300">A. She is very renowned in the world.</span> <span class="answer-mask text-rose-900/80">A. She is very renowned in the world.</span></p>
+                                        <p class="text-rose-900/80">B. Not many people know her.</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="font-black text-rose-950 mb-2">5 It's hard to maintain <span class="text-cyan-600">an untarnished reputation</span>.</p>
+                                    <div class="pl-4 space-y-1">
+                                        <p><span class="hidden-answer bg-pink-200 px-2 rounded-md font-bold text-rose-900 shadow-sm border border-pink-300">A. It's hard to be famous without a scandal.</span> <span class="answer-mask text-rose-900/80">A. It's hard to be famous without a scandal.</span></p>
+                                        <p class="text-rose-900/80">B. It's hard to remain famous for a long time.</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="font-black text-rose-950 mb-2">6 A celebrity often has to <span class="text-cyan-600">come in for</span> a lot of criticism.</p>
+                                    <div class="pl-4 space-y-1">
+                                        <p class="text-rose-900/80">A. A superstar often has to deal with a lot of challenges.</p>
+                                        <p><span class="hidden-answer bg-pink-200 px-2 rounded-md font-bold text-rose-900 shadow-sm border border-pink-300">B. A celebrity often has to receive a lot of criticism.</span> <span class="answer-mask text-rose-900/80">B. A celebrity often has to receive a lot of criticism.</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Right Column (7-11) -->
+                            <div class="space-y-6">
+                                <div>
+                                    <p class="font-black text-rose-950 mb-2">7 Do you often <span class="text-cyan-600">gossip</span> about famous people?</p>
+                                    <div class="pl-4 space-y-1">
+                                        <p><span class="hidden-answer bg-pink-200 px-2 rounded-md font-bold text-rose-900 shadow-sm border border-pink-300">A. Do you often chitchat about celebrities?</span> <span class="answer-mask text-rose-900/80">A. Do you often chitchat about celebrities?</span></p>
+                                        <p class="text-rose-900/80">B. Do you often stare at celebrities?</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="font-black text-rose-950 mb-2">8 I think we should not <span class="text-cyan-600">invade</span> celebrities' private lives.</p>
+                                    <div class="pl-4 space-y-1">
+                                        <p class="text-rose-900/80">A. It is unwise to respect celebrities' privacy.</p>
+                                        <p><span class="hidden-answer bg-pink-200 px-2 rounded-md font-bold text-rose-900 shadow-sm border border-pink-300">B. It is insensible to intrude on celebrities' privacy.</span> <span class="answer-mask text-rose-900/80">B. It is insensible to intrude on celebrities' privacy.</span></p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="font-black text-rose-950 mb-2">9 I believe that prominent people are <span class="text-cyan-600">under tremendous pressure</span>.</p>
+                                    <div class="pl-4 space-y-1">
+                                        <p><span class="hidden-answer bg-pink-200 px-2 rounded-md font-bold text-rose-900 shadow-sm border border-pink-300">A. They are extremely stressed.</span> <span class="answer-mask text-rose-900/80">A. They are extremely stressed.</span></p>
+                                        <p class="text-rose-900/80">B. They are extremely stressful.</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="font-black text-rose-950 mb-2">10 Hyun Bin is a <span class="text-cyan-600">magnetic personality</span>.</p>
+                                    <div class="pl-4 space-y-1">
+                                        <p><span class="hidden-answer bg-pink-200 px-2 rounded-md font-bold text-rose-900 shadow-sm border border-pink-300">A. He is very attractive.</span> <span class="answer-mask text-rose-900/80">A. He is very attractive.</span></p>
+                                        <p class="text-rose-900/80">B. He is mundane.</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="font-black text-rose-950 mb-2">11 She's a <span class="text-cyan-600">resilient</span> girl - she won't be unhappy for long.</p>
+                                    <div class="pl-4 space-y-1">
+                                        <p class="text-rose-900/80">A. She is able to become successful quickly.</p>
+                                        <p><span class="hidden-answer bg-pink-200 px-2 rounded-md font-bold text-rose-900 shadow-sm border border-pink-300">B. She is able to be happy again after dealing with something difficult.</span> <span class="answer-mask text-rose-900/80">B. She is able to be happy again after dealing with something difficult.</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 5: Speaking P1 | Celebrities - Practice -->
+            <div class="slide" id="slide-4">
+                <div class="flex items-center gap-4 mb-10">
+                    <span class="w-12 h-12 rounded-2xl glass-panel flex items-center justify-center text-2xl shadow-sm">🗣️</span>
+                    <div>
+                        <span class="text-rose-500 font-extrabold text-xs tracking-widest uppercase">Speaking Part 1</span>
+                        <h2 class="text-3xl font-extrabold text-rose-950">Topic: Celebrities (Practice)</h2>
+                    </div>
+                </div>
+
+                <div class="glass-card p-10 md:p-12 rounded-3xl mb-10 relative overflow-hidden border-t-4 border-rose-400">
+                    <div class="flex items-center gap-5 mb-10 border-b border-white/60 pb-6">
+                        <div class="w-14 h-14 bg-white/60 rounded-2xl flex items-center justify-center text-3xl shadow-sm border border-white/80">📸</div>
+                        <h3 class="text-3xl font-extrabold text-rose-950 tracking-tight">IELTS Questions</h3>
+                    </div>
+                    
+                    <ol class="list-decimal pl-8 space-y-7 text-2xl text-rose-950 font-semibold relative z-10 mb-12">
+                        <li>Who is your favorite celebrity in Vietnam?</li>
+                        <li>Do you like any foreign celebrities?</li>
+                        <li>Would you want to be a celebrity in the future?</li>
+                        <li>Do you think we should protect famous people's privacy?</li>
+                        <li>How do celebrities influence their fans?</li>
+                    </ol>
+
+                    <!-- Collapsible Sample Answers -->
+                    <details class="group bg-white/40 border border-white/70 rounded-2xl relative z-10 overflow-hidden transition-all duration-300 shadow-sm hover:shadow-md">
+                        <summary class="cursor-pointer font-bold text-rose-900 p-6 flex items-center justify-between outline-none hover:bg-white/60 transition">
+                            <span class="text-xl flex items-center gap-3">💡 <span>View Band 6.0+ Sample Answers</span></span>
+                            <span class="group-open:rotate-180 transition-transform text-pink-400 text-xl">▼</span>
+                        </summary>
+                        <div class="p-8 border-t border-white/60 text-rose-900/90 space-y-8 text-lg bg-white/20 backdrop-blur-md">
+                            <div class="border-l-4 border-pink-400 pl-5 bg-white/40 p-4 rounded-r-xl">
+                                <p class="text-rose-950 font-bold mb-2 text-xl">1. Who is your favorite celebrity in Vietnam?</p>
+                                <p class="font-medium">My absolute favorite is Ha Anh Tuan. He's a true <strong>A-lister</strong> and a global <strong>household name</strong> for Vietnamese people abroad. I admire him because he has maintained an <strong>untarnished reputation</strong> throughout his entire career.</p>
+                            </div>
+                            <div class="border-l-4 border-pink-400 pl-5 bg-white/40 p-4 rounded-r-xl">
+                                <p class="text-rose-950 font-bold mb-2 text-xl">2. Do you like any foreign celebrities?</p>
+                                <p class="font-medium">Yes, I really like Emma Watson. She is a highly <strong>versatile</strong> artist who can act, model, and speak publicly about important issues. She also seems incredibly <strong>resilient</strong> when facing public scrutiny.</p>
+                            </div>
+                            <div class="border-l-4 border-pink-400 pl-5 bg-white/40 p-4 rounded-r-xl">
+                                <p class="text-rose-950 font-bold mb-2 text-xl">3. Would you want to be a celebrity in the future?</p>
+                                <p class="font-medium">Not at all. Even though <strong>rising to stardom</strong> brings wealth, I know that prominent people are often <strong>under tremendous pressure</strong>. I wouldn't want the public to constantly <strong>gossip</strong> about my personal life.</p>
+                            </div>
+                            <div class="border-l-4 border-pink-400 pl-5 bg-white/40 p-4 rounded-r-xl">
+                                <p class="text-rose-950 font-bold mb-2 text-xl">4. Do you think we should protect famous people's privacy?</p>
+                                <p class="font-medium">Absolutely. Just because someone has a <strong>magnetic personality</strong> and works in entertainment doesn't give reporters the right to illegally <strong>invade</strong> their privacy. They deserve personal space like everyone else.</p>
+                            </div>
+                            <div class="border-l-4 border-pink-400 pl-5 bg-white/40 p-4 rounded-r-xl">
+                                <p class="text-rose-950 font-bold mb-2 text-xl">5. How do celebrities influence their fans?</p>
+                                <p class="font-medium">They have a massive impact. Because they are always in the spotlight, they can easily set new fashion or lifestyle trends. However, if they make a mistake, they immediately <strong>come in for</strong> a lot of harsh criticism from fans.</p>
+                            </div>
+                        </div>
+                    </details>
+                </div>
+
+                <!-- Teacher Control Card: Pair Work -->
+                <div class="glass-card rounded-3xl overflow-hidden flex flex-col md:flex-row items-center justify-between p-8 shadow-lg">
+                    <div class="flex items-center gap-6 mb-6 md:mb-0">
+                        <div class="w-16 h-16 bg-gradient-to-br from-pink-400 to-rose-400 text-white rounded-2xl flex items-center justify-center text-3xl shadow-md border border-pink-300">👥</div>
+                        <div>
+                            <h4 class="font-extrabold text-rose-950 text-2xl">Pair Work Practice</h4>
+                            <p class="text-rose-900/70 mt-1 font-medium text-lg">Direct students to discuss using the new vocabulary.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-5 glass-panel py-4 px-8 rounded-2xl shadow-inner">
+                        <span id="timer-sp-celebs" class="text-4xl font-mono text-rose-950 font-black tracking-tight w-28 text-center drop-shadow-sm">03:00</span>
+                        <button onclick="startTimer(3, 'timer-sp-celebs')" class="bg-gradient-to-r from-rose-500 to-pink-500 hover:from-rose-400 hover:to-pink-400 text-white font-bold py-3.5 px-8 rounded-xl transition-all hover:shadow-[0_8px_20px_rgba(225,29,72,0.4)] flex items-center gap-2 shadow-md">
+                            <span class="text-xl">▶</span> Start
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 6: Speaking P2 | Famous Person - Cue Card -->
+            <div class="slide" id="slide-5">
+                <div class="flex items-center gap-4 mb-10">
+                    <span class="w-12 h-12 rounded-2xl glass-panel flex items-center justify-center text-2xl shadow-sm">🎙️</span>
+                    <div>
+                        <span class="text-fuchsia-600 font-extrabold text-xs tracking-widest uppercase">Speaking Part 2</span>
+                        <h2 class="text-3xl font-extrabold text-rose-950">Topic: Famous Person (Cue Card)</h2>
+                    </div>
+                </div>
+
+                <div class="glass-card p-10 md:p-12 rounded-3xl mb-10 relative overflow-hidden border-t-4 border-fuchsia-400">
+                    <div class="absolute -right-4 -bottom-4 text-9xl opacity-20 transform -rotate-12">🌟</div>
+
+                    <div class="flex items-center gap-5 mb-10 border-b border-white/60 pb-6">
+                        <div class="w-14 h-14 bg-white/60 rounded-2xl flex items-center justify-center text-3xl shadow-sm border border-white/80">📝</div>
+                        <h3 class="text-3xl font-extrabold text-rose-950 tracking-tight">IELTS Cue Card</h3>
+                    </div>
+                    
+                    <h4 class="text-2xl font-black text-rose-900 mb-6 uppercase tracking-wide">Describe a famous person you are interested in.</h4>
+                    <p class="text-xl mb-4 italic text-rose-900/70 font-medium">You should say:</p>
+                    
+                    <ul class="list-disc pl-8 space-y-4 text-2xl text-rose-950 font-semibold relative z-10 mb-12">
+                        <li>Who that person is</li>
+                        <li>When you first knew that person</li>
+                        <li>What this person is famous for</li>
+                        <li>And explain why you admire this person.</li>
+                    </ul>
+
+                    <!-- Collapsible Sample Answer -->
+                    <details class="group bg-white/40 border border-white/70 rounded-2xl relative z-10 overflow-hidden transition-all duration-300 shadow-sm hover:shadow-md">
+                        <summary class="cursor-pointer font-bold text-rose-900 p-6 flex items-center justify-between outline-none hover:bg-white/60 transition">
+                            <span class="text-xl flex items-center gap-3">💡 <span>View Band 6.0+ Sample Answer</span></span>
+                            <span class="group-open:rotate-180 transition-transform text-fuchsia-400 text-xl">▼</span>
+                        </summary>
+                        <div class="p-8 border-t border-white/60 text-rose-900/90 text-lg bg-white/20 backdrop-blur-md leading-relaxed italic font-medium">
+                            "I'd like to talk about Keanu Reeves, a highly <strong>prominent</strong> actor in Hollywood. He is a very <strong>well-known</strong> figure globally, mostly recognized for starring in massive blockbuster movies like The Matrix and John Wick.<br><br>
+                            
+                            I first knew about him when I was a teenager. I watched The Matrix on TV and was completely captivated by his performance. Since then, he has consistently been in the <strong>spotlight</strong>, not just for his acting, but for his lifestyle.<br><br>
+                            
+                            What he is most famous for, outside of his films, is his humble and grounded personality. Unlike many celebrities who are <strong>notorious</strong> for bad behavior or who complain about an <strong>invasion of privacy</strong>, Keanu is often praised by the <strong>paparazzi</strong> and fans for being exceptionally kind and down-to-earth.<br><br>
+                            
+                            The main reason I <strong>idolize</strong> him is because he is an excellent <strong>role model</strong>. Even though he makes <strong>headlines</strong> and has numerous brand <strong>endorsements</strong>, he donates a lot of his wealth to charity quietly. He proves that you can achieve global fame and still remain a good person."
+                        </div>
+                    </details>
+                </div>
+
+                <!-- Teacher Control Card: P2 Timers -->
+                <div class="flex flex-col md:flex-row justify-center gap-8">
+                    <div class="glass-card rounded-3xl p-8 flex flex-col items-center justify-center shadow-lg w-full md:w-1/2 border-t-4 border-rose-400 hover-lift">
+                        <h4 class="font-extrabold text-rose-950 text-2xl mb-2 flex items-center gap-2"><span>📝</span> Prep Time</h4>
+                        <p class="text-rose-900/70 mb-6 font-medium">1 minute preparation</p>
+                        
+                        <div class="glass-panel py-4 w-full rounded-2xl shadow-inner border border-white/80 text-center mb-6">
+                            <span id="timer-prep" class="text-5xl font-mono text-rose-950 font-black tracking-tight drop-shadow-sm">01:00</span>
+                        </div>
+                        <button onclick="startTimer(1, 'timer-prep')" class="w-full bg-gradient-to-r from-rose-500 to-rose-400 hover:from-rose-400 hover:to-rose-300 text-white font-bold py-4 rounded-xl transition-all shadow-md flex items-center justify-center gap-2">
+                            <span class="text-xl">▶</span> Start 1 Min
+                        </button>
+                    </div>
+
+                    <div class="glass-card rounded-3xl p-8 flex flex-col items-center justify-center shadow-lg w-full md:w-1/2 border-t-4 border-fuchsia-400 hover-lift">
+                        <h4 class="font-extrabold text-rose-950 text-2xl mb-2 flex items-center gap-2"><span>🎙️</span> Speaking Time</h4>
+                        <p class="text-rose-900/70 mb-6 font-medium">2 minutes speaking</p>
+                        
+                        <div class="glass-panel py-4 w-full rounded-2xl shadow-inner border border-white/80 text-center mb-6">
+                            <span id="timer-speak" class="text-5xl font-mono text-rose-950 font-black tracking-tight drop-shadow-sm">02:00</span>
+                        </div>
+                        <button onclick="startTimer(2, 'timer-speak')" class="w-full bg-gradient-to-r from-fuchsia-500 to-fuchsia-400 hover:from-fuchsia-400 hover:to-fuchsia-300 text-white font-bold py-4 rounded-xl transition-all shadow-md flex items-center justify-center gap-2">
+                            <span class="text-xl">▶</span> Start 2 Mins
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        // -- Navigation & Progress Logic --
+        let currentSlide = 0;
+        const totalSlides = 6;
+
+        function updateUI() {
+            // Hide all
+            document.querySelectorAll('.slide').forEach(el => el.classList.remove('active'));
+            // Show current
+            document.getElementById(`slide-${currentSlide}`).classList.add('active');
+            // Update counter
+            document.getElementById('slide-counter').innerText = `${currentSlide + 1} / ${totalSlides}`;
+            // Update Progress Bar
+            const progress = ((currentSlide + 1) / totalSlides) * 100;
+            document.getElementById('progress-bar').style.width = `${progress}%`;
+            // Scroll to top
+            document.querySelector('main').scrollTop = 0;
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides - 1) {
+                currentSlide++;
+                updateUI();
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 0) {
+                currentSlide--;
+                updateUI();
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') nextSlide();
+            if (e.key === 'ArrowLeft') prevSlide();
+        });
+
+        // -- Toggle Answers Logic (All At Once) --
+        function toggleAnswers(button) {
+            const container = button.closest('.exercise-container');
+            if (!container) return;
+            const hiddenElements = container.querySelectorAll('.hidden-answer');
+            const maskElements = container.querySelectorAll('.answer-mask');
+
+            let isHidden = true;
+            if (hiddenElements.length > 0) {
+                isHidden = hiddenElements[0].style.display === 'none' || hiddenElements[0].style.display === '';
+            }
+
+            hiddenElements.forEach(el => {
+                if (isHidden) {
+                    el.style.display = el.tagName === 'SPAN' ? 'inline-flex' : 'block';
+                } else {
+                    el.style.display = 'none';
+                }
+            });
+            
+            maskElements.forEach(el => {
+                 if (isHidden) {
+                     el.style.display = 'none';
+                 } else {
+                     el.style.display = el.tagName === 'SPAN' ? 'inline-flex' : 'block';
+                 }
+             });
+
+            if (isHidden) {
+                button.innerHTML = "✨ Hide Answers";
+            } else {
+                button.innerHTML = button.getAttribute('data-default-text') || "✨ Reveal Answers";
+            }
+        }
+
+        // -- Timer Logic --
+        let intervals = {};
+
+        function startTimer(minutes, elementId) {
+            const display = document.getElementById(elementId);
+            let time = minutes * 60;
+            
+            if (intervals[elementId]) {
+                clearInterval(intervals[elementId]);
+            }
+
+            updateTimerDisplay(time, display);
+            // Visual feedback that timer started
+            display.classList.remove('text-rose-600');
+            display.classList.add('text-rose-950');
+
+            intervals[elementId] = setInterval(() => {
+                time--;
+                updateTimerDisplay(time, display);
+
+                if (time <= 0) {
+                    clearInterval(intervals[elementId]);
+                    display.classList.add('text-rose-600');
+                    display.classList.remove('text-rose-950');
+                    // Play a soft beep sound
+                    try {
+                        let audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                        let oscillator = audioCtx.createOscillator();
+                        oscillator.type = 'sine';
+                        oscillator.frequency.setValueAtTime(440, audioCtx.currentTime);
+                        oscillator.connect(audioCtx.destination);
+                        oscillator.start();
+                        oscillator.stop(audioCtx.currentTime + 0.5);
+                    } catch(e) {}
+                }
+            }, 1000);
+        }
+
+        function updateTimerDisplay(totalSeconds, element) {
+            const m = Math.floor(totalSeconds / 60).toString().padStart(2, '0');
+            const s = (totalSeconds % 60).toString().padStart(2, '0');
+            element.innerText = `${m}:${s}`;
+        }
+        
+        // Initialize first render
+        updateUI();
+    </script>
+</body>
+</html>
