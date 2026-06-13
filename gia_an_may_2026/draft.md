@@ -202,3 +202,22 @@ Homework
 
 3. Homework: 
 - Speaking P2 recordings | Geography: all remaining 8 topics https://ieltschantruong.github.io/IELTS/learning_resources/speaking/part2_3/nature_and_geography.html
+
+# Lesson 14: 
+1. Listening P4 Practice: 
+- https://youpass.vn/thi-thu/listening/10494 | Solar Water Purifier
+- https://youpass.vn/thi-thu/listening/10460 | Dormancy
+
+2. Speaking P3 | Tourism and the Environment: https://ieltschantruong.github.io/IELTS/learning_resources/speaking/part2_3/nature_and_geography.html
+ How does tourism affect the natural environment?
+ Do you think eco-tourism is a good solution for environmental protection?
+ How can individuals reduce their carbon footprint when traveling?
+ Should the government restrict the number of tourists visiting pristine areas?
+ What are the benefits of national parks and sanctuaries?
+ How does rural life differ from living in a metropolis?
+ Do you think people have lost their connection with nature?
+ Why is it important to protect indigenous flora and fauna?
+ How can schools educate children about the importance of conservation?
+ What role do international organizations play in environmental protection?
+
+3. Homework: prep responses for remaining P3 questions (Geography and Climate in https://ieltschantruong.github.io/IELTS/learning_resources/speaking/part2_3/nature_and_geography.html)
