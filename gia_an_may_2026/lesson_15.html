@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Chan Truong | Lesson 15 Detailed Plan</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Inter"', 'sans-serif'],
+                    },
+                    colors: {
+                        pastel: {
+                            pink: '#ffe4e6',
+                            purple: '#f3e8ff',
+                            blue: '#e0e7ff',
+                            teal: '#ccfbf1',
+                            orange: '#ffedd5',
+                            indigo: '#e0e7ff',
+                            cyan: '#cffafe',
+                            rose: '#ffe4e6'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { 
+            background-color: #fdfbfb;
+            background-image: 
+                radial-gradient(at 80% 0%, hsla(250, 50%, 95%, 1) 0px, transparent 50%),
+                radial-gradient(at 10% 30%, hsla(280, 60%, 90%, 1) 0px, transparent 50%),
+                radial-gradient(at 90% 80%, hsla(200, 60%, 90%, 1) 0px, transparent 50%),
+                radial-gradient(at 20% 90%, hsla(220, 60%, 90%, 1) 0px, transparent 50%);
+            background-attachment: fixed;
+            color: #334155;
+        }
+        
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 10px 40px -10px rgba(0,0,0,0.05);
+        }
+
+        .skill-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.25rem 0.6rem;
+            border-radius: 8px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            backdrop-filter: blur(4px);
+        }
+
+        .badge-writing { background-color: rgba(254, 226, 226, 0.7); color: #e11d48; border: 1px solid rgba(254, 205, 211, 0.5); }
+        .badge-overview { background-color: rgba(204, 251, 241, 0.7); color: #0d9488; border: 1px solid rgba(153, 246, 228, 0.5); }
+
+        .guidance-box {
+            background: linear-gradient(to right, rgba(255,255,255,0.95), rgba(255,255,255,0.7));
+            border-left: 4px solid;
+            border-radius: 0.5rem;
+            padding: 1.25rem;
+            margin-bottom: 1.25rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
+
+        /* Modal system transition controls */
+        .modal-overlay {
+            transition: opacity 0.25s ease-in-out;
+        }
+        .modal-container {
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease-in-out;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: rgba(203, 213, 225, 0.8); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(148, 163, 184, 0.8); }
+    </style>
+</head>
+<body class="antialiased min-h-screen pb-16">
+
+<div class="max-w-4xl mx-auto px-4 py-10 sm:px-6 lg:px-8">
+    
+    <header class="glass-panel rounded-[2rem] p-8 mb-8 relative overflow-hidden">
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-pastel-indigo rounded-full mix-blend-multiply filter blur-3xl opacity-50 z-0"></div>
+        <div class="absolute -bottom-24 -left-24 w-72 h-72 bg-pastel-purple rounded-full mix-blend-multiply filter blur-3xl opacity-50 z-0"></div>
+
+        <div class="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+            <div>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 border border-white text-[10px] font-bold text-slate-500 tracking-widest uppercase mb-3 shadow-sm">
+                    IELTS Chan Truong • Tutor 2
+                </div>
+                <h1 class="text-3xl md:text-4xl font-bold tracking-tight text-slate-800 mb-2">Lesson 15: Spatial Maps & Process Flows</h1>
+                <p class="text-slate-500 font-medium">90-Minute Technical Writing Integration</p>
+            </div>
+            
+            <div class="flex flex-col gap-2">
+                <span class="skill-badge badge-writing shadow-sm justify-center">Writing P1 (45 Min)</span>
+                <span class="skill-badge badge-overview shadow-sm justify-center">Layout & Passive (45 Min)</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="space-y-8">
+        
+        <!-- Section 1: Writing Task 1 | Maps -->
+        <section class="glass-panel rounded-2xl p-6 md:p-8 relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-2 h-full bg-rose-400"></div>
+            
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 rounded-full bg-rose-50 flex items-center justify-center text-rose-600 border border-rose-100 shadow-sm">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                </div>
+                <h2 class="text-2xl font-bold text-slate-800">1. Writing Task 1: Maps Description</h2>
+            </div>
+
+            <!-- Tutoring Guidance Box -->
+            <div class="guidance-box border-rose-400">
+                <h3 class="text-[13px] font-bold text-rose-800 uppercase tracking-wider mb-3 flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    Strategic Guidance: Navigating Structural Alterations Over Time
+                </h3>
+                <div class="space-y-3 text-sm text-slate-700">
+                    <p>Map prompts examine a student's ability to report physical layout transformations. Grouping coordinates cleanly is vital for high Band Coherence (CC).</p>
+                    
+                    <div class="bg-rose-50/50 p-4 rounded-xl border border-rose-100 shadow-sm space-y-2 text-xs">
+                        <p><strong class="text-rose-900 uppercase tracking-wide font-bold">Standard 4-Paragraph Layout:</strong></p>
+                        <p><strong>1. Introduction:</strong> Paraphrase the description parameters, identifying the locations and specific years compared.</p>
+                        <p><strong>2. Overview:</strong> Emphasize the macro-level transformation trend (e.g., from simple, traditional configurations to specialized, high-capacity zones). Do not list isolated changes here.</p>
+                        <p><strong>3. Detail Body 1:</strong> Detail the changes inside specific zones (e.g., the western and northern boundaries).</p>
+                        <p><strong>4. Detail Body 2:</strong> Detail the changes across the remaining regions (e.g., the center, eastern, and southern areas).</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Useful Language Banks for Maps -->
+            <div class="bg-white/80 p-5 rounded-xl border border-slate-150 shadow-sm space-y-4 mb-6">
+                <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest">Static Map Language Reference</h4>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs leading-relaxed text-slate-600">
+                    <div class="bg-slate-50 p-3 rounded-lg border border-slate-100">
+                        <strong class="text-slate-800 block border-b pb-1 mb-2">Addition & Construction</strong>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li>"...was constructed/erected..."</li>
+                            <li>"...witnessed the introduction of..."</li>
+                            <li>"An additional facility was added..."</li>
+                            <li>"...was newly built/installed..."</li>
+                        </ul>
+                    </div>
+                    <div class="bg-slate-50 p-3 rounded-lg border border-slate-100">
+                        <strong class="text-slate-800 block border-b pb-1 mb-2">Demolition & Replacement</strong>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li>"...was demolished/cleared..."</li>
+                            <li>"...was knocked down to make way for..."</li>
+                            <li>"...replaced / was converted into..."</li>
+                            <li>"...redeveloped into a specialized..."</li>
+                        </ul>
+                    </div>
+                    <div class="bg-slate-50 p-3 rounded-lg border border-slate-100">
+                        <strong class="text-slate-800 block border-b pb-1 mb-2">Spatial Prepositions</strong>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li>"...running along the northern wall..."</li>
+                            <li>"...situated in the south-west corner..."</li>
+                            <li>"...located adjacent/opposite to..."</li>
+                            <li>"...positioned in the central space..."</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Practice Prompt Segment -->
+            <div class="p-4 rounded-xl border border-rose-200 bg-white flex flex-col gap-4 shadow-sm hover:shadow-md transition-shadow">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <div>
+                        <span class="skill-badge bg-rose-50 text-rose-700 font-bold border border-rose-100">Morocco / Library Comparison</span>
+                        <h4 class="font-bold text-slate-800 text-[15px] mt-1">School Library Layout Transformations</h4>
+                        <p class="text-xs text-slate-500">Comparing past library spaces (5 years ago) against current digitalized layout configurations</p>
+                    </div>
+                    <button onclick="openModal('library')" class="w-full sm:w-auto text-center text-[11px] font-bold text-white uppercase tracking-wider bg-rose-600 px-4 py-2.5 rounded-lg hover:bg-rose-700 transition-colors">
+                        Inspect Model
+                    </button>
+                </div>
+
+                <div class="border-t border-slate-100 pt-4 flex flex-col md:flex-row gap-6 items-center">
+                    <img src="image_d061dd.jpg" alt="School Library plans 5 years ago and now" class="max-w-[280px] h-auto object-contain rounded-lg border border-slate-200 p-2 bg-white" onerror="this.onerror=null; this.src='https://ieltschantruong.github.io/IELTS/src/writing_questions/writing_task1_maps_school_library.png';">
+                    <div class="space-y-2 text-xs text-slate-600">
+                        <p><strong>Overview Parameters:</strong> Quiet, traditional study zones (large study tables, traditional classroom) have been repurposed into modernized digital facilities, including recording studios, student laptop desks, and expanded private workspaces.</p>
+                        <p class="text-rose-600 font-semibold uppercase tracking-wider">Source: ieltschantruong.github.io</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Writing Task 1 | Process -->
+        <section class="glass-panel rounded-2xl p-6 md:p-8 relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-2 h-full bg-teal-400"></div>
+            
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 rounded-full bg-teal-50 flex items-center justify-center text-teal-600 border border-teal-100 shadow-sm">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 9.172V5L8 4z"></path></svg>
+                </div>
+                <h2 class="text-2xl font-bold text-slate-800">2. Writing Task 1: Process Flowcharts</h2>
+            </div>
+
+            <!-- Tutoring Guidance Box -->
+            <div class="guidance-box border-teal-400">
+                <h3 class="text-[13px] font-bold text-teal-800 uppercase tracking-wider mb-3 flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    Strategic Guidance: Passive Voice & Temporal Sequencers
+                </h3>
+                <div class="space-y-3 text-sm text-slate-700">
+                    <p>Process flow diagrams describe step-by-step systems. Since the actions are performed on objects rather than by agents, using the <strong>passive voice</strong> is critical to securing a Band 7.5+ in Grammar (GRA).</p>
+                    
+                    <div class="bg-teal-50/50 p-4 rounded-xl border border-teal-100 shadow-sm space-y-2 text-xs">
+                        <p><strong class="text-teal-900 uppercase tracking-wide font-bold">Key Flowchart Guidelines:</strong></p>
+                        <p><strong>1. Passive Transformations:</strong> Convert simple active indicators on diagrams into passive actions (e.g., instead of saying "filter cleans water", say <em>"raw water is passed through a filter where impurities are removed"</em>).</p>
+                        <p><strong>2. Stage Transitions:</strong> Connect stages seamlessly. Avoid overusing basic connectors like "and then", "next". Leverage advanced sequencers (<em>"Subsequently,", "Following the carbonation stage,", "Once filtration is finalized,"</em>).</p>
+                        <p><strong>3. Initial & Final States:</strong> Ensure the introduction and overview specify the exact starting ingredient/raw input and the final output destination.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Useful Language Banks for Processes -->
+            <div class="bg-white/80 p-5 rounded-xl border border-slate-150 shadow-sm space-y-4 mb-6">
+                <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest">Process Flow Language Reference</h4>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs leading-relaxed text-slate-600">
+                    <div class="bg-slate-50 p-3 rounded-lg border border-slate-100">
+                        <strong class="text-slate-800 block border-b pb-1 mb-2">Stage Sequencers</strong>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li>"Initially / At the outset,"</li>
+                            <li>"In the subsequent stage..."</li>
+                            <li>"Following this filtration process,"</li>
+                            <li>"Simultaneously / Concurrently,"</li>
+                        </ul>
+                    </div>
+                    <div class="bg-slate-50 p-3 rounded-lg border border-slate-100">
+                        <strong class="text-slate-800 block border-b pb-1 mb-2">Passive Structures</strong>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li>"...is heated / cooled..."</li>
+                            <li>"...are sequentially pumped..."</li>
+                            <li>"...is heavily mixed with..."</li>
+                            <li>"...is distributed via..."</li>
+                        </ul>
+                    </div>
+                    <div class="bg-slate-50 p-3 rounded-lg border border-slate-100">
+                        <strong class="text-slate-800 block border-b pb-1 mb-2">Stage Links & Causes</strong>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li>"...thereby allowing..."</li>
+                            <li>"...prior to being directed..."</li>
+                            <li>"...resulting in the formation of..."</li>
+                            <li>"...once this step is finalized..."</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Practice Prompt Segment -->
+            <div class="p-4 rounded-xl border border-teal-200 bg-white flex flex-col gap-4 shadow-sm hover:shadow-md transition-shadow">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <div>
+                        <span class="skill-badge bg-teal-50 text-teal-700 font-bold border border-teal-100">Carbonated Drinks Flowchart</span>
+                        <h4 class="font-bold text-slate-800 text-[15px] mt-1">The Process of Making Carbonated Drinks</h4>
+                        <p class="text-xs text-slate-500">Deconstructing water cleaning, heating, carbonation, mixing, and packaging pipelines</p>
+                    </div>
+                    <button onclick="openModal('drinks')" class="w-full sm:w-auto text-center text-[11px] font-bold text-white uppercase tracking-wider bg-teal-600 px-4 py-2.5 rounded-lg hover:bg-teal-700 transition-colors">
+                        Inspect Model
+                    </button>
+                </div>
+
+                <div class="border-t border-slate-100 pt-4 flex flex-col md:flex-row gap-6 items-center">
+                    <img src="image_d061bd.jpg" alt="The process of making carbonated drinks flowchart" class="max-w-[280px] h-auto object-contain rounded-lg border border-slate-200 p-2 bg-white" onerror="this.onerror=null; this.src='https://ieltschantruong.github.io/IELTS/src/writing_questions/writing_task1_process_carbonated_drink.png';">
+                    <div class="space-y-2 text-xs text-slate-600">
+                        <p><strong>Overview Parameters:</strong> A systematic industrial system comprising five distinct phases, starting from basic raw water cleaning and progressing through heating carbonation, the insertion of flavoring ingredients, containerization, and transport to commercial supermarkets.</p>
+                        <p class="text-teal-600 font-semibold uppercase tracking-wider">Source: ieltschantruong.github.io</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Homework Section -->
+        <section class="glass-panel rounded-2xl p-6 md:p-8 relative overflow-hidden bg-gradient-to-br from-white/60 to-blue-50/40">
+            <div class="absolute top-0 left-0 w-2 h-full bg-blue-400"></div>
+            
+            <div class="flex items-center gap-3 mb-5">
+                <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 shadow-sm border border-blue-200">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                </div>
+                <h2 class="text-xl font-bold text-slate-800">3. Homework Assignments</h2>
+            </div>
+            
+            <p class="text-sm text-slate-600 mb-6 font-medium">Assign the exercises below to consolidate static map coordinates and passive process description mechanics:</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Task Map Drafting -->
+                <div class="bg-white/80 p-5 rounded-xl border border-slate-150 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <span class="text-[10px] font-bold text-rose-700 bg-rose-50 border border-rose-100 px-2.5 py-1 rounded-md uppercase tracking-wider block mb-3">Map Drafting Review</span>
+                        <p class="text-xs text-slate-600 leading-relaxed mb-4">
+                            Draft a complete, 150+ word academic report for the **School Library Layout Transformations** prompt. Focus heavily on spatial prepositions and clear grouping of north/west vs center/east modifications.
+                        </p>
+                    </div>
+                    <a href="https://classroom.google.com" target="_blank" class="text-center text-xs font-bold text-rose-600 bg-rose-50 hover:bg-rose-100/80 transition-colors py-2 rounded-lg border border-rose-100">Submit on Google Classroom</a>
+                </div>
+
+                <!-- Task Process Drafting -->
+                <div class="bg-white/80 p-5 rounded-xl border border-slate-150 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <span class="text-[10px] font-bold text-teal-700 bg-teal-50 border border-teal-100 px-2.5 py-1 rounded-md uppercase tracking-wider block mb-3">Process Flow Drafting</span>
+                        <p class="text-xs text-slate-600 leading-relaxed mb-4">
+                            Draft a complete, 150+ word academic report describing **The Process of Making Carbonated Drinks**. Audit your draft to ensure passive voice structures are utilized for at least 70% of the active steps.
+                        </p>
+                    </div>
+                    <a href="https://classroom.google.com" target="_blank" class="text-center text-xs font-bold text-teal-600 bg-teal-50 hover:bg-teal-100/80 transition-colors py-2 rounded-lg border border-teal-100">Submit on Google Classroom</a>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</div>
+
+<!-- Modal Component System (Overlay popup for Model Answers) -->
+<div id="modalOverlay" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-50 flex items-center justify-center p-4 md:p-6 opacity-0 pointer-events-none modal-overlay">
+    <div id="modalContainer" class="bg-white rounded-3xl w-full max-w-2xl max-h-[85vh] overflow-y-auto shadow-2xl flex flex-col border border-slate-100 transform scale-95 opacity-0 modal-container">
+        
+        <!-- Modal Header -->
+        <div class="px-6 py-5 border-b border-slate-100 bg-slate-50 flex items-center justify-between sticky top-0 z-10 rounded-t-3xl">
+            <div class="flex items-center gap-3">
+                <div class="w-2.5 h-2.5 rounded-full bg-indigo-500"></div>
+                <h3 id="modalTitle" class="text-sm font-bold text-slate-800 tracking-tight">Writing Task 1 Model Answer</h3>
+            </div>
+            <button onclick="closeModal()" class="p-1.5 rounded-lg bg-slate-200/60 hover:bg-slate-200 text-slate-500 hover:text-slate-700 transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+        </div>
+        
+        <!-- Modal Body Content -->
+        <div id="modalBody" class="p-6 md:p-8 space-y-6">
+            <!-- Dynamic Content Injected here via Javascript -->
+        </div>
+        
+        <!-- Modal Footer -->
+        <div class="px-6 py-4 border-t border-slate-100 bg-slate-50 flex justify-end rounded-b-3xl">
+            <button onclick="closeModal()" class="bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold py-2.5 px-5 rounded-xl transition-all shadow-sm">
+                Return to Lesson Plan
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Database for Writing Task 1 Responses & Structural Blueprints
+    const writingDB = {
+        library: {
+            title: "Model Report: School Library Layout Transformations",
+            outline: "Comparison of layout designs: 5 years ago vs. current plan.",
+            essay: `"The plans compare the changes that have occurred in the layout of a school library over the last five years.<br><br>Overall, it is clear that the library has undergone major developments, transforming from a quiet reading space into a modernized digital learning environment. Traditional facilities like large study tables and a classic classroom have been replaced with recording studios, student laptop desks, and expanded private workspaces.<br><br>Looking at the left side of the layout, the classroom situated in the north-west corner five years ago has been converted into a recording studio. While the meeting room in the center remains unchanged, the borrowing and returning desk below it has been partitioned into two separate desks. In the south-west, a new desk designed for student laptops has been constructed along the bottom wall.<br><br>Regarding the remaining sections, the central area formerly occupied by four large study tables now contains six private studying tables. In the north-east, the traditional computer desk has been upgraded and extended into a larger student laptop zone. Additionally, the library office in the south-east corner has been converted into a spacious conference room, completing the modernized look."`,
+            grammar: [
+                "<strong>Passive Voice (has been converted / has been partitioned):</strong> Vital for describing layout modifications neutrally without specified human agents.",
+                "<strong>Spatial Prepositions (situated in the north-west corner / running along the bottom wall):</strong> Crucial coordinates that help the reader follow structural adjustments immediately.",
+                "<strong>Overview Transition (Overall, it is clear that...):</strong> Establishes the core macro-transition (traditional to digital) cleanly for a high Task Achievement score."
+            ],
+            lexical: ["undergone major developments", "digital learning environment", "partitioned into two separate desks", "has been converted into", "upgraded and extended", "formerly occupied by"]
+        },
+        drinks: {
+            title: "Model Report: The Process of Making Carbonated Drinks",
+            outline: "Flowchart outlining industrial steps from raw water to packaged goods.",
+            essay: `"The diagram illustrates the industrial process of manufacturing carbonated drinks across five distinct stages, starting from raw water purification and ending with the final transport of packaged goods to supermarkets.<br><br>Overall, the system represents a highly automated five-phase production line. This process begins with water filtration and chemical treatment, moves through carbonation and flavor mixing, and finishes with container filling, packaging, and commercial delivery.<br><br>In the initial stage, raw water is pumped from a storage facility into a filter where physical impurities are removed. Following this, the water is directed into a water softener where chemicals are added to treat the liquid. The treated water is then passed through an electric heater to undergo evaporation, before traveling through a cooling pipe into a carbonation chamber, where carbon dioxide is injected to carbonate the liquid.<br><br>Subsequently, the carbonated water is directed into a mixing tank where coloring, syrup, and flavoring are added. The mixed beverage is then passed through another filter before being filled into bottles and cans. In the final stage, these containers are packed into boxes and loaded onto delivery trucks for transport to supermarkets."`,
+            grammar: [
+                "<strong>Industrial Passives (is pumped / are removed / is directed):</strong> Perfect usage of passive structures to describe chemical and industrial processes accurately.",
+                "<strong>Sequential Connectors (Initially / Following this / Subsequently / In the final stage):</strong> Seamless transitions that link independent stages without repetitive wording.",
+                "<strong>Complex Participial Clauses (before being filled / ending with):</strong> Combines chronological steps naturally to boost the coherence score."
+            ],
+            lexical: ["distinct stages", "water purification", "carbonation chamber", "sequentially directed", "impurities are removed", "concludes with delivery", "filling and packaging"]
+        }
+    };
+
+    function openModal(type) {
+        const data = writingDB[type];
+        if (!data) return;
+
+        const overlay = document.getElementById('modalOverlay');
+        const container = document.getElementById('modalContainer');
+        const body = document.getElementById('modalBody');
+
+        document.getElementById('modalTitle').innerText = data.title;
+
+        // Construct HTML content inside modal
+        body.innerHTML = `
+            <div>
+                <span class="text-[10px] font-bold text-indigo-600 bg-indigo-50 border border-indigo-100 px-2.5 py-1 rounded-md uppercase">Band 7.5 - 8.0 Model Report</span>
+                <div class="mt-3 text-xs leading-relaxed text-slate-700 bg-slate-50 border border-slate-100 p-5 rounded-2xl">
+                    <p class="mb-4 italic text-slate-800 border-l-2 border-indigo-300 pl-3 bg-white/40 p-2 rounded">
+                        <strong>Analytical Objective:</strong> ${data.outline}
+                    </p>
+                    <p class="text-slate-600 leading-relaxed">${data.essay}</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+                <div>
+                    <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-2.5">Key Grammar Markers</span>
+                    <ul class="space-y-2">
+                        ${data.grammar.map(item => `
+                            <li class="flex items-start text-[11px] text-slate-600">
+                                <span class="text-indigo-400 font-bold mr-2">•</span>
+                                <span>${item}</span>
+                            </li>
+                        `).join('')}
+                    </ul>
+                </div>
+                <div>
+                    <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-2.5">Academic Lexis Portfolio</span>
+                    <div class="flex flex-wrap gap-1.5">
+                        ${data.lexical.map(word => `
+                            <span class="text-[11px] font-semibold text-slate-600 bg-slate-100 border border-slate-200/60 px-2.5 py-1 rounded-md">${word}</span>
+                        `).join('')}
+                    </div>
+                </div>
+            </div>
+        `;
+
+        // Animation triggers
+        overlay.classList.remove('pointer-events-none');
+        overlay.classList.add('opacity-100');
+        container.classList.remove('scale-95', 'opacity-0');
+        container.classList.add('scale-100', 'opacity-100');
+        
+        // Prevent body scrolling
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+        const overlay = document.getElementById('modalOverlay');
+        const container = document.getElementById('modalContainer');
+
+        overlay.classList.remove('opacity-100');
+        overlay.classList.add('pointer-events-none');
+        container.classList.remove('scale-100', 'opacity-100');
+        container.classList.add('scale-95', 'opacity-0');
+        
+        // Restore body scrolling
+        document.body.style.overflow = '';
+    }
+
+    // Close modal if user clicks outside of container
+    document.getElementById('modalOverlay').addEventListener('click', function(e) {
+        if (e.target === this) {
+            closeModal();
+        }
+    });
+
+    // Close on escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeModal();
+        }
+    });
+</script>
+
+</body>
+</html>

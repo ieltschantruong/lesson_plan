@@ -221,3 +221,16 @@ Homework
  What role do international organizations play in environmental protection?
 
 3. Homework: prep responses for remaining P3 questions (Geography and Climate in https://ieltschantruong.github.io/IELTS/learning_resources/speaking/part2_3/nature_and_geography.html)
+
+# Lesson 15:
+1. Writing Task 1 | Maps:
+- Structure instruction
+- Useful language banks
+- Questions brainstorming & practicing: https://ieltschantruong.github.io/IELTS/src/writing_questions/writing_task1_maps_school_library.png
+
+2. Writing Task 1 | Process:
+- Structure instruction
+- Useful language banks
+- Questions brainstorming & practicing: https://ieltschantruong.github.io/IELTS/src/writing_questions/writing_task1_process_carbonated_drink.png
+
+3. Homework: Full essays writing
