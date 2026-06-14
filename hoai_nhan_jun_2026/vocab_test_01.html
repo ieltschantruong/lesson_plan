@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speaking Part 1 | Test 01 - IELTS Chan Truong</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Times+New+Roman:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #334155; /* Slate background simulating a desk */
+            background-image: radial-gradient(#1e293b 1px, transparent 1px);
+            background-size: 20px 20px;
+            font-family: 'Times New Roman', Times, serif; /* Classic exam paper font */
+            color: #000;
+            padding: 2rem 1rem;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+        }
+
+        .exam-paper {
+            background-color: #fff;
+            width: 100%;
+            max-width: 900px;
+            padding: 4rem 5rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            position: relative;
+            /* Slight paper texture */
+            background-image: linear-gradient(90deg, rgba(0,0,0,0.02) 1px, transparent 1px),
+                              linear-gradient(rgba(0,0,0,0.02) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        @media (max-width: 768px) {
+            body { padding: 0; background: #fff; }
+            .exam-paper { padding: 2rem 1.5rem; box-shadow: none; }
+        }
+
+        /* Input styling to look like dotted/blank lines */
+        .blank-input {
+            border: none;
+            border-bottom: 1px dotted #000;
+            background: transparent;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 1.1rem;
+            font-style: italic;
+            color: #1e3a8a; /* Blue ink color */
+            text-align: center;
+            outline: none;
+            padding: 0 5px;
+            margin: 0 5px;
+            border-radius: 0;
+            transition: all 0.2s;
+        }
+        
+        .blank-input:focus {
+            background-color: rgba(253, 253, 150, 0.3);
+            border-bottom: 1px solid #2563eb;
+        }
+
+        .blank-input.graded-correct {
+            color: #16a34a; /* Green ink */
+            border-bottom: 1px solid #16a34a;
+        }
+
+        .blank-input.graded-incorrect {
+            color: #dc2626; /* Red ink */
+            border-bottom: 1px solid #dc2626;
+            text-decoration: line-through;
+        }
+
+        /* Multiple Choice Grid */
+        .mcq-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-top: 0.5rem;
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+        }
+
+        @media (max-width: 640px) {
+            .mcq-grid { grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
+        }
+
+        .mcq-option {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            font-size: 1.05rem;
+        }
+
+        .mcq-option input[type="radio"] {
+            appearance: none;
+            width: 14px;
+            height: 14px;
+            border: 1px solid #000;
+            border-radius: 50%;
+            outline: none;
+            position: relative;
+        }
+
+        .mcq-option input[type="radio"]:checked::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 8px;
+            height: 8px;
+            background-color: #1e3a8a; /* Blue ink */
+            border-radius: 50%;
+        }
+
+        /* Red Pen Correction styling */
+        .correction-text {
+            color: #dc2626; /* Red ink */
+            font-weight: bold;
+            font-size: 1rem;
+            font-style: italic;
+            margin-left: 0.5rem;
+            font-family: 'Comic Sans MS', 'Chalkboard SE', sans-serif; /* Handwriting feel */
+        }
+        
+        .mark-icon {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            vertical-align: middle;
+            margin-left: 5px;
+        }
+
+        /* Typography spacing */
+        p, li, .q-item { line-height: 1.8; font-size: 1.05rem; }
+        .section-title { font-weight: bold; margin-top: 2.5rem; margin-bottom: 1rem; }
+        .word-bank { 
+            text-align: center; 
+            font-style: italic; 
+            margin: 1.5rem 0; 
+            padding: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            row-gap: 1rem;
+            column-gap: 2rem;
+            line-height: 1.5;
+        }
+        
+        .word-bank span {
+            white-space: nowrap;
+        }
+
+        /* Floating Submit Bar */
+        .submit-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(5px);
+            border-top: 1px solid #cbd5e1;
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1);
+            z-index: 50;
+        }
+        
+        .hide-print { display: flex; }
+        @media print {
+            .hide-print, .submit-bar { display: none !important; }
+            body { background: white; padding: 0; }
+            .exam-paper { padding: 0; box-shadow: none; max-width: 100%; }
+            .word-bank { gap: 1.5rem; padding: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="exam-paper" id="test-container">
+        
+        <div class="flex justify-end text-sm mb-6 italic">
+            IELTS Chan Truong 2026
+        </div>
+
+        <div class="text-center mb-10">
+            <h1 class="text-lg font-bold uppercase tracking-widest mb-1">Speaking Part 1 | Test 01</h1>
+            <h2 class="text-base font-bold">Target Band: 6.5 - 7.5+</h2>
+        </div>
+
+        <!-- Grade Display (Hidden until submit) -->
+        <div id="grade-display" class="hidden absolute top-12 right-12 w-28 h-28 border-[5px] border-red-600 rounded-full flex flex-col items-center justify-center text-red-600 transform rotate-12 bg-white/90 backdrop-blur-sm z-10 shadow-xl">
+            <span class="text-4xl font-black font-sans leading-none" id="final-score">0</span>
+            <span class="text-sm font-bold border-t-[3px] border-red-600 w-16 text-center mt-1 pt-1 font-sans">/50</span>
+        </div>
+
+        <form id="vocab-form" onsubmit="event.preventDefault(); gradeTest();">
+
+            <div class="section">
+                <div class="section-title flex gap-4">
+                    <span>I.</span>
+                    <span>Fill in each blank with one suitable word from the list below. <span class="underline uppercase">CHANGES</span> to the <span class="underline uppercase font-bold">WORD FORM</span> can be needed.</span>
+                </div>
+                
+                <div class="word-bank font-bold text-base">
+                    <span>facilitate</span>
+                    <span>procrastinate</span>
+                    <span>allocate</span>
+                    <span>prioritize</span>
+                    <span>cultivate</span>
+                    <span>indulge</span>
+                    <span>pursue</span>
+                    <span>dabble</span>
+                    <span>adjust</span>
+                    <span>reduce</span>
+                    <span>embrace</span>
+                    <span>fuel</span>
+                </div>
+
+                <div class="space-y-4 ml-8">
+                    <div class="q-item" data-q="1">1. Smartphones and tablets greatly <input type="text" class="blank-input w-28" id="q1" autocomplete="off"> the learning process.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="2">2. He has a terrible habit of <input type="text" class="blank-input w-36" id="q2" autocomplete="off"> when faced with difficult tasks.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="3">3. It is important to <input type="text" class="blank-input w-28" id="q3" autocomplete="off"> time for each task to stay organized.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="4">4. When you have a lot on your plate, you must <input type="text" class="blank-input w-32" id="q4" autocomplete="off"> your tasks.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="5">5. Finishing a complex project helps in <input type="text" class="blank-input w-32" id="q5" autocomplete="off"> a sense of achievement.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="6">6. On Sundays, she loves to <input type="text" class="blank-input w-28" id="q6" autocomplete="off"> in baking sweet treats.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="7">7. It is incredibly important to actively <input type="text" class="blank-input w-28" id="q7" autocomplete="off"> your personal interests.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="8">8. I like to <input type="text" class="blank-input w-28" id="q8" autocomplete="off"> in watercolor painting, but I'm not a professional.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="9">9. The software crashed, so the speaker had to <input type="text" class="blank-input w-28" id="q9" autocomplete="off"> on the fly.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="10">10. Taking the bus is a great way to <input type="text" class="blank-input w-28" id="q10" autocomplete="off"> your carbon footprint.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="11">11. Waking up before everyone else allows me to truly <input type="text" class="blank-input w-28" id="q11" autocomplete="off"> the quiet hours.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="12">12. I always eat oatmeal and bananas to <input type="text" class="blank-input w-28" id="q12" autocomplete="off"> my body before the gym.<span class="correction-area"></span></div>
+                </div>
+            </div>
+
+            <div class="section mt-8">
+                <div class="section-title flex gap-4">
+                    <span>II.</span>
+                    <span>Fill in each blank with <span class="font-bold underline">one suitable word</span>.</span>
+                </div>
+
+                <div class="space-y-4 ml-8">
+                    <div class="q-item" data-q="13">13. I had a huge project due, so I had to burn the midnight <input type="text" class="blank-input w-20" id="q13" autocomplete="off"> to finish it.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="14">14. Right before finals, I am usually completely snowed <input type="text" class="blank-input w-24" id="q14" autocomplete="off"> with assignments.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="15">15. Exams start next week, so it's really time for me to hit the <input type="text" class="blank-input w-24" id="q15" autocomplete="off">.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="16">16. She studied diligently and managed to pass her exams with flying <input type="text" class="blank-input w-24" id="q16" autocomplete="off">.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="17">17. Offering someone a snack is a great way to <input type="text" class="blank-input w-24" id="q17" autocomplete="off"> the ice.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="18">18. After finishing that massive assignment, I finally had a weekend to <input type="text" class="blank-input w-24" id="q18" autocomplete="off"> my breath.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="19">19. I use a digital calendar to stay on <input type="text" class="blank-input w-20" id="q19" autocomplete="off"> of things.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="20">20. The power outage caused the team to fall <input type="text" class="blank-input w-24" id="q20" autocomplete="off"> schedule.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="21">21. I have to walk a <input type="text" class="blank-input w-20" id="q21" autocomplete="off"> line between treating myself and sticking to my diet.<span class="correction-area"></span></div>
+                    <div class="q-item" data-q="22">22. That chocolate bar at the checkout counter was a total <input type="text" class="blank-input w-28" id="q22" autocomplete="off"> buy.<span class="correction-area"></span></div>
+                </div>
+            </div>
+
+            <div class="section mt-8">
+                <div class="section-title flex gap-4">
+                    <span>III.</span>
+                    <span>Choose a word which is <span class="font-bold underline">stressed differently</span> from the others.</span>
+                </div>
+
+                <div class="space-y-4 ml-8">
+                    <div class="q-item" data-q="23">
+                        <div class="flex items-center gap-2"><span>23.</span><span class="correction-area"></span></div>
+                        <div class="mcq-grid">
+                            <label class="mcq-option"><input type="radio" name="q23" value="a"> a. productive</label>
+                            <label class="mcq-option"><input type="radio" name="q23" value="b"> b. insomnia</label>
+                            <label class="mcq-option"><input type="radio" name="q23" value="c"> c. sustainable</label>
+                            <label class="mcq-option"><input type="radio" name="q23" value="d"> d. hectic</label>
+                        </div>
+                    </div>
+                    <div class="q-item" data-q="24">
+                        <div class="flex items-center gap-2"><span>24.</span><span class="correction-area"></span></div>
+                        <div class="mcq-grid">
+                            <label class="mcq-option"><input type="radio" name="q24" value="a"> a. curriculum</label>
+                            <label class="mcq-option"><input type="radio" name="q24" value="b"> b. spontaneous</label>
+                            <label class="mcq-option"><input type="radio" name="q24" value="c"> c. punctuality</label>
+                            <label class="mcq-option"><input type="radio" name="q24" value="d"> d. environment</label>
+                        </div>
+                    </div>
+                    <div class="q-item" data-q="25">
+                        <div class="flex items-center gap-2"><span>25.</span><span class="correction-area"></span></div>
+                        <div class="mcq-grid">
+                            <label class="mcq-option"><input type="radio" name="q25" value="a"> a. enthusiast</label>
+                            <label class="mcq-option"><input type="radio" name="q25" value="b"> b. sustainable</label>
+                            <label class="mcq-option"><input type="radio" name="q25" value="c"> c. lucrative</label>
+                            <label class="mcq-option"><input type="radio" name="q25" value="d"> d. approach</label>
+                        </div>
+                    </div>
+                    <div class="q-item" data-q="26">
+                        <div class="flex items-center gap-2"><span>26.</span><span class="correction-area"></span></div>
+                        <div class="mcq-grid">
+                            <label class="mcq-option"><input type="radio" name="q26" value="a"> a. prospect</label>
+                            <label class="mcq-option"><input type="radio" name="q26" value="b"> b. pastime</label>
+                            <label class="mcq-option"><input type="radio" name="q26" value="c"> c. commute</label>
+                            <label class="mcq-option"><input type="radio" name="q26" value="d"> d. crunch</label>
+                        </div>
+                    </div>
+                    <div class="q-item" data-q="27">
+                        <div class="flex items-center gap-2"><span>27.</span><span class="correction-area"></span></div>
+                        <div class="mcq-grid">
+                            <label class="mcq-option"><input type="radio" name="q27" value="a"> a. tranquil</label>
+                            <label class="mcq-option"><input type="radio" name="q27" value="b"> b. groggy</label>
+                            <label class="mcq-option"><input type="radio" name="q27" value="c"> c. chewy</label>
+                            <label class="mcq-option"><input type="radio" name="q27" value="d"> d. prioritize</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section mt-8">
+                <div class="section-title flex gap-4">
+                    <span>IV.</span>
+                    <span>Choose the words/phrases which have the <span class="font-bold underline uppercase">SAME</span> meaning of the given ones.</span>
+                </div>
+
+                <div class="space-y-4 ml-8">
+                    <div class="q-item" data-q="28">
+                        <div class="flex items-center gap-2 font-bold italic"><span>28. tranquil</span><span class="correction-area"></span></div>
+                        <div class="mcq-grid">
+                            <label class="mcq-option"><input type="radio" name="q28" value="a"> a. chaotic</label>
+                            <label class="mcq-option"><input type="radio" name="q28" value="b"> b. serene</label>
+                            <label class="mcq-option"><input type="radio" name="q28" value="c"> c. noisy</label>
+                            <label class="mcq-option"><input type="radio" name="q28" value="d"> d. bustling</label>
+                        </div>
+                    </div>
+                    <div class="q-item" data-q="29">
+                        <div class="flex items-center gap-2 font-bold italic"><span>29. lucrative</span><span class="correction-area"></span></div>
+                        <div class="mcq-grid">
+                            <label class="mcq-option"><input type="radio" name="q29" value="a"> a. unprofitable</label>
+                            <label class="mcq-option"><input type="radio" name="q29" value="b"> b. tedious</label>
+                            <label class="mcq-option"><input type="radio" name="q29" value="c"> c. well-paid</label>
+                            <label class="mcq-option"><input type="radio" name="q29" value="d"> d. demanding</label>
+                        </div>
+                    </div>
+                    <div class="q-item" data-q="30">
+                        <div class="flex items-center gap-2 font-bold italic"><span>30. unforeseen</span><span class="correction-area"></span></div>
+                        <div class="mcq-grid">
+                            <label class="mcq-option"><input type="radio" name="q30" value="a"> a. predicted</label>
+                            <label class="mcq-option"><input type="radio" name="q30" value="b"> b. expected</label>
+                            <label class="mcq-option"><input type="radio" name="q30" value="c"> c. unexpected</label>
+                            <label class="mcq-option"><input type="radio" name="q30" value="d"> d. planned</label>
+                        </div>
+                    </div>
+                    <div class="q-item" data-q="31">
+                        <div class="flex items-center gap-2 font-bold italic"><span>31. bustling</span><span class="correction-area"></span></div>
+                        <div class="mcq-grid">
+                            <label class="mcq-option"><input type="radio" name="q31" value="a"> a. quiet</label>
+                            <label class="mcq-option"><input type="radio" name="q31" value="b"> b. lively</label>
+                            <label class="mcq-option"><input type="radio" name="q31" value="c"> c. empty</label>
+                            <label class="mcq-option"><input type="radio" name="q31" value="d"> d. deserted</label>
+                        </div>
+                    </div>
+                    <div class="q-item" data-q="32">
+                        <div class="flex items-center gap-2 font-bold italic"><span>32. amiable</span><span class="correction-area"></span></div>
+                        <div class="mcq-grid">
+                            <label class="mcq-option"><input type="radio" name="q32" value="a"> a. hostile</label>
+                            <label class="mcq-option"><input type="radio" name="q32" value="b"> b. approachable</label>
+                            <label class="mcq-option"><input type="radio" name="q32" value="c"> c. arrogant</label>
+                            <label class="mcq-option"><input type="radio" name="q32" value="d"> d. distant</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section mt-8">
+                <div class="section-title flex gap-4">
+                    <span>V.</span>
+                    <span>Choose the words/phrases which have the <span class="font-bold underline uppercase">OPPOSITE</span> meaning of the given ones.</span>
+                </div>
+
+                <div class="space-y-4 ml-8">
+                    <div class="q-item" data-q="33">
+                        <div class="flex items-center gap-2 font-bold italic"><span>33. constructive</span><span class="correction-area"></span></div>
+                        <div class="mcq-grid">
+                            <label class="mcq-option"><input type="radio" name="q33" value="a"> a. helpful</label>
+                            <label class="mcq-option"><input type="radio" name="q33" value="b"> b. positive</label>
+                            <label class="mcq-option"><input type="radio" name="q33" value="c"> c. destructive</label>
+                            <label class="mcq-option"><input type="radio" name="q33" value="d"> d. useful</label>
+                        </div>
+                    </div>
+                    <div class="q-item" data-q="34">
+                        <div class="flex items-center gap-2 font-bold italic"><span>34. flexible</span><span class="correction-area"></span></div>
+                        <div class="mcq-grid">
+                            <label class="mcq-option"><input type="radio" name="q34" value="a"> a. adaptable</label>
+                            <label class="mcq-option"><input type="radio" name="q34" value="b"> b. rigid</label>
+                            <label class="mcq-option"><input type="radio" name="q34" value="c"> c. elastic</label>
+                            <label class="mcq-option"><input type="radio" name="q34" value="d"> d. versatile</label>
+                        </div>
+                    </div>
+                    <div class="q-item" data-q="35">
+                        <div class="flex items-center gap-2 font-bold italic"><span>35. health-conscious</span><span class="correction-area"></span></div>
+                        <div class="mcq-grid">
+                            <label class="mcq-option"><input type="radio" name="q35" value="a"> a. careless</label>
+                            <label class="mcq-option"><input type="radio" name="q35" value="b"> b. mindful</label>
+                            <label class="mcq-option"><input type="radio" name="q35" value="c"> c. fit</label>
+                            <label class="mcq-option"><input type="radio" name="q35" value="d"> d. aware</label>
+                        </div>
+                    </div>
+                    <div class="q-item" data-q="36">
+                        <div class="flex items-center gap-2 font-bold italic"><span>36. cost-effective</span><span class="correction-area"></span></div>
+                        <div class="mcq-grid">
+                            <label class="mcq-option"><input type="radio" name="q36" value="a"> a. economical</label>
+                            <label class="mcq-option"><input type="radio" name="q36" value="b"> b. wasteful</label>
+                            <label class="mcq-option"><input type="radio" name="q36" value="c"> c. cheap</label>
+                            <label class="mcq-option"><input type="radio" name="q36" value="d"> d. reasonable</label>
+                        </div>
+                    </div>
+                    <div class="q-item" data-q="37">
+                        <div class="flex items-center gap-2 font-bold italic"><span>37. an early bird</span><span class="correction-area"></span></div>
+                        <div class="mcq-grid">
+                            <label class="mcq-option"><input type="radio" name="q37" value="a"> a. night owl</label>
+                            <label class="mcq-option"><input type="radio" name="q37" value="b"> b. morning person</label>
+                            <label class="mcq-option"><input type="radio" name="q37" value="c"> c. early riser</label>
+                            <label class="mcq-option"><input type="radio" name="q37" value="d"> d. commuter</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section mt-8">
+                <div class="section-title flex gap-4">
+                    <span>VI.</span>
+                    <span>Fill in each blank with the <span class="font-bold underline">suitable form</span> of the word in brackets.</span>
+                </div>
+                
+                <div class="space-y-4 ml-8">
+                    <div class="q-item" data-q="38">38. She worked hard to get accepted into a highly <input type="text" class="blank-input w-36" id="q38" autocomplete="off"> university. <span class="font-bold italic">(prestige)</span><span class="correction-area"></span></div>
+                    <div class="q-item" data-q="39">39. I find that I am much more <input type="text" class="blank-input w-32" id="q39" autocomplete="off"> in the early morning. <span class="font-bold italic">(produce)</span><span class="correction-area"></span></div>
+                    <div class="q-item" data-q="40">40. Sometimes I enjoy taking <input type="text" class="blank-input w-36" id="q40" autocomplete="off"> weekend trips. <span class="font-bold italic">(spontaneity)</span><span class="correction-area"></span></div>
+                    <div class="q-item" data-q="41">41. Electric buses are a much more <input type="text" class="blank-input w-36" id="q41" autocomplete="off"> form of urban transport. <span class="font-bold italic">(sustain)</span><span class="correction-area"></span></div>
+                    <div class="q-item" data-q="42">42. The subway system is famous for its incredible <input type="text" class="blank-input w-36" id="q42" autocomplete="off">. <span class="font-bold italic">(punctual)</span><span class="correction-area"></span></div>
+                    <div class="q-item" data-q="43">43. A supportive work <input type="text" class="blank-input w-36" id="q43" autocomplete="off"> can greatly reduce stress. <span class="font-bold italic">(environ)</span><span class="correction-area"></span></div>
+                    <div class="q-item" data-q="44">44. My hometown is a <input type="text" class="blank-input w-36" id="q44" autocomplete="off"> coastal village. <span class="font-bold italic">(picture)</span><span class="correction-area"></span></div>
+                    <div class="q-item" data-q="45">45. Heavy traffic <input type="text" class="blank-input w-36" id="q45" autocomplete="off"> is a daily nightmare in the city. <span class="font-bold italic">(congest)</span><span class="correction-area"></span></div>
+                    <div class="q-item" data-q="46">46. Learning a language requires a <input type="text" class="blank-input w-36" id="q46" autocomplete="off"> approach and practice. <span class="font-bold italic">(structure)</span><span class="correction-area"></span></div>
+                    <div class="q-item" data-q="47">47. Math has always been my <input type="text" class="blank-input w-32" id="q47" autocomplete="off"> favorite subject. <span class="font-bold italic">(perennially)</span><span class="correction-area"></span></div>
+                    <div class="q-item" data-q="48">48. A quiet library is highly <input type="text" class="blank-input w-32" id="q48" autocomplete="off"> to deep concentration. <span class="font-bold italic">(conduce)</span><span class="correction-area"></span></div>
+                    <div class="q-item" data-q="49">49. The <input type="text" class="blank-input w-32" id="q49" autocomplete="off"> downtown area is full of tourists and vendors. <span class="font-bold italic">(bustle)</span><span class="correction-area"></span></div>
+                    <div class="q-item" data-q="50">50. Doctors recommend avoiding screens to prevent being sleep-<input type="text" class="blank-input w-28" id="q50" autocomplete="off">. <span class="font-bold italic">(deprive)</span><span class="correction-area"></span></div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+    <div class="submit-bar">
+        <div class="text-sm text-slate-500 italic hidden md:block">Double-check your answers before submitting!</div>
+        <button type="button" onclick="window.print()" class="px-6 py-2 border-2 border-slate-300 rounded-lg text-slate-700 font-bold hover:bg-slate-100 transition-colors flex items-center gap-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+            Print Blank Test
+        </button>
+        <button type="button" onclick="gradeTest()" class="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold shadow-lg shadow-blue-500/30 transition-colors text-lg flex items-center gap-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            Submit for Grading
+        </button>
+    </div>
+
+    <script>
+        // Answer Key for all 50 Questions
+        const answerKey = {
+            // Section I (Word Bank)
+            q1: ["facilitate"], q2: ["procrastinating"], q3: ["allocate"], q4: ["prioritize"], q5: ["cultivating"],
+            q6: ["indulge"], q7: ["pursue"], q8: ["dabble"], q9: ["adjust"], q10: ["reduce"],
+            q11: ["embrace"], q12: ["fuel"],
+            
+            // Section II (Idioms/Phrasal Verbs)
+            q13: ["oil"], q14: ["under"], q15: ["books"], q16: ["colors"], q17: ["break"], 
+            q18: ["catch"], q19: ["top"], q20: ["behind"], q21: ["fine"], q22: ["impulse"],
+            
+            // Section III (Stress Pattern)
+            q23: "d", q24: "c", q25: "c", q26: "c", q27: "d",
+            
+            // Section IV (Synonyms)
+            q28: "b", q29: "c", q30: "c", q31: "b", q32: "b",
+            
+            // Section V (Antonyms)
+            q33: "c", q34: "b", q35: "a", q36: "b", q37: "a",
+            
+            // Section VI (Word Form)
+            q38: ["prestigious"], q39: ["productive"], q40: ["spontaneous"], q41: ["sustainable"], q42: ["punctuality"],
+            q43: ["environment"], q44: ["picturesque"], q45: ["congestion"], q46: ["structured"], q47: ["perennial"],
+            q48: ["conducive"], q49: ["bustling"], q50: ["deprived"]
+        };
+
+        // Explanations for Section III (Stress Patterns)
+        const explanations = {
+            q23: "'hectic' is stressed on the 1st syllable, the others on the 2nd.",
+            q24: "'punctuality' is stressed on the 3rd syllable, the others on the 2nd.",
+            q25: "'lucrative' is stressed on the 1st syllable, the others on the 2nd.",
+            q26: "'commute' is stressed on the 2nd syllable, the others on the 1st.",
+            q27: "'prioritize' is stressed on the 2nd syllable, the others on the 1st."
+        };
+
+        const tickSVG = `<svg class="mark-icon text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>`;
+        const crossSVG = `<svg class="mark-icon text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 18L18 6M6 6l12 12"></path></svg>`;
+
+        function gradeTest() {
+            let score = 0;
+            let totalQuestions = Object.keys(answerKey).length;
+
+            for (let id in answerKey) {
+                let isCorrect = false;
+                let userAnswer = "";
+                let expectedAnswer = "";
+                const container = document.querySelector(`.q-item[data-q="${id.replace('q', '')}"]`);
+                if(!container) continue; 
+                
+                const correctionArea = container.querySelector('.correction-area');
+                correctionArea.innerHTML = '';
+                
+                // Handle Text Inputs (Sections I, II, VI)
+                if (Array.isArray(answerKey[id])) {
+                    const inputEl = document.getElementById(id);
+                    inputEl.classList.remove('graded-correct', 'graded-incorrect');
+                    
+                    userAnswer = inputEl.value.trim().toLowerCase();
+                    expectedAnswer = answerKey[id][0]; 
+                    
+                    if (answerKey[id].includes(userAnswer)) {
+                        isCorrect = true;
+                        inputEl.classList.add('graded-correct');
+                        correctionArea.innerHTML = tickSVG;
+                    } else {
+                        inputEl.classList.add('graded-incorrect');
+                        correctionArea.innerHTML = crossSVG + ` <span class="correction-text">${expectedAnswer}</span>`;
+                    }
+                    inputEl.readOnly = true;
+                } 
+                // Handle Radio Buttons (Sections III, IV, V)
+                else {
+                    const radios = document.getElementsByName(id);
+                    expectedAnswer = answerKey[id];
+                    
+                    for (let radio of radios) {
+                        radio.disabled = true;
+                        if (radio.checked) userAnswer = radio.value;
+                    }
+
+                    let explanationHTML = "";
+                    if (explanations[id]) {
+                        explanationHTML = ` <span class="text-[0.95rem] text-slate-500 font-normal italic ml-2">(${explanations[id]})</span>`;
+                    }
+
+                    if (userAnswer === expectedAnswer) {
+                        isCorrect = true;
+                        correctionArea.innerHTML = tickSVG + explanationHTML;
+                    } else {
+                        correctionArea.innerHTML = crossSVG + ` <span class="correction-text">Correct answer: ${expectedAnswer.toUpperCase()}</span>` + explanationHTML;
+                    }
+                }
+
+                if (isCorrect) score++;
+            }
+
+            // Display Final Score
+            const gradeDisplay = document.getElementById('grade-display');
+            document.getElementById('final-score').textContent = score;
+            
+            // Calculate percentage for styling
+            const percentage = (score / totalQuestions) * 100;
+            if(percentage >= 80) {
+                gradeDisplay.className = "absolute top-12 right-12 w-32 h-32 border-[5px] border-green-600 rounded-full flex flex-col items-center justify-center text-green-600 transform rotate-12 bg-white/95 backdrop-blur-sm z-10 shadow-xl";
+                gradeDisplay.querySelector('.border-t-[3px]').className = "text-sm font-bold border-t-[3px] border-green-600 w-16 text-center mt-1 pt-1 font-sans";
+            } else if (percentage >= 60) {
+                gradeDisplay.className = "absolute top-12 right-12 w-32 h-32 border-[5px] border-blue-600 rounded-full flex flex-col items-center justify-center text-blue-600 transform -rotate-12 bg-white/95 backdrop-blur-sm z-10 shadow-xl";
+                gradeDisplay.querySelector('.border-t-[3px]').className = "text-sm font-bold border-t-[3px] border-blue-600 w-16 text-center mt-1 pt-1 font-sans";
+            } else {
+                gradeDisplay.className = "absolute top-12 right-12 w-32 h-32 border-[5px] border-red-600 rounded-full flex flex-col items-center justify-center text-red-600 transform rotate-12 bg-white/95 backdrop-blur-sm z-10 shadow-xl";
+                gradeDisplay.querySelector('.border-t-[3px]').className = "text-sm font-bold border-t-[3px] border-red-600 w-16 text-center mt-1 pt-1 font-sans";
+            }
+            
+            gradeDisplay.querySelector('.border-t-[3px]').innerHTML = `/${totalQuestions}`;
+            gradeDisplay.classList.remove('hidden');
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            const submitBar = document.querySelector('.submit-bar');
+            submitBar.innerHTML = `
+                <button type="button" onclick="location.reload()" class="px-8 py-3 bg-slate-800 hover:bg-slate-900 text-white rounded-lg font-bold shadow-lg transition-colors text-lg flex items-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                    Clear Answers & Retake
+                </button>
+            `;
+        }
+    </script>
+</body>
+</html>

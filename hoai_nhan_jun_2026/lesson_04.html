@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 04 | IELTS Chan Truong</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Plus Jakarta Sans & Cormorant Garamond -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                    },
+                    colors: {
+                        chic: {
+                            50: '#fffbfb',   // Luxurious warm ivory
+                            100: '#fef1f2',  // Ultra soft blush pink
+                            200: '#fde2e4',  // Rose water pastel
+                            300: '#f9bec7',  // Soft peony
+                            400: '#f497a9',  // Vintage rose
+                            500: '#e56b8f',  // Dusty rose-gold accent
+                            600: '#be5272',  // Deep raspberry accent
+                            700: '#9d3b56',  // Deep berry wood
+                            800: '#752a3d',  // Royal maroon
+                            900: '#4a1523',  // Dark black cherry
+                        },
+                        sand: {
+                            50: '#faf8f6',   // Champagne cream background
+                            100: '#f5f0eb',  // Warm sand accent
+                            200: '#e8ded4',  // Pale taupe
+                            300: '#d5c4b3',  // Muted oak
+                            900: '#1c1714',  // Rich charcoal-espresso
+                        }
+                    },
+                    boxShadow: {
+                        'chic': '0 10px 40px -15px rgba(229, 107, 143, 0.08)',
+                        'chic-hover': '0 20px 50px -10px rgba(229, 107, 143, 0.15)',
+                        'lux': '0 30px 60px -20px rgba(28, 23, 20, 0.03)'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #faf8f6;
+            color: #1c1714;
+        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #faf8f6; }
+        ::-webkit-scrollbar-thumb { background: #fde2e4; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #f497a9; }
+        
+        .transition-lux {
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+    </style>
+</head>
+<body class="antialiased font-sans">
+
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-50 bg-white/70 backdrop-blur-xl border-b border-chic-100 shadow-[0_2px_15px_-3px_rgba(229,107,143,0.03)]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Branding -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-chic-600 via-chic-400 to-chic-200 flex items-center justify-center text-white font-bold text-sm shadow-[0_4px_15px_rgba(229,107,143,0.25)]">
+                        <span class="font-serif italic text-base">CT</span>
+                    </div>
+                    <div>
+                        <div class="text-lg tracking-widest font-serif font-bold text-sand-900 uppercase">
+                            IELTS <span class="text-chic-500 font-normal italic lowercase text-xl ml-1 font-serif">Chan Truong</span>
+                        </div>
+                        <div class="text-[9px] tracking-widest uppercase font-semibold text-sand-300">Fluency Accelerator Framework</div>
+                    </div>
+                </div>
+
+                <!-- Right Side Actions -->
+                <div class="flex items-center space-x-4">
+                    <a href="ielts-roadmap.html" class="text-xs font-bold uppercase tracking-wider text-sand-900 hover:text-chic-500 transition-lux flex items-center gap-2">
+                        <i class="fa-solid fa-arrow-left"></i> Back to Roadmap
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        
+        <!-- Hero Section -->
+        <section class="mb-10">
+            <div class="bg-white rounded-3xl p-8 md:p-12 border border-chic-100 shadow-chic relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-chic-100/40 rounded-full blur-3xl -z-10"></div>
+                
+                <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
+                    <div>
+                        <span class="bg-chic-100 text-chic-700 text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full inline-block mb-4">
+                            Lesson 04 Plan
+                        </span>
+                        <h1 class="text-4xl md:text-5xl font-serif text-sand-900 leading-tight mb-3">
+                            Lexical Agility & <br><span class="italic font-normal text-chic-500">High-Speed Reformulation</span>
+                        </h1>
+                        <p class="text-sm text-sand-900/70 max-w-xl leading-relaxed">
+                            For native-Japanese/Vietnamese speaking software developers, hesitations occur because they pause to search for a highly precise term. Today's program focuses on bypassing terminology roadblocks with **circumlocution** (talking around words) and **instant reformulation** using Home, Accommodation, and Weather contexts.
+                        </p>
+                    </div>
+
+                    <!-- Lesson Stat Board -->
+                    <div class="bg-sand-50/70 border border-sand-100 rounded-2xl p-6 lg:w-80 w-full space-y-4 shadow-lux">
+                        <h3 class="text-xs uppercase font-bold text-chic-700 tracking-widest flex items-center gap-2">
+                            <i class="fa-solid fa-clock-rotate-left"></i> Session Details
+                        </h3>
+                        <div class="grid grid-cols-2 gap-4 text-xs">
+                            <div>
+                                <span class="block text-[10px] text-sand-300 uppercase tracking-wider font-bold">Total Duration</span>
+                                <span class="font-semibold text-sand-900">90 Minutes</span>
+                            </div>
+                            <div>
+                                <span class="block text-[10px] text-sand-300 uppercase tracking-wider font-bold">IELTS Focus</span>
+                                <span class="font-semibold text-chic-600 font-serif italic">Part 1 Reformulate</span>
+                            </div>
+                            <div>
+                                <span class="block text-[10px] text-sand-300 uppercase tracking-wider font-bold">Syllabus Areas</span>
+                                <span class="font-semibold text-sand-900">Home & Weather</span>
+                            </div>
+                            <div>
+                                <span class="block text-[10px] text-sand-300 uppercase tracking-wider font-bold">Method</span>
+                                <span class="font-semibold text-chic-600">Circumlocution Drill</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive 90-Minute Class Timer -->
+        <section class="mb-10">
+            <div class="bg-gradient-to-r from-chic-900 to-chic-800 text-white rounded-3xl p-6 md:p-8 shadow-chic flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden">
+                <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-chic-700/20 rounded-full blur-2xl"></div>
+                
+                <div class="space-y-1">
+                    <span class="text-chic-300 text-xs font-bold uppercase tracking-widest block">Live Class Tracker</span>
+                    <h3 class="text-lg md:text-xl font-serif">Pacing Control Dashboard</h3>
+                    <p class="text-xs text-white/60">Tutors and students can track active pacing with this session timer.</p>
+                </div>
+
+                <!-- Timer Counter -->
+                <div class="flex items-center space-x-6">
+                    <div class="text-center">
+                        <span id="timer-display" class="text-4xl md:text-5xl font-mono font-bold tracking-wider block text-chic-100">90:00</span>
+                        <span id="timer-status-msg" class="text-[9px] uppercase tracking-widest text-chic-300 block mt-1">Remaining Time</span>
+                    </div>
+                    
+                    <div class="flex flex-col gap-2">
+                        <button id="btn-timer-toggle" onclick="toggleTimer()" class="bg-chic-500 hover:bg-chic-400 text-white px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-lux flex items-center justify-center gap-1 shadow-md">
+                            <i class="fa-solid fa-play" id="timer-icon"></i> <span id="timer-btn-text">Start</span>
+                        </button>
+                        <button onclick="resetTimer()" class="border border-white/20 hover:bg-white/10 text-white px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-wider transition-lux">
+                            Reset
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vocab Test Terminal -->
+        <section class="mb-10">
+            <div class="bg-white rounded-3xl p-6 md:p-8 border border-chic-100 shadow-chic">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6 pb-4 border-b border-chic-100">
+                    <div class="space-y-1">
+                        <span class="text-chic-500 text-xs tracking-widest font-bold uppercase block">Session Initialization (00-15m)</span>
+                        <h3 class="text-xl font-serif text-sand-900">Vocabulary Diagnostic Checkpoint</h3>
+                        <p class="text-xs text-sand-900/60">Tutors will trigger a 15-minute diagnostic assessment using the vocabulary test engine on the main platform link below.</p>
+                    </div>
+                    <a href="https://ieltschantruong.github.io/hoai_nhan_jun_2026/vocab_test_01.html" target="_blank" class="bg-chic-500 hover:bg-chic-600 text-white text-xs font-bold uppercase tracking-wider px-6 py-3.5 rounded-full transition-lux flex items-center gap-2 shadow-md whitespace-nowrap">
+                        <i class="fa-solid fa-square-poll-vertical"></i> Launch Vocab Engine <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                    </a>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-sand-900/70 leading-relaxed bg-sand-50/50 p-4 rounded-2xl border border-sand-100">
+                    <div class="space-y-2 border-r border-sand-200/50 pr-4">
+                        <span class="text-chic-600 font-bold block uppercase tracking-wider text-[10px]"><i class="fa-solid fa-check"></i> Student Objective</span>
+                        <p>Access the portal and complete the designated high-frequency vocabulary verification loop to verify term activation and correct spelling parameters under short test bounds.</p>
+                    </div>
+                    <div class="space-y-2 pl-2">
+                        <span class="text-chic-600 font-bold block uppercase tracking-wider text-[10px]"><i class="fa-solid fa-user-tie"></i> Tutor Audit Checklist</span>
+                        <p>Identify whether the student hesitates over passive spelling configurations, and note down words that cause excessive mental delays for immediate integration in the speaking drills.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dynamic Lesson Flow Plan -->
+        <section class="mb-10">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
+                <!-- Left Column: Material Links & Guided Study (2 Key Topics) -->
+                <div class="lg:col-span-2 space-y-8">
+                    <div class="bg-white rounded-3xl p-6 md:p-8 border border-chic-100 shadow-chic">
+                        <div class="border-b border-chic-100 pb-4 mb-6">
+                            <span class="text-chic-500 text-xs tracking-widest font-bold uppercase block">Official Learning Curations</span>
+                            <h2 class="text-2xl font-serif text-sand-900 mt-1">Syllabus Materials & Links</h2>
+                            <p class="text-xs text-sand-900/60 mt-1">Practice building advanced synonymous sets inside these primary lifestyle modules.</p>
+                        </div>
+
+                        <div class="space-y-6">
+                            <!-- Material Link 1: Home & Accommodation -->
+                            <div class="p-6 rounded-2xl bg-sand-50/50 border border-sand-100 hover:border-chic-200 transition-lux flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                                <div class="space-y-1 max-w-md">
+                                    <span class="text-chic-600 text-[10px] uppercase font-bold tracking-wider">Part 1 Module H</span>
+                                    <h4 class="font-serif font-bold text-lg text-sand-900">Home & Accommodation</h4>
+                                    <p class="text-xs text-sand-900/60 leading-relaxed">
+                                        Advanced lexicons detailing living specifications, structural architectures, layout designs, interior decor patterns, urban high-rise living, and geographical districts.
+                                    </p>
+                                </div>
+                                <a href="https://ieltschantruong.github.io/IELTS/learning_resources/speaking/part1/home_accommodation.html" target="_blank" class="bg-white hover:bg-chic-50 border border-chic-200 text-chic-700 hover:text-chic-800 text-xs font-semibold px-4 py-2.5 rounded-full transition-lux flex items-center gap-2 whitespace-nowrap shadow-sm">
+                                    <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i> Open Material
+                                </a>
+                            </div>
+
+                            <!-- Material Link 2: Weather -->
+                            <div class="p-6 rounded-2xl bg-sand-50/50 border border-sand-100 hover:border-chic-200 transition-lux flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                                <div class="space-y-1 max-w-md">
+                                    <span class="text-chic-600 text-[10px] uppercase font-bold tracking-wider">Part 1 Module I</span>
+                                    <h4 class="font-serif font-bold text-lg text-sand-900">Weather & Meteorology</h4>
+                                    <p class="text-xs text-sand-900/60 leading-relaxed">
+                                        Collocations regarding atmospheric shifts, relative humidity percentages, torrential rain profiles, seasonal transitions, climatic adaptation, and regional weather preferences.
+                                    </p>
+                                </div>
+                                <a href="https://ieltschantruong.github.io/IELTS/learning_resources/speaking/part1/weather.html" target="_blank" class="bg-white hover:bg-chic-50 border border-chic-200 text-chic-700 hover:text-chic-800 text-xs font-semibold px-4 py-2.5 rounded-full transition-lux flex items-center gap-2 whitespace-nowrap shadow-sm">
+                                    <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i> Open Material
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- High-Speed Reformulation Drill Engine (Taboo Game) -->
+                    <div class="bg-white rounded-3xl p-6 md:p-8 border border-chic-100 shadow-chic">
+                        <div class="border-b border-chic-100 pb-4 mb-6">
+                            <span class="text-chic-500 text-xs tracking-widest font-bold uppercase block">Interactive Agility Sandbox</span>
+                            <h2 class="text-2xl font-serif text-sand-900 mt-1">High-Speed Reformulation Simulator</h2>
+                            <p class="text-xs text-sand-900/60 mt-2">
+                                Eliminating terms lookup errors. Tutors choose a category to fetch a prompt along with <strong>forbidden target words</strong>. The student must speak immediately, explaining the concept without using any forbidden terms!
+                            </p>
+                        </div>
+
+                        <!-- Prompt Interface -->
+                        <div class="bg-sand-50/50 border border-sand-100 rounded-2xl p-6 md:p-8 text-center space-y-6 relative overflow-hidden min-h-[290px] flex flex-col justify-center items-center">
+                            
+                            <!-- Category Indicator -->
+                            <span id="drill-topic" class="bg-chic-100 text-chic-700 text-[9px] uppercase tracking-widest font-bold px-2.5 py-1 rounded-full">
+                                Topic: Click a category below to start
+                            </span>
+                            
+                            <!-- Prompt Text -->
+                            <p id="drill-prompt-text" class="text-lg md:text-xl font-serif text-sand-900 font-medium px-4">
+                                "Circumlocution bypasses lexical pauses by utilizing alternative phrasing patterns."
+                            </p>
+
+                            <!-- Forbidden Words Card (Taboo) -->
+                            <div class="bg-white border border-red-100 rounded-xl p-3 w-full max-w-lg shadow-sm">
+                                <span class="text-[9px] uppercase font-bold text-red-500 block mb-1.5"><i class="fa-solid fa-ban"></i> Forbidden Words (Do not use these!):</span>
+                                <div class="flex justify-center flex-wrap gap-2" id="forbidden-words-container">
+                                    <span class="text-xs bg-red-50 text-red-700 font-mono px-2 py-0.5 rounded border border-red-100">Click a category</span>
+                                    <span class="text-xs bg-red-50 text-red-700 font-mono px-2 py-0.5 rounded border border-red-100">to load</span>
+                                    <span class="text-xs bg-red-50 text-red-700 font-mono px-2 py-0.5 rounded border border-red-100">forbidden terms</span>
+                                </div>
+                            </div>
+
+                            <!-- Live Reflex Countdown -->
+                            <div class="flex items-center gap-2">
+                                <span class="text-[10px] uppercase font-bold text-sand-300">Tempo Buffer:</span>
+                                <div class="w-24 bg-chic-100 h-2.5 rounded-full overflow-hidden flex">
+                                    <div id="reflex-bar" class="bg-green-400 h-full w-full transition-all duration-[1500ms] ease-linear"></div>
+                                </div>
+                                <span id="reflex-status" class="text-[10px] font-bold text-green-500 uppercase">Ready</span>
+                            </div>
+                        </div>
+
+                        <!-- Interactive Action Buttons -->
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 mt-6">
+                            <button onclick="generateTabooPrompt('home')" class="bg-chic-50 hover:bg-chic-100 border border-chic-200 text-chic-700 text-xs font-bold uppercase tracking-wider py-3 rounded-full transition-lux text-center shadow-sm">
+                                <i class="fa-solid fa-house"></i> Home/Apartment
+                            </button>
+                            <button onclick="generateTabooPrompt('weather')" class="bg-chic-50 hover:bg-chic-100 border border-chic-200 text-chic-700 text-xs font-bold uppercase tracking-wider py-3 rounded-full transition-lux text-center shadow-sm">
+                                <i class="fa-solid fa-cloud-sun-rain"></i> Weather/Seasons
+                            </button>
+                            <button onclick="generateTabooPrompt('random')" class="bg-chic-500 hover:bg-chic-600 text-white text-xs font-bold uppercase tracking-wider py-3 rounded-full transition-lux text-center shadow-sm">
+                                <i class="fa-solid fa-shuffle"></i> Random Mix
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Right Column: Interactive Lesson Agenda -->
+                <div class="lg:col-span-1 space-y-6">
+                    <div class="bg-white rounded-3xl p-6 border border-chic-100 shadow-chic">
+                        <h3 class="font-serif font-bold text-xl text-sand-900 mb-4 pb-2 border-b border-chic-100 flex items-center gap-2">
+                            <i class="fa-solid fa-list-check text-chic-500"></i> Lesson Itinerary
+                        </h3>
+
+                        <!-- Step 1 -->
+                        <div class="space-y-3 mb-6 relative pl-6 border-l border-chic-200">
+                            <span class="absolute left-[-5px] top-0.5 w-2.5 h-2.5 rounded-full bg-chic-400"></span>
+                            <div class="flex justify-between items-center text-xs">
+                                <span class="font-bold text-sand-900">1. Vocab Checkpoint</span>
+                                <span class="text-chic-600 font-mono font-semibold">15m</span>
+                            </div>
+                            <p class="text-[11px] text-sand-900/60 leading-relaxed">
+                                Complete spelling diagnostic verifications in-portal at <code class="text-[10px] text-chic-600 font-mono bg-chic-50 px-1 rounded">https://ieltschantruong.github.io/hoai_nhan_jun_2026/vocab_test_01.html</code>.
+                            </p>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div class="space-y-3 mb-6 relative pl-6 border-l border-chic-200">
+                            <span class="absolute left-[-5px] top-0.5 w-2.5 h-2.5 rounded-full bg-chic-400"></span>
+                            <div class="flex justify-between items-center text-xs">
+                                <span class="font-bold text-sand-900">2. Circumlocution Theory</span>
+                                <span class="font-bold text-sand-900">25m</span>
+                            </div>
+                            <p class="text-[11px] text-sand-900/60 leading-relaxed">
+                                Train on active synonym maps and functional definitions techniques. Focus strictly on speaking continuously instead of stopping when stuck on a word.
+                            </p>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="space-y-3 mb-6 relative pl-6 border-l border-chic-200">
+                            <span class="absolute left-[-5px] top-0.5 w-2.5 h-2.5 rounded-full bg-chic-400"></span>
+                            <div class="flex justify-between items-center text-xs">
+                                <span class="font-bold text-sand-900">3. High-Speed Taboo Drills</span>
+                                <span class="text-chic-600 font-mono font-semibold">40m</span>
+                            </div>
+                            <p class="text-[11px] text-sand-900/60 leading-relaxed">
+                                Deploy active taboo prompt cards over Home & Weather modules. Prevent student from saying forbidden words, forcing instant synonym reformulation on the fly.
+                            </p>
+                        </div>
+
+                        <!-- Step 4 -->
+                        <div class="space-y-3 relative pl-6">
+                            <span class="absolute left-[-5px] top-0.5 w-2.5 h-2.5 rounded-full bg-chic-500"></span>
+                            <div class="flex justify-between items-center text-xs">
+                                <span class="font-bold text-sand-900">4. Homework Prep Review</span>
+                                <span class="text-chic-600 font-mono font-semibold">10m</span>
+                            </div>
+                            <p class="text-[11px] text-sand-900/60 leading-relaxed">
+                                Set up preparation guidelines for the next phase, verifying student access to Weekends, Holidays, and Memory speaking pages.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Homework Portal & Preparation Requirements -->
+        <section class="mb-10">
+            <div class="bg-white rounded-3xl p-8 border border-chic-100 shadow-chic">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6 pb-4 border-b border-chic-100">
+                    <div>
+                        <span class="text-chic-500 text-xs tracking-widest font-bold uppercase block">Preparation Focus Area</span>
+                        <h2 class="text-2xl font-serif text-sand-900 mt-1">Lesson 04 Homework & Future Syllabus Prep</h2>
+                    </div>
+                    <span class="bg-red-50 text-red-500 border border-red-100 text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1.5">
+                        <i class="fa-solid fa-triangle-exclamation"></i> Action Required
+                    </span>
+                </div>
+
+                <!-- Process Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    
+                    <!-- Step 1 Card -->
+                    <div class="bg-sand-50/50 p-5 rounded-2xl border border-sand-100 flex flex-col justify-between hover:border-chic-200 transition-lux">
+                        <div>
+                            <span class="text-chic-300 font-serif italic text-3xl font-bold">01</span>
+                            <h4 class="font-semibold text-sm text-sand-900 mt-3 mb-1">Topic Prep: Weekends</h4>
+                            <p class="text-[11px] text-sand-900/60 leading-relaxed">
+                                Access and read through target collocations and sample response paths focusing on weekend decompression structures.
+                            </p>
+                        </div>
+                        <a href="https://ieltschantruong.github.io/IELTS/learning_resources/speaking/part1/weekends.html" target="_blank" class="mt-4 text-[10px] font-bold text-chic-600 uppercase hover:text-chic-800 transition-lux flex items-center gap-1 self-start">
+                            Open weekends Link <i class="fa-solid fa-arrow-right text-[8px]"></i>
+                        </a>
+                    </div>
+
+                    <!-- Step 2 Card -->
+                    <div class="bg-sand-50/50 p-5 rounded-2xl border border-sand-100 flex flex-col justify-between hover:border-chic-200 transition-lux">
+                        <div>
+                            <span class="text-chic-300 font-serif italic text-3xl font-bold">02</span>
+                            <h4 class="font-semibold text-sm text-sand-900 mt-3 mb-1">Topic Prep: Holidays</h4>
+                            <p class="text-[11px] text-sand-900/60 leading-relaxed">
+                                Study advanced vocabulary terms targeting national celebrations, vacation escapes, and structural rest activities in Tokyo.
+                            </p>
+                        </div>
+                        <a href="https://ieltschantruong.github.io/IELTS/learning_resources/speaking/part1/holidays.html" target="_blank" class="mt-4 text-[10px] font-bold text-chic-600 uppercase hover:text-chic-800 transition-lux flex items-center gap-1 self-start">
+                            Open holidays Link <i class="fa-solid fa-arrow-right text-[8px]"></i>
+                        </a>
+                    </div>
+
+                    <!-- Step 3 Card -->
+                    <div class="bg-sand-50/50 p-5 rounded-2xl border border-sand-100 flex flex-col justify-between hover:border-chic-200 transition-lux">
+                        <div>
+                            <span class="text-chic-300 font-serif italic text-3xl font-bold">03</span>
+                            <h4 class="font-semibold text-sm text-sand-900 mt-3 mb-1">Topic Prep: Memory</h4>
+                            <p class="text-[11px] text-sand-900/60 leading-relaxed">
+                                Study narrative templates detailing core nostalgic memories, childhood milestones, and cognitive retrieval terms.
+                            </p>
+                        </div>
+                        <a href="https://ieltschantruong.github.io/IELTS/learning_resources/speaking/part1/memory.html" target="_blank" class="mt-4 text-[10px] font-bold text-chic-600 uppercase hover:text-chic-800 transition-lux flex items-center gap-1 self-start">
+                            Open memory Link <i class="fa-solid fa-arrow-right text-[8px]"></i>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Sticky Notes Workspace -->
+        <section class="mb-10 bg-white p-8 rounded-3xl border border-chic-100 shadow-chic relative">
+            <div class="absolute -top-3 right-8 bg-chic-500 text-white text-[10px] uppercase font-bold tracking-widest px-3 py-1 rounded-full shadow-md">
+                <i class="fa-solid fa-pen-fancy"></i> Active Notepad
+            </div>
+            <h3 class="font-serif font-bold text-xl text-sand-900 mb-2">Lesson 04 Circumlocution Notes</h3>
+            <p class="text-xs text-sand-900/60 mb-4">Draft your customized synonym bridges, phrasing replacements, or vocabulary terms during preparation. Values sync automatically into your browser storage.</p>
+            <textarea id="lesson-notes-04" class="w-full h-36 p-4 bg-sand-50 border border-chic-100 rounded-xl text-xs focus:ring-1 focus:ring-chic-500 focus:outline-none text-sand-900 font-sans" placeholder="Example: 'Instead of losing flow over 'humid', say: 'the air holds an immense amount of moisture...' or 'highly saturated atmosphere...'"></textarea>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-sand-900 text-sand-50/40 py-12 border-t border-sand-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+            <div class="text-sm uppercase tracking-widest font-serif font-bold text-sand-50">IELTS <span class="text-chic-400 italic lowercase font-normal text-base font-serif">Chan Truong</span></div>
+            <p class="text-xs max-w-md mx-auto">High-performance English training systematically engineered for global software engineers based in Tokyo.</p>
+            <div class="text-[10px] text-sand-500 pt-4">&copy; 2026 IELTS Chan Truong. Engineered for Academic Success.</div>
+        </div>
+    </footer>
+
+    <!-- JS Logic -->
+    <script>
+        // 1. Pacing Timer Control
+        let timerSeconds = 90 * 60; // 90 Minutes
+        let timerInterval = null;
+        const timerDisplay = document.getElementById('timer-display');
+        const timerBtnText = document.getElementById('timer-btn-text');
+        const timerIcon = document.getElementById('timer-icon');
+        const timerStatusMsg = document.getElementById('timer-status-msg');
+
+        function updateTimerUI() {
+            let m = Math.floor(timerSeconds / 60);
+            let s = timerSeconds % 60;
+            timerDisplay.textContent = `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+        }
+
+        function toggleTimer() {
+            if (timerInterval) {
+                // Pause timer
+                clearInterval(timerInterval);
+                timerInterval = null;
+                timerBtnText.textContent = "Resume";
+                timerIcon.className = "fa-solid fa-play";
+            } else {
+                // Start timer
+                timerInterval = setInterval(() => {
+                    if (timerSeconds > 0) {
+                        timerSeconds--;
+                        updateTimerUI();
+                    } else {
+                        clearInterval(timerInterval);
+                        timerInterval = null;
+                        // Avoid alerts - use visual red countdown state
+                        timerDisplay.className = "text-4xl md:text-5xl font-mono font-bold tracking-wider block text-red-500 animate-pulse";
+                        timerStatusMsg.textContent = "TIMELINE CONCLUDED!";
+                        timerStatusMsg.className = "text-[9px] uppercase tracking-widest text-red-500 block mt-1 font-bold animate-pulse";
+                    }
+                }, 1000);
+                timerBtnText.textContent = "Pause";
+                timerIcon.className = "fa-solid fa-pause";
+            }
+        }
+
+        function resetTimer() {
+            clearInterval(timerInterval);
+            timerInterval = null;
+            timerSeconds = 90 * 60;
+            updateTimerUI();
+            timerDisplay.className = "text-4xl md:text-5xl font-mono font-bold tracking-wider block text-chic-100";
+            timerStatusMsg.textContent = "Remaining Time";
+            timerStatusMsg.className = "text-[9px] uppercase tracking-widest text-chic-300 block mt-1";
+            timerBtnText.textContent = "Start";
+            timerIcon.className = "fa-solid fa-play";
+        }
+
+        // 2. Notepad Sync with LocalStorage
+        const notesArea = document.getElementById('lesson-notes-04');
+        if (localStorage.getItem('ielts_lesson04_notes')) {
+            notesArea.value = localStorage.getItem('ielts_lesson04_notes');
+        }
+        notesArea.addEventListener('input', () => {
+            localStorage.setItem('ielts_lesson04_notes', notesArea.value);
+        });
+
+        // 3. Taboo / Circumlocution Drills Databank
+        const tabooPrompts = {
+            home: [
+                {
+                    question: "Describe the house or apartment you reside in at the moment.",
+                    forbidden: ["Apartment", "Spacious", "Quiet", "Tokyo"]
+                },
+                {
+                    question: "Which room inside your current residence is your favorite?",
+                    forbidden: ["Bedroom", "Comfortable", "Sleep", "Desk"]
+                },
+                {
+                    question: "What would your absolute dream residential setup look like?",
+                    forbidden: ["House", "Big", "Pool", "Luxury"]
+                },
+                {
+                    question: "Is there anything about your home environment you want to renovate?",
+                    forbidden: ["Kitchen", "Change", "Small", "Modern"]
+                }
+            ],
+            weather: [
+                {
+                    question: "What is your favorite atmospheric season or climate setup?",
+                    forbidden: ["Summer", "Hot", "Sunny", "Beach"]
+                },
+                {
+                    question: "Does the weather conditions drastically affect your mood or productivity?",
+                    forbidden: ["Rain", "Sad", "Depressed", "Productive"]
+                },
+                {
+                    question: "What do you normally do when it is incredibly humid outside?",
+                    forbidden: ["Ac", "Indoor", "Sweat", "Water"]
+                },
+                {
+                    question: "Describe a memorable meteorological event you experienced in Japan.",
+                    forbidden: ["Typhoon", "Wind", "Storm", "Scared"]
+                }
+            ]
+        };
+
+        function generateTabooPrompt(category) {
+            let selectedList = [];
+            let catName = "";
+
+            if (category === 'home') {
+                selectedList = tabooPrompts.home;
+                catName = "Syllabus Focus: Home & Accommodation";
+            } else if (category === 'weather') {
+                selectedList = tabooPrompts.weather;
+                catName = "Syllabus Focus: Weather & Meteorology";
+            } else {
+                const keys = Object.keys(tabooPrompts);
+                const randomKey = keys[Math.floor(Math.random() * keys.length)];
+                selectedList = tabooPrompts[randomKey];
+                catName = `Randomized Focus [${randomKey.toUpperCase()}]`;
+            }
+
+            const randomIdx = Math.floor(Math.random() * selectedList.length);
+            const chosen = selectedList[randomIdx];
+
+            // Update UI elements
+            document.getElementById('drill-topic').textContent = catName;
+            document.getElementById('drill-prompt-text').textContent = `"${chosen.question}"`;
+
+            // Build forbidden words container children
+            const fContainer = document.getElementById('forbidden-words-container');
+            fContainer.innerHTML = '';
+            chosen.forbidden.forEach(word => {
+                const badge = document.createElement('span');
+                badge.className = 'text-xs bg-red-50 text-red-700 font-mono font-bold px-3 py-1 rounded-full border border-red-200/60 shadow-sm uppercase tracking-wide flex items-center gap-1';
+                badge.innerHTML = `<i class="fa-solid fa-circle-minus text-[10px] text-red-400"></i> ${word}`;
+                fContainer.appendChild(badge);
+            });
+
+            // Reset Reflex Buffer animation
+            const bar = document.getElementById('reflex-bar');
+            const status = document.getElementById('reflex-status');
+
+            bar.style.transition = 'none';
+            bar.style.width = '100%';
+            bar.className = 'bg-green-400 h-full';
+            status.textContent = 'Speak Now!';
+            status.className = 'text-[10px] font-bold text-green-500 uppercase';
+
+            // Trigger latency countdown animation
+            setTimeout(() => {
+                bar.style.transition = 'width 1500ms linear';
+                bar.style.width = '0%';
+                
+                // Color transition to warning state
+                setTimeout(() => {
+                    bar.className = 'bg-red-500 h-full';
+                    status.textContent = 'Avoid Taboo Words!';
+                    status.className = 'text-[10px] font-bold text-red-500 uppercase animate-pulse';
+                }, 1000);
+            }, 50);
+        }
+    </script>
+</body>
+</html>
