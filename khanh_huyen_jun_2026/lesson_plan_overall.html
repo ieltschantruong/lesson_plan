@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Chan Truong - Personalized IELTS Course Plan</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Plus Jakarta Sans for UI, Playfair Display for Serifs -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    },
+                    colors: {
+                        pastel: {
+                            rose: '#F9ECEE',      /* Soft Blush */
+                            roseDark: '#E4A8B2',  /* Muted Blush Darker Accent */
+                            sage: '#E3ECE8',      /* Eucalyptus/Sage */
+                            sageDark: '#7CA393',  /* Rich Sage Text/Border */
+                            cream: '#FCF9F5',     /* Cream Canvas */
+                            slate: '#2E3238',     /* Soft Charcoal */
+                            gold: '#D4AF37',      /* Elegant Muted Gold */
+                            goldDark: '#8F7726',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCF9F5;
+            color: #2E3238;
+        }
+        /* Custom Breathing Pacer Animation */
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); background-color: rgba(228, 168, 178, 0.2); }
+            45% { transform: scale(1.6); background-color: rgba(124, 163, 147, 0.3); }
+            55% { transform: scale(1.6); background-color: rgba(124, 163, 147, 0.3); }
+        }
+        .breathing-circle {
+            animation: breathe 8s infinite ease-in-out;
+        }
+        /* Glassmorphism utility */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        .glass-card-sage {
+            background: rgba(227, 236, 232, 0.5);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(124, 163, 147, 0.2);
+        }
+    </style>
+</head>
+<body class="font-sans antialiased">
+
+    <!-- TOP NAVIGATION BAR -->
+    <nav class="sticky top-0 z-50 glass-card border-b border-pastel-rose/40 px-6 py-4 shadow-sm">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-full bg-pastel-rose flex items-center justify-center border border-pastel-roseDark/30">
+                    <span class="font-serif font-bold text-pastel-slate text-lg">CT</span>
+                </div>
+                <div>
+                    <h1 class="font-serif font-bold text-lg leading-tight text-pastel-slate">IELTS Chan Truong</h1>
+                    <p class="text-xs tracking-widest text-pastel-sageDark uppercase font-semibold">Authentic • Devoted • Transformative</p>
+                </div>
+            </div>
+            
+            <div class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                <a href="#profile" class="text-pastel-slate hover:text-pastel-roseDark transition">Student Profile</a>
+                <a href="#timeline" class="text-pastel-slate hover:text-pastel-roseDark transition">9-Lesson Plan</a>
+                <a href="#voice-gym" class="text-pastel-slate hover:text-pastel-roseDark transition flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                    Interactive Voice Gym
+                </a>
+                <a href="#rubric" class="text-pastel-slate hover:text-pastel-roseDark transition">IELTS 6.5+ Rubric</a>
+            </div>
+
+            <div class="flex items-center space-x-3">
+                <span class="text-xs bg-pastel-sage text-pastel-sageDark font-semibold px-3 py-1.5 rounded-full border border-pastel-sageDark/20">
+                    Target: 6.5+ Band
+                </span>
+                <button onclick="window.print()" class="p-2 hover:bg-pastel-rose rounded-full transition" title="Print Course Guide">
+                    <i data-lucide="printer" class="w-5 h-5 text-pastel-slate"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO HEADER SECTION -->
+    <header class="relative overflow-hidden py-16 md:py-24 bg-gradient-to-br from-pastel-rose/60 via-pastel-cream to-pastel-sage/30 border-b border-pastel-rose/30">
+        <!-- Floating decorative pastel blobs -->
+        <div class="absolute -top-12 -left-12 w-64 h-64 bg-pastel-rose/40 rounded-full filter blur-3xl"></div>
+        <div class="absolute top-24 -right-12 w-80 h-80 bg-pastel-sage/40 rounded-full filter blur-3xl"></div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center space-x-2 bg-white/80 px-4 py-2 rounded-full border border-pastel-roseDark/20 shadow-sm">
+                        <i data-lucide="sparkles" class="w-4 h-4 text-pastel-roseDark"></i>
+                        <span class="text-xs font-semibold text-pastel-slate tracking-wider uppercase">Personalized 1-on-1 IELTS Coaching</span>
+                    </div>
+                    <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl text-pastel-slate leading-tight">
+                        Conquer IELTS <br><span class="italic text-pastel-roseDark">with Grace, Voice &amp; True Confidence</span>
+                    </h1>
+                    <p class="text-base md:text-lg text-pastel-slate/80 leading-relaxed max-w-2xl">
+                        Welcome to your bespoke 9-lesson pathway. This course is specially curated for a brilliant, thoughtful 12th-grade student who possesses deep insights but prefers to stay quiet. At <span class="font-semibold text-pastel-slate border-b-2 border-pastel-roseDark">IELTS Chan Truong</span>, we will turn your quiet elegance into your greatest strength, helping you projection-tune your voice to hit a solid 6.5+ band.
+                    </p>
+                    
+                    <!-- Rapid stats grid -->
+                    <div class="grid grid-cols-3 gap-4 pt-4">
+                        <div class="bg-white/85 p-4 rounded-2xl border border-pastel-rose/40 shadow-sm">
+                            <span class="block text-2xl font-serif font-semibold text-pastel-roseDark">09</span>
+                            <span class="text-xs text-pastel-slate/70">Lessons (90 Mins)</span>
+                        </div>
+                        <div class="bg-white/85 p-4 rounded-2xl border border-pastel-rose/40 shadow-sm">
+                            <span class="block text-2xl font-serif font-semibold text-pastel-sageDark">1-on-1</span>
+                            <span class="text-xs text-pastel-slate/70">Tutor Session</span>
+                        </div>
+                        <div class="bg-white/85 p-4 rounded-2xl border border-pastel-rose/40 shadow-sm">
+                            <span class="block text-2xl font-serif font-semibold text-pastel-slate">6.5+</span>
+                            <span class="text-xs text-pastel-slate/70">Target Score</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5">
+                    <div class="bg-white/90 p-8 rounded-3xl border border-pastel-roseDark/20 shadow-xl space-y-6 relative">
+                        <div class="absolute -top-3 -right-3 bg-pastel-gold text-white text-xs px-3 py-1 rounded-full font-semibold shadow-md transform rotate-6">
+                            Tailored Profile
+                        </div>
+                        <h3 class="font-serif text-xl text-pastel-slate font-bold border-b pb-3 border-pastel-rose/60">
+                            Student Portfolio
+                        </h3>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-start space-x-3">
+                                <div class="p-2 bg-pastel-rose rounded-xl">
+                                    <i data-lucide="user" class="w-5 h-5 text-pastel-roseDark"></i>
+                                </div>
+                                <div>
+                                    <span class="text-xs text-pastel-slate/60 block uppercase font-bold">Student Profile</span>
+                                    <span class="text-sm font-semibold text-pastel-slate">12th Grade Student - University Entrance Track</span>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start space-x-3">
+                                <div class="p-2 bg-pastel-sage rounded-xl">
+                                    <i data-lucide="heart" class="w-5 h-5 text-pastel-sageDark"></i>
+                                </div>
+                                <div>
+                                    <span class="text-xs text-pastel-slate/60 block uppercase font-bold">Psychological Portrait</span>
+                                    <span class="text-sm font-semibold text-pastel-slate">Intellectual but reserved, soft/gentle voice, public speaking anxiety.</span>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start space-x-3">
+                                <div class="p-2 bg-pastel-rose rounded-xl">
+                                    <i data-lucide="mic" class="w-5 h-5 text-pastel-roseDark"></i>
+                                </div>
+                                <div>
+                                    <span class="text-xs text-pastel-slate/60 block uppercase font-bold">Core Objectives</span>
+                                    <span class="text-sm font-semibold text-pastel-slate">Focus heavily on voice projection, continuous fluency, and emotional comfort.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Progress Circle inside portfolio -->
+                        <div class="pt-4 border-t border-pastel-rose/60 flex items-center justify-between">
+                            <div class="text-xs text-pastel-slate/70">
+                                <p class="font-bold">Course Progress:</p>
+                                <p id="progress-text">Not started (0/9 completed)</p>
+                            </div>
+                            <div class="relative w-16 h-16">
+                                <svg class="w-full h-full transform -rotate-90" viewBox="0 0 36 36">
+                                    <path class="text-pastel-rose" stroke-width="3" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                    <path id="progress-circle" class="text-pastel-sageDark transition-all duration-500 ease-out" stroke-dasharray="0, 100" stroke-width="3" stroke-linecap="round" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                </svg>
+                                <div class="absolute inset-0 flex items-center justify-center text-xs font-bold text-pastel-slate" id="progress-percentage">
+                                    0%
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- INTERACTIVE PEDAGOGICAL APPROACH -->
+    <section id="profile" class="py-16 max-w-7xl mx-auto px-6">
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+            <h2 class="font-serif text-3xl md:text-4xl text-pastel-slate">Bespoke Pedagogical Strategy</h2>
+            <p class="text-pastel-slate/80">A 9-lesson trajectory designed not just for learning rules, but as an elegant journey of vocal self-discovery, helping you project your ideas clearly while remaining true to your quiet power.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Pillar 1 -->
+            <div class="bg-white p-8 rounded-3xl border border-pastel-roseDark/10 hover:border-pastel-roseDark/30 transition-all duration-300 shadow-sm space-y-4">
+                <div class="w-12 h-12 rounded-2xl bg-pastel-rose flex items-center justify-center text-pastel-roseDark">
+                    <i data-lucide="volume-2" class="w-6 h-6"></i>
+                </div>
+                <h3 class="font-serif text-xl font-bold text-pastel-slate">1. Diaphragmatic Breath & Projection</h3>
+                <p class="text-sm text-pastel-slate/70 leading-relaxed">
+                    Learn to anchor your vocal energy in your breath rather than your throat. Having a soft voice is elegant; we will simply teach you how to direct your vocal stream so that you sound crisp, warm, and audible without straining.
+                </p>
+                <div class="pt-2">
+                    <span class="text-xs font-semibold text-pastel-roseDark bg-pastel-rose px-3 py-1 rounded-full">Breath Control Techniques</span>
+                </div>
+            </div>
+
+            <!-- Pillar 2 -->
+            <div class="bg-white p-8 rounded-3xl border border-pastel-sageDark/10 hover:border-pastel-sageDark/30 transition-all duration-300 shadow-sm space-y-4">
+                <div class="w-12 h-12 rounded-2xl bg-pastel-sage flex items-center justify-center text-pastel-sageDark">
+                    <i data-lucide="smile" class="w-6 h-6"></i>
+                </div>
+                <h3 class="font-serif text-xl font-bold text-pastel-slate">2. Safe-Zone Progression</h3>
+                <p class="text-sm text-pastel-slate/70 leading-relaxed">
+                    One-on-one means absolute safety. We will bypass heavy, intimidating academic concepts initially. The first three sessions center entirely on familiar, comfortable ideas (hobbies, cozy places, future hopes) to foster ease before advancing.
+                </p>
+                <div class="pt-2">
+                    <span class="text-xs font-semibold text-pastel-sageDark bg-pastel-sage px-3 py-1 rounded-full">Behavioral Psychology Model</span>
+                </div>
+            </div>
+
+            <!-- Pillar 3 -->
+            <div class="bg-white p-8 rounded-3xl border border-pastel-roseDark/10 hover:border-pastel-roseDark/30 transition-all duration-300 shadow-sm space-y-4">
+                <div class="w-12 h-12 rounded-2xl bg-pastel-rose flex items-center justify-center text-pastel-gold">
+                    <i data-lucide="git-merge" class="w-6 h-6"></i>
+                </div>
+                <h3 class="font-serif text-xl font-bold text-pastel-slate">3. Balanced Skill Synergy</h3>
+                <p class="text-sm text-pastel-slate/70 leading-relaxed">
+                    We naturally weave Reading, Writing, and Listening as foundations for your Speaking. Use outstanding texts to discover content ideas, sketch structural bullet points to guide logic, and imitate native cadence (shadowing).
+                </p>
+                <div class="pt-2">
+                    <span class="text-xs font-semibold text-pastel-goldDark bg-amber-50 px-3 py-1 rounded-full">4-Skill Natural Integration</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LIVE CURRICULUM INTERACTIVE VIEW -->
+    <section id="timeline" class="py-16 bg-gradient-to-b from-pastel-cream via-white to-pastel-cream border-t border-b border-pastel-rose/20">
+        <div class="max-w-7xl mx-auto px-6">
+            
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+                <div>
+                    <h2 class="font-serif text-3xl md:text-4xl text-pastel-slate">Detailed 9-Lesson Itinerary</h2>
+                    <p class="text-pastel-slate/70 mt-2">Carefully phased to transition you gracefully from gentle confidence into independent exam fluency.</p>
+                </div>
+                <!-- Filter Tabs -->
+                <div class="flex flex-wrap gap-2">
+                    <button onclick="filterPhase('all')" id="tab-all" class="phase-tab px-4 py-2 text-xs font-semibold rounded-full bg-pastel-slate text-white transition">All Lessons</button>
+                    <button onclick="filterPhase('1')" id="tab-1" class="phase-tab px-4 py-2 text-xs font-semibold rounded-full bg-white text-pastel-slate hover:bg-pastel-rose transition border border-pastel-rose/30">Phase 1: Planting Confidence</button>
+                    <button onclick="filterPhase('2')" id="tab-2" class="phase-tab px-4 py-2 text-xs font-semibold rounded-full bg-white text-pastel-slate hover:bg-pastel-rose transition border border-pastel-rose/30">Phase 2: Rising to Challenges</button>
+                    <button onclick="filterPhase('3')" id="tab-3" class="phase-tab px-4 py-2 text-xs font-semibold rounded-full bg-white text-pastel-slate hover:bg-pastel-rose transition border border-pastel-rose/30">Phase 3: Perfecting for 6.5+</button>
+                </div>
+            </div>
+
+            <!-- 9 LESSON CARDS GRID -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- LESSON 1 -->
+                <div class="lesson-card bg-white rounded-3xl border border-pastel-roseDark/20 shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden" data-phase="1">
+                    <div class="absolute top-0 left-0 right-0 h-2 bg-pastel-roseDark"></div>
+                    <div class="p-8 space-y-6">
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs font-bold tracking-widest text-pastel-roseDark uppercase">Lesson 01 • Phase 1</span>
+                            <input type="checkbox" id="check-l1" onchange="toggleLesson(1)" class="w-5 h-5 rounded-full border-pastel-roseDark text-pastel-roseDark focus:ring-pastel-roseDark cursor-pointer">
+                        </div>
+                        <div>
+                            <h4 class="font-serif text-xl font-bold text-pastel-slate leading-snug">Dissolving Barriers &amp; Awakening the Voice</h4>
+                            <p class="text-xs text-pastel-sageDark font-semibold mt-1">Focus: Speaking Part 1 &amp; Vocal Mechanics</p>
+                        </div>
+                        
+                        <div class="space-y-4 border-t border-pastel-rose/50 pt-4 text-sm">
+                            <div>
+                                <h5 class="font-bold text-xs text-pastel-slate uppercase tracking-wider flex items-center gap-1.5 mb-1">
+                                    <i data-lucide="target" class="w-3.5 h-3.5 text-pastel-roseDark"></i> Objectives
+                                </h5>
+                                <p class="text-pastel-slate/70">Master the flow of Part 1; adopt diaphragmatic breathing to stabilize your vocal resonance.</p>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-xs text-pastel-slate uppercase tracking-wider flex items-center gap-1.5 mb-1">
+                                    <i data-lucide="mic-2" class="w-3.5 h-3.5 text-pastel-roseDark"></i> Voice Gym (Volume &amp; Clarity)
+                                </h5>
+                                <p class="text-pastel-slate/85 font-medium bg-pastel-rose/30 p-2.5 rounded-xl border border-pastel-roseDark/10">
+                                    <strong>The "Hum & Speak" Drill:</strong> Hum a resonant "Hmm" in your chest register, then transition into speaking to maximize warmth without throat fatigue.
+                                </p>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-xs text-pastel-slate uppercase tracking-wider flex items-center gap-1.5 mb-1">
+                                    <i data-lucide="refresh-cw" class="w-3.5 h-3.5 text-pastel-sageDark"></i> Supported Skills Integration
+                                </h5>
+                                <p class="text-pastel-slate/70"><strong>Reading:</strong> Read a lyrical paragraph aloud to chart breath pauses and emotional focal points naturally.</p>
+                            </div>
+                        </div>
+
+                        <div class="border-t border-pastel-rose/50 pt-4 flex items-center justify-between">
+                            <span class="text-xs text-pastel-slate/60">Milestone:</span>
+                            <span class="text-xs font-semibold text-pastel-roseDark bg-pastel-rose px-3 py-1 rounded-full">Sustain clear speech for 30s</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LESSON 2 -->
+                <div class="lesson-card bg-white rounded-3xl border border-pastel-roseDark/20 shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden" data-phase="1">
+                    <div class="absolute top-0 left-0 right-0 h-2 bg-pastel-roseDark"></div>
+                    <div class="p-8 space-y-6">
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs font-bold tracking-widest text-pastel-roseDark uppercase">Lesson 02 • Phase 1</span>
+                            <input type="checkbox" id="check-l2" onchange="toggleLesson(2)" class="w-5 h-5 rounded-full border-pastel-roseDark text-pastel-roseDark focus:ring-pastel-roseDark cursor-pointer">
+                        </div>
+                        <div>
+                            <h4 class="font-serif text-xl font-bold text-pastel-slate leading-snug">The Art of Seamless Idea Expansion</h4>
+                            <p class="text-xs text-pastel-sageDark font-semibold mt-1">Focus: Speaking Part 1 Extension</p>
+                        </div>
+                        
+                        <div class="space-y-4 border-t border-pastel-rose/50 pt-4 text-sm">
+                            <div>
+                                <h5 class="font-bold text-xs text-pastel-slate uppercase tracking-wider flex items-center gap-1.5 mb-1">
+                                    <i data-lucide="target" class="w-3.5 h-3.5 text-pastel-roseDark"></i> Objectives
+                                </h5>
+                                <p class="text-pastel-slate/70">Banish brief, tense "Yes/No" answers by using natural cause-and-effect extension templates.</p>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-xs text-pastel-slate uppercase tracking-wider flex items-center gap-1.5 mb-1">
+                                    <i data-lucide="mic-2" class="w-3.5 h-3.5 text-pastel-roseDark"></i> Voice Gym (Volume &amp; Clarity)
+                                </h5>
+                                <p class="text-pastel-slate/85 font-medium bg-pastel-rose/30 p-2.5 rounded-xl border border-pastel-roseDark/10">
+                                    <strong>The "Anchor Word" Method:</strong> Highlight crucial nouns/verbs with slightly longer vowels, ensuring high intelligibility even at gentle volumes.
+                                </p>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-xs text-pastel-slate uppercase tracking-wider flex items-center gap-1.5 mb-1">
+                                    <i data-lucide="refresh-cw" class="w-3.5 h-3.5 text-pastel-sageDark"></i> Supported Skills Integration
+                                </h5>
+                                <p class="text-pastel-slate/70"><strong>Listening:</strong> Transcribe a conversational podcast, highlighting transitional phrases to use in your own responses.</p>
+                            </div>
+                        </div>
+
+                        <div class="border-t border-pastel-rose/50 pt-4 flex items-center justify-between">
+                            <span class="text-xs text-pastel-slate/60">Milestone:</span>
+                            <span class="text-xs font-semibold text-pastel-roseDark bg-pastel-rose px-3 py-1 rounded-full">Integrate 3 key linking words</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LESSON 3 -->
+                <div class="lesson-card bg-white rounded-3xl border border-pastel-roseDark/20 shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden" data-phase="1">
+                    <div class="absolute top-0 left-0 right-0 h-2 bg-pastel-roseDark"></div>
+                    <div class="p-8 space-y-6">
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs font-bold tracking-widest text-pastel-roseDark uppercase">Lesson 03 • Phase 1</span>
+                            <input type="checkbox" id="check-l3" onchange="toggleLesson(3)" class="w-5 h-5 rounded-full border-pastel-roseDark text-pastel-roseDark focus:ring-pastel-roseDark cursor-pointer">
+                        </div>
+                        <div>
+                            <h4 class="font-serif text-xl font-bold text-pastel-slate leading-snug">Visual Mind-Mapping for Part 2</h4>
+                            <p class="text-xs text-pastel-sageDark font-semibold mt-1">Focus: Part 2 Monologue Planning</p>
+                        </div>
+                        
+                        <div class="space-y-4 border-t border-pastel-rose/50 pt-4 text-sm">
+                            <div>
+                                <h5 class="font-bold text-xs text-pastel-slate uppercase tracking-wider flex items-center gap-1.5 mb-1">
+                                    <i data-lucide="target" class="w-3.5 h-3.5 text-pastel-roseDark"></i> Objectives
+                                </h5>
+                                <p class="text-pastel-slate/70">Demolish the fear of speaking for 2 minutes straight with our rapid 60-second visual framework.</p>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-xs text-pastel-slate uppercase tracking-wider flex items-center gap-1.5 mb-1">
+                                    <i data-lucide="mic-2" class="w-3.5 h-3.5 text-pastel-roseDark"></i> Voice Gym (Volume &amp; Clarity)
+                                </h5>
+                                <p class="text-pastel-slate/85 font-medium bg-pastel-rose/30 p-2.5 rounded-xl border border-pastel-roseDark/10">
+                                    <strong>The "Target Zone" Projection:</strong> Speak to a designated object across the room. This naturally coaxes your body to project without raising your pitch.
+                                </p>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-xs text-pastel-slate uppercase tracking-wider flex items-center gap-1.5 mb-1">
+                                    <i data-lucide="refresh-cw" class="w-3.5 h-3.5 text-pastel-sageDark"></i> Supported Skills Integration
+                                </h5>
+                                <p class="text-pastel-slate/70"><strong>Writing:</strong> Draft concise keyword notes rather than complete sentences to encourage spontaneous oral assembly.</p>
+                            </div>
+                        </div>
+
+                        <div class="border-t border-pastel-rose/50 pt-4 flex items-center justify-between">
+                            <span class="text-xs text-pastel-slate/60">Milestone:</span>
+                            <span class="text-xs font-semibold text-pastel-roseDark bg-pastel-rose px-3 py-1 rounded-full">Deliver a steady 1m 15s monologue</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LESSON 4 -->
+                <div class="lesson-card bg-white rounded-3xl border border-pastel-sageDark/20 shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden" data-phase="2">
+                    <div class="absolute top-0 left-0 right-0 h-2 bg-pastel-sageDark"></div>
+                    <div class="p-8 space-y-6">
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs font-bold tracking-widest text-pastel-sageDark uppercase">Lesson 04 • Phase 2</span>
+                            <input type="checkbox" id="check-l4" onchange="toggleLesson(4)" class="w-5 h-5 rounded-full border-pastel-sageDark text-pastel-sageDark focus:ring-pastel-sageDark cursor-pointer">
+                        </div>
+                        <div>
+                            <h4 class="font-serif text-xl font-bold text-pastel-slate leading-snug">Sensory Word-Painting &amp; Imagery</h4>
+                            <p class="text-xs text-pastel-roseDark font-semibold mt-1">Focus: Vocabulary Richness &amp; Detail</p>
+                        </div>
+                        
+                        <div class="space-y-4 border-t border-pastel-sage/50 pt-4 text-sm">
+                            <div>
+                                <h5 class="font-bold text-xs text-pastel-slate uppercase tracking-wider flex items-center gap-1.5 mb-1">
+                                    <i data-lucide="target" class="w-3.5 h-3.5 text-pastel-sageDark"></i> Objectives
+                                </h5>
+                                <p class="text-pastel-slate/70">Infuse vivid visual, auditory, and spatial details into your descriptions of memories or special places.</p>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-xs text-pastel-slate uppercase tracking-wider flex items-center gap-1.5 mb-1">
+                                    <i data-lucide="mic-2" class="w-3.5 h-3.5 text-pastel-sageDark"></i> Voice Gym (Volume &amp; Clarity)
+                                </h5>
+                                <p class="text-pastel-slate/85 font-medium bg-pastel-sage/30 p-2.5 rounded-xl border border-pastel-sageDark/10">
+                                    <strong>"Consonant Crispness":</strong> Enunciate ending sounds (/t/, /d/, /s/) sharply. Crisper consonants instantly increase your intelligibility, even when soft.
+                                </p>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-xs text-pastel-slate uppercase tracking-wider flex items-center gap-1.5 mb-1">
+                                    <i data-lucide="refresh-cw" class="w-3.5 h-3.5 text-pastel-roseDark"></i> Supported Skills Integration
+                                </h5>
+                                <p class="text-pastel-slate/70"><strong>Reading:</strong> Identify and harvest nuanced emotional descriptions and idioms from high-quality IELTS literature.</p>
+                            </div>
+                        </div>
+
+                        <div class="border-t border-pastel-sage/50 pt-4 flex items-center justify-between">
+                            <span class="text-xs text-pastel-slate/60">Milestone:</span>
+                            <span class="text-xs font-semibold text-pastel-sageDark bg-pastel-sage px-3 py-1 rounded-full">Apply 4 vivid sensory adjectives</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LESSON 5 -->
+                <div class="lesson-card bg-white rounded-3xl border border-pastel-sageDark/20 shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden" data-phase="2">
+                    <div class="absolute top-0 left-0 right-0 h-2 bg-pastel-sageDark"></div>
+                    <div class="p-8 space-y-6">
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs font-bold tracking-widest text-pastel-sageDark uppercase">Lesson 05 • Phase 2</span>
+                            <input type="checkbox" id="check-l5" onchange="toggleLesson(5)" class="w-5 h-5 rounded-full border-pastel-sageDark text-pastel-sageDark focus:ring-pastel-sageDark cursor-pointer">
+                        </div>
+                        <div>
+                            <h4 class="font-serif text-xl font-bold text-pastel-slate leading-snug">Structuring Abstract Arguments via "PREP"</h4>
+                            <p class="text-xs text-pastel-roseDark font-semibold mt-1">Focus: Speaking Part 3 Logic</p>
+                        </div>
+                        
+                        <div class="space-y-4 border-t border-pastel-sage/50 pt-4 text-sm">
+                            <div>
+                                <h5 class="font-bold text-xs text-pastel-slate uppercase tracking-wider flex items-center gap-1.5 mb-1">
+                                    <i data-lucide="target" class="w-3.5 h-3.5 text-pastel-sageDark"></i> Objectives
+                                </h5>
+                                <p class="text-pastel-slate/70">Confidently construct high-scoring logical responses using: Point - Reason - Example - Point.</p>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-xs text-pastel-slate uppercase tracking-wider flex items-center gap-1.5 mb-1">
+                                    <i data-lucide="mic-2" class="w-3.5 h-3.5 text-pastel-sageDark"></i> Voice Gym (Volume &amp; Clarity)
+                                </h5>
+                                <p class="text-pastel-slate/85 font-medium bg-pastel-sage/30 p-2.5 rounded-xl border border-pastel-sageDark/10">
+                                    <strong>The "Speaker's Persona":</strong> Adopt a professional, academic role-play mindset. This psychological shift naturally settles your vocal pitch and projection.
+                                </p>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-xs text-pastel-slate uppercase tracking-wider flex items-center gap-1.5 mb-1">
+                                    <i data-lucide="refresh-cw" class="w-3.5 h-3.5 text-pastel-roseDark"></i> Supported Skills Integration
+                                </h5>
+                                <p class="text-pastel-slate/70"><strong>Listening:</strong> Analyze current-affairs debates to capture how speakers contrast ideas smoothly.</p>
+                            </div>
+                        </div>
+
+                        <div class="border-t border-pastel-sage/50 pt-4 flex items-center justify-between">
+                            <span class="text-xs text-pastel-slate/60">Milestone:</span>
+                            <span class="text-xs font-semibold text-pastel-sageDark bg-pastel-sage px-3 py-1 rounded-full">Deliver 2 fully realized PREP cycles</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LESSON 6 -->
+                <div class="lesson-card bg-white rounded-3xl border border-pastel-sageDark/20 shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden" data-phase="2">
+                    <div class="absolute top-0 left-0 right-0 h-2 bg-pastel-sageDark"></div>
+                    <div class="p-8 space-y-6">
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs font-bold tracking-widest text-pastel-sageDark uppercase">Lesson 06 • Phase 2</span>
+                            <input type="checkbox" id="check-l6" onchange="toggleLesson(6)" class="w-5 h-5 rounded-full border-pastel-sageDark text-pastel-sageDark focus:ring-pastel-sageDark cursor-pointer">
+                        </div>
+                        <div>
+                            <h4 class="font-serif text-xl font-bold text-pastel-slate leading-snug">Leading Complex Conversations</h4>
+                            <p class="text-xs text-pastel-roseDark font-semibold mt-1">Focus: Advanced Speculation &amp; Contrast</p>
+                        </div>
+                        
+                        <div class="space-y-4 border-t border-pastel-sage/50 pt-4 text-sm">
+                            <div>
+                                <h5 class="font-bold text-xs text-pastel-slate uppercase tracking-wider flex items-center gap-1.5 mb-1">
+                                    <i data-lucide="target" class="w-3.5 h-3.5 text-pastel-sageDark"></i> Objectives
+                                </h5>
+                                <p class="text-pastel-slate/70">Express nuance, hypothetical outcomes, and future predictions on education, technology, and society.</p>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-xs text-pastel-slate uppercase tracking-wider flex items-center gap-1.5 mb-1">
+                                    <i data-lucide="mic-2" class="w-3.5 h-3.5 text-pastel-sageDark"></i> Voice Gym (Volume &amp; Clarity)
+                                </h5>
+                                <p class="text-pastel-slate/85 font-medium bg-pastel-sage/30 p-2.5 rounded-xl border border-pastel-sageDark/10">
+                                    <strong>"Pacing &amp; Pause Control":</strong> Slow down deliberately when pondering hard questions, avoiding quiet mumbling or hurried fillers.
+                                </p>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-xs text-pastel-slate uppercase tracking-wider flex items-center gap-1.5 mb-1">
+                                    <i data-lucide="refresh-cw" class="w-3.5 h-3.5 text-pastel-roseDark"></i> Supported Skills Integration
+                                </h5>
+                                <p class="text-pastel-slate/70"><strong>Writing:</strong> Summarize opposing viewpoints on an academic topic to fortify multi-faceted reasoning.</p>
+                            </div>
+                        </div>
+
+                        <div class="border-t border-pastel-sage/50 pt-4 flex items-center justify-between">
+                            <span class="text-xs text-pastel-slate/60">Milestone:</span>
+                            <span class="text-xs font-semibold text-pastel-sageDark bg-pastel-sage px-3 py-1 rounded-full">Apply 3 complex speculative structures</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LESSON 7 -->
+                <div class="lesson-card bg-white rounded-3xl border border-pastel-gold/30 shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden" data-phase="3">
+                    <div class="absolute top-0 left-0 right-0 h-2 bg-pastel-gold"></div>
+                    <div class="p-8 space-y-6">
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs font-bold tracking-widest text-pastel-goldDark uppercase">Lesson 07 • Phase 3</span>
+                            <input type="checkbox" id="check-l7" onchange="toggleLesson(7)" class="w-5 h-5 rounded-full border-pastel-gold text-pastel-gold focus:ring-pastel-gold cursor-pointer">
+                        </div>
+                        <div>
+                            <h4 class="font-serif text-xl font-bold text-pastel-slate leading-snug">Vocal Grace Under Pressure</h4>
+                            <p class="text-xs text-pastel-slate font-semibold mt-1">Focus: Stress Coping &amp; Unexpected Prompts</p>
+                        </div>
+                        
+                        <div class="space-y-4 border-t border-amber-100 pt-4 text-sm">
+                            <div>
+                                <h5 class="font-bold text-xs text-pastel-slate uppercase tracking-wider flex items-center gap-1.5 mb-1">
+                                    <i data-lucide="target" class="w-3.5 h-3.5 text-pastel-gold"></i> Objectives
+                                </h5>
+                                <p class="text-pastel-slate/70">Gracefully buy cognitive processing time when confronted with unfamiliar or difficult abstract prompts.</p>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-xs text-pastel-slate uppercase tracking-wider flex items-center gap-1.5 mb-1">
+                                    <i data-lucide="mic-2" class="w-3.5 h-3.5 text-pastel-gold"></i> Voice Gym (Volume &amp; Clarity)
+                                </h5>
+                                <p class="text-pastel-slate/85 font-medium bg-amber-50/50 p-2.5 rounded-xl border border-pastel-gold/10">
+                                    <strong>"Controlled Breath Reset":</strong> Practice taking an invisible, deep diaphragmatic breath in transitions to immediately lower your heart rate.
+                                </p>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-xs text-pastel-slate uppercase tracking-wider flex items-center gap-1.5 mb-1">
+                                    <i data-lucide="refresh-cw" class="w-3.5 h-3.5 text-pastel-sageDark"></i> Supported Skills Integration
+                                </h5>
+                                <p class="text-pastel-slate/70"><strong>Reading:</strong> Skim a science article quickly to build spontaneous idea maps on complex global topics.</p>
+                            </div>
+                        </div>
+
+                        <div class="border-t border-amber-100 pt-4 flex items-center justify-between">
+                            <span class="text-xs text-pastel-slate/60">Milestone:</span>
+                            <span class="text-xs font-semibold text-pastel-goldDark bg-amber-50 px-3 py-1 rounded-full">Seamlessly use 3 buying-time phrases</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LESSON 8 -->
+                <div class="lesson-card bg-white rounded-3xl border border-pastel-gold/30 shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden" data-phase="3">
+                    <div class="absolute top-0 left-0 right-0 h-2 bg-pastel-gold"></div>
+                    <div class="p-8 space-y-6">
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs font-bold tracking-widest text-pastel-goldDark uppercase">Lesson 08 • Phase 3</span>
+                            <input type="checkbox" id="check-l8" onchange="toggleLesson(8)" class="w-5 h-5 rounded-full border-pastel-gold text-pastel-gold focus:ring-pastel-gold cursor-pointer">
+                        </div>
+                        <div>
+                            <h4 class="font-serif text-xl font-bold text-pastel-slate leading-snug">Full Mock Examination Simulation</h4>
+                            <p class="text-xs text-pastel-slate font-semibold mt-1">Focus: Complete 14-Minute Assessment</p>
+                        </div>
+                        
+                        <div class="space-y-4 border-t border-amber-100 pt-4 text-sm">
+                            <div>
+                                <h5 class="font-bold text-xs text-pastel-slate uppercase tracking-wider flex items-center gap-1.5 mb-1">
+                                    <i data-lucide="target" class="w-3.5 h-3.5 text-pastel-gold"></i> Objectives
+                                </h5>
+                                <p class="text-pastel-slate/70">Demonstrate solid stamina, timing control, and consistent vocal volume across a complete exam.</p>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-xs text-pastel-slate uppercase tracking-wider flex items-center gap-1.5 mb-1">
+                                    <i data-lucide="mic-2" class="w-3.5 h-3.5 text-pastel-gold"></i> Voice Gym (Volume &amp; Clarity)
+                                </h5>
+                                <p class="text-pastel-slate/85 font-medium bg-amber-50/50 p-2.5 rounded-xl border border-pastel-gold/10">
+                                    <strong>"Pre-Exam Warmups":</strong> Simple muscle-relaxation exercises to loosen facial muscles, ensuring smooth articulation under mock stress.
+                                </p>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-xs text-pastel-slate uppercase tracking-wider flex items-center gap-1.5 mb-1">
+                                    <i data-lucide="refresh-cw" class="w-3.5 h-3.5 text-pastel-sageDark"></i> Supported Skills Integration
+                                </h5>
+                                <p class="text-pastel-slate/70"><strong>Listening:</strong> Listen to and critique your own recorded file using official examiner descriptors.</p>
+                            </div>
+                        </div>
+
+                        <div class="border-t border-amber-100 pt-4 flex items-center justify-between">
+                            <span class="text-xs text-pastel-slate/60">Milestone:</span>
+                            <span class="text-xs font-semibold text-pastel-goldDark bg-amber-50 px-3 py-1 rounded-full">Secure a 6.0+ mock benchmark</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LESSON 9 -->
+                <div class="lesson-card bg-white rounded-3xl border border-pastel-gold/30 shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden" data-phase="3">
+                    <div class="absolute top-0 left-0 right-0 h-2 bg-pastel-gold"></div>
+                    <div class="p-8 space-y-6">
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs font-bold tracking-widest text-pastel-goldDark uppercase">Lesson 09 • Phase 3</span>
+                            <input type="checkbox" id="check-l9" onchange="toggleLesson(9)" class="w-5 h-5 rounded-full border-pastel-gold text-pastel-gold focus:ring-pastel-gold cursor-pointer">
+                        </div>
+                        <div>
+                            <h4 class="font-serif text-xl font-bold text-pastel-slate leading-snug">Polishing and Vocal Brilliance</h4>
+                            <p class="text-xs text-pastel-slate font-semibold mt-1">Focus: Fine-Tuning &amp; Psychological Armor</p>
+                        </div>
+                        
+                        <div class="space-y-4 border-t border-amber-100 pt-4 text-sm">
+                            <div>
+                                <h5 class="font-bold text-xs text-pastel-slate uppercase tracking-wider flex items-center gap-1.5 mb-1">
+                                    <i data-lucide="target" class="w-3.5 h-3.5 text-pastel-gold"></i> Objectives
+                                </h5>
+                                <p class="text-pastel-slate/70">Refine the final details of your pronunciation, iron out tiny grammar slips, and secure a confident mindset.</p>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-xs text-pastel-slate uppercase tracking-wider flex items-center gap-1.5 mb-1">
+                                    <i data-lucide="mic-2" class="w-3.5 h-3.5 text-pastel-gold"></i> Voice Gym (Volume &amp; Clarity)
+                                </h5>
+                                <p class="text-pastel-slate/85 font-medium bg-amber-50/50 p-2.5 rounded-xl border border-pastel-gold/10">
+                                    <strong>"Smiling Voice" Method:</strong> Keep a gentle, comfortable smile. This soft technique brightens your vocal tone and keeps your facial muscles relaxed.
+                                </p>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-xs text-pastel-slate uppercase tracking-wider flex items-center gap-1.5 mb-1">
+                                    <i data-lucide="refresh-cw" class="w-3.5 h-3.5 text-pastel-sageDark"></i> Supported Skills Integration
+                                </h5>
+                                <p class="text-pastel-slate/70"><strong>Writing:</strong> Formulate a portable "My Strategy" sheet for rapid review during the week leading to your exam.</p>
+                            </div>
+                        </div>
+
+                        <div class="border-t border-amber-100 pt-4 flex items-center justify-between">
+                            <span class="text-xs text-pastel-slate/60">Milestone:</span>
+                            <span class="text-xs font-semibold text-pastel-goldDark bg-amber-50 px-3 py-1 rounded-full">Exude confidence across all sections</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE "VOICE GYM" & BREATHING PACER WIDGET -->
+    <section id="voice-gym" class="py-16 max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <div class="lg:col-span-6 space-y-6">
+                <div class="inline-flex items-center space-x-2 bg-pastel-sage px-3 py-1 rounded-full border border-pastel-sageDark/20 shadow-sm">
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                    <span class="text-xs font-semibold text-pastel-slate uppercase tracking-wider">Exclusive Studio Resource</span>
+                </div>
+                <h2 class="font-serif text-3xl md:text-4xl text-pastel-slate">The Mindful <br><span class="italic text-pastel-sageDark">"Safe-Zone" Voice Gym</span></h2>
+                <p class="text-pastel-slate/80 leading-relaxed">
+                    Speaking softly is often a natural reaction to performance anxiety or fear of error. These two integrated digital tools are developed exclusively by <strong>IELTS Chan Truong</strong> to help you ground your breathing patterns and visualize your audio output during our speech warm-ups.
+                </p>
+                
+                <div class="space-y-4 text-sm">
+                    <div class="flex items-start space-x-3">
+                        <div class="p-1.5 bg-pastel-rose rounded-lg text-pastel-roseDark mt-0.5">
+                            <i data-lucide="wind" class="w-4 h-4"></i>
+                        </div>
+                        <p class="text-pastel-slate/75"><strong>Dynamic Breathing Pacer:</strong> Helps align your heart rate and provides steady oxygen to quiet physical nervous impulses before speaking.</p>
+                    </div>
+                    <div class="flex items-start space-x-3">
+                        <div class="p-1.5 bg-pastel-sage rounded-lg text-pastel-sageDark mt-0.5">
+                            <i data-lucide="mic" class="w-4 h-4"></i>
+                        </div>
+                        <p class="text-pastel-slate/75"><strong>Interactive Volume Monitor:</strong> Displays the volume profile of your microphone feed, showing you how your voice projects in real-time.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- THE INTERACTIVE WIDGET CARD -->
+            <div class="lg:col-span-6">
+                <div class="bg-white p-8 rounded-3xl border border-pastel-roseDark/20 shadow-lg space-y-8">
+                    
+                    <!-- Tab Headers within Widget -->
+                    <div class="flex space-x-2 border-b border-pastel-rose/50 pb-4">
+                        <button onclick="toggleWidgetTab('breathe')" id="tab-btn-breathe" class="flex-1 py-2 text-center text-xs font-semibold rounded-xl bg-pastel-rose text-pastel-slate transition">
+                            1. Breath Pacer
+                        </button>
+                        <button onclick="toggleWidgetTab('meter')" id="tab-btn-meter" class="flex-1 py-2 text-center text-xs font-semibold rounded-xl bg-pastel-cream text-pastel-slate/60 hover:text-pastel-slate transition">
+                            2. Volume Visualizer
+                        </button>
+                    </div>
+
+                    <!-- TAB 1: BREATHING PACER -->
+                    <div id="widget-breathe" class="space-y-6">
+                        <div class="text-center space-y-1">
+                            <h4 class="font-serif text-lg font-bold text-pastel-slate">Pre-Speech Breathing Pacer</h4>
+                            <p class="text-xs text-pastel-slate/60">Follow the expanding circle to establish a deep, calming rhythm.</p>
+                        </div>
+                        
+                        <!-- Visual Breathing bubble container -->
+                        <div class="h-44 flex items-center justify-center relative">
+                            <!-- Outer pulsing guide -->
+                            <div class="w-24 h-24 rounded-full breathing-circle flex items-center justify-center relative">
+                                <i data-lucide="wind" class="w-6 h-6 text-pastel-slate/40"></i>
+                            </div>
+                        </div>
+
+                        <!-- Breath Instructions text display dynamically managed by JS inside app -->
+                        <div class="text-center">
+                            <span id="breath-status" class="text-sm font-semibold text-pastel-slate">Inhale slowly through your nose...</span>
+                            <span class="block text-xs text-pastel-sageDark font-semibold mt-1">Calming 8-Second Cycle</span>
+                        </div>
+                    </div>
+
+                    <!-- TAB 2: MICROPHONE VOLUME TESTER -->
+                    <div id="widget-meter" class="hidden space-y-6">
+                        <div class="text-center space-y-1">
+                            <h4 class="font-serif text-lg font-bold text-pastel-slate">Real-Time Projection Guide</h4>
+                            <p class="text-xs text-pastel-slate/60">Grant microphone access to visually monitor your vocal volume.</p>
+                        </div>
+
+                        <!-- Volume meter graphics -->
+                        <div class="space-y-2">
+                            <div class="flex justify-between text-xs font-bold text-pastel-slate/50">
+                                <span>Whisper</span>
+                                <span>Ideal (Band 6.5+)</span>
+                                <span>Too Loud</span>
+                            </div>
+                            <!-- Bar visualization -->
+                            <div class="h-6 w-full bg-pastel-cream rounded-full overflow-hidden flex p-1 border border-pastel-roseDark/10">
+                                <div id="volume-fill" class="h-full w-0 bg-gradient-to-r from-red-200 via-emerald-400 to-amber-500 rounded-full transition-all duration-75"></div>
+                            </div>
+                        </div>
+
+                        <!-- Feedback Message -->
+                        <div class="text-center py-2 bg-pastel-rose/30 rounded-xl border border-pastel-roseDark/10">
+                            <p id="volume-feedback" class="text-xs font-semibold text-pastel-slate">Click "Activate Microphone" and speak or hum a continuous sound...</p>
+                        </div>
+
+                        <div class="flex justify-center">
+                            <button id="mic-toggle-btn" onclick="startMicAnalyzer()" class="flex items-center gap-2 px-6 py-2.5 bg-pastel-slate text-white text-xs font-bold rounded-full hover:bg-pastel-roseDark transition shadow-md">
+                                <i data-lucide="mic" class="w-4 h-4"></i>
+                                Activate Microphone
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CLASSROOM SCORE RUBRIC INTERACTIVE MAP -->
+    <section id="rubric" class="py-16 bg-pastel-rose/40 border-t border-b border-pastel-rose/30">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-12 space-y-4">
+                <h2 class="font-serif text-3xl md:text-4xl text-pastel-slate">IELTS Speaking 6.5+ Criteria Map</h2>
+                <p class="text-pastel-slate/75">To reach a 6.5, your performance should be balanced across all four markers. Tap each category to see how we specifically address your unique speaking challenges.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <!-- Fluency & Coherence -->
+                <button onclick="showRubricDetail('fc')" class="rubric-btn p-6 bg-white text-left rounded-3xl border border-pastel-roseDark/20 hover:shadow-md transition duration-300 group">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs font-bold uppercase tracking-widest text-pastel-roseDark">Criterion 1</span>
+                        <div class="w-8 h-8 rounded-full bg-pastel-rose flex items-center justify-center text-pastel-roseDark group-hover:bg-pastel-roseDark group-hover:text-white transition">
+                            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                        </div>
+                    </div>
+                    <h4 class="font-serif text-lg font-bold text-pastel-slate">Fluency &amp; Coherence</h4>
+                    <p class="text-xs text-pastel-slate/60 mt-1">Flow &amp; Logical Structure</p>
+                </button>
+
+                <!-- Lexical Resource -->
+                <button onclick="showRubricDetail('lr')" class="rubric-btn p-6 bg-white text-left rounded-3xl border border-pastel-roseDark/20 hover:shadow-md transition duration-300 group">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs font-bold uppercase tracking-widest text-pastel-roseDark">Criterion 2</span>
+                        <div class="w-8 h-8 rounded-full bg-pastel-rose flex items-center justify-center text-pastel-roseDark group-hover:bg-pastel-roseDark group-hover:text-white transition">
+                            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                        </div>
+                    </div>
+                    <h4 class="font-serif text-lg font-bold text-pastel-slate">Lexical Resource</h4>
+                    <p class="text-xs text-pastel-slate/60 mt-1">Vocabulary &amp; Idiom</p>
+                </button>
+
+                <!-- Grammatical Range -->
+                <button onclick="showRubricDetail('gr')" class="rubric-btn p-6 bg-white text-left rounded-3xl border border-pastel-roseDark/20 hover:shadow-md transition duration-300 group">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs font-bold uppercase tracking-widest text-pastel-roseDark">Criterion 3</span>
+                        <div class="w-8 h-8 rounded-full bg-pastel-rose flex items-center justify-center text-pastel-roseDark group-hover:bg-pastel-roseDark group-hover:text-white transition">
+                            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                        </div>
+                    </div>
+                    <h4 class="font-serif text-lg font-bold text-pastel-slate">Grammar Accuracy</h4>
+                    <p class="text-xs text-pastel-slate/60 mt-1">Range &amp; Precision</p>
+                </button>
+
+                <!-- Pronunciation -->
+                <button onclick="showRubricDetail('pr')" class="rubric-btn p-6 bg-white text-left rounded-3xl border border-pastel-roseDark/20 hover:shadow-md transition duration-300 group">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs font-bold uppercase tracking-widest text-pastel-roseDark">Criterion 4</span>
+                        <div class="w-8 h-8 rounded-full bg-pastel-rose flex items-center justify-center text-pastel-roseDark group-hover:bg-pastel-roseDark group-hover:text-white transition">
+                            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                        </div>
+                    </div>
+                    <h4 class="font-serif text-lg font-bold text-pastel-slate">Pronunciation</h4>
+                    <p class="text-xs text-pastel-slate/60 mt-1">Clarity, Intonation, Rhythm</p>
+                </button>
+            </div>
+
+            <!-- DYNAMIC DETAIL CARD (Controlled by JS) -->
+            <div id="rubric-detail-card" class="mt-8 bg-white p-8 rounded-3xl border border-pastel-roseDark/30 shadow-lg space-y-4">
+                <div class="flex items-center space-x-3">
+                    <span class="px-3 py-1 bg-pastel-rose text-pastel-roseDark font-bold text-xs rounded-full uppercase tracking-widest" id="rubric-detail-tag">Criterion 1</span>
+                    <h3 class="font-serif text-2xl font-bold text-pastel-slate" id="rubric-detail-title">Fluency &amp; Coherence (Sự Trôi Chảy &amp; Mạch Lạc)</h3>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4">
+                    <div class="space-y-2">
+                        <span class="text-xs font-bold text-red-400 uppercase tracking-wide block">How Shyness Can Restrict You:</span>
+                        <p class="text-sm text-pastel-slate/80 leading-relaxed" id="rubric-detail-weakness">
+                            Hesitation arising from nervous hesitation can lead to prolonged pauses, interrupting the flow of breath and pulling down your logical coherence score.
+                        </p>
+                    </div>
+                    <div class="space-y-2">
+                        <span class="text-xs font-bold text-pastel-sageDark uppercase tracking-wide block">Our Targeted Strategy:</span>
+                        <p class="text-sm text-pastel-slate/80 leading-relaxed" id="rubric-detail-solution">
+                            We equip you with a tailored library of buying-time phrases so that your voice carries sound continuously while giving your mind space to build structures.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LIVE SESSION NOTEBOOK (MEMO PAD) -->
+    <section class="py-16 max-w-7xl mx-auto px-6">
+        <div class="bg-gradient-to-br from-pastel-sage/50 via-white to-pastel-rose/30 p-8 md:p-12 rounded-3xl border border-pastel-sageDark/20 shadow-md">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                
+                <div class="lg:col-span-5 space-y-6">
+                    <h3 class="font-serif text-3xl font-bold text-pastel-slate">Interactive Study Journal</h3>
+                    <p class="text-sm text-pastel-slate/75 leading-relaxed">
+                        Use this workspace with your tutor to capture elegant vocabulary notes, log developmental targets, or formulate your personal statements. Your entries are automatically saved to your browser so they remain safe for next time.
+                    </p>
+                    <div class="space-y-3 pt-2">
+                        <div class="flex items-center gap-2.5 text-sm text-pastel-slate">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-pastel-sageDark"></i>
+                            <span>Data is preserved locally in your browser</span>
+                        </div>
+                        <div class="flex items-center gap-2.5 text-sm text-pastel-slate">
+                            <i data-lucide="download" class="w-5 h-5 text-pastel-roseDark"></i>
+                            <span>Download your targets as an offline document</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7">
+                    <div class="bg-white p-6 rounded-2xl border border-pastel-sageDark/20 shadow-sm space-y-4">
+                        <div>
+                            <label class="block text-xs font-bold text-pastel-slate uppercase tracking-wider mb-2">My Pledge &amp; Core Goals:</label>
+                            <input type="text" id="student-pledge" placeholder="e.g., I will commit to supporting my breath in every conversation today!" class="w-full p-3 rounded-xl border border-pastel-rose/40 text-sm focus:outline-none focus:ring-2 focus:ring-pastel-roseDark/50">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-pastel-slate uppercase tracking-wider mb-2">Vocabulary Log &amp; Tutor Feedback:</label>
+                            <textarea id="tutor-notes" rows="6" placeholder="Document vocabulary targets and personalized feedback during lessons..." class="w-full p-3 rounded-xl border border-pastel-rose/40 text-sm focus:outline-none focus:ring-2 focus:ring-pastel-roseDark/50"></textarea>
+                        </div>
+
+                        <div class="flex justify-end gap-3">
+                            <button onclick="clearNotes()" class="px-5 py-2 rounded-full border border-pastel-roseDark/30 text-pastel-slate hover:bg-pastel-rose/40 text-xs font-semibold transition">
+                                Clear Notes
+                            </button>
+                            <button onclick="downloadNotes()" class="px-5 py-2 rounded-full bg-pastel-slate text-white hover:bg-pastel-roseDark text-xs font-semibold transition flex items-center gap-1.5 shadow">
+                                <i data-lucide="arrow-down-to-line" class="w-4 h-4"></i>
+                                Download Journal
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CHIC FOOTER -->
+    <footer class="bg-pastel-slate text-white py-12 px-6 border-t border-pastel-rose/10">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
+            
+            <div class="space-y-4">
+                <div class="flex items-center space-x-2">
+                    <span class="font-serif font-bold text-xl text-pastel-rose">IELTS Chan Truong</span>
+                </div>
+                <p class="text-xs text-slate-300 leading-relaxed max-w-sm">
+                    Releasing the genuine vocal power inside every student. We appreciate reserved temperaments and provide patient, expert coaching to ensure your soft voice speaks with authority.
+                </p>
+                <div class="text-xs text-pastel-rose/80 font-serif italic">
+                    "A quiet voice holds a grand melody within."
+                </div>
+            </div>
+
+            <div class="space-y-4">
+                <h4 class="font-serif text-lg font-bold">Strategic Phases</h4>
+                <ul class="space-y-2 text-xs text-slate-300">
+                    <li class="flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-pastel-rose"></span>
+                        <span>Phase 1: Establishing vocal strength and projection</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-pastel-rose"></span>
+                        <span>Phase 2: Transitioning into logical complexity</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-pastel-rose"></span>
+                        <span>Phase 3: Managing assessment and timing pressure</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="space-y-4">
+                <h4 class="font-serif text-lg font-bold">Contact &amp; Admissions</h4>
+                <div class="space-y-2 text-xs text-slate-300">
+                    <p class="flex items-center gap-2">
+                        <i data-lucide="mail" class="w-4 h-4 text-pastel-rose"></i>
+                        <span>coaching@chan-truong.ielts</span>
+                    </p>
+                    <p class="flex items-center gap-2">
+                        <i data-lucide="phone" class="w-4 h-4 text-pastel-rose"></i>
+                        <span>+84 908 CHAN TRUONG</span>
+                    </p>
+                    <p class="flex items-center gap-2">
+                        <i data-lucide="map-pin" class="w-4 h-4 text-pastel-rose"></i>
+                        <span>Hanoi / Ho Chi Minh City / Da Nang</span>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+        
+        <div class="max-w-7xl mx-auto border-t border-slate-700 mt-12 pt-6 text-center text-xs text-slate-400">
+            <p>© 2026 IELTS Chan Truong. Specially designed for 12th Grade 1-on-1 private coaching. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE SCRIPTS -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // 1. Progress State Manager
+        const totalLessons = 9;
+        let completedLessons = JSON.parse(localStorage.getItem('completed_lessons')) || [];
+
+        // Check/uncheck on start
+        window.addEventListener('DOMContentLoaded', () => {
+            completedLessons.forEach(lId => {
+                const el = document.getElementById(`check-l${lId}`);
+                if (el) el.checked = true;
+            });
+            updateProgressBar();
+            
+            // Set saved input elements values
+            if(localStorage.getItem('student_pledge')) {
+                document.getElementById('student-pledge').value = localStorage.getItem('student_pledge');
+            }
+            if(localStorage.getItem('tutor_notes')) {
+                document.getElementById('tutor-notes').value = localStorage.getItem('tutor_notes');
+            }
+        });
+
+        // Toggle progress state
+        function toggleLesson(lessonNum) {
+            const index = completedLessons.indexOf(lessonNum);
+            if (index > -1) {
+                completedLessons.splice(index, 1);
+            } else {
+                completedLessons.push(lessonNum);
+            }
+            localStorage.setItem('completed_lessons', JSON.stringify(completedLessons));
+            updateProgressBar();
+        }
+
+        // Update progress visuals
+        function updateProgressBar() {
+            const count = completedLessons.length;
+            const percentage = Math.round((count / totalLessons) * 100);
+            
+            // Update percentage texts
+            document.getElementById('progress-percentage').innerText = `${percentage}%`;
+            document.getElementById('progress-text').innerText = count === 0 ? "Not started (0/9 completed)" : `Completed ${count}/${totalLessons} lessons`;
+            
+            // Update circle SVG representation
+            const circle = document.getElementById('progress-circle');
+            circle.style.strokeDasharray = `${percentage}, 100`;
+        }
+
+        // 2. Timeline Phase Filter Function
+        function filterPhase(phaseId) {
+            // Update active state class on buttons
+            document.querySelectorAll('.phase-tab').forEach(tab => {
+                tab.classList.remove('bg-pastel-slate', 'text-white');
+                tab.classList.add('bg-white', 'text-pastel-slate', 'border', 'border-pastel-rose/30');
+            });
+            
+            const activeTab = document.getElementById(`tab-${phaseId}`);
+            activeTab.classList.remove('bg-white', 'text-pastel-slate', 'border', 'border-pastel-rose/30');
+            activeTab.classList.add('bg-pastel-slate', 'text-white');
+
+            // Toggle grid elements
+            document.querySelectorAll('.lesson-card').forEach(card => {
+                if (phaseId === 'all') {
+                    card.style.display = 'block';
+                } else {
+                    if (card.dataset.phase === phaseId) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                }
+            });
+        }
+
+        // 3. Rubric interactive data map
+        const rubricData = {
+            fc: {
+                tag: 'Criterion 1',
+                title: 'Fluency & Coherence',
+                weakness: 'Self-consciousness can cause long structural hesitations, which disrupts continuous air flow and impacts coherence scores.',
+                solution: 'We focus on teaching buying-time bridges like: "That is an intriguing question...", "Let me structure my thoughts..." to give your brain room to map arguments while maintaining speech rhythm.'
+            },
+            lr: {
+                tag: 'Criterion 2',
+                title: 'Lexical Resource',
+                weakness: 'Fear of error can cause bright students to over-simplify their words, avoiding high-scoring C1-C2 vocabulary.',
+                solution: 'You will learn to group idioms and key phrases via visual clusters. Retrieving vocabulary via mental anchors (Lesson 3) allows you to use rich vocabulary naturally and quickly.'
+            },
+            gr: {
+                tag: 'Criterion 3',
+                title: 'Grammar Accuracy & Range',
+                weakness: 'Anxiety often limits students to overly brief, simple sentences to avoid error, inadvertently capping their grammar marks under 5.5.',
+                solution: 'The PREP model (Lesson 5) serves as a logical scaffold to naturally build relative clauses and conditional structures, allowing you to use complex grammar structures smoothly.'
+            },
+            pr: {
+                tag: 'Criterion 4',
+                title: 'Pronunciation & Intonation',
+                weakness: 'Quiet or rushed speaking styles can lead to swallowed consonants, flat intonation patterns, and lack of sentence stress.',
+                solution: 'Through hum-projection techniques and consonant enunciation drills (Lesson 4), you will build clean articulation and natural sentence dynamics, making your speech easy to understand.'
+            }
+        };
+
+        function showRubricDetail(key) {
+            const data = rubricData[key];
+            document.getElementById('rubric-detail-tag').innerText = data.tag;
+            document.getElementById('rubric-detail-title').innerText = data.title;
+            document.getElementById('rubric-detail-weakness').innerText = data.weakness;
+            document.getElementById('rubric-detail-solution').innerText = data.solution;
+        }
+
+        // 4. Interactive Voice Gym & Volume Tracker
+        function toggleWidgetTab(type) {
+            const breathingTab = document.getElementById('widget-breathe');
+            const meterTab = document.getElementById('widget-meter');
+            const breatheBtn = document.getElementById('tab-btn-breathe');
+            const meterBtn = document.getElementById('tab-btn-meter');
+
+            if (type === 'breathe') {
+                breathingTab.classList.remove('hidden');
+                meterTab.classList.add('hidden');
+                breatheBtn.className = "flex-1 py-2 text-center text-xs font-semibold rounded-xl bg-pastel-rose text-pastel-slate transition";
+                meterBtn.className = "flex-1 py-2 text-center text-xs font-semibold rounded-xl bg-pastel-cream text-pastel-slate/60 hover:text-pastel-slate transition";
+            } else {
+                breathingTab.classList.add('hidden');
+                meterTab.classList.remove('hidden');
+                meterBtn.className = "flex-1 py-2 text-center text-xs font-semibold rounded-xl bg-pastel-rose text-pastel-slate transition";
+                breatheBtn.className = "flex-1 py-2 text-center text-xs font-semibold rounded-xl bg-pastel-cream text-pastel-slate/60 hover:text-pastel-slate transition";
+            }
+        }
+
+        // Dynamic Breathing Pacer status display cycle
+        const breathingStatusText = [
+            "Inhale slowly through your nose...",
+            "Hold your breath gently...",
+            "Exhale slowly through your mouth...",
+            "Pause and prepare for the next cycle..."
+        ];
+        let breathIndex = 0;
+        setInterval(() => {
+            breathIndex = (breathIndex + 1) % breathingStatusText.length;
+            document.getElementById('breath-status').innerText = breathingStatusText[breathIndex];
+        }, 2000); // changes every 2 seconds matching the 8 second cycle
+
+        // Web Audio Analyzer for Volume Projection
+        let audioContext = null;
+        let analyser = null;
+        let microphone = null;
+        let javascriptNode = null;
+        let micStream = null;
+
+        function startMicAnalyzer() {
+            const btn = document.getElementById('mic-toggle-btn');
+            
+            if (audioContext) {
+                // If already running, turn off
+                stopMicAnalyzer();
+                btn.innerHTML = `<i data-lucide="mic" class="w-4 h-4"></i> Activate Microphone`;
+                lucide.createIcons();
+                return;
+            }
+
+            navigator.mediaDevices.getUserMedia({ audio: true, video: false })
+                .then((stream) => {
+                    micStream = stream;
+                    audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                    analyser = audioContext.createAnalyser();
+                    microphone = audioContext.createMediaStreamSource(stream);
+                    javascriptNode = audioContext.createScriptProcessor(2048, 1, 1);
+
+                    analyser.smoothingTimeConstant = 0.8;
+                    analyser.fftSize = 1024;
+
+                    microphone.connect(analyser);
+                    analyser.connect(javascriptNode);
+                    javascriptNode.connect(audioContext.destination);
+
+                    btn.innerHTML = `<i data-lucide="mic-off" class="w-4 h-4"></i> Stop Analysis`;
+                    btn.classList.remove('bg-pastel-slate');
+                    btn.classList.add('bg-red-400');
+                    lucide.createIcons();
+
+                    javascriptNode.onaudioprocess = () => {
+                        const array = new Uint8Array(analyser.frequencyBinCount);
+                        analyser.getByteFrequencyData(array);
+                        let values = 0;
+
+                        const length = array.length;
+                        for (let i = 0; i < length; i++) {
+                            values += (array[i]);
+                        }
+
+                        const average = values / length;
+                        const volumePercentage = Math.min(100, Math.round((average / 128) * 100));
+                        updateVolumeMeter(volumePercentage);
+                    };
+                })
+                .catch((err) => {
+                    console.error('Microphone error:', err);
+                    document.getElementById('volume-feedback').innerHTML = "<span class='text-red-500 font-bold'>Unable to access microphone!</span> Please grant permissions in your browser to try the visualizer.";
+                });
+        }
+
+        function stopMicAnalyzer() {
+            if (audioContext) {
+                audioContext.close();
+                audioContext = null;
+            }
+            if (micStream) {
+                micStream.getTracks().forEach(track => track.stop());
+                micStream = null;
+            }
+            if (javascriptNode) {
+                javascriptNode.onaudioprocess = null;
+                javascriptNode = null;
+            }
+            updateVolumeMeter(0);
+            
+            const btn = document.getElementById('mic-toggle-btn');
+            btn.classList.remove('bg-red-400');
+            btn.classList.add('bg-pastel-slate');
+            document.getElementById('volume-feedback').innerText = "Microphone monitoring deactivated.";
+        }
+
+        function updateVolumeMeter(volume) {
+            const fill = document.getElementById('volume-fill');
+            const feedback = document.getElementById('volume-feedback');
+            
+            fill.style.width = `${volume}%`;
+
+            if (volume === 0) {
+                feedback.innerText = "Click 'Activate Microphone' and vocalize or hum to trace your projection profile.";
+            } else if (volume < 30) {
+                feedback.innerHTML = "🔊 <span class='text-amber-600 font-bold'>Soft Projection (Whisper)</span> - Practice directing more breath support from your core!";
+            } else if (volume >= 30 && volume <= 75) {
+                feedback.innerHTML = "✨ <span class='text-emerald-600 font-bold'>Excellent Projection (Ideal Volume)</span> - Beautifully audible! Perfect projection style for a 6.5+ band.";
+            } else {
+                feedback.innerHTML = "🔥 <span class='text-red-500 font-bold'>Strong Projection (Excellent power!)</span> - Great support, though try speaking more gently to keep your tone elegant.";
+            }
+        }
+
+        // 5. Notes manager
+        // Save fields to localStorage on input
+        document.getElementById('student-pledge').addEventListener('input', (e) => {
+            localStorage.setItem('student_pledge', e.target.value);
+        });
+        document.getElementById('tutor-notes').addEventListener('input', (e) => {
+            localStorage.setItem('tutor_notes', e.target.value);
+        });
+
+        function clearNotes() {
+            document.getElementById('student-pledge').value = '';
+            document.getElementById('tutor-notes').value = '';
+            localStorage.removeItem('student_pledge');
+            localStorage.removeItem('tutor_notes');
+        }
+
+        function downloadNotes() {
+            const pledge = document.getElementById('student-pledge').value;
+            const notes = document.getElementById('tutor-notes').value;
+            
+            const textContent = `--- IELTS CHAN TRUONG STUDY JOURNAL ---\n\n` + 
+                                `Student Pledge & Personal Commitments:\n${pledge || '(Empty)'}\n\n` +
+                                `Vocabulary Targets & Tutor Feedback:\n${notes || '(Empty)'}\n\n` +
+                                `Current Progress Status: Completed ${completedLessons.length} out of 9 structured lessons.\n`;
+
+            const blob = new Blob([textContent], { type: 'text/plain;charset=utf-8' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'IELTS_Chan_Truong_Study_Journal.txt';
+            link.click();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Chan Truong - Detailed Lesson 1 Plan</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Plus Jakarta Sans & Playfair Display -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    },
+                    colors: {
+                        pastel: {
+                            rose: '#F9ECEE',      /* Soft Blush */
+                            roseDark: '#E4A8B2',  /* Muted Blush Darker Accent */
+                            sage: '#E3ECE8',      /* Eucalyptus/Sage */
+                            sageDark: '#7CA393',  /* Rich Sage Text/Border */
+                            cream: '#FCF9F5',     /* Cream Canvas */
+                            slate: '#2E3238',     /* Soft Charcoal */
+                            gold: '#D4AF37',      /* Elegant Muted Gold */
+                            goldDark: '#8F7726',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCF9F5;
+            color: #2E3238;
+        }
+        /* Breathing guide pulse */
+        @keyframes steadyPulse {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.15); opacity: 1; }
+        }
+        .breathing-node {
+            animation: steadyPulse 6s infinite ease-in-out;
+        }
+        /* Custom scrollbar for clean UI */
+        .custom-scroll::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scroll::-webkit-scrollbar-track {
+            background: rgba(249, 236, 238, 0.4);
+        }
+        .custom-scroll::-webkit-scrollbar-thumb {
+            background: #E4A8B2;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased min-h-screen flex flex-col justify-between">
+
+    <!-- NAVIGATION BAR -->
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-filter backdrop-blur-lg border-b border-pastel-rose/40 px-6 py-4 shadow-sm">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <a href="index.html" class="w-10 h-10 rounded-full bg-pastel-rose flex items-center justify-center border border-pastel-roseDark/30 shadow-sm transition hover:scale-105">
+                    <span class="font-serif font-bold text-pastel-slate text-lg">CT</span>
+                </a>
+                <div>
+                    <h1 class="font-serif font-bold text-lg leading-tight text-pastel-slate">IELTS Chan Truong</h1>
+                    <p class="text-xs tracking-widest text-pastel-sageDark uppercase font-semibold">Lesson 1 Guide • Safe-Zone Coaching</p>
+                </div>
+            </div>
+            
+            <div class="flex items-center space-x-4">
+                <span class="hidden sm:inline-flex text-xs bg-pastel-rose text-pastel-roseDark font-bold px-3 py-1.5 rounded-full border border-pastel-roseDark/20">
+                    Phase 1: Planting Confidence
+                </span>
+                <button onclick="window.print()" class="p-2 hover:bg-pastel-sage rounded-full transition-all duration-300" title="Print Lesson Guide">
+                    <i data-lucide="printer" class="w-5 h-5 text-pastel-slate"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- LESSON HEADER & METRICS -->
+    <header class="relative overflow-hidden py-12 md:py-16 bg-gradient-to-br from-pastel-rose/50 via-pastel-cream to-pastel-sage/20 border-b border-pastel-rose/20">
+        <div class="max-w-5xl mx-auto px-6 text-center space-y-6 relative z-10">
+            <div class="inline-flex items-center space-x-2 bg-white px-4 py-1.5 rounded-full border border-pastel-roseDark/30 shadow-sm">
+                <span class="w-2 h-2 rounded-full bg-pastel-roseDark animate-ping"></span>
+                <span class="text-xs font-semibold text-pastel-slate tracking-wider uppercase">90-Minute Private Lesson Masterplan</span>
+            </div>
+            
+            <h2 class="font-serif text-3xl md:text-5xl text-pastel-slate leading-tight">
+                Lesson 01: <span class="italic text-pastel-roseDark block md:inline">Dissolving Barriers &amp; Awakening the Voice</span>
+            </h2>
+            
+            <p class="text-sm md:text-base text-pastel-slate/85 max-w-3xl mx-auto leading-relaxed">
+                Welcome to your first session. Today is entirely about safety, breathing support, and vocal space. We will build a resonant vocal projection by centering your breathing, then introduce conversational expansion for IELTS Speaking Part 1.
+            </p>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto pt-4 text-left">
+                <div class="bg-white p-4 rounded-2xl border border-pastel-roseDark/20 shadow-sm">
+                    <span class="block text-[10px] uppercase font-bold text-pastel-slate/50">Core Topic</span>
+                    <span class="text-xs font-bold text-pastel-slate">Familiar Spaces (Home/Hobby)</span>
+                </div>
+                <div class="bg-white p-4 rounded-2xl border border-pastel-roseDark/20 shadow-sm">
+                    <span class="block text-[10px] uppercase font-bold text-pastel-slate/50">Voice Target</span>
+                    <span class="text-xs font-bold text-pastel-roseDark">Chest Resonance &amp; Flow</span>
+                </div>
+                <div class="bg-white p-4 rounded-2xl border border-pastel-roseDark/20 shadow-sm">
+                    <span class="block text-[10px] uppercase font-bold text-pastel-slate/50">Skill Synergy</span>
+                    <span class="text-xs font-bold text-pastel-sageDark">Reading Passage Shadowing</span>
+                </div>
+                <div class="bg-white p-4 rounded-2xl border border-pastel-roseDark/20 shadow-sm">
+                    <span class="block text-[10px] uppercase font-bold text-pastel-slate/50">Target Milestone</span>
+                    <span class="text-xs font-bold text-pastel-slate">Sustain clear speech for 30s</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT CONTAINER -->
+    <main class="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- LEFT SIDE: 90-MINUTE TIMELINE & STEP-BY-STEP FLOW -->
+        <section class="lg:col-span-7 space-y-8">
+            <div class="bg-white p-8 rounded-3xl border border-pastel-roseDark/20 shadow-md space-y-6">
+                <div class="flex items-center justify-between border-b border-pastel-rose/50 pb-4">
+                    <div class="flex items-center space-x-2">
+                        <i data-lucide="clock" class="w-5 h-5 text-pastel-roseDark"></i>
+                        <h3 class="font-serif text-xl font-bold text-pastel-slate">Lesson Schedule (90 Minutes Total)</h3>
+                    </div>
+                    <span id="completed-count" class="text-xs font-bold text-pastel-roseDark bg-pastel-rose px-3 py-1 rounded-full">0/5 Completed</span>
+                </div>
+
+                <!-- STEP-BY-STEP CHECKLIST TIMELINE -->
+                <div class="space-y-6 relative before:absolute before:left-[19px] before:top-2 before:bottom-2 before:w-[2px] before:bg-pastel-rose/60">
+                    
+                    <!-- STEP 1 -->
+                    <div class="relative flex items-start space-x-4 group">
+                        <div class="z-10 flex items-center justify-center w-10 h-10 rounded-full bg-pastel-rose border-2 border-pastel-roseDark/60 text-pastel-roseDark font-bold text-xs transition group-hover:scale-105 shadow-sm" id="marker-step-1">
+                            1
+                        </div>
+                        <div class="flex-grow bg-pastel-cream/30 p-5 rounded-2xl border border-pastel-rose/30 space-y-3">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h4 class="text-sm font-bold text-pastel-slate">Anxiety Relief &amp; Vocal Alignment (15 mins)</h4>
+                                    <p class="text-xs text-pastel-slate/60">Introduction, relaxing posture, aligning nervous systems.</p>
+                                </div>
+                                <input type="checkbox" onchange="toggleStep(1, this)" class="w-5 h-5 rounded-full border-pastel-roseDark text-pastel-roseDark focus:ring-pastel-roseDark cursor-pointer">
+                            </div>
+                            <div class="text-xs text-pastel-slate/75 space-y-1">
+                                <p class="font-semibold text-pastel-roseDark">Tutor Checklist:</p>
+                                <ul class="list-disc pl-4 space-y-1">
+                                    <li>Unpack anxiety triggers (e.g. eye contact, fear of pauses).</li>
+                                    <li>Begin sitting comfortably with shoulders back to allow open diaphragmatic access.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STEP 2 -->
+                    <div class="relative flex items-start space-x-4 group">
+                        <div class="z-10 flex items-center justify-center w-10 h-10 rounded-full bg-pastel-rose border-2 border-pastel-roseDark/60 text-pastel-roseDark font-bold text-xs transition group-hover:scale-105 shadow-sm" id="marker-step-2">
+                            2
+                        </div>
+                        <div class="flex-grow bg-pastel-cream/30 p-5 rounded-2xl border border-pastel-rose/30 space-y-3">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h4 class="text-sm font-bold text-pastel-slate">Diaphragmatic Breathing &amp; The "Hmm" Hum (20 mins)</h4>
+                                    <p class="text-xs text-pastel-slate/60">Unlocking abdominal support and resonance.</p>
+                                </div>
+                                <input type="checkbox" onchange="toggleStep(2, this)" class="w-5 h-5 rounded-full border-pastel-roseDark text-pastel-roseDark focus:ring-pastel-roseDark cursor-pointer">
+                            </div>
+                            <div class="text-xs text-pastel-slate/75 space-y-2">
+                                <p class="font-semibold text-pastel-roseDark">Action Plan:</p>
+                                <p>First, breathe in through your nose for 4 seconds, then out humming "Hmm..." focusing on feeling vibration in your collarbones.</p>
+                                <button onclick="triggerFrequency(220)" class="inline-flex items-center gap-1 text-[10px] bg-pastel-rose font-bold text-pastel-roseDark px-2 py-1 rounded-md border border-pastel-roseDark/10 hover:bg-pastel-roseDark hover:text-white transition shadow-sm">
+                                    <i data-lucide="play" class="w-3 h-3"></i> Play Tuning Hum (220 Hz)
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STEP 3 -->
+                    <div class="relative flex items-start space-x-4 group">
+                        <div class="z-10 flex items-center justify-center w-10 h-10 rounded-full bg-pastel-rose border-2 border-pastel-roseDark/60 text-pastel-roseDark font-bold text-xs transition group-hover:scale-105 shadow-sm" id="marker-step-3">
+                            3
+                        </div>
+                        <div class="flex-grow bg-pastel-cream/30 p-5 rounded-2xl border border-pastel-rose/30 space-y-3">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h4 class="text-sm font-bold text-pastel-slate">Part 1 Framework - No More "Yes/No" (25 mins)</h4>
+                                    <p class="text-xs text-pastel-slate/60">Introduction to natural structural extension.</p>
+                                </div>
+                                <input type="checkbox" onchange="toggleStep(3, this)" class="w-5 h-5 rounded-full border-pastel-roseDark text-pastel-roseDark focus:ring-pastel-roseDark cursor-pointer">
+                            </div>
+                            <div class="text-xs text-pastel-slate/75 space-y-1">
+                                <p class="font-semibold text-pastel-sageDark">Core Speaking Frame:</p>
+                                <p class="italic bg-pastel-sage/20 p-2.5 rounded-lg border border-pastel-sageDark/10">"Yes/No answer" + "Reason" + "Vivid personal detail/Example."</p>
+                                <p class="mt-1">Example: "Do you like quiet places?" &rarr; "Absolutely, yes... because quiet rooms help me process my thoughts... I love sitting in my bedroom, reading with soft music playing."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STEP 4 -->
+                    <div class="relative flex items-start space-x-4 group">
+                        <div class="z-10 flex items-center justify-center w-10 h-10 rounded-full bg-pastel-rose border-2 border-pastel-roseDark/60 text-pastel-roseDark font-bold text-xs transition group-hover:scale-105 shadow-sm" id="marker-step-4">
+                            4
+                        </div>
+                        <div class="flex-grow bg-pastel-cream/30 p-5 rounded-2xl border border-pastel-rose/30 space-y-3">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h4 class="text-sm font-bold text-pastel-slate">Integrated Reading &amp; Shadowing Flow (15 mins)</h4>
+                                    <p class="text-xs text-pastel-slate/60">Reading aloud to internalize natural pacing and pauses.</p>
+                                </div>
+                                <input type="checkbox" onchange="toggleStep(4, this)" class="w-5 h-5 rounded-full border-pastel-roseDark text-pastel-roseDark focus:ring-pastel-roseDark cursor-pointer">
+                            </div>
+                            <div class="text-xs text-pastel-slate/75 space-y-1">
+                                <p class="font-semibold text-pastel-sageDark">Method:</p>
+                                <p>The tutor reads a descriptive paragraph beautifully. The student reads immediately after (Shadowing), focusing on breath marks, pause boundaries, and stressing important verbs.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STEP 5 -->
+                    <div class="relative flex items-start space-x-4 group">
+                        <div class="z-10 flex items-center justify-center w-10 h-10 rounded-full bg-pastel-rose border-2 border-pastel-roseDark/60 text-pastel-roseDark font-bold text-xs transition group-hover:scale-105 shadow-sm" id="marker-step-5">
+                            5
+                        </div>
+                        <div class="flex-grow bg-pastel-cream/30 p-5 rounded-2xl border border-pastel-rose/30 space-y-3">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h4 class="text-sm font-bold text-pastel-slate">First Practice &amp; Safe Review (15 mins)</h4>
+                                    <p class="text-xs text-pastel-slate/60">Low-stakes recording, highlighting positive elements first.</p>
+                                </div>
+                                <input type="checkbox" onchange="toggleStep(5, this)" class="w-5 h-5 rounded-full border-pastel-roseDark text-pastel-roseDark focus:ring-pastel-roseDark cursor-pointer">
+                            </div>
+                            <div class="text-xs text-pastel-slate/75 space-y-1">
+                                <p class="font-semibold text-pastel-goldDark">Encouragement Rule:</p>
+                                <p>Highlight **three outstanding things** she did right (e.g. gorgeous vocabulary, precise grammar, nice chest resonance) before giving **one single direction** on projection improvement.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- RIGHT SIDE: INTERACTIVE VOCAL WORKOUT LAB -->
+        <section class="lg:col-span-5 space-y-8">
+            
+            <!-- COLOURED INTERACTIVE FREQUENCY GENERATOR & PACER -->
+            <div class="bg-white p-8 rounded-3xl border border-pastel-roseDark/20 shadow-md space-y-6 relative overflow-hidden">
+                <div class="absolute top-0 left-0 right-0 h-1.5 bg-pastel-roseDark"></div>
+                
+                <div class="flex items-center space-x-2">
+                    <i data-lucide="wind" class="w-5 h-5 text-pastel-roseDark animate-pulse"></i>
+                    <h3 class="font-serif text-lg font-bold text-pastel-slate">Breath Pacing &amp; Resonant Hums</h3>
+                </div>
+
+                <div class="bg-pastel-cream/70 p-6 rounded-2xl border border-pastel-roseDark/10 flex items-center justify-between gap-4">
+                    <div class="space-y-1 flex-1">
+                        <span class="block text-xs font-bold text-pastel-roseDark uppercase tracking-wider">How to exercise:</span>
+                        <p class="text-xs text-pastel-slate leading-relaxed">
+                            Take a deep breath as the circle shrinks, then release a steady, humming <strong>"Mmmmm"</strong> sound matching the tone from the play buttons.
+                        </p>
+                    </div>
+                    <!-- Small pulsating guide element -->
+                    <div class="w-16 h-16 rounded-full bg-pastel-rose border border-pastel-roseDark/20 flex items-center justify-center breathing-node shadow-sm">
+                        <i data-lucide="activity" class="w-4 h-4 text-pastel-roseDark"></i>
+                    </div>
+                </div>
+
+                <div class="space-y-3">
+                    <span class="block text-xs font-bold text-pastel-slate uppercase tracking-wider">Select Pitch Reference:</span>
+                    <div class="grid grid-cols-3 gap-2">
+                        <button onclick="triggerFrequency(180)" class="py-2.5 bg-pastel-cream hover:bg-pastel-rose hover:text-pastel-roseDark text-pastel-slate font-semibold text-xs rounded-xl border border-pastel-rose/30 transition-colors shadow-sm">
+                            180 Hz (Deep hum)
+                        </button>
+                        <button onclick="triggerFrequency(220)" class="py-2.5 bg-pastel-cream hover:bg-pastel-rose hover:text-pastel-roseDark text-pastel-slate font-semibold text-xs rounded-xl border border-pastel-rose/30 transition-colors shadow-sm">
+                            220 Hz (Mid resonance)
+                        </button>
+                        <button onclick="triggerFrequency(260)" class="py-2.5 bg-pastel-cream hover:bg-pastel-rose hover:text-pastel-roseDark text-pastel-slate font-semibold text-xs rounded-xl border border-pastel-rose/30 transition-colors shadow-sm">
+                            260 Hz (Calm high)
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DYNAMIC SPEAKING DRILLS & PROMPT DECKS -->
+            <div class="bg-white p-8 rounded-3xl border border-pastel-sageDark/20 shadow-md space-y-6 relative overflow-hidden">
+                <div class="absolute top-0 left-0 right-0 h-1.5 bg-pastel-sageDark"></div>
+                
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-2">
+                        <i data-lucide="book-open" class="w-5 h-5 text-pastel-sageDark"></i>
+                        <h3 class="font-serif text-lg font-bold text-pastel-slate">Lesson 1 Prompt Deck</h3>
+                    </div>
+                    <span id="prompt-id" class="text-xs font-semibold text-pastel-sageDark bg-pastel-sage px-2.5 py-1 rounded-md">Prompt 1 / 3</span>
+                </div>
+
+                <!-- Prompt Card Content Box -->
+                <div class="bg-pastel-cream/50 p-6 rounded-2xl border border-pastel-sage/40 space-y-4">
+                    <div class="flex justify-between items-center text-[10px] font-bold uppercase tracking-wider">
+                        <span class="text-pastel-sageDark bg-white px-2 py-0.5 rounded shadow-xs border border-pastel-sageDark/10" id="prompt-tag">Part 1 Focus</span>
+                        <span class="text-pastel-slate/60">Topic: Hometown Spaces</span>
+                    </div>
+                    <p id="prompt-body" class="font-serif text-base text-pastel-slate leading-relaxed font-semibold">
+                        "Describe the house or apartment you are currently living in. Which room is your absolute favorite to spend quiet hours in?"
+                    </p>
+                    <div class="p-3 bg-white rounded-xl border border-pastel-sage/30 text-xs text-pastel-slate/70">
+                        <strong class="text-pastel-roseDark">Anxiety Guard:</strong> Speak slowly. Take an obvious, open breath *before* uttering the first consonant word.
+                    </div>
+                </div>
+
+                <!-- Card Slider Controllers -->
+                <div class="flex justify-between gap-3">
+                    <button onclick="slidePrompt(-1)" class="flex-1 py-2.5 border border-pastel-sageDark/30 hover:bg-pastel-sage/50 text-pastel-slate font-semibold text-xs rounded-full transition flex items-center justify-center gap-1">
+                        <i data-lucide="chevron-left" class="w-4 h-4"></i> Prev Drill
+                    </button>
+                    <button onclick="slidePrompt(1)" class="flex-grow py-2.5 bg-pastel-slate hover:bg-pastel-roseDark text-white font-semibold text-xs rounded-full transition flex items-center justify-center gap-1 shadow-sm">
+                        Next Drill <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                    </button>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- READ ALOUD: SHADOWING INTEGRATION SECTION -->
+    <section class="max-w-7xl mx-auto px-6 mb-12">
+        <div class="bg-gradient-to-r from-pastel-sage/40 via-white to-pastel-rose/30 p-8 md:p-10 rounded-3xl border border-pastel-sageDark/20 shadow-md">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                
+                <div class="lg:col-span-5 space-y-4">
+                    <div class="inline-flex items-center space-x-2 bg-pastel-sage px-3 py-1 rounded-full border border-pastel-sageDark/25 shadow-xs">
+                        <i data-lucide="music" class="w-3.5 h-3.5 text-pastel-sageDark"></i>
+                        <span class="text-xs font-semibold text-pastel-slate uppercase tracking-wider">Pronunciation and Cadence Studio</span>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-pastel-slate">Cadence Shadowing Passages</h3>
+                    <p class="text-xs md:text-sm text-pastel-slate/85 leading-relaxed">
+                        Read these beautifully descriptive texts aloud. Pay close attention to the breath indicator markings (<strong class="text-pastel-roseDark font-bold">|</strong>). Use them to pause comfortably, letting your voice reset.
+                    </p>
+                    
+                    <!-- AI Voice Generation Controller -->
+                    <div class="p-5 bg-white rounded-2xl border border-pastel-rose/40 space-y-4 shadow-xs">
+                        <div>
+                            <span class="block text-[10px] font-bold text-pastel-roseDark uppercase tracking-wider mb-2">Native System Voice Reader</span>
+                            <div class="grid grid-cols-2 gap-2">
+                                <div>
+                                    <label class="block text-[9px] uppercase font-bold text-pastel-slate/50 mb-1">Select Guide Voice</label>
+                                    <select id="tts-voice" class="w-full p-2 rounded-lg border border-pastel-rose/40 text-xs bg-pastel-cream/30 focus:ring-1 focus:ring-pastel-roseDark focus:outline-none">
+                                        <!-- Dynamically populated with high-quality system English voices -->
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-[9px] uppercase font-bold text-pastel-slate/50 mb-1">Reading Pacing</label>
+                                    <select id="tts-pace" class="w-full p-2 rounded-lg border border-pastel-rose/40 text-xs bg-pastel-cream/30 focus:ring-1 focus:ring-pastel-roseDark focus:outline-none">
+                                        <option value="slow" selected>Calm & Slow</option>
+                                        <option value="normal">Normal Exam Pace</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col gap-2">
+                            <button id="tts-generate-btn" onclick="generateAIVoice()" class="w-full py-2.5 bg-pastel-slate hover:bg-pastel-roseDark text-white text-xs font-bold rounded-xl transition flex items-center justify-center gap-1.5 shadow-xs">
+                                <i data-lucide="play" class="w-4 h-4"></i>
+                                <span id="tts-btn-text">Listen to Voice Guide</span>
+                            </button>
+                            <!-- Speech Active Progress Container -->
+                            <div id="ai-audio-container" class="hidden animate-fadeIn space-y-2">
+                                <div class="flex items-center justify-between text-[9px] text-pastel-slate/50">
+                                    <span class="flex items-center gap-1">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-pastel-roseDark animate-ping"></span>
+                                        Guide voice reading aloud...
+                                    </span>
+                                    <button onclick="stopAIVoice()" class="hover:text-red-400 font-bold transition-all">Stop Voice Guide</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT SIDE: MULTI-PASSAGE SELECTION & DISPLAY -->
+                <div class="lg:col-span-7 space-y-4">
+                    <!-- Passage Selector Tabs -->
+                    <div class="flex flex-wrap gap-2 border-b border-pastel-rose pb-2" id="passage-tabs">
+                        <button onclick="selectPassage(0)" class="passage-tab px-3 py-1.5 text-xs font-bold rounded-lg bg-pastel-slate text-white transition shadow-sm" id="p-tab-0">1. Cozy Haven</button>
+                        <button onclick="selectPassage(1)" class="passage-tab px-3 py-1.5 text-xs font-semibold rounded-lg bg-white/75 text-pastel-slate border border-pastel-rose/30 hover:bg-pastel-rose transition" id="p-tab-1">2. Forest Pathway</button>
+                        <button onclick="selectPassage(2)" class="passage-tab px-3 py-1.5 text-xs font-semibold rounded-lg bg-white/75 text-pastel-slate border border-pastel-rose/30 hover:bg-pastel-rose transition" id="p-tab-2">3. Jasmine Brew</button>
+                        <button onclick="selectPassage(3)" class="passage-tab px-3 py-1.5 text-xs font-semibold rounded-lg bg-white/75 text-pastel-slate border border-pastel-rose/30 hover:bg-pastel-rose transition" id="p-tab-3">4. Library Desk</button>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-2xl border border-pastel-sageDark/20 shadow-xs relative">
+                        <h4 class="font-serif text-lg font-bold text-pastel-slate border-b pb-3 mb-4 flex items-center justify-between">
+                            <span class="flex items-center gap-2">
+                                <i data-lucide="file-text" class="text-pastel-sageDark w-4 h-4"></i>
+                                <span id="shadow-title">The Warm Harbor</span>
+                            </span>
+                            <span class="text-[10px] font-semibold text-pastel-sageDark bg-pastel-sage px-2.5 py-0.5 rounded-full" id="shadow-length">120 WPM</span>
+                        </h4>
+                        
+                        <!-- Main Shadowing Text Content -->
+                        <p id="shadow-text" class="font-serif text-base md:text-lg text-pastel-slate/90 leading-relaxed italic min-h-[100px]">
+                            "For many people, <span class="bg-pastel-rose/35 px-1 rounded text-pastel-roseDark font-bold">|</span> a quiet room at home is a peaceful sanctuary. <span class="bg-pastel-rose/35 px-1 rounded text-pastel-roseDark font-bold">|</span> When the sun descends slowly behind the trees, <span class="bg-pastel-rose/35 px-1 rounded text-pastel-roseDark font-bold">|</span> a gentle light fills the small space, <span class="bg-pastel-rose/35 px-1 rounded text-pastel-roseDark font-bold">|</span> bringing a comforting silence to the end of a long day."
+                        </p>
+                        
+                        <div class="mt-6 pt-4 border-t border-pastel-rose/40 flex justify-between items-center text-[10px] text-pastel-slate/50">
+                            <span id="shadow-hint">Target sound emphasis: Quiet, Descends, Space, Silence</span>
+                            <span>Aesthetic Focus: Gentle Vowel Extensions</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- LESSON NOTES & EXPORT WORKSHEET -->
+    <section class="max-w-7xl mx-auto px-6 mb-16">
+        <div class="bg-white p-8 md:p-10 rounded-3xl border border-pastel-roseDark/20 shadow-md">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                
+                <div class="lg:col-span-5 space-y-4">
+                    <h3 class="font-serif text-2xl font-bold text-pastel-slate">Session 1 Progress Worksheet</h3>
+                    <p class="text-xs md:text-sm text-pastel-slate/75 leading-relaxed">
+                        Complete this log with your student at the end of Lesson 1. Document vocabulary anchors used, positive attributes highlighted, and future confidence triggers. You can save locally and export to print for parents.
+                    </p>
+                    <div class="space-y-3 pt-2 text-xs text-pastel-slate">
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="check" class="w-4 h-4 text-emerald-500"></i>
+                            <span>Saves dynamically on input</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="download" class="w-4 h-4 text-pastel-roseDark"></i>
+                            <span>Download as a formatted document</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 space-y-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-pastel-slate uppercase tracking-wider mb-2">Confidence Level today:</label>
+                            <select id="l1-confidence" onchange="saveInput('l1-confidence', this.value)" class="w-full p-3 rounded-xl border border-pastel-rose/40 text-xs bg-pastel-cream/30 focus:outline-none focus:ring-1 focus:ring-pastel-roseDark">
+                                <option value="soft">Gentle / Whispering</option>
+                                <option value="developing">Developing Support</option>
+                                <option value="steady" selected>Steady &amp; Audible</option>
+                                <option value="confident">Exceptional Resonance</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-pastel-slate uppercase tracking-wider mb-2">Key Vocabulary Logged:</label>
+                            <input type="text" id="l1-vocab" placeholder="e.g., sanctuary, descends, vibrant, cozy..." oninput="saveInput('l1-vocab', this.value)" class="w-full p-3 rounded-xl border border-pastel-rose/40 text-xs bg-pastel-cream/30 focus:outline-none focus:ring-1 focus:ring-pastel-roseDark">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-pastel-slate uppercase tracking-wider mb-2">Positive Praise &amp; Key Wins:</label>
+                        <textarea id="l1-wins" rows="3" placeholder="e.g., Brilliant vocabulary selection on Hometown topics. Steady breath support during Lesson 1 hums..." oninput="saveInput('l1-wins', this.value)" class="w-full p-3 rounded-xl border border-pastel-rose/40 text-xs focus:outline-none focus:ring-1 focus:ring-pastel-roseDark"></textarea>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-pastel-slate uppercase tracking-wider mb-2">Target Goal for Lesson 2:</label>
+                        <input type="text" id="l1-goals" placeholder="Keep consonant /s/ endings crisp and extend answers to 45 seconds..." oninput="saveInput('l1-goals', this.value)" class="w-full p-3 rounded-xl border border-pastel-rose/40 text-xs focus:outline-none focus:ring-1 focus:ring-pastel-roseDark">
+                    </div>
+
+                    <div class="flex justify-end gap-2 pt-2">
+                        <button onclick="clearWorksheet()" class="px-5 py-2.5 rounded-full border border-pastel-roseDark/30 text-pastel-slate hover:bg-pastel-rose/40 text-xs font-semibold transition">
+                            Clear Worksheet
+                        </button>
+                        <button onclick="exportWorksheet()" class="px-5 py-2.5 bg-pastel-slate text-white hover:bg-pastel-roseDark text-xs font-semibold rounded-full transition flex items-center gap-1.5 shadow">
+                            <i data-lucide="arrow-down-to-line" class="w-4 h-4"></i>
+                            Download Progress Sheet
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CUSTOM SIMPLE MESSAGE MODAL -->
+    <div id="simple-alert" class="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-xs opacity-0 pointer-events-none transition-all duration-300">
+        <div class="bg-white max-w-sm w-full m-4 p-6 rounded-2xl border border-pastel-rose/40 shadow-xl text-center space-y-4">
+            <i data-lucide="check-circle" class="w-12 h-12 text-emerald-500 mx-auto"></i>
+            <h4 id="alert-title" class="font-bold text-lg text-pastel-slate">Worksheet Updated</h4>
+            <p id="alert-msg" class="text-xs text-pastel-slate/75">Your progress files have been stored securely in your workspace.</p>
+            <button onclick="closeAlert()" class="w-full py-2 bg-pastel-slate text-white text-xs font-bold rounded-full hover:bg-pastel-roseDark transition">
+                Understood
+            </button>
+        </div>
+    </div>
+
+    <!-- MINI FOOTER -->
+    <footer class="bg-pastel-slate text-white py-6 text-center text-xs">
+        <p>© 2026 IELTS Chan Truong • Customized Private Study Portals</p>
+    </footer>
+
+    <!-- PAGE SCRIPTS & ENGINES -->
+    <script>
+        lucide.createIcons();
+
+        // 1. Interactive Checkbox Tracker
+        let finishedSteps = [];
+
+        function toggleStep(stepNum, checkbox) {
+            const marker = document.getElementById(`marker-step-${stepNum}`);
+            if (checkbox.checked) {
+                if (!finishedSteps.includes(stepNum)) finishedSteps.push(stepNum);
+                marker.classList.remove('bg-pastel-rose', 'text-pastel-roseDark');
+                marker.classList.add('bg-pastel-sageDark', 'text-white', 'border-pastel-sageDark');
+            } else {
+                finishedSteps = finishedSteps.filter(s => s !== stepNum);
+                marker.classList.remove('bg-pastel-sageDark', 'text-white', 'border-pastel-sageDark');
+                marker.classList.add('bg-pastel-rose', 'text-pastel-roseDark');
+            }
+            document.getElementById('completed-count').innerText = `${finishedSteps.length}/5 Completed`;
+        }
+
+        // 2. Synthesized Web Audio Tuning Pitch
+        function triggerFrequency(hz) {
+            const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(hz, audioCtx.currentTime);
+
+            gain.gain.setValueAtTime(0.15, audioCtx.currentTime);
+            // Decay audio over 2 seconds
+            gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 2);
+
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+
+            osc.start();
+            osc.stop(audioCtx.currentTime + 2);
+        }
+
+        // 3. Drill Prompt Slider Data
+        const lessonPrompts = [
+            {
+                tag: "Part 1 Focus",
+                topic: "Hometown Spaces",
+                body: "Describe the house or apartment you are currently living in. Which room is your absolute favorite to spend quiet hours in?",
+                guard: "Speak slowly. Take an obvious, open breath *before* uttering the first consonant word."
+            },
+            {
+                tag: "Vocal Projection Focus",
+                topic: "Reading and Passions",
+                body: "Do you enjoy reading? What kind of stories do you prefer when you want to feel relaxed?",
+                guard: "Ensure you make your final /s/ crisp when pronouncing 'stories' and 'passions'."
+            },
+            {
+                tag: "Bridges and Links Focus",
+                topic: "Daily Pacing",
+                body: "At what time of the day do you find it easiest to concentrate on difficult studies?",
+                guard: "Use an extension bridge: 'I find it easiest to focus when... mainly because...'"
+            }
+        ];
+
+        let promptIndex = 0;
+
+        function slidePrompt(direction) {
+            promptIndex = (promptIndex + direction + lessonPrompts.length) % lessonPrompts.length;
+            
+            document.getElementById('prompt-id').innerText = `Prompt ${promptIndex + 1} / ${lessonPrompts.length}`;
+            document.getElementById('prompt-tag').innerText = lessonPrompts[promptIndex].tag;
+            document.getElementById('prompt-body').innerText = `"${lessonPrompts[promptIndex].body}"`;
+            
+            const guardEl = document.querySelector('#prompt-body').nextElementSibling;
+            if (guardEl) {
+                guardEl.innerHTML = `<strong class="text-pastel-roseDark">Anxiety Guard:</strong> ${lessonPrompts[promptIndex].guard}`;
+            }
+        }
+
+        // 4. Cadence Shadowing Passage Controller
+        const shadowingPassages = [
+            {
+                title: "The Warm Harbor",
+                hint: "Target sound emphasis: Quiet, Descends, Space, Silence",
+                length: "approx. 110 WPM",
+                markup: `"For many people, <span class='bg-pastel-rose/35 px-1 rounded text-pastel-roseDark font-bold'>|</span> a quiet room at home is a peaceful sanctuary. <span class='bg-pastel-rose/35 px-1 rounded text-pastel-roseDark font-bold'>|</span> When the sun descends slowly behind the trees, <span class='bg-pastel-rose/35 px-1 rounded text-pastel-roseDark font-bold'>|</span> a gentle light fills the small space, <span class='bg-pastel-rose/35 px-1 rounded text-pastel-roseDark font-bold'>|</span> bringing a comforting silence to the end of a long day."`,
+                plainText: "For many people, a quiet room at home is a peaceful sanctuary. When the sun descends slowly behind the trees, a gentle light fills the small space, bringing a comforting silence to the end of a long day."
+            },
+            {
+                title: "The Whispering Path",
+                hint: "Target sound emphasis: Forest, Fragrant, Sways, Whistles",
+                length: "approx. 105 WPM",
+                markup: `"Stepping into a deep forest, <span class='bg-pastel-rose/35 px-1 rounded text-pastel-roseDark font-bold'>|</span> you are greeted by cool, fragrant air. <span class='bg-pastel-rose/35 px-1 rounded text-pastel-roseDark font-bold'>|</span> The tall pine trees sway gently in the breeze, <span class='bg-pastel-rose/35 px-1 rounded text-pastel-roseDark font-bold'>|</span> creating a soft, rhythmic whistle <span class='bg-pastel-rose/35 px-1 rounded text-pastel-roseDark font-bold'>|</span> that washes away all busy thoughts from your mind."`,
+                plainText: "Stepping into a deep forest, you are greeted by cool, fragrant air. The tall pine trees sway gently in the breeze, creating a soft, rhythmic whistle that washes away all busy thoughts from your mind."
+            },
+            {
+                title: "The Morning Infusion",
+                hint: "Target sound emphasis: Jasmine, Warm, Porcelain, Comforting",
+                length: "approx. 115 WPM",
+                markup: `"Sipping a warm cup of jasmine tea <span class='bg-pastel-rose/35 px-1 rounded text-pastel-roseDark font-bold'>|</span> in the early morning is a beautiful ritual. <span class='bg-pastel-rose/35 px-1 rounded text-pastel-roseDark font-bold'>|</span> Steam rises slowly from the porcelain cup, <span class='bg-pastel-rose/35 px-1 rounded text-pastel-roseDark font-bold'>|</span> warming your hands <span class='bg-pastel-rose/35 px-1 rounded text-pastel-roseDark font-bold'>|</span> and carrying a delicate floral scent into the quiet house."`,
+                plainText: "Sipping a warm cup of jasmine tea in the early morning is a beautiful ritual. Steam rises slowly from the porcelain cup, warming your hands and carrying a delicate floral scent into the quiet house."
+            },
+            {
+                title: "The Old Library Alcove",
+                hint: "Target sound emphasis: Library, Stained, Golden, Ancient",
+                length: "approx. 110 WPM",
+                markup: `"Hidden in the back of the library, <span class='bg-pastel-rose/35 px-1 rounded text-pastel-roseDark font-bold'>|</span> lies a small desk under a stained glass window. <span class='bg-pastel-rose/35 px-1 rounded text-pastel-roseDark font-bold'>|</span> Dust motes dance in the warm beams of sunlight, <span class='bg-pastel-rose/35 px-1 rounded text-pastel-roseDark font-bold'>|</span> while the comforting scent of ancient books <span class='bg-pastel-rose/35 px-1 rounded text-pastel-roseDark font-bold'>|</span> invites you to read and wonder for hours."`,
+                plainText: "Hidden in the back of the library, lies a small desk under a stained glass window. Dust motes dance in the warm beams of sunlight, while the comforting scent of ancient books invites you to read and wonder for hours."
+            }
+        ];
+
+        let activePassageIndex = 0;
+
+        function selectPassage(index) {
+            activePassageIndex = index;
+            const p = shadowingPassages[index];
+
+            // Update DOM
+            document.getElementById('shadow-title').innerText = p.title;
+            document.getElementById('shadow-length').innerText = p.length;
+            document.getElementById('shadow-text').innerHTML = p.markup;
+            document.getElementById('shadow-hint').innerText = p.hint;
+
+            // Highlight Tab
+            document.querySelectorAll('.passage-tab').forEach((tab, i) => {
+                if (i === index) {
+                    tab.className = "passage-tab px-3 py-1.5 text-xs font-bold rounded-lg bg-pastel-slate text-white transition shadow-sm";
+                } else {
+                    tab.className = "passage-tab px-3 py-1.5 text-xs font-semibold rounded-lg bg-white/75 text-pastel-slate border border-pastel-rose/30 hover:bg-pastel-rose transition";
+                }
+            });
+
+            // If a previous audio is visible, hide it to prevent confusion
+            hideAudioPlayer();
+        }
+
+        // 5. Browser-Native Speech Synthesis (TTS) Engine
+        let synth = window.speechSynthesis;
+        let systemVoices = [];
+        let currentUtterance = null;
+
+        // Fetch high-quality English voices installed on the student's operating system
+        function loadSystemVoices() {
+            if (!synth) return;
+            // Filter out non-English voice profiles
+            systemVoices = synth.getVoices().filter(voice => voice.lang.startsWith('en'));
+            const voiceSelect = document.getElementById('tts-voice');
+            
+            // Clear prior selection
+            voiceSelect.innerHTML = '';
+
+            if (systemVoices.length === 0) {
+                const opt = document.createElement('option');
+                opt.value = '';
+                opt.innerText = 'No English voices found';
+                voiceSelect.appendChild(opt);
+                return;
+            }
+
+            systemVoices.forEach((voice, index) => {
+                const opt = document.createElement('option');
+                opt.value = index;
+                // Highlight preferred Google, Apple, or Natural speech engines
+                const isPreferred = voice.name.includes('Google') || voice.name.includes('Natural') || voice.name.includes('Apple') || voice.name.includes('Zira');
+                opt.innerText = `${voice.name} (${voice.lang})${isPreferred ? ' ✨' : ''}`;
+                
+                // Select first English voice as standard default
+                if (index === 0) opt.selected = true;
+                voiceSelect.appendChild(opt);
+            });
+        }
+
+        // Speech synthesis load listeners (Safari & older browsers need short set timeouts)
+        if (synth) {
+            if (synth.onvoiceschanged !== undefined) {
+                synth.onvoiceschanged = loadSystemVoices;
+            }
+            setTimeout(loadSystemVoices, 100);
+        }
+
+        function generateAIVoice() {
+            if (!synth) {
+                triggerAlert("Browser Not Supported", "Your current web browser does not support native voice synthesis. Please try Chrome or Safari.", "alert-triangle");
+                return;
+            }
+
+            // Immediately clear any currently reading voice before triggering next
+            stopAIVoice();
+
+            const voiceSelect = document.getElementById('tts-voice');
+            const paceSelect = document.getElementById('tts-pace');
+            const activePassage = shadowingPassages[activePassageIndex];
+
+            if (voiceSelect.value === '') {
+                triggerAlert("No Voice Selected", "Please select an English system voice from the dropdown.", "alert-triangle");
+                return;
+            }
+
+            const selectedVoiceIndex = parseInt(voiceSelect.value, 10);
+            const selectedVoice = systemVoices[selectedVoiceIndex];
+            const paceStyle = paceSelect.value;
+
+            // Hand passage plain text off to voice synthesizers
+            currentUtterance = new SpeechSynthesisUtterance(activePassage.plainText);
+            
+            if (selectedVoice) {
+                currentUtterance.voice = selectedVoice;
+            }
+
+            // Apply rate limits (0.75 maps to careful slower speech pacing, 1.0 is standard exam rate)
+            currentUtterance.rate = paceStyle === 'slow' ? 0.75 : 1.0;
+            currentUtterance.pitch = 1.0;
+
+            // Visual feedback transitions during active speaking
+            currentUtterance.onstart = function() {
+                const btn = document.getElementById('tts-generate-btn');
+                const btnText = document.getElementById('tts-btn-text');
+                btnText.innerText = "Guide Reading...";
+                btn.classList.add('opacity-75', 'bg-pastel-roseDark');
+                document.getElementById('ai-audio-container').classList.remove('hidden');
+            };
+
+            currentUtterance.onend = function() {
+                resetVoiceUI();
+            };
+
+            currentUtterance.onerror = function(event) {
+                console.error("SpeechSynthesis synthesis interrupted:", event);
+                resetVoiceUI();
+            };
+
+            // Speak cleanly
+            synth.speak(currentUtterance);
+        }
+
+        function stopAIVoice() {
+            if (synth && synth.speaking) {
+                synth.cancel();
+            }
+            resetVoiceUI();
+        }
+
+        function resetVoiceUI() {
+            const btn = document.getElementById('tts-generate-btn');
+            const btnText = document.getElementById('tts-btn-text');
+            if (btnText) btnText.innerText = "Listen to Voice Guide";
+            if (btn) btn.classList.remove('opacity-75', 'bg-pastel-roseDark');
+            const container = document.getElementById('ai-audio-container');
+            if (container) container.classList.add('hidden');
+        }
+
+        function hideAudioPlayer() {
+            stopAIVoice();
+        }
+
+        // 6. Progress Local Storage & Worksheet Handlers
+        function saveInput(key, val) {
+            localStorage.setItem(`l1_${key}`, val);
+        }
+
+        window.onload = function() {
+            if(localStorage.getItem('l1_l1-confidence')) {
+                document.getElementById('l1-confidence').value = localStorage.getItem('l1_l1-confidence');
+            }
+            if(localStorage.getItem('l1_l1-vocab')) {
+                document.getElementById('l1-vocab').value = localStorage.getItem('l1_l1-vocab');
+            }
+            if(localStorage.getItem('l1_l1-wins')) {
+                document.getElementById('l1-wins').value = localStorage.getItem('l1_l1-wins');
+            }
+            if(localStorage.getItem('l1_l1-goals')) {
+                document.getElementById('l1-goals').value = localStorage.getItem('l1_l1-goals');
+            }
+        };
+
+        function clearWorksheet() {
+            document.getElementById('l1-vocab').value = '';
+            document.getElementById('l1-wins').value = '';
+            document.getElementById('l1-goals').value = '';
+            document.getElementById('l1-confidence').value = 'steady';
+
+            localStorage.removeItem('l1_l1-confidence');
+            localStorage.removeItem('l1_l1-vocab');
+            localStorage.removeItem('l1_l1-wins');
+            localStorage.removeItem('l1_l1-goals');
+
+            triggerAlert("Worksheet Cleared", "The Session 1 progress sheet has been reset successfully.", "trash-2");
+        }
+
+        function exportWorksheet() {
+            const confidence = document.getElementById('l1-confidence').value;
+            const vocab = document.getElementById('l1-vocab').value;
+            const wins = document.getElementById('l1-wins').value;
+            const goals = document.getElementById('l1-goals').value;
+
+            const textOutput = `--- IELTS CHAN TRUONG: LESSON 1 PROGRESS SHEET ---\n\n` +
+                               `Subject: Dissolving Barriers & Awakening the Voice\n` +
+                               `Confidence Metrics: ${confidence.toUpperCase()}\n` +
+                               `Key Vocabulary Mastered: ${vocab || '(None entered)'}\n\n` +
+                               `Teacher Praise & Session Highlights:\n${wins || '(None entered)'}\n\n` +
+                               `Target Goals for Lesson 2:\n${goals || '(None entered)'}\n\n` +
+                               `Date of Lesson Completion: ${new Date().toLocaleDateString()}\n`;
+
+            const blob = new Blob([textOutput], { type: 'text/plain;charset=utf-8' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'IELTS_Lesson1_Progress_Sheet.txt';
+            link.click();
+        }
+
+        // 7. Custom Modal Helpers
+        function triggerAlert(title, message, iconName = 'check-circle') {
+            document.getElementById('alert-title').innerText = title;
+            document.getElementById('alert-msg').innerText = message;
+            
+            const icon = document.querySelector('#simple-alert i');
+            if (icon) {
+                icon.setAttribute('data-lucide', iconName);
+                lucide.createIcons();
+            }
+
+            const alertBox = document.getElementById('simple-alert');
+            alertBox.classList.remove('opacity-0', 'pointer-events-none');
+        }
+
+        function closeAlert() {
+            const alertBox = document.getElementById('simple-alert');
+            alertBox.classList.add('opacity-0', 'pointer-events-none');
+        }
+    </script>
+</body>
+</html>

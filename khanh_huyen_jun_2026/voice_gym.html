@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Chan Truong - Interactive Voice Gym</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Plus Jakarta Sans & Playfair Display -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    },
+                    colors: {
+                        pastel: {
+                            rose: '#F9ECEE',      /* Soft Blush */
+                            roseDark: '#E4A8B2',  /* Muted Blush Darker Accent */
+                            sage: '#E3ECE8',      /* Eucalyptus/Sage */
+                            sageDark: '#7CA393',  /* Rich Sage Text/Border */
+                            cream: '#FCF9F5',     /* Cream Canvas */
+                            slate: '#2E3238',     /* Soft Charcoal */
+                            gold: '#D4AF37',      /* Elegant Muted Gold */
+                            goldDark: '#8F7726',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCF9F5;
+            color: #2E3238;
+        }
+        /* Custom dynamic animations */
+        @keyframes subtlePulse {
+            0%, 100% { transform: scale(1); opacity: 0.85; }
+            50% { transform: scale(1.05); opacity: 1; }
+        }
+        .breathing-glow {
+            box-shadow: 0 0 25px rgba(228, 168, 178, 0.4);
+        }
+        /* Hide scrollbars elegantly */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased min-h-screen flex flex-col justify-between">
+
+    <!-- TOP NAVIGATION BAR -->
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-filter backdrop-blur-lg border-b border-pastel-rose/40 px-6 py-4 shadow-sm">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-full bg-pastel-rose flex items-center justify-center border border-pastel-roseDark/30 shadow-sm">
+                    <span class="font-serif font-bold text-pastel-slate text-lg">CT</span>
+                </div>
+                <div>
+                    <h1 class="font-serif font-bold text-lg leading-tight text-pastel-slate">IELTS Chan Truong</h1>
+                    <p class="text-xs tracking-widest text-pastel-sageDark uppercase font-semibold">Voice Gym • Private Sanctuary</p>
+                </div>
+            </div>
+            
+            <div class="flex items-center space-x-4">
+                <span class="hidden md:inline-flex text-xs bg-pastel-sage text-pastel-sageDark font-semibold px-3 py-1.5 rounded-full border border-pastel-sageDark/20 shadow-sm">
+                    Target: 6.5+ Vocal Projection
+                </span>
+                <button onclick="toggleModal('info-modal')" class="p-2 hover:bg-pastel-rose rounded-full transition-all duration-300" title="How to use the Voice Gym">
+                    <i data-lucide="help-circle" class="w-5 h-5 text-pastel-slate"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN APP WRAPPER -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-6 py-10">
+        
+        <!-- HEADER MOTIVATION SECTION -->
+        <header class="text-center max-w-3xl mx-auto mb-10 space-y-4">
+            <div class="inline-flex items-center space-x-2 bg-pastel-rose/70 px-4 py-1.5 rounded-full border border-pastel-roseDark/30">
+                <i data-lucide="mic" class="w-4 h-4 text-pastel-roseDark animate-pulse"></i>
+                <span class="text-xs font-semibold text-pastel-slate tracking-wider uppercase">Interactive Speech Studio</span>
+            </div>
+            <h2 class="font-serif text-3xl md:text-5xl text-pastel-slate">Your Voice holds a <br><span class="italic text-pastel-roseDark">Grand Melody within</span></h2>
+            <p class="text-sm md:text-base text-pastel-slate/85 leading-relaxed">
+                Welcome to your private vocal space, custom-built to release speaking anxiety. Take a deep breath, follow the pacer, warm up your registers, and speak comfortably.
+            </p>
+        </header>
+
+        <!-- TWO COLUMN INTERACTIVE INTERFACE -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            
+            <!-- LEFT WORKSPACE: PACER & CARDS -->
+            <div class="lg:col-span-6 space-y-8">
+                
+                <!-- DYNAMIC BREATH REGULATOR CARD -->
+                <div class="bg-white p-8 rounded-3xl border border-pastel-roseDark/20 shadow-lg space-y-6 relative overflow-hidden">
+                    <div class="absolute top-0 left-0 right-0 h-1.5 bg-pastel-roseDark"></div>
+                    
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-2">
+                            <i data-lucide="wind" class="w-5 h-5 text-pastel-roseDark"></i>
+                            <h3 class="font-serif text-xl font-bold text-pastel-slate">1. Dynamic Breath Regulator</h3>
+                        </div>
+                        <!-- Pacer Modes Dropdown -->
+                        <select id="pacer-mode" onchange="changePacerMode()" class="text-xs bg-pastel-cream text-pastel-slate font-semibold px-3 py-1.5 rounded-full border border-pastel-roseDark/20 focus:outline-none focus:ring-1 focus:ring-pastel-roseDark">
+                            <option value="steady">Steady Flow (4s-4s)</option>
+                            <option value="box">Box Breath (4s-4s-4s-4s)</option>
+                            <option value="speak">Speak Flow (4s-2s-6s)</option>
+                        </select>
+                    </div>
+
+                    <!-- PACER ANIMATION ELEMENT -->
+                    <div class="h-48 flex items-center justify-center relative">
+                        <!-- Outer breathing ring -->
+                        <div id="pacer-glow" class="absolute w-28 h-28 rounded-full bg-pastel-rose/30 transition-all duration-1000 ease-in-out flex items-center justify-center">
+                            <!-- Inner indicator circle -->
+                            <div id="pacer-core" class="w-12 h-12 rounded-full bg-pastel-roseDark/60 transition-all duration-1000 ease-in-out flex items-center justify-center shadow-inner">
+                                <i data-lucide="activity" class="w-5 h-5 text-white opacity-80"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pacer instructions -->
+                    <div class="text-center space-y-1">
+                        <span id="pacer-action" class="text-lg font-bold text-pastel-slate block tracking-wide">Inhale slowly through your nose...</span>
+                        <span id="pacer-timer" class="text-xs text-pastel-sageDark font-semibold block">Initializing breath cycles...</span>
+                    </div>
+                </div>
+
+                <!-- SPEAKING PRACTICE CARD DECK -->
+                <div class="bg-white p-8 rounded-3xl border border-pastel-sageDark/20 shadow-lg space-y-6 relative overflow-hidden">
+                    <div class="absolute top-0 left-0 right-0 h-1.5 bg-pastel-sageDark"></div>
+                    
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-2">
+                            <i data-lucide="book-open" class="w-5 h-5 text-pastel-sageDark"></i>
+                            <h3 class="font-serif text-xl font-bold text-pastel-slate">2. IELTS Prompt Library</h3>
+                        </div>
+                        <span id="deck-counter" class="text-xs font-bold text-pastel-sageDark bg-pastel-sage px-3 py-1 rounded-full">Card 1 / 6</span>
+                    </div>
+
+                    <!-- DYNAMIC CARD VIEWPORT -->
+                    <div class="bg-pastel-cream/60 p-6 rounded-2xl border border-pastel-sageDark/10 space-y-4 min-h-[160px] flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span id="prompt-section" class="text-[10px] font-bold uppercase tracking-widest text-pastel-sageDark bg-white px-2.5 py-1 rounded-md shadow-sm border border-pastel-sageDark/10">Speaking Part 1</span>
+                                <span id="prompt-topic" class="text-xs font-semibold text-pastel-slate/60">Topic: Cozy Spaces</span>
+                            </div>
+                            <p id="prompt-text" class="font-serif text-lg text-pastel-slate leading-relaxed font-semibold">
+                                "Describe a cozy room or space where you love spending your free time. Why does it make you feel comfortable?"
+                            </p>
+                        </div>
+                        <div class="pt-2 border-t border-pastel-sage/40 flex justify-between items-center text-xs text-pastel-slate/70 italic">
+                            <span>Tip: Keep your shoulders relaxed and smile slightly as you say the first word.</span>
+                        </div>
+                    </div>
+
+                    <!-- TIME CONTROL ZONE -->
+                    <div class="grid grid-cols-2 gap-4 items-center bg-pastel-cream/30 p-4 rounded-xl border border-pastel-roseDark/10">
+                        <div>
+                            <span class="block text-[10px] uppercase font-bold text-pastel-slate/60 tracking-wider">Practice Timer</span>
+                            <span id="timer-display" class="text-xl font-mono font-bold text-pastel-slate">00:00</span>
+                        </div>
+                        <div class="flex justify-end gap-2">
+                            <button id="timer-btn" onclick="togglePracticeTimer()" class="p-2.5 bg-pastel-slate hover:bg-pastel-roseDark text-white rounded-full transition shadow-sm">
+                                <i id="timer-icon" data-lucide="play" class="w-4 h-4"></i>
+                            </button>
+                            <button onclick="resetPracticeTimer()" class="p-2.5 bg-white border border-pastel-rose/40 hover:bg-pastel-rose text-pastel-slate rounded-full transition">
+                                <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- CARD NAVIGATION CONTROLS -->
+                    <div class="flex justify-between gap-3 pt-2">
+                        <button onclick="changePrompt(-1)" class="flex-1 py-2.5 rounded-full border border-pastel-sageDark/30 hover:bg-pastel-sage text-pastel-slate font-semibold text-xs transition flex items-center justify-center gap-1.5 shadow-sm">
+                            <i data-lucide="chevron-left" class="w-4 h-4"></i> Prev Card
+                        </button>
+                        <button onclick="changePrompt(1)" class="flex-1 py-2.5 rounded-full bg-pastel-slate hover:bg-pastel-roseDark text-white font-semibold text-xs transition flex items-center justify-center gap-1.5 shadow-md">
+                            Next Card <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- RIGHT WORKSPACE: LIVE VOLUME ANALYZER & WARMUPS -->
+            <div class="lg:col-span-6 space-y-8">
+                
+                <!-- MICROPHONE SOUNDWAVE ANALYZER CARD -->
+                <div class="bg-white p-8 rounded-3xl border border-pastel-roseDark/20 shadow-lg space-y-6 relative overflow-hidden">
+                    <div class="absolute top-0 left-0 right-0 h-1.5 bg-pastel-roseDark"></div>
+                    
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-2">
+                            <i data-lucide="activity" class="w-5 h-5 text-pastel-roseDark animate-pulse"></i>
+                            <h3 class="font-serif text-xl font-bold text-pastel-slate">3. Real-Time Vocal Wave</h3>
+                        </div>
+                        <button id="main-mic-btn" onclick="startVocalEngine()" class="flex items-center gap-1.5 px-4 py-1.5 bg-pastel-slate text-white text-xs font-bold rounded-full hover:bg-pastel-roseDark transition shadow-sm">
+                            <i data-lucide="mic" class="w-3.5 h-3.5"></i>
+                            <span id="main-mic-text">Breathe & Speak</span>
+                        </button>
+                    </div>
+
+                    <!-- LIVE SOUNDWAVE VISUALIZER CANVAS -->
+                    <div class="relative bg-pastel-cream/80 h-32 rounded-2xl border border-pastel-roseDark/10 overflow-hidden flex items-center justify-center">
+                        <canvas id="waveform-canvas" class="absolute inset-0 w-full h-full"></canvas>
+                        <!-- Interactive overlays when microphone is off -->
+                        <div id="mic-prompt-overlay" class="absolute inset-0 bg-white/70 backdrop-blur-[1px] flex flex-col items-center justify-center text-center p-4 transition-opacity duration-300">
+                            <i data-lucide="mic-off" class="w-8 h-8 text-pastel-roseDark mb-2"></i>
+                            <p class="text-xs font-bold text-pastel-slate">Microphone Offline</p>
+                            <p class="text-[10px] text-pastel-slate/60 max-w-xs mt-1">Unlock real-time soundwaves & volume targets to check your speaking energy.</p>
+                        </div>
+                    </div>
+
+                    <!-- GRAPHICAL VOLUME SLIDER & TARGET THRESHOLDS -->
+                    <div class="space-y-3">
+                        <div class="flex justify-between text-xs font-bold text-pastel-slate/50">
+                            <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-orange-300"></span> Whispering</span>
+                            <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-emerald-400"></span> Golden Projection</span>
+                            <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-amber-500"></span> Shouting</span>
+                        </div>
+                        
+                        <!-- Slider container with indicators -->
+                        <div class="h-6 w-full bg-pastel-cream rounded-full overflow-hidden flex p-1 border border-pastel-roseDark/10 relative">
+                            <!-- Golden Zone Background Overlay -->
+                            <div class="absolute inset-y-1 left-[30%] right-[25%] bg-emerald-500/10 border-l border-r border-emerald-400/25 rounded-sm"></div>
+                            
+                            <!-- Dynamic Fill -->
+                            <div id="volume-indicator" class="h-full w-0 bg-gradient-to-r from-orange-200 via-emerald-400 to-amber-400 rounded-full transition-all duration-75 relative z-10"></div>
+                        </div>
+                    </div>
+
+                    <!-- Dynamic Voice Feedback Alerts -->
+                    <div id="voice-alert-box" class="p-3.5 bg-pastel-rose/40 rounded-xl border border-pastel-roseDark/10 text-center">
+                        <p id="voice-alert-text" class="text-xs font-semibold text-pastel-slate">Waiting for voice input... Connect your microphone and warm up.</p>
+                    </div>
+                </div>
+
+                <!-- ACTIVE VOCAL WARM-UPS PLAYLIST -->
+                <div class="bg-white p-8 rounded-3xl border border-pastel-sageDark/20 shadow-lg space-y-6 relative overflow-hidden">
+                    <div class="absolute top-0 left-0 right-0 h-1.5 bg-pastel-sageDark"></div>
+                    
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-2">
+                            <i data-lucide="music-2" class="w-5 h-5 text-pastel-sageDark"></i>
+                            <h3 class="font-serif text-xl font-bold text-pastel-slate">4. Studio Vocal Warm-Ups</h3>
+                        </div>
+                        <span class="text-xs font-bold text-pastel-sageDark">Vocal Gym Routine</span>
+                    </div>
+
+                    <!-- Step-by-Step Tracks List -->
+                    <div class="space-y-3">
+                        <!-- Track 1 -->
+                        <div class="warmup-item flex items-center justify-between p-3.5 bg-pastel-cream/50 hover:bg-pastel-cream rounded-2xl border border-pastel-rose/30 transition-all duration-300">
+                            <div class="flex items-center space-x-3">
+                                <button onclick="triggerTuningFork(220)" class="w-8 h-8 rounded-full bg-pastel-rose hover:bg-pastel-roseDark text-pastel-roseDark hover:text-white flex items-center justify-center transition-colors">
+                                    <i data-lucide="play" class="w-4 h-4"></i>
+                                </button>
+                                <div>
+                                    <h4 class="text-xs font-bold text-pastel-slate">The "Chest Register" Hum</h4>
+                                    <p class="text-[10px] text-pastel-slate/60">Inhale -> hum steady "Hmm" -> vibrate the collarbone.</p>
+                                </div>
+                            </div>
+                            <span class="text-[10px] font-bold bg-pastel-rose text-pastel-roseDark px-2 py-1 rounded-md">Resonance</span>
+                        </div>
+
+                        <!-- Track 2 -->
+                        <div class="warmup-item flex items-center justify-between p-3.5 bg-pastel-cream/50 hover:bg-pastel-cream rounded-2xl border border-pastel-rose/30 transition-all duration-300">
+                            <div class="flex items-center space-x-3">
+                                <button onclick="triggerTuningFork(330)" class="w-8 h-8 rounded-full bg-pastel-sage hover:bg-pastel-sageDark text-pastel-sageDark hover:text-white flex items-center justify-center transition-colors">
+                                    <i data-lucide="play" class="w-4 h-4"></i>
+                                </button>
+                                <div>
+                                    <h4 class="text-xs font-bold text-pastel-slate">The Tongue Twister "Consonant Pop"</h4>
+                                    <p class="text-[10px] text-pastel-slate/60">Say: "A pleasant place to play with plastic toys."</p>
+                                </div>
+                            </div>
+                            <span class="text-[10px] font-bold bg-pastel-sage text-pastel-sageDark px-2 py-1 rounded-md">Clarity</span>
+                        </div>
+
+                        <!-- Track 3 -->
+                        <div class="warmup-item flex items-center justify-between p-3.5 bg-pastel-cream/50 hover:bg-pastel-cream rounded-2xl border border-pastel-rose/30 transition-all duration-300">
+                            <div class="flex items-center space-x-3">
+                                <button onclick="triggerTuningFork(440)" class="w-8 h-8 rounded-full bg-pastel-rose hover:bg-pastel-roseDark text-pastel-roseDark hover:text-white flex items-center justify-center transition-colors">
+                                    <i data-lucide="play" class="w-4 h-4"></i>
+                                </button>
+                                <div>
+                                    <h4 class="text-xs font-bold text-pastel-slate">Vocal Pitch Sliding (Sirens)</h4>
+                                    <p class="text-[10px] text-pastel-slate/60">Slide your voice slowly from a low pitch to a comfortable high pitch.</p>
+                                </div>
+                            </div>
+                            <span class="text-[10px] font-bold bg-pastel-rose text-pastel-roseDark px-2 py-1 rounded-md">Flexibility</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- JOURNAL & PROGRESS MONITOR -->
+        <section class="mt-12 bg-gradient-to-br from-pastel-rose/30 via-white to-pastel-sage/20 p-8 rounded-3xl border border-pastel-roseDark/20 shadow-md">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                
+                <div class="md:col-span-5 space-y-4">
+                    <h3 class="font-serif text-2xl font-bold text-pastel-slate">Vocal Reflection Journal</h3>
+                    <p class="text-xs md:text-sm text-pastel-slate/80 leading-relaxed">
+                        Reflect on your speaking sessions, write down elegant C1-C2 vocabulary items to use, and record comments on how comfortable and projected your voice felt today. Your notes save locally.
+                    </p>
+                    
+                    <!-- Confidence slider -->
+                    <div class="space-y-2 pt-2">
+                        <label class="block text-xs font-bold text-pastel-slate uppercase tracking-wider">How confident is your voice today?</label>
+                        <div class="flex items-center gap-3">
+                            <span class="text-xs">Quiet / Soft</span>
+                            <input id="confidence-range" type="range" min="1" max="5" value="3" oninput="updateConfidenceLevel(this.value)" class="flex-grow accent-pastel-roseDark cursor-pointer">
+                            <span class="text-xs font-bold text-pastel-roseDark" id="confidence-display">Steady</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="md:col-span-7 space-y-4 bg-white p-6 rounded-2xl border border-pastel-rose/40">
+                    <div>
+                        <label class="block text-xs font-bold text-pastel-slate uppercase tracking-wider mb-2">Today's Vocabulary Anchors:</label>
+                        <input type="text" id="practice-vocabulary" placeholder="e.g., breathtaking, soothing, meticulously designed..." class="w-full p-3 rounded-xl border border-pastel-rose/40 text-sm focus:outline-none focus:ring-1 focus:ring-pastel-roseDark">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-pastel-slate uppercase tracking-wider mb-2">Your Personal Session Notes:</label>
+                        <textarea id="session-log" rows="4" placeholder="How did you feel about today's breath support? Any particular card that made you feel proud?" class="w-full p-3 rounded-xl border border-pastel-rose/40 text-sm focus:outline-none focus:ring-1 focus:ring-pastel-roseDark"></textarea>
+                    </div>
+                    <div class="flex justify-end gap-2">
+                        <button onclick="clearJournal()" class="px-5 py-2 rounded-full border border-pastel-roseDark/30 text-pastel-slate hover:bg-pastel-rose/40 text-xs font-semibold transition">
+                            Clear Log
+                        </button>
+                        <button onclick="exportJournal()" class="px-5 py-2 rounded-full bg-pastel-slate text-white hover:bg-pastel-roseDark text-xs font-semibold transition flex items-center gap-1.5 shadow-sm">
+                            <i data-lucide="download" class="w-4 h-4"></i>
+                            Download Vocal Log
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- INSTRUCTIONAL MODAL (How to use the Studio) -->
+    <div id="info-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm opacity-0 pointer-events-none transition-all duration-300">
+        <div class="bg-white max-w-lg w-full m-4 p-8 rounded-3xl border border-pastel-rose/60 shadow-xl space-y-6">
+            <div class="flex justify-between items-center border-b pb-3 border-pastel-rose/40">
+                <h3 class="font-serif text-2xl font-bold text-pastel-slate">Guide: Vocal Power Sanctuary</h3>
+                <button onclick="toggleModal('info-modal')" class="p-1 hover:bg-pastel-rose rounded-full transition">
+                    <i data-lucide="x" class="w-5 h-5 text-pastel-slate"></i>
+                </button>
+            </div>
+            
+            <div class="space-y-4 text-xs text-pastel-slate/85 leading-relaxed">
+                <div class="space-y-1">
+                    <h4 class="font-bold text-pastel-roseDark">1. Breath Regulator</h4>
+                    <p>Before speaking, breathe in matching the expanding circle, hold on pause, and exhale as the circle shrinks. It aligns your nervous system.</p>
+                </div>
+                <div class="space-y-1">
+                    <h4 class="font-bold text-pastel-sageDark">2. Soundwave Analyzer &amp; Volume Target</h4>
+                    <p>Grant permission to your microphone. Talk aloud inside your room. The goal is to make the volume bar reach the **Golden Zone (Green)**. This indicates optimal audibility for IELTS examiners.</p>
+                </div>
+                <div class="space-y-1">
+                    <h4 class="font-bold text-pastel-goldDark">3. Vocal Warm-Ups</h4>
+                    <p>Click the "Play" buttons under the Vocal exercises. It generates a guiding pitch tone using Web Audio API so you can hum/align with the harmonic register.</p>
+                </div>
+            </div>
+
+            <div class="flex justify-end pt-2">
+                <button onclick="toggleModal('info-modal')" class="px-6 py-2.5 bg-pastel-slate text-white text-xs font-bold rounded-full hover:bg-pastel-roseDark transition shadow">
+                    Let's Begin
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SIMPLE CUSTOM POPUP DIALOG (Avoids browser alert()) -->
+    <div id="alert-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm opacity-0 pointer-events-none transition-all duration-300">
+        <div class="bg-white max-w-sm w-full m-4 p-6 rounded-2xl border border-pastel-rose/40 shadow-xl space-y-4 text-center">
+            <i id="alert-icon" data-lucide="check-circle" class="w-12 h-12 text-emerald-500 mx-auto"></i>
+            <h4 id="alert-title" class="font-bold text-lg text-pastel-slate">Notes Saved</h4>
+            <p id="alert-msg" class="text-xs text-pastel-slate/75">Your reflection details were logged locally in your browser workspace.</p>
+            <button onclick="closeAlertModal()" class="w-full py-2 bg-pastel-slate text-white text-xs font-bold rounded-full hover:bg-pastel-roseDark transition">
+                Understood
+            </button>
+        </div>
+    </div>
+
+    <!-- MINI FOOTER -->
+    <footer class="bg-pastel-slate text-white py-6 text-center text-xs mt-10">
+        <p>© 2026 IELTS Chan Truong • Developed for Personal 1-on-1 Vocal Coaching</p>
+    </footer>
+
+    <!-- AUDIO ENGINE / SPEECH CORE LOGIC -->
+    <script>
+        lucide.createIcons();
+
+        // Custom alert helper
+        function triggerCustomAlert(title, message, iconName = 'check-circle', colorClass = 'text-emerald-500') {
+            document.getElementById('alert-title').innerText = title;
+            document.getElementById('alert-msg').innerText = message;
+            const iconContainer = document.getElementById('alert-icon');
+            iconContainer.setAttribute('data-lucide', iconName);
+            iconContainer.className = `w-12 h-12 ${colorClass} mx-auto`;
+            lucide.createIcons();
+            
+            const modal = document.getElementById('alert-modal');
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+        }
+
+        function closeAlertModal() {
+            const modal = document.getElementById('alert-modal');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+        }
+
+        function toggleModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal.classList.contains('opacity-0')) {
+                modal.classList.remove('opacity-0', 'pointer-events-none');
+            } else {
+                modal.classList.add('opacity-0', 'pointer-events-none');
+            }
+        }
+
+        // ==========================================
+        // DYNAMIC BREATHING PACER ENGINE
+        // ==========================================
+        const pacerConfigs = {
+            steady: { inhale: 4, hold: 2, exhale: 4, labelInhale: "Inhale through your nose...", labelHold: "Relax your chest...", labelExhale: "Exhale through your mouth..." },
+            box: { inhale: 4, hold: 4, exhale: 4, holdOut: 4, labelInhale: "Breathe In...", labelHold: "Hold breath...", labelExhale: "Breathe Out...", labelHoldOut: "Rest empty..." },
+            speak: { inhale: 4, hold: 2, exhale: 6, labelInhale: "Happen to breathe deep...", labelHold: "Anchor vocabulary...", labelExhale: "Speak comfortably now..." }
+        };
+
+        let currentPacerMode = 'steady';
+        let pacerInterval = null;
+        let pacerSecondCounter = 0;
+        let pacerPhaseIndex = 0; // 0: inhale, 1: hold, 2: exhale, 3: holdOut
+
+        function changePacerMode() {
+            currentPacerMode = document.getElementById('pacer-mode').value;
+            resetPacer();
+        }
+
+        function runPacerStep() {
+            const config = pacerConfigs[currentPacerMode];
+            let activePhases = ['inhale', 'hold', 'exhale'];
+            if (currentPacerMode === 'box') {
+                activePhases.push('holdOut');
+            }
+
+            const currentPhaseName = activePhases[pacerPhaseIndex];
+            const currentPhaseDuration = config[currentPhaseName];
+
+            pacerSecondCounter++;
+            document.getElementById('pacer-timer').innerText = `Second ${pacerSecondCounter} of ${currentPhaseDuration}`;
+
+            // Adjust Visual breathing circle size and color dynamically
+            const glow = document.getElementById('pacer-glow');
+            const core = document.getElementById('pacer-core');
+
+            if (currentPhaseName === 'inhale') {
+                document.getElementById('pacer-action').innerText = config.labelInhale;
+                // Expand
+                const scale = 1 + (pacerSecondCounter / currentPhaseDuration) * 0.55;
+                glow.style.transform = `scale(${scale})`;
+                glow.style.backgroundColor = 'rgba(228, 168, 178, 0.45)';
+                core.style.backgroundColor = 'rgba(228, 168, 178, 0.8)';
+            } else if (currentPhaseName === 'hold') {
+                document.getElementById('pacer-action').innerText = config.labelHold;
+                glow.style.backgroundColor = 'rgba(124, 163, 147, 0.4)';
+                core.style.backgroundColor = 'rgba(124, 163, 147, 0.8)';
+            } else if (currentPhaseName === 'exhale') {
+                document.getElementById('pacer-action').innerText = config.labelExhale;
+                // Shrink
+                const scale = 1.55 - (pacerSecondCounter / currentPhaseDuration) * 0.55;
+                glow.style.transform = `scale(${scale})`;
+                glow.style.backgroundColor = 'rgba(228, 168, 178, 0.3)';
+                core.style.backgroundColor = 'rgba(228, 168, 178, 0.6)';
+            } else if (currentPhaseName === 'holdOut') {
+                document.getElementById('pacer-action').innerText = config.labelHoldOut;
+                glow.style.transform = 'scale(1)';
+                glow.style.backgroundColor = 'rgba(249, 236, 238, 0.2)';
+            }
+
+            if (pacerSecondCounter >= currentPhaseDuration) {
+                pacerSecondCounter = 0;
+                pacerPhaseIndex = (pacerPhaseIndex + 1) % activePhases.length;
+            }
+        }
+
+        function resetPacer() {
+            clearInterval(pacerInterval);
+            pacerSecondCounter = 0;
+            pacerPhaseIndex = 0;
+            pacerInterval = setInterval(runPacerStep, 1000);
+            runPacerStep();
+        }
+
+        // Initialize pacer on load
+        window.addEventListener('DOMContentLoaded', () => {
+            resetPacer();
+            loadPracticeJournal();
+        });
+
+        // ==========================================
+        // MICROPHONE & GRAPHICAL AUDIO ENGINE
+        // ==========================================
+        let audioCtx = null;
+        let micSource = null;
+        let audioAnalyser = null;
+        let scriptProc = null;
+        let micLocalStream = null;
+        let canvasAnimFrame = null;
+
+        const canvas = document.getElementById('waveform-canvas');
+        const ctx = canvas.getContext('2d');
+
+        function startVocalEngine() {
+            const btn = document.getElementById('main-mic-btn');
+            const overlay = document.getElementById('mic-prompt-overlay');
+            const alertText = document.getElementById('voice-alert-text');
+
+            if (audioCtx) {
+                stopVocalEngine();
+                btn.innerHTML = `<i data-lucide="mic" class="w-3.5 h-3.5"></i> <span id="main-mic-text">Breathe & Speak</span>`;
+                btn.classList.remove('bg-red-400');
+                btn.classList.add('bg-pastel-slate');
+                overlay.style.opacity = '1';
+                overlay.style.pointerEvents = 'all';
+                alertText.innerText = "Waiting for microphone connection...";
+                lucide.createIcons();
+                return;
+            }
+
+            navigator.mediaDevices.getUserMedia({ audio: true, video: false })
+                .then(stream => {
+                    micLocalStream = stream;
+                    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                    audioAnalyser = audioCtx.createAnalyser();
+                    micSource = audioCtx.createMediaStreamSource(stream);
+                    scriptProc = audioCtx.createScriptProcessor(2048, 1, 1);
+
+                    audioAnalyser.smoothingTimeConstant = 0.6;
+                    audioAnalyser.fftSize = 256;
+
+                    micSource.connect(audioAnalyser);
+                    audioAnalyser.connect(scriptProc);
+                    scriptProc.connect(audioCtx.destination);
+
+                    btn.innerHTML = `<i data-lucide="mic-off" class="w-3.5 h-3.5"></i> <span id="main-mic-text">Stop Analysis</span>`;
+                    btn.classList.remove('bg-pastel-slate');
+                    btn.classList.add('bg-red-400');
+                    overlay.style.opacity = '0';
+                    overlay.style.pointerEvents = 'none';
+                    lucide.createIcons();
+
+                    // Start visual canvas loop
+                    drawVoiceWaveform();
+
+                    scriptProc.onaudioprocess = () => {
+                        const array = new Uint8Array(audioAnalyser.frequencyBinCount);
+                        audioAnalyser.getByteFrequencyData(array);
+                        let sum = 0;
+
+                        const totalBins = array.length;
+                        for (let i = 0; i < totalBins; i++) {
+                            sum += array[i];
+                        }
+
+                        const rawVolume = sum / totalBins;
+                        // Transform to 0-100 gauge range
+                        const volumePercentage = Math.min(100, Math.round((rawVolume / 110) * 100));
+                        updateLiveVolumeVisuals(volumePercentage);
+                    };
+                })
+                .catch(err => {
+                    console.error('Mic access blocked:', err);
+                    alertText.innerHTML = `<span class="text-red-500 font-bold">Microphone block error!</span> Enable browser permission and try again.`;
+                });
+        }
+
+        function stopVocalEngine() {
+            if (audioCtx) {
+                audioCtx.close();
+                audioCtx = null;
+            }
+            if (micLocalStream) {
+                micLocalStream.getTracks().forEach(track => track.stop());
+                micLocalStream = null;
+            }
+            if (scriptProc) {
+                scriptProc.onaudioprocess = null;
+                scriptProc = null;
+            }
+            cancelAnimationFrame(canvasAnimFrame);
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            updateLiveVolumeVisuals(0);
+        }
+
+        function updateLiveVolumeVisuals(volume) {
+            const fill = document.getElementById('volume-indicator');
+            const textFeedback = document.getElementById('voice-alert-text');
+            const alertBox = document.getElementById('voice-alert-box');
+
+            fill.style.width = `${volume}%`;
+
+            if (volume === 0) {
+                textFeedback.innerText = "Connect your microphone to visualize your speaking power.";
+                alertBox.className = "p-3.5 bg-pastel-rose/40 rounded-xl border border-pastel-rose/10 text-center";
+            } else if (volume < 30) {
+                textFeedback.innerHTML = "🔊 <span class='text-orange-500 font-bold'>A bit quiet...</span> Try pushing your breath from your abdomen.";
+                alertBox.className = "p-3.5 bg-orange-50 rounded-xl border border-orange-200 text-center";
+            } else if (volume >= 30 && volume <= 75) {
+                textFeedback.innerHTML = "✨ <span class='text-emerald-700 font-bold'>Perfect Range!</span> Clear, resonant voice ideal for 6.5+ band.";
+                alertBox.className = "p-3.5 bg-emerald-50 rounded-xl border border-emerald-200 text-center";
+            } else {
+                textFeedback.innerHTML = "🔥 <span class='text-amber-600 font-bold'>Very powerful!</span> Great energy, but remember to maintain conversational ease.";
+                alertBox.className = "p-3.5 bg-amber-50 rounded-xl border border-amber-200 text-center";
+            }
+        }
+
+        function drawVoiceWaveform() {
+            canvasAnimFrame = requestAnimationFrame(drawVoiceWaveform);
+            
+            // Adjust canvas size to parent width
+            if (canvas.width !== canvas.clientWidth || canvas.height !== canvas.clientHeight) {
+                canvas.width = canvas.clientWidth;
+                canvas.height = canvas.clientHeight;
+            }
+
+            const bufferLength = audioAnalyser.frequencyBinCount;
+            const dataArray = new Uint8Array(bufferLength);
+            audioAnalyser.getByteTimeDomainData(dataArray);
+
+            ctx.fillStyle = '#FCF9F5';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Draw beautiful visual grid background lines
+            ctx.strokeStyle = 'rgba(228, 168, 178, 0.15)';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(0, canvas.height / 2);
+            ctx.lineTo(canvas.width, canvas.height / 2);
+            ctx.stroke();
+
+            // Draw custom continuous wave curves
+            ctx.lineWidth = 3;
+            ctx.strokeStyle = 'rgba(124, 163, 147, 0.85)';
+            ctx.beginPath();
+
+            const sliceWidth = canvas.width * 1.0 / bufferLength;
+            let x = 0;
+
+            for (let i = 0; i < bufferLength; i++) {
+                const v = dataArray[i] / 128.0;
+                const y = v * canvas.height / 2;
+
+                if (i === 0) {
+                    ctx.moveTo(x, y);
+                } else {
+                    ctx.lineTo(x, y);
+                }
+
+                x += sliceWidth;
+            }
+
+            ctx.lineTo(canvas.width, canvas.height / 2);
+            ctx.stroke();
+        }
+
+        // ==========================================
+        // WEB AUDIO TUNING FORK (Resonance Generators)
+        // ==========================================
+        function triggerTuningFork(frequency) {
+            // Generates a quick, clean guiding harmonic tone using internal Web Audio oscillators
+            const synthCtx = new (window.AudioContext || window.webkitAudioContext)();
+            const osc = synthCtx.createOscillator();
+            const gainNode = synthCtx.createGain();
+
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(frequency, synthCtx.currentTime);
+
+            gainNode.gain.setValueAtTime(0.12, synthCtx.currentTime);
+            // Slowly fade tone out over 1.5 seconds to keep it relaxing
+            gainNode.gain.exponentialRampToValueAtTime(0.0001, synthCtx.currentTime + 1.5);
+
+            osc.connect(gainNode);
+            gainNode.connect(synthCtx.destination);
+
+            osc.start();
+            osc.stop(synthCtx.currentTime + 1.5);
+        }
+
+        // ==========================================
+        // SPEAKING PRACTICE LIBRARY DATA
+        // ==========================================
+        const prompts = [
+            {
+                section: "Speaking Part 1",
+                topic: "Cozy Spaces",
+                text: "Describe a cozy room or space where you love spending your free time. Why does it make you feel comfortable?",
+                tip: "Relax your shoulders and speak with a gentle smile to instantly brighten your articulation."
+            },
+            {
+                section: "Speaking Part 1",
+                topic: "Hobbies & Calm",
+                text: "What hobbies do you enjoy when you are alone? Do you prefer quiet hobbies or active, loud ones?",
+                tip: "Avoid short 'Yes/No' responses. Extend your answer by explaining *why* using continuous breath support."
+            },
+            {
+                section: "Speaking Part 2",
+                topic: "A Peaceful Haven",
+                text: "Talk about a peaceful location you went to. You should say: where it was, why you traveled there, and explain how you felt.",
+                tip: "Use sensory descriptions: 'whispering leaves', 'soothing gentle breeze' to paint a picture."
+            },
+            {
+                section: "Speaking Part 2",
+                topic: "A Kind Teacher",
+                text: "Describe an encouraging teacher or mentor who helped you find your voice or build confidence. How did they motivate you?",
+                tip: "Make your consonants crisp. Pronounce final /s/ and /t/ clearly to keep speech clean."
+            },
+            {
+                section: "Speaking Part 3",
+                topic: "Public Spaces",
+                text: "Why do you think cities should invest in quiet public spaces, such as botanical gardens or public reading libraries?",
+                tip: "Adopt a professional roleplay persona. This shifting mindset helps settle your pitch registers."
+            },
+            {
+                section: "Speaking Part 3",
+                topic: "Silence & Growth",
+                text: "Do you believe silent contemplation is important for personal growth? Why or why not?",
+                tip: "Use buying-time phases: 'That is a deep question...', 'From an academic perspective...' to map thoughts."
+            }
+        ];
+
+        let currentPromptIndex = 0;
+
+        function changePrompt(direction) {
+            currentPromptIndex = (currentPromptIndex + direction + prompts.length) % prompts.length;
+            
+            document.getElementById('deck-counter').innerText = `Card ${currentPromptIndex + 1} / ${prompts.length}`;
+            document.getElementById('prompt-section').innerText = prompts[currentPromptIndex].section;
+            document.getElementById('prompt-topic').innerText = `Topic: ${prompts[currentPromptIndex].topic}`;
+            document.getElementById('prompt-text').innerText = `"${prompts[currentPromptIndex].text}"`;
+            
+            // Adjust tip text
+            const tipEl = document.querySelector('#prompt-text').parentNode.nextElementSibling;
+            if(tipEl) {
+                tipEl.innerHTML = `<span>Tip: ${prompts[currentPromptIndex].tip}</span>`;
+            }
+            
+            resetPracticeTimer();
+        }
+
+        // ==========================================
+        // PRACTICE TIMERS & LOGGING
+        // ==========================================
+        let speechTimer = null;
+        let totalSpeechSeconds = 0;
+        let speechTimerActive = false;
+
+        function togglePracticeTimer() {
+            const btnIcon = document.getElementById('timer-icon');
+            if (speechTimerActive) {
+                clearInterval(speechTimer);
+                speechTimerActive = false;
+                btnIcon.setAttribute('data-lucide', 'play');
+            } else {
+                speechTimer = setInterval(() => {
+                    totalSpeechSeconds++;
+                    const minutes = Math.floor(totalSpeechSeconds / 60).toString().padStart(2, '0');
+                    const seconds = (totalSpeechSeconds % 60).toString().padStart(2, '0');
+                    document.getElementById('timer-display').innerText = `${minutes}:${seconds}`;
+                }, 1000);
+                speechTimerActive = true;
+                btnIcon.setAttribute('data-lucide', 'pause');
+            }
+            lucide.createIcons();
+        }
+
+        function resetPracticeTimer() {
+            clearInterval(speechTimer);
+            speechTimerActive = false;
+            totalSpeechSeconds = 0;
+            document.getElementById('timer-display').innerText = "00:00";
+            document.getElementById('timer-icon').setAttribute('data-lucide', 'play');
+            lucide.createIcons();
+        }
+
+        // ==========================================
+        // JOURNAL STATE & STORAGE LOGS
+        // ==========================================
+        const confidenceLabels = ["Soft/Shy", "Whispered", "Steady", "Audible", "Confident Power"];
+
+        function updateConfidenceLevel(val) {
+            const label = confidenceLabels[val - 1];
+            document.getElementById('confidence-display').innerText = label;
+            localStorage.setItem('vocal_confidence_val', val);
+        }
+
+        // Save progress on text inputs
+        document.getElementById('practice-vocabulary').addEventListener('input', (e) => {
+            localStorage.setItem('vocal_vocabulary', e.target.value);
+        });
+        document.getElementById('session-log').addEventListener('input', (e) => {
+            localStorage.setItem('vocal_session_log', e.target.value);
+        });
+
+        function loadPracticeJournal() {
+            if(localStorage.getItem('vocal_confidence_val')) {
+                const val = localStorage.getItem('vocal_confidence_val');
+                document.getElementById('confidence-range').value = val;
+                updateConfidenceLevel(val);
+            }
+            if(localStorage.getItem('vocal_vocabulary')) {
+                document.getElementById('practice-vocabulary').value = localStorage.getItem('vocal_vocabulary');
+            }
+            if(localStorage.getItem('vocal_session_log')) {
+                document.getElementById('session-log').value = localStorage.getItem('vocal_session_log');
+            }
+        }
+
+        function clearJournal() {
+            document.getElementById('practice-vocabulary').value = '';
+            document.getElementById('session-log').value = '';
+            document.getElementById('confidence-range').value = 3;
+            updateConfidenceLevel(3);
+
+            localStorage.removeItem('vocal_confidence_val');
+            localStorage.removeItem('vocal_vocabulary');
+            localStorage.removeItem('vocal_session_log');
+
+            triggerCustomAlert("Journal Cleared", "All vocal reflections have been reset successfully.", "trash", "text-red-500");
+        }
+
+        function exportJournal() {
+            const vocab = document.getElementById('practice-vocabulary').value;
+            const log = document.getElementById('session-log').value;
+            const confidenceVal = document.getElementById('confidence-range').value;
+            const confidenceLabel = confidenceLabels[confidenceVal - 1];
+
+            const textOutput = `--- IELTS CHAN TRUONG: VOCAL SANCTUARY DIARY ---\n\n` +
+                               `Vocal confidence feeling: ${confidenceLabel} (Level ${confidenceVal}/5)\n` +
+                               `Target vocabulary used: ${vocab || '(Empty)'}\n\n` +
+                               `Personal practice reflection:\n${log || '(Empty)'}\n\n` +
+                               `Date of speaking practice session: ${new Date().toLocaleDateString()}\n`;
+
+            const blob = new Blob([textOutput], { type: 'text/plain;charset=utf-8' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'Vocal_Sanctuary_Practice_Journal.txt';
+            link.click();
+        }
+    </script>
+</body>
+</html>
