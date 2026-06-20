@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Chan Truong - Personalized Course Plan</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Playfair Display & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandRose: '#C89D93',
+                        brandSage: '#93A895',
+                        brandGold: '#D4AF37',
+                        brandClay: '#A37F75',
+                        brandDark: '#3D3430',
+                        brandSoftGray: '#F1ECE6',
+                        brandBeige: '#FBF9F6'
+                    },
+                    fontFamily: {
+                        playfair: ['"Playfair Display"', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #FBF9F6;
+            color: #3D3430;
+        }
+        .header-bg {
+            background: linear-gradient(135deg, #FBF9F6 0%, #F1ECE6 100%);
+        }
+        /* Custom styled scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F1ECE6;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #C89D93;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #93A895;
+        }
+        /* Print Styles */
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+            body {
+                background: white;
+                color: black;
+            }
+            .print-card {
+                break-inside: avoid;
+                border: 1px solid #ccc !important;
+                box-shadow: none !important;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen selection:bg-brandRose selection:text-white">
+
+    <!-- TOP HEADER / BRANDING -->
+    <header class="header-bg border-b border-[#E8DFD5] py-8 px-4 sm:px-8 relative overflow-hidden">
+        <!-- Abstract Pastel Shapes for Aesthetic Depth -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-brandRose/10 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 w-80 h-80 bg-brandSage/10 rounded-full blur-2xl -ml-20 -mb-20 pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center relative z-10 gap-6">
+            <div class="text-center md:text-left">
+                <div class="flex items-center justify-center md:justify-start gap-2 mb-2">
+                    <span class="h-0.5 w-8 bg-brandRose"></span>
+                    <span class="text-xs tracking-[0.25em] font-bold text-brandClay uppercase">Tutoring Program</span>
+                    <span class="h-0.5 w-8 bg-brandRose"></span>
+                </div>
+                <h1 class="font-playfair text-4xl sm:text-5xl font-bold tracking-tight text-brandDark mb-1">
+                    IELTS Chan Truong
+                </h1>
+                <p class="text-sm italic text-brandSage font-medium">Empowering your global healthcare journey</p>
+            </div>
+
+            <!-- Program Dashboard Overview -->
+            <div class="bg-white/80 backdrop-blur-sm border border-brandRose/20 rounded-2xl p-6 shadow-sm w-full md:w-auto min-w-[320px]">
+                <div class="flex justify-between items-center mb-4">
+                    <div>
+                        <h4 class="text-xs text-brandClay font-bold tracking-wider uppercase">Student</h4>
+                        <p class="font-bold text-brandDark">Phuong Anh (23yo)</p>
+                        <p class="text-xs text-brandSage">Nurse Intern • Hospital Placement</p>
+                    </div>
+                    <div class="text-right">
+                        <h4 class="text-xs text-brandClay font-bold tracking-wider uppercase">Curriculum</h4>
+                        <p class="font-bold text-brandRose">15 Lessons (90' / lesson)</p>
+                        <p class="text-xs text-brandSage">Target: 5.5 - 6.0</p>
+                    </div>
+                </div>
+                
+                <!-- Dynamic Progress bar tracking lesson status -->
+                <div>
+                    <div class="flex justify-between text-xs mb-1">
+                        <span class="text-brandClay font-semibold">Lesson Progress</span>
+                        <span id="progress-percent" class="font-bold text-brandSage">0% (0/15 Lessons)</span>
+                    </div>
+                    <div class="w-full bg-[#EAE3DB] h-2 rounded-full overflow-hidden">
+                        <div id="progress-bar" class="bg-brandSage h-full transition-all duration-500 ease-out" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-8 py-10">
+
+        <!-- STUDENT PROFILE & TARGET ANALYTICS -->
+        <section class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+            
+            <!-- Target Card -->
+            <div class="bg-white border border-[#E8DFD5] rounded-3xl p-8 shadow-sm flex flex-col justify-between print-card">
+                <div>
+                    <span class="text-[10px] uppercase font-bold tracking-widest text-brandRose bg-brandRose/10 px-3 py-1 rounded-full">Starting Point Analysis</span>
+                    <h3 class="font-playfair text-2xl font-bold text-brandDark mt-4 mb-2">Initial Evaluation</h3>
+                    <p class="text-sm text-brandDark/80 leading-relaxed mb-4">
+                        The student is currently at band <strong class="text-brandRose">5.0 - 5.5</strong>. She possesses solid core grammar and a strong specialized nursing vocabulary, but natural reflex and fluency in spontaneous speaking need enhancement. Writing Task 1 & Task 2 require structured development and improved coherence/cohesion to secure a reliable <strong class="text-brandSage">6.0</strong>.
+                    </p>
+                </div>
+                <div class="pt-4 border-t border-[#F1ECE6] grid grid-cols-2 gap-4">
+                    <div class="bg-brandBeige p-3 rounded-xl text-center">
+                        <span class="text-xs text-brandClay">Current</span>
+                        <p class="font-playfair text-2xl font-bold text-brandClay">5.0 - 5.5</p>
+                    </div>
+                    <div class="bg-brandSage/10 p-3 rounded-xl text-center">
+                        <span class="text-xs text-brandSage">Target</span>
+                        <p class="font-playfair text-2xl font-bold text-brandSage">5.5 - 6.0</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Custom Pedagogical Strategy -->
+            <div class="bg-white border border-[#E8DFD5] rounded-3xl p-8 shadow-sm print-card">
+                <span class="text-[10px] uppercase font-bold tracking-widest text-brandSage bg-brandSage/10 px-3 py-1 rounded-full">Pedagogical Method</span>
+                <h3 class="font-playfair text-2xl font-bold text-brandDark mt-4 mb-3">Chan Truong Personalized Method</h3>
+                <ul class="space-y-3 text-sm text-brandDark/80">
+                    <li class="flex items-start gap-3">
+                        <svg class="w-5 h-5 text-brandSage shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <span><strong>Contextual Learning:</strong> Integrating healthcare materials (health, fitness, occupational medicine, doctors/nurses work-life balance) allows Phuong Anh to use her existing clinical knowledge for rapid vocabulary acquisition.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <svg class="w-5 h-5 text-brandSage shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <span><strong>Scaffolding Strategy:</strong> Providing clear, band 6.0 standard frameworks (Vocabulary templates & Sentence Starters) for Writing & Speaking to reduce cognitive load under real exam pressure.</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Key Milestones -->
+            <div class="bg-brandRose/10 border border-brandRose/20 rounded-3xl p-8 flex flex-col justify-between print-card">
+                <div>
+                    <span class="text-[10px] uppercase font-bold tracking-widest text-brandClay bg-brandRose/20 px-3 py-1 rounded-full">Breakthrough Milestones</span>
+                    <h3 class="font-playfair text-2xl font-bold text-brandDark mt-4 mb-3">3-Phase Roadmap</h3>
+                    <div class="space-y-4">
+                        <div class="flex gap-3">
+                            <span class="font-playfair text-lg font-bold text-brandRose">P1</span>
+                            <div>
+                                <h4 class="text-sm font-bold text-brandDark">Foundation Structuring (Lessons 1-5)</h4>
+                                <p class="text-xs text-brandDark/70">Establish standardized structural frameworks for Writing Task 1, 2, and natural reflexes for Speaking Part 1.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-3">
+                            <span class="font-playfair text-lg font-bold text-brandSage">P2</span>
+                            <div>
+                                <h4 class="text-sm font-bold text-brandDark">Acceleration & Visualization (Lessons 6-10)</h4>
+                                <p class="text-xs text-brandDark/70">Master complex diagrams, hospital-process maps, and advanced theme-based discussions for Speaking Part 2-3.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-3">
+                            <span class="font-playfair text-lg font-bold text-brandClay">P3</span>
+                            <div>
+                                <h4 class="text-sm font-bold text-brandDark">Real Simulation & Optimization (Lessons 11-15)</h4>
+                                <p class="text-xs text-brandDark/70">Simulated test cycles under exact time conditions combined with detailed error mappings.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- FILTERS AND INTERACTION AREA -->
+        <section class="mb-8 flex flex-col sm:flex-row justify-between items-center gap-4 no-print">
+            <div>
+                <h3 class="font-playfair text-2xl font-bold text-brandDark">15-Lesson Detailed Plan</h3>
+                <p class="text-sm text-brandSage font-medium">Check completed sessions to track real-time course coverage</p>
+            </div>
+            
+            <div class="flex flex-wrap gap-2">
+                <button onclick="filterLessons('all')" id="btn-all" class="filter-btn px-4 py-2 text-xs font-semibold rounded-full bg-brandSage text-white transition">All Skills</button>
+                <button onclick="filterLessons('writing')" id="btn-writing" class="filter-btn px-4 py-2 text-xs font-semibold rounded-full bg-white text-brandDark border border-[#E8DFD5] hover:bg-brandSoftGray transition">Writing Intensive</button>
+                <button onclick="filterLessons('speaking')" id="btn-speaking" class="filter-btn px-4 py-2 text-xs font-semibold rounded-full bg-white text-brandDark border border-[#E8DFD5] hover:bg-brandSoftGray transition">Speaking Focus</button>
+                <button onclick="filterLessons('skills')" id="btn-skills" class="filter-btn px-4 py-2 text-xs font-semibold rounded-full bg-white text-brandDark border border-[#E8DFD5] hover:bg-brandSoftGray transition">Reading & Listening</button>
+                <button onclick="window.print()" class="px-4 py-2 text-xs font-semibold rounded-full bg-brandRose text-white hover:bg-brandClay transition flex items-center gap-1">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+                    Print Plan
+                </button>
+            </div>
+        </section>
+
+        <!-- TIMELINE OF 15 LESSONS -->
+        <section class="space-y-6" id="lessons-timeline">
+
+            <!-- LESSON 1 -->
+            <div class="lesson-card bg-white border border-[#E8DFD5] rounded-3xl p-6 sm:p-8 shadow-sm transition hover:shadow-md relative print-card" data-tags="speaking,skills">
+                <div class="flex flex-col sm:flex-row justify-between items-start gap-4 mb-4">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-brandRose/10 flex items-center justify-center font-playfair text-xl font-bold text-brandRose border border-brandRose/20">01</div>
+                        <div>
+                            <span class="text-[10px] tracking-wider uppercase font-bold text-brandClay bg-brandRose/10 px-2 py-0.5 rounded">Phase 1</span>
+                            <h4 class="font-playfair text-xl font-bold text-brandDark mt-1">Introduction, Speaking Part 1 & Listening Section 1</h4>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-xs font-semibold text-brandSage bg-brandSage/10 px-3 py-1 rounded-full">Speaking & Listening</span>
+                        <input type="checkbox" id="lesson-check-1" onchange="toggleLesson(1)" class="w-5 h-5 rounded text-brandSage focus:ring-brandSage border-gray-300 rounded cursor-pointer no-print">
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-brandDark/80 pt-4 border-t border-[#F1ECE6]">
+                    <div>
+                        <h5 class="font-bold text-brandDark mb-2 flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-brandRose"></span> Lesson Objectives
+                        </h5>
+                        <ul class="list-disc list-inside space-y-1 pl-2 text-xs">
+                            <li>Deconstruct exam mechanics, overcoming initial psychological speaking blockages.</li>
+                            <li>Leverage personal baseline knowledge (Work/Study) to construct stable 2-3 sentence answers in Part 1.</li>
+                            <li>Develop spatial, spelling, and numerical listening accuracy to ace Listening Section 1.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-brandDark mb-2 flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-brandSage"></span> Clinical / Medical Context Integration
+                        </h5>
+                        <p class="text-xs leading-relaxed mb-2">
+                            <strong>Speaking Focus:</strong> Deliver crisp introductory descriptions about the daily routines, hospital layout, and high-pressure duties of a Nurse Intern.
+                        </p>
+                        <p class="text-xs bg-brandBeige p-2.5 rounded-lg border border-brandRose/10 text-brandClay">
+                            <strong>Medical Vocab Focus:</strong> Shift-work, patient care, ward round, burnout, medical charts.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LESSON 2 -->
+            <div class="lesson-card bg-white border border-[#E8DFD5] rounded-3xl p-6 sm:p-8 shadow-sm transition hover:shadow-md relative print-card" data-tags="writing">
+                <div class="flex flex-col sm:flex-row justify-between items-start gap-4 mb-4">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-brandRose/10 flex items-center justify-center font-playfair text-xl font-bold text-brandRose border border-brandRose/20">02</div>
+                        <div>
+                            <span class="text-[10px] tracking-wider uppercase font-bold text-brandClay bg-brandRose/10 px-2 py-0.5 rounded">Phase 1</span>
+                            <h4 class="font-playfair text-xl font-bold text-brandDark mt-1">Writing Task 1 - Line Graphs & Bar Charts</h4>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-xs font-semibold text-brandSage bg-brandSage/10 px-3 py-1 rounded-full">Writing Intensive</span>
+                        <input type="checkbox" id="lesson-check-2" onchange="toggleLesson(2)" class="w-5 h-5 rounded text-brandSage focus:ring-brandSage border-gray-300 rounded cursor-pointer no-print">
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-brandDark/80 pt-4 border-t border-[#F1ECE6]">
+                    <div>
+                        <h5 class="font-bold text-brandDark mb-2 flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-brandRose"></span> Lesson Objectives
+                        </h5>
+                        <ul class="list-disc list-inside space-y-1 pl-2 text-xs">
+                            <li>Formulate a standardized, rigid 4-paragraph layout for data reports.</li>
+                            <li>Write high-scoring, clear Overview paragraphs identifying key data points/trends.</li>
+                            <li>Vary vocabulary safely using range descriptors (fluctuate, plateau, peak, plummet).</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-brandDark mb-2 flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-brandSage"></span> Clinical / Medical Context Integration
+                        </h5>
+                        <p class="text-xs leading-relaxed mb-2">
+                            <strong>Data Exercise:</strong> Analyze dynamic line trends mapping general hospital admission rates, ICU capacity fluctuations, or outbreak trajectories over multi-year bounds.
+                        </p>
+                        <p class="text-xs bg-brandBeige p-2.5 rounded-lg border border-brandRose/10 text-brandClay">
+                            <strong>Medical Vocab Focus:</strong> Spike, decline sharply, reach a plateau, outpatient numbers, infection rates.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LESSON 3 -->
+            <div class="lesson-card bg-white border border-[#E8DFD5] rounded-3xl p-6 sm:p-8 shadow-sm transition hover:shadow-md relative print-card" data-tags="speaking,skills">
+                <div class="flex flex-col sm:flex-row justify-between items-start gap-4 mb-4">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-brandRose/10 flex items-center justify-center font-playfair text-xl font-bold text-brandRose border border-brandRose/20">03</div>
+                        <div>
+                            <span class="text-[10px] tracking-wider uppercase font-bold text-brandClay bg-brandRose/10 px-2 py-0.5 rounded">Phase 1</span>
+                            <h4 class="font-playfair text-xl font-bold text-brandDark mt-1">Reading Skimming & Scanning / Speaking Part 2</h4>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-xs font-semibold text-brandSage bg-brandSage/10 px-3 py-1 rounded-full">Reading & Speaking</span>
+                        <input type="checkbox" id="lesson-check-3" onchange="toggleLesson(3)" class="w-5 h-5 rounded text-brandSage focus:ring-brandSage border-gray-300 rounded cursor-pointer no-print">
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-brandDark/80 pt-4 border-t border-[#F1ECE6]">
+                    <div>
+                        <h5 class="font-bold text-brandDark mb-2 flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-brandRose"></span> Lesson Objectives
+                        </h5>
+                        <ul class="list-disc list-inside space-y-1 pl-2 text-xs">
+                            <li>Employ skimming methods to locate topical themes and solve True/False/Not Given tasks rapidly.</li>
+                            <li>Structure descriptive prompts using the 'Mind-map brainstorming method' to sustain an uninterrupted 2-minute Part 2 output.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-brandDark mb-2 flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-brandSage"></span> Clinical / Medical Context Integration
+                        </h5>
+                        <p class="text-xs leading-relaxed mb-2">
+                            <strong>Reading:</strong> Analyze general academic publications addressing historic pandemic control steps.<br>
+                            <strong>Speaking:</strong> "Describe an influential health professional or doctor who has inspired you in your nursing career."
+                        </p>
+                        <p class="text-xs bg-brandBeige p-2.5 rounded-lg border border-brandRose/10 text-brandClay">
+                            <strong>Medical Vocab Focus:</strong> Dedication, bedside manner, clinical expert, empathy.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LESSON 4 -->
+            <div class="lesson-card bg-white border border-[#E8DFD5] rounded-3xl p-6 sm:p-8 shadow-sm transition hover:shadow-md relative print-card" data-tags="writing">
+                <div class="flex flex-col sm:flex-row justify-between items-start gap-4 mb-4">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-brandRose/10 flex items-center justify-center font-playfair text-xl font-bold text-brandRose border border-brandRose/20">04</div>
+                        <div>
+                            <span class="text-[10px] tracking-wider uppercase font-bold text-brandClay bg-brandRose/10 px-2 py-0.5 rounded">Phase 1</span>
+                            <h4 class="font-playfair text-xl font-bold text-brandDark mt-1">Writing Task 2 - Agree or Disagree Essay</h4>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-xs font-semibold text-brandSage bg-brandSage/10 px-3 py-1 rounded-full">Writing Intensive</span>
+                        <input type="checkbox" id="lesson-check-4" onchange="toggleLesson(4)" class="w-5 h-5 rounded text-brandSage focus:ring-brandSage border-gray-300 rounded cursor-pointer no-print">
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-brandDark/80 pt-4 border-t border-[#F1ECE6]">
+                    <div>
+                        <h5 class="font-bold text-brandDark mb-2 flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-brandRose"></span> Lesson Objectives
+                        </h5>
+                        <ul class="list-disc list-inside space-y-1 pl-2 text-xs">
+                            <li>Paraphrase complex essay prompts cleanly inside a balanced 2-sentence Introduction.</li>
+                            <li>Structure body paragraphs around the core logical formula: 'Point - Explain - Example' (PEE).</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-brandDark mb-2 flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-brandSage"></span> Clinical / Medical Context Integration
+                        </h5>
+                        <p class="text-xs leading-relaxed mb-2">
+                            <strong>Essay Prompt:</strong> "Governments should spend more money on preventive healthcare rather than curative medicine. To what extent do you agree or disagree?"
+                        </p>
+                        <p class="text-xs bg-brandBeige p-2.5 rounded-lg border border-brandRose/10 text-brandClay">
+                            <strong>Medical Vocab Focus:</strong> Preventive measures, lifestyle diseases, healthcare budget, therapeutic treatments.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LESSON 5 -->
+            <div class="lesson-card bg-white border border-[#E8DFD5] rounded-3xl p-6 sm:p-8 shadow-sm transition hover:shadow-md relative print-card" data-tags="skills">
+                <div class="flex flex-col sm:flex-row justify-between items-start gap-4 mb-4">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-brandRose/10 flex items-center justify-center font-playfair text-xl font-bold text-brandRose border border-brandRose/20">05</div>
+                        <div>
+                            <span class="text-[10px] tracking-wider uppercase font-bold text-brandClay bg-brandRose/10 px-2 py-0.5 rounded">Phase 1</span>
+                            <h4 class="font-playfair text-xl font-bold text-brandDark mt-1">Listening Sections 2 & 3 - Maps & Multiple Choice</h4>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-xs font-semibold text-brandSage bg-brandSage/10 px-3 py-1 rounded-full">Listening Focus</span>
+                        <input type="checkbox" id="lesson-check-5" onchange="toggleLesson(5)" class="w-5 h-5 rounded text-brandSage focus:ring-brandSage border-gray-300 rounded cursor-pointer no-print">
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-brandDark/80 pt-4 border-t border-[#F1ECE6]">
+                    <div>
+                        <h5 class="font-bold text-brandDark mb-2 flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-brandRose"></span> Lesson Objectives
+                        </h5>
+                        <ul class="list-disc list-inside space-y-1 pl-2 text-xs">
+                            <li>Acquire spatial terminology and directional markers to accurately trace Map Labeling paths.</li>
+                            <li>Identify and underline operational keywords in Multiple Choice questions to bypass acoustic traps.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-brandDark mb-2 flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-brandSage"></span> Clinical / Medical Context Integration
+                        </h5>
+                        <p class="text-xs leading-relaxed mb-2">
+                            <strong>Listening Audio:</strong> Dynamic audio navigating the complex floor corridors of a modernized general hospital.
+                        </p>
+                        <p class="text-xs bg-brandBeige p-2.5 rounded-lg border border-brandRose/10 text-brandClay">
+                            <strong>Medical Vocab Focus:</strong> Emergency department, ICU, radiology, reception desk, wing.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LESSON 6 -->
+            <div class="lesson-card bg-white border border-[#E8DFD5] rounded-3xl p-6 sm:p-8 shadow-sm transition hover:shadow-md relative print-card" data-tags="writing">
+                <div class="flex flex-col sm:flex-row justify-between items-start gap-4 mb-4">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-brandSage/10 flex items-center justify-center font-playfair text-xl font-bold text-brandSage border border-brandSage/20">06</div>
+                        <div>
+                            <span class="text-[10px] tracking-wider uppercase font-bold text-brandSage bg-brandSage/10 px-2 py-0.5 rounded">Phase 2</span>
+                            <h4 class="font-playfair text-xl font-bold text-brandDark mt-1">Writing Task 1 - Process Diagrams & Maps</h4>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-xs font-semibold text-brandSage bg-brandSage/10 px-3 py-1 rounded-full">Writing Intensive</span>
+                        <input type="checkbox" id="lesson-check-6" onchange="toggleLesson(6)" class="w-5 h-5 rounded text-brandSage focus:ring-brandSage border-gray-300 rounded cursor-pointer no-print">
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-brandDark/80 pt-4 border-t border-[#F1ECE6]">
+                    <div>
+                        <h5 class="font-bold text-brandDark mb-2 flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-brandRose"></span> Lesson Objectives
+                        </h5>
+                        <ul class="list-disc list-inside space-y-1 pl-2 text-xs">
+                            <li>Utilize sequential markers (subsequently, simultaneously, thereafter) to establish flawless text logic.</li>
+                            <li>Deploy passive structures naturally to describe mechanical or operational steps.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-brandDark mb-2 flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-brandSage"></span> Clinical / Medical Context Integration
+                        </h5>
+                        <p class="text-xs leading-relaxed mb-2">
+                            <strong>Process Analysis:</strong> Map the physical decontamination process of hospital clinical tools or the production lifecycle of flu vaccines.
+                        </p>
+                        <p class="text-xs bg-brandBeige p-2.5 rounded-lg border border-brandRose/10 text-brandClay">
+                            <strong>Medical Vocab Focus:</strong> Sterilize, autoclave, contamination, distribution, filter.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LESSON 7 -->
+            <div class="lesson-card bg-white border border-[#E8DFD5] rounded-3xl p-6 sm:p-8 shadow-sm transition hover:shadow-md relative print-card" data-tags="speaking">
+                <div class="flex flex-col sm:flex-row justify-between items-start gap-4 mb-4">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-brandSage/10 flex items-center justify-center font-playfair text-xl font-bold text-brandSage border border-brandSage/20">07</div>
+                        <div>
+                            <span class="text-[10px] tracking-wider uppercase font-bold text-brandSage bg-brandSage/10 px-2 py-0.5 rounded">Phase 2</span>
+                            <h4 class="font-playfair text-xl font-bold text-brandDark mt-1">Speaking Part 3 - Deep Discussions</h4>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-xs font-semibold text-brandSage bg-brandSage/10 px-3 py-1 rounded-full">Speaking Focus</span>
+                        <input type="checkbox" id="lesson-check-7" onchange="toggleLesson(7)" class="w-5 h-5 rounded text-brandSage focus:ring-brandSage border-gray-300 rounded cursor-pointer no-print">
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-brandDark/80 pt-4 border-t border-[#F1ECE6]">
+                    <div>
+                        <h5 class="font-bold text-brandDark mb-2 flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-brandRose"></span> Lesson Objectives
+                        </h5>
+                        <ul class="list-disc list-inside space-y-1 pl-2 text-xs">
+                            <li>Formulate deep Part 3 responses using the: 'Stance -> Core Explanation -> Global Demonstration' pattern.</li>
+                            <li>Leverage theoretical grammatical structures (second/third conditionals) to build persuasive hypotheticals.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-brandDark mb-2 flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-brandSage"></span> Clinical / Medical Context Integration
+                        </h5>
+                        <p class="text-xs leading-relaxed mb-2">
+                            <strong>Discussion Exercise:</strong> Evaluate the integration of artificial intelligence inside contemporary diagnostics and address patient privacy concerns.
+                        </p>
+                        <p class="text-xs bg-brandBeige p-2.5 rounded-lg border border-brandRose/10 text-brandClay">
+                            <strong>Medical Vocab Focus:</strong> Telemedicine, diagnostic accuracy, ethical concerns, patient confidentiality.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LESSON 8 -->
+            <div class="lesson-card bg-white border border-[#E8DFD5] rounded-3xl p-6 sm:p-8 shadow-sm transition hover:shadow-md relative print-card" data-tags="skills">
+                <div class="flex flex-col sm:flex-row justify-between items-start gap-4 mb-4">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-brandSage/10 flex items-center justify-center font-playfair text-xl font-bold text-brandSage border border-brandSage/20">08</div>
+                        <div>
+                            <span class="text-[10px] tracking-wider uppercase font-bold text-brandSage bg-brandSage/10 px-2 py-0.5 rounded">Phase 2</span>
+                            <h4 class="font-playfair text-xl font-bold text-brandDark mt-1">Reading - Matching Headings & Information</h4>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-xs font-semibold text-brandSage bg-brandSage/10 px-3 py-1 rounded-full">Reading Focus</span>
+                        <input type="checkbox" id="lesson-check-8" onchange="toggleLesson(8)" class="w-5 h-5 rounded text-brandSage focus:ring-brandSage border-gray-300 rounded cursor-pointer no-print">
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-brandDark/80 pt-4 border-t border-[#F1ECE6]">
+                    <div>
+                        <h5 class="font-bold text-brandDark mb-2 flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-brandRose"></span> Lesson Objectives
+                        </h5>
+                        <ul class="list-disc list-inside space-y-1 pl-2 text-xs">
+                            <li>Solve challenging reading paragraph matching tasks efficiently.</li>
+                            <li>Apply the 'Topic Sentence Identification' strategy to filter out heading distractors quickly.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-brandDark mb-2 flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-brandSage"></span> Clinical / Medical Context Integration
+                        </h5>
+                        <p class="text-xs leading-relaxed mb-2">
+                            <strong>Reading Materials:</strong> Analyze healthcare sociological papers assessing "Occupational Burnout in the Global Healthcare Sector."
+                        </p>
+                        <p class="text-xs bg-brandBeige p-2.5 rounded-lg border border-brandRose/10 text-brandClay">
+                            <strong>Medical Vocab Focus:</strong> Professional fatigue, mental well-being, shift rotation, clinical environment.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LESSON 9 -->
+            <div class="lesson-card bg-white border border-[#E8DFD5] rounded-3xl p-6 sm:p-8 shadow-sm transition hover:shadow-md relative print-card" data-tags="writing">
+                <div class="flex flex-col sm:flex-row justify-between items-start gap-4 mb-4">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-brandSage/10 flex items-center justify-center font-playfair text-xl font-bold text-brandSage border border-brandSage/20">09</div>
+                        <div>
+                            <span class="text-[10px] tracking-wider uppercase font-bold text-brandSage bg-brandSage/10 px-2 py-0.5 rounded">Phase 2</span>
+                            <h4 class="font-playfair text-xl font-bold text-brandDark mt-1">Writing Task 2 - Discussion & Solution Essays</h4>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-xs font-semibold text-brandSage bg-brandSage/10 px-3 py-1 rounded-full">Writing Intensive</span>
+                        <input type="checkbox" id="lesson-check-9" onchange="toggleLesson(9)" class="w-5 h-5 rounded text-brandSage focus:ring-brandSage border-gray-300 rounded cursor-pointer no-print">
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-brandDark/80 pt-4 border-t border-[#F1ECE6]">
+                    <div>
+                        <h5 class="font-bold text-brandDark mb-2 flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-brandRose"></span> Lesson Objectives
+                        </h5>
+                        <ul class="list-disc list-inside space-y-1 pl-2 text-xs">
+                            <li>Adopt a dual-stance essay structure to evaluate competing societal arguments objectively.</li>
+                            <li>Strengthen writing cohesion using transition markers (conversely, on the other hand, in light of these arguments).</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-brandDark mb-2 flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-brandSage"></span> Clinical / Medical Context Integration
+                        </h5>
+                        <p class="text-xs leading-relaxed mb-2">
+                            <strong>Essay Prompt:</strong> "Work-life balance of essential workers. Some people believe that nurses and doctors should be paid high salaries regardless of hospital funding, while others think budget should go into infrastructure. Discuss both views."
+                        </p>
+                        <p class="text-xs bg-brandBeige p-2.5 rounded-lg border border-brandRose/10 text-brandClay">
+                            <strong>Medical Vocab Focus:</strong> Essential workers, remuneration, healthcare infrastructure, medical equipment.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LESSON 10 -->
+            <div class="lesson-card bg-white border border-[#E8DFD5] rounded-3xl p-6 sm:p-8 shadow-sm transition hover:shadow-md relative print-card" data-tags="speaking,skills">
+                <div class="flex flex-col sm:flex-row justify-between items-start gap-4 mb-4">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-brandSage/10 flex items-center justify-center font-playfair text-xl font-bold text-brandSage border border-brandSage/20">10</div>
+                        <div>
+                            <span class="text-[10px] tracking-wider uppercase font-bold text-brandSage bg-brandSage/10 px-2 py-0.5 rounded">Phase 2</span>
+                            <h4 class="font-playfair text-xl font-bold text-brandDark mt-1">Listening Section 4 (Academic Lecture) & Speaking Part 2</h4>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-xs font-semibold text-brandSage bg-brandSage/10 px-3 py-1 rounded-full">Listening & Speaking</span>
+                        <input type="checkbox" id="lesson-check-10" onchange="toggleLesson(10)" class="w-5 h-5 rounded text-brandSage focus:ring-brandSage border-gray-300 rounded cursor-pointer no-print">
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-brandDark/80 pt-4 border-t border-[#F1ECE6]">
+                    <div>
+                        <h5 class="font-bold text-brandDark mb-2 flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-brandRose"></span> Lesson Objectives
+                        </h5>
+                        <ul class="list-disc list-inside space-y-1 pl-2 text-xs">
+                            <li>Maintain academic focus and shorthand note-taking throughout Section 4 without pauses.</li>
+                            <li>Maximize lexical precision, natural intonation, and pronunciation of word endings (s/es/ed) in Part 2.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-brandDark mb-2 flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-brandSage"></span> Clinical / Medical Context Integration
+                        </h5>
+                        <p class="text-xs leading-relaxed mb-2">
+                            <strong>Listening:</strong> Take notes on a historical lecture exploring modern nursing reforms and Florence Nightingale.<br>
+                            <strong>Speaking:</strong> "Describe an important health/fitness advice you received from a colleague or senior nurse."
+                        </p>
+                        <p class="text-xs bg-brandBeige p-2.5 rounded-lg border border-brandRose/10 text-brandClay">
+                            <strong>Medical Vocab Focus:</strong> Pioneer, sanitation standards, nutritional regime, recovery rate.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LESSON 11 -->
+            <div class="lesson-card bg-white border border-[#E8DFD5] rounded-3xl p-6 sm:p-8 shadow-sm transition hover:shadow-md relative print-card" data-tags="writing">
+                <div class="flex flex-col sm:flex-row justify-between items-start gap-4 mb-4">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-brandClay/10 flex items-center justify-center font-playfair text-xl font-bold text-brandClay border border-brandClay/20">11</div>
+                        <div>
+                            <span class="text-[10px] tracking-wider uppercase font-bold text-brandClay bg-brandClay/10 px-2 py-0.5 rounded">Phase 3</span>
+                            <h4 class="font-playfair text-xl font-bold text-brandDark mt-1">Writing Speed Drill & Personal Error Mapping</h4>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-xs font-semibold text-brandSage bg-brandSage/10 px-3 py-1 rounded-full">Writing Intensive</span>
+                        <input type="checkbox" id="lesson-check-11" onchange="toggleLesson(11)" class="w-5 h-5 rounded text-brandSage focus:ring-brandSage border-gray-300 rounded cursor-pointer no-print">
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-brandDark/80 pt-4 border-t border-[#F1ECE6]">
+                    <div>
+                        <h5 class="font-bold text-brandDark mb-2 flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-brandRose"></span> Lesson Objectives
+                        </h5>
+                        <ul class="list-disc list-inside space-y-1 pl-2 text-xs">
+                            <li>Produce clean Task 1 and Task 2 submissions within a simulated 60-minute constraint.</li>
+                            <li>Deconstruct writing style trends to isolate and prevent repetitive grammatical slips.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-brandDark mb-2 flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-brandSage"></span> Clinical / Medical Context Integration
+                        </h5>
+                        <p class="text-xs leading-relaxed mb-2">
+                            <strong>Mock Exercise:</strong> Evaluate public budget allocation disputes comparing curative medical research funding against social elderly care.
+                        </p>
+                        <p class="text-xs bg-brandBeige p-2.5 rounded-lg border border-brandRose/10 text-brandClay">
+                            <strong>Medical Vocab Focus:</strong> Life expectancy, public funding, medical research, aging population, clinical trials.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LESSON 12 -->
+            <div class="lesson-card bg-white border border-[#E8DFD5] rounded-3xl p-6 sm:p-8 shadow-sm transition hover:shadow-md relative print-card" data-tags="speaking">
+                <div class="flex flex-col sm:flex-row justify-between items-start gap-4 mb-4">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-brandClay/10 flex items-center justify-center font-playfair text-xl font-bold text-brandClay border border-brandClay/20">12</div>
+                        <div>
+                            <span class="text-[10px] tracking-wider uppercase font-bold text-brandClay bg-brandClay/10 px-2 py-0.5 rounded">Phase 3</span>
+                            <h4 class="font-playfair text-xl font-bold text-brandDark mt-1">Full Speaking Mock Test & Diagnostic</h4>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-xs font-semibold text-brandSage bg-brandSage/10 px-3 py-1 rounded-full">Speaking Focus</span>
+                        <input type="checkbox" id="lesson-check-12" onchange="toggleLesson(12)" class="w-5 h-5 rounded text-brandSage focus:ring-brandSage border-gray-300 rounded cursor-pointer no-print">
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-brandDark/80 pt-4 border-t border-[#F1ECE6]">
+                    <div>
+                        <h5 class="font-bold text-brandDark mb-2 flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-brandRose"></span> Lesson Objectives
+                        </h5>
+                        <ul class="list-disc list-inside space-y-1 pl-2 text-xs">
+                            <li>Replicate full 14-minute face-to-face test conditions with no structural scaffolding.</li>
+                            <li>Implement corrective strategies to stabilize delivery rate, grammatical range, and lexical choice under pressure.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-brandDark mb-2 flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-brandSage"></span> Clinical / Medical Context Integration
+                        </h5>
+                        <p class="text-xs leading-relaxed mb-2">
+                            <strong>Speaking Scenarios:</strong> Field advanced prompts debating public wellness initiatives, sports rehabilitation programs, and nursing homes.
+                        </p>
+                        <p class="text-xs bg-brandBeige p-2.5 rounded-lg border border-brandRose/10 text-brandClay">
+                            <strong>Medical Vocab Focus:</strong> Geriatric care, community health campaigns, physical therapy, sedentary lifestyle.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LESSON 13 -->
+            <div class="lesson-card bg-white border border-[#E8DFD5] rounded-3xl p-6 sm:p-8 shadow-sm transition hover:shadow-md relative print-card" data-tags="skills">
+                <div class="flex flex-col sm:flex-row justify-between items-start gap-4 mb-4">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-brandClay/10 flex items-center justify-center font-playfair text-xl font-bold text-brandClay border border-brandClay/20">13</div>
+                        <div>
+                            <span class="text-[10px] tracking-wider uppercase font-bold text-brandClay bg-brandClay/10 px-2 py-0.5 rounded">Phase 3</span>
+                            <h4 class="font-playfair text-xl font-bold text-brandDark mt-1">Reading & Listening Advanced Distractors</h4>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-xs font-semibold text-brandSage bg-brandSage/10 px-3 py-1 rounded-full">Skills Focus</span>
+                        <input type="checkbox" id="lesson-check-13" onchange="toggleLesson(13)" class="w-5 h-5 rounded text-brandSage focus:ring-brandSage border-gray-300 rounded cursor-pointer no-print">
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-brandDark/80 pt-4 border-t border-[#F1ECE6]">
+                    <div>
+                        <h5 class="font-bold text-brandDark mb-2 flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-brandRose"></span> Lesson Objectives
+                        </h5>
+                        <ul class="list-disc list-inside space-y-1 pl-2 text-xs">
+                            <li>Identify test traps, including lexical overlap, double negatives, and tricky synonyms.</li>
+                            <li>Hone strict time budgeting (exactly 20 minutes per passage) across challenging Reading sections.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-brandDark mb-2 flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-brandSage"></span> Clinical / Medical Context Integration
+                        </h5>
+                        <p class="text-xs leading-relaxed mb-2">
+                            <strong>Practice Material:</strong> Solve analytical passages adapted from scientific articles published in peer-reviewed journals like *Nature* or *The Lancet*.
+                        </p>
+                        <p class="text-xs bg-brandBeige p-2.5 rounded-lg border border-brandRose/10 text-brandClay">
+                            <strong>Medical Vocab Focus:</strong> Placebo effect, randomized trial, peer-reviewed, pharmacological breakthrough.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LESSON 14 -->
+            <div class="lesson-card bg-white border border-[#E8DFD5] rounded-3xl p-6 sm:p-8 shadow-sm transition hover:shadow-md relative print-card" data-tags="writing">
+                <div class="flex flex-col sm:flex-row justify-between items-start gap-4 mb-4">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-brandClay/10 flex items-center justify-center font-playfair text-xl font-bold text-brandClay border border-brandClay/20">14</div>
+                        <div>
+                            <span class="text-[10px] tracking-wider uppercase font-bold text-brandClay bg-brandClay/10 px-2 py-0.5 rounded">Phase 3</span>
+                            <h4 class="font-playfair text-xl font-bold text-brandDark mt-1">Writing Polish & High-yield Medical Vocabulary</h4>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-xs font-semibold text-brandSage bg-brandSage/10 px-3 py-1 rounded-full">Writing Intensive</span>
+                        <input type="checkbox" id="lesson-check-14" onchange="toggleLesson(14)" class="w-5 h-5 rounded text-brandSage focus:ring-brandSage border-gray-300 rounded cursor-pointer no-print">
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-brandDark/80 pt-4 border-t border-[#F1ECE6]">
+                    <div>
+                        <h5 class="font-bold text-brandDark mb-2 flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-brandRose"></span> Lesson Objectives
+                        </h5>
+                        <ul class="list-disc list-inside space-y-1 pl-2 text-xs">
+                            <li>Refine lexical precision in Task 2 to sound academic and natural, avoiding overly dramatic idioms.</li>
+                            <li>Maintain strict logical development from Introduction to Conclusion.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-brandDark mb-2 flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-brandSage"></span> Clinical / Medical Context Integration
+                        </h5>
+                        <p class="text-xs leading-relaxed mb-2">
+                            <strong>Composition Exercise:</strong> Draft a cohesive response regarding the "psychological strain on frontline healthcare professionals during national health emergencies."
+                        </p>
+                        <p class="text-xs bg-brandBeige p-2.5 rounded-lg border border-brandRose/10 text-brandClay">
+                            <strong>Medical Vocab Focus:</strong> Psychological support, front-line responders, crisis management, post-traumatic recovery.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LESSON 15 -->
+            <div class="lesson-card bg-white border border-[#E8DFD5] rounded-3xl p-6 sm:p-8 shadow-sm transition hover:shadow-md relative print-card" data-tags="speaking,skills,writing">
+                <div class="flex flex-col sm:flex-row justify-between items-start gap-4 mb-4">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-brandClay/10 flex items-center justify-center font-playfair text-xl font-bold text-brandClay border border-brandClay/20">15</div>
+                        <div>
+                            <span class="text-[10px] tracking-wider uppercase font-bold text-brandClay bg-brandClay/10 px-2 py-0.5 rounded">Phase 3</span>
+                            <h4 class="font-playfair text-xl font-bold text-brandDark mt-1">Final Full-Mock & Psychological Anchoring</h4>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-xs font-semibold text-brandSage bg-brandSage/10 px-3 py-1 rounded-full">Integrated Masterclass</span>
+                        <input type="checkbox" id="lesson-check-15" onchange="toggleLesson(15)" class="w-5 h-5 rounded text-brandSage focus:ring-brandSage border-gray-300 rounded cursor-pointer no-print">
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-brandDark/80 pt-4 border-t border-[#F1ECE6]">
+                    <div>
+                        <h5 class="font-bold text-brandDark mb-2 flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-brandRose"></span> Lesson Objectives
+                        </h5>
+                        <ul class="list-disc list-inside space-y-1 pl-2 text-xs">
+                            <li>Conduct a multi-skill error review to build confidence before test day.</li>
+                            <li>Establish clear time allocation metrics for each section of the exam.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-brandDark mb-2 flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-brandSage"></span> Clinical / Medical Context Integration
+                        </h5>
+                        <p class="text-xs leading-relaxed mb-2">
+                            Review and finalize the custom "Nursing-IELTS Cheat Sheet" containing her high-yield vocabulary.
+                        </p>
+                        <p class="text-xs bg-brandBeige p-2.5 rounded-lg border border-brandRose/10 text-brandClay">
+                            <strong>Teacher's Advice:</strong> "Phuong Anh, you already possess excellent clinical knowledge. Stay calm, rely on the structured frameworks we practiced, and you will confidently secure your target 6.0!"
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- NURSING VOCAB INTERACTIVE HUB -->
+        <section class="mt-16 bg-[#F1ECE6] border border-[#E8DFD5] rounded-3xl p-8 print-card">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
+                <div>
+                    <span class="text-[10px] uppercase font-bold tracking-widest text-brandClay bg-white/60 px-3 py-1 rounded-full">IELTS Chan Truong Resources</span>
+                    <h3 class="font-playfair text-3xl font-bold text-brandDark mt-3">High-Yield Vocabulary Explorer</h3>
+                    <p class="text-sm text-brandDark/70 mt-1">Medical and healthcare vocabulary highly relevant for IELTS Speaking & Writing</p>
+                </div>
+                <span class="text-xs font-bold text-brandSage bg-brandSage/10 border border-brandSage/20 px-3 py-1.5 rounded-xl">Customized for Phuong Anh</span>
+            </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- NURSING VOCAB INTERACTIVE HUB -->
+        <section class="mt-16 bg-[#F1ECE6] border border-[#E8DFD5] rounded-3xl p-8 print-card">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
+                <div>
+                    <span class="text-[10px] uppercase font-bold tracking-widest text-brandClay bg-white/60 px-3 py-1 rounded-full">IELTS Chan Truong Resources</span>
+                    <h3 class="font-playfair text-3xl font-bold text-brandDark mt-3">High-Yield Vocabulary Explorer</h3>
+                    <p class="text-sm text-brandDark/70 mt-1">Medical and healthcare vocabulary highly relevant for IELTS Speaking & Writing</p>
+                </div>
+                <span class="text-xs font-bold text-brandSage bg-brandSage/10 border border-brandSage/20 px-3 py-1.5 rounded-xl">Customized for Nguyen Thuy Linh</span>
+            </div>
+
+            <!-- Grid of Interactive Vocab Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Vocab 1 -->
+                <div class="bg-white rounded-2xl p-6 border border-brandRose/10 shadow-sm hover:border-brandRose transition">
+                    <div class="flex justify-between items-start mb-3">
+                        <span class="text-xs font-bold text-brandRose uppercase tracking-wider">Collocation</span>
+                        <span class="text-[10px] text-brandSage bg-brandSage/10 px-2 py-0.5 rounded">Band 6.0+</span>
+                    </div>
+                    <h4 class="font-playfair text-lg font-bold text-brandDark">Preventive Healthcare</h4>
+                    <p class="text-xs text-brandSage italic font-medium mt-0.5">Active preventive medical care</p>
+                    <p class="text-xs text-brandDark/80 mt-3 border-t border-brandSoftGray pt-3">
+                        <strong>Example:</strong> "Governments should invest in <strong>preventive healthcare</strong>, such as immunization programs, to save medical budgets in the future."
+                    </p>
+                </div>
+
+                <!-- Vocab 2 -->
+                <div class="bg-white rounded-2xl p-6 border border-brandRose/10 shadow-sm hover:border-brandRose transition">
+                    <div class="flex justify-between items-start mb-3">
+                        <span class="text-xs font-bold text-brandRose uppercase tracking-wider">Medical Term</span>
+                        <span class="text-[10px] text-brandSage bg-brandSage/10 px-2 py-0.5 rounded">Band 6.0+</span>
+                    </div>
+                    <h4 class="font-playfair text-lg font-bold text-brandDark">Occupational Burnout</h4>
+                    <p class="text-xs text-brandSage italic font-medium mt-0.5">Physical/mental fatigue from overwork</p>
+                    <p class="text-xs text-brandDark/80 mt-3 border-t border-brandSoftGray pt-3">
+                        <strong>Example:</strong> "Working consecutive shifts in the ICU often leads to <strong>occupational burnout</strong> among healthcare providers."
+                    </p>
+                </div>
+
+                <!-- Vocab 3 -->
+                <div class="bg-white rounded-2xl p-6 border border-brandRose/10 shadow-sm hover:border-brandRose transition">
+                    <div class="flex justify-between items-start mb-3">
+                        <span class="text-xs font-bold text-brandRose uppercase tracking-wider">Idiomatic Phrasing</span>
+                        <span class="text-[10px] text-brandSage bg-brandSage/10 px-2 py-0.5 rounded">Band 6.0+</span>
+                    </div>
+                    <h4 class="font-playfair text-lg font-bold text-brandDark">To run oneself ragged</h4>
+                    <p class="text-xs text-brandSage italic font-medium mt-0.5">To work to exhaustion</p>
+                    <p class="text-xs text-brandDark/80 mt-3 border-t border-brandSoftGray pt-3">
+                        <strong>Example:</strong> "Due to the shortage of pediatric nurses, some interns had to <strong>run themselves ragged</strong> to complete the night rounds."
+                    </p>
+                </div>
+
+                <!-- Vocab 4 -->
+                <div class="bg-white rounded-2xl p-6 border border-brandRose/10 shadow-sm hover:border-brandRose transition">
+                    <div class="flex justify-between items-start mb-3">
+                        <span class="text-xs font-bold text-brandRose uppercase tracking-wider">Adverb-Adj Collocation</span>
+                        <span class="text-[10px] text-brandSage bg-brandSage/10 px-2 py-0.5 rounded">Band 6.5+</span>
+                    </div>
+                    <h4 class="font-playfair text-lg font-bold text-brandDark">Pharmacological Breakthrough</h4>
+                    <p class="text-xs text-brandSage italic font-medium mt-0.5">Major discovery in drug research</p>
+                    <p class="text-xs text-brandDark/80 mt-3 border-t border-brandSoftGray pt-3">
+                        <strong>Example:</strong> "Recent <strong>pharmacological breakthroughs</strong> have introduced effective treatments for chronic cardiovascular illnesses."
+                    </p>
+                </div>
+
+                <!-- Vocab 5 -->
+                <div class="bg-white rounded-2xl p-6 border border-brandRose/10 shadow-sm hover:border-brandRose transition">
+                    <div class="flex justify-between items-start mb-3">
+                        <span class="text-xs font-bold text-brandRose uppercase tracking-wider">Formal Academic</span>
+                        <span class="text-[10px] text-brandSage bg-brandSage/10 px-2 py-0.5 rounded">Band 6.0+</span>
+                    </div>
+                    <h4 class="font-playfair text-lg font-bold text-brandDark">Bedside Manner</h4>
+                    <p class="text-xs text-brandSage italic font-medium mt-0.5">A healthcare professional's communication style with patients</p>
+                    <p class="text-xs text-brandDark/80 mt-3 border-t border-brandSoftGray pt-3">
+                        <strong>Example:</strong> "A compassionate <strong>bedside manner</strong> is as vital as surgical skills when treating patients in post-operative care."
+                    </p>
+                </div>
+
+                <!-- Vocab 6 -->
+                <div class="bg-white rounded-2xl p-6 border border-brandRose/10 shadow-sm hover:border-brandRose transition">
+                    <div class="flex justify-between items-start mb-3">
+                        <span class="text-xs font-bold text-brandRose uppercase tracking-wider">Health Economics</span>
+                        <span class="text-[10px] text-brandSage bg-brandSage/10 px-2 py-0.5 rounded">Band 6.0+</span>
+                    </div>
+                    <h4 class="font-playfair text-lg font-bold text-brandDark">Public Healthcare Subsidies</h4>
+                    <p class="text-xs text-brandSage italic font-medium mt-0.5">Government-provided health financial support</p>
+                    <p class="text-xs text-brandDark/80 mt-3 border-t border-brandSoftGray pt-3">
+                        <strong>Example:</strong> "Increasing <strong>public healthcare subsidies</strong> allows families below the poverty line to access high-quality treatments."
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- COLLABORATION NOTES / COACH COMMENTS -->
+        <section class="mt-12 grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div class="lg:col-span-2 bg-white border border-[#E8DFD5] rounded-3xl p-8 print-card">
+                <h4 class="font-playfair text-2xl font-bold text-brandDark mb-4">Teaching Notes & Supplementary Self-Study Plan</h4>
+                <div class="space-y-4 text-sm text-brandDark/80">
+                    <p>
+                        To maximize score growth within 15 lessons, Phuong Anh should maintain a disciplined self-study routine paired with her practical clinical internship hours:
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
+                        <div class="bg-brandBeige p-4 rounded-2xl">
+                            <h5 class="font-bold text-brandRose mb-2 text-xs uppercase tracking-wider">Vocabulary through Active Practice</h5>
+                            <p class="text-xs leading-relaxed">
+                                Attempt to mentally translate or link daily nursing actions with their English counterparts (e.g., when taking clinical charts or checking vitals). This significantly speeds up Speaking response reflex.
+                            </p>
+                        </div>
+                        <div class="bg-brandSage/10 p-4 rounded-2xl">
+                            <h5 class="font-bold text-brandSage mb-2 text-xs uppercase tracking-wider">Passive Listening during Commutes</h5>
+                            <p class="text-xs leading-relaxed">
+                                Use commutes or hospital breaks to listen to healthcare-focused English podcasts (such as *BBC Health Check*, *Science Vs*) to condition your auditory processing before the Listening section.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Guarantee/Signature Section -->
+            <div class="bg-white border border-[#E8DFD5] rounded-3xl p-8 flex flex-col justify-between print-card">
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <svg class="w-6 h-6 text-brandRose" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                        <h4 class="font-playfair text-xl font-bold text-brandDark">Chan Truong Commitment</h4>
+                    </div>
+                    <p class="text-xs text-brandDark/80 leading-relaxed">
+                        Our program guarantees 100% personalization centered around Phuong Anh's direct assimilation and feedback. Your instructional team is available to assist you with detailed error correction.
+                    </p>
+                </div>
+                <div class="pt-6 border-t border-[#F1ECE6] flex items-center justify-between">
+                    <div>
+                        <p class="text-[10px] uppercase font-bold text-brandClay">Instructional Designer</p>
+                        <p class="font-playfair font-bold text-brandDark">IELTS Chan Truong Team</p>
+                    </div>
+                    <!-- Aesthetic signature representation -->
+                    <div class="font-playfair italic text-brandRose text-lg tracking-wider opacity-80">Chan Truong</div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-brandDark text-brandSoftGray py-12 px-4 mt-20 no-print">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-6">
+            <div>
+                <h4 class="font-playfair text-xl font-bold text-white mb-1">IELTS Chan Truong</h4>
+                <p class="text-xs text-brandSoftGray/60">© 2026 Academic Pathway Tutoring. All rights reserved.</p>
+            </div>
+            <div class="flex gap-4 text-xs text-brandSoftGray/80">
+                <a href="#" class="hover:text-brandRose transition">Sample Roadmaps</a>
+                <span>•</span>
+                <a href="#" class="hover:text-brandRose transition">Study Resources</a>
+                <span>•</span>
+                <a href="#" class="hover:text-brandRose transition">Support Hub</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE STATE SCRIPT -->
+    <script>
+        // Track completed lessons using active state
+        const totalLessons = 15;
+        let completedLessons = new Set();
+
+        function toggleLesson(id) {
+            const checkbox = document.getElementById(`lesson-check-${id}`);
+            const card = checkbox.closest('.lesson-card');
+
+            if (checkbox.checked) {
+                completedLessons.add(id);
+                // Visual feedback for completion
+                card.classList.add('border-brandSage/40', 'bg-brandSage/[0.02]');
+                card.classList.remove('border-[#E8DFD5]');
+            } else {
+                completedLessons.delete(id);
+                card.classList.remove('border-brandSage/40', 'bg-brandSage/[0.02]');
+                card.classList.add('border-[#E8DFD5]');
+            }
+
+            updateProgressBar();
+        }
+
+        function updateProgressBar() {
+            const count = completedLessons.size;
+            const percentage = Math.round((count / totalLessons) * 100);
+            
+            const progressBar = document.getElementById('progress-bar');
+            const progressPercentText = document.getElementById('progress-percent');
+
+            progressBar.style.width = `${percentage}%`;
+            progressPercentText.innerText = `${percentage}% (${count}/${totalLessons} Lessons)`;
+        }
+
+        function filterLessons(tag) {
+            // Update filter button visuals
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('bg-brandSage', 'text-white');
+                btn.classList.add('bg-white', 'text-brandDark', 'border', 'border-[#E8DFD5]');
+            });
+
+            const activeBtn = document.getElementById(`btn-${tag}`);
+            activeBtn.classList.remove('bg-white', 'text-brandDark', 'border', 'border-[#E8DFD5]');
+            activeBtn.classList.add('bg-brandSage', 'text-white');
+
+            // Toggle cards visibility
+            const cards = document.querySelectorAll('.lesson-card');
+            cards.forEach(card => {
+                if (tag === 'all') {
+                    card.classList.remove('hidden');
+                } else {
+                    const tags = card.getAttribute('data-tags').split(',');
+                    if (tags.includes(tag)) {
+                        card.classList.remove('hidden');
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>
