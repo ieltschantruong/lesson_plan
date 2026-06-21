@@ -54,7 +54,7 @@
         }
         
         .glass-card:hover {
-            box-shadow: 0 10px 25px -3px rgba(252, 231, 243, 0.8), 0 4px 6px -2px rgba(24bc, 231, 243, 0.4);
+            box-shadow: 0 10px 25px -3px rgba(252, 231, 243, 0.8), 0 4px 6px -2px rgba(252, 231, 243, 0.4);
             transform: translateY(-2px);
         }
 
@@ -76,6 +76,7 @@
         .delay-100 { animation-delay: 0.1s; }
         .delay-200 { animation-delay: 0.2s; }
         .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
 
         @keyframes fadeInUp {
             to {
@@ -113,6 +114,7 @@
 
     <!-- Header Section -->
     <header class="bg-gradient-to-br from-pink-100 via-rose-100 to-pink-200 text-brand-900 pt-16 pb-20 px-6 relative overflow-hidden shadow-sm">
+        <!-- Decorative background elements -->
         <div class="absolute top-0 left-0 w-full h-full overflow-hidden opacity-30 pointer-events-none">
             <svg class="absolute -top-24 -right-24 w-96 h-96 text-white" fill="currentColor" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50"/></svg>
             <svg class="absolute bottom-[-10%] left-[-5%] w-64 h-64 text-brand-300" fill="currentColor" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50"/></svg>
@@ -146,27 +148,61 @@
     <main class="max-w-5xl mx-auto px-6 w-full -mt-8 relative z-20 pb-20 flex-grow">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
             
-            <!-- Left Column: Lesson Content (Main) -->
+            <!-- Left Column: Lesson Content -->
             <div class="lg:col-span-8 space-y-6">
                 
-                <!-- Section 1: Writing Test 3 -->
+                <!-- Section 1: Listening Check -->
                 <section class="glass-card rounded-2xl p-6 md:p-8 fade-in-up" id="section-1">
                     <div class="flex items-start justify-between mb-6">
                         <div class="flex items-center gap-4">
                             <div class="bg-brand-50 text-brand-500 p-3 rounded-xl">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
                             </div>
                             <div>
-                                <h3 class="text-xl font-bold text-brand-900">1. Writing Test 3: Tasks 1 & 2</h3>
+                                <h3 class="text-xl font-bold text-brand-900">1. Listening Test 5 | Check & Explain</h3>
                                 <p class="text-sm text-brand-400 font-medium flex items-center gap-2 mt-1">
                                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                                    Structures & Ideas Brainstorming (65 mins)
+                                    Class Review & Trap Spotting (25 mins)
                                 </p>
                             </div>
                         </div>
 
                         <label class="flex items-center cursor-pointer group">
                             <input type="checkbox" class="checkbox-custom hidden" data-task="1" onchange="updateProgress()">
+                            <div class="w-8 h-8 rounded-full border-2 border-brand-200 flex items-center justify-center transition-colors group-hover:border-brand-500 bg-white shadow-inner">
+                                <svg class="w-4 h-4 text-white opacity-0 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                        </label>
+                    </div>
+
+                    <div class="bg-brand-50/50 border border-brand-100 rounded-xl p-5 mb-5">
+                        <h4 class="font-semibold text-brand-900 mb-2">Listening Mock Test 05 Assessment Check</h4>
+                        <p class="text-slate-600 text-sm mb-4">Conduct answers validation for Listening Test 05. Deconstruct challenging audio links, address common phonetic distractors, and review detailed spelling standards.</p>
+                        <a href="https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/test_view_pet_intensive_05.html" target="_blank" class="inline-flex items-center gap-2 bg-brand-500 text-white px-5 py-2.5 rounded-lg text-sm font-medium hover:bg-brand-400 transition-colors w-full sm:w-auto justify-center shadow-md shadow-brand-200">
+                            Open Listening Test 05 Portal
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                        </a>
+                    </div>
+                </section>
+
+                <!-- Section 2: Writing Test 3 -->
+                <section class="glass-card rounded-2xl p-6 md:p-8 fade-in-up delay-100" id="section-2">
+                    <div class="flex items-start justify-between mb-6">
+                        <div class="flex items-center gap-4">
+                            <div class="bg-brand-50 text-brand-500 p-3 rounded-xl">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-brand-900">2. Writing Test 3: Tasks 1 & 2</h3>
+                                <p class="text-sm text-brand-400 font-medium flex items-center gap-2 mt-1">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    Structures & Ideas Brainstorming (50 mins)
+                                </p>
+                            </div>
+                        </div>
+
+                        <label class="flex items-center cursor-pointer group">
+                            <input type="checkbox" class="checkbox-custom hidden" data-task="2" onchange="updateProgress()">
                             <div class="w-8 h-8 rounded-full border-2 border-brand-200 flex items-center justify-center transition-colors group-hover:border-brand-500 bg-white shadow-inner">
                                 <svg class="w-4 h-4 text-white opacity-0 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
                             </div>
@@ -198,7 +234,7 @@
                                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                                     </span>
                                 </summary>
-                                <div class="p-4 border-t border-brand-100 text-sm text-slate-700 space-y-4 bg-white">
+                                <div class="p-4 border-t border-brand-100 text-sm text-slate-700 space-y-4 bg-white font-sans">
                                     <div>
                                         <span class="font-semibold text-brand-600 block mb-1">1. Introduction</span>
                                         <p>Paraphrase the prompt: The line graph contrasts the percentages of UK residents in 2011 utilizing four distinct communication channels (post, telephone, mobile phone, and internet) across four age brackets (under 18, 18-35, 36-60, and 60+).</p>
@@ -234,7 +270,7 @@
                                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                                     </span>
                                 </summary>
-                                <div class="p-5 border-t border-brand-100 text-sm text-slate-800 space-y-4 bg-white leading-relaxed">
+                                <div class="p-5 border-t border-brand-100 text-sm text-slate-800 space-y-4 bg-white leading-relaxed font-sans">
                                     <p>The line graph compares the usage percentages of four communication channels—post, telephone, mobile phone, and the internet—across four different age cohorts in the United Kingdom in 2011.</p>
                                     <p>Overall, there was a stark division in communication preferences based on age. Younger demographics relied heavily on the internet, which declined dramatically in popularity among older cohorts. Conversely, traditional methods like post and telephone displayed a strong, positive correlation with age. Remarkably, mobile phone usage remained completely stable across all age groups under 60 years old.</p>
                                     <p>With respect to traditional communication methods, both telephone and post saw progressive growth as the target audience aged. Telephone usage started at 16% among individuals under 18, grew marginally to 20% for those aged 18–35, reached 35% for the 36–60 age group, and peaked as the most popular medium for seniors aged 60 and over at 46%. Post followed an identical upward trend, starting as the least popular method for under-18s at just 5%, rising steadily to 10% and 20% in consecutive cohorts, and culminating at 35% for the oldest demographic.</p>
@@ -245,7 +281,7 @@
                     </div>
 
                     <!-- Task 2 Area -->
-                    <div class="border border-brand-100 rounded-xl p-5 bg-white shadow-sm">
+                    <div class="mt-6 border border-brand-100 rounded-xl p-5 bg-white shadow-sm">
                         <h4 class="font-bold text-lg text-brand-800 flex items-center mb-3">
                             <span class="bg-brand-100 text-brand-600 px-2 py-0.5 rounded text-sm mr-2">Task 2</span> Essay
                         </h4>
@@ -265,7 +301,7 @@
                                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                                     </span>
                                 </summary>
-                                <div class="p-4 border-t border-brand-100 text-sm text-slate-700 space-y-4 bg-white">
+                                <div class="p-4 border-t border-brand-100 text-sm text-slate-700 space-y-4 bg-white font-sans">
                                     <div>
                                         <span class="font-semibold text-brand-600 block mb-1">1. Introduction</span>
                                         <p>Introduce the debate: Universal imprisonment vs. community-based alternatives for minor offenders. State opinion: Disagree with universal sentencing; support community service for petty criminals as it aids rehabilitation and cuts government spending.</p>
@@ -302,7 +338,7 @@
                                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                                     </span>
                                 </summary>
-                                <div class="p-5 border-t border-brand-100 text-sm text-slate-800 space-y-4 bg-white leading-relaxed">
+                                <div class="p-5 border-t border-brand-100 text-sm text-slate-800 space-y-4 bg-white leading-relaxed font-sans">
                                     <p>Opinions differ on whether prison sentences should be applied universally to all lawbreakers or if alternative punishments, such as community service, should be introduced for minor offenses. While universal incarceration is seen by some as a strong deterrent, I believe that rehabilitation-oriented alternatives for non-violent, minor offenders offer a far more productive approach for society.</p>
                                     <p>On the one hand, proponents of sending all lawbreakers to prison believe that a strict, uncompromising legal system is necessary to maintain order. Imprisoning every offender, regardless of the severity of their crime, sends a clear and powerful message to the public, establishing a robust deterrent against unlawful behavior. Furthermore, this approach satisfies the public demand for retribution and ensures that criminals, whether shoplifters or serious felons, are physically removed from society to face immediate and noticeable consequences for their actions.</p>
                                     <p>On the other hand, others advocate for sentencing alternatives for petty crimes, an opinion I strongly support. The primary disadvantage of universal imprisonment is that minor offenders are placed in the same environment as hardened criminals, which often leads to bad influences and a higher likelihood of reoffending. By contrast, alternatives like community work allow petty criminals to pay their debt to society while avoiding the negative influences of jail. Additionally, holding inmates in prison places a massive financial burden on government budgets. Introducing community service programs—such as cleaning public parks, removing graffiti, or assisting in public facilities—saves public funds and actively contributes to local welfare.</p>
@@ -313,52 +349,18 @@
                     </div>
                 </section>
 
-                <!-- Section 2: Vocab Test -->
-                <section class="glass-card rounded-2xl p-6 md:p-8 fade-in-up delay-100" id="section-2">
+                <!-- Section 3: Vocab Test -->
+                <section class="glass-card rounded-2xl p-6 md:p-8 fade-in-up delay-200" id="section-3">
                     <div class="flex items-start justify-between mb-6">
                         <div class="flex items-center gap-4">
                             <div class="bg-brand-50 text-brand-500 p-3 rounded-xl">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 112 2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>
                             </div>
                             <div>
-                                <h3 class="text-xl font-bold text-brand-900">2. Vocab Test: All Speaking P1 Topics</h3>
+                                <h3 class="text-xl font-bold text-brand-900">3. Vocab Test: All Speaking P1 Topics</h3>
                                 <p class="text-sm text-brand-400 font-medium flex items-center gap-2 mt-1">
                                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                                    Class Assessment Checkpoint (20 mins)
-                                </p>
-                            </div>
-                        </div>
-
-                        <label class="flex items-center cursor-pointer group">
-                            <input type="checkbox" class="checkbox-custom hidden" data-task="2" onchange="updateProgress()">
-                            <div class="w-8 h-8 rounded-full border-2 border-brand-200 flex items-center justify-center transition-colors group-hover:border-brand-500 bg-white shadow-inner">
-                                <svg class="w-4 h-4 text-white opacity-0 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
-                            </div>
-                        </label>
-                    </div>
-
-                    <div class="bg-brand-50/50 border border-brand-100 rounded-xl p-5 mb-5">
-                        <h4 class="font-semibold text-brand-900 mb-2">Comprehensive Speaking Vocabulary Test</h4>
-                        <p class="text-slate-600 text-sm mb-4">Complete the final check evaluating all high-frequency vocabulary, key idioms, and native structures studied across Speaking Part 1 topics 1 through 46.</p>
-                        <a href="https://ieltschantruong.github.io/IELTS/lesson_plan/pet_intensive/vocab_test_speaking_p1_all.docx" target="_blank" class="inline-flex items-center gap-2 bg-brand-500 text-white px-5 py-2.5 rounded-lg text-sm font-medium hover:bg-brand-400 transition-colors w-full sm:w-auto justify-center shadow-md shadow-brand-200">
-                            Download Vocab Test (DOCX)
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-                        </a>
-                    </div>
-                </section>
-
-                <!-- Section 3: Homework -->
-                <section class="glass-card rounded-2xl p-6 md:p-8 fade-in-up delay-200" id="section-3">
-                     <div class="flex items-start justify-between mb-6">
-                        <div class="flex items-center gap-4">
-                            <div class="bg-brand-50 text-brand-500 p-3 rounded-xl">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-bold text-brand-900">3. Homework Assignment</h3>
-                                <p class="text-sm text-brand-400 font-medium flex items-center gap-2 mt-1">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                                    Wrap-up & Takeaways (5 mins)
+                                    Class Assessment Checkpoint (10 mins)
                                 </p>
                             </div>
                         </div>
@@ -371,39 +373,71 @@
                         </label>
                     </div>
 
+                    <div class="bg-brand-50/50 border border-brand-100 rounded-xl p-5 mb-5">
+                        <h4 class="font-semibold text-brand-900 mb-2">Speaking Part 1 Comprehensive Vocab Test</h4>
+                        <p class="text-slate-600 text-sm mb-4">Complete the comprehensive checkpoint covering high-frequency vocabulary, key idioms, and native structures studied across all Speaking Part 1 topics.</p>
+                        <a href="https://ieltschantruong.github.io/IELTS/lesson_plan/pet_intensive/vocab_test_speaking_p1_all.docx" target="_blank" class="inline-flex items-center gap-2 bg-brand-500 text-white px-5 py-2.5 rounded-lg text-sm font-medium hover:bg-brand-400 transition-colors w-full sm:w-auto justify-center shadow-md shadow-brand-200">
+                            Download Vocab Test (DOCX)
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                        </a>
+                    </div>
+                </section>
+
+                <!-- Section 4: Homework -->
+                <section class="glass-card rounded-2xl p-6 md:p-8 fade-in-up delay-300" id="section-4">
+                     <div class="flex items-start justify-between mb-6">
+                        <div class="flex items-center gap-4">
+                            <div class="bg-brand-50 text-brand-500 p-3 rounded-xl">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-brand-900">4. Homework Assignment</h3>
+                                <p class="text-sm text-brand-400 font-medium flex items-center gap-2 mt-1">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    Wrap-up & Takeaways (5 mins)
+                                </p>
+                            </div>
+                        </div>
+
+                        <label class="flex items-center cursor-pointer group">
+                            <input type="checkbox" class="checkbox-custom hidden" data-task="4" onchange="updateProgress()">
+                            <div class="w-8 h-8 rounded-full border-2 border-brand-200 flex items-center justify-center transition-colors group-hover:border-brand-500 bg-white shadow-inner">
+                                <svg class="w-4 h-4 text-white opacity-0 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                        </label>
+                    </div>
+
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         
-                        <!-- Homework Task 1: Reading Test 4 Passage 3 -->
+                        <!-- Homework Task 1 -->
                         <a href="https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/pet_intensive_04.html" target="_blank" class="flex items-start gap-3 p-4 bg-white border border-brand-100 rounded-xl hover:border-brand-400 hover:shadow-md transition-all group">
                             <div class="bg-brand-50 p-2 rounded-lg group-hover:bg-brand-100 text-brand-600 transition-colors">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
                             </div>
                             <div>
                                 <p class="font-medium text-brand-900 text-sm">Do Reading Test 4 - Passage 3</p>
-                                <p class="text-xs text-slate-500 mt-1">Complete Passage 3 under strict test timing (20 mins limit).</p>
+                                <p class="text-xs text-slate-500 mt-1">Complete Passage 3 under strict test timing standards (20 mins limit).</p>
                                 <span class="text-xs text-brand-500 font-semibold mt-2 inline-block">Access Test &rarr;</span>
                             </div>
                         </a>
 
-                        <!-- Homework Task 2: Listening Test 5 -->
-                        <a href="https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/test_view_pet_intensive_05.html" target="_blank" class="flex items-start gap-3 p-4 bg-white border border-brand-100 rounded-xl hover:border-brand-400 hover:shadow-md transition-all group">
-                            <div class="bg-brand-50 p-2 rounded-lg group-hover:bg-brand-100 text-brand-600 transition-colors">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                        <!-- Homework Task 2 -->
+                        <div class="flex items-start gap-3 p-4 bg-white border border-brand-100 rounded-xl hover:shadow-sm">
+                            <div class="bg-brand-50 p-2 rounded-lg text-brand-600">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
                             </div>
                             <div>
-                                <p class="font-medium text-brand-900 text-sm">Complete Listening Test 5</p>
-                                <p class="text-xs text-slate-500 mt-1">Take the online Listening Mock Test 05 and record your results.</p>
-                                <span class="text-xs text-brand-500 font-semibold mt-2 inline-block">Start Listening &rarr;</span>
+                                <p class="font-medium text-brand-900 text-sm">Speaking P2 & P3 Preparation</p>
+                                <p class="text-xs text-slate-500 mt-1">Research vocabulary, outline responsive structures, and prepare speech notes for pages 47 to 51.</p>
                             </div>
-                        </a>
-
+                        </div>
                     </div>
                 </section>
             </div>
 
             <!-- Right Column: Sidebar Tracker -->
             <div class="lg:col-span-4 relative">
-                <div class="sticky top-6 glass-card rounded-2xl p-6 fade-in-up delay-300">
+                <div class="sticky top-6 glass-card rounded-2xl p-6 fade-in-up delay-400">
                     <h3 class="font-serif font-bold text-xl text-brand-900 mb-4 border-b border-brand-100 pb-3">Lesson Tracker</h3>
                     
                     <div class="mb-6">
@@ -420,20 +454,27 @@
                         <li class="flex items-center justify-between p-3 rounded-lg bg-brand-50/50 border border-brand-100 transition-all" id="tracker-1">
                             <span class="flex items-center gap-2">
                                 <span class="w-2 h-2 rounded-full bg-brand-200 transition-colors" id="dot-1"></span>
-                                Writing structures & ideas
+                                Listening Test 05 Check
                             </span>
-                            <span class="text-xs bg-white text-brand-800 border border-brand-100 px-2 py-1 rounded">65m</span>
+                            <span class="text-xs bg-white text-brand-800 border border-brand-100 px-2 py-1 rounded">25m</span>
                         </li>
                         <li class="flex items-center justify-between p-3 rounded-lg bg-brand-50/50 border border-brand-100 transition-all" id="tracker-2">
                             <span class="flex items-center gap-2">
                                 <span class="w-2 h-2 rounded-full bg-brand-200 transition-colors" id="dot-2"></span>
-                                Vocab Check: All Topics
+                                Writing structures & ideas
                             </span>
-                            <span class="text-xs bg-white text-brand-800 border border-brand-100 px-2 py-1 rounded">20m</span>
+                            <span class="text-xs bg-white text-brand-800 border border-brand-100 px-2 py-1 rounded">50m</span>
                         </li>
                         <li class="flex items-center justify-between p-3 rounded-lg bg-brand-50/50 border border-brand-100 transition-all" id="tracker-3">
                             <span class="flex items-center gap-2">
                                 <span class="w-2 h-2 rounded-full bg-brand-200 transition-colors" id="dot-3"></span>
+                                Speaking P1 Vocab Test
+                            </span>
+                            <span class="text-xs bg-white text-brand-800 border border-brand-100 px-2 py-1 rounded">10m</span>
+                        </li>
+                        <li class="flex items-center justify-between p-3 rounded-lg bg-brand-50/50 border border-brand-100 transition-all" id="tracker-4">
+                            <span class="flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-brand-200 transition-colors" id="dot-4"></span>
                                 Wrap-up & Homework
                             </span>
                             <span class="text-xs bg-white text-brand-800 border border-brand-100 px-2 py-1 rounded">5m</span>
@@ -452,7 +493,7 @@
     </main>
 
     <script>
-        const totalTasks = 3;
+        const totalTasks = 4;
         
         function updateProgress() {
             const checkboxes = document.querySelectorAll('.checkbox-custom');
