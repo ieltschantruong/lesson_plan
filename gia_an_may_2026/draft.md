@@ -234,3 +234,24 @@ Homework
 - Questions brainstorming & practicing: https://ieltschantruong.github.io/IELTS/src/writing_questions/writing_task1_process_carbonated_drink.png
 
 3. Homework: Full essays writing
+
+# Lesson 16:
+Speaking Focus:
+1. Speaking Part 3 | Practice based on prep homework: Geography and Climate in https://ieltschantruong.github.io/IELTS/learning_resources/speaking/part2_3/nature_and_geography.html
+2. Speaking Part 1:
+- https://ieltschantruong.github.io/IELTS/learning_resources/speaking/part1/geography.html
+- https://ieltschantruong.github.io/IELTS/learning_resources/speaking/part1/holidays.html 
+3. Speaking Part 2: https://ieltschantruong.github.io/IELTS/learning_resources/speaking/part2_3/society_and_culture.html
+ Topic: Describe a traditional product from your country.
+   You should say:
+   What the product is?
+   How it is made?
+   What it is used for?
+   And explain why it is important to your country's culture.
+4. Vocab Test: https://ieltschantruong.github.io/IELTS/lesson_plan/vocab_test/speaking_nature_geography.html
+5. Homework:
+ - Learn vocab in:
+   + https://ieltschantruong.github.io/IELTS/learning_resources/speaking/part1/geography.html
+   + https://ieltschantruong.github.io/IELTS/learning_resources/speaking/part1/holidays.html
+   + https://ieltschantruong.github.io/IELTS/learning_resources/speaking/part2_3/society_and_culture.html
+ - Prep responses for the remaning P2 and P3 questions in https://ieltschantruong.github.io/IELTS/learning_resources/speaking/part2_3/society_and_culture.html

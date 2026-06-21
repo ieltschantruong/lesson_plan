@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Chan Truong | Lesson 16 Detailed Plan</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Inter"', 'sans-serif'],
+                    },
+                    colors: {
+                        pastel: {
+                            pink: '#ffe4e6',
+                            purple: '#f3e8ff',
+                            blue: '#e0e7ff',
+                            teal: '#ccfbf1',
+                            orange: '#ffedd5',
+                            indigo: '#e0e7ff',
+                            cyan: '#cffafe'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { 
+            background-color: #fdfbfb;
+            background-image: 
+                radial-gradient(at 80% 0%, hsla(250, 50%, 95%, 1) 0px, transparent 50%),
+                radial-gradient(at 10% 30%, hsla(280, 60%, 90%, 1) 0px, transparent 50%),
+                radial-gradient(at 90% 80%, hsla(200, 60%, 90%, 1) 0px, transparent 50%),
+                radial-gradient(at 20% 90%, hsla(220, 60%, 90%, 1) 0px, transparent 50%);
+            background-attachment: fixed;
+            color: #334155;
+        }
+        
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 10px 40px -10px rgba(0,0,0,0.05);
+        }
+
+        .skill-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.25rem 0.6rem;
+            border-radius: 8px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            backdrop-filter: blur(4px);
+        }
+
+        .badge-speaking { background-color: rgba(255, 237, 213, 0.7); color: #ea580c; border: 1px solid rgba(253, 216, 163, 0.5); }
+        .badge-vocab { background-color: rgba(204, 251, 241, 0.7); color: #0d9488; border: 1px solid rgba(153, 246, 228, 0.5); }
+
+        .guidance-box {
+            background: linear-gradient(to right, rgba(255,255,255,0.95), rgba(255,255,255,0.7));
+            border-left: 4px solid;
+            border-radius: 0.5rem;
+            padding: 1.25rem;
+            margin-bottom: 1.25rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
+
+        .topic-card {
+            background: linear-gradient(to bottom right, #ffffff, #fffbeb);
+            border: 1px solid rgba(253, 230, 138, 0.5);
+        }
+
+        /* Modal system transition controls */
+        .modal-overlay {
+            transition: opacity 0.25s ease-in-out;
+        }
+        .modal-container {
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease-in-out;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: rgba(203, 213, 225, 0.8); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(148, 163, 184, 0.8); }
+    </style>
+</head>
+<body class="antialiased min-h-screen pb-16">
+
+<div class="max-w-4xl mx-auto px-4 py-10 sm:px-6 lg:px-8">
+    
+    <!-- Header Block (Matches Lesson Sheets Exactly) -->
+    <header class="glass-panel rounded-[2rem] p-8 mb-8 relative overflow-hidden">
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-pastel-indigo rounded-full mix-blend-multiply filter blur-3xl opacity-50 z-0"></div>
+        <div class="absolute -bottom-24 -left-24 w-72 h-72 bg-pastel-purple rounded-full mix-blend-multiply filter blur-3xl opacity-50 z-0"></div>
+
+        <div class="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+            <div>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 border border-white text-[10px] font-bold text-slate-500 tracking-widest uppercase mb-3 shadow-sm">
+                    IELTS Chan Truong • Tutor 1
+                </div>
+                <h1 class="text-3xl md:text-4xl font-bold tracking-tight text-slate-800 mb-2">Lesson 16: Traditional Products & Cultural Expression</h1>
+                <p class="text-slate-500 font-medium">90-Minute Advanced Speaking Integration</p>
+            </div>
+            
+            <div class="flex flex-col gap-2">
+                <span class="skill-badge badge-speaking shadow-sm justify-center">Speaking P2 & P3 (60 Min)</span>
+                <span class="skill-badge badge-vocab shadow-sm justify-center">Topical Vocab (30 Min)</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="space-y-8">
+        
+        <!-- Section 1: Vocab Assessment -->
+        <section class="glass-panel rounded-2xl p-6 md:p-8 relative overflow-hidden bg-gradient-to-br from-white/60 to-teal-50/40">
+            <div class="absolute top-0 left-0 w-2 h-full bg-teal-400"></div>
+            
+            <div class="flex items-center justify-between gap-4 mb-5">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-teal-100 flex items-center justify-center text-teal-600 shadow-sm border border-teal-200">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <div>
+                        <h2 class="text-xl font-bold text-slate-800">1. Vocab Assessment</h2>
+                        <p class="text-sm text-slate-500">In-class verification & assessment links</p>
+                    </div>
+                </div>
+                <span class="skill-badge badge-vocab shadow-sm font-bold">Nature Vocab</span>
+            </div>
+            
+            <p class="text-sm text-slate-600 mb-4">Administer the targeted Vocabulary Assessment to verify student's retention of prior nature and geography descriptive terminologies:</p>
+
+            <a href="https://ieltschantruong.github.io/IELTS/lesson_plan/vocab_test/speaking_nature_geography.html" target="_blank" class="flex items-center justify-between p-4 bg-white/80 border border-teal-200 rounded-xl hover:shadow-md hover:border-teal-400 transition-all group">
+                <div class="flex items-center gap-4">
+                    <div class="bg-teal-50 p-2.5 rounded-lg text-teal-600 group-hover:bg-teal-100 transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                    </div>
+                    <div>
+                        <span class="block text-[15px] font-bold text-slate-800 group-hover:text-teal-700 transition-colors">Speaking Vocab Test</span>
+                        <span class="block text-xs text-slate-500 mt-0.5">Nature & Geography Theme</span>
+                    </div>
+                </div>
+                <span class="text-xs text-teal-600 font-bold uppercase tracking-wider bg-teal-50 px-3 py-1.5 rounded border border-teal-100 group-hover:bg-teal-100 transition-colors">Open Test &rarr;</span>
+            </a>
+        </section>
+
+        <!-- Section 2: Speaking Part 1 & Part 3 (Geography & Climate) -->
+        <section class="glass-panel rounded-2xl p-6 md:p-8 relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-2 h-full bg-orange-400"></div>
+            
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-orange-50 flex items-center justify-center text-orange-500 border border-orange-100 shadow-sm">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-slate-800">2. Part 1 & Part 3 Deep Dive</h2>
+                        <p class="text-sm text-slate-500">Geography, Climate & Holidays topical drills</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tutoring Guidance: Spoken Coherence & Fluency for 6.5 -->
+            <div class="guidance-box border-orange-400">
+                <h3 class="text-[13px] font-bold text-orange-800 uppercase tracking-wider mb-2 flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    Strategic Guidance: Upgrading Band 5.5 Fluency to Band 6.5
+                </h3>
+                <div class="space-y-3 text-sm text-slate-700">
+                    <p>Transitioning from a 5.0–5.5 to a 6.5 speaker requires eliminating systemic hesitation pauses when executing abstract answers. Instruct the student to implement these speaking techniques:</p>
+                    <ul class="list-disc list-inside space-y-1.5 ml-1 text-slate-600 text-xs">
+                        <li><strong>Avoid Over-Complication:</strong> Instead of struggling to find rare academic words, speak continuously with natural, precise collocations (e.g., use *"local customs"*, *"protect our natural resources"*).</li>
+                        <li><strong>Buy Thinking Time:</strong> Teach simple, natural placeholders to prevent silence gaps: *"Well, to be honest, I haven't thought about that before but..."*, *"Actually, that's an interesting question because..."*.</li>
+                        <li><strong>Structure Part 3 with A.R.E.A:</strong> Keep thoughts organized strictly using: <strong>[A]</strong> Direct Answer, <strong>[R]</strong> Clear Reason, <strong>[E]</strong> Simple Example, <strong>[A]</strong> Alternative/Conditional clause (e.g., *"If we don't do this,..."*).</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- In-Class Speaking Resources & Target Prompts -->
+            <div class="space-y-3 mt-6">
+                <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">Target In-Class Speaking Resources</h4>
+                
+                <!-- Part 3 Resource Link -->
+                <a href="https://ieltschantruong.github.io/IELTS/learning_resources/speaking/part2_3/nature_and_geography.html" target="_blank" class="p-4 rounded-xl border border-orange-200 bg-white flex flex-col sm:flex-row items-center justify-between gap-4 transition-all hover:border-orange-400 hover:shadow-md group">
+                    <div class="flex items-center gap-4 w-full sm:w-auto">
+                        <div class="w-10 h-10 bg-orange-50 rounded-lg flex items-center justify-center text-orange-600 font-bold group-hover:bg-orange-100 transition-colors shrink-0">P3</div>
+                        <div>
+                            <p class="font-bold text-slate-800 text-[15px] group-hover:text-orange-600 transition-colors">Geography & Climate Practice</p>
+                            <p class="text-xs text-slate-500 mt-0.5">Focus: Part 3 systematic evaluation using homework outlines</p>
+                        </div>
+                    </div>
+                    <span class="w-full sm:w-auto text-center sm:text-right text-[11px] font-bold text-orange-600 uppercase tracking-wider bg-orange-50 px-4 py-2.5 rounded-lg border border-orange-100 group-hover:bg-orange-100 transition-colors shrink-0">Review Outlines</span>
+                </a>
+
+                <!-- Part 1 Geography Link -->
+                <a href="https://ieltschantruong.github.io/IELTS/learning_resources/speaking/part1/geography.html" target="_blank" class="p-4 rounded-xl border border-orange-200 bg-white flex flex-col sm:flex-row items-center justify-between gap-4 transition-all hover:border-orange-400 hover:shadow-md group">
+                    <div class="flex items-center gap-4 w-full sm:w-auto">
+                        <div class="w-10 h-10 bg-orange-50 rounded-lg flex items-center justify-center text-orange-600 font-bold group-hover:bg-orange-100 transition-colors shrink-0">P1</div>
+                        <div>
+                            <p class="font-bold text-slate-800 text-[15px] group-hover:text-orange-600 transition-colors">Geography Part 1 Topics</p>
+                            <p class="text-xs text-slate-500 mt-0.5">Focus: Answering questions about mountains, rivers, and natural spots near home</p>
+                        </div>
+                    </div>
+                    <span class="w-full sm:w-auto text-center sm:text-right text-[11px] font-bold text-orange-600 uppercase tracking-wider bg-orange-50 px-4 py-2.5 rounded-lg border border-orange-100 group-hover:bg-orange-100 transition-colors shrink-0">Open Prompts</span>
+                </a>
+
+                <!-- Part 1 Holidays Link -->
+                <a href="https://ieltschantruong.github.io/IELTS/learning_resources/speaking/part1/holidays.html" target="_blank" class="p-4 rounded-xl border border-orange-200 bg-white flex flex-col sm:flex-row items-center justify-between gap-4 transition-all hover:border-orange-400 hover:shadow-md group">
+                    <div class="flex items-center gap-4 w-full sm:w-auto">
+                        <div class="w-10 h-10 bg-orange-50 rounded-lg flex items-center justify-center text-orange-600 font-bold group-hover:bg-orange-100 transition-colors shrink-0">P1</div>
+                        <div>
+                            <p class="font-bold text-slate-800 text-[15px] group-hover:text-orange-600 transition-colors">Holidays & Travel Part 1 Topics</p>
+                            <p class="text-xs text-slate-500 mt-0.5">Focus: Discussing holiday preferences, destinations, and tourist spots</p>
+                        </div>
+                    </div>
+                    <span class="w-full sm:w-auto text-center sm:text-right text-[11px] font-bold text-orange-600 uppercase tracking-wider bg-orange-50 px-4 py-2.5 rounded-lg border border-orange-100 group-hover:bg-orange-100 transition-colors shrink-0">Open Prompts</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Section 3: Speaking Part 2 (Narrative Storytelling - Traditional Products) -->
+        <section class="glass-panel rounded-2xl p-6 md:p-8 relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-2 h-full bg-orange-400"></div>
+            
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 rounded-full bg-orange-50 flex items-center justify-center text-orange-500 border border-orange-100 shadow-sm">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                </div>
+                <h2 class="text-2xl font-bold text-slate-800">3. Speaking Part 2: Society & Culture</h2>
+            </div>
+
+            <!-- Tutoring Guidance: Traditional Products -->
+            <div class="guidance-box border-orange-400">
+                <h3 class="text-[13px] font-bold text-orange-800 uppercase tracking-wider mb-2 flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    Narrative Setting: Describing Handcrafted Traditional Items
+                </h3>
+                <div class="space-y-3 text-sm text-slate-700">
+                    <p>When describing a traditional product, students often panic about technical vocabulary. Direct them to focus on a familiar handicraft (like the conical hat, or *Nón Lá*) where they can tell a cohesive story using simple, descriptive language.</p>
+                    <ul class="list-disc list-inside space-y-1.5 ml-1 text-slate-600 text-xs">
+                        <li><strong>Sensory Imagery:</strong> Encourage description of textures and visual details (*"smooth green leaves"*, *"circular shape"*, *"delicate white thread"*).</li>
+                        <li><strong>Process Explanation:</strong> Avoid complicated manufacturing terms. Use accessible passive voice (*"is made from..."*, *"is woven by hand"*, *"is dried in the sun"*).</li>
+                        <li><strong>Connecting to Cultural Value:</strong> Explain the abstract importance using clear relative markers (*"which represents..."*, *"which has been a symbol of our culture for generations"*).</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Topic 1 -->
+            <div class="topic-card rounded-xl p-5 shadow-sm relative">
+                <div class="absolute top-0 right-0 bg-orange-100 text-orange-700 text-[10px] font-bold px-2 py-1 rounded-bl-lg rounded-tr-xl border-l border-b border-orange-200">CUE CARD</div>
+                <h4 class="text-[15px] font-bold text-slate-800 mb-3 w-11/12">Describe a traditional product from your country.</h4>
+                <div class="bg-white/80 rounded p-3 text-sm text-slate-600 border border-orange-100/60">
+                    <p class="font-semibold text-slate-800 mb-1">Prompt parameters:</p>
+                    <ul class="list-none space-y-1 text-xs">
+                        <li>• <span class="font-medium">What the product is?</span></li>
+                        <li>• <span class="font-medium">How it is made?</span></li>
+                        <li>• <span class="font-medium">What it is used for?</span></li>
+                        <li>• <span class="font-medium">And explain why it is important to your country's culture.</span></li>
+                    </ul>
+                </div>
+                
+                <div class="flex flex-col sm:flex-row gap-3 mt-4">
+                    <a href="https://ieltschantruong.github.io/IELTS/learning_resources/speaking/part2_3/society_and_culture.html" target="_blank" class="flex-1 py-2.5 bg-white text-orange-700 border border-orange-200 hover:bg-orange-50 rounded-lg text-xs font-bold transition-all flex justify-center items-center gap-2">
+                        <svg class="w-4 h-4 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                        Open Topic Resource List
+                    </a>
+                    <button onclick="openModal('traditionalProduct')" class="flex-1 py-2.5 bg-orange-600 hover:bg-orange-700 text-white border border-orange-700 rounded-lg text-xs font-bold transition-all flex justify-center items-center gap-2 group">
+                        <svg class="w-4 h-4 text-white group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+                        View Band 6.5 Sample Story
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Homework Section -->
+        <section class="glass-panel rounded-2xl p-6 md:p-8 relative overflow-hidden bg-gradient-to-br from-white/60 to-blue-50/40">
+            <div class="absolute top-0 left-0 w-2 h-full bg-blue-400"></div>
+            
+            <div class="flex items-center gap-3 mb-5">
+                <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 shadow-sm border border-blue-200">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                </div>
+                <h2 class="text-xl font-bold text-slate-800">4. Homework Assignments</h2>
+            </div>
+            
+            <p class="text-sm text-slate-600 mb-6 font-medium">Assign the following exercises to consolidate Speaking Part 2 delivery and expand active cultural vocabulary:</p>
+
+            <div class="bg-white/80 rounded-xl p-5 border border-indigo-100 shadow-sm space-y-4">
+                <div class="flex items-start gap-4">
+                    <div class="p-2.5 bg-orange-50 text-orange-500 rounded-lg shadow-sm">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+                    </div>
+                    <div>
+                        <p class="font-bold text-slate-800 text-base leading-snug">Active Vocabulary Acquisition & Recording Prep</p>
+                        <p class="text-xs text-slate-500 mt-1">Study and acquire active vocabulary from the specified Resource sheets. Record and submit detailed audio drafts for the remaining Part 2 & Part 3 Society & Culture topics.</p>
+                    </div>
+                </div>
+
+                <!-- Structured Homework Resource list -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 border-t border-slate-100 pt-4 mt-2">
+                    <a href="https://ieltschantruong.github.io/IELTS/learning_resources/speaking/part1/geography.html" target="_blank" class="block p-3 rounded-lg border border-slate-150 bg-slate-50 hover:bg-slate-100 text-xs transition-colors">
+                        <span class="font-bold text-slate-700 block mb-1">1. Geography Vocab</span>
+                        <span class="text-slate-500 text-[10px]">Learn terms for natural features & landforms.</span>
+                    </a>
+                    <a href="https://ieltschantruong.github.io/IELTS/learning_resources/speaking/part1/holidays.html" target="_blank" class="block p-3 rounded-lg border border-slate-150 bg-slate-50 hover:bg-slate-100 text-xs transition-colors">
+                        <span class="font-bold text-slate-700 block mb-1">2. Holidays Vocab</span>
+                        <span class="text-slate-500 text-[10px]">Learn terms for holiday destinations & activities.</span>
+                    </a>
+                    <a href="https://ieltschantruong.github.io/IELTS/learning_resources/speaking/part2_3/society_and_culture.html" target="_blank" class="block p-3 rounded-lg border border-slate-150 bg-slate-50 hover:bg-slate-100 text-xs transition-colors">
+                        <span class="font-bold text-slate-700 block mb-1">3. Society Vocab</span>
+                        <span class="text-slate-500 text-[10px]">Learn terms for cultural products & society.</span>
+                    </a>
+                </div>
+
+                <div class="pt-2">
+                    <a href="https://ieltschantruong.github.io/IELTS/learning_resources/speaking/part2_3/society_and_culture.html" target="_blank" class="w-full bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold py-3 px-4 rounded-xl shadow-md transition-all flex items-center justify-center gap-2">
+                        <span>Open Remaining Society & Culture Questions</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</div>
+
+<!-- Modal Component System (Overlay popup for Model Answers) -->
+<div id="modalOverlay" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-50 flex items-center justify-center p-4 md:p-6 opacity-0 pointer-events-none modal-overlay">
+    <div id="modalContainer" class="bg-white rounded-3xl w-full max-w-2xl max-h-[85vh] overflow-y-auto shadow-2xl flex flex-col border border-slate-100 transform scale-95 opacity-0 modal-container">
+        
+        <!-- Modal Header -->
+        <div class="px-6 py-5 border-b border-slate-100 bg-slate-50 flex items-center justify-between sticky top-0 z-10 rounded-t-3xl">
+            <div class="flex items-center gap-3">
+                <div class="w-2.5 h-2.5 rounded-full bg-orange-500"></div>
+                <h3 id="modalTitle" class="text-sm font-bold text-slate-800 tracking-tight">Speaking Model Answer</h3>
+            </div>
+            <button onclick="closeModal()" class="p-1.5 rounded-lg bg-slate-200/60 hover:bg-slate-200 text-slate-500 hover:text-slate-700 transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+        </div>
+        
+        <!-- Modal Body Content -->
+        <div id="modalBody" class="p-6 md:p-8 space-y-6">
+            <!-- Dynamic Content Injected here -->
+        </div>
+        
+        <!-- Modal Footer -->
+        <div class="px-6 py-4 border-t border-slate-100 bg-slate-50 flex justify-end rounded-b-3xl">
+            <button onclick="closeModal()" class="bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold py-2.5 px-5 rounded-xl transition-all shadow-sm">
+                Return to Lesson Plan
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Database for Speaking Responses & Structural Blueprints
+    const speakingDB = {
+        traditionalProduct: {
+            title: "Model Story: Conical Hat (Nón Lá)",
+            topic: "Describe a traditional product from your country.",
+            outline: "Nón Lá, handcrafted conical hat of Vietnam.",
+            story: `"I would like to talk about a very famous traditional product from my country, which is the conical hat, or what we call **'Nón Lá'** in Vietnamese.<br><br>Actually, this is a very simple hat, but it has a long history and represents our national culture. When it comes to how it's made, it is completely **handcrafted** by local artisans. It is made from natural palm leaves which are dried in the sun until they turn a pale, soft yellow. Then, these leaves are carefully woven onto a circular bamboo frame using a strong, invisible thread. The final product has a distinct cone shape.<br><br>Regarding its uses, it is incredibly practical. In the countryside, you can see many farmers wearing it because it **protects them from the hot sun** and sudden rain while they work in the rice fields. It is extremely light, so it is very comfortable to wear all day long.<br><br>I believe this product is highly important to our culture because it is a **traditional symbol** of Vietnamese people, especially women. It represents simple, hardworking country life and has been passed down for generations. Whenever I see a conical hat, I instantly feel a strong connection to my homeland and our heritage."`,
+            grammar: [
+                "<strong>Relative Clauses (which is... which are...):</strong> Effectively combines short sentences to raise Coherence scores without overloading speech flow.",
+                "<strong>Simple Passive Forms (is made from / is woven):</strong> Accurate and natural grammar usage for explaining handcrafted production methods.",
+                "<strong>Fluency Markers (When it comes to... / Regarding its uses...):</strong> Seamless transitions that prevent pauses and guide the listener cleanly through the cue card."
+            ],
+            adjectives: ["Handcrafted hat", "Natural palm leaves", "Distinct cone shape", "Incredibly practical", "Traditional symbol", "Hardworking country life", "Strong connection", "Homeland heritage"]
+        }
+    };
+
+    function openModal(type) {
+        const data = speakingDB[type];
+        if (!data) return;
+
+        const overlay = document.getElementById('modalOverlay');
+        const container = document.getElementById('modalContainer');
+        const body = document.getElementById('modalBody');
+
+        document.getElementById('modalTitle').innerText = data.title;
+
+        // Construct HTML content inside modal
+        body.innerHTML = `
+            <div>
+                <span class="text-[10px] font-bold text-orange-600 bg-orange-50 border border-orange-100 px-2.5 py-1 rounded-md uppercase">Band 6.5 Structured Storyboard</span>
+                <div class="mt-3 text-xs leading-relaxed text-slate-700 bg-slate-50 border border-slate-100 p-5 rounded-2xl">
+                    <p class="mb-4 italic text-slate-800 border-l-2 border-orange-300 pl-3 bg-white/40 p-2 rounded">
+                        <strong>Topic:</strong> ${data.topic}
+                    </p>
+                    <p class="text-slate-600 leading-relaxed">${data.story}</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+                <div>
+                    <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-2.5">Key Grammatical Markers</span>
+                    <ul class="space-y-2">
+                        ${data.grammar.map(item => `
+                            <li class="flex items-start text-[11px] text-slate-600">
+                                <span class="text-orange-400 font-bold mr-2">•</span>
+                                <span>${item}</span>
+                            </li>
+                        `).join('')}
+                    </ul>
+                </div>
+                <div>
+                    <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-2.5">Band 6.5 Collocations & Lexis</span>
+                    <div class="flex flex-wrap gap-1.5">
+                        ${data.adjectives.map(word => `
+                            <span class="text-[11px] font-semibold text-slate-600 bg-slate-100 border border-slate-200/60 px-2.5 py-1 rounded-md">${word}</span>
+                        `).join('')}
+                    </div>
+                </div>
+            </div>
+        `;
+
+        // Animation triggers
+        overlay.classList.remove('pointer-events-none');
+        overlay.classList.add('opacity-100');
+        container.classList.remove('scale-95', 'opacity-0');
+        container.classList.add('scale-100', 'opacity-100');
+        
+        // Prevent body scrolling
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+        const overlay = document.getElementById('modalOverlay');
+        const container = document.getElementById('modalContainer');
+
+        overlay.classList.remove('opacity-100');
+        overlay.classList.add('pointer-events-none');
+        container.classList.remove('scale-100', 'opacity-100');
+        container.classList.add('scale-95', 'opacity-0');
+        
+        // Restore body scrolling
+        document.body.style.overflow = '';
+    }
+
+    // Close modal if user clicks outside of container
+    document.getElementById('modalOverlay').addEventListener('click', function(e) {
+        if (e.target === this) {
+            closeModal();
+        }
+    });
+
+    // Close on escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeModal();
+        }
+    });
+</script>
+
+</body>
+</html>
