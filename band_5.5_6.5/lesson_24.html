@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Chan Truong - Lesson 24</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #fdf2f8;
+            background-image: 
+                radial-gradient(at 0% 0%, #ffe4e6 0px, transparent 50%),
+                radial-gradient(at 100% 0%, #fce7f3 0px, transparent 50%),
+                radial-gradient(at 100% 100%, #fbcfe8 0px, transparent 50%),
+                radial-gradient(at 0% 100%, #fdf2f8 0px, transparent 50%),
+                radial-gradient(at 50% 50%, #fff1f2 0px, transparent 50%);
+            background-attachment: fixed;
+            color: #4c0519; /* rose-950 */
+        }
+        
+        .slide { display: none; opacity: 0; transition: opacity 0.5s ease, transform 0.5s ease; transform: translateY(20px); }
+        .slide.active { display: block; opacity: 1; transform: translateY(0); }
+        
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: transparent; } 
+        ::-webkit-scrollbar-thumb { background: rgba(244, 114, 182, 0.4); border-radius: 10px; border: 2px solid transparent; background-clip: padding-box; } 
+        ::-webkit-scrollbar-thumb:hover { background: rgba(225, 29, 72, 0.5); border: 2px solid transparent; background-clip: padding-box; } 
+        
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
+        .hidden-answer { display: none; }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 10px 40px -10px rgba(225, 29, 72, 0.15);
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.45);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: inset 0 2px 4px 0 rgba(255, 255, 255, 0.3), 0 4px 15px -5px rgba(225, 29, 72, 0.05);
+        }
+        .glass-button {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.5));
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 15px -5px rgba(225, 29, 72, 0.15);
+            transition: all 0.3s ease;
+        }
+        .glass-button:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px -5px rgba(225, 29, 72, 0.25);
+        }
+        
+        .hover-lift { transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease; }
+        .hover-lift:hover { transform: translateY(-4px); box-shadow: 0 15px 30px -10px rgba(225, 29, 72, 0.2); }
+    </style>
+</head>
+<body class="h-screen flex flex-col overflow-hidden">
+
+    <!-- Header / Navigation (Frosted Glass) -->
+    <header class="glass-card border-b border-white/60 z-20 shrink-0 relative">
+        <div class="p-4 flex justify-between items-center max-w-7xl mx-auto w-full">
+            <div>
+                <h1 class="text-2xl font-extrabold tracking-tight text-rose-950">IELTS Chan Truong <span class="text-rose-600 font-semibold ml-2 px-3 py-1 bg-white/50 border border-white/60 rounded-full text-base shadow-sm">Class 5.5-6.5</span></h1>
+                <p class="text-sm text-rose-900/70 mt-1.5 flex items-center gap-2 font-medium">
+                    <span class="w-2 h-2 rounded-full bg-pink-400 shadow-[0_0_8px_rgba(244,114,182,0.8)]"></span> Lesson 24: Reading & Speaking
+                </p>
+            </div>
+            <div class="flex items-center gap-4">
+                <span id="slide-counter" class="font-bold text-rose-900 px-4 py-1.5 glass-panel rounded-full">1 / 6</span>
+                <div class="flex gap-3">
+                    <button onclick="prevSlide()" class="glass-button text-rose-800 px-5 py-2.5 rounded-full font-semibold flex items-center gap-2">
+                        <span>←</span> Prev
+                    </button>
+                    <button onclick="nextSlide()" class="bg-gradient-to-r from-pink-500 to-rose-400 hover:from-pink-400 hover:to-rose-300 text-white px-6 py-2.5 rounded-full shadow-lg shadow-pink-500/30 transition-all hover:shadow-pink-500/50 hover:-translate-y-0.5 font-bold flex items-center gap-2">
+                        Next <span>→</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Progress Bar -->
+        <div class="h-1 bg-white/40 w-full absolute bottom-0 left-0">
+            <div id="progress-bar" class="h-full bg-gradient-to-r from-pink-400 to-rose-500 transition-all duration-500 ease-out shadow-[0_0_10px_rgba(244,114,182,0.5)]" style="width: 16.66%;"></div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 overflow-y-auto p-8 relative">
+        <div class="max-w-5xl mx-auto pb-24">
+
+            <!-- SLIDE 1: Intro -->
+            <div class="slide active" id="slide-0">
+                <div class="text-center py-16">
+                    <div class="inline-block mb-6 px-5 py-2 rounded-full glass-panel text-rose-600 font-bold text-sm tracking-widest uppercase shadow-sm">Lesson Overview</div>
+                    <h2 class="text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-rose-950 to-pink-700 mb-6 tracking-tight drop-shadow-sm">Reading & Speaking</h2>
+                    <p class="text-xl text-rose-900/70 mb-16 max-w-2xl mx-auto font-medium leading-relaxed">Today's session focuses on Unit 8 Student's Book reading comprehension and Speaking Parts 1 & 2 covering Fashion, Accessories, and Special Occasions.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto text-left">
+                        <div class="glass-card p-8 rounded-3xl hover-lift relative overflow-hidden group">
+                            <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-purple-400 to-pink-400 opacity-80"></div>
+                            <div class="w-14 h-14 glass-panel rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-sm group-hover:scale-110 transition-transform">📖</div>
+                            <h3 class="text-2xl font-bold mb-4 text-rose-950">Part 1: Reading</h3>
+                            <ul class="text-rose-900/80 space-y-3 font-medium">
+                                <li class="flex items-start gap-3"><span class="text-pink-400 mt-1">✦</span> Complete IELTS SB | Unit 8</li>
+                                <li class="flex items-start gap-3"><span class="text-pink-400 mt-1">✦</span> Yellow Book Vocab (Pg 61-62)</li>
+                            </ul>
+                        </div>
+                        <div class="glass-card p-8 rounded-3xl hover-lift relative overflow-hidden group">
+                            <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-pink-400 to-rose-400 opacity-80"></div>
+                            <div class="w-14 h-14 glass-panel rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-sm group-hover:scale-110 transition-transform">🗣️</div>
+                            <h3 class="text-2xl font-bold mb-4 text-rose-950">Part 2: Speaking</h3>
+                            <ul class="text-rose-900/80 space-y-3 font-medium">
+                                <li class="flex items-start gap-3"><span class="text-rose-400 mt-1">✦</span> <strong>Part 1:</strong> Sunglasses, Watches, Shoes</li>
+                                <li class="flex items-start gap-3"><span class="text-rose-400 mt-1">✦</span> <strong>Part 2:</strong> Describe a Piece of Clothes</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <button onclick="nextSlide()" class="mt-16 bg-gradient-to-r from-rose-900 to-pink-800 hover:from-rose-800 hover:to-pink-700 text-white px-10 py-4 rounded-full text-lg font-bold shadow-[0_10px_25px_rgba(159,18,57,0.3)] transition-all hover:shadow-[0_15px_35px_rgba(159,18,57,0.4)] hover:-translate-y-1 flex items-center gap-3 mx-auto">
+                        Begin Lesson <span class="text-xl">✨</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- SLIDE 2: Reading - Student Book -->
+            <div class="slide" id="slide-1">
+                <div class="flex items-center gap-4 mb-10">
+                    <span class="w-12 h-12 rounded-2xl glass-panel flex items-center justify-center text-2xl shadow-sm">📖</span>
+                    <div>
+                        <span class="text-pink-600 font-extrabold text-xs tracking-widest uppercase">Reading</span>
+                        <h2 class="text-3xl font-extrabold text-rose-950">Complete IELTS Student's Book | Unit 8</h2>
+                    </div>
+                </div>
+
+                <div class="glass-card p-14 rounded-3xl mb-6 text-center">
+                    <div class="w-24 h-24 glass-panel rounded-full flex items-center justify-center mx-auto mb-8 shadow-inner">
+                        <span class="text-5xl drop-shadow-md">🔗</span>
+                    </div>
+                    <h3 class="text-3xl font-extrabold text-rose-950 mb-4">Reading Passage Check & Explanation</h3>
+                    <p class="text-xl text-rose-900/70 mb-10 max-w-xl mx-auto font-medium leading-relaxed">Open the external reading materials to review the Student's Book passage and answer keys with the class.</p>
+                    
+                    <a href="http://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/passage_complete_ielts_5.5_6.5_sb_unit8.html" target="_blank" class="inline-flex items-center gap-3 bg-gradient-to-r from-pink-500 to-rose-400 hover:from-pink-400 hover:to-rose-300 text-white font-bold py-4 px-10 rounded-full shadow-lg shadow-pink-500/30 transition-all hover:-translate-y-1 hover:shadow-pink-500/50 text-lg">
+                        Open Reading Answers <span>↗</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- SLIDE 3: Reading - Vocabulary Exercises (Pg 61-62) -->
+            <div class="slide" id="slide-2">
+                <div class="flex items-center gap-4 mb-10">
+                    <span class="w-12 h-12 rounded-2xl glass-panel flex items-center justify-center text-2xl shadow-sm">📝</span>
+                    <div>
+                        <span class="text-pink-600 font-extrabold text-xs tracking-widest uppercase">Reading</span>
+                        <h2 class="text-3xl font-extrabold text-rose-950">Vocabulary Exercises (Pg 61-62)</h2>
+                    </div>
+                </div>
+
+                <!-- Exercise 1: Matching (image_175981.png) -->
+                <div class="glass-card rounded-3xl mb-8 exercise-container overflow-hidden">
+                    <div class="p-8 md:p-10 border-b border-white/60">
+                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                            <div>
+                                <h3 class="text-2xl font-bold text-rose-950">Exercise 1: Synonyms/Meanings</h3>
+                                <p class="text-sm text-rose-900/60 mt-1">Match the words with their synonyms or definitions as referenced in image_175981.png.</p>
+                            </div>
+                            <button onclick="toggleAnswers(this)" class="glass-button text-rose-800 font-bold py-2.5 px-5 rounded-xl flex items-center justify-center gap-2 text-sm shadow-sm shrink-0">
+                                👀 Reveal Answers
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="p-8 md:p-10 bg-white/25">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                            <!-- Left: List of items -->
+                            <div class="space-y-6">
+                                <h4 class="text-lg font-black text-rose-900 border-b border-pink-200 pb-1 uppercase tracking-wider">Verbs</h4>
+                                <ol class="space-y-4 text-base font-semibold text-rose-950">
+                                    <li class="flex items-center justify-between">
+                                        <span>1. <span class="text-rose-700">cultivate</span> <span class="text-xs text-rose-900/60 ml-1">/'kʌltɪveɪt/</span></span>
+                                        <span class="w-24 border-b-2 border-dashed border-pink-400 text-center font-bold text-rose-600 h-6">
+                                            <span class="hidden-answer">C (develop)</span>
+                                        </span>
+                                    </li>
+                                    <li class="flex items-center justify-between">
+                                        <span>2. <span class="text-rose-700">grace</span> <span class="text-xs text-rose-900/60 ml-1">/greɪs/</span></span>
+                                        <span class="w-24 border-b-2 border-dashed border-pink-400 text-center font-bold text-rose-600 h-6">
+                                            <span class="hidden-answer">E (attract)</span>
+                                        </span>
+                                    </li>
+                                    <li class="flex items-center justify-between">
+                                        <span>3. <span class="text-rose-700">glisten</span> <span class="text-xs text-rose-900/60 ml-1">/'glɪsn/</span></span>
+                                        <span class="w-24 border-b-2 border-dashed border-pink-400 text-center font-bold text-rose-600 h-6">
+                                            <span class="hidden-answer">A (shine)</span>
+                                        </span>
+                                    </li>
+                                    <li class="flex items-center justify-between">
+                                        <span>4. <span class="text-rose-700">stitch</span> <span class="text-xs text-rose-900/60 ml-1">/stɪtʃ/</span></span>
+                                        <span class="w-24 border-b-2 border-dashed border-pink-400 text-center font-bold text-rose-600 h-6">
+                                            <span class="hidden-answer">B (sew)</span>
+                                        </span>
+                                    </li>
+                                    <li class="flex items-center justify-between">
+                                        <span>5. <span class="text-rose-700">launch</span></span>
+                                        <span class="w-24 border-b-2 border-dashed border-pink-400 text-center font-bold text-rose-600 h-6">
+                                            <span class="hidden-answer">D (start)</span>
+                                        </span>
+                                    </li>
+                                </ol>
+
+                                <h4 class="text-lg font-black text-rose-900 border-b border-pink-200 pb-1 mt-6 uppercase tracking-wider">Adjectives</h4>
+                                <ol class="space-y-4 text-base font-semibold text-rose-950">
+                                    <li class="flex items-center justify-between">
+                                        <span>6. <span class="text-rose-700">collective</span> <span class="text-xs text-rose-900/60 ml-1">/kə'lektɪv/</span></span>
+                                        <span class="w-24 border-b-2 border-dashed border-pink-400 text-center font-bold text-rose-600 h-6">
+                                            <span class="hidden-answer">G (shared)</span>
+                                        </span>
+                                    </li>
+                                    <li class="flex items-center justify-between">
+                                        <span>7. <span class="text-rose-700">extravagant</span> <span class="text-xs text-rose-900/60 ml-1">/ɪk'strævəgənt/</span></span>
+                                        <span class="w-24 border-b-2 border-dashed border-pink-400 text-center font-bold text-rose-600 h-6">
+                                            <span class="hidden-answer">I (costly)</span>
+                                        </span>
+                                    </li>
+                                    <li class="flex items-center justify-between">
+                                        <span>8. <span class="text-rose-700">stretchy</span> <span class="text-xs text-rose-900/60 ml-1">/'stretʃi/</span></span>
+                                        <span class="w-24 border-b-2 border-dashed border-pink-400 text-center font-bold text-rose-600 h-6">
+                                            <span class="hidden-answer">J (elastic)</span>
+                                        </span>
+                                    </li>
+                                    <li class="flex items-center justify-between">
+                                        <span>9. <span class="text-rose-700">ruthless</span> <span class="text-xs text-rose-900/60 ml-1">/'ruːθləs/</span></span>
+                                        <span class="w-24 border-b-2 border-dashed border-pink-400 text-center font-bold text-rose-600 h-6">
+                                            <span class="hidden-answer">F (cruel)</span>
+                                        </span>
+                                    </li>
+                                    <li class="flex items-center justify-between">
+                                        <span>10. <span class="text-rose-700">intricate</span> <span class="text-xs text-rose-900/60 ml-1">/'ɪntrɪkət/</span></span>
+                                        <span class="w-24 border-b-2 border-dashed border-pink-400 text-center font-bold text-rose-600 h-6">
+                                            <span class="hidden-answer">H (elaborate)</span>
+                                        </span>
+                                    </li>
+                                    <li class="flex items-center justify-between">
+                                        <span>11. <span class="text-rose-700">daring</span></span>
+                                        <span class="w-24 border-b-2 border-dashed border-pink-400 text-center font-bold text-rose-600 h-6">
+                                            <span class="hidden-answer">K (brave)</span>
+                                        </span>
+                                    </li>
+                                </ol>
+                            </div>
+
+                            <!-- Right: Option Pool -->
+                            <div class="glass-panel p-6 rounded-2xl text-sm space-y-3 font-semibold text-rose-950/80">
+                                <h4 class="text-base font-black text-rose-900 uppercase tracking-widest mb-2">Option Meanings</h4>
+                                <p><span class="text-rose-600 font-black mr-2">A.</span> shine</p>
+                                <p><span class="text-rose-600 font-black mr-2">B.</span> sew</p>
+                                <p><span class="text-rose-600 font-black mr-2">C.</span> develop</p>
+                                <p><span class="text-rose-600 font-black mr-2">D.</span> start</p>
+                                <p><span class="text-rose-600 font-black mr-2">E.</span> make something more attractive</p>
+                                <p><span class="text-rose-600 font-black mr-2">F.</span> hard and cruel</p>
+                                <p><span class="text-rose-600 font-black mr-2">G.</span> shared by a group of people</p>
+                                <p><span class="text-rose-600 font-black mr-2">H.</span> elaborate</p>
+                                <p><span class="text-rose-600 font-black mr-2">I.</span> very expensive</p>
+                                <p><span class="text-rose-600 font-black mr-2">J.</span> that can easily be made longer or wider</p>
+                                <p><span class="text-rose-600 font-black mr-2">K.</span> brave</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Exercise 2: Match phrases (image_175981.png) -->
+                <div class="glass-card rounded-3xl mb-8 exercise-container overflow-hidden">
+                    <div class="p-8 md:p-10 border-b border-white/60">
+                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                            <div>
+                                <h3 class="text-2xl font-bold text-rose-950">Exercise 2: Sentence Completion</h3>
+                                <p class="text-sm text-rose-900/60 mt-1">Match the phrases to form complete sentences (as in image_175981.png).</p>
+                            </div>
+                            <button onclick="toggleAnswers(this)" class="glass-button text-rose-800 font-bold py-2.5 px-5 rounded-xl flex items-center justify-center gap-2 text-sm shadow-sm shrink-0">
+                                👀 Reveal Answers
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="p-8 md:p-10 bg-white/25">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                            <!-- Left: Match items -->
+                            <div class="space-y-4">
+                                <ol class="space-y-4 text-base font-semibold text-rose-950">
+                                    <li class="flex items-center justify-between">
+                                        <span>1. The <span class="text-rose-700">masses</span> are...</span>
+                                        <span class="w-32 border-b-2 border-dashed border-pink-400 text-center font-bold text-rose-600 h-6">
+                                            <span class="hidden-answer">→ D (ordinary)</span>
+                                        </span>
+                                    </li>
+                                    <li class="flex items-center justify-between">
+                                        <span>2. Everyone has finished homework and...</span>
+                                        <span class="w-32 border-b-2 border-dashed border-pink-400 text-center font-bold text-rose-600 h-6">
+                                            <span class="hidden-answer">→ A (exception)</span>
+                                        </span>
+                                    </li>
+                                    <li class="flex items-center justify-between">
+                                        <span>3. Coronavirus is currently...</span>
+                                        <span class="w-32 border-b-2 border-dashed border-pink-400 text-center font-bold text-rose-600 h-6">
+                                            <span class="hidden-answer">→ B (limelight)</span>
+                                        </span>
+                                    </li>
+                                    <li class="flex items-center justify-between">
+                                        <span>4. If a performance <span class="text-rose-700">draws a gasp</span>...</span>
+                                        <span class="w-32 border-b-2 border-dashed border-pink-400 text-center font-bold text-rose-600 h-6">
+                                            <span class="hidden-answer">→ C (impressed)</span>
+                                        </span>
+                                    </li>
+                                    <li class="flex items-center justify-between">
+                                        <span>5. There is a <span class="text-rose-700">glint of</span> amusement...</span>
+                                        <span class="w-32 border-b-2 border-dashed border-pink-400 text-center font-bold text-rose-600 h-6">
+                                            <span class="hidden-answer">→ E (in eyes)</span>
+                                        </span>
+                                    </li>
+                                </ol>
+                            </div>
+
+                            <!-- Right: Options Pool -->
+                            <div class="glass-panel p-6 rounded-2xl text-sm space-y-3 font-semibold text-rose-950/80">
+                                <p><span class="text-rose-600 font-black mr-2">A.</span> I'm <span class="text-rose-700">no exception</span>.</p>
+                                <p><span class="text-rose-600 font-black mr-2">B.</span> <span class="text-rose-700">in the limelight/spotlight</span>.</p>
+                                <p><span class="text-rose-600 font-black mr-2">C.</span> you're impressed.</p>
+                                <p><span class="text-rose-600 font-black mr-2">D.</span> the ordinary people.</p>
+                                <p><span class="text-rose-600 font-black mr-2">E.</span> in her eyes.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Exercise 3: Gap fill (image_1756be.png) -->
+                <div class="glass-card rounded-3xl mb-8 exercise-container overflow-hidden">
+                    <div class="p-8 md:p-10 border-b border-white/60">
+                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                            <div>
+                                <h3 class="text-2xl font-bold text-rose-950">Exercise 3: Word Fill-In</h3>
+                                <p class="text-sm text-rose-900/60 mt-1">Fill in the blanks with suitable words from the list below (as in image_1756be.png).</p>
+                            </div>
+                            <button onclick="toggleAnswers(this)" class="glass-button text-rose-800 font-bold py-2.5 px-5 rounded-xl flex items-center justify-center gap-2 text-sm shadow-sm shrink-0">
+                                👀 Reveal Answers
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="p-8 md:p-10 bg-white/25">
+                        <!-- Word List -->
+                        <div class="glass-panel p-4 rounded-2xl flex flex-wrap justify-center gap-4 mb-8 border-white/60 bg-white/20">
+                            <span class="text-rose-800 font-bold px-3 py-1 bg-white/40 rounded-xl">stain</span>
+                            <span class="text-rose-800 font-bold px-3 py-1 bg-white/40 rounded-xl">masterpiece</span>
+                            <span class="text-rose-800 font-bold px-3 py-1 bg-white/40 rounded-xl">garment</span>
+                            <span class="text-rose-800 font-bold px-3 py-1 bg-white/40 rounded-xl">wear</span>
+                            <span class="text-rose-800 font-bold px-3 py-1 bg-white/40 rounded-xl">workmanship</span>
+                        </div>
+
+                        <!-- Blank Sentences -->
+                        <ul class="space-y-6 text-lg font-semibold text-rose-950 leading-relaxed">
+                            <li class="flex flex-wrap items-center gap-x-2">
+                                <span>1. Mona Lisa by Leonardo da Vinci is a</span>
+                                <span class="inline-flex items-center justify-center min-w-[150px] border-b-2 border-dashed border-pink-400 text-pink-600 font-extrabold px-2 h-8">
+                                    <span class="hidden-answer">masterpiece</span>
+                                </span>
+                                <span>.</span>
+                            </li>
+                            <li class="flex flex-wrap items-center gap-x-2">
+                                <span>2. The oil had left a</span>
+                                <span class="inline-flex items-center justify-center min-w-[150px] border-b-2 border-dashed border-pink-400 text-pink-600 font-extrabold px-2 h-8">
+                                    <span class="hidden-answer">stain</span>
+                                </span>
+                                <span>on the floor.</span>
+                            </li>
+                            <li class="flex flex-wrap items-center gap-x-2">
+                                <span>3. His shoes were beginning to show signs of</span>
+                                <span class="inline-flex items-center justify-center min-w-[150px] border-b-2 border-dashed border-pink-400 text-pink-600 font-extrabold px-2 h-8">
+                                    <span class="hidden-answer">wear</span>
+                                </span>
+                                <span>(damage).</span>
+                            </li>
+                            <li class="flex flex-wrap items-center gap-x-2">
+                                <span>4. Owning the latest</span>
+                                <span class="inline-flex items-center justify-center min-w-[150px] border-b-2 border-dashed border-pink-400 text-pink-600 font-extrabold px-2 h-8">
+                                    <span class="hidden-answer">garment</span>
+                                </span>
+                                <span>(clothes) is particularly attractive.</span>
+                            </li>
+                            <li class="flex flex-wrap items-center gap-x-2">
+                                <span>5. I was admiring the dazzling</span>
+                                <span class="inline-flex items-center justify-center min-w-[150px] border-b-2 border-dashed border-pink-400 text-pink-600 font-extrabold px-2 h-8">
+                                    <span class="hidden-answer">workmanship</span>
+                                </span>
+                                <span>in the painting.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 4: Speaking P1 | Exercises, Pronunciation & Vocabulary -->
+            <div class="slide" id="slide-3">
+                <div class="flex items-center gap-4 mb-10">
+                    <span class="w-12 h-12 rounded-2xl glass-panel flex items-center justify-center text-2xl shadow-sm">🗣️</span>
+                    <div>
+                        <span class="text-rose-500 font-extrabold text-xs tracking-widest uppercase">Speaking Part 1</span>
+                        <h2 class="text-3xl font-extrabold text-rose-950">Vocabulary, Pronunciation & Exercises</h2>
+                    </div>
+                </div>
+
+                <!-- Exercise 1: Picture Matching -->
+                <div class="glass-card rounded-3xl mb-8 exercise-container overflow-hidden">
+                    <div class="p-8 md:p-10 border-b border-white/60">
+                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                            <div>
+                                <h3 class="text-2xl font-bold text-rose-950">Exercise 1: Visual Matching</h3>
+                                <p class="text-sm text-rose-900/60 mt-1">Match the words from the images (image_21ed3e.jpg and image_21f03f.jpg) to the corresponding pictures/definitions.</p>
+                            </div>
+                            <button onclick="toggleAnswers(this)" class="glass-button text-rose-800 font-bold py-2.5 px-5 rounded-xl flex items-center justify-center gap-2 text-sm shadow-sm shrink-0">
+                                👀 Reveal Answers
+                            </button>
+                        </div>
+
+                        <!-- Vocabulary Pool & Audio Pronunciation -->
+                        <div class="glass-panel rounded-2xl p-6 mt-8 border-white/60 bg-white/20">
+                            <h4 class="text-sm font-bold text-rose-950 uppercase tracking-widest mb-4">Vocabulary Pronunciation Guide (Click 🔊 to hear pronunciation)</h4>
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm font-medium">
+                                <div class="flex items-center gap-2 bg-white/40 p-2.5 rounded-xl">
+                                    <button onclick="playAudio('high heels')" class="w-8 h-8 rounded-lg bg-pink-500/10 hover:bg-pink-500/20 text-pink-600 flex items-center justify-center transition">🔊</button>
+                                    <div><p class="font-bold text-rose-950">high heels</p><p class="text-xs text-rose-900/60">/ˌhaɪ ˈhiːlz/</p></div>
+                                </div>
+                                <div class="flex items-center gap-2 bg-white/40 p-2.5 rounded-xl">
+                                    <button onclick="playAudio('sandals')" class="w-8 h-8 rounded-lg bg-pink-500/10 hover:bg-pink-500/20 text-pink-600 flex items-center justify-center transition">🔊</button>
+                                    <div><p class="font-bold text-rose-950">sandals</p><p class="text-xs text-rose-900/60">/ˈsændlz/</p></div>
+                                </div>
+                                <div class="flex items-center gap-2 bg-white/40 p-2.5 rounded-xl">
+                                    <button onclick="playAudio('sneakers')" class="w-8 h-8 rounded-lg bg-pink-500/10 hover:bg-pink-500/20 text-pink-600 flex items-center justify-center transition">🔊</button>
+                                    <div><p class="font-bold text-rose-950">sneakers</p><p class="text-xs text-rose-900/60">/ˈsniːkərz/</p></div>
+                                </div>
+                                <div class="flex items-center gap-2 bg-white/40 p-2.5 rounded-xl">
+                                    <button onclick="playAudio('flats')" class="w-8 h-8 rounded-lg bg-pink-500/10 hover:bg-pink-500/20 text-pink-600 flex items-center justify-center transition">🔊</button>
+                                    <div><p class="font-bold text-rose-950">flats</p><p class="text-xs text-rose-900/60">/flæts/</p></div>
+                                </div>
+                                <div class="flex items-center gap-2 bg-white/40 p-2.5 rounded-xl">
+                                    <button onclick="playAudio('boots')" class="w-8 h-8 rounded-lg bg-pink-500/10 hover:bg-pink-500/20 text-pink-600 flex items-center justify-center transition">🔊</button>
+                                    <div><p class="font-bold text-rose-950">boots</p><p class="text-xs text-rose-900/60">/buːts/</p></div>
+                                </div>
+                                <div class="flex items-center gap-2 bg-white/40 p-2.5 rounded-xl">
+                                    <button onclick="playAudio('flip flops')" class="w-8 h-8 rounded-lg bg-pink-500/10 hover:bg-pink-500/20 text-pink-600 flex items-center justify-center transition">🔊</button>
+                                    <div><p class="font-bold text-rose-950">flip flops</p><p class="text-xs text-rose-900/60">/ˈflɪp flɒps/</p></div>
+                                </div>
+                                <div class="flex items-center gap-2 bg-white/40 p-2.5 rounded-xl">
+                                    <button onclick="playAudio('slip-ons')" class="w-8 h-8 rounded-lg bg-pink-500/10 hover:bg-pink-500/20 text-pink-600 flex items-center justify-center transition">🔊</button>
+                                    <div><p class="font-bold text-rose-950">slip-ons</p><p class="text-xs text-rose-900/60">/ˈslɪp ɒnz/</p></div>
+                                </div>
+                                <div class="flex items-center gap-2 bg-white/40 p-2.5 rounded-xl">
+                                    <button onclick="playAudio('analogue watch')" class="w-8 h-8 rounded-lg bg-pink-500/10 hover:bg-pink-500/20 text-pink-600 flex items-center justify-center transition">🔊</button>
+                                    <div><p class="font-bold text-rose-950">analogue watch</p><p class="text-xs text-rose-900/60">/ˈænəlɒɡ wɒtʃ/</p></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-8 md:p-10 bg-white/25">
+                        <!-- SHOES Section -->
+                        <div class="mb-8">
+                            <h4 class="text-lg font-black text-rose-900 mb-4 border-b border-pink-200 pb-1 uppercase tracking-wider">Shoes (As in image_21ed3e.jpg)</h4>
+                            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-base font-medium">
+                                <div class="glass-panel p-4 rounded-2xl flex flex-col items-center text-center shadow-sm relative">
+                                    <span class="absolute top-3 left-3 bg-white/60 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold text-rose-900">1</span>
+                                    <span class="text-5xl mb-3 mt-2">🥾</span>
+                                    <p class="text-rose-950 text-sm">Green boots</p>
+                                    <span class="hidden-answer text-rose-600 font-bold mt-2 bg-pink-100/80 px-2 py-0.5 rounded border border-pink-200 text-sm">boots</span>
+                                </div>
+                                <div class="glass-panel p-4 rounded-2xl flex flex-col items-center text-center shadow-sm relative">
+                                    <span class="absolute top-3 left-3 bg-white/60 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold text-rose-900">2</span>
+                                    <span class="text-5xl mb-3 mt-2">🩴</span>
+                                    <p class="text-rose-950 text-sm">Orange flip flops</p>
+                                    <span class="hidden-answer text-rose-600 font-bold mt-2 bg-pink-100/80 px-2 py-0.5 rounded border border-pink-200 text-sm">flip flops</span>
+                                </div>
+                                <div class="glass-panel p-4 rounded-2xl flex flex-col items-center text-center shadow-sm relative">
+                                    <span class="absolute top-3 left-3 bg-white/60 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold text-rose-900">3</span>
+                                    <span class="text-5xl mb-3 mt-2">👠</span>
+                                    <p class="text-rose-950 text-sm">High heels</p>
+                                    <span class="hidden-answer text-rose-600 font-bold mt-2 bg-pink-100/80 px-2 py-0.5 rounded border border-pink-200 text-sm">high heels</span>
+                                </div>
+                                <div class="glass-panel p-4 rounded-2xl flex flex-col items-center text-center shadow-sm relative">
+                                    <span class="absolute top-3 left-3 bg-white/60 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold text-rose-900">4</span>
+                                    <span class="text-5xl mb-3 mt-2">👟</span>
+                                    <p class="text-rose-950 text-sm">Sneakers</p>
+                                    <span class="hidden-answer text-rose-600 font-bold mt-2 bg-pink-100/80 px-2 py-0.5 rounded border border-pink-200 text-sm">sneakers/trainers</span>
+                                </div>
+                                <div class="glass-panel p-4 rounded-2xl flex flex-col items-center text-center shadow-sm relative sm:col-start-2">
+                                    <span class="absolute top-3 left-3 bg-white/60 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold text-rose-900">5</span>
+                                    <span class="text-5xl mb-3 mt-2">👡</span>
+                                    <p class="text-rose-950 text-sm">Black sandals</p>
+                                    <span class="hidden-answer text-rose-600 font-bold mt-2 bg-pink-100/80 px-2 py-0.5 rounded border border-pink-200 text-sm">sandals</span>
+                                </div>
+                                <div class="glass-panel p-4 rounded-2xl flex flex-col items-center text-center shadow-sm relative">
+                                    <span class="absolute top-3 left-3 bg-white/60 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold text-rose-900">6</span>
+                                    <span class="text-5xl mb-3 mt-2">🥿</span>
+                                    <p class="text-rose-950 text-sm">Flats</p>
+                                    <span class="hidden-answer text-rose-600 font-bold mt-2 bg-pink-100/80 px-2 py-0.5 rounded border border-pink-200 text-sm">flats</span>
+                                </div>
+                                <div class="glass-panel p-4 rounded-2xl flex flex-col items-center text-center shadow-sm relative">
+                                    <span class="absolute top-3 left-3 bg-white/60 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold text-rose-900">7</span>
+                                    <span class="text-5xl mb-3 mt-2">👞</span>
+                                    <p class="text-rose-950 text-sm">Slip-ons</p>
+                                    <span class="hidden-answer text-rose-600 font-bold mt-2 bg-pink-100/80 px-2 py-0.5 rounded border border-pink-200 text-sm">slip-ons</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- WATCHES Section -->
+                        <div class="mb-8">
+                            <h4 class="text-lg font-black text-rose-900 mb-4 border-b border-pink-200 pb-1 uppercase tracking-wider">Watches (As in image_21ed3e.jpg)</h4>
+                            <div class="grid grid-cols-3 gap-4 text-base font-medium">
+                                <div class="glass-panel p-4 rounded-2xl flex flex-col items-center text-center shadow-sm relative">
+                                    <span class="absolute top-3 left-3 bg-white/60 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold text-rose-900">8</span>
+                                    <span class="text-5xl mb-3 mt-2">🕒</span>
+                                    <p class="text-rose-950 text-sm">Dial / Face</p>
+                                    <span class="hidden-answer text-rose-600 font-bold mt-2 bg-pink-100/80 px-2 py-0.5 rounded border border-pink-200 text-sm">dial</span>
+                                </div>
+                                <div class="glass-panel p-4 rounded-2xl flex flex-col items-center text-center shadow-sm relative">
+                                    <span class="absolute top-3 left-3 bg-white/60 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold text-rose-900">9</span>
+                                    <span class="text-5xl mb-3 mt-2">⌚</span>
+                                    <p class="text-rose-950 text-sm">Analogue watch</p>
+                                    <span class="hidden-answer text-rose-600 font-bold mt-2 bg-pink-100/80 px-2 py-0.5 rounded border border-pink-200 text-sm">analogue watch</span>
+                                </div>
+                                <div class="glass-panel p-4 rounded-2xl flex flex-col items-center text-center shadow-sm relative">
+                                    <span class="absolute top-3 left-3 bg-white/60 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold text-rose-900">10</span>
+                                    <span class="text-5xl mb-3 mt-2">⛓️</span>
+                                    <p class="text-rose-950 text-sm">Watch strap</p>
+                                    <span class="hidden-answer text-rose-600 font-bold mt-2 bg-pink-100/80 px-2 py-0.5 rounded border border-pink-200 text-sm">watch strap</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ACCESSORIES Section -->
+                        <div>
+                            <h4 class="text-lg font-black text-rose-900 mb-4 border-b border-pink-200 pb-1 uppercase tracking-wider">Clothes & Accessories (As in image_21f03f.jpg)</h4>
+                            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-base font-medium">
+                                <div class="glass-panel p-4 rounded-2xl flex flex-col items-center text-center shadow-sm relative">
+                                    <span class="absolute top-3 left-3 bg-white/60 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold text-rose-900">19</span>
+                                    <span class="text-5xl mb-3 mt-2">🦺</span>
+                                    <p class="text-rose-950 text-sm">Vest / Waistcoat</p>
+                                    <span class="hidden-answer text-rose-600 font-bold mt-2 bg-pink-100/80 px-2 py-0.5 rounded border border-pink-200 text-sm">waistcoat/vest</span>
+                                </div>
+                                <div class="glass-panel p-4 rounded-2xl flex flex-col items-center text-center shadow-sm relative">
+                                    <span class="absolute top-3 left-3 bg-white/60 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold text-rose-900">20</span>
+                                    <span class="text-5xl mb-3 mt-2">🏖️</span>
+                                    <p class="text-rose-950 text-sm">Swimwear</p>
+                                    <span class="hidden-answer text-rose-600 font-bold mt-2 bg-pink-100/80 px-2 py-0.5 rounded border border-pink-200 text-sm">swimwear</span>
+                                </div>
+                                <div class="glass-panel p-4 rounded-2xl flex flex-col items-center text-center shadow-sm relative">
+                                    <span class="absolute top-3 left-3 bg-white/60 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold text-rose-900">21</span>
+                                    <span class="text-5xl mb-3 mt-2">🧶</span>
+                                    <p class="text-rose-950 text-sm">Sweater</p>
+                                    <span class="hidden-answer text-rose-600 font-bold mt-2 bg-pink-100/80 px-2 py-0.5 rounded border border-pink-200 text-sm">sweater</span>
+                                </div>
+                                <div class="glass-panel p-4 rounded-2xl flex flex-col items-center text-center shadow-sm relative">
+                                    <span class="absolute top-3 left-3 bg-white/60 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold text-rose-900">22</span>
+                                    <span class="text-5xl mb-3 mt-2">👜</span>
+                                    <p class="text-rose-950 text-sm">Handbag</p>
+                                    <span class="hidden-answer text-rose-600 font-bold mt-2 bg-pink-100/80 px-2 py-0.5 rounded border border-pink-200 text-sm">handbag</span>
+                                </div>
+                                <div class="glass-panel p-4 rounded-2xl flex flex-col items-center text-center shadow-sm relative">
+                                    <span class="absolute top-3 left-3 bg-white/60 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold text-rose-900">23</span>
+                                    <span class="text-5xl mb-3 mt-2">🧦</span>
+                                    <p class="text-rose-950 text-sm">Socks</p>
+                                    <span class="hidden-answer text-rose-600 font-bold mt-2 bg-pink-100/80 px-2 py-0.5 rounded border border-pink-200 text-sm">socks</span>
+                                </div>
+                                <div class="glass-panel p-4 rounded-2xl flex flex-col items-center text-center shadow-sm relative">
+                                    <span class="absolute top-3 left-3 bg-white/60 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold text-rose-900">24</span>
+                                    <span class="text-5xl mb-3 mt-2">🧣</span>
+                                    <p class="text-rose-950 text-sm">Scarf</p>
+                                    <span class="hidden-answer text-rose-600 font-bold mt-2 bg-pink-100/80 px-2 py-0.5 rounded border border-pink-200 text-sm">scarf</span>
+                                </div>
+                                <div class="glass-panel p-4 rounded-2xl flex flex-col items-center text-center shadow-sm relative">
+                                    <span class="absolute top-3 left-3 bg-white/60 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold text-rose-900">25</span>
+                                    <span class="text-5xl mb-3 mt-2">💼</span>
+                                    <p class="text-rose-950 text-sm">Wallet</p>
+                                    <span class="hidden-answer text-rose-600 font-bold mt-2 bg-pink-100/80 px-2 py-0.5 rounded border border-pink-200 text-sm">wallet</span>
+                                </div>
+                                <div class="glass-panel p-4 rounded-2xl flex flex-col items-center text-center shadow-sm relative">
+                                    <span class="absolute top-3 left-3 bg-white/60 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold text-rose-900">26</span>
+                                    <span class="text-5xl mb-3 mt-2">📿</span>
+                                    <p class="text-rose-950 text-sm">Bracelet</p>
+                                    <span class="hidden-answer text-rose-600 font-bold mt-2 bg-pink-100/80 px-2 py-0.5 rounded border border-pink-200 text-sm">bracelet</span>
+                                </div>
+                                <div class="glass-panel p-4 rounded-2xl flex flex-col items-center text-center shadow-sm relative">
+                                    <span class="absolute top-3 left-3 bg-white/60 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold text-rose-900">27</span>
+                                    <span class="text-5xl mb-3 mt-2">💎</span>
+                                    <p class="text-rose-950 text-sm">Earrings</p>
+                                    <span class="hidden-answer text-rose-600 font-bold mt-2 bg-pink-100/80 px-2 py-0.5 rounded border border-pink-200 text-sm">earrings</span>
+                                </div>
+                                <div class="glass-panel p-4 rounded-2xl flex flex-col items-center text-center shadow-sm relative">
+                                    <span class="absolute top-3 left-3 bg-white/60 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold text-rose-900">28</span>
+                                    <span class="text-5xl mb-3 mt-2">💍</span>
+                                    <p class="text-rose-950 text-sm">Ring</p>
+                                    <span class="hidden-answer text-rose-600 font-bold mt-2 bg-pink-100/80 px-2 py-0.5 rounded border border-pink-200 text-sm">ring</span>
+                                </div>
+                                <div class="glass-panel p-4 rounded-2xl flex flex-col items-center text-center shadow-sm relative">
+                                    <span class="absolute top-3 left-3 bg-white/60 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold text-rose-900">29</span>
+                                    <span class="text-5xl mb-3 mt-2">🎀</span>
+                                    <p class="text-rose-950 text-sm">Bow</p>
+                                    <span class="hidden-answer text-rose-600 font-bold mt-2 bg-pink-100/80 px-2 py-0.5 rounded border border-pink-200 text-sm">bow</span>
+                                </div>
+                                <div class="glass-panel p-4 rounded-2xl flex flex-col items-center text-center shadow-sm relative">
+                                    <span class="absolute top-3 left-3 bg-white/60 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold text-rose-900">30</span>
+                                    <span class="text-5xl mb-3 mt-2">👔</span>
+                                    <p class="text-rose-950 text-sm">Tie</p>
+                                    <span class="hidden-answer text-rose-600 font-bold mt-2 bg-pink-100/80 px-2 py-0.5 rounded border border-pink-200 text-sm">tie</span>
+                                </div>
+                                <div class="glass-panel p-4 rounded-2xl flex flex-col items-center text-center shadow-sm relative">
+                                    <span class="absolute top-3 left-3 bg-white/60 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold text-rose-900">31</span>
+                                    <span class="text-5xl mb-3 mt-2">📿</span>
+                                    <p class="text-rose-950 text-sm">Necklace</p>
+                                    <span class="hidden-answer text-rose-600 font-bold mt-2 bg-pink-100/80 px-2 py-0.5 rounded border border-pink-200 text-sm">necklace</span>
+                                </div>
+                                <div class="glass-panel p-4 rounded-2xl flex flex-col items-center text-center shadow-sm relative">
+                                    <span class="absolute top-3 left-3 bg-white/60 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold text-rose-900">32</span>
+                                    <span class="text-5xl mb-3 mt-2">👛</span>
+                                    <p class="text-rose-950 text-sm">Purse</p>
+                                    <span class="hidden-answer text-rose-600 font-bold mt-2 bg-pink-100/80 px-2 py-0.5 rounded border border-pink-200 text-sm">purse</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Exercise 2: Vocabulary Gap Fill (image_21f09f.png) -->
+                <div class="glass-card rounded-3xl mb-8 exercise-container overflow-hidden">
+                    <div class="p-8 md:p-10 border-b border-white/60">
+                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                            <div>
+                                <h3 class="text-2xl font-bold text-rose-950">Exercise 2: Sentence Gap Fill</h3>
+                                <p class="text-sm text-rose-900/60 mt-1">Fill in each blank with one suitable word from the list below (as in image_21f09f.png).</p>
+                            </div>
+                            <button onclick="toggleAnswers(this)" class="glass-button text-rose-800 font-bold py-2.5 px-5 rounded-xl flex items-center justify-center gap-2 text-sm shadow-sm shrink-0">
+                                👀 Reveal Answers
+                            </button>
+                        </div>
+
+                        <!-- Word Bank with Pronunciation -->
+                        <div class="glass-panel rounded-2xl p-4 flex flex-wrap justify-center gap-4 mt-8 border-white/60 bg-white/20">
+                            <div class="flex items-center gap-2 bg-white/40 px-3 py-1.5 rounded-xl text-sm font-bold text-pink-600">
+                                <button onclick="playAudio('all-purpose')" class="text-xs">🔊</button>
+                                <span>all-purpose <span class="font-normal text-xs text-rose-950/60">/ˌɔːl ˈpɜːpəs/</span></span>
+                            </div>
+                            <div class="flex items-center gap-2 bg-white/40 px-3 py-1.5 rounded-xl text-sm font-bold text-pink-600">
+                                <button onclick="playAudio('resistant')" class="text-xs">🔊</button>
+                                <span>resistant <span class="font-normal text-xs text-rose-950/60">/rɪˈzɪstənt/</span></span>
+                            </div>
+                            <div class="flex items-center gap-2 bg-white/40 px-3 py-1.5 rounded-xl text-sm font-bold text-pink-600">
+                                <button onclick="playAudio('chic')" class="text-xs">🔊</button>
+                                <span>chic <span class="font-normal text-xs text-rose-950/60">/ʃiːk/</span></span>
+                            </div>
+                            <div class="flex items-center gap-2 bg-white/40 px-3 py-1.5 rounded-xl text-sm font-bold text-pink-600">
+                                <button onclick="playAudio('slave')" class="text-xs">🔊</button>
+                                <span>slave <span class="font-normal text-xs text-rose-950/60">/sleɪv/</span></span>
+                            </div>
+                            <div class="flex items-center gap-2 bg-white/40 px-3 py-1.5 rounded-xl text-sm font-bold text-pink-600">
+                                <button onclick="playAudio('outfit')" class="text-xs">🔊</button>
+                                <span>outfit <span class="font-normal text-xs text-rose-950/60">/ˈaʊtfɪt/</span></span>
+                            </div>
+                            <div class="flex items-center gap-2 bg-white/40 px-3 py-1.5 rounded-xl text-sm font-bold text-pink-600">
+                                <button onclick="playAudio('flattering')" class="text-xs">🔊</button>
+                                <span>flattering <span class="font-normal text-xs text-rose-950/60">/ˈflætərɪŋ/</span></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-8 md:p-10 bg-white/25">
+                        <ul class="space-y-6 text-lg font-medium text-rose-950 leading-relaxed">
+                            <li class="flex flex-wrap items-center gap-x-2">
+                                <span>1. Each child has one pair of</span>
+                                <span class="inline-flex items-center justify-center min-w-[150px] border-b-2 border-dashed border-pink-400 text-pink-600 font-bold px-2 h-8">
+                                    <span class="hidden-answer">all-purpose</span>
+                                </span>
+                                <span>shoes that they can wear in many situations.</span>
+                            </li>
+                            <li class="flex flex-wrap items-center gap-x-2">
+                                <span>2. You should always choose water-</span>
+                                <span class="inline-flex items-center justify-center min-w-[150px] border-b-2 border-dashed border-pink-400 text-pink-600 font-bold px-2 h-8">
+                                    <span class="hidden-answer">resistant</span>
+                                </span>
+                                <span>mascara.</span>
+                            </li>
+                            <li class="flex flex-wrap items-center gap-x-2">
+                                <span>3. My sister used to be a</span>
+                                <span class="inline-flex items-center justify-center min-w-[150px] border-b-2 border-dashed border-pink-400 text-pink-600 font-bold px-2 h-8">
+                                    <span class="hidden-answer">slave</span>
+                                </span>
+                                <span>to fashion.</span>
+                            </li>
+                            <li class="flex flex-wrap items-center gap-x-2">
+                                <span>4. She was wearing an expensive new</span>
+                                <span class="inline-flex items-center justify-center min-w-[150px] border-b-2 border-dashed border-pink-400 text-pink-600 font-bold px-2 h-8">
+                                    <span class="hidden-answer">outfit</span>
+                                </span>
+                                <span>.</span>
+                            </li>
+                            <li class="flex flex-wrap items-center gap-x-2">
+                                <span>5. There’s an increasing demand for</span>
+                                <span class="inline-flex items-center justify-center min-w-[150px] border-b-2 border-dashed border-pink-400 text-pink-600 font-bold px-2 h-8">
+                                    <span class="hidden-answer">chic</span>
+                                </span>
+                                <span>clothes that can make people look stylish.</span>
+                            </li>
+                            <li class="flex flex-wrap items-center gap-x-2">
+                                <span>6. This</span>
+                                <span class="inline-flex items-center justify-center min-w-[150px] border-b-2 border-dashed border-pink-400 text-pink-600 font-bold px-2 h-8">
+                                    <span class="hidden-answer">flattering</span>
+                                </span>
+                                <span>dress can make you look attractive.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 5: Speaking P1 | Practice -->
+            <div class="slide" id="slide-4">
+                <div class="flex items-center gap-4 mb-10">
+                    <span class="w-12 h-12 rounded-2xl glass-panel flex items-center justify-center text-2xl shadow-sm">🗣️</span>
+                    <div>
+                        <span class="text-rose-500 font-extrabold text-xs tracking-widest uppercase">Speaking Part 1</span>
+                        <h2 class="text-3xl font-extrabold text-rose-950">Topic: Accessories & Footwear (Practice)</h2>
+                    </div>
+                </div>
+
+                <div class="glass-card p-10 md:p-12 rounded-3xl mb-10 relative overflow-hidden border-t-4 border-rose-400">
+                    <div class="flex items-center gap-5 mb-10 border-b border-white/60 pb-6">
+                        <div class="w-14 h-14 bg-white/60 rounded-2xl flex items-center justify-center text-3xl shadow-sm border border-white/80">❓</div>
+                        <h3 class="text-3xl font-extrabold text-rose-950 tracking-tight">IELTS Questions</h3>
+                    </div>
+                    
+                    <!-- Grid layout for the three topics -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                        <!-- Sunglasses Section -->
+                        <div class="glass-panel p-6 rounded-2xl border border-white/80">
+                            <h4 class="text-xl font-black text-rose-900 uppercase tracking-widest mb-4 flex items-center gap-2">
+                                <span>🕶️</span> Sunglasses
+                            </h4>
+                            <ol class="list-decimal pl-6 space-y-3 text-lg text-rose-950 font-semibold">
+                                <li>Do people in your country wear sunglasses?</li>
+                                <li>Where can you buy sunglasses?</li>
+                                <li>Do you like to wear sunglasses?</li>
+                            </ol>
+                        </div>
+
+                        <!-- Watches Section -->
+                        <div class="glass-panel p-6 rounded-2xl border border-white/80">
+                            <h4 class="text-xl font-black text-rose-900 uppercase tracking-widest mb-4 flex items-center gap-2">
+                                <span>⌚</span> Watches
+                            </h4>
+                            <ol class="list-decimal pl-6 space-y-3 text-lg text-rose-950 font-semibold">
+                                <li>How often do you wear a watch?</li>
+                                <li>What kind of watches do you like to wear?</li>
+                                <li>Do people wear watches in your country?</li>
+                                <li>Did you receive any watch as a gift when you were a child?</li>
+                            </ol>
+                        </div>
+
+                        <!-- Shoes Section -->
+                        <div class="glass-panel p-6 rounded-2xl border border-white/80">
+                            <h4 class="text-xl font-black text-rose-900 uppercase tracking-widest mb-4 flex items-center gap-2">
+                                <span>👟</span> Shoes
+                            </h4>
+                            <ol class="list-decimal pl-6 space-y-3 text-lg text-rose-950 font-semibold">
+                                <li>What’s your favorite type of shoes?</li>
+                                <li>Do you know anyone who likes to buy a lot of shoes?</li>
+                                <li>Have you ever bought shoes online?</li>
+                                <li>How often do you buy shoes?</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <!-- Collapsible Sample Answers separated by category for cleaner teacher layout -->
+                    <div class="space-y-4">
+                        <!-- Sunglasses Answers -->
+                        <details class="group bg-white/40 border border-white/70 rounded-2xl relative z-10 overflow-hidden transition-all duration-300 shadow-sm hover:shadow-md">
+                            <summary class="cursor-pointer font-bold text-rose-900 p-6 flex items-center justify-between outline-none hover:bg-white/60 transition">
+                                <span class="text-xl flex items-center gap-3">💡 <span>View Sunglasses Sample Answers</span></span>
+                                <span class="group-open:rotate-180 transition-transform text-pink-400 text-xl">▼</span>
+                            </summary>
+                            <div class="p-8 border-t border-white/60 text-rose-900/90 space-y-8 text-lg bg-white/20 backdrop-blur-md">
+                                <div class="border-l-4 border-pink-400 pl-5 bg-white/40 p-4 rounded-r-xl">
+                                    <p class="text-rose-950 font-bold mb-2 text-xl">1. Do people in your country wear sunglasses?</p>
+                                    <p class="font-medium">Yes, definitely. We live in a tropical climate where the intense sunlight during the summer can be <strong>ruthless</strong>, so the <strong>masses</strong> wear sunglasses daily. I am <strong>no exception</strong>; they are an essential, <strong>all-purpose</strong> accessory to shield our eyes while driving on hot days.</p>
+                                </div>
+                                <div class="border-l-4 border-pink-400 pl-5 bg-white/40 p-4 rounded-r-xl">
+                                    <p class="text-rose-950 font-bold mb-2 text-xl">2. Where can you buy sunglasses?</p>
+                                    <p class="font-medium">You can buy them almost anywhere, from local street markets to premium boutiques that showcase <strong>extravagant</strong> designer brands. However, if you are looking for something <strong>chic</strong> and durable, specialty optical stores are the best place to find certified UV protection.</p>
+                                </div>
+                                <div class="border-l-4 border-pink-400 pl-5 bg-white/40 p-4 rounded-r-xl">
+                                    <p class="text-rose-950 font-bold mb-2 text-xl">3. Do you like to wear sunglasses?</p>
+                                    <p class="font-medium">Absolutely, I love wearing them. Not only do they protect my eyes, but they also complement my daily <strong>outfit</strong> perfectly. I usually choose a frame shape that is <strong>flattering</strong> for my face to give me a subtle, <strong>daring</strong> style.</p>
+                                </div>
+                            </div>
+                        </details>
+
+                        <!-- Watches Answers -->
+                        <details class="group bg-white/40 border border-white/70 rounded-2xl relative z-10 overflow-hidden transition-all duration-300 shadow-sm hover:shadow-md">
+                            <summary class="cursor-pointer font-bold text-rose-900 p-6 flex items-center justify-between outline-none hover:bg-white/60 transition">
+                                <span class="text-xl flex items-center gap-3">💡 <span>View Watches Sample Answers</span></span>
+                                <span class="group-open:rotate-180 transition-transform text-pink-400 text-xl">▼</span>
+                            </summary>
+                            <div class="p-8 border-t border-white/60 text-rose-900/90 space-y-8 text-lg bg-white/20 backdrop-blur-md">
+                                <div class="border-l-4 border-pink-400 pl-5 bg-white/40 p-4 rounded-r-xl">
+                                    <p class="text-rose-950 font-bold mb-2 text-xl">1. How often do you wear a watch?</p>
+                                    <p class="font-medium">I wear a watch on a daily basis. I consider myself quite punctual, almost like a <strong>slave</strong> to my schedule. I usually strap on a highly functional <strong>smart watch</strong> with a comfortable rubber <strong>watch strap</strong> before heading out of the house.</p>
+                                </div>
+                                <div class="border-l-4 border-pink-400 pl-5 bg-white/40 p-4 rounded-r-xl">
+                                    <p class="text-rose-950 font-bold mb-2 text-xl">2. What kind of watches do you like to wear?</p>
+                                    <p class="font-medium">I personally prefer a classic <strong>analogue watch</strong> over a standard <strong>digital watch</strong>. I love admiring the <strong>glistening</strong> metal frame and the highly <strong>intricate</strong> details on the watch <strong>dial</strong>. To me, it feels like wearing a small mechanical <strong>masterpiece</strong>.</p>
+                                </div>
+                                <div class="border-l-4 border-pink-400 pl-5 bg-white/40 p-4 rounded-r-xl">
+                                    <p class="text-rose-950 font-bold mb-2 text-xl">3. Do people wear watches in your country?</p>
+                                    <p class="font-medium">Yes, wearing a watch is still incredibly popular. While younger people use them to track health metrics, older generations wear classic designs as symbols of elegance and premium <strong>workmanship</strong>. It <strong>graces</strong> their wrists beautifully on formal occasions.</p>
+                                </div>
+                                <div class="border-l-4 border-pink-400 pl-5 bg-white/40 p-4 rounded-r-xl">
+                                    <p class="text-rose-950 font-bold mb-2 text-xl">4. Did you receive any watch as a gift when you were a child?</p>
+                                    <p class="font-medium">Yes, I did. I vividly remember receiving a colorful, water-<strong>resistant</strong> watch for my tenth birthday. I wore it everywhere until it began to show signs of <strong>wear</strong> (damage) years later, but it holds great sentimental value for me.</p>
+                                </div>
+                            </div>
+                        </details>
+
+                        <!-- Shoes Answers -->
+                        <details class="group bg-white/40 border border-white/70 rounded-2xl relative z-10 overflow-hidden transition-all duration-300 shadow-sm hover:shadow-md">
+                            <summary class="cursor-pointer font-bold text-rose-900 p-6 flex items-center justify-between outline-none hover:bg-white/60 transition">
+                                <span class="text-xl flex items-center gap-3">💡 <span>View Shoes Sample Answers</span></span>
+                                <span class="group-open:rotate-180 transition-transform text-pink-400 text-xl">▼</span>
+                            </summary>
+                            <div class="p-8 border-t border-white/60 text-rose-900/90 space-y-8 text-lg bg-white/20 backdrop-blur-md">
+                                <div class="border-l-4 border-pink-400 pl-5 bg-white/40 p-4 rounded-r-xl">
+                                    <p class="text-rose-950 font-bold mb-2 text-xl">1. What’s your favorite type of shoes?</p>
+                                    <p class="font-medium">My absolute favorite type is <strong>sneakers</strong> because they are incredibly comfortable. While I occasionally wear <strong>boots</strong> or <strong>sandals</strong> for formal events, a good pair of sneakers is my go-to for daily walking because they have a <strong>stretchy</strong> and supportive sole.</p>
+                                </div>
+                                <div class="border-l-4 border-pink-400 pl-5 bg-white/40 p-4 rounded-r-xl">
+                                    <p class="text-rose-950 font-bold mb-2 text-xl">2. Do you know anyone who likes to buy a lot of shoes?</p>
+                                    <p class="font-medium">Yes, my sister is a prime example. She is completely obsessed with footwear, especially designer <strong>high heels</strong> and <strong>flats</strong>. She has a massive <strong>collective</strong> of shoes in her wardrobe, and her passion for shopping is truly <strong>extravagant</strong>.</p>
+                                </div>
+                                <div class="border-l-4 border-pink-400 pl-5 bg-white/40 p-4 rounded-r-xl">
+                                    <p class="text-rose-950 font-bold mb-2 text-xl">3. Have you ever bought shoes online?</p>
+                                    <p class="font-medium">Yes, I have, but only for simple styles like <strong>slip-ons</strong> or everyday <strong>flip flops</strong> where the sizing is very forgiving. Buying performance shoes online can be risky because you can't test if they are truly <strong>all-purpose</strong> or if they fit correctly without trying them on.</p>
+                                </div>
+                                <div class="border-l-4 border-pink-400 pl-5 bg-white/40 p-4 rounded-r-xl">
+                                    <p class="text-rose-950 font-bold mb-2 text-xl">4. How often do you buy shoes?</p>
+                                    <p class="font-medium">I only buy shoes once or twice a year. I try to <strong>cultivate</strong> a minimalist lifestyle, so I only replace my footwear when my current pairs show major signs of <strong>wear</strong> and can no longer be repaired.</p>
+                                </div>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
+                <!-- Teacher Control Card: Pair Work -->
+                <div class="glass-card rounded-3xl overflow-hidden flex flex-col md:flex-row items-center justify-between p-8 shadow-lg">
+                    <div class="flex items-center gap-6 mb-6 md:mb-0">
+                        <div class="w-16 h-16 bg-gradient-to-br from-pink-400 to-rose-400 text-white rounded-2xl flex items-center justify-center text-3xl shadow-md border border-pink-300">👥</div>
+                        <div>
+                            <h4 class="font-extrabold text-rose-950 text-2xl">Pair Work Practice</h4>
+                            <p class="text-rose-900/70 mt-1 font-medium text-lg">Direct students to discuss the topics in pairs.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-5 glass-panel py-4 px-8 rounded-2xl shadow-inner">
+                        <span id="timer-sp-accessories" class="text-4xl font-mono text-rose-950 font-black tracking-tight w-28 text-center drop-shadow-sm">04:00</span>
+                        <button onclick="startTimer(4, 'timer-sp-accessories')" class="bg-gradient-to-r from-rose-500 to-pink-500 hover:from-rose-400 hover:to-pink-400 text-white font-bold py-3.5 px-8 rounded-xl transition-all hover:shadow-[0_8px_20px_rgba(225,29,72,0.4)] flex items-center gap-2 shadow-md">
+                            <span class="text-xl">▶</span> Start
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 6: Speaking P2 | Cue Card -->
+            <div class="slide" id="slide-5">
+                <div class="flex items-center gap-4 mb-10">
+                    <span class="w-12 h-12 rounded-2xl glass-panel flex items-center justify-center text-2xl shadow-sm">🎙️</span>
+                    <div>
+                        <span class="text-fuchsia-600 font-extrabold text-xs tracking-widest uppercase">Speaking Part 2</span>
+                        <h2 class="text-3xl font-extrabold text-rose-950">Topic: Special Occasion Clothing (Cue Card)</h2>
+                    </div>
+                </div>
+
+                <div class="glass-card p-10 md:p-12 rounded-3xl mb-10 relative overflow-hidden border-t-4 border-fuchsia-400">
+                    <div class="absolute -right-4 -bottom-4 text-9xl opacity-20 transform -rotate-12">👔</div>
+
+                    <div class="flex items-center gap-5 mb-10 border-b border-white/60 pb-6">
+                        <div class="w-14 h-14 bg-white/60 rounded-2xl flex items-center justify-center text-3xl shadow-sm border border-white/80">📝</div>
+                        <h3 class="text-3xl font-extrabold text-rose-950 tracking-tight">IELTS Cue Card</h3>
+                    </div>
+                    
+                    <h4 class="text-2xl font-black text-rose-900 mb-6 uppercase tracking-wide">Describe a piece of clothes that you wear on a special occasion.</h4>
+                    <p class="text-xl mb-4 italic text-rose-900/70 font-medium">You should say:</p>
+                    
+                    <ul class="list-disc pl-8 space-y-4 text-2xl text-rose-950 font-semibold relative z-10 mb-12">
+                        <li>What it is</li>
+                        <li>When you bought it</li>
+                        <li>How often you wear it</li>
+                        <li>And explain why you like it.</li>
+                    </ul>
+
+                    <!-- Collapsible Sample Answer -->
+                    <details class="group bg-white/40 border border-white/70 rounded-2xl relative z-10 overflow-hidden transition-all duration-300 shadow-sm hover:shadow-md">
+                        <summary class="cursor-pointer font-bold text-rose-900 p-6 flex items-center justify-between outline-none hover:bg-white/60 transition">
+                            <span class="text-xl flex items-center gap-3">💡 <span>View Band 6.0+ Sample Answer</span></span>
+                            <span class="group-open:rotate-180 transition-transform text-fuchsia-400 text-xl">▼</span>
+                        </summary>
+                        <div class="p-8 border-t border-white/60 text-rose-900/90 text-lg bg-white/20 backdrop-blur-md leading-relaxed italic font-medium">
+                            "I'd like to talk about a custom-tailored suit that I reserve specifically for formal events.<br><br>
+                            
+                            I purchased it about two years ago, right before my university graduation ceremony. Instead of buying something off the rack, I went to an experienced tailor in my city because I wanted an outfit that fit me perfectly. It’s a deep navy blue suit made from a lightweight, breathable fabric.<br><br>
+                            
+                            Since it's highly formal, I don't wear it very often. I usually only take it out of my closet for major events, like weddings, job interviews, or important banquets. I’d say I wear it maybe three or four times a year at most.<br><br>
+                            
+                            There are a few reasons why I absolutely love this suit. Firstly, the dark blue color makes it incredibly elegant and versatile; it pairs well with almost any shirt or tie. Secondly, because it was custom-made for my measurements, it flatters my body shape and is much more comfortable than standard store-bought clothes. Whenever I put it on, I instantly feel a surge of confidence and professionalism. It never fails to make a good impression on special occasions."
+                        </div>
+                    </details>
+                </div>
+
+                <!-- Teacher Control Card: P2 Timers -->
+                <div class="flex flex-col md:flex-row justify-center gap-8">
+                    <div class="glass-card rounded-3xl p-8 flex flex-col items-center justify-center shadow-lg w-full md:w-1/2 border-t-4 border-rose-400 hover-lift">
+                        <h4 class="font-extrabold text-rose-950 text-2xl mb-2 flex items-center gap-2"><span>📝</span> Prep Time</h4>
+                        <p class="text-rose-900/70 mb-6 font-medium">1 minute preparation</p>
+                        
+                        <div class="glass-panel py-4 w-full rounded-2xl shadow-inner border border-white/80 text-center mb-6">
+                            <span id="timer-prep" class="text-5xl font-mono text-rose-950 font-black tracking-tight drop-shadow-sm">01:00</span>
+                        </div>
+                        <button onclick="startTimer(1, 'timer-prep')" class="w-full bg-gradient-to-r from-rose-500 to-rose-400 hover:from-rose-400 hover:to-rose-300 text-white font-bold py-4 rounded-xl transition-all shadow-md flex items-center justify-center gap-2">
+                            <span class="text-xl">▶</span> Start 1 Min
+                        </button>
+                    </div>
+
+                    <div class="glass-card rounded-3xl p-8 flex flex-col items-center justify-center shadow-lg w-full md:w-1/2 border-t-4 border-fuchsia-400 hover-lift">
+                        <h4 class="font-extrabold text-rose-950 text-2xl mb-2 flex items-center gap-2"><span>🎙️</span> Speaking Time</h4>
+                        <p class="text-rose-900/70 mb-6 font-medium">2 minutes speaking</p>
+                        
+                        <div class="glass-panel py-4 w-full rounded-2xl shadow-inner border border-white/80 text-center mb-6">
+                            <span id="timer-speak" class="text-5xl font-mono text-rose-950 font-black tracking-tight drop-shadow-sm">02:00</span>
+                        </div>
+                        <button onclick="startTimer(2, 'timer-speak')" class="w-full bg-gradient-to-r from-fuchsia-500 to-fuchsia-400 hover:from-fuchsia-400 hover:to-fuchsia-300 text-white font-bold py-4 rounded-xl transition-all shadow-md flex items-center justify-center gap-2">
+                            <span class="text-xl">▶</span> Start 2 Mins
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        // -- Navigation & Progress Logic --
+        let currentSlide = 0;
+        const totalSlides = 6;
+
+        function updateUI() {
+            // Hide all
+            document.querySelectorAll('.slide').forEach(el => el.classList.remove('active'));
+            // Show current
+            document.getElementById(`slide-${currentSlide}`).classList.add('active');
+            // Update counter
+            document.getElementById('slide-counter').innerText = `${currentSlide + 1} / ${totalSlides}`;
+            // Update Progress Bar
+            const progress = ((currentSlide + 1) / totalSlides) * 100;
+            document.getElementById('progress-bar').style.width = `${progress}%`;
+            // Scroll to top
+            document.querySelector('main').scrollTop = 0;
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides - 1) {
+                currentSlide++;
+                updateUI();
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 0) {
+                currentSlide--;
+                updateUI();
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') nextSlide();
+            if (e.key === 'ArrowLeft') prevSlide();
+        });
+
+        // -- Pronunciation TTS Engine --
+        function playAudio(word) {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel(); // Terminate existing playback
+                const utterance = new SpeechSynthesisUtterance(word);
+                utterance.lang = 'en-US';
+                utterance.rate = 0.85; // Natural clear speed for language learners
+                window.speechSynthesis.speak(utterance);
+            } else {
+                console.warn("Text-to-Speech is not supported in this browser environment.");
+            }
+        }
+
+        // -- Toggle Answers Logic (All At Once) --
+        function toggleAnswers(button) {
+            const container = button.closest('.exercise-container');
+            if (!container) return;
+            const hiddenElements = container.querySelectorAll('.hidden-answer');
+
+            let isHidden = true;
+            if (hiddenElements.length > 0) {
+                isHidden = hiddenElements[0].style.display === 'none' || hiddenElements[0].style.display === '';
+            }
+
+            hiddenElements.forEach(el => {
+                if (isHidden) {
+                    el.style.display = el.tagName === 'SPAN' ? 'inline-flex' : 'block';
+                } else {
+                    el.style.display = 'none';
+                }
+            });
+
+            if (isHidden) {
+                button.innerHTML = "✨ Hide Answers";
+            } else {
+                button.innerHTML = button.getAttribute('data-default-text') || "👀 Reveal Answers";
+            }
+        }
+
+        // -- Timer Logic --
+        let intervals = {};
+
+        function startTimer(minutes, elementId) {
+            const display = document.getElementById(elementId);
+            let time = minutes * 60;
+            
+            if (intervals[elementId]) {
+                clearInterval(intervals[elementId]);
+            }
+
+            updateTimerDisplay(time, display);
+            display.classList.remove('text-rose-600');
+            display.classList.add('text-rose-950');
+
+            intervals[elementId] = setInterval(() => {
+                time--;
+                updateTimerDisplay(time, display);
+
+                if (time <= 0) {
+                    clearInterval(intervals[elementId]);
+                    display.classList.add('text-rose-600');
+                    display.classList.remove('text-rose-950');
+                    try {
+                        let audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                        let oscillator = audioCtx.createOscillator();
+                        oscillator.type = 'sine';
+                        oscillator.frequency.setValueAtTime(440, audioCtx.currentTime);
+                        oscillator.connect(audioCtx.destination);
+                        oscillator.start();
+                        oscillator.stop(audioCtx.currentTime + 0.5);
+                    } catch(e) {}
+                }
+            }, 1000);
+        }
+
+        function updateTimerDisplay(totalSeconds, element) {
+            const m = Math.floor(totalSeconds / 60).toString().padStart(2, '0');
+            const s = (totalSeconds % 60).toString().padStart(2, '0');
+            element.innerText = `${m}:${s}`;
+        }
+        
+        // Initialize first render
+        updateUI();
+    </script>
+</body>
+</html>
