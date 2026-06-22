@@ -196,6 +196,42 @@
                     </div>
                 </div>
 
+                <!-- SPEECH RECORDER LAB CARD -->
+                <div class="bg-white p-8 rounded-3xl border border-pastel-gold/30 shadow-lg space-y-6 relative overflow-hidden">
+                    <div class="absolute top-0 left-0 right-0 h-1.5 bg-pastel-gold"></div>
+                    
+                    <div class="flex items-center space-x-2">
+                        <i data-lucide="disc" class="w-5 h-5 text-pastel-gold animate-spin-slow"></i>
+                        <h3 class="font-serif text-xl font-bold text-pastel-slate">3. Speech Recorder Lab</h3>
+                    </div>
+
+                    <div class="bg-pastel-cream/50 p-4 rounded-xl border border-pastel-gold/10 flex items-center justify-between gap-4">
+                        <div class="text-xs text-pastel-slate leading-relaxed">
+                            Record your practice attempt, then listen back to evaluate your pacing, clear articulation, and overall vocal confidence.
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col items-center justify-center p-4 border border-dashed border-pastel-gold/30 rounded-2xl bg-pastel-cream/20 space-y-4">
+                        <div class="text-center">
+                            <span id="gym-recording-timer" class="text-2xl font-mono font-bold text-pastel-slate">00:00</span>
+                            <p id="gym-recording-status" class="text-[9px] uppercase font-bold text-pastel-slate/40 tracking-widest mt-1">Ready to Record</p>
+                        </div>
+
+                        <div class="flex gap-3">
+                            <button id="gym-start-rec-btn" onclick="startGymRecording()" class="w-12 h-12 rounded-full bg-pastel-rose hover:bg-pastel-roseDark text-pastel-roseDark hover:text-white flex items-center justify-center transition shadow-sm border border-pastel-roseDark/20">
+                                <i data-lucide="circle" class="w-5 h-5 fill-current"></i>
+                            </button>
+                            <button id="gym-stop-rec-btn" onclick="stopGymRecording()" disabled class="w-12 h-12 rounded-full bg-pastel-slate text-white flex items-center justify-center transition shadow-sm disabled:opacity-40 disabled:cursor-not-allowed">
+                                <i data-lucide="square" class="w-5 h-5 fill-current"></i>
+                            </button>
+                        </div>
+
+                        <div class="w-full pt-2">
+                            <audio id="gym-audio-playback" controls class="w-full hidden bg-white rounded-lg border border-pastel-rose/40"></audio>
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
             <!-- RIGHT WORKSPACE: LIVE VOLUME ANALYZER & WARMUPS -->
@@ -208,7 +244,7 @@
                     <div class="flex items-center justify-between">
                         <div class="flex items-center space-x-2">
                             <i data-lucide="activity" class="w-5 h-5 text-pastel-roseDark animate-pulse"></i>
-                            <h3 class="font-serif text-xl font-bold text-pastel-slate">3. Real-Time Vocal Wave</h3>
+                            <h3 class="font-serif text-xl font-bold text-pastel-slate">4. Real-Time Vocal Wave</h3>
                         </div>
                         <button id="main-mic-btn" onclick="startVocalEngine()" class="flex items-center gap-1.5 px-4 py-1.5 bg-pastel-slate text-white text-xs font-bold rounded-full hover:bg-pastel-roseDark transition shadow-sm">
                             <i data-lucide="mic" class="w-3.5 h-3.5"></i>
@@ -258,7 +294,7 @@
                     <div class="flex items-center justify-between">
                         <div class="flex items-center space-x-2">
                             <i data-lucide="music-2" class="w-5 h-5 text-pastel-sageDark"></i>
-                            <h3 class="font-serif text-xl font-bold text-pastel-slate">4. Studio Vocal Warm-Ups</h3>
+                            <h3 class="font-serif text-xl font-bold text-pastel-slate">5. Studio Vocal Warm-Ups</h3>
                         </div>
                         <span class="text-xs font-bold text-pastel-sageDark">Vocal Gym Routine</span>
                     </div>
@@ -835,6 +871,74 @@
             if(localStorage.getItem('vocal_session_log')) {
                 document.getElementById('session-log').value = localStorage.getItem('vocal_session_log');
             }
+        }
+
+        // ==========================================
+        // STANDALONE SPEECH RECORDER MECHANICS
+        // ==========================================
+        let gymMediaRecorder = null;
+        let gymRecordingChunks = [];
+        let gymRecordStopwatch = null;
+        let gymRecordSeconds = 0;
+
+        function startGymRecording() {
+            if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+                triggerCustomAlert("Browser Error", "Your browser does not support audio recording features.", "alert-triangle", "text-red-500");
+                return;
+            }
+
+            navigator.mediaDevices.getUserMedia({ audio: true })
+                .then(stream => {
+                    gymRecordingChunks = [];
+                    gymMediaRecorder = new MediaRecorder(stream);
+                    
+                    gymMediaRecorder.ondataavailable = e => {
+                        if (e.data.size > 0) {
+                            gymRecordingChunks.push(e.data);
+                        }
+                    };
+
+                    gymMediaRecorder.onstop = () => {
+                        const blob = new Blob(gymRecordingChunks, { type: 'audio/webm' });
+                        const audioURL = URL.createObjectURL(blob);
+                        const player = document.getElementById('gym-audio-playback');
+                        player.src = audioURL;
+                        player.classList.remove('hidden');
+                    };
+
+                    gymMediaRecorder.start();
+
+                    // Update UI states
+                    document.getElementById('gym-recording-status').innerText = "Now Recording...";
+                    document.getElementById('gym-recording-status').classList.add('text-red-500', 'animate-pulse');
+                    document.getElementById('gym-start-rec-btn').disabled = true;
+                    document.getElementById('gym-stop-rec-btn').disabled = false;
+
+                    gymRecordSeconds = 0;
+                    gymRecordStopwatch = setInterval(() => {
+                        gymRecordSeconds++;
+                        const min = Math.floor(gymRecordSeconds / 60).toString().padStart(2, '0');
+                        const sec = (gymRecordSeconds % 60).toString().padStart(2, '0');
+                        document.getElementById('gym-recording-timer').innerText = `${min}:${sec}`;
+                    }, 1000);
+                })
+                .catch(err => {
+                    console.error("Recording access blocked:", err);
+                    triggerCustomAlert("Microphone Blocked", "Please permit microphone access in your browser preferences to use the Recorder Lab.", "mic-off", "text-red-500");
+                });
+        }
+
+        function stopGymRecording() {
+            if (gymMediaRecorder && gymMediaRecorder.state !== 'inactive') {
+                gymMediaRecorder.stop();
+                gymMediaRecorder.stream.getTracks().forEach(track => track.stop());
+            }
+
+            clearInterval(gymRecordStopwatch);
+            document.getElementById('gym-recording-status').innerText = "Recording Saved";
+            document.getElementById('gym-recording-status').classList.remove('text-red-500', 'animate-pulse');
+            document.getElementById('gym-start-rec-btn').disabled = false;
+            document.getElementById('gym-stop-rec-btn').disabled = true;
         }
 
         function clearJournal() {

@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Chan Truong - Detailed Lesson 2 Plan</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Plus Jakarta Sans & Playfair Display -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    },
+                    colors: {
+                        pastel: {
+                            rose: '#F9ECEE',      /* Soft Blush */
+                            roseDark: '#E4A8B2',  /* Muted Blush Darker Accent */
+                            sage: '#E3ECE8',      /* Eucalyptus/Sage */
+                            sageDark: '#7CA393',  /* Rich Sage Text/Border */
+                            cream: '#FCF9F5',     /* Cream Canvas */
+                            slate: '#2E3238',     /* Soft Charcoal */
+                            gold: '#D4AF37',      /* Elegant Muted Gold */
+                            goldDark: '#8F7726',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FCF9F5;
+            color: #2E3238;
+        }
+        /* Steady pulse for deep breathing indicator */
+        @keyframes steadyPulse {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.15); opacity: 1; }
+        }
+        .breathing-node {
+            animation: steadyPulse 6s infinite ease-in-out;
+        }
+        /* Custom scrollbar for clean UI */
+        .custom-scroll::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        .custom-scroll::-webkit-scrollbar-track {
+            background: rgba(249, 236, 238, 0.4);
+        }
+        .custom-scroll::-webkit-scrollbar-thumb {
+            background: #E4A8B2;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased min-h-screen flex flex-col justify-between">
+
+    <!-- NAVIGATION BAR -->
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-filter backdrop-blur-lg border-b border-pastel-rose/40 px-6 py-4 shadow-sm">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <a href="index.html" class="w-10 h-10 rounded-full bg-pastel-rose flex items-center justify-center border border-pastel-roseDark/30 shadow-sm transition hover:scale-105">
+                    <span class="font-serif font-bold text-pastel-slate text-lg">CT</span>
+                </a>
+                <div>
+                    <h1 class="font-serif font-bold text-lg leading-tight text-pastel-slate">IELTS Chan Truong</h1>
+                    <p class="text-xs tracking-widest text-pastel-sageDark uppercase font-semibold">Lesson 2 Guide • Safe-Zone Coaching</p>
+                </div>
+            </div>
+            
+            <div class="flex items-center space-x-4">
+                <span class="hidden sm:inline-flex text-xs bg-pastel-rose text-pastel-roseDark font-bold px-3 py-1.5 rounded-full border border-pastel-roseDark/20">
+                    Phase 1: Stretching Ideas
+                </span>
+                <button onclick="window.print()" class="p-2 hover:bg-pastel-sage rounded-full transition-all duration-300" title="Print Lesson Guide">
+                    <i data-lucide="printer" class="w-5 h-5 text-pastel-slate"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- LESSON HEADER & METRICS -->
+    <header class="relative overflow-hidden py-12 md:py-16 bg-gradient-to-br from-pastel-rose/50 via-pastel-cream to-pastel-sage/20 border-b border-pastel-rose/20">
+        <div class="max-w-7xl mx-auto px-6 space-y-6 relative z-10 text-center">
+            <div class="inline-flex items-center space-x-2 bg-white px-4 py-1.5 rounded-full border border-pastel-roseDark/30 shadow-sm">
+                <span class="w-2 h-2 rounded-full bg-pastel-roseDark animate-ping"></span>
+                <span class="text-xs font-semibold text-pastel-slate tracking-wider uppercase">90-Minute Private Lesson Masterplan</span>
+            </div>
+            
+            <h2 class="font-serif text-3xl md:text-5xl text-pastel-slate leading-tight">
+                Lesson 02: <span class="italic text-pastel-roseDark block md:inline">The Art of Seamless Idea Expansion</span>
+            </h2>
+            
+            <p class="text-sm md:text-base text-pastel-slate/85 max-w-3xl mx-auto leading-relaxed">
+                Welcome to Lesson 2. Today, we step beyond single-word answers to address <strong>Speaking Part 2 &amp; Part 3</strong>. Utilizing standard <strong>Mock Test 02</strong>, we will coach her soft voice to project comfortably for a continuous 2 minutes, and apply logical expansion chains.
+            </p>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto pt-4 text-left">
+                <div class="bg-white p-4 rounded-2xl border border-pastel-roseDark/20 shadow-sm">
+                    <span class="block text-[10px] uppercase font-bold text-pastel-slate/50">Core Topic Focus</span>
+                    <span class="text-xs font-bold text-pastel-slate">Speaking Mock Test 02</span>
+                </div>
+                <div class="bg-white p-4 rounded-2xl border border-pastel-roseDark/20 shadow-sm">
+                    <span class="block text-[10px] uppercase font-bold text-pastel-slate/50">Vocal Stretch Target</span>
+                    <span class="text-xs font-bold text-pastel-roseDark">Continuous 2m Monologue</span>
+                </div>
+                <div class="bg-white p-4 rounded-2xl border border-pastel-roseDark/20 shadow-sm">
+                    <span class="block text-[10px] uppercase font-bold text-pastel-slate/50">Logic Structure</span>
+                    <span class="text-xs font-bold text-pastel-sageDark">PREP Argument Flow</span>
+                </div>
+                <div class="bg-white p-4 rounded-2xl border border-pastel-roseDark/20 shadow-sm">
+                    <span class="block text-[10px] uppercase font-bold text-pastel-slate/50">Confidence Milestones</span>
+                    <span class="text-xs font-bold text-pastel-slate">Independent Recording Run</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT CONTAINER (SPLIT WORKSPACE) -->
+    <main class="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- LEFT SIDE: STRATEGIC LESSON GUIDE & ACTIVITIES -->
+        <section class="lg:col-span-7 space-y-8">
+            
+            <!-- TIMELINE OUTLINE -->
+            <div class="bg-white p-8 rounded-3xl border border-pastel-roseDark/20 shadow-md space-y-6">
+                <div class="flex items-center justify-between border-b border-pastel-rose/50 pb-4">
+                    <div class="flex items-center space-x-2">
+                        <i data-lucide="clock" class="w-5 h-5 text-pastel-roseDark"></i>
+                        <h3 class="font-serif text-xl font-bold text-pastel-slate">Lesson Schedule (90 Minutes Total)</h3>
+                    </div>
+                    <span id="completed-count" class="text-xs font-bold text-pastel-roseDark bg-pastel-rose px-3 py-1 rounded-full">0/4 Completed</span>
+                </div>
+
+                <!-- CHECKLIST TIMELINE -->
+                <div class="space-y-6 relative before:absolute before:left-[19px] before:top-2 before:bottom-2 before:w-[2px] before:bg-pastel-rose/60">
+                    
+                    <!-- STEP 1 -->
+                    <div class="relative flex items-start space-x-4 group">
+                        <div class="z-10 flex items-center justify-center w-10 h-10 rounded-full bg-pastel-rose border-2 border-pastel-roseDark/60 text-pastel-roseDark font-bold text-xs transition group-hover:scale-105 shadow-sm animate-pulse" id="marker-step-1">
+                            1
+                        </div>
+                        <div class="flex-grow bg-pastel-cream/30 p-5 rounded-2xl border border-pastel-rose/30 space-y-3">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h4 class="text-sm font-bold text-pastel-slate">Breath-Support &amp; Intonation Tuning (15 mins)</h4>
+                                    <p class="text-xs text-pastel-slate/60">Resetting speaking posture and activating vocal resonance.</p>
+                                </div>
+                                <input type="checkbox" onchange="toggleStep(1, this)" class="w-5 h-5 rounded-full border-pastel-roseDark text-pastel-roseDark focus:ring-pastel-roseDark cursor-pointer">
+                            </div>
+                            <div class="text-xs text-pastel-slate/75 space-y-1">
+                                <p class="font-semibold text-pastel-roseDark">Tutor Focus:</p>
+                                <ul class="list-disc pl-4 space-y-1">
+                                    <li>Re-establish chest-register hums to relax the vocal cords.</li>
+                                    <li>Focus on stretching vowels at structural boundaries to keep the voice warm and clear.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STEP 2 -->
+                    <div class="relative flex items-start space-x-4 group">
+                        <div class="z-10 flex items-center justify-center w-10 h-10 rounded-full bg-pastel-rose border-2 border-pastel-roseDark/60 text-pastel-roseDark font-bold text-xs transition group-hover:scale-105 shadow-sm" id="marker-step-2">
+                            2
+                        </div>
+                        <div class="flex-grow bg-pastel-cream/30 p-5 rounded-2xl border border-pastel-rose/30 space-y-3">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h4 class="text-sm font-bold text-pastel-slate">Speaking Part 2 "Brain Blueprint" (25 mins)</h4>
+                                    <p class="text-xs text-pastel-slate/60">Mastering the 1-minute planning sequence for Mock Test 02.</p>
+                                </div>
+                                <input type="checkbox" onchange="toggleStep(2, this)" class="w-5 h-5 rounded-full border-pastel-roseDark text-pastel-roseDark focus:ring-pastel-roseDark cursor-pointer">
+                            </div>
+                            <div class="text-xs text-pastel-slate/75 space-y-2">
+                                <p class="font-semibold text-pastel-roseDark">Strategic Instruction:</p>
+                                <p>Instead of complete sentences, she will sketch key noun triggers across the four prompts (Who, When, Where, Why) using the workspace below.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STEP 3 -->
+                    <div class="relative flex items-start space-x-4 group">
+                        <div class="z-10 flex items-center justify-center w-10 h-10 rounded-full bg-pastel-rose border-2 border-pastel-roseDark/60 text-pastel-roseDark font-bold text-xs transition group-hover:scale-105 shadow-sm" id="marker-step-3">
+                            3
+                        </div>
+                        <div class="flex-grow bg-pastel-cream/30 p-5 rounded-2xl border border-pastel-rose/30 space-y-3">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h4 class="text-sm font-bold text-pastel-slate">Part 3 "PREP" Chain Expansion (25 mins)</h4>
+                                    <p class="text-xs text-pastel-slate/60">Avoiding short, quiet responses by structurally stacking claims.</p>
+                                </div>
+                                <input type="checkbox" onchange="toggleStep(3, this)" class="w-5 h-5 rounded-full border-pastel-roseDark text-pastel-roseDark focus:ring-pastel-roseDark cursor-pointer">
+                            </div>
+                            <div class="text-xs text-pastel-slate/75 space-y-1">
+                                <p class="font-semibold text-pastel-sageDark">The Formula:</p>
+                                <p class="italic bg-pastel-sage/20 p-2.5 rounded-lg border border-pastel-sageDark/10">"My primary viewpoint..." + "Because..." + "For instance..." + "Therefore..."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STEP 4 -->
+                    <div class="relative flex items-start space-x-4 group">
+                        <div class="z-10 flex items-center justify-center w-10 h-10 rounded-full bg-pastel-rose border-2 border-pastel-roseDark/60 text-pastel-roseDark font-bold text-xs transition group-hover:scale-105 shadow-sm" id="marker-step-4">
+                            4
+                        </div>
+                        <div class="flex-grow bg-pastel-cream/30 p-5 rounded-2xl border border-pastel-rose/30 space-y-3">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h4 class="text-sm font-bold text-pastel-slate">Review, Audio Playback &amp; Feedback (25 mins)</h4>
+                                    <p class="text-xs text-pastel-slate/60">Low-stress recording audit emphasizing voice strength and clarity.</p>
+                                </div>
+                                <input type="checkbox" onchange="toggleStep(4, this)" class="w-5 h-5 rounded-full border-pastel-roseDark text-pastel-roseDark focus:ring-pastel-roseDark cursor-pointer">
+                            </div>
+                            <div class="text-xs text-pastel-slate/75 space-y-1">
+                                <p class="font-semibold text-pastel-goldDark">Safeguard Strategy:</p>
+                                <p>Tutor pinpoints three glowing attributes (vowel elongation, precise connective words) and isolates only **one** actionable volume tweak.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- LIVE MOCK TEST WORKSPACE -->
+            <div class="bg-white p-8 rounded-3xl border border-pastel-sageDark/20 shadow-md space-y-6 relative overflow-hidden">
+                <div class="absolute top-0 left-0 right-0 h-1.5 bg-pastel-sageDark"></div>
+                
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-2">
+                        <i data-lucide="book-open" class="w-5 h-5 text-pastel-sageDark"></i>
+                        <h3 class="font-serif text-lg font-bold text-pastel-slate">Speaking Mock Test 02 Frame</h3>
+                    </div>
+                    <a href="https://ieltschantruong.github.io/IELTS/learning_resources/speaking/mock_test/speaking_mock_02.html" target="_blank" class="text-xs font-semibold text-pastel-sageDark bg-pastel-sage px-3 py-1.5 rounded-full hover:bg-pastel-sageDark hover:text-white transition shadow-sm flex items-center gap-1">
+                        Open Standalone <i data-lucide="external-link" class="w-3 h-3"></i>
+                    </a>
+                </div>
+
+                <div class="bg-pastel-cream/50 rounded-2xl border border-pastel-sage/40 overflow-hidden relative" style="height: 480px;">
+                    <!-- Embedded live iframe of mock test 02 -->
+                    <iframe src="https://ieltschantruong.github.io/IELTS/learning_resources/speaking/mock_test/speaking_mock_02.html" class="w-full h-full border-none custom-scroll"></iframe>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- RIGHT SIDE: INTERACTIVE EXPERIMENTS & BLUEPRINTS -->
+        <section class="lg:col-span-5 space-y-8">
+            
+            <!-- PART 2 MIND BLUEPRINT LAB -->
+            <div class="bg-white p-8 rounded-3xl border border-pastel-roseDark/20 shadow-md space-y-6 relative overflow-hidden">
+                <div class="absolute top-0 left-0 right-0 h-1.5 bg-pastel-roseDark"></div>
+                
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-2">
+                        <i data-lucide="compass" class="w-5 h-5 text-pastel-roseDark animate-spin-slow"></i>
+                        <h3 class="font-serif text-lg font-bold text-pastel-slate">Part 2 Strategy Planner</h3>
+                    </div>
+                    <span id="preparation-timer" class="text-sm font-mono font-bold text-pastel-roseDark bg-pastel-rose px-3 py-1 rounded-full border border-pastel-roseDark/10">01:00</span>
+                </div>
+
+                <div class="bg-pastel-cream/70 p-5 rounded-2xl border border-pastel-roseDark/10 space-y-3">
+                    <div class="flex items-center justify-between">
+                        <span class="block text-xs font-bold text-pastel-roseDark uppercase tracking-wider">How to plan:</span>
+                        <button onclick="togglePreparationTimer()" class="text-[10px] bg-pastel-slate hover:bg-pastel-roseDark text-white font-bold px-2.5 py-1 rounded-md transition shadow-xs flex items-center gap-1">
+                            <i data-lucide="play" class="w-3 h-3"></i> Start 1m Clock
+                        </button>
+                    </div>
+                    <p class="text-xs text-pastel-slate leading-relaxed">
+                        Read the Part 2 Card on the left, then outline your keywords below. Do not write full sentences. Write <strong>one vivid noun trigger</strong> for each.
+                    </p>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="grid grid-cols-2 gap-3">
+                        <div>
+                            <label class="block text-[10px] uppercase font-bold text-pastel-slate/60 mb-1">WHO (The person / item)</label>
+                            <input type="text" id="p2-who" placeholder="e.g. Elderly grandmother" class="w-full p-2.5 rounded-xl border border-pastel-rose/40 text-xs bg-pastel-cream/30 focus:ring-1 focus:ring-pastel-roseDark focus:outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-[10px] uppercase font-bold text-pastel-slate/60 mb-1">WHERE / WHEN (Setting)</label>
+                            <input type="text" id="p2-where" placeholder="e.g. Quiet garden, Hanoi" class="w-full p-2.5 rounded-xl border border-pastel-rose/40 text-xs bg-pastel-cream/30 focus:ring-1 focus:ring-pastel-roseDark focus:outline-none">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-[10px] uppercase font-bold text-pastel-slate/60 mb-1">WHAT (Vivid Sensory Details)</label>
+                        <input type="text" id="p2-what" placeholder="e.g. Soft gray hair, gentle whispers, comforting tea" class="w-full p-3 rounded-xl border border-pastel-rose/40 text-xs bg-pastel-cream/30 focus:ring-1 focus:ring-pastel-roseDark focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-[10px] uppercase font-bold text-pastel-slate/60 mb-1">WHY (Your core feeling)</label>
+                        <textarea id="p2-why" rows="2" placeholder="e.g. Feels like a peaceful sanctuary amidst a busy city life" class="w-full p-3 rounded-xl border border-pastel-rose/40 text-xs focus:ring-1 focus:ring-pastel-roseDark focus:outline-none"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PART 3 EXPANSION WORKSHOP (PREP TECHNIQUE) -->
+            <div class="bg-white p-8 rounded-3xl border border-pastel-sageDark/20 shadow-md space-y-6 relative overflow-hidden">
+                <div class="absolute top-0 left-0 right-0 h-1.5 bg-pastel-sageDark"></div>
+                
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-2">
+                        <i data-lucide="git-branch" class="w-5 h-5 text-pastel-sageDark"></i>
+                        <h3 class="font-serif text-lg font-bold text-pastel-slate">Part 3 Expansion Generator</h3>
+                    </div>
+                    <span class="text-xs font-semibold text-pastel-sageDark bg-pastel-sage px-2.5 py-1 rounded-md">PREP Structure</span>
+                </div>
+
+                <!-- PREP tab cards -->
+                <div class="space-y-4">
+                    <!-- Point -->
+                    <div class="p-3 bg-pastel-sage/20 rounded-xl border border-pastel-sageDark/10 space-y-1">
+                        <span class="text-[9px] uppercase font-extrabold text-pastel-sageDark tracking-widest block">Step 1: POINT (State Core Claim)</span>
+                        <p class="text-xs text-pastel-slate italic font-medium">"From my perspective, quiet communities allow seniors to feel respected and integrated..."</p>
+                    </div>
+                    <!-- Reason -->
+                    <div class="p-3 bg-pastel-rose/20 rounded-xl border border-pastel-roseDark/10 space-y-1">
+                        <span class="text-[9px] uppercase font-extrabold text-pastel-roseDark tracking-widest block">Step 2: REASON (Explain why)</span>
+                        <p class="text-xs text-pastel-slate italic font-medium">"This is because silence reduces the sensory exhaustion of urban noise, making conversations easy..."</p>
+                    </div>
+                    <!-- Example -->
+                    <div class="p-3 bg-amber-50 rounded-xl border border-pastel-gold/10 space-y-1">
+                        <span class="text-[9px] uppercase font-extrabold text-pastel-goldDark tracking-widest block">Step 3: EXAMPLE (Provide evidence)</span>
+                        <p class="text-xs text-pastel-slate italic font-medium">"For example, my grandmother spends her quiet afternoons in Hanoi reading poetry aloud without stress..."</p>
+                    </div>
+                    <!-- Point restated -->
+                    <div class="p-3 bg-pastel-sage/15 rounded-xl border border-pastel-slate/10 space-y-1">
+                        <span class="text-[9px] uppercase font-extrabold text-pastel-slate/60 tracking-widest block">Step 4: POINT (Restate claim)</span>
+                        <p class="text-xs text-pastel-slate italic font-medium">"Consequently, tranquil settings are vital for nurturing their mental health and confidence..."</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LIVE VOICE RECORDER AND FEEDBACK COMPANION -->
+            <div class="bg-white p-8 rounded-3xl border border-pastel-gold/30 shadow-md space-y-6 relative overflow-hidden">
+                <div class="absolute top-0 left-0 right-0 h-1.5 bg-pastel-gold"></div>
+                
+                <div class="flex items-center space-x-2">
+                    <i data-lucide="mic" class="w-5 h-5 text-pastel-gold"></i>
+                    <h3 class="font-serif text-lg font-bold text-pastel-slate">Speech Recorder Lab</h3>
+                </div>
+
+                <div class="bg-pastel-cream/70 p-5 rounded-2xl border border-pastel-gold/10 space-y-3">
+                    <span class="block text-xs font-bold text-pastel-goldDark uppercase tracking-wider">Review your volume &amp; flow:</span>
+                    <p class="text-xs text-pastel-slate leading-relaxed">
+                        Grant your microphone access, record your monologue attempt for Mock Test 02, then listen to your pacing and breath holds immediately.
+                    </p>
+                </div>
+
+                <div class="flex flex-col items-center justify-center p-4 border border-dashed border-pastel-gold/30 rounded-2xl bg-white space-y-4">
+                    <!-- Timing monitor -->
+                    <div class="text-center">
+                        <span id="recording-timer" class="text-2xl font-mono font-bold text-pastel-slate">00:00</span>
+                        <p id="recording-status" class="text-[9px] uppercase font-bold text-pastel-slate/40 tracking-widest mt-1">Ready to Record</p>
+                    </div>
+
+                    <!-- Action buttons -->
+                    <div class="flex gap-3">
+                        <button id="start-rec-btn" onclick="startSpeechRecording()" class="w-12 h-12 rounded-full bg-pastel-rose hover:bg-pastel-roseDark text-pastel-roseDark hover:text-white flex items-center justify-center transition shadow-sm border border-pastel-roseDark/20">
+                            <i data-lucide="circle" class="w-5 h-5 fill-current"></i>
+                        </button>
+                        <button id="stop-rec-btn" onclick="stopSpeechRecording()" disabled class="w-12 h-12 rounded-full bg-pastel-slate text-white flex items-center justify-center transition shadow-sm disabled:opacity-40 disabled:cursor-not-allowed">
+                            <i data-lucide="square" class="w-5 h-5 fill-current"></i>
+                        </button>
+                    </div>
+
+                    <!-- Audio playback holder -->
+                    <div class="w-full pt-2">
+                        <audio id="vocal-playback" controls class="w-full hidden bg-pastel-cream rounded-lg"></audio>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- READ ALOUD: SHADOWING INTEGRATION SECTION -->
+    <section class="max-w-7xl mx-auto px-6 mb-12">
+        <div class="bg-gradient-to-r from-pastel-sage/40 via-white to-pastel-rose/30 p-8 md:p-10 rounded-3xl border border-pastel-sageDark/20 shadow-md">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                
+                <div class="lg:col-span-5 space-y-4">
+                    <div class="inline-flex items-center space-x-2 bg-pastel-sage px-3 py-1 rounded-full border border-pastel-sageDark/25 shadow-xs">
+                        <i data-lucide="music" class="w-3.5 h-3.5 text-pastel-sageDark"></i>
+                        <span class="text-xs font-semibold text-pastel-slate uppercase tracking-wider">Pronunciation and Cadence Studio</span>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-pastel-slate">Cadence Shadowing Passages</h3>
+                    <p class="text-xs md:text-sm text-pastel-slate/85 leading-relaxed">
+                        Read these Part 2/3 transitions aloud. Pay close attention to the breath indicator markings (<strong class="text-pastel-roseDark font-bold">|</strong>). Use them to pause comfortably, letting your voice reset.
+                    </p>
+                    
+                    <!-- AI Voice Generation Controller -->
+                    <div class="p-5 bg-white rounded-2xl border border-pastel-rose/40 space-y-4 shadow-xs">
+                        <div>
+                            <span class="block text-[10px] font-bold text-pastel-roseDark uppercase tracking-wider mb-2">Native System Voice Reader</span>
+                            <div class="grid grid-cols-2 gap-2">
+                                <div>
+                                    <label class="block text-[9px] uppercase font-bold text-pastel-slate/50 mb-1">Select Guide Voice</label>
+                                    <select id="tts-voice" class="w-full p-2 rounded-lg border border-pastel-rose/40 text-xs bg-pastel-cream/30 focus:ring-1 focus:ring-pastel-roseDark focus:outline-none">
+                                        <!-- Dynamically populated with English voices -->
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-[9px] uppercase font-bold text-pastel-slate/50 mb-1">Reading Pacing</label>
+                                    <select id="tts-pace" class="w-full p-2 rounded-lg border border-pastel-rose/40 text-xs bg-pastel-cream/30 focus:ring-1 focus:ring-pastel-roseDark focus:outline-none">
+                                        <option value="slow" selected>Calm &amp; Slow</option>
+                                        <option value="normal">Normal Exam Pace</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col gap-2">
+                            <button id="tts-generate-btn" onclick="generateAIVoice()" class="w-full py-2.5 bg-pastel-slate hover:bg-pastel-roseDark text-white text-xs font-bold rounded-xl transition flex items-center justify-center gap-1.5 shadow-xs">
+                                <i data-lucide="play" class="w-4 h-4"></i>
+                                <span id="tts-btn-text">Listen to Voice Guide</span>
+                            </button>
+                            <!-- Speech Active Progress Container -->
+                            <div id="ai-audio-container" class="hidden animate-fadeIn space-y-2">
+                                <div class="flex items-center justify-between text-[9px] text-pastel-slate/50">
+                                    <span class="flex items-center gap-1">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-pastel-roseDark animate-ping"></span>
+                                        Guide voice reading aloud...
+                                    </span>
+                                    <button onclick="stopAIVoice()" class="hover:text-red-400 font-bold transition-all">Stop Voice Guide</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT SIDE: MULTI-PASSAGE SELECTION & DISPLAY -->
+                <div class="lg:col-span-7 space-y-4">
+                    <!-- Passage Selector Tabs -->
+                    <div class="flex flex-wrap gap-2 border-b border-pastel-rose pb-2" id="passage-tabs">
+                        <button onclick="selectPassage(0)" class="passage-tab px-3 py-1.5 text-xs font-bold rounded-lg bg-pastel-slate text-white transition shadow-sm" id="p-tab-0">1. Elder Wisdom</button>
+                        <button onclick="selectPassage(1)" class="passage-tab px-3 py-1.5 text-xs font-semibold rounded-lg bg-white/75 text-pastel-slate border border-pastel-rose/30 hover:bg-pastel-rose transition" id="p-tab-1">2. Historic Echoes</button>
+                        <button onclick="selectPassage(2)" class="passage-tab px-3 py-1.5 text-xs font-semibold rounded-lg bg-white/75 text-pastel-slate border border-pastel-rose/30 hover:bg-pastel-rose transition" id="p-tab-2">3. Digital Pacing</button>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-2xl border border-pastel-sageDark/20 shadow-xs relative">
+                        <h4 class="font-serif text-lg font-bold text-pastel-slate border-b pb-3 mb-4 flex items-center justify-between">
+                            <span class="flex items-center gap-2">
+                                <i data-lucide="file-text" class="text-pastel-sageDark w-4 h-4"></i>
+                                <span id="shadow-title">Elder Wisdom</span>
+                            </span>
+                            <span class="text-[10px] font-semibold text-pastel-sageDark bg-pastel-sage px-2.5 py-0.5 rounded-full" id="shadow-length">110 WPM</span>
+                        </h4>
+                        
+                        <!-- Main Shadowing Text Content -->
+                        <p id="shadow-text" class="font-serif text-base md:text-lg text-pastel-slate/90 leading-relaxed italic min-h-[100px]">
+                            "If I recall correctly, <span class="bg-pastel-rose/35 px-1 rounded text-pastel-roseDark font-bold">|</span> speaking with my elders always brings deep joy. <span class="bg-pastel-rose/35 px-1 rounded text-pastel-roseDark font-bold">|</span> Their words carry a warm light <span class="bg-pastel-rose/35 px-1 rounded text-pastel-roseDark font-bold">|</span> which sweeps away the confusion <span class="bg-pastel-rose/35 px-1 rounded text-pastel-roseDark font-bold">|</span> of our fast-moving lives."
+                        </p>
+                        
+                        <div class="mt-6 pt-4 border-t border-pastel-rose/40 flex justify-between items-center text-[10px] text-pastel-slate/50">
+                            <span id="shadow-hint">Target sound emphasis: Recall, Elders, Carry, Fast-moving</span>
+                            <span>Aesthetic Focus: Breath Transitions</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- LESSON NOTES & EXPORT WORKSHEET -->
+    <section class="max-w-7xl mx-auto px-6 mb-16">
+        <div class="bg-white p-8 md:p-10 rounded-3xl border border-pastel-roseDark/20 shadow-md">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                
+                <div class="lg:col-span-5 space-y-4">
+                    <h3 class="font-serif text-2xl font-bold text-pastel-slate">Session 2 Progress Worksheet</h3>
+                    <p class="text-xs md:text-sm text-pastel-slate/75 leading-relaxed">
+                        Complete this log with your student at the end of Lesson 2. Document specific expansion techniques acquired, positive vocal feedback, and future projection goals.
+                    </p>
+                    <div class="space-y-3 pt-2 text-xs text-pastel-slate">
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="check" class="w-4 h-4 text-emerald-500"></i>
+                            <span>Saves dynamically on input</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="download" class="w-4 h-4 text-pastel-roseDark"></i>
+                            <span>Download as a formatted document</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 space-y-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-pastel-slate uppercase tracking-wider mb-2">Speaking Stamina Level:</label>
+                            <select id="l2-confidence" onchange="saveInput('l2-confidence', this.value)" class="w-full p-3 rounded-xl border border-pastel-rose/40 text-xs bg-pastel-cream/30 focus:outline-none focus:ring-1 focus:ring-pastel-roseDark">
+                                <option value="developing">Developing (Under 1 min)</option>
+                                <option value="steady" selected>Steady Flow (1m - 1.5m)</option>
+                                <option value="mastered">Mastered (Full 2m Monologue)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-pastel-slate uppercase tracking-wider mb-2">Connectives Logged:</label>
+                            <input type="text" id="l2-vocab" placeholder="e.g., As a consequence, Specifically, To illustrate..." oninput="saveInput('l2-vocab', this.value)" class="w-full p-3 rounded-xl border border-pastel-rose/40 text-xs bg-pastel-cream/30 focus:outline-none focus:ring-1 focus:ring-pastel-roseDark">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-pastel-slate uppercase tracking-wider mb-2">Tutor Remarks &amp; Praise:</label>
+                        <textarea id="l2-wins" rows="3" placeholder="e.g., Fantastic use of structural pauses to extend the Part 2 monologue to 1m 35s. Breath support remains steady..." oninput="saveInput('l2-wins', this.value)" class="w-full p-3 rounded-xl border border-pastel-rose/40 text-xs focus:outline-none focus:ring-1 focus:ring-pastel-roseDark"></textarea>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-pastel-slate uppercase tracking-wider mb-2">Target Goal for Lesson 3:</label>
+                        <input type="text" id="l2-goals" placeholder="Keep transition flow crisp and execute PREP chains on abstract topics..." oninput="saveInput('l2-goals', this.value)" class="w-full p-3 rounded-xl border border-pastel-rose/40 text-xs focus:outline-none focus:ring-1 focus:ring-pastel-roseDark">
+                    </div>
+
+                    <div class="flex justify-end gap-2 pt-2">
+                        <button onclick="clearWorksheet()" class="px-5 py-2.5 rounded-full border border-pastel-roseDark/30 text-pastel-slate hover:bg-pastel-rose/40 text-xs font-semibold transition">
+                            Clear Worksheet
+                        </button>
+                        <button onclick="exportWorksheet()" class="px-5 py-2.5 bg-pastel-slate text-white hover:bg-pastel-roseDark text-xs font-semibold rounded-full transition flex items-center gap-1.5 shadow">
+                            <i data-lucide="arrow-down-to-line" class="w-4 h-4"></i>
+                            Download Progress Sheet
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CUSTOM SIMPLE MESSAGE MODAL -->
+    <div id="simple-alert" class="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-xs opacity-0 pointer-events-none transition-all duration-300">
+        <div class="bg-white max-w-sm w-full m-4 p-6 rounded-2xl border border-pastel-rose/40 shadow-xl text-center space-y-4">
+            <i data-lucide="check-circle" class="w-12 h-12 text-emerald-500 mx-auto"></i>
+            <h4 id="alert-title" class="font-bold text-lg text-pastel-slate">Worksheet Updated</h4>
+            <p id="alert-msg" class="text-xs text-pastel-slate/75">Your progress files have been stored securely in your workspace.</p>
+            <button onclick="closeAlert()" class="w-full py-2 bg-pastel-slate text-white text-xs font-bold rounded-full hover:bg-pastel-roseDark transition">
+                Understood
+            </button>
+        </div>
+    </div>
+
+    <!-- MINI FOOTER -->
+    <footer class="bg-pastel-slate text-white py-6 text-center text-xs">
+        <p>© 2026 IELTS Chan Truong • Customized Private Study Portals</p>
+    </footer>
+
+    <!-- PAGE SCRIPTS & ENGINES -->
+    <script>
+        lucide.createIcons();
+
+        // 1. Interactive Checkbox Tracker
+        let finishedSteps = [];
+
+        function toggleStep(stepNum, checkbox) {
+            const marker = document.getElementById(`marker-step-${stepNum}`);
+            if (checkbox.checked) {
+                if (!finishedSteps.includes(stepNum)) finishedSteps.push(stepNum);
+                marker.classList.remove('bg-pastel-rose', 'text-pastel-roseDark', 'animate-pulse');
+                marker.classList.add('bg-pastel-sageDark', 'text-white', 'border-pastel-sageDark');
+            } else {
+                finishedSteps = finishedSteps.filter(s => s !== stepNum);
+                marker.classList.remove('bg-pastel-sageDark', 'text-white', 'border-pastel-sageDark');
+                marker.classList.add('bg-pastel-rose', 'text-pastel-roseDark', 'animate-pulse');
+            }
+            document.getElementById('completed-count').innerText = `${finishedSteps.length}/4 Completed`;
+        }
+
+        // 2. Part 2 Mind Preparation Timer
+        let prepTimer = null;
+        let prepSecondsLeft = 60;
+        let prepTimerActive = false;
+
+        function togglePreparationTimer() {
+            if (prepTimerActive) {
+                clearInterval(prepTimer);
+                prepTimerActive = false;
+            } else {
+                prepTimerActive = true;
+                prepTimer = setInterval(() => {
+                    prepSecondsLeft--;
+                    const minutes = Math.floor(prepSecondsLeft / 60).toString().padStart(2, '0');
+                    const seconds = (prepSecondsLeft % 60).toString().padStart(2, '0');
+                    document.getElementById('preparation-timer').innerText = `${minutes}:${seconds}`;
+
+                    if (prepSecondsLeft <= 0) {
+                        clearInterval(prepTimer);
+                        prepTimerActive = false;
+                        prepSecondsLeft = 60;
+                        document.getElementById('preparation-timer').innerText = "01:00";
+                        triggerAlert("Time's Up!", "Your 1-minute planning session is over. Begin speaking comfortably!");
+                    }
+                }, 1000);
+            }
+        }
+
+        // 3. Audio Recording Mechanics
+        let mediaRecorder = null;
+        let recordingChunks = [];
+        let recordStopwatch = null;
+        let recordSeconds = 0;
+
+        function startSpeechRecording() {
+            if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+                triggerAlert("Error", "Your browser does not support audio recording mechanics.", "alert-triangle");
+                return;
+            }
+
+            navigator.mediaDevices.getUserMedia({ audio: true })
+                .then(stream => {
+                    recordingChunks = [];
+                    mediaRecorder = new MediaRecorder(stream);
+                    
+                    mediaRecorder.ondataavailable = e => {
+                        if (e.data.size > 0) {
+                            recordingChunks.push(e.data);
+                        }
+                    };
+
+                    mediaRecorder.onstop = () => {
+                        const blob = new Blob(recordingChunks, { type: 'audio/webm' });
+                        const audioURL = URL.createObjectURL(blob);
+                        const player = document.getElementById('vocal-playback');
+                        player.src = audioURL;
+                        player.classList.remove('hidden');
+                    };
+
+                    mediaRecorder.start();
+
+                    // Start visual UI timers
+                    document.getElementById('recording-status').innerText = "Now Recording...";
+                    document.getElementById('recording-status').classList.add('text-red-500', 'animate-pulse');
+                    document.getElementById('start-rec-btn').disabled = true;
+                    document.getElementById('stop-rec-btn').disabled = false;
+
+                    recordSeconds = 0;
+                    recordStopwatch = setInterval(() => {
+                        recordSeconds++;
+                        const min = Math.floor(recordSeconds / 60).toString().padStart(2, '0');
+                        const sec = (recordSeconds % 60).toString().padStart(2, '0');
+                        document.getElementById('recording-timer').innerText = `${min}:${sec}`;
+                    }, 1000);
+                })
+                .catch(err => {
+                    console.error("Microphone access blocked:", err);
+                    triggerAlert("Mic Denied", "Please allow microphone access in your browser settings to use the speech recorder.", "alert-triangle");
+                });
+        }
+
+        function stopSpeechRecording() {
+            if (mediaRecorder && mediaRecorder.state !== 'inactive') {
+                mediaRecorder.stop();
+                // Stop microphone tracks cleanly
+                mediaRecorder.stream.getTracks().forEach(track => track.stop());
+            }
+
+            clearInterval(recordStopwatch);
+            document.getElementById('recording-status').innerText = "Recording Saved";
+            document.getElementById('recording-status').classList.remove('text-red-500', 'animate-pulse');
+            document.getElementById('start-rec-btn').disabled = false;
+            document.getElementById('stop-rec-btn').disabled = true;
+        }
+
+        // 4. Cadence Shadowing Passage Controller
+        const shadowingPassages = [
+            {
+                title: "Elder Wisdom",
+                hint: "Target sound emphasis: Recall, Elders, Carry, Fast-moving",
+                length: "approx. 110 WPM",
+                markup: `"If I recall correctly, <span class='bg-pastel-rose/35 px-1 rounded text-pastel-roseDark font-bold'>|</span> speaking with my elders always brings deep joy. <span class='bg-pastel-rose/35 px-1 rounded text-pastel-roseDark font-bold'>|</span> Their words carry a warm light <span class='bg-pastel-rose/35 px-1 rounded text-pastel-roseDark font-bold'>|</span> which sweeps away the confusion <span class='bg-pastel-rose/35 px-1 rounded text-pastel-roseDark font-bold'>|</span> of our fast-moving lives."`,
+                plainText: "If I recall correctly, speaking with my elders always brings deep joy. Their words carry a warm light which sweeps away the confusion of our fast-moving lives."
+            },
+            {
+                title: "Historic Echoes",
+                hint: "Target sound emphasis: Historic, Architectural, Structure, Centuries",
+                length: "approx. 115 WPM",
+                markup: `"When visiting a historic landmark, <span class='bg-pastel-rose/35 px-1 rounded text-pastel-roseDark font-bold'>|</span> you easily notice the detailed architectural styling. <span class='bg-pastel-rose/35 px-1 rounded text-pastel-roseDark font-bold'>|</span> Every stone structure <span class='bg-pastel-rose/35 px-1 rounded text-pastel-roseDark font-bold'>|</span> has weathered the harsh elements of centuries, <span class='bg-pastel-rose/35 px-1 rounded text-pastel-roseDark font-bold'>|</span> silently reminding us of ancient traditions."`,
+                plainText: "When visiting a historic landmark, you easily notice the detailed architectural styling. Every stone structure has weathered the harsh elements of centuries, silently reminding us of ancient traditions."
+            },
+            {
+                title: "Digital Pacing",
+                hint: "Target sound emphasis: Smartphone, Distraction, Boundaries, Intentional",
+                length: "approx. 120 WPM",
+                markup: `"Slipping away from our smartphones <span class='bg-pastel-rose/35 px-1 rounded text-pastel-roseDark font-bold'>|</span> is a necessary practice to avoid distraction. <span class='bg-pastel-rose/35 px-1 rounded text-pastel-roseDark font-bold'>|</span> By setting healthy personal boundaries, <span class='bg-pastel-rose/35 px-1 rounded text-pastel-roseDark font-bold'>|</span> we reclaim precious cognitive focus <span class='bg-pastel-rose/35 px-1 rounded text-pastel-roseDark font-bold'>|</span> to lead intentional lives."`,
+                plainText: "Slipping away from our smartphones is a necessary practice to avoid distraction. By setting healthy personal boundaries, we reclaim precious cognitive focus to lead intentional lives."
+            }
+        ];
+
+        let activePassageIndex = 0;
+
+        function selectPassage(index) {
+            activePassageIndex = index;
+            const p = shadowingPassages[index];
+
+            document.getElementById('shadow-title').innerText = p.title;
+            document.getElementById('shadow-length').innerText = p.length;
+            document.getElementById('shadow-text').innerHTML = p.markup;
+            document.getElementById('shadow-hint').innerText = p.hint;
+
+            // Highlight Tab
+            document.querySelectorAll('.passage-tab').forEach((tab, i) => {
+                if (i === index) {
+                    tab.className = "passage-tab px-3 py-1.5 text-xs font-bold rounded-lg bg-pastel-slate text-white transition shadow-sm";
+                } else {
+                    tab.className = "passage-tab px-3 py-1.5 text-xs font-semibold rounded-lg bg-white/75 text-pastel-slate border border-pastel-rose/30 hover:bg-pastel-rose transition";
+                }
+            });
+
+            stopAIVoice();
+        }
+
+        // 5. Browser-Native Speech Synthesis (TTS) Engine
+        let synth = window.speechSynthesis;
+        let systemVoices = [];
+        let currentUtterance = null;
+
+        function loadSystemVoices() {
+            if (!synth) return;
+            systemVoices = synth.getVoices().filter(voice => voice.lang.startsWith('en'));
+            const voiceSelect = document.getElementById('tts-voice');
+            voiceSelect.innerHTML = '';
+
+            if (systemVoices.length === 0) {
+                const opt = document.createElement('option');
+                opt.value = '';
+                opt.innerText = 'No English voices found';
+                voiceSelect.appendChild(opt);
+                return;
+            }
+
+            systemVoices.forEach((voice, index) => {
+                const opt = document.createElement('option');
+                opt.value = index;
+                const isPreferred = voice.name.includes('Google') || voice.name.includes('Natural') || voice.name.includes('Apple') || voice.name.includes('Zira');
+                opt.innerText = `${voice.name} (${voice.lang})${isPreferred ? ' ✨' : ''}`;
+                if (index === 0) opt.selected = true;
+                voiceSelect.appendChild(opt);
+            });
+        }
+
+        if (synth) {
+            if (synth.onvoiceschanged !== undefined) {
+                synth.onvoiceschanged = loadSystemVoices;
+            }
+            setTimeout(loadSystemVoices, 100);
+        }
+
+        function generateAIVoice() {
+            if (!synth) {
+                triggerAlert("Browser Not Supported", "Your web browser does not support native voice synthesis. Please try Chrome or Safari.", "alert-triangle");
+                return;
+            }
+
+            stopAIVoice();
+
+            const voiceSelect = document.getElementById('tts-voice');
+            const paceSelect = document.getElementById('tts-pace');
+            const activePassage = shadowingPassages[activePassageIndex];
+
+            if (voiceSelect.value === '') {
+                triggerAlert("No Voice Selected", "Please select an English voice from the list.", "alert-triangle");
+                return;
+            }
+
+            const selectedVoiceIndex = parseInt(voiceSelect.value, 10);
+            const selectedVoice = systemVoices[selectedVoiceIndex];
+            const paceStyle = paceSelect.value;
+
+            currentUtterance = new SpeechSynthesisUtterance(activePassage.plainText);
+            
+            if (selectedVoice) {
+                currentUtterance.voice = selectedVoice;
+            }
+
+            currentUtterance.rate = paceStyle === 'slow' ? 0.75 : 1.0;
+            currentUtterance.pitch = 1.0;
+
+            currentUtterance.onstart = function() {
+                const btn = document.getElementById('tts-generate-btn');
+                const btnText = document.getElementById('tts-btn-text');
+                btnText.innerText = "Guide Reading...";
+                btn.classList.add('opacity-75', 'bg-pastel-roseDark');
+                document.getElementById('ai-audio-container').classList.remove('hidden');
+            };
+
+            currentUtterance.onend = function() {
+                resetVoiceUI();
+            };
+
+            currentUtterance.onerror = function() {
+                resetVoiceUI();
+            };
+
+            synth.speak(currentUtterance);
+        }
+
+        function stopAIVoice() {
+            if (synth && synth.speaking) {
+                synth.cancel();
+            }
+            resetVoiceUI();
+        }
+
+        function resetVoiceUI() {
+            const btn = document.getElementById('tts-generate-btn');
+            const btnText = document.getElementById('tts-btn-text');
+            if (btnText) btnText.innerText = "Listen to Voice Guide";
+            if (btn) btn.classList.remove('opacity-75', 'bg-pastel-roseDark');
+            const container = document.getElementById('ai-audio-container');
+            if (container) container.classList.add('hidden');
+        }
+
+        // 6. Progress Local Storage & Worksheet Handlers
+        function saveInput(key, val) {
+            localStorage.setItem(`l2_${key}`, val);
+        }
+
+        window.onload = function() {
+            if(localStorage.getItem('l2_l2-confidence')) {
+                document.getElementById('l2-confidence').value = localStorage.getItem('l2_l2-confidence');
+            }
+            if(localStorage.getItem('l2_l2-vocab')) {
+                document.getElementById('l2-vocab').value = localStorage.getItem('l2_l2-vocab');
+            }
+            if(localStorage.getItem('l2_l2-wins')) {
+                document.getElementById('l2-wins').value = localStorage.getItem('l2_l2-wins');
+            }
+            if(localStorage.getItem('l2_l2-goals')) {
+                document.getElementById('l2-goals').value = localStorage.getItem('l2_l2-goals');
+            }
+        };
+
+        function clearWorksheet() {
+            document.getElementById('l2-vocab').value = '';
+            document.getElementById('l2-wins').value = '';
+            document.getElementById('l2-goals').value = '';
+            document.getElementById('l2-confidence').value = 'steady';
+
+            localStorage.removeItem('l2_l2-confidence');
+            localStorage.removeItem('l2_l2-vocab');
+            localStorage.removeItem('l2_l2-wins');
+            localStorage.removeItem('l2_l2-goals');
+
+            triggerAlert("Worksheet Cleared", "The Session 2 progress sheet has been reset successfully.", "trash-2");
+        }
+
+        function exportWorksheet() {
+            const confidence = document.getElementById('l2-confidence').value;
+            const vocab = document.getElementById('l2-vocab').value;
+            const wins = document.getElementById('l2-wins').value;
+            const goals = document.getElementById('l2-goals').value;
+
+            const textOutput = `--- IELTS CHAN TRUONG: LESSON 2 PROGRESS SHEET ---\n\n` +
+                               `Subject: The Art of Seamless Idea Expansion\n` +
+                               `Stamina Progress: ${confidence.toUpperCase()}\n` +
+                               `Target Connective Words Logged: ${vocab || '(None entered)'}\n\n` +
+                               `Teacher Praise & Highlights:\n${wins || '(None entered)'}\n\n` +
+                               `Target Goals for Lesson 3:\n${goals || '(None entered)'}\n\n` +
+                               `Date of Lesson Completion: ${new Date().toLocaleDateString()}\n`;
+
+            const blob = new Blob([textOutput], { type: 'text/plain;charset=utf-8' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'IELTS_Lesson2_Progress_Sheet.txt';
+            link.click();
+        }
+
+        // 7. Custom Modal Helpers
+        function triggerAlert(title, message, iconName = 'check-circle') {
+            document.getElementById('alert-title').innerText = title;
+            document.getElementById('alert-msg').innerText = message;
+            
+            const icon = document.querySelector('#simple-alert i');
+            if (icon) {
+                icon.setAttribute('data-lucide', iconName);
+                lucide.createIcons();
+            }
+
+            const alertBox = document.getElementById('simple-alert');
+            alertBox.classList.remove('opacity-0', 'pointer-events-none');
+        }
+
+        function closeAlert() {
+            const alertBox = document.getElementById('simple-alert');
+            alertBox.classList.add('opacity-0', 'pointer-events-none');
+        }
+    </script>
+</body>
+</html>
