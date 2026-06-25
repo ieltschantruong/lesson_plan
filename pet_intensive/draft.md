@@ -141,53 +141,52 @@
 - Thank you: https://ieltschantruong.github.io/IELTS/learning_resources/speaking/part1/thank_you.html
 - Rules: https://ieltschantruong.github.io/IELTS/learning_resources/speaking/part1/rules.html
 - Arts: https://ieltschantruong.github.io/IELTS/learning_resources/speaking/part1/art.html
-2. Homework: Review All Speaking Part 1 Topics
+2. Homework: 
+- Review All Speaking Part 1 Topics
+- Complete Listeing Test 5: https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/test_view_pet_intensive_05.html
 
 # Lesson 12: 
-1. Writing Test 3 (Task 1+2): Structures + Ideas
+1. Listening Test 5 | Check & Explain: https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/test_view_pet_intensive_05.html
+
+2. Writing Test 3 (Task 1+2): Structures + Ideas
     - Task 1: The graph below shows the changes of four types of ways to communicate according to different age groups in the UK in 2011.Summarize the information by selecting and reporting the main features, and make comparisons where relevant.
     {Diagram: https://ieltschantruong.github.io/IELTS/src/writing_questions/writing_task1_linechart_uk_communicating_channels.png}
     - Task 2: Some people think that all lawbreakers should be sent to prison, while others think that there are better alternatives for those whose crimes are minor, such as making them do work for the local community. Discuss both views and give your own opinion.
 
-2. Vocab Test: All Speaking part 1 topics
+3. Vocab Test: All Speaking part 1 topics
 https://ieltschantruong.github.io/IELTS/lesson_plan/pet_intensive/vocab_test_speaking_p1_all.docx
 
-3. Homework: 
+4. Homework: 
 - Complete Reading Test 4 - Passage 3: https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/pet_intensive_04.html
-- Complete Listeing Test 5: https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/test_view_pet_intensive_05.html
+- Speaking P2&3 pages 47->51 preparation
 
 # Lesson 13: 
 1. Reading Test 04 - Passage 3 | Check & Explain: https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/pet_intensive_04.html
-2. Listening Test 5 | Check & Explain: https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/test_view_pet_intensive_05.html
-3. Speaking Part 2&3: Overview
-4. Homework: 
-- Speaking P2&3 pages 47->51 preparation
+2. Speaking Part 2&3: 
+- Overview
+- Vocab explain & practices
+ - Describe a time when the electricity suddenly went off
+ - Describe a time when you broke something
+ - Describe a piece of technology that you find difficult to use
+ - Describe a website that sells second-hand items
+ - Describe a website you often visit
+
+3. Homework: 
 - Learn Reading Test 04 Vocab: https://ieltschantruong.github.io/IELTS/lesson_plan/pet_intensive/vocab_learning_reading_mock04.html
 - Do Reading Test 04 Vocab Test: https://ieltschantruong.github.io/IELTS/lesson_plan/pet_intensive/vocab_testing_reading_mock04.html
 - Complete Reading Test 05 - Passage 1: https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/pet_intensive_05.html
 
 # Lesson 14: 
 1. Reading Test 05 - Passage 1 | Check & Explain: https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/pet_intensive_05.html
-2. Speaking Part 2&3: Vocab explain & practices
-- Describe a time when the electricity suddenly went off
-- Describe a time when you broke something
-- Describe a piece of technology that you find difficult to use
-- Describe a website that sells second-hand items
-- Describe a website you often visit
+2. Listening Test 6 | Practice, Check & Explain: https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/test_view_pet_intensive_06.html
 3. Vocab Test | Reading Test 04 Vocab: https://ieltschantruong.github.io/IELTS/lesson_plan/pet_intensive/vocab_test_reading04.docx
 4. Homework:
 - Complete Reading Test 05 - Passage 2&3: https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/pet_intensive_05.html
+- Speaking P2&3 pages 52->59 preparation
 
 # Lesson 15: 
-1. Reading Test 05 - Passage 2&3 | Check & Explain: https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/pet_intensive_05.html
-2. Listening Test 6 | Practice, Check & Explain: https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/test_view_pet_intensive_06.html
-4. Homework: 
-- Speaking P2&3 pages 52->59 preparation
-- Learn Reading Test 05 Vocab: https://ieltschantruong.github.io/IELTS/lesson_plan/pet_intensive/vocab_learning_reading_mock05.html
-- Do Reading Test 05 Vocab Test: https://ieltschantruong.github.io/IELTS/lesson_plan/pet_intensive/vocab_testing_reading_mock05.html
-
-# Lesson 16: 
-1. Speaking Part 2&3: Vocab explain & practices | Pages 52->59
+1. Reading Test 05 - Passage 3 | Check & Explain: https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/pet_intensive_05.html
+2. Speaking Part 2&3: Vocab explain & practices | Pages 52->59
 - Describe a long journey you had and would like to take again
 - Describe a person you know who enjoys working for a family business (e.g. a shop, etc.)
 - Describe a group activity you took part in
@@ -196,6 +195,12 @@ https://ieltschantruong.github.io/IELTS/lesson_plan/pet_intensive/vocab_test_spe
 - Describe a time when you told your friend an important truth
 - Describe an interesting discussion you had with your friend
 - Describe an important decision that you made
+3. Homework: 
+- Learn Reading Test 05 Vocab: https://ieltschantruong.github.io/IELTS/lesson_plan/pet_intensive/vocab_learning_reading_mock05.html
+- Do Reading Test 05 Vocab Test: https://ieltschantruong.github.io/IELTS/lesson_plan/pet_intensive/vocab_testing_reading_mock05.html
+
+# Lesson 16: 
+1. Reading Test 06 P2| Practice, Check & Explain: https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/pet_intensive_06.html
 
 2. Writing Test 4 (Task 1+2): Structures + Ideas
     - Task 1: The map below shows the changes that have taken place at a zoo in Australia between 1960 and now. Summarize the information by selecting and reporting the main features, and make comparisons where relevant.
@@ -205,11 +210,11 @@ https://ieltschantruong.github.io/IELTS/lesson_plan/pet_intensive/vocab_test_spe
 3. Vocab Test | Reading Test 05 Vocab: https://ieltschantruong.github.io/IELTS/lesson_plan/pet_intensive/vocab_test_reading05.docx
 
 4. Homework:
-- Complete Reading Test 06: https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/pet_intensive_06.html
+- Complete Reading Test 06 P1-3: https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/pet_intensive_06.html
 - Speaking P2&3 pages 60->63 preparation
 
 # Lesson 17:
-1. Reading Test 06 | Check & Explain: https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/pet_intensive_06.html
+1. Reading Test 06 P1-3| Check & Explain: https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/pet_intensive_06.html
 2. Speaking Part 2&3: Vocab explain & practices | Pages 60->63
 - Describe a foreign country you would like to visit in the future
 - Describe a city that you have been to and would like to visit again
