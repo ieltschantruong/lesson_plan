@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 07 | IELTS Chan Truong</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Plus Jakarta Sans & Cormorant Garamond -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                    },
+                    colors: {
+                        chic: {
+                            50: '#fffbfb',   // Luxurious warm ivory
+                            100: '#fef1f2',  // Ultra soft blush pink
+                            200: '#fde2e4',  // Rose water pastel
+                            300: '#f9bec7',  // Soft peony
+                            400: '#f497a9',  // Vintage rose
+                            500: '#e56b8f',  // Dusty rose-gold accent
+                            600: '#be5272',  // Deep raspberry accent
+                            700: '#9d3b56',  // Deep berry wood
+                            800: '#752a3d',  // Royal maroon
+                            900: '#4a1523',  // Dark black cherry
+                        },
+                        sand: {
+                            50: '#faf8f6',   // Champagne cream background
+                            100: '#f5f0eb',  // Warm sand accent
+                            200: '#e8ded4',  // Pale taupe
+                            300: '#d5c4b3',  // Muted oak
+                            900: '#1c1714',  // Rich charcoal-espresso
+                        }
+                    },
+                    boxShadow: {
+                        'chic': '0 10px 40px -15px rgba(229, 107, 143, 0.08)',
+                        'chic-hover': '0 20px 50px -10px rgba(229, 107, 143, 0.15)',
+                        'lux': '0 30px 60px -20px rgba(28, 23, 20, 0.03)'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #faf8f6;
+            color: #1c1714;
+        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #faf8f6; }
+        ::-webkit-scrollbar-thumb { background: #fde2e4; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #f497a9; }
+        
+        .transition-lux {
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+    </style>
+</head>
+<body class="antialiased font-sans">
+
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-50 bg-white/70 backdrop-blur-xl border-b border-chic-100 shadow-[0_2px_15px_-3px_rgba(229,107,143,0.03)]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Branding -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-chic-600 via-chic-400 to-chic-200 flex items-center justify-center text-white font-bold text-sm shadow-[0_4px_15px_rgba(229,107,143,0.25)]">
+                        <span class="font-serif italic text-base">CT</span>
+                    </div>
+                    <div>
+                        <div class="text-lg tracking-widest font-serif font-bold text-sand-900 uppercase">
+                            IELTS <span class="text-chic-500 font-normal italic lowercase text-xl ml-1 font-serif">Chan Truong</span>
+                        </div>
+                        <div class="text-[9px] tracking-widest uppercase font-semibold text-sand-300">Fluency Accelerator Framework</div>
+                    </div>
+                </div>
+
+                <!-- Right Side Actions -->
+                <div class="flex items-center space-x-4">
+                    <a href="ielts-roadmap.html" class="text-xs font-bold uppercase tracking-wider text-sand-900 hover:text-chic-500 transition-lux flex items-center gap-2">
+                        <i class="fa-solid fa-arrow-left"></i> Back to Roadmap
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        
+        <!-- Hero Section -->
+        <section class="mb-10">
+            <div class="bg-white rounded-3xl p-8 md:p-12 border border-chic-100 shadow-chic relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-chic-100/40 rounded-full blur-3xl -z-10"></div>
+                
+                <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
+                    <div>
+                        <span class="bg-chic-100 text-chic-700 text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full inline-block mb-4">
+                            Lesson 07 Detailed Plan
+                        </span>
+                        <h1 class="text-4xl md:text-5xl font-serif text-sand-900 leading-tight mb-3">
+                            Technology & Media <br><span class="italic font-normal text-chic-500">Structural Rehearsals</span>
+                        </h1>
+                        <p class="text-sm text-sand-900/70 max-w-xl leading-relaxed">
+                            Bypassing over-complication of technology topics. This session transitions the student from passive outline preparation to active 4-3-2 repetitive delivery using future innovations, digital media channels, and technical troubleshooting scenarios.
+                        </p>
+                    </div>
+
+                    <!-- Lesson Stat Board -->
+                    <div class="bg-sand-50/70 border border-sand-100 rounded-2xl p-6 lg:w-80 w-full space-y-4 shadow-lux">
+                        <h3 class="text-xs uppercase font-bold text-chic-700 tracking-widest flex items-center gap-2">
+                            <i class="fa-solid fa-clock-rotate-left"></i> Session Details
+                        </h3>
+                        <div class="grid grid-cols-2 gap-4 text-xs">
+                            <div>
+                                <span class="block text-[10px] text-sand-300 uppercase tracking-wider font-bold">Total Duration</span>
+                                <span class="font-semibold text-sand-900">90 Minutes</span>
+                            </div>
+                            <div>
+                                <span class="block text-[10px] text-sand-300 uppercase tracking-wider font-bold">IELTS Focus</span>
+                                <span class="font-semibold text-chic-600 font-serif italic">Part 2 Deep Dive</span>
+                            </div>
+                            <div>
+                                <span class="block text-[10px] text-sand-300 uppercase tracking-wider font-bold">Primary Practice</span>
+                                <span class="font-semibold text-sand-900">Tests 11, 13, 28</span>
+                            </div>
+                            <div>
+                                <span class="block text-[10px] text-sand-300 uppercase tracking-wider font-bold">Method</span>
+                                <span class="font-semibold text-chic-600">4-3-2 Flow Engine</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive 90-Minute Class Timer -->
+        <section class="mb-10">
+            <div class="bg-gradient-to-r from-chic-900 to-chic-800 text-white rounded-3xl p-6 md:p-8 shadow-chic flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden">
+                <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-chic-700/20 rounded-full blur-2xl"></div>
+                
+                <div class="space-y-1">
+                    <span class="text-chic-300 text-xs font-bold uppercase tracking-widest block">Live Class Tracker</span>
+                    <h3 class="text-lg md:text-xl font-serif">Pacing Control Dashboard</h3>
+                    <p class="text-xs text-white/60">Manage the lesson flow systematically. Run this timer to maintain strict focus thresholds.</p>
+                </div>
+
+                <!-- Timer Counter -->
+                <div class="flex items-center space-x-6">
+                    <div class="text-center">
+                        <span id="timer-display" class="text-4xl md:text-5xl font-mono font-bold tracking-wider block text-chic-100">90:00</span>
+                        <span id="timer-status-msg" class="text-[9px] uppercase tracking-widest text-chic-300 block mt-1">Remaining Time</span>
+                    </div>
+                    
+                    <div class="flex flex-col gap-2">
+                        <button id="btn-timer-toggle" onclick="toggleTimer()" class="bg-chic-500 hover:bg-chic-400 text-white px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-lux flex items-center justify-center gap-1 shadow-md">
+                            <i class="fa-solid fa-play" id="timer-icon"></i> <span id="timer-btn-text">Start</span>
+                        </button>
+                        <button onclick="resetTimer()" class="border border-white/20 hover:bg-white/10 text-white px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-wider transition-lux">
+                            Reset
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technology & Social Media Syllabus Reference -->
+        <section class="mb-10">
+            <div class="bg-white rounded-3xl p-6 md:p-8 border border-chic-100 shadow-chic">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-chic-100 pb-4 mb-6">
+                    <div>
+                        <span class="text-chic-500 text-xs tracking-widest font-bold uppercase block">Pedagogical Resource</span>
+                        <h2 class="text-2xl font-serif text-sand-900 mt-1">Syllabus Vocab Integration</h2>
+                        <p class="text-xs text-sand-900/60 mt-1">Integrate highly contextual lexical targets from her official Technology & Media vocabulary module.</p>
+                    </div>
+                    <a href="https://ieltschantruong.github.io/IELTS/learning_resources/speaking/part2_3/technology_and_media.html" target="_blank" class="bg-chic-50 border border-chic-200 text-chic-700 hover:bg-chic-100 hover:text-chic-800 text-xs font-bold uppercase tracking-wider py-3 px-5 rounded-full transition-lux flex items-center gap-2 whitespace-nowrap shadow-sm">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Open Core Vocabulary Link
+                    </a>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="p-5 rounded-2xl bg-sand-50/50 border border-sand-100 space-y-2">
+                        <div class="w-8 h-8 rounded-full bg-chic-100 text-chic-700 flex items-center justify-center text-xs font-bold mb-2">
+                            <i class="fa-solid fa-microchip"></i>
+                        </div>
+                        <h4 class="font-serif font-bold text-sand-900 text-base">Innovative Speculation</h4>
+                        <p class="text-xs text-sand-900/70 leading-relaxed">
+                            Discard simplistic terms like "smart tech." Speculate about future assets using complex nouns such as *automated pipelines*, *technological paradigms*, or *digital sovereignty*.
+                        </p>
+                    </div>
+
+                    <div class="p-5 rounded-2xl bg-sand-50/50 border border-sand-100 space-y-2">
+                        <div class="w-8 h-8 rounded-full bg-chic-100 text-chic-700 flex items-center justify-center text-xs font-bold mb-2">
+                            <i class="fa-solid fa-display"></i>
+                        </div>
+                        <h4 class="font-serif font-bold text-sand-900 text-base">Media Discourse</h4>
+                        <p class="text-xs text-sand-900/70 leading-relaxed">
+                            Formulate evaluations of media programs with precise, clear collocations: *thought-provoking narratives*, *unscripted commentary*, or *syndicated broadcasts*.
+                        </p>
+                    </div>
+
+                    <div class="p-5 rounded-2xl bg-sand-50/50 border border-sand-100 space-y-2">
+                        <div class="w-8 h-8 rounded-full bg-chic-100 text-chic-700 flex items-center justify-center text-xs font-bold mb-2">
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                        </div>
+                        <h4 class="font-serif font-bold text-sand-900 text-base">Glitch Analysis</h4>
+                        <p class="text-xs text-sand-900/70 leading-relaxed">
+                            Narrate software errors and solutions confidently using natural developer registers: *system outage*, *software bugs*, *on-the-fly debugging*, and *recovery diagnostics*.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive 4-3-2 Training Deck & Mind Mapper -->
+        <section class="mb-10" id="practice-arena">
+            <div class="bg-white rounded-3xl p-6 md:p-8 border border-chic-100 shadow-chic">
+                <div class="border-b border-chic-100 pb-4 mb-6">
+                    <span class="text-chic-500 text-xs tracking-widest font-bold uppercase block">Active Rehearsal Deck</span>
+                    <h2 class="text-2xl font-serif text-sand-900 mt-1">Interactive Technology 4-3-2 Speech Trainer</h2>
+                    <p class="text-xs text-sand-900/60 mt-2">
+                        Select one of her three homework topics below, draft planning keyword anchors in the preparation scratchpad, and initiate your speed trials!
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <!-- Left Side: Interactive Prep Board -->
+                    <div class="lg:col-span-2 space-y-6">
+                        <!-- Topic Selector Buttons -->
+                        <div class="flex flex-col sm:flex-row gap-2">
+                            <button onclick="selectPracticeTopic('test11')" id="btn-topic-test11" class="flex-1 bg-chic-50 border-2 border-chic-200 hover:bg-chic-100/50 text-chic-800 text-xs font-bold uppercase tracking-wider py-3 px-4 rounded-xl transition-lux text-left flex items-center gap-2">
+                                <i class="fa-solid fa-robot text-chic-500"></i> Test 11: Future Tech
+                            </button>
+                            <button onclick="selectPracticeTopic('test13')" id="btn-topic-test13" class="flex-1 bg-white border border-sand-200 hover:bg-sand-50 text-sand-900 text-xs font-bold uppercase tracking-wider py-3 px-4 rounded-xl transition-lux text-left flex items-center gap-2">
+                                <i class="fa-solid fa-display text-sand-400"></i> Test 13: Online Show
+                            </button>
+                            <button onclick="selectPracticeTopic('test28')" id="btn-topic-test28" class="flex-1 bg-white border border-sand-200 hover:bg-sand-50 text-sand-900 text-xs font-bold uppercase tracking-wider py-3 px-4 rounded-xl transition-lux text-left flex items-center gap-2">
+                                <i class="fa-solid fa-terminal text-sand-400"></i> Test 28: Tech Problem
+                            </button>
+                        </div>
+
+                        <!-- Active Prompt Details Card -->
+                        <div class="bg-sand-50/70 border border-sand-100 rounded-2xl p-6 space-y-4">
+                            <div class="flex items-center justify-between">
+                                <span id="prompt-tag" class="bg-chic-100 text-chic-700 text-[10px] uppercase font-bold px-3 py-1 rounded-full">Active Topic</span>
+                                <span class="text-xs text-sand-300 font-mono" id="prompt-test-ref">Test 11</span>
+                            </div>
+                            <h3 id="prompt-headline" class="font-serif font-bold text-lg text-sand-900">Future Technology</h3>
+                            <p id="prompt-italic" class="text-xs text-sand-900/80 italic">"Describe a piece of technology you would like to own in the future."</p>
+                            
+                            <ul id="prompt-bullet-points" class="space-y-1.5 text-xs text-sand-900/70 pl-4 list-disc">
+                                <!-- Loaded dynamically -->
+                            </ul>
+                        </div>
+
+                        <!-- Lexical Accelerator Card (Dynamic Model Display) -->
+                        <div class="border border-chic-100 bg-white rounded-2xl p-6 space-y-4 shadow-sm">
+                            <div class="border-b border-chic-100 pb-3 flex justify-between items-center">
+                                <div>
+                                    <span class="text-[9px] uppercase font-bold text-chic-500 tracking-wider block">Fluency Booster Toolkit</span>
+                                    <h4 class="font-serif font-bold text-sand-900 text-sm flex items-center gap-2">
+                                        <i class="fa-solid fa-wand-magic-sparkles text-chic-500"></i> Syllabus Lexical Targets
+                                    </h4>
+                                </div>
+                                <span class="bg-chic-50 text-chic-700 text-[9px] uppercase tracking-wider font-bold px-2 py-0.5 rounded border border-chic-100">Band 6.5+ Target</span>
+                            </div>
+                            
+                            <div class="space-y-4">
+                                <div>
+                                    <span class="text-[9px] uppercase font-bold text-sand-300 tracking-wider block mb-2">Topic Specific Vocabulary</span>
+                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="vocab-list">
+                                        <!-- Dynamically populated via JS -->
+                                    </div>
+                                </div>
+                                
+                                <div class="pt-3 border-t border-sand-100/60">
+                                    <span class="text-[9px] uppercase font-bold text-sand-300 tracking-wider block mb-2">Model Native Phrasings</span>
+                                    <ul class="space-y-2 list-none" id="phrases-list">
+                                        <!-- Dynamically populated via JS -->
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 60s Preparation Canvas -->
+                        <div class="border border-chic-100 bg-white rounded-2xl p-6 space-y-4">
+                            <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-3">
+                                <div class="space-y-1">
+                                    <span class="text-[10px] uppercase font-bold text-chic-500 block">60-Second Preparational Blueprint</span>
+                                    <h4 class="font-serif font-bold text-sand-900 text-sm">Note-taking Scratchpad</h4>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <button id="btn-prep-timer" onclick="togglePrepTimer()" class="bg-chic-600 hover:bg-chic-700 text-white text-[10px] font-bold uppercase px-4 py-2 rounded-full transition-lux">
+                                        <i class="fa-solid fa-hourglass-start"></i> Start 1m Prep
+                                    </button>
+                                    <div id="prep-time" class="font-mono font-bold text-lg text-chic-600">60s</div>
+                                </div>
+                            </div>
+                            <textarea id="prep-scratchpad" class="w-full h-24 p-3 bg-sand-50 border border-sand-100 rounded-xl text-xs focus:ring-1 focus:ring-chic-500 focus:outline-none text-sand-900 font-mono" placeholder="Jot down quick 4-5 structural triggers here... e.g. / cutting-edge device / obsolete setup / automated pipelines / paradigm shift"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Right Side: 4-3-2 Flow Engine -->
+                    <div class="bg-sand-900 text-white rounded-2xl p-6 flex flex-col justify-between space-y-6">
+                        <div class="space-y-2">
+                            <span class="text-chic-300 text-[10px] font-bold uppercase tracking-widest block">Flow Booster Engine</span>
+                            <h3 class="font-serif font-bold text-xl">The 4-3-2 Speech Run</h3>
+                            <p class="text-[11px] text-white/60 leading-relaxed">
+                                Deliver your technical speech within Paul Nation's dynamic timeline constraints. Pacing-specific coach prompts will trigger dynamically.
+                            </p>
+                        </div>
+
+                        <!-- Time Selector Buttons -->
+                        <div class="grid grid-cols-3 gap-2">
+                            <button id="btn-run-4" onclick="selectSpeechRun(240)" class="border border-white/20 hover:bg-white/10 py-2.5 rounded-xl text-xs font-bold text-white transition-lux">4m Run</button>
+                            <button id="btn-run-3" onclick="selectSpeechRun(180)" class="border border-white/20 hover:bg-white/10 py-2.5 rounded-xl text-xs font-bold text-white transition-lux">3m Run</button>
+                            <button id="btn-run-2" onclick="selectSpeechRun(120)" class="bg-chic-500 text-white py-2.5 rounded-xl text-xs font-bold transition-lux">2m Run</button>
+                        </div>
+
+                        <!-- Active Count Display -->
+                        <div class="bg-black/30 rounded-xl p-6 text-center space-y-4">
+                            <div>
+                                <span id="run-status" class="text-[9px] uppercase tracking-widest text-chic-300 block">Awaiting Run Start</span>
+                                <span id="run-timer-display" class="text-4xl font-mono font-bold text-white block mt-1">02:00</span>
+                            </div>
+
+                            <!-- Progress indicator -->
+                            <div class="w-full bg-white/10 h-2 rounded-full overflow-hidden">
+                                <div id="run-progress-bar" class="bg-chic-500 h-full w-0 transition-all duration-[1000ms] ease-linear"></div>
+                            </div>
+
+                            <button id="btn-speech-trigger" onclick="toggleSpeechRun()" class="w-full bg-chic-500 hover:bg-chic-600 text-white font-bold py-2.5 rounded-full text-xs uppercase tracking-wider transition-lux" disabled>
+                                Start Active Run
+                            </button>
+                        </div>
+
+                        <!-- Coach Tip Block -->
+                        <div class="bg-white/5 border border-white/10 rounded-xl p-3 text-[11px]">
+                            <span class="font-bold text-chic-300 block uppercase tracking-wider text-[9px] mb-1">Live Coaching Tip:</span>
+                            <p id="live-speech-feedback" class="text-white/80">
+                                Select a run duration above to activate speech controls.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dynamic Lesson Flow Plan -->
+        <section class="mb-10">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
+                <!-- Left Column: Active Lesson Material References -->
+                <div class="lg:col-span-2 space-y-8">
+                    <div class="bg-white rounded-3xl p-6 md:p-8 border border-chic-100 shadow-chic">
+                        <div class="border-b border-chic-100 pb-4 mb-6">
+                            <span class="text-chic-500 text-xs tracking-widest font-bold uppercase block">Official Learning Curations</span>
+                            <h2 class="text-2xl font-serif text-sand-900 mt-1">Lesson 07 Core Practices</h2>
+                            <p class="text-xs text-sand-900/60 mt-1">Practice structuring fluent transitions over these prepared personal subjects.</p>
+                        </div>
+
+                        <div class="space-y-6">
+                            <!-- Topic Card 1 -->
+                            <div class="p-5 rounded-2xl bg-sand-50/50 border border-sand-100 hover:border-chic-200 transition-lux flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                                <div class="space-y-1">
+                                    <span class="text-chic-600 text-[10px] uppercase font-bold tracking-wider">Test 11</span>
+                                    <h4 class="font-serif font-bold text-lg text-sand-900">Future Tech Ownership</h4>
+                                    <p class="text-xs text-sand-900/60 leading-relaxed">
+                                        Describe a piece of technology you want to own. Rehearse structures like *cutting-edge setup, revolutionize, streamline workflows*.
+                                    </p>
+                                </div>
+                                <button onclick="selectPracticeTopic('test11')" class="bg-white hover:bg-chic-50 border border-chic-200 text-chic-700 hover:text-chic-800 text-xs font-semibold px-4 py-2 rounded-full transition-lux flex items-center gap-2 shadow-sm whitespace-nowrap">
+                                    <i class="fa-solid fa-play text-[10px]"></i> Load Practice
+                                </button>
+                            </div>
+
+                            <!-- Topic Card 2 -->
+                            <div class="p-5 rounded-2xl bg-sand-50/50 border border-sand-100 hover:border-chic-200 transition-lux flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                                <div class="space-y-1">
+                                    <span class="text-chic-600 text-[10px] uppercase font-bold tracking-wider">Test 13</span>
+                                    <h4 class="font-serif font-bold text-lg text-sand-900">TV or Online Program</h4>
+                                    <p class="text-xs text-sand-900/60 leading-relaxed">
+                                        Describe a program you enjoy watching. Activate terms like *binge-watch, informative commentary, thought-provoking storyline*.
+                                    </p>
+                                </div>
+                                <button onclick="selectPracticeTopic('test13')" class="bg-white hover:bg-chic-50 border border-chic-200 text-chic-700 hover:text-chic-800 text-xs font-semibold px-4 py-2 rounded-full transition-lux flex items-center gap-2 shadow-sm whitespace-nowrap">
+                                    <i class="fa-solid fa-play text-[10px]"></i> Load Practice
+                                </button>
+                            </div>
+
+                            <!-- Topic Card 3 -->
+                            <div class="p-5 rounded-2xl bg-sand-50/50 border border-sand-100 hover:border-chic-200 transition-lux flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                                <div class="space-y-1">
+                                    <span class="text-chic-600 text-[10px] uppercase font-bold tracking-wider">Test 28</span>
+                                    <h4 class="font-serif font-bold text-lg text-sand-900">Encountered Tech Problem</h4>
+                                    <p class="text-xs text-sand-900/60 leading-relaxed">
+                                        Describe a technical glitch you encountered. Integrate terms like *system outage, debug on-the-fly, exasperated, seamless recovery*.
+                                    </p>
+                                </div>
+                                <button onclick="selectPracticeTopic('test28')" class="bg-white hover:bg-chic-50 border border-chic-200 text-chic-700 hover:text-chic-800 text-xs font-semibold px-4 py-2 rounded-full transition-lux flex items-center gap-2 shadow-sm whitespace-nowrap">
+                                    <i class="fa-solid fa-play text-[10px]"></i> Load Practice
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Interactive Lesson Agenda -->
+                <div class="lg:col-span-1 space-y-6">
+                    <div class="bg-white rounded-3xl p-6 border border-chic-100 shadow-chic">
+                        <h3 class="font-serif font-bold text-xl text-sand-900 mb-4 pb-2 border-b border-chic-100 flex items-center gap-2">
+                            <i class="fa-solid fa-list-check text-chic-500"></i> Lesson Itinerary
+                        </h3>
+
+                        <!-- Step 1 -->
+                        <div class="space-y-3 mb-6 relative pl-6 border-l border-chic-200">
+                            <span class="absolute left-[-5px] top-0.5 w-2.5 h-2.5 rounded-full bg-chic-400"></span>
+                            <div class="flex justify-between items-center text-xs">
+                                <span class="font-bold text-sand-900">1. Vocab Integration</span>
+                                <span class="text-chic-600 font-mono font-semibold">15m</span>
+                            </div>
+                            <p class="text-[11px] text-sand-900/60 leading-relaxed">
+                                Audit homework prep; align Technology & Media collocations directly from syllabus resource targets.
+                            </p>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div class="space-y-3 mb-6 relative pl-6 border-l border-chic-200">
+                            <span class="absolute left-[-5px] top-0.5 w-2.5 h-2.5 rounded-full bg-chic-400"></span>
+                            <div class="flex justify-between items-center text-xs">
+                                <span class="font-bold text-sand-900">2. 4-3-2 Tech Runs</span>
+                                <span class="font-bold text-sand-900">35m</span>
+                            </div>
+                            <p class="text-[11px] text-sand-900/60 leading-relaxed">
+                                Deploy 4-3-2 repetitive speech compression trials over Test 11 (Future Tech) and Test 13 (Media Program).
+                            </p>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="space-y-3 mb-6 relative pl-6 border-l border-chic-200">
+                            <span class="absolute left-[-5px] top-0.5 w-2.5 h-2.5 rounded-full bg-chic-400"></span>
+                            <div class="flex justify-between items-center text-xs">
+                                <span class="font-bold text-sand-900">3. Glitch Narrative Drills</span>
+                                <span class="text-chic-600 font-mono font-semibold">30m</span>
+                            </div>
+                            <p class="text-[11px] text-sand-900/60 leading-relaxed">
+                                Focus on Test 28 (Tech Problem), rehearsing natural transition links between past annoyance and diagnostic resolutions.
+                            </p>
+                        </div>
+
+                        <!-- Step 4 -->
+                        <div class="space-y-3 relative pl-6">
+                            <span class="absolute left-[-5px] top-0.5 w-2.5 h-2.5 rounded-full bg-chic-500"></span>
+                            <div class="flex justify-between items-center text-xs">
+                                <span class="font-bold text-sand-900">4. Homework Handover</span>
+                                <span class="text-chic-600 font-mono font-semibold">10m</span>
+                            </div>
+                            <p class="text-[11px] text-sand-900/60 leading-relaxed">
+                                Brief upcoming structural parameters: Society & Culture and Nature & Geography vocabulary modules.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Homework Portal & Preparation Requirements -->
+        <section class="mb-10">
+            <div class="bg-white rounded-3xl p-8 border border-chic-100 shadow-chic">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6 pb-4 border-b border-chic-100">
+                    <div>
+                        <span class="text-chic-500 text-xs tracking-widest font-bold uppercase block">Preparation Focus Area</span>
+                        <h2 class="text-2xl font-serif text-sand-900 mt-1">Upcoming Homework Plan (Syllabus Outlines)</h2>
+                        <p class="text-xs text-sand-900/60 mt-1">Prepare notes and research advanced vocabulary structures for these upcoming Part 2 topics.</p>
+                    </div>
+                    <span class="bg-red-50 text-red-500 border border-red-100 text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1.5 whitespace-nowrap">
+                        <i class="fa-solid fa-circle-exclamation"></i> Action Required
+                    </span>
+                </div>
+
+                <!-- Process Grid -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    
+                    <!-- Homework Card 1: Society & Culture -->
+                    <div class="bg-sand-50/50 p-6 rounded-2xl border border-sand-100 flex flex-col justify-between hover:border-chic-200 transition-lux">
+                        <div>
+                            <div class="flex items-center justify-between pb-3 border-b border-chic-100/60 mb-4">
+                                <span class="bg-chic-100 text-chic-700 text-[9px] uppercase tracking-wider font-bold px-2.5 py-1 rounded-full">Topic 1</span>
+                                <span class="text-xs font-bold text-chic-600"><i class="fa-solid fa-people-group"></i> Society & Culture</span>
+                            </div>
+                            <div class="flex items-center justify-between mb-3">
+                                <h4 class="font-serif font-semibold text-lg text-sand-900">Society Syllabus Outline</h4>
+                                <a href="https://ieltschantruong.github.io/IELTS/learning_resources/speaking/part2_3/society_and_culture.html" target="_blank" class="text-[10px] font-bold text-chic-600 hover:text-chic-800 flex items-center gap-1">
+                                    Open Link <i class="fa-solid fa-up-right-from-square text-[8px]"></i>
+                                </a>
+                            </div>
+                            
+                            <!-- Prompt Checklist -->
+                            <div class="space-y-4 mb-6">
+                                <div class="bg-white p-3 rounded-xl border border-chic-100/60">
+                                    <span class="text-[10px] uppercase font-bold text-chic-700 block mb-1">Test 6: Good Planner</span>
+                                    <p class="text-xs text-sand-900/80 italic">"Describe a person who you think is good at planning things."</p>
+                                </div>
+                                <div class="bg-white p-3 rounded-xl border border-chic-100/60">
+                                    <span class="text-[10px] uppercase font-bold text-chic-700 block mb-1">Test 38: Difficult Accomplishment</span>
+                                    <p class="text-xs text-sand-900/80 italic">"Describe a person you know who successfully achieved something difficult."</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white border border-chic-100 rounded-xl p-3 text-[11px] text-sand-900/60">
+                            <span class="font-bold text-chic-700 block uppercase tracking-wider text-[9px] mb-1">Lexical Targets:</span>
+                            Meticulous planner, blueprint formulation, formidable obstacle, hard-fought triumph, persevere, break barriers.
+                        </div>
+                    </div>
+
+                    <!-- Homework Card 2: Nature & Environment -->
+                    <div class="bg-sand-50/50 p-6 rounded-2xl border border-sand-100 flex flex-col justify-between hover:border-chic-200 transition-lux">
+                        <div>
+                            <div class="flex items-center justify-between pb-3 border-b border-chic-100/60 mb-4">
+                                <span class="bg-chic-100 text-chic-700 text-[9px] uppercase tracking-wider font-bold px-2.5 py-1 rounded-full">Topic 2</span>
+                                <span class="text-xs font-bold text-chic-600"><i class="fa-solid fa-leaf"></i> Nature & Geography</span>
+                            </div>
+                            <div class="flex items-center justify-between mb-3">
+                                <h4 class="font-serif font-semibold text-lg text-sand-900">Nature Syllabus Outline</h4>
+                                <a href="https://ieltschantruong.github.io/IELTS/learning_resources/speaking/part2_3/nature_and_geography.html" target="_blank" class="text-[10px] font-bold text-chic-600 hover:text-chic-800 flex items-center gap-1">
+                                    Open Link <i class="fa-solid fa-up-right-from-square text-[8px]"></i>
+                                </a>
+                            </div>
+                            
+                            <!-- Prompt Checklist -->
+                            <div class="space-y-4 mb-6">
+                                <div class="bg-white p-3 rounded-xl border border-chic-100/60">
+                                    <span class="text-[10px] uppercase font-bold text-chic-700 block mb-1">Test 17: Environment Advocate</span>
+                                    <p class="text-xs text-sand-900/80 italic">"Describe a person you know who encourages people to protect the environment or nature."</p>
+                                </div>
+                                <div class="bg-white p-3 rounded-xl border border-chic-100/60">
+                                    <span class="text-[10px] uppercase font-bold text-chic-700 block mb-1">Test 39: Environment Law</span>
+                                    <p class="text-xs text-sand-900/80 italic">"Describe a law of environment protection that you would like to introduce."</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white border border-chic-100 rounded-xl p-3 text-[11px] text-sand-900/60">
+                            <span class="font-bold text-chic-700 block uppercase tracking-wider text-[9px] mb-1">Lexical Targets:</span>
+                            Eco-conscious catalyst, ecological preservation, green mandate, carbon footprint, legislative framework, enforce.
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Sticky Notes Workspace -->
+        <section class="mb-10 bg-white p-8 rounded-3xl border border-chic-100 shadow-chic relative">
+            <div class="absolute -top-3 right-8 bg-chic-500 text-white text-[10px] uppercase font-bold tracking-widest px-3 py-1 rounded-full shadow-md">
+                <i class="fa-solid fa-pen-fancy"></i> Active Notepad
+            </div>
+            <h3 class="font-serif font-bold text-xl text-sand-900 mb-2">Lesson 07 Active Notepad</h3>
+            <p class="text-xs text-sand-900/60 mb-4">Draft your targeted planning structures or synomym frameworks. Your text is auto-saved locally in your browser's workspace.</p>
+            <textarea id="lesson-notes-07" class="w-full h-36 p-4 bg-sand-50 border border-chic-100 rounded-xl text-xs focus:ring-1 focus:ring-chic-500 focus:outline-none text-sand-900 font-sans" placeholder="Example: 'Technology synonyms: breakthrough apparatus, digital utility, cutting-edge software...'"></textarea>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-sand-900 text-sand-50/40 py-12 border-t border-sand-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+            <div class="text-sm uppercase tracking-widest font-serif font-bold text-sand-50">IELTS <span class="text-chic-400 italic lowercase font-normal text-base font-serif">Chan Truong</span></div>
+            <p class="text-xs max-w-md mx-auto">High-performance English training systematically engineered for global software engineers based in Tokyo.</p>
+            <div class="text-[10px] text-sand-500 pt-4">&copy; 2026 IELTS Chan Truong. Engineered for Academic Success.</div>
+        </div>
+    </footer>
+
+    <!-- JS Logic -->
+    <script>
+        // 1. Pacing Timer Control
+        let timerSeconds = 90 * 60; // 90 Minutes
+        let timerInterval = null;
+        const timerDisplay = document.getElementById('timer-display');
+        const timerBtnText = document.getElementById('timer-btn-text');
+        const timerIcon = document.getElementById('timer-icon');
+        const timerStatusMsg = document.getElementById('timer-status-msg');
+
+        function updateTimerUI() {
+            let m = Math.floor(timerSeconds / 60);
+            let s = timerSeconds % 60;
+            timerDisplay.textContent = `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+        }
+
+        function toggleTimer() {
+            if (timerInterval) {
+                // Pause timer
+                clearInterval(timerInterval);
+                timerInterval = null;
+                timerBtnText.textContent = "Resume";
+                timerIcon.className = "fa-solid fa-play";
+            } else {
+                // Start timer
+                timerInterval = setInterval(() => {
+                    if (timerSeconds > 0) {
+                        timerSeconds--;
+                        updateTimerUI();
+                    } else {
+                        clearInterval(timerInterval);
+                        timerInterval = null;
+                        timerDisplay.className = "text-4xl md:text-5xl font-mono font-bold tracking-wider block text-red-500 animate-pulse";
+                        timerStatusMsg.textContent = "CONCLUDED!";
+                        timerStatusMsg.className = "text-[9px] uppercase tracking-widest text-red-500 block mt-1 font-bold animate-pulse";
+                    }
+                }, 1000);
+                timerBtnText.textContent = "Pause";
+                timerIcon.className = "fa-solid fa-pause";
+            }
+        }
+
+        function resetTimer() {
+            clearInterval(timerInterval);
+            timerInterval = null;
+            timerSeconds = 90 * 60;
+            updateTimerUI();
+            timerDisplay.className = "text-4xl md:text-5xl font-mono font-bold tracking-wider block text-chic-100";
+            timerStatusMsg.textContent = "Remaining Time";
+            timerStatusMsg.className = "text-[9px] uppercase tracking-widest text-chic-300 block mt-1";
+            timerBtnText.textContent = "Start";
+            timerIcon.className = "fa-solid fa-play";
+        }
+
+        // 2. Notepad Sync with LocalStorage
+        const notesArea = document.getElementById('lesson-notes-07');
+        if (localStorage.getItem('ielts_lesson07_notes')) {
+            notesArea.value = localStorage.getItem('ielts_lesson07_notes');
+        }
+        notesArea.addEventListener('input', () => {
+            localStorage.setItem('ielts_lesson07_notes', notesArea.value);
+        });
+
+        // 3. Interactive Practice Tool Databank
+        const part2Topics = {
+            test11: {
+                headline: "Future Technology to Own",
+                ref: "Test 11 Practice",
+                italic: "Describe a piece of technology you would like to own in the future.",
+                bullets: [
+                    "What it is and how you knew about it",
+                    "What you would use it for",
+                    "Explain why you would like to own it"
+                ]
+            },
+            test13: {
+                headline: "TV or Online Programme",
+                ref: "Test 13 Practice",
+                italic: "Describe a TV or online programme that you enjoy watching.",
+                bullets: [
+                    "What it is about",
+                    "How often you watch it",
+                    "Which country the programme comes from",
+                    "And explain why you enjoy watching this TV or online programme"
+                ]
+            },
+            test28: {
+                headline: "Encountered Tech Problem",
+                ref: "Test 28 Practice",
+                italic: "Describe a problem of technology you have encountered, like a computer or a cell phone.",
+                bullets: [
+                    "What it was",
+                    "When and where you had this problem",
+                    "How the problem was solved",
+                    "And explain how you felt when you had this problem"
+                ]
+            }
+        };
+
+        let selectedTopicKey = 'test11';
+        let prepInterval = null;
+        let prepSeconds = 60;
+
+        // Dynamic Lexical Database for Practice Topics
+        const topicVocab = {
+            test11: {
+                words: [
+                    { word: "Cutting-edge setup", ipa: "/ˈkʌtɪŋ edʒ ˈsetʌp/", def: "The most advanced, modern, and highly sophisticated configuration of a system or device." },
+                    { word: "Automated pipelines", ipa: "/ˈɔːtəmeɪtɪd ˈpaɪplaɪnz/", def: "A series of data processing elements connected in series, where output is automated without human touch." },
+                    { word: "Paradigm shift", ipa: "/ˈpærədaɪm ʃɪft/", def: "A fundamental change in approach or underlying assumptions about how something functions." },
+                    { word: "Streamline workflows", ipa: "/ˈstriːmlaɪn ˈwɜːkfləʊz/", def: "To simplify or eliminate unnecessary steps in a process to improve overall efficiency." }
+                ],
+                phrases: [
+                    "Acquiring this cutting-edge setup would fundamentally streamline my daily algorithmic development workflows.",
+                    "The integration of automated pipelines in modern software represents a significant technological paradigm shift.",
+                    "If I were to obtain this system, it would revolutionize how our operations handle data integrity."
+                ]
+            },
+            test13: {
+                words: [
+                    { word: "Episodic commentary", ipa: "/ˌepɪˈsɒdɪk ˈkɒməntri/", def: "An ongoing analysis or series of discussions delivered in sequential, distinct parts or episodes." },
+                    { word: "Thought-provoking narrative", ipa: "/ˈθɔːt prəˈvəʊkɪŋ ˈnærətɪv/", def: "A story structure that stimulates critical thinking, raising deep queries or reflections." },
+                    { word: "Captivating layout", ipa: "/ˈkæptɪveɪtɪŋ ˈleɪaʊt/", def: "An exceptionally interesting structural format or presentation style that holds attention easily." },
+                    { word: "Documentary style", ipa: "/ˌdɒkjuˈmentri staɪl/", def: "A factual, informative, and analytical presentation mode without fictional scripting." }
+                ],
+                phrases: [
+                    "What draws me most to this online channel is its factual, analytical, documentary style formatting.",
+                    "The series features thought-provoking narratives detailing the complex histories behind cryptography.",
+                    "Each episode provides detailed episodic commentary that is highly captivating to watch."
+                ]
+            },
+            test28: {
+                words: [
+                    { word: "System outage", ipa: "/ˈsɪstəm ˈaʊtɪdʒ/", def: "A period when a network, database, or technical utility is completely unavailable for use." },
+                    { word: "Software glitch", ipa: "/ˈsɒftweə ɡlɪtʃ/", def: "A temporary, unexpected fault or bug in a system's programmed logic causing errors." },
+                    { word: "Debug on-the-fly", ipa: "/diːˈbʌɡ ɒn ðə flaɪ/", def: "To identify and correct errors in software code instantly while the program is actively executing." },
+                    { word: "Exasperated", ipa: "/ɪɡˈzæspəreɪtɪd/", def: "Intensely irritated, frustrated, or stressed by a persistent technical roadblock." }
+                ],
+                phrases: [
+                    "During a critical project deployment, we were hit with an unexpected and severe database system outage.",
+                    "I felt intensely exasperated while attempting to trace a minor software glitch hidden deep in the script.",
+                    "We ultimately resolved the situation by performing a diagnostics sweep and debugging the logic on-the-fly."
+                ]
+            }
+        };
+
+        let activeRunDuration = 120; // Default to 2 minutes
+        let speechInterval = null;
+        let speechSecondsRemaining = 120;
+        let isSpeechRunning = false;
+
+        function selectPracticeTopic(key) {
+            selectedTopicKey = key;
+            const data = part2Topics[key];
+
+            // Reset timers
+            resetPrepTimer();
+            resetSpeechTimer();
+
+            // Toggle selected styling
+            document.getElementById('btn-topic-test11').className = key === 'test11' ? "flex-1 bg-chic-50 border-2 border-chic-200 text-chic-800 text-xs font-bold uppercase tracking-wider py-3 px-4 rounded-xl transition-lux text-left flex items-center gap-2" : "flex-1 bg-white border border-sand-200 text-sand-900 text-xs font-bold uppercase tracking-wider py-3 px-4 rounded-xl transition-lux text-left flex items-center gap-2";
+            document.getElementById('btn-topic-test13').className = key === 'test13' ? "flex-1 bg-chic-50 border-2 border-chic-200 text-chic-800 text-xs font-bold uppercase tracking-wider py-3 px-4 rounded-xl transition-lux text-left flex items-center gap-2" : "flex-1 bg-white border border-sand-200 text-sand-900 text-xs font-bold uppercase tracking-wider py-3 px-4 rounded-xl transition-lux text-left flex items-center gap-2";
+            document.getElementById('btn-topic-test28').className = key === 'test28' ? "flex-1 bg-chic-50 border-2 border-chic-200 text-chic-800 text-xs font-bold uppercase tracking-wider py-3 px-4 rounded-xl transition-lux text-left flex items-center gap-2" : "flex-1 bg-white border border-sand-200 text-sand-900 text-xs font-bold uppercase tracking-wider py-3 px-4 rounded-xl transition-lux text-left flex items-center gap-2";
+
+            // Update details
+            document.getElementById('prompt-headline').textContent = data.headline;
+            document.getElementById('prompt-test-ref').textContent = data.ref;
+            document.getElementById('prompt-italic').textContent = `"${data.italic}"`;
+
+            const bulletsContainer = document.getElementById('prompt-bullet-points');
+            bulletsContainer.innerHTML = '';
+            data.bullets.forEach(bullet => {
+                const li = document.createElement('li');
+                li.textContent = bullet;
+                bulletsContainer.appendChild(li);
+            });
+
+            // Render Lexical Accelerator Data
+            const lexicalData = topicVocab[key];
+            const vocabContainer = document.getElementById('vocab-list');
+            const phrasesContainer = document.getElementById('phrases-list');
+
+            vocabContainer.innerHTML = '';
+            lexicalData.words.forEach(item => {
+                const vocabItem = document.createElement('div');
+                vocabItem.className = 'p-3 bg-sand-50 rounded-xl border border-sand-100 flex flex-col gap-1 hover:border-chic-200 transition-lux';
+                vocabItem.innerHTML = `
+                    <div class="flex items-center justify-between">
+                        <span class="font-bold text-sand-900 text-xs">${item.word}</span>
+                        <span class="text-[10px] text-chic-600 font-mono italic">${item.ipa}</span>
+                    </div>
+                    <p class="text-[10px] text-sand-900/60 leading-relaxed">${item.def}</p>
+                `;
+                vocabContainer.appendChild(vocabItem);
+            });
+
+            phrasesContainer.innerHTML = '';
+            lexicalData.phrases.forEach(phrase => {
+                const phraseItem = document.createElement('li');
+                phraseItem.className = 'text-xs text-sand-900/70 leading-relaxed pl-4 relative before:content-["•"] before:absolute before:left-0 before:text-chic-500 before:font-bold italic';
+                phraseItem.textContent = `"${phrase}"`;
+                phrasesContainer.appendChild(phraseItem);
+            });
+
+            // Set default tips based on chosen topic
+            document.getElementById('live-speech-feedback').textContent = `Loaded Mind-Map for "${data.headline}". Click "Start 1m Prep" to plan or choose a Speech Run directly.`;
+        }
+
+        // 1-minute Preparation Timer logic
+        function togglePrepTimer() {
+            const btn = document.getElementById('btn-prep-timer');
+            const display = document.getElementById('prep-time');
+
+            if (prepInterval) {
+                clearInterval(prepInterval);
+                prepInterval = null;
+                btn.innerHTML = '<i class="fa-solid fa-hourglass-start"></i> Resume Prep';
+            } else {
+                btn.innerHTML = '<i class="fa-solid fa-pause"></i> Pause Prep';
+                prepInterval = setInterval(() => {
+                    if (prepSeconds > 0) {
+                        prepSeconds--;
+                        display.textContent = `${prepSeconds}s`;
+                    } else {
+                        clearInterval(prepInterval);
+                        prepInterval = null;
+                        btn.innerHTML = '<i class="fa-solid fa-check"></i> Prep Done';
+                        btn.disabled = true;
+                        display.textContent = '0s';
+                        
+                        document.getElementById('live-speech-feedback').textContent = "60-second notes prepared! Choose your Speech Run on the right panel to begin speaking.";
+                    }
+                }, 1000);
+            }
+        }
+
+        function resetPrepTimer() {
+            if (prepInterval) {
+                clearInterval(prepInterval);
+                prepInterval = null;
+            }
+            prepSeconds = 60;
+            const btn = document.getElementById('btn-prep-timer');
+            btn.disabled = false;
+            btn.innerHTML = '<i class="fa-solid fa-hourglass-start"></i> Start 1m Prep';
+            document.getElementById('prep-time').textContent = '60s';
+        }
+
+        // 4-3-2 Flow Engine logic
+        function selectSpeechRun(seconds) {
+            resetSpeechTimer();
+            activeRunDuration = seconds;
+            speechSecondsRemaining = seconds;
+
+            // Highlight chosen button
+            document.getElementById('btn-run-4').className = seconds === 240 ? "bg-chic-500 text-white py-2.5 rounded-xl text-xs font-bold transition-lux" : "border border-white/20 hover:bg-white/10 py-2.5 rounded-xl text-xs font-bold text-white transition-lux";
+            document.getElementById('btn-run-3').className = seconds === 180 ? "bg-chic-500 text-white py-2.5 rounded-xl text-xs font-bold transition-lux" : "border border-white/20 hover:bg-white/10 py-2.5 rounded-xl text-xs font-bold text-white transition-lux";
+            document.getElementById('btn-run-2').className = seconds === 120 ? "bg-chic-500 text-white py-2.5 rounded-xl text-xs font-bold transition-lux" : "border border-white/20 hover:bg-white/10 py-2.5 rounded-xl text-xs font-bold text-white transition-lux";
+
+            updateSpeechDisplayUI();
+
+            // Enable start active button
+            const triggerBtn = document.getElementById('btn-speech-trigger');
+            triggerBtn.disabled = false;
+            triggerBtn.textContent = 'Start Active Run';
+            triggerBtn.className = "w-full bg-chic-500 hover:bg-chic-600 text-white font-bold py-2.5 rounded-full text-xs uppercase tracking-wider transition-lux cursor-pointer";
+
+            document.getElementById('run-status').textContent = "Ready to start speech run";
+            document.getElementById('live-speech-feedback').textContent = "Hit 'Start Active Run' and begin speaking instantly. Follow live prompts to pace yourself.";
+        }
+
+        function updateSpeechDisplayUI() {
+            let m = Math.floor(speechSecondsRemaining / 60);
+            let s = speechSecondsRemaining % 60;
+            document.getElementById('run-timer-display').textContent = `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+            
+            // Progress Bar percent
+            let pct = ((activeRunDuration - speechSecondsRemaining) / activeRunDuration) * 100;
+            document.getElementById('run-progress-bar').style.width = `${pct}%`;
+        }
+
+        function toggleSpeechRun() {
+            const btn = document.getElementById('btn-speech-trigger');
+            const status = document.getElementById('run-status');
+
+            if (isSpeechRunning) {
+                // Pause
+                clearInterval(speechInterval);
+                speechInterval = null;
+                isSpeechRunning = false;
+                btn.textContent = 'Resume Run';
+                status.textContent = 'Run Paused';
+            } else {
+                // Start
+                isSpeechRunning = true;
+                btn.textContent = 'Pause Run';
+                status.textContent = 'Speaking...';
+                
+                speechInterval = setInterval(() => {
+                    if (speechSecondsRemaining > 0) {
+                        speechSecondsRemaining--;
+                        updateSpeechDisplayUI();
+                        updateSpeechFeedbackTips();
+                    } else {
+                        clearInterval(speechInterval);
+                        speechInterval = null;
+                        isSpeechRunning = false;
+                        btn.textContent = 'Run Concluded';
+                        btn.disabled = true;
+                        status.textContent = 'Speech Concluded!';
+                        document.getElementById('live-speech-feedback').textContent = "Excellent work! Notice how repetitive runs of the same story drastically decrease vocal latency.";
+                    }
+                }, 1000);
+            }
+        }
+
+        function updateSpeechFeedbackTips() {
+            const feedback = document.getElementById('live-speech-feedback');
+            let elapsed = activeRunDuration - speechSecondsRemaining;
+            let percentElapsed = (elapsed / activeRunDuration) * 100;
+
+            if (percentElapsed < 10) {
+                feedback.textContent = "Establish context immediately! Use structural anchors: 'To be perfectly frank, I'd like to tell you about...'";
+            } else if (percentElapsed >= 15 && percentElapsed < 40) {
+                feedback.textContent = "Maintain pacing rhythm. Connect ideas continuously: 'Regarding the main reason behind this choice, it was primarily because...'";
+            } else if (percentElapsed >= 40 && percentElapsed < 75) {
+                feedback.textContent = "Narrative Transition Checkpoint: pivot your timeline to Present details. Describe sensory settings or current status.";
+            } else if (percentElapsed >= 75 && percentElapsed < 90) {
+                feedback.textContent = "Future & Hypothetical Scaffolds: pivot to prospective details: 'If I were to experience this event again, I would highly recommend...'";
+            } else if (percentElapsed >= 90) {
+                feedback.textContent = "Closing the loop. Conclude with a strong, definitive summary to prevent trailing off.";
+            }
+        }
+
+        function resetSpeechTimer() {
+            if (speechInterval) {
+                clearInterval(speechInterval);
+                speechInterval = null;
+            }
+            isSpeechRunning = false;
+            speechSecondsRemaining = activeRunDuration;
+            updateSpeechDisplayUI();
+        }
+
+        // Initialize topic on load
+        window.onload = function() {
+            selectPracticeTopic('test11');
+        }
+    </script>
+</body>
+</html>
