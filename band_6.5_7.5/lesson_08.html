@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Chan Truong | Lesson 08</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            background-color: #fff1f2; /* soft rose-50 */
+        }
+        .fade-in { animation: fadeIn 0.5s ease-out forwards; }
+        @keyframes fadeIn { 
+            from { opacity: 0; transform: translateY(15px); } 
+            to { opacity: 1; transform: translateY(0); } 
+        }
+        .timer-text { font-variant-numeric: tabular-nums; }
+        
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #ffe4e6; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb { background: #f43f5e; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #e11d48; }
+
+        /* Glassmorphism utilities */
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        /* Inline Answer Toggle Utilities */
+        .blank-ans { display: none; }
+        .show-answers .blank-dots { display: none; }
+        .show-answers .blank-ans { display: inline-block; animation: fadeIn 0.3s forwards; }
+    </style>
+</head>
+<body class="h-screen flex flex-col overflow-hidden text-gray-800">
+
+    <header id="app-header" class="text-white p-4 shadow-lg transition-colors duration-700 z-20 relative bg-gradient-to-r from-rose-400 via-pink-400 to-fuchsia-400">
+        <div class="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9IiNmZmYiLz48L3N2Zz4=')]"></div>
+        
+        <div class="max-w-7xl mx-auto flex justify-between items-center relative z-10">
+            <div>
+                <div class="flex items-center gap-2 mb-1">
+                    <span class="bg-white/20 text-white text-xs font-bold px-2 py-0.5 rounded uppercase tracking-wider backdrop-blur-sm">Band 6.5 - 7.5</span>
+                    <span class="bg-white/20 text-white text-xs font-bold px-2 py-0.5 rounded uppercase tracking-wider backdrop-blur-sm">Lesson 08</span>
+                </div>
+                <h1 class="text-2xl font-bold tracking-tight drop-shadow-sm flex items-center gap-2">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                    IELTS Chan Truong
+                </h1>
+                <h2 id="slide-title" class="text-sm font-medium mt-1 text-rose-50">Loading session...</h2>
+            </div>
+            
+            <div class="flex items-center space-x-3">
+                <div class="relative">
+                    <button id="nav-toggle-btn" class="flex items-center space-x-2 text-sm font-semibold bg-white/20 hover:bg-white/30 transition-all px-5 py-2 rounded-full focus:outline-none backdrop-blur-md shadow-sm border border-white/20">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                        <span class="hidden sm:inline">Sections</span>
+                    </button>
+                    
+                    <div id="nav-dropdown" class="hidden absolute right-0 mt-3 w-80 bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-rose-100 overflow-hidden z-50 origin-top-right transition-all fade-in">
+                        <div class="p-3 bg-rose-50 border-b border-rose-100">
+                            <p class="text-xs font-bold text-rose-800 uppercase tracking-wider text-center">Lesson Agenda</p>
+                        </div>
+                        <div class="max-h-[60vh] overflow-y-auto p-2" id="nav-menu-list"></div>
+                    </div>
+                </div>
+
+                <div class="hidden sm:flex items-center space-x-2 text-sm font-bold text-rose-900 bg-white px-4 py-2 rounded-full shadow-sm">
+                    <svg class="w-4 h-4 text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <span>90 Mins</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto mt-5 bg-black/10 rounded-full h-1.5 overflow-hidden relative z-10">
+            <div id="progress-bar" class="bg-white h-full transition-all duration-700 ease-out shadow-[0_0_10px_rgba(255,255,255,0.8)]" style="width: 0%"></div>
+        </div>
+    </header>
+
+    <main class="flex-grow overflow-y-auto relative p-4 md:p-8">
+        <div id="content-container" class="max-w-7xl mx-auto">
+            <!-- Dynamic Content Injected Here -->
+        </div>
+    </main>
+
+    <footer class="bg-white/80 backdrop-blur-md border-t border-rose-100 p-4 md:px-10 z-10 shadow-[0_-10px_15px_-3px_rgba(0,0,0,0.02)]">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <button id="btn-prev" class="px-6 py-2.5 rounded-xl border border-rose-200 text-rose-600 font-semibold hover:bg-rose-50 hover:border-rose-300 transition-all disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-2">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                Previous
+            </button>
+            
+            <div class="flex items-center gap-2">
+                <div class="w-2 h-2 rounded-full bg-rose-400 animate-pulse"></div>
+                <div id="step-indicator" class="text-sm font-semibold text-rose-800 uppercase tracking-wide">
+                    Section 1 of X
+                </div>
+                <div class="w-2 h-2 rounded-full bg-rose-400 animate-pulse delay-75"></div>
+            </div>
+
+            <button id="btn-next" class="px-6 py-2.5 rounded-xl bg-gradient-to-r from-rose-500 to-pink-500 text-white font-semibold hover:from-rose-600 hover:to-pink-600 shadow-md hover:shadow-lg transition-all flex items-center gap-2 transform hover:-translate-y-0.5">
+                Next
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </button>
+        </div>
+    </footer>
+
+<script>
+    const sessionData = [
+        {
+            id: 'reading_wb_unit2',
+            type: 'Reading',
+            themeClass: 'bg-gradient-to-r from-fuchsia-400 to-purple-500',
+            iconColor: 'text-fuchsia-500',
+            bgColor: 'bg-fuchsia-50',
+            title: '1. Reading Unit 2 WB',
+            content: `
+                <div class="fade-in bg-white rounded-3xl shadow-xl border border-fuchsia-50 p-5 md:p-6 flex flex-col">
+                    <div class="flex items-center gap-4 mb-4 border-b border-gray-100 pb-4 shrink-0">
+                        <div class="w-12 h-12 rounded-2xl bg-fuchsia-100 flex items-center justify-center text-fuchsia-600 flex-shrink-0">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                        </div>
+                        <div class="flex-grow flex flex-col md:flex-row justify-between md:items-center gap-4">
+                            <div>
+                                <div class="flex items-center gap-3 mb-1 flex-wrap">
+                                    <h3 class="text-xl font-bold text-gray-800">Unit 2 Reading Practice</h3>
+                                    <a href="https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/passage3_complete_ielts_6.5_7.5_wb_unit2.html" target="_blank" class="inline-flex items-center gap-1.5 text-fuchsia-600 hover:text-fuchsia-700 transition-colors px-3 py-1.5 bg-fuchsia-50 hover:bg-fuchsia-100 rounded-lg shadow-sm border border-fuchsia-200 text-sm font-bold" title="Open in new tab">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                                        Open in New Tab
+                                    </a>
+                                </div>
+                                <p class="text-fuchsia-600 font-medium text-sm">Workbook - Complete IELTS</p>
+                            </div>
+                            <button onclick="toggleVisibility('ans-wb-2')" class="bg-fuchsia-50 text-fuchsia-700 px-4 py-2 rounded-xl font-bold hover:bg-fuchsia-100 transition-colors text-sm border border-fuchsia-200 flex items-center gap-2 shrink-0">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                                Show Answers
+                            </button>
+                        </div>
+                    </div>
+
+                    <div id="ans-wb-2" class="hidden mb-6 bg-white border border-fuchsia-200 rounded-xl p-5 shrink-0 shadow-sm transition-all fade-in">
+                        <h4 class="font-bold text-fuchsia-800 mb-3 border-b border-fuchsia-100 pb-2">Teacher Reference: Answer Key</h4>
+                        <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3 text-sm text-gray-700 font-medium">
+                            <div class="bg-gray-50 p-2 rounded border border-gray-100"><span class="text-fuchsia-500 font-bold mr-1">1</span> vi</div>
+                            <div class="bg-gray-50 p-2 rounded border border-gray-100"><span class="text-fuchsia-500 font-bold mr-1">2</span> ix</div>
+                            <div class="bg-gray-50 p-2 rounded border border-gray-100"><span class="text-fuchsia-500 font-bold mr-1">3</span> iii</div>
+                            <div class="bg-gray-50 p-2 rounded border border-gray-100"><span class="text-fuchsia-500 font-bold mr-1">4</span> i</div>
+                            <div class="bg-gray-50 p-2 rounded border border-gray-100"><span class="text-fuchsia-500 font-bold mr-1">5</span> viii</div>
+                            <div class="bg-gray-50 p-2 rounded border border-gray-100"><span class="text-fuchsia-500 font-bold mr-1">6</span> iv</div>
+                            <div class="bg-gray-50 p-2 rounded border border-gray-100"><span class="text-fuchsia-500 font-bold mr-1">7-8</span> C, E</div>
+                            <div class="bg-gray-50 p-2 rounded border border-gray-100"><span class="text-fuchsia-500 font-bold mr-1">9-10</span> B, D</div>
+                            <div class="bg-gray-50 p-2 rounded border border-gray-100"><span class="text-fuchsia-500 font-bold mr-1">11</span> medical practice</div>
+                            <div class="bg-gray-50 p-2 rounded border border-gray-100"><span class="text-fuchsia-500 font-bold mr-1">12</span> (ancient) India</div>
+                            <div class="bg-gray-50 p-2 rounded border border-gray-100"><span class="text-fuchsia-500 font-bold mr-1">13</span> treat patients</div>
+                            <div class="bg-gray-50 p-2 rounded border border-gray-100"><span class="text-fuchsia-500 font-bold mr-1">14</span> combines</div>
+                        </div>
+                    </div>
+
+                    <div class="bg-fuchsia-50 border-l-4 border-fuchsia-400 rounded-r-xl mb-6 flex flex-col shadow-sm">
+                        <div class="flex justify-between items-center p-4 border-b border-fuchsia-200 shrink-0 bg-white/50">
+                            <h4 class="font-bold text-fuchsia-800 text-lg flex items-center gap-2">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                                Vocab Exercises Check (Pink Book page 23-25)
+                            </h4>
+                        </div>
+                        
+                        <div class="space-y-6 p-5">
+                            <!-- Exercise 1 -->
+                            <div id="read-ex1-container" class="bg-white border border-fuchsia-100 rounded-xl p-5 shadow-sm transition-all duration-300">
+                                <div class="flex justify-between items-center mb-4">
+                                    <h5 class="font-bold text-fuchsia-700 text-md">Exercise 1</h5>
+                                    <button id="btn-read-ex1" onclick="toggleInlineAnswers('read-ex1-container', 'btn-read-ex1')" class="text-xs bg-fuchsia-50 text-fuchsia-600 px-3 py-1.5 rounded-lg font-bold hover:bg-fuchsia-100 transition-colors">Show Answers</button>
+                                </div>
+                                <p class="text-gray-600 text-sm mb-4 font-medium">Match the words with the synonyms/meanings.</p>
+                                
+                                <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-6 text-sm">
+                                    <!-- Nouns -->
+                                    <div>
+                                        <h6 class="font-bold text-gray-800 mb-2 border-b border-gray-100 pb-1">Nouns</h6>
+                                        <div class="space-y-2 mb-3">
+                                            <p><span class="font-bold">1</span> <span class="text-fuchsia-600 font-semibold">compromise</span> <span class="text-gray-400">/'kɒmprəmaɪz/</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ C</span></p>
+                                            <p><span class="font-bold">2</span> <span class="text-fuchsia-600 font-semibold">privilege</span> <span class="text-gray-400">/'prɪvəlɪdʒ/</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ F</span></p>
+                                            <p><span class="font-bold">3</span> <span class="text-fuchsia-600 font-semibold">prospect</span> <span class="text-gray-400">/'prɒspekt/</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ A</span></p>
+                                            <p><span class="font-bold">4</span> <span class="text-fuchsia-600 font-semibold">therapy</span> <span class="text-gray-400">/'θerəpi/</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ B</span></p>
+                                            <p><span class="font-bold">5</span> <span class="text-fuchsia-600 font-semibold">ailment</span> <span class="text-gray-400">/'eɪlmənt/</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ D</span></p>
+                                            <p><span class="font-bold">6</span> <span class="text-fuchsia-600 font-semibold">insanity</span> <span class="text-gray-400">/ɪn'sænəti/</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ E</span></p>
+                                        </div>
+                                        <div class="space-y-1 text-gray-600 text-xs mt-3 pt-3 border-t border-gray-50">
+                                            <p>A. a chance of being successful</p>
+                                            <p>B. treatment</p>
+                                            <p>C. an agreement</p>
+                                            <p>D. minor illness</p>
+                                            <p>E. madness</p>
+                                            <p>F. a special right/advantage</p>
+                                        </div>
+                                    </div>
+                                    <!-- Verbs -->
+                                    <div>
+                                        <h6 class="font-bold text-gray-800 mb-2 border-b border-gray-100 pb-1">Verbs</h6>
+                                        <div class="space-y-2 mb-3">
+                                            <p><span class="font-bold">1</span> <span class="text-fuchsia-600 font-semibold">conceal</span> <span class="text-gray-400">/kən'si:l/</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ C</span></p>
+                                            <p><span class="font-bold">2</span> <span class="text-fuchsia-600 font-semibold">harness</span> <span class="text-gray-400">/'hɑ:nɪs/</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ A</span></p>
+                                            <p><span class="font-bold">3</span> <span class="text-fuchsia-600 font-semibold">seize</span> <span class="text-gray-400">/si:z/</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ D</span></p>
+                                            <p><span class="font-bold">4</span> <span class="text-fuchsia-600 font-semibold">synthesize</span> <span class="text-gray-400">/'sɪnθəsaɪz/</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ F</span></p>
+                                            <p><span class="font-bold">5</span> <span class="text-fuchsia-600 font-semibold">perceive</span> <span class="text-gray-400">/pə'si:v/</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ B</span></p>
+                                            <p><span class="font-bold">6</span> <span class="text-fuchsia-600 font-semibold">inhabit</span> <span class="text-gray-400">/ɪn'hæbɪt/</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ G</span></p>
+                                            <p><span class="font-bold">7</span> <span class="text-fuchsia-600 font-semibold">revere</span> <span class="text-gray-400">/rɪ'vɪə(r)/</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ E</span></p>
+                                            <p><span class="font-bold">8</span> <span class="text-fuchsia-600 font-semibold">appoint</span> <span class="text-gray-400">/ə'pɔɪnt/</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ I</span></p>
+                                            <p><span class="font-bold">9</span> <span class="text-fuchsia-600 font-semibold">dissolve</span> <span class="text-gray-400">/dɪ'zɒlv/</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ H</span></p>
+                                            <p><span class="font-bold">10</span> <span class="text-fuchsia-600 font-semibold">propel</span> <span class="text-gray-400">/prə'pel/</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ J</span></p>
+                                        </div>
+                                    </div>
+                                    <!-- Verbs Options & Adjectives -->
+                                    <div class="flex flex-col justify-between">
+                                        <div class="space-y-1 text-gray-600 text-xs mb-4 pt-3 lg:pt-0">
+                                            <p>A. control, put to use</p>
+                                            <p>B. become aware of something</p>
+                                            <p>C. hide</p>
+                                            <p>D. grab</p>
+                                            <p>E. idolize</p>
+                                            <p>F. combine to produce a new product</p>
+                                            <p>G. live in a particular place</p>
+                                            <p>H. melt into a fluid</p>
+                                            <p>I. choose somebody for a job</p>
+                                            <p>J. cause to move in a certain direction</p>
+                                        </div>
+                                        <div>
+                                            <h6 class="font-bold text-gray-800 mb-2 border-b border-gray-100 pb-1">Adjectives</h6>
+                                            <div class="flex gap-4">
+                                                <div class="space-y-2 text-xs">
+                                                    <p><span class="font-bold">1</span> <span class="text-fuchsia-600 font-semibold">outstanding</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-1 rounded border border-emerald-200 ml-1">➜ F</span></p>
+                                                    <p><span class="font-bold">2</span> <span class="text-fuchsia-600 font-semibold">consistent</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-1 rounded border border-emerald-200 ml-1">➜ A</span></p>
+                                                    <p><span class="font-bold">3</span> <span class="text-fuchsia-600 font-semibold">enigmatic</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-1 rounded border border-emerald-200 ml-1">➜ D</span></p>
+                                                    <p><span class="font-bold">4</span> <span class="text-fuchsia-600 font-semibold">humble</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-1 rounded border border-emerald-200 ml-1">➜ G</span></p>
+                                                    <p><span class="font-bold">5</span> <span class="text-fuchsia-600 font-semibold">outlandish</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-1 rounded border border-emerald-200 ml-1">➜ B</span></p>
+                                                    <p><span class="font-bold">6</span> <span class="text-fuchsia-600 font-semibold">desperate</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-1 rounded border border-emerald-200 ml-1">➜ C</span></p>
+                                                    <p><span class="font-bold">7</span> <span class="text-fuchsia-600 font-semibold">foul</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-1 rounded border border-emerald-200 ml-1">➜ H</span></p>
+                                                </div>
+                                                <div class="space-y-1 text-gray-600 text-[10px]">
+                                                    <p>A. happening same way</p>
+                                                    <p>B. bizarre</p>
+                                                    <p>C. hopeless</p>
+                                                    <p>D. mysterious</p>
+                                                    <p>F. remarkable</p>
+                                                    <p>G. modest</p>
+                                                    <p>H. dirty/smelling bad</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Exercise 2 (Same but inside new wrapper) -->
+                            <div id="read-ex2-container" class="bg-white border border-fuchsia-100 rounded-xl p-5 shadow-sm transition-all duration-300">
+                                <div class="flex justify-between items-center mb-4">
+                                    <h5 class="font-bold text-fuchsia-700 text-md">Exercise 2</h5>
+                                    <button id="btn-read-ex2" onclick="toggleInlineAnswers('read-ex2-container', 'btn-read-ex2')" class="text-xs bg-fuchsia-50 text-fuchsia-600 px-3 py-1.5 rounded-lg font-bold hover:bg-fuchsia-100 transition-colors">Show Answers</button>
+                                </div>
+                                <p class="text-gray-600 text-sm mb-4 font-medium">Fill in each blank with one suitable word from the list below.</p>
+                                
+                                <div class="flex flex-wrap gap-x-6 gap-y-2 justify-center mb-6 bg-fuchsia-50 border border-fuchsia-200 p-4 rounded-lg font-bold text-fuchsia-700 text-sm">
+                                    <span>connotation</span> <span>breakthrough</span> <span>grief</span> <span>spirituality</span> <span>democracy</span> <span>high street</span> <span>intuition</span>
+                                </div>
+
+                                <div class="space-y-4 text-sm text-gray-700 leading-relaxed">
+                                    <p><span class="font-bold">1</span> We have achieved a significant <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 mx-1">breakthrough</span> (= important development) in biotechnology field.</p>
+                                    <p><span class="font-bold">2</span> Because he was so interested in <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 mx-1">spirituality</span> , he read and wrote many books about where the soul goes after death.</p>
+                                    <p><span class="font-bold">3</span> "Resolute" means stubborn, but with a more positive <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 mx-1">connotation</span> .</p>
+                                    <p><span class="font-bold">4</span> The early 1990s saw the spread of <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 mx-1">democracy</span> in Eastern Europe.</p>
+                                    <p><span class="font-bold">5</span> Sales on the UK <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 mx-1">high street</span> (= shops and businesses serving the general public) are in decline.</p>
+                                    <p><span class="font-bold">6</span> <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 mx-1">intuition</span> told me we were going in the wrong direction.</p>
+                                    <p><span class="font-bold">7</span> She understood my <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 mx-1">grief</span> (= sorrow) because she too had lost a child.</p>
+                                </div>
+                            </div>
+
+                            <!-- Exercise 3 -->
+                            <div id="read-ex3-container" class="bg-white border border-fuchsia-100 rounded-xl p-5 shadow-sm transition-all duration-300">
+                                <div class="flex justify-between items-center mb-4">
+                                    <h5 class="font-bold text-fuchsia-700 text-md">Exercise 3</h5>
+                                    <button id="btn-read-ex3" onclick="toggleInlineAnswers('read-ex3-container', 'btn-read-ex3')" class="text-xs bg-fuchsia-50 text-fuchsia-600 px-3 py-1.5 rounded-lg font-bold hover:bg-fuchsia-100 transition-colors">Show Answers</button>
+                                </div>
+                                <p class="text-gray-600 text-sm mb-4 font-medium">Decide whether the following sentences are correct or incorrect.</p>
+                                
+                                <div class="space-y-4 text-sm text-gray-700 leading-relaxed">
+                                    <div class="flex flex-col md:flex-row justify-between md:items-center gap-2">
+                                        <p class="flex-grow"><span class="font-bold">1</span> When you <span class="font-bold text-fuchsia-600 italic">come up with</span> an idea, you think up it.</p>
+                                        <div class="shrink-0 font-bold w-32"><span class="blank-dots text-gray-300">...................</span><span class="blank-ans text-emerald-600 bg-emerald-50 px-3 py-0.5 rounded border border-emerald-200">CORRECT</span></div>
+                                    </div>
+                                    <div class="flex flex-col md:flex-row justify-between md:items-center gap-2">
+                                        <p class="flex-grow"><span class="font-bold">2</span> <span class="font-bold text-fuchsia-600 italic">Show off</span> your wealth means showing how rich you are.</p>
+                                        <div class="shrink-0 font-bold w-32"><span class="blank-dots text-gray-300">...................</span><span class="blank-ans text-emerald-600 bg-emerald-50 px-3 py-0.5 rounded border border-emerald-200">CORRECT</span></div>
+                                    </div>
+                                    <div class="flex flex-col md:flex-row justify-between md:items-center gap-2">
+                                        <p class="flex-grow"><span class="font-bold">3</span> Receive <span class="font-bold text-fuchsia-600 italic">a helping hand</span> means giving help.</p>
+                                        <div class="shrink-0 font-bold w-32"><span class="blank-dots text-gray-300">...................</span><span class="blank-ans text-rose-600 bg-rose-50 px-3 py-0.5 rounded border border-rose-200">INCORRECT</span></div>
+                                    </div>
+                                    <div class="flex flex-col md:flex-row justify-between md:items-center gap-2">
+                                        <p class="flex-grow"><span class="font-bold">4</span> If you live <span class="font-bold text-fuchsia-600 italic">beyond your financial means</span>, you spend less money than you can afford.</p>
+                                        <div class="shrink-0 font-bold w-32"><span class="blank-dots text-gray-300">...................</span><span class="blank-ans text-rose-600 bg-rose-50 px-3 py-0.5 rounded border border-rose-200">INCORRECT</span></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Exercise 4 -->
+                            <div id="read-ex4-container" class="bg-white border border-fuchsia-100 rounded-xl p-5 shadow-sm transition-all duration-300">
+                                <div class="flex justify-between items-center mb-4">
+                                    <h5 class="font-bold text-fuchsia-700 text-md">Exercise 4</h5>
+                                    <button id="btn-read-ex4" onclick="toggleInlineAnswers('read-ex4-container', 'btn-read-ex4')" class="text-xs bg-fuchsia-50 text-fuchsia-600 px-3 py-1.5 rounded-lg font-bold hover:bg-fuchsia-100 transition-colors">Show Answers</button>
+                                </div>
+                                <p class="text-gray-600 text-sm mb-4 font-medium">Match the words with the suitable pictures.</p>
+                                
+                                <div class="grid md:grid-cols-2 gap-6 text-sm">
+                                    <div class="space-y-4">
+                                        <p><span class="font-bold">1</span> <span class="text-fuchsia-600 font-semibold">bishop</span> <span class="text-gray-500">/'bɪʃəp/</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ B</span></p>
+                                        <p><span class="font-bold">2</span> <span class="text-fuchsia-600 font-semibold">lichen</span> <span class="text-gray-500">/'lɪtʃən/</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ D</span></p>
+                                        <p><span class="font-bold">3</span> <span class="text-fuchsia-600 font-semibold">practitioner</span> <span class="text-gray-500">/præk'tɪʃənər/</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ E</span></p>
+                                        <p><span class="font-bold">4</span> <span class="text-fuchsia-600 font-semibold">malaria</span> <span class="text-gray-500">/mə'leriə/</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ F</span></p>
+                                        <p><span class="font-bold">5</span> <span class="text-fuchsia-600 font-semibold">patent</span> <span class="text-gray-500">/'pætnt/</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ A</span></p>
+                                        <p><span class="font-bold">6</span> <span class="text-fuchsia-600 font-semibold">gland</span> <span class="text-gray-500">/glænd/</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ C</span></p>
+                                    </div>
+                                    <div class="space-y-4 text-gray-600">
+                                        <p><span class="font-bold text-gray-800">A.</span> 📜 [Picture: A patent certificate]</p>
+                                        <p><span class="font-bold text-gray-800">B.</span> ⛪ [Picture: A cartoon bishop with a staff]</p>
+                                        <p><span class="font-bold text-gray-800">C.</span> 🫁 [Picture: Anatomy drawing of a thyroid/gland]</p>
+                                        <p><span class="font-bold text-gray-800">D.</span> 🌿 [Picture: Green lichen/moss organism]</p>
+                                        <p><span class="font-bold text-gray-800">E.</span> 👨‍⚕️ [Picture: Medical practitioners at a desk]</p>
+                                        <p><span class="font-bold text-gray-800">F.</span> 🦟 [Picture: Mosquito biting skin (Malaria)]</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="w-full rounded-2xl overflow-hidden border border-gray-200 shadow-inner bg-gray-50 relative h-[800px]">
+                        <iframe src="https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/passage3_complete_ielts_6.5_7.5_wb_unit2.html" class="absolute inset-0 w-full h-full border-0" title="Reading Practice"></iframe>
+                    </div>
+                </div>
+            `
+        },
+        {
+            id: 'reading_cam9_t1_p1',
+            type: 'Reading',
+            themeClass: 'bg-gradient-to-r from-rose-400 to-red-500',
+            iconColor: 'text-rose-500',
+            bgColor: 'bg-rose-50',
+            title: '2. Reading Cam 9 T1 P1',
+            content: `
+                <div class="fade-in bg-white rounded-3xl shadow-xl border border-rose-50 p-5 md:p-6 flex flex-col">
+                    <div class="flex items-center gap-4 mb-4 border-b border-gray-100 pb-4 shrink-0">
+                        <div class="w-12 h-12 rounded-2xl bg-rose-100 flex items-center justify-center text-rose-600 flex-shrink-0">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                        </div>
+                        <div class="flex-grow flex flex-col md:flex-row justify-between md:items-center gap-4">
+                            <div>
+                                <div class="flex items-center gap-3 mb-1 flex-wrap">
+                                    <h3 class="text-xl font-bold text-gray-800">Cam 9 - Test 1 - Passage 1</h3>
+                                    <a href="https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/cam9_test1_passage1.html" target="_blank" class="inline-flex items-center gap-1.5 text-rose-600 hover:text-rose-700 transition-colors px-3 py-1.5 bg-rose-50 hover:bg-rose-100 rounded-lg shadow-sm border border-rose-200 text-sm font-bold" title="Open in new tab">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                                        Open in New Tab
+                                    </a>
+                                </div>
+                                <p class="text-rose-600 font-medium text-sm">Additional Reading Practice</p>
+                            </div>
+                            <button onclick="toggleVisibility('ans-cam9-t1-p1')" class="bg-rose-50 text-rose-700 px-4 py-2 rounded-xl font-bold hover:bg-rose-100 transition-colors text-sm border border-rose-200 flex items-center gap-2 shrink-0">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                                Show Answers
+                            </button>
+                        </div>
+                    </div>
+
+                    <div id="ans-cam9-t1-p1" class="hidden mb-4 bg-white border border-rose-200 rounded-xl p-5 shrink-0 shadow-sm transition-all fade-in">
+                        <h4 class="font-bold text-rose-800 mb-3 border-b border-rose-100 pb-2">Teacher Reference: Answer Key</h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-sm text-gray-700 font-medium">
+                            <div class="bg-gray-50 p-2 rounded border border-gray-100"><span class="text-rose-500 font-bold mr-1">1</span> FALSE</div>
+                            <div class="bg-gray-50 p-2 rounded border border-gray-100"><span class="text-rose-500 font-bold mr-1">2</span> NOT GIVEN</div>
+                            <div class="bg-gray-50 p-2 rounded border border-gray-100"><span class="text-rose-500 font-bold mr-1">3</span> FALSE</div>
+                            <div class="bg-gray-50 p-2 rounded border border-gray-100"><span class="text-rose-500 font-bold mr-1">4</span> TRUE</div>
+                            <div class="bg-gray-50 p-2 rounded border border-gray-100"><span class="text-rose-500 font-bold mr-1">5</span> NOT GIVEN</div>
+                            <div class="bg-gray-50 p-2 rounded border border-gray-100"><span class="text-rose-500 font-bold mr-1">6</span> TRUE</div>
+                            <div class="bg-gray-50 p-2 rounded border border-gray-100"><span class="text-rose-500 font-bold mr-1">7</span> NOT GIVEN</div>
+                            <div class="bg-gray-50 p-2 rounded border border-gray-100"><span class="text-rose-500 font-bold mr-1">8</span> rich / the rich</div>
+                            <div class="bg-gray-50 p-2 rounded border border-gray-100 lg:col-span-2"><span class="text-rose-500 font-bold mr-1">9</span> commercial / commercial possibilities</div>
+                            <div class="bg-gray-50 p-2 rounded border border-gray-100"><span class="text-rose-500 font-bold mr-1">10</span> mauve</div>
+                            <div class="bg-gray-50 p-2 rounded border border-gray-100"><span class="text-rose-500 font-bold mr-1">11</span> Robert Pullar</div>
+                            <div class="bg-gray-50 p-2 rounded border border-gray-100"><span class="text-rose-500 font-bold mr-1">12</span> France</div>
+                            <div class="bg-gray-50 p-2 rounded border border-gray-100"><span class="text-rose-500 font-bold mr-1">13</span> malaria</div>
+                        </div>
+                    </div>
+
+                    <div class="w-full rounded-2xl overflow-hidden border border-gray-200 shadow-inner bg-gray-50 relative h-[800px]">
+                        <iframe src="https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/cam9_test1_passage1.html" class="absolute inset-0 w-full h-full border-0" title="Reading Practice"></iframe>
+                    </div>
+                </div>
+            `
+        },
+        {
+            id: 'listening_sb_unit3',
+            type: 'Listening',
+            themeClass: 'bg-gradient-to-r from-violet-400 to-indigo-500',
+            iconColor: 'text-violet-500',
+            bgColor: 'bg-violet-50',
+            title: '3. Listening Unit 3 SB',
+            content: `
+                <div class="fade-in bg-white rounded-3xl shadow-xl border border-violet-50 p-5 md:p-6 flex flex-col">
+                    <div class="flex items-center gap-4 mb-4 border-b border-gray-100 pb-4 shrink-0">
+                        <div class="w-12 h-12 rounded-2xl bg-violet-100 flex items-center justify-center text-violet-600 flex-shrink-0">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+                        </div>
+                        <div class="flex-grow flex flex-col md:flex-row justify-between md:items-center gap-4">
+                            <div>
+                                <div class="flex items-center gap-3 mb-1 flex-wrap">
+                                    <h3 class="text-xl font-bold text-gray-800">Unit 3 Listening Practice</h3>
+                                    <a href="https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/section3_complete_ielts_6.5_7.5_sb_unit3.html" target="_blank" class="inline-flex items-center gap-1.5 text-violet-600 hover:text-violet-700 transition-colors px-3 py-1.5 bg-violet-50 hover:bg-violet-100 rounded-lg shadow-sm border border-violet-200 text-sm font-bold" title="Open in new tab">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                                        Open in New Tab
+                                    </a>
+                                </div>
+                                <p class="text-violet-600 font-medium text-sm">Student's Book - Complete IELTS</p>
+                            </div>
+                            <p class="text-gray-500 text-sm hidden md:block">Show Answers & Explain tricky distractors</p>
+                        </div>
+                    </div>
+
+                    <div class="w-full rounded-2xl overflow-hidden border border-gray-200 shadow-inner bg-gray-50 relative h-[800px]">
+                        <iframe src="https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/section3_complete_ielts_6.5_7.5_sb_unit3.html" class="absolute inset-0 w-full h-full border-0" title="Listening Practice Student Book"></iframe>
+                    </div>
+                </div>
+            `
+        }
+    ];
+
+    let currentIndex = 0;
+    
+    // Timer states
+    let timers = {};
+
+    let headerEl, titleEl, containerEl, prevBtn, nextBtn, indicatorEl, progressBarEl, navDropdown, navMenuList;
+
+    window.addEventListener('DOMContentLoaded', () => {
+        headerEl = document.getElementById('app-header');
+        titleEl = document.getElementById('slide-title');
+        containerEl = document.getElementById('content-container');
+        prevBtn = document.getElementById('btn-prev');
+        nextBtn = document.getElementById('btn-next');
+        indicatorEl = document.getElementById('step-indicator');
+        progressBarEl = document.getElementById('progress-bar');
+        navDropdown = document.getElementById('nav-dropdown');
+        navMenuList = document.getElementById('nav-menu-list');
+
+        populateNavMenu();
+        
+        // Toggle menu
+        document.getElementById('nav-toggle-btn').addEventListener('click', (e) => {
+            e.stopPropagation();
+            navDropdown.classList.toggle('hidden');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navDropdown.contains(e.target) && !document.getElementById('nav-toggle-btn').contains(e.target)) {
+                navDropdown.classList.add('hidden');
+            }
+        });
+
+        // Navigation handlers
+        prevBtn.addEventListener('click', () => {
+            if (currentIndex > 0) renderSlide(--currentIndex);
+        });
+
+        nextBtn.addEventListener('click', () => {
+            if (currentIndex < sessionData.length - 1) {
+                renderSlide(++currentIndex);
+            } else {
+                alert("Lesson 08 Completed! Great job.");
+            }
+        });
+
+        renderSlide(0);
+    });
+
+    function populateNavMenu() {
+        if (!navMenuList) return;
+        navMenuList.innerHTML = sessionData.map((data, index) => `
+            <button onclick="goToSlide(${index})" class="nav-item-btn w-full text-left p-3 mb-1 rounded-xl hover:bg-white transition-all flex items-center gap-3 border border-transparent shadow-sm">
+                <div class="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 text-sm font-bold text-white shadow-sm ${data.themeClass || ''}">
+                    ${index + 1}
+                </div>
+                <div>
+                    <div class="text-sm font-bold text-gray-800 leading-tight">${data.title ? data.title.substring(3) : 'Section ' + (index + 1)}</div>
+                    <div class="text-[10px] font-bold uppercase tracking-wider ${data.iconColor || ''}">${data.type || 'Lesson'}</div>
+                </div>
+            </button>
+        `).join('');
+    }
+
+    window.goToSlide = function(index) {
+        currentIndex = index;
+        renderSlide(currentIndex);
+        if(navDropdown) navDropdown.classList.add('hidden');
+    };
+
+    function renderSlide(index) {
+        pauseAllTimers();
+
+        const data = sessionData[index];
+        if(!headerEl || !titleEl || !containerEl) return;
+        
+        // Update header classes and content dynamically based on section theme
+        headerEl.className = `text-white p-4 shadow-lg transition-colors duration-700 z-20 relative ${data.themeClass}`;
+        titleEl.textContent = data.title;
+        
+        // Update progress
+        const progressPercent = ((index + 1) / sessionData.length) * 100;
+        if(progressBarEl) progressBarEl.style.width = `${progressPercent}%`;
+        if(indicatorEl) indicatorEl.textContent = `Section ${index + 1} of ${sessionData.length}`;
+
+        // Highlight Nav menu
+        document.querySelectorAll('.nav-item-btn').forEach((btn, i) => {
+            if (i === index) {
+                btn.classList.add('bg-white', 'border-rose-200', 'shadow-md');
+                btn.classList.remove('border-transparent', 'shadow-sm');
+            } else {
+                btn.classList.remove('bg-white', 'border-rose-200', 'shadow-md');
+                btn.classList.add('border-transparent', 'shadow-sm');
+            }
+        });
+
+        // Inject content
+        containerEl.innerHTML = ''; 
+        setTimeout(() => {
+            containerEl.innerHTML = data.content;
+        }, 10);
+
+        // Update buttons
+        if(prevBtn) prevBtn.disabled = index === 0;
+        if(nextBtn) nextBtn.innerHTML = index === sessionData.length - 1 ? 
+            'Finish Lesson <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>' : 
+            'Next Section <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>';
+    }
+
+    window.toggleInlineAnswers = function(containerId, btnId) {
+        const container = document.getElementById(containerId);
+        const btn = document.getElementById(btnId);
+        if(container) {
+            container.classList.toggle('show-answers');
+            if(container.classList.contains('show-answers')) {
+                container.classList.add('bg-emerald-50/30');
+                container.classList.add('border-emerald-200');
+            } else {
+                container.classList.remove('bg-emerald-50/30');
+                container.classList.remove('border-emerald-200');
+            }
+            if(btn) {
+                btn.textContent = container.classList.contains('show-answers') ? 'Hide Answers' : 'Show Answers';
+                btn.classList.toggle('bg-white');
+                btn.classList.toggle('bg-emerald-100');
+                btn.classList.toggle('text-gray-700');
+                btn.classList.toggle('text-emerald-800');
+                btn.classList.toggle('border-gray-300');
+                btn.classList.toggle('border-emerald-300');
+            }
+        }
+    }
+
+    window.toggleVisibility = function(id) {
+        const el = document.getElementById(id);
+        if(el) {
+            if(el.classList.contains('hidden')){
+                el.classList.remove('hidden');
+                el.classList.add('fade-in');
+                setTimeout(() => { el.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }, 50);
+            } else {
+                el.classList.add('hidden');
+                el.classList.remove('fade-in');
+            }
+        }
+    };
+
+    function formatTime(seconds) {
+        const m = Math.floor(seconds / 60).toString().padStart(2, '0');
+        const s = (seconds % 60).toString().padStart(2, '0');
+        return `${m}:${s}`;
+    }
+
+    function updateTimerUI(id, seconds) {
+        const displayEl = document.getElementById(`${id}-timer`);
+        if (displayEl) displayEl.textContent = formatTime(seconds);
+    }
+
+    window.toggleTimer = function(id, defaultTime) {
+        if(!timers[id]) {
+            timers[id] = { interval: null, remaining: defaultTime, isRunning: false };
+        }
+        const timer = timers[id];
+        const btn = document.getElementById(`btn-${id}-timer`);
+        
+        if (timer.isRunning) {
+            clearInterval(timer.interval);
+            timer.isRunning = false;
+            if(btn) btn.textContent = 'Resume';
+        } else {
+            if (timer.remaining <= 0) timer.remaining = defaultTime;
+            
+            timer.isRunning = true;
+            if(btn) btn.textContent = 'Pause';
+            
+            timer.interval = setInterval(() => {
+                timer.remaining--;
+                updateTimerUI(id, timer.remaining);
+                
+                if (timer.remaining <= 0) {
+                    clearInterval(timer.interval);
+                    timer.isRunning = false;
+                    if(btn) btn.textContent = 'Time Up!';
+                    playAlertSound();
+                }
+            }, 1000);
+        }
+    };
+
+    window.resetTimer = function(id, defaultTime) {
+        if(!timers[id]) return;
+        const timer = timers[id];
+        clearInterval(timer.interval);
+        timer.isRunning = false;
+        timer.remaining = defaultTime;
+        updateTimerUI(id, defaultTime);
+        const btn = document.getElementById(`btn-${id}-timer`);
+        if(btn) btn.textContent = 'Start Timer';
+    };
+
+    function pauseAllTimers() {
+        Object.keys(timers).forEach(key => {
+            if (timers[key] && timers[key].isRunning) {
+                clearInterval(timers[key].interval);
+                timers[key].isRunning = false;
+            }
+        });
+    }
+
+    function playAlertSound() {
+        try {
+            const ctx = new (window.AudioContext || window.webkitAudioContext)();
+            const playBeep = (startTime) => {
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(850, startTime);
+                gain.gain.setValueAtTime(0.15, startTime);
+                osc.start(startTime);
+                gain.gain.exponentialRampToValueAtTime(0.00001, startTime + 0.4);
+                osc.stop(startTime + 0.4);
+            };
+            playBeep(ctx.currentTime);
+            playBeep(ctx.currentTime + 0.5);
+        } catch(e) { console.log('Audio alert fallback'); }
+    }
+</script>
+</body>
+</html>
