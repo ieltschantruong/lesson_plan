@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Chan Truong | Lesson 20 Detailed Plan</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Inter"', 'sans-serif'],
+                    },
+                    colors: {
+                        pastel: {
+                            pink: '#ffe4e6',
+                            purple: '#f3e8ff',
+                            blue: '#e0e7ff',
+                            teal: '#ccfbf1',
+                            orange: '#ffedd5',
+                            indigo: '#e0e7ff',
+                            cyan: '#cffafe'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { 
+            background-color: #fdfbfb;
+            background-image: 
+                radial-gradient(at 80% 0%, hsla(250, 50%, 95%, 1) 0px, transparent 50%),
+                radial-gradient(at 10% 30%, hsla(280, 60%, 90%, 1) 0px, transparent 50%),
+                radial-gradient(at 90% 80%, hsla(200, 60%, 90%, 1) 0px, transparent 50%),
+                radial-gradient(at 20% 90%, hsla(220, 60%, 90%, 1) 0px, transparent 50%);
+            background-attachment: fixed;
+            color: #334155;
+        }
+        
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 10px 40px -10px rgba(0,0,0,0.05);
+        }
+
+        .skill-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.25rem 0.6rem;
+            border-radius: 8px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            backdrop-filter: blur(4px);
+        }
+
+        .badge-speaking { background-color: rgba(255, 237, 213, 0.7); color: #ea580c; border: 1px solid rgba(253, 216, 163, 0.5); }
+        .badge-vocab { background-color: rgba(204, 251, 241, 0.7); color: #0d9488; border: 1px solid rgba(153, 246, 228, 0.5); }
+
+        /* Accordion transition utility matching Lesson 14/16 */
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s cubic-bezier(0, 1, 0, 1), padding 0.3s ease;
+        }
+        .accordion-content.open {
+            max-height: 1000px;
+            padding-top: 1rem;
+            transition: max-height 0.3s cubic-bezier(0.95, 0.05, 0.795, 0.035), padding 0.3s ease;
+        }
+        .arrow-rotate {
+            transition: transform 0.2s ease-in-out;
+        }
+        .arrow-rotate.rotated {
+            transform: rotate(180deg);
+        }
+
+        .guidance-box {
+            background: linear-gradient(to right, rgba(255,255,255,0.95), rgba(255,255,255,0.7));
+            border-left: 4px solid;
+            border-radius: 0.5rem;
+            padding: 1.25rem;
+            margin-bottom: 1.25rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
+
+        .topic-card {
+            background: linear-gradient(to bottom right, #ffffff, #fffbeb);
+            border: 1px solid rgba(253, 230, 138, 0.5);
+        }
+
+        /* Modal system transition controls */
+        .modal-overlay {
+            transition: opacity 0.25s ease-in-out;
+        }
+        .modal-container {
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease-in-out;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: rgba(203, 213, 225, 0.8); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(148, 163, 184, 0.8); }
+    </style>
+</head>
+<body class="antialiased min-h-screen pb-16">
+
+<div class="max-w-4xl mx-auto px-4 py-10 sm:px-6 lg:px-8">
+    
+    <!-- Header Block (Matches Lesson 16/14 Theme) -->
+    <header class="glass-panel rounded-[2rem] p-8 mb-8 relative overflow-hidden">
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-pastel-indigo rounded-full mix-blend-multiply filter blur-3xl opacity-50 z-0"></div>
+        <div class="absolute -bottom-24 -left-24 w-72 h-72 bg-pastel-purple rounded-full mix-blend-multiply filter blur-3xl opacity-50 z-0"></div>
+
+        <div class="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+            <div>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 border border-white text-[10px] font-bold text-slate-500 tracking-widest uppercase mb-3 shadow-sm">
+                    IELTS Chan Truong • Tutor 1
+                </div>
+                <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight text-slate-800 mb-2">Lesson 20: Society & Cultural Transitions</h1>
+                <p class="text-slate-500 font-medium">90-Minute Advanced Speaking Mock & Integration</p>
+            </div>
+            
+            <div class="flex flex-col gap-2">
+                <span class="skill-badge badge-speaking shadow-sm justify-center">Speaking P2 & P3 (60 Min)</span>
+                <span class="skill-badge badge-vocab shadow-sm justify-center">Social Lexis (30 Min)</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="space-y-8">
+        
+        <!-- Section 1: Tutoring Strategic Guidance -->
+        <section class="glass-panel rounded-2xl p-6 md:p-8 relative overflow-hidden bg-gradient-to-br from-white/60 to-orange-50/40">
+            <div class="absolute top-0 left-0 w-2 h-full bg-orange-400"></div>
+            
+            <div class="flex items-center gap-3 mb-5">
+                <div class="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center text-orange-600 shadow-sm border border-orange-200">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </div>
+                <div>
+                    <h2 class="text-xl font-bold text-slate-800">1. Band 6.5 Transition Blueprint</h2>
+                    <p class="text-sm text-slate-500">Core coaching techniques for Society and Culture monologues</p>
+                </div>
+            </div>
+
+            <div class="guidance-box border-orange-400 text-sm text-slate-700 space-y-3">
+                <p>When discussing complex societal topics, Band 5.0–5.5 speakers usually struggle with long pauses and over-complicating definitions. Apply these key target goals:</p>
+                <ul class="list-disc list-inside space-y-2 ml-1 text-xs text-slate-600">
+                    <li><strong>A.R.E.A Framework Control:</strong> Always begin with a clean direct answer <strong>[A]</strong>, a clear connective reason <strong>[R]</strong>, an objective social example <strong>[E]</strong>, and wrap up with a conditional consequence <strong>[A]</strong>.</li>
+                    <li><strong>Flexible spoken placeholders:</strong> Ditch silences. Teach simple buffer statements to win thinking time: <em>"Well, that's a multifaceted social issue, but..."</em>, <em>"To be honest, I haven't thought about that deeply, but from what I've seen..."</em>.</li>
+                    <li><strong>Eliminating vocabulary blockages:</strong> Avoid translating rare academic vocabulary. Express complex ideas using accessible collocations (e.g. use <em>"protect our culture"</em> instead of "safeguard our heritage", <em>"local festivals"</em> instead of "indigenous customs").</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Section 2: Speaking Part 2 - Society & Culture Cue Cards -->
+        <section class="glass-panel rounded-2xl p-6 md:p-8 relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-2 h-full bg-orange-400"></div>
+            
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 rounded-full bg-orange-50 flex items-center justify-center text-orange-500 border border-orange-100 shadow-sm">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                </div>
+                <h2 class="text-2xl font-bold text-slate-800">2. Speaking Part 2 Mock</h2>
+            </div>
+
+            <!-- In-Class Speaking Resources Links -->
+            <p class="text-sm text-slate-600 mb-4">Execute the targeted society and culture cue cards. Ensure the student maps notes within the 1-minute limit using keywords only:</p>
+
+            <div class="space-y-4">
+                <!-- Topic 1 -->
+                <div class="topic-card rounded-xl p-5 shadow-sm relative border border-orange-100">
+                    <div class="absolute top-0 right-0 bg-orange-100 text-orange-700 text-[10px] font-bold px-2.5 py-1 rounded-bl-lg rounded-tr-xl border-l border-b border-orange-200">CUE CARD 1</div>
+                    <h3 class="font-bold text-slate-800 text-[15px] mb-3 w-11/12">Describe a traditional product from your country.</h3>
+                    <div class="bg-white/80 rounded p-3 text-xs text-slate-600 border border-orange-100">
+                        <ul class="list-none space-y-1">
+                            <li>• <span class="font-medium">What the product is?</span></li>
+                            <li>• <span class="font-medium">How it is made?</span></li>
+                            <li>• <span class="font-medium">What it is used for?</span></li>
+                            <li>• <span class="font-medium">And explain why it is important to your country's culture.</span></li>
+                        </ul>
+                    </div>
+                    <button onclick="openModal('traditionalProduct')" class="mt-4 w-full py-2 bg-white text-orange-700 border border-orange-200 hover:bg-orange-50 rounded-lg text-xs font-bold transition-all flex justify-center items-center gap-2">
+                        <svg class="w-4 h-4 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+                        View Band 6.5 Model Story
+                    </button>
+                </div>
+
+                <!-- Topic 2 -->
+                <div class="topic-card rounded-xl p-5 shadow-sm relative border border-orange-100">
+                    <div class="absolute top-0 right-0 bg-orange-100 text-orange-700 text-[10px] font-bold px-2.5 py-1 rounded-bl-lg rounded-tr-xl border-l border-b border-orange-200">CUE CARD 2</div>
+                    <h3 class="font-bold text-slate-800 text-[15px] mb-3 w-11/12">Describe a time when you experienced a different culture.</h3>
+                    <div class="bg-white/80 rounded p-3 text-xs text-slate-600 border border-orange-100">
+                        <ul class="list-none space-y-1">
+                            <li>• <span class="font-medium">Where you were?</span></li>
+                            <li>• <span class="font-medium">What differences you noticed?</span></li>
+                            <li>• <span class="font-medium">How you reacted to them?</span></li>
+                            <li>• <span class="font-medium">And explain what you learned from this experience.</span></li>
+                        </ul>
+                    </div>
+                    <button onclick="openModal('differentCulture')" class="mt-4 w-full py-2 bg-white text-orange-700 border border-orange-200 hover:bg-orange-50 rounded-lg text-xs font-bold transition-all flex justify-center items-center gap-2">
+                        <svg class="w-4 h-4 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+                        View Band 6.5 Model Story
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Speaking Part 3 - Society & Culture Questions (20 Items) -->
+        <section class="glass-panel rounded-2xl p-6 md:p-8 relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-2 h-full bg-orange-400"></div>
+            
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-orange-50 flex items-center justify-center text-orange-600 border border-orange-100 shadow-sm">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path></svg>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-slate-800">3. Speaking Part 3 Frameworks</h2>
+                        <p class="text-sm text-slate-500">20 Societal & Cultural Analysis blueprints</p>
+                    </div>
+                </div>
+                
+                <!-- Master link referencing the society and culture resource -->
+                <a href="https://ieltschantruong.github.io/IELTS/learning_resources/speaking/part2_3/society_and_culture.html" target="_blank" class="flex items-center gap-1.5 px-3 py-1.5 bg-orange-50 text-orange-700 text-xs font-bold rounded-lg border border-orange-100/60 hover:bg-orange-100 transition-colors whitespace-nowrap">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                    Master Resource List
+                </a>
+            </div>
+
+            <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">Click to inspect Band 6.5 A.R.E.A structured sample answers:</p>
+
+            <div class="space-y-3">
+                <!-- Loop through the 20 questions -->
+                
+                <!-- Q1 -->
+                <div class="border border-slate-150 rounded-xl bg-white/80 overflow-hidden shadow-sm hover:border-orange-200 transition-colors">
+                    <button onclick="toggleAccordion(1)" class="w-full text-left px-5 py-4 flex justify-between items-center gap-3">
+                        <span class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                            <span class="text-orange-500 font-bold">Q1.</span> How have traditional customs changed in your country over the last few decades?
+                        </span>
+                        <svg id="arrow-1" class="w-4 h-4 text-slate-400 arrow-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="acc-1" class="accordion-content px-5 pb-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="text-xs text-slate-600 space-y-2">
+                            <p><strong>[A - Answer]</strong> Traditional customs have become much simpler and less strict than in the past.</p>
+                            <p><strong>[R - Reason]</strong> This is because modern life is fast-paced, and busy people have less time to prepare complex rituals.</p>
+                            <p><strong>[E - Example]</strong> For example, during Lunar New Year, many families now travel abroad instead of cooking complex feasts for days.</p>
+                            <p><strong>[A - Alternative]</strong> If we don't adapt these customs to match modern lifestyles, young generations might stop celebrating them entirely.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q2 -->
+                <div class="border border-slate-150 rounded-xl bg-white/80 overflow-hidden shadow-sm hover:border-orange-200 transition-colors">
+                    <button onclick="toggleAccordion(2)" class="w-full text-left px-5 py-4 flex justify-between items-center gap-3">
+                        <span class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                            <span class="text-orange-500 font-bold">Q2.</span> Is it important for young people to learn about their cultural heritage? Why?
+                        </span>
+                        <svg id="arrow-2" class="w-4 h-4 text-slate-400 arrow-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="acc-2" class="accordion-content px-5 pb-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="text-xs text-slate-600 space-y-2">
+                            <p><strong>[A - Answer]</strong> Yes, I believe learning about cultural heritage is highly important for young generations.</p>
+                            <p><strong>[R - Reason]</strong> It gives them a strong sense of identity and helps them understand their family's roots.</p>
+                            <p><strong>[E - Example]</strong> For instance, studying historical crafts and traditional songs helps teenagers respect past achievements.</p>
+                            <p><strong>[A - Alternative]</strong> Without this connection, young people might feel lost and lose their national values in a globalized world.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q3 -->
+                <div class="border border-slate-150 rounded-xl bg-white/80 overflow-hidden shadow-sm hover:border-orange-200 transition-colors">
+                    <button onclick="toggleAccordion(3)" class="w-full text-left px-5 py-4 flex justify-between items-center gap-3">
+                        <span class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                            <span class="text-orange-500 font-bold">Q3.</span> Do you think globalization is causing local cultures to disappear?
+                        </span>
+                        <svg id="arrow-3" class="w-4 h-4 text-slate-400 arrow-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="acc-3" class="accordion-content px-5 pb-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="text-xs text-slate-600 space-y-2">
+                            <p><strong>[A - Answer]</strong> To some extent, globalization is indeed replacing unique local customs with international trends.</p>
+                            <p><strong>[R - Reason]</strong> This is because foreign food, fashion, and pop music are marketed heavily, drawing youth away from native styles.</p>
+                            <p><strong>[E - Example]</strong> For example, most teenagers prefer eating fast food like fried chicken over local noodle soups.</p>
+                            <p><strong>[A - Alternative]</strong> However, if we utilize the internet to promote our unique traditions, globalization can actually make local cultures more famous worldwide.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q4 -->
+                <div class="border border-slate-150 rounded-xl bg-white/80 overflow-hidden shadow-sm hover:border-orange-200 transition-colors">
+                    <button onclick="toggleAccordion(4)" class="w-full text-left px-5 py-4 flex justify-between items-center gap-3">
+                        <span class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                            <span class="text-orange-500 font-bold">Q4.</span> How can museums and historical sites help preserve culture?
+                        </span>
+                        <svg id="arrow-4" class="w-4 h-4 text-slate-400 arrow-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="acc-4" class="accordion-content px-5 pb-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="text-xs text-slate-600 space-y-2">
+                            <p><strong>[A - Answer]</strong> Museums protect history by collecting precious artifacts and showcasing them to public audiences.</p>
+                            <p><strong>[R - Reason]</strong> This allows visitors to see and physically touch remnants of ancient life first-hand.</p>
+                            <p><strong>[E - Example]</strong> For instance, displaying old clothing and war gear allows younger people to realize how their ancestors struggled.</p>
+                            <p><strong>[A - Alternative]</strong> Otherwise, history would only exist in dry books, which teenagers rarely read for fun.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q5 -->
+                <div class="border border-slate-150 rounded-xl bg-white/80 overflow-hidden shadow-sm hover:border-orange-200 transition-colors">
+                    <button onclick="toggleAccordion(5)" class="w-full text-left px-5 py-4 flex justify-between items-center gap-3">
+                        <span class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                            <span class="text-orange-500 font-bold">Q5.</span> What are the benefits of living in a multicultural society?
+                        </span>
+                        <svg id="arrow-5" class="w-4 h-4 text-slate-400 arrow-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="acc-5" class="accordion-content px-5 pb-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="text-xs text-slate-600 space-y-2">
+                            <p><strong>[A - Answer]</strong> Living with diverse ethnic groups makes residents much more open-minded and welcoming.</p>
+                            <p><strong>[R - Reason]</strong> People get the chance to taste different foods, learn foreign expressions, and see new holiday customs daily.</p>
+                            <p><strong>[E - Example]</strong> For example, in multicultural cities like Singapore, families celebrate various ethnic festivals together peacefully.</p>
+                            <p><strong>[A - Alternative]</strong> Without this diversity, a society can become closed-off and less accepting of foreigners.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q6 -->
+                <div class="border border-slate-150 rounded-xl bg-white/80 overflow-hidden shadow-sm hover:border-orange-200 transition-colors">
+                    <button onclick="toggleAccordion(6)" class="w-full text-left px-5 py-4 flex justify-between items-center gap-3">
+                        <span class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                            <span class="text-orange-500 font-bold">Q6.</span> Why do some people prefer traditional ways of living while others embrace modern lifestyles?
+                        </span>
+                        <svg id="arrow-6" class="w-4 h-4 text-slate-400 arrow-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="acc-6" class="accordion-content px-5 pb-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="text-xs text-slate-600 space-y-2">
+                            <p><strong>[A - Answer]</strong> Elderly populations tend to value peaceful family-centered lives, whereas youth prefer high-tech urban convenience.</p>
+                            <p><strong>[R - Reason]</strong> Traditional lifestyles represent comfort and stability, while modern lifestyles provide speed and personal freedom.</p>
+                            <p><strong>[E - Example]</strong> For example, grandparents enjoy quiet village interactions, while city youths prefer utilizing social media platforms.</p>
+                            <p><strong>[A - Alternative]</strong> If we don't build mutual respect between these views, it can lead to severe generation gaps at home.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q7 -->
+                <div class="border border-slate-150 rounded-xl bg-white/80 overflow-hidden shadow-sm hover:border-orange-200 transition-colors">
+                    <button onclick="toggleAccordion(7)" class="w-full text-left px-5 py-4 flex justify-between items-center gap-3">
+                        <span class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                            <span class="text-orange-500 font-bold">Q7.</span> How does the media influence our understanding of different cultures?
+                        </span>
+                        <svg id="arrow-7" class="w-4 h-4 text-slate-400 arrow-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="acc-7" class="accordion-content px-5 pb-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="text-xs text-slate-600 space-y-2">
+                            <p><strong>[A - Answer]</strong> The media has a major influence, but it unfortunately spreads cultural stereotypes rather than real facts.</p>
+                            <p><strong>[R - Reason]</strong> Films and TV programs often amplify dramatic cliches because they want to increase views.</p>
+                            <p><strong>[E - Example]</strong> For instance, popular action movies often portray Middle Eastern countries purely as hot desert zones with conflict.</p>
+                            <p><strong>[A - Alternative]</strong> On the contrary, if students watch authentic travel vloggers on social media, they can gain a much better understanding.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q8 -->
+                <div class="border border-slate-150 rounded-xl bg-white/80 overflow-hidden shadow-sm hover:border-orange-200 transition-colors">
+                    <button onclick="toggleAccordion(8)" class="w-full text-left px-5 py-4 flex justify-between items-center gap-3">
+                        <span class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                            <span class="text-orange-500 font-bold">Q8.</span> Should immigrants be expected to assimilate completely into their new country's culture?
+                        </span>
+                        <svg id="arrow-8" class="w-4 h-4 text-slate-400 arrow-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="acc-8" class="accordion-content px-5 pb-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="text-xs text-slate-600 space-y-2">
+                            <p><strong>[A - Answer]</strong> No, I believe foreigners should be allowed to keep their original identity as long as they follow local laws.</p>
+                            <p><strong>[R - Reason]</strong> Forcing immigrants to abandon their customs completely is bad for their mental well-being and makes the society less diverse.</p>
+                            <p><strong>[E - Example]</strong> For instance, Canada lets immigrants celebrate their cultural holidays while remaining patriotic citizens.</p>
+                            <p><strong>[A - Alternative]</strong> If countries expect complete assimilation, it often results in discrimination and social unhappiness.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q9 -->
+                <div class="border border-slate-150 rounded-xl bg-white/80 overflow-hidden shadow-sm hover:border-orange-200 transition-colors">
+                    <button onclick="toggleAccordion(9)" class="w-full text-left px-5 py-4 flex justify-between items-center gap-3">
+                        <span class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                            <span class="text-orange-500 font-bold">Q9.</span> In what ways can traditional festivals be adapted for the modern world?
+                        </span>
+                        <svg id="arrow-9" class="w-4 h-4 text-slate-400 arrow-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="acc-9" class="accordion-content px-5 pb-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="text-xs text-slate-600 space-y-2">
+                            <p><strong>[A - Answer]</strong> Traditional events can integrate digital features and simpler programs to attract busy youngsters.</p>
+                            <p><strong>[R - Reason]</strong> Doing this preserves the main values of the event while making it fast, convenient, and exciting.</p>
+                            <p><strong>[E - Example]</strong> For example, Mid-Autumn festivals now showcase drone light displays alongside classic paper lanterns.</p>
+                            <p><strong>[A - Alternative]</strong> Unless we creatively update these rituals, teenagers will eventually think they are outdated.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q10 -->
+                <div class="border border-slate-150 rounded-xl bg-white/80 overflow-hidden shadow-sm hover:border-orange-200 transition-colors">
+                    <button onclick="toggleAccordion(10)" class="w-full text-left px-5 py-4 flex justify-between items-center gap-3">
+                        <span class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                            <span class="text-orange-500 font-bold">Q10.</span> Do you think traditional gender roles are still relevant in today's society?
+                        </span>
+                        <svg id="arrow-10" class="w-4 h-4 text-slate-400 arrow-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="acc-10" class="accordion-content px-5 pb-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="text-xs text-slate-600 space-y-2">
+                            <p><strong>[A - Answer]</strong> No, I believe rigid gender divisions are no longer appropriate in modern workplaces and homes.</p>
+                            <p><strong>[R - Reason]</strong> Nowadays, living costs are high, so both husband and wife must earn income and share household chores.</p>
+                            <p><strong>[E - Example]</strong> For instance, it is very common now for fathers to care for babies while mothers build successful careers.</p>
+                            <p><strong>[A - Alternative]</strong> If families stick strictly to old roles, women are unfairly burdened and men miss out on raising their children.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q11 -->
+                <div class="border border-slate-150 rounded-xl bg-white/80 overflow-hidden shadow-sm hover:border-orange-200 transition-colors">
+                    <button onclick="toggleAccordion(11)" class="w-full text-left px-5 py-4 flex justify-between items-center gap-3">
+                        <span class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                            <span class="text-orange-500 font-bold">Q11.</span> What are the most pressing social problems facing your country today?
+                        </span>
+                        <svg id="arrow-11" class="w-4 h-4 text-slate-400 arrow-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="acc-11" class="accordion-content px-5 pb-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="text-xs text-slate-600 space-y-2">
+                            <p><strong>[A - Answer]</strong> In my view, traffic congestion and environment pollution are the most critical social problems we face.</p>
+                            <p><strong>[R - Reason]</strong> Cities are expanding too quickly and there are too many private motorbikes and cars, which overloads road systems.</p>
+                            <p><strong>[E - Example]</strong> For example, during rush hour in Ho Chi Minh City, thousands of vehicles get stuck and create severe air pollution.</p>
+                            <p><strong>[A - Alternative]</strong> Unless we construct convenient train lines, commuting times will continue to worsen, hurting our health.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q12 -->
+                <div class="border border-slate-150 rounded-xl bg-white/80 overflow-hidden shadow-sm hover:border-orange-200 transition-colors">
+                    <button onclick="toggleAccordion(12)" class="w-full text-left px-5 py-4 flex justify-between items-center gap-3">
+                        <span class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                            <span class="text-orange-500 font-bold">Q12.</span> How can individuals contribute to solving social issues in their community?
+                        </span>
+                        <svg id="arrow-12" class="w-4 h-4 text-slate-400 arrow-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="acc-12" class="accordion-content px-5 pb-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="text-xs text-slate-600 space-y-2">
+                            <p><strong>[A - Answer]</strong> I think citizens can help solve local issues by starting with small, daily positive actions.</p>
+                            <p><strong>[R - Reason]</strong> Big problems are often solved when thousands of individuals collectively alter their behavior.</p>
+                            <p><strong>[E - Example]</strong> For example, sorting family garbage and reducing single-use plastic bags directly minimizes neighborhood waste.</p>
+                            <p><strong>[A - Alternative]</strong> If we just wait for the government to fix every issue, community spaces will never improve.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q13 -->
+                <div class="border border-slate-150 rounded-xl bg-white/80 overflow-hidden shadow-sm hover:border-orange-200 transition-colors">
+                    <button onclick="toggleAccordion(13)" class="w-full text-left px-5 py-4 flex justify-between items-center gap-3">
+                        <span class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                            <span class="text-orange-500 font-bold">Q13.</span> Do you think the gap between the rich and the poor is widening? Why?
+                        </span>
+                        <svg id="arrow-13" class="w-4 h-4 text-slate-400 arrow-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="acc-13" class="accordion-content px-5 pb-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="text-xs text-slate-600 space-y-2">
+                            <p><strong>[A - Answer]</strong> Yes, I strongly believe that wealth inequality is becoming much more severe nowadays.</p>
+                            <p><strong>[R - Reason]</strong> Rich people have better access to high-quality schools and investments, which helps them earn money much faster.</p>
+                            <p><strong>[E - Example]</strong> For instance, wealthy children attend international academies and secure global jobs, while poorer kids study in underfunded schools.</p>
+                            <p><strong>[A - Alternative]</strong> Unless public education standards are improved, social inequality will continue to widen.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q14 -->
+                <div class="border border-slate-150 rounded-xl bg-white/80 overflow-hidden shadow-sm hover:border-orange-200 transition-colors">
+                    <button onclick="toggleAccordion(14)" class="w-full text-left px-5 py-4 flex justify-between items-center gap-3">
+                        <span class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                            <span class="text-orange-500 font-bold">Q14.</span> What role should the government play in providing social welfare?
+                        </span>
+                        <svg id="arrow-14" class="w-4 h-4 text-slate-400 arrow-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="acc-14" class="accordion-content px-5 pb-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="text-xs text-slate-600 space-y-2">
+                            <p><strong>[A - Answer]</strong> I believe the government must provide a strong safety net for disadvantaged citizens.</p>
+                            <p><strong>[R - Reason]</strong> Private firms prioritize profit, so the state has a duty to make healthcare and education affordable for everyone.</p>
+                            <p><strong>[E - Example]</strong> For example, countries like Germany provide free university education and low-cost health treatments to their citizens.</p>
+                            <p><strong>[A - Alternative]</strong> Without this support, low-income families can quickly fall into extreme debt if a relative gets seriously sick.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q15 -->
+                <div class="border border-slate-150 rounded-xl bg-white/80 overflow-hidden shadow-sm hover:border-orange-200 transition-colors">
+                    <button onclick="toggleAccordion(15)" class="w-full text-left px-5 py-4 flex justify-between items-center gap-3">
+                        <span class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                            <span class="text-orange-500 font-bold">Q15.</span> How has technology changed the way people socialize and form communities?
+                        </span>
+                        <svg id="arrow-15" class="w-4 h-4 text-slate-400 arrow-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="acc-15" class="accordion-content px-5 pb-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="text-xs text-slate-600 space-y-2">
+                            <p><strong>[A - Answer]</strong> Technology makes global connections extremely easy, but it unfortunately makes real-world meetings less common.</p>
+                            <p><strong>[R - Reason]</strong> We can find and join online hobby groups instantly, but we spend much less time speaking with neighbors.</p>
+                            <p><strong>[E - Example]</strong> For example, many teenagers have thousands of virtual friends but feel very isolated on weekends.</p>
+                            <p><strong>[A - Alternative]</strong> If we don't balance online chats with face-to-face meetups, our real social skills will decline.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q16 -->
+                <div class="border border-slate-150 rounded-xl bg-white/80 overflow-hidden shadow-sm hover:border-orange-200 transition-colors">
+                    <button onclick="toggleAccordion(16)" class="w-full text-left px-5 py-4 flex justify-between items-center gap-3">
+                        <span class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                            <span class="text-orange-500 font-bold">Q16.</span> Is it more important to prioritize individual freedom or social harmony?
+                        </span>
+                        <svg id="arrow-16" class="w-4 h-4 text-slate-400 arrow-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="acc-16" class="accordion-content px-5 pb-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="text-xs text-slate-600 space-y-2">
+                            <p><strong>[A - Answer]</strong> Both are valuable, but in times of crisis, keeping social order and safety should be prioritized.</p>
+                            <p><strong>[R - Reason]</strong> Personal choices are great for creativity, but if everyone does whatever they want, it creates chaos.</p>
+                            <p><strong>[E - Example]</strong> For example, wearing face masks in public is necessary during health emergencies, even if it limits individual choice.</p>
+                            <p><strong>[A - Alternative]</strong> Conversely, if a country has zero personal freedom, its citizens will feel too suppressed to be happy.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q17 -->
+                <div class="border border-slate-150 rounded-xl bg-white/80 overflow-hidden shadow-sm hover:border-orange-200 transition-colors">
+                    <button onclick="toggleAccordion(17)" class="w-full text-left px-5 py-4 flex justify-between items-center gap-3">
+                        <span class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                            <span class="text-orange-500 font-bold">Q17.</span> What are the challenges of an aging population for a society?
+                        </span>
+                        <svg id="arrow-17" class="w-4 h-4 text-slate-400 arrow-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="acc-17" class="accordion-content px-5 pb-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="text-xs text-slate-600 space-y-2">
+                            <p><strong>[A - Answer]</strong> An aging demographic places massive financial pressure on medical systems and reduces work productivity.</p>
+                            <p><strong>[R - Reason]</strong> There are fewer young taxpayers to fund pensions and care for retired citizens who need extensive medical attention.</p>
+                            <p><strong>[E - Example]</strong> For instance, countries like Japan are struggling to recruit enough young nurses to work in senior homes.</p>
+                            <p><strong>[A - Alternative]</strong> If governments do not support families to increase birth rates, economic growth will slow down heavily.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q18 -->
+                <div class="border border-slate-150 rounded-xl bg-white/80 overflow-hidden shadow-sm hover:border-orange-200 transition-colors">
+                    <button onclick="toggleAccordion(18)" class="w-full text-left px-5 py-4 flex justify-between items-center gap-3">
+                        <span class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                            <span class="text-orange-500 font-bold">Q18.</span> How can we promote better understanding between different generations?
+                        </span>
+                        <svg id="arrow-18" class="w-4 h-4 text-slate-400 arrow-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="acc-18" class="accordion-content px-5 pb-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="text-xs text-slate-600 space-y-2">
+                            <p><strong>[A - Answer]</strong> We can bridge the age gap by hosting community projects where old and young work together.</p>
+                            <p><strong>[R - Reason]</strong> Friction usually occurs due to a lack of face-to-face interaction and false stereotypes.</p>
+                            <p><strong>[E - Example]</strong> For example, neighborhood centers can host classes where youth teach grandparents smartphone tech, and elders teach crafts.</p>
+                            <p><strong>[A - Alternative]</strong> Without these cooperative channels, different generations will continue to misunderstand each other.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q19 -->
+                <div class="border border-slate-150 rounded-xl bg-white/80 overflow-hidden shadow-sm hover:border-orange-200 transition-colors">
+                    <button onclick="toggleAccordion(19)" class="w-full text-left px-5 py-4 flex justify-between items-center gap-3">
+                        <span class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                            <span class="text-orange-500 font-bold">Q19.</span> Does living in a large city make people more isolated from their neighbors?
+                        </span>
+                        <svg id="arrow-19" class="w-4 h-4 text-slate-400 arrow-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="acc-19" class="accordion-content px-5 pb-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="text-xs text-slate-600 space-y-2">
+                            <p><strong>[A - Answer]</strong> Yes, urban living unfortunately makes residents much more disconnected and isolated.</p>
+                            <p><strong>[R - Reason]</strong> Apartment blocks are highly private, and busy commuters rarely have time to socialize with neighbors.</p>
+                            <p><strong>[E - Example]</strong> For instance, many people residing in city high-rises do not even know the names of families next door.</p>
+                            <p><strong>[A - Alternative]</strong> In contrast, small countryside villages offer tightly-knit networks where neighbors support each other like family.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q20 -->
+                <div class="border border-slate-150 rounded-xl bg-white/80 overflow-hidden shadow-sm hover:border-orange-200 transition-colors">
+                    <button onclick="toggleAccordion(20)" class="w-full text-left px-5 py-4 flex justify-between items-center gap-3">
+                        <span class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                            <span class="text-orange-500 font-bold">Q20.</span> What impact does volunteering have on both the individual and the community?
+                        </span>
+                        <svg id="arrow-20" class="w-4 h-4 text-slate-400 arrow-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="acc-20" class="accordion-content px-5 pb-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="text-xs text-slate-600 space-y-2">
+                            <p><strong>[A - Answer]</strong> Volunteering is amazing because it solves local problems while teaching volunteers valuable life skills.</p>
+                            <p><strong>[R - Reason]</strong> It provides essential aid to poor neighborhoods and helps young people learn real empathy.</p>
+                            <p><strong>[E - Example]</strong> For example, students who volunteer to clean public beaches learn to protect nature and feel more responsible.</p>
+                            <p><strong>[A - Alternative]</strong> Without this charity work, communities would lack supportive networks and students would remain too self-centered.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Homework Assignments -->
+        <section class="glass-panel rounded-2xl p-6 md:p-8 relative overflow-hidden bg-gradient-to-br from-white/60 to-blue-50/40">
+            <div class="absolute top-0 left-0 w-2 h-full bg-blue-400"></div>
+            
+            <div class="flex items-center gap-3 mb-5">
+                <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 shadow-sm border border-blue-200">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                </div>
+                <h2 class="text-xl font-bold text-slate-800">4. Homework Assignments</h2>
+            </div>
+            
+            <p class="text-sm text-slate-600 mb-6 font-medium">Assign the speaking recording exercise to consolidate the cultural monologue and abstract discussion structures:</p>
+
+            <div class="bg-white/80 rounded-xl p-5 border border-indigo-100 shadow-sm space-y-4">
+                <div class="flex items-start gap-4">
+                    <div class="p-2.5 bg-orange-50 text-orange-500 rounded-lg shadow-sm">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+                    </div>
+                    <div>
+                        <p class="font-bold text-slate-800 text-base leading-snug">Society & Culture Audio Recording</p>
+                        <p class="text-xs text-slate-500 mt-1">Record and submit your complete oral response for Part 2 Topic 2 and any 5 chosen Part 3 questions from today's list.</p>
+                    </div>
+                </div>
+
+                <!-- Direct resource link -->
+                <div class="pt-2">
+                    <a href="https://ieltschantruong.github.io/IELTS/learning_resources/speaking/part2_3/society_and_culture.html" target="_blank" class="w-full bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold py-3 px-4 rounded-xl shadow-md transition-all flex items-center justify-center gap-2">
+                        <span>Open Society & Culture Resource</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</div>
+
+<!-- Modal Component System (Overlay popup for Model Answers) -->
+<div id="modalOverlay" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-50 flex items-center justify-center p-4 md:p-6 opacity-0 pointer-events-none modal-overlay">
+    <div id="modalContainer" class="bg-white rounded-3xl w-full max-w-2xl max-h-[85vh] overflow-y-auto shadow-2xl flex flex-col border border-slate-100 transform scale-95 opacity-0 modal-container">
+        
+        <!-- Modal Header -->
+        <div class="px-6 py-5 border-b border-slate-100 bg-slate-50 flex items-center justify-between sticky top-0 z-10 rounded-t-3xl">
+            <div class="flex items-center gap-3">
+                <div class="w-2.5 h-2.5 rounded-full bg-orange-500"></div>
+                <h3 id="modalTitle" class="text-sm font-bold text-slate-800 tracking-tight">Speaking Model Answer</h3>
+            </div>
+            <button onclick="closeModal()" class="p-1.5 rounded-lg bg-slate-200/60 hover:bg-slate-200 text-slate-500 hover:text-slate-700 transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+        </div>
+        
+        <!-- Modal Body Content -->
+        <div id="modalBody" class="p-6 md:p-8 space-y-6">
+            <!-- Dynamic Content Injected here -->
+        </div>
+        
+        <!-- Modal Footer -->
+        <div class="px-6 py-4 border-t border-slate-100 bg-slate-50 flex justify-end rounded-b-3xl">
+            <button onclick="closeModal()" class="bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold py-2.5 px-5 rounded-xl transition-all shadow-sm">
+                Return to Lesson Plan
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Database for Speaking Responses & Structural Blueprints
+    const speakingDB = {
+        traditionalProduct: {
+            title: "Model Story: Conical Hat (Nón Lá)",
+            topic: "Describe a traditional product from your country.",
+            outline: "Nón Lá, handcrafted conical hat of Vietnam.",
+            story: `"I would like to talk about a very famous traditional product from my country, which is the conical hat, or what we call **'Nón Lá'** in Vietnamese.<br><br>Actually, this is a very simple hat, but it has a long history and represents our national culture. When it comes to how it's made, it is completely **handcrafted** by local artisans. It is made from natural palm leaves which are dried in the sun until they turn a pale, soft yellow. Then, these leaves are carefully woven onto a circular bamboo frame using a strong, invisible thread. The final product has a distinct cone shape.<br><br>Regarding its uses, it is incredibly practical. In the countryside, you can see many farmers wearing it because it **protects them from the hot sun** and sudden rain while they work in the rice fields. It is extremely light, so it is very comfortable to wear all day long.<br><br>I believe this product is highly important to our culture because it is a **traditional symbol** of Vietnamese people, especially women. It represents simple, hardworking country life and has been passed down for generations. Whenever I see a conical hat, I instantly feel a strong connection to my homeland and our heritage."`,
+            grammar: [
+                "<strong>Relative Clauses (which is... which are...):</strong> Effectively combines short sentences to raise Coherence scores without overloading speech flow.",
+                "<strong>Simple Passive Forms (is made from / is woven):</strong> Accurate and natural grammar usage for explaining handcrafted production methods.",
+                "<strong>Fluency Markers (When it comes to... / Regarding its uses...):</strong> Seamless transitions that prevent pauses and guide the listener cleanly through the cue card."
+            ],
+            adjectives: ["Handcrafted hat", "Natural palm leaves", "Distinct cone shape", "Incredibly practical", "Traditional symbol", "Hardworking country life", "Strong connection", "Homeland heritage"]
+        },
+        differentCulture: {
+            title: "Model Story: Experiencing Ethnic Sapa Culture",
+            topic: "Describe a time when you experienced a different culture.",
+            outline: "Visiting Hmong ethnic village in Sapa, Vietnam.",
+            story: `"I'm going to describe a time when I experienced a different way of life, which was during my trip to Sapa, a mountainous area in northern Vietnam. I visited a small village belonging to the Black Hmong ethnic minority group.<br><br>Before this trip, **I had only ever seen** ethnic cultures on television, so I was really excited. The main difference I noticed was their traditional clothing. While **local women were weaving** bright blue and indigo fabrics, their children were playing nearby in beautiful, hand-embroidered outfits. It was completely different from the modern fashion we see in the city.<br><br>At first, I felt a bit shy because of the language barrier, but the local people were incredibly friendly. They invited me to try their traditional sticky rice and showed me how they dye clothes using natural leaves.<br><br>I learned a great deal from this short stay. It made me realize that happiness does not depend on expensive technology. Their peaceful, close connection to nature was extremely inspiring, and it taught me to respect the cultural diversity of my own country."`,
+            grammar: [
+                "<strong>Past Perfect (I had only ever seen):</strong> Accurately frames background experience prior to the main narrative timeline.",
+                "<strong>Past Continuous setting (women were weaving... children were playing):</strong> Helps set a descriptive, vivid scene for the examiner.",
+                "<strong>Adverbials of Reaction (At first... but then...):</strong> Adds emotional and logical progress markers to the speech flow."
+            ],
+            adjectives: ["Mountainous area", "Ethnic minority", "Hand-embroidered outfits", "Indigo fabrics", "Incredibly friendly", "Natural leaves", "Peaceful connection", "Cultural diversity"]
+        }
+    };
+
+    function openModal(type) {
+        const data = speakingDB[type];
+        if (!data) return;
+
+        const overlay = document.getElementById('modalOverlay');
+        const container = document.getElementById('modalContainer');
+        const body = document.getElementById('modalBody');
+
+        document.getElementById('modalTitle').innerText = data.title;
+
+        // Construct HTML content inside modal
+        body.innerHTML = `
+            <div>
+                <span class="text-[10px] font-bold text-orange-600 bg-orange-50 border border-orange-100 px-2.5 py-1 rounded-md uppercase">Band 6.5 Structured Storyboard</span>
+                <div class="mt-3 text-xs leading-relaxed text-slate-700 bg-slate-50 border border-slate-100 p-5 rounded-2xl">
+                    <p class="mb-4 italic text-slate-800 border-l-2 border-orange-300 pl-3 bg-white/40 p-2 rounded">
+                        <strong>Topic:</strong> ${data.topic}
+                    </p>
+                    <p class="text-slate-600 leading-relaxed">${data.story}</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+                <div>
+                    <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-2.5">Key Grammatical Markers</span>
+                    <ul class="space-y-2">
+                        ${data.grammar.map(item => `
+                            <li class="flex items-start text-[11px] text-slate-600">
+                                <span class="text-orange-400 font-bold mr-2">•</span>
+                                <span>${item}</span>
+                            </li>
+                        `).join('')}
+                    </ul>
+                </div>
+                <div>
+                    <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-2.5">Band 6.5 Collocations & Lexis</span>
+                    <div class="flex flex-wrap gap-1.5">
+                        ${data.adjectives.map(word => `
+                            <span class="text-[11px] font-semibold text-slate-600 bg-slate-100 border border-slate-200/60 px-2.5 py-1 rounded-md">${word}</span>
+                        `).join('')}
+                    </div>
+                </div>
+            </div>
+        `;
+
+        // Animation triggers
+        overlay.classList.remove('pointer-events-none');
+        overlay.classList.add('opacity-100');
+        container.classList.remove('scale-95', 'opacity-0');
+        container.classList.add('scale-100', 'opacity-100');
+        
+        // Prevent body scrolling
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+        const overlay = document.getElementById('modalOverlay');
+        const container = document.getElementById('modalContainer');
+
+        overlay.classList.remove('opacity-100');
+        overlay.classList.add('pointer-events-none');
+        container.classList.remove('scale-100', 'opacity-100');
+        container.classList.add('scale-95', 'opacity-0');
+        
+        // Restore body scrolling
+        document.body.style.overflow = '';
+    }
+
+    function toggleAccordion(id) {
+        const content = document.getElementById(`acc-${id}`);
+        const arrow = document.getElementById(`arrow-${id}`);
+        
+        if (content.classList.contains('open')) {
+            content.classList.remove('open');
+            arrow.classList.remove('rotated');
+        } else {
+            // Close all other accordions first for clean navigation
+            for (let i = 1; i <= 20; i++) {
+                const otherContent = document.getElementById(`acc-${i}`);
+                const otherArrow = document.getElementById(`arrow-${i}`);
+                if (otherContent) otherContent.classList.remove('open');
+                if (otherArrow) otherArrow.classList.remove('rotated');
+            }
+            
+            content.classList.add('open');
+            arrow.classList.add('rotated');
+        }
+    }
+</script>
+
+</body>
+</html>
