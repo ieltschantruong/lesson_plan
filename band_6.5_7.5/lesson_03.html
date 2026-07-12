@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Chan Truong | Lesson 03</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            background-color: #fffbeb; /* soft amber-50 */
+        }
+        .fade-in { animation: fadeIn 0.5s ease-out forwards; }
+        @keyframes fadeIn { 
+            from { opacity: 0; transform: translateY(15px); } 
+            to { opacity: 1; transform: translateY(0); } 
+        }
+        .timer-text { font-variant-numeric: tabular-nums; }
+        
+        /* Elegant Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #fef3c7; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb { background: #f59e0b; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #d97706; }
+
+        /* Glassmorphism utilities */
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        /* Inline Answer Toggle Utilities */
+        .blank-ans { display: none; }
+        .show-answers .blank-dots { display: none; }
+        .show-answers .blank-ans { display: inline-block; animation: fadeIn 0.3s forwards; }
+    </style>
+</head>
+<body class="h-screen flex flex-col overflow-hidden text-gray-800">
+
+    <header id="app-header" class="text-white p-4 shadow-lg transition-colors duration-700 z-20 relative bg-gradient-to-r from-amber-400 via-orange-400 to-red-400">
+        <div class="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9IiNmZmYiLz48L3N2Zz4=')]"></div>
+        
+        <div class="max-w-7xl mx-auto flex justify-between items-center relative z-10">
+            <div>
+                <div class="flex items-center gap-2 mb-1">
+                    <span class="bg-white/20 text-white text-xs font-bold px-2 py-0.5 rounded uppercase tracking-wider backdrop-blur-sm">Band 6.5 - 7.5</span>
+                    <span class="bg-white/20 text-white text-xs font-bold px-2 py-0.5 rounded uppercase tracking-wider backdrop-blur-sm">Lesson 03</span>
+                </div>
+                <h1 class="text-2xl font-bold tracking-tight drop-shadow-sm flex items-center gap-2">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                    IELTS Chan Truong
+                </h1>
+                <h2 id="slide-title" class="text-sm font-medium mt-1 text-amber-50">Loading session...</h2>
+            </div>
+            
+            <div class="flex items-center space-x-2 sm:space-x-3">
+                <a href="https://online.flipbuilder.com/xtrvf/rzwv/" target="_blank" class="flex items-center space-x-2 text-sm font-semibold bg-white/20 hover:bg-white/30 transition-all px-3 sm:px-4 py-2 rounded-full focus:outline-none backdrop-blur-md shadow-sm border border-white/20 text-white" title="Complete IELTS 6.5-7.5 Ebook">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                    <span class="hidden sm:inline">Ebook</span>
+                </a>
+
+                <div class="relative">
+                    <button id="nav-toggle-btn" class="flex items-center space-x-2 text-sm font-semibold bg-white/20 hover:bg-white/30 transition-all px-3 sm:px-5 py-2 rounded-full focus:outline-none backdrop-blur-md shadow-sm border border-white/20">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                        <span class="hidden sm:inline">Sections</span>
+                    </button>
+                    
+                    <div id="nav-dropdown" class="hidden absolute right-0 mt-3 w-80 bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-amber-100 overflow-hidden z-50 origin-top-right transition-all fade-in">
+                        <div class="p-3 bg-amber-50 border-b border-amber-100">
+                            <p class="text-xs font-bold text-amber-800 uppercase tracking-wider text-center">Lesson Agenda</p>
+                        </div>
+                        <div class="max-h-[60vh] overflow-y-auto p-2" id="nav-menu-list"></div>
+                    </div>
+                </div>
+
+                <div class="hidden sm:flex items-center space-x-2 text-sm font-bold text-amber-900 bg-white px-4 py-2 rounded-full shadow-sm">
+                    <svg class="w-4 h-4 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <span>90 Mins</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto mt-5 bg-black/10 rounded-full h-1.5 overflow-hidden relative z-10">
+            <div id="progress-bar" class="bg-white h-full transition-all duration-700 ease-out shadow-[0_0_10px_rgba(255,255,255,0.8)]" style="width: 0%"></div>
+        </div>
+    </header>
+
+    <main class="flex-grow overflow-y-auto relative p-4 md:p-8">
+        <div id="content-container" class="max-w-6xl mx-auto">
+            <!-- Dynamic Content Injected Here -->
+        </div>
+    </main>
+
+    <footer class="bg-white/80 backdrop-blur-md border-t border-amber-100 p-4 md:px-10 z-10 shadow-[0_-10px_15px_-3px_rgba(0,0,0,0.02)]">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <button id="btn-prev" class="px-6 py-2.5 rounded-xl border border-amber-200 text-amber-600 font-semibold hover:bg-amber-50 hover:border-amber-300 transition-all disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-2">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                Previous
+            </button>
+            
+            <div class="flex items-center gap-2">
+                <div class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></div>
+                <div id="step-indicator" class="text-sm font-semibold text-amber-800 uppercase tracking-wide">
+                    Section 1 of X
+                </div>
+                <div class="w-2 h-2 rounded-full bg-amber-400 animate-pulse delay-75"></div>
+            </div>
+
+            <button id="btn-next" class="px-6 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 text-white font-semibold hover:from-amber-600 hover:to-orange-600 shadow-md hover:shadow-lg transition-all flex items-center gap-2 transform hover:-translate-y-0.5">
+                Next
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </button>
+        </div>
+    </footer>
+
+<script>
+    const sessionData = [
+        {
+            id: 'reading_unit1_sb',
+            type: 'Reading',
+            themeClass: 'bg-gradient-to-r from-amber-400 to-orange-500',
+            iconColor: 'text-amber-500',
+            bgColor: 'bg-amber-50',
+            title: '1. Reading Unit 1 SB',
+            content: `
+                <div class="fade-in bg-white rounded-3xl shadow-xl border border-amber-50 p-5 md:p-6 flex flex-col">
+                    <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-6 border-b border-gray-100 pb-5 shrink-0">
+                        <div class="flex items-center gap-4">
+                            <div class="w-14 h-14 rounded-2xl bg-amber-100 flex items-center justify-center text-amber-600 flex-shrink-0 shadow-sm">
+                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                            </div>
+                            <div>
+                                <div class="flex items-center gap-3 mb-1 flex-wrap">
+                                    <h3 class="text-xl md:text-2xl font-bold text-gray-800">Unit 1 Reading Practice</h3>
+                                    <a href="https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/passage1_complete_ielts_6.5_7.5_sb_unit1.html" target="_blank" class="inline-flex items-center gap-1.5 text-amber-600 hover:text-white hover:bg-amber-600 transition-colors px-4 py-1.5 bg-amber-50 rounded-full shadow-sm border border-amber-200 text-sm font-bold" title="Open in new tab">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                                        Open in New Tab
+                                    </a>
+                                </div>
+                                <p class="text-amber-600 font-medium text-sm">Student's Book - Complete IELTS</p>
+                            </div>
+                        </div>
+                        <button onclick="toggleVisibility('ans-sb-1-read')" class="w-full md:w-auto bg-amber-50 text-amber-700 px-5 py-2.5 rounded-xl font-bold hover:bg-amber-100 transition-colors text-sm border border-amber-200 flex justify-center items-center gap-2 shrink-0 shadow-sm">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                            Show Answers
+                        </button>
+                    </div>
+
+                    <div id="ans-sb-1-read" class="hidden mb-6 bg-slate-50 border border-amber-200 rounded-2xl p-6 shrink-0 shadow-sm transition-all fade-in">
+                        <h4 class="font-bold text-amber-800 mb-4 flex items-center gap-2 border-b border-amber-100 pb-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            Teacher Reference: Answer Key
+                        </h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 text-sm text-gray-700 font-medium">
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-200 shadow-sm flex items-center"><span class="w-6 h-6 rounded-md bg-amber-100 text-amber-700 flex items-center justify-center font-bold mr-3 shrink-0">1</span> False</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-200 shadow-sm flex items-center"><span class="w-6 h-6 rounded-md bg-amber-100 text-amber-700 flex items-center justify-center font-bold mr-3 shrink-0">2</span> False</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-200 shadow-sm flex items-center"><span class="w-6 h-6 rounded-md bg-amber-100 text-amber-700 flex items-center justify-center font-bold mr-3 shrink-0">3</span> Not Given</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-200 shadow-sm flex items-center"><span class="w-6 h-6 rounded-md bg-amber-100 text-amber-700 flex items-center justify-center font-bold mr-3 shrink-0">4</span> True</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-200 shadow-sm flex items-center"><span class="w-6 h-6 rounded-md bg-amber-100 text-amber-700 flex items-center justify-center font-bold mr-3 shrink-0">5</span> Not Given</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-200 shadow-sm flex items-center"><span class="w-6 h-6 rounded-md bg-amber-100 text-amber-700 flex items-center justify-center font-bold mr-3 shrink-0">6</span> computer science</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-200 shadow-sm flex items-center"><span class="w-6 h-6 rounded-md bg-amber-100 text-amber-700 flex items-center justify-center font-bold mr-3 shrink-0">7</span> program</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-200 shadow-sm flex items-center"><span class="w-6 h-6 rounded-md bg-amber-100 text-amber-700 flex items-center justify-center font-bold mr-3 shrink-0">8</span> adaptability</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-200 shadow-sm flex items-center"><span class="w-6 h-6 rounded-md bg-amber-100 text-amber-700 flex items-center justify-center font-bold mr-3 shrink-0">9</span> contact lens</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-200 shadow-sm flex items-center"><span class="w-6 h-6 rounded-md bg-amber-100 text-amber-700 flex items-center justify-center font-bold mr-3 shrink-0">10</span> a/one quarter</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-200 shadow-sm flex items-center"><span class="w-6 h-6 rounded-md bg-amber-100 text-amber-700 flex items-center justify-center font-bold mr-3 shrink-0">11</span> global warming</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-200 shadow-sm flex items-center"><span class="w-6 h-6 rounded-md bg-amber-100 text-amber-700 flex items-center justify-center font-bold mr-3 shrink-0">12</span> electric cars</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-200 shadow-sm flex items-center lg:col-span-2"><span class="w-6 h-6 rounded-md bg-amber-100 text-amber-700 flex items-center justify-center font-bold mr-3 shrink-0">13</span> (the) corridors</div>
+                        </div>
+                    </div>
+
+                    <div class="bg-amber-50 border-l-4 border-amber-400 rounded-r-xl mb-6 flex flex-col shadow-sm">
+                        <div class="flex justify-between items-center p-4 border-b border-amber-200 shrink-0 bg-white/50">
+                            <h4 class="font-bold text-amber-800 text-lg flex items-center gap-2">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                                Vocab Exercises Check (Pink Book page 8-10)
+                            </h4>
+                            <button id="btn-sb-vocab-1" onclick="toggleInlineAnswers('sb-vocab-container-1', 'btn-sb-vocab-1')" class="bg-white text-gray-700 px-4 py-2 rounded-lg font-bold hover:bg-gray-50 transition-colors text-sm border border-gray-300 shadow-sm shrink-0">
+                                Show Answers
+                            </button>
+                        </div>
+                        <div id="sb-vocab-container-1" class="p-5 max-h-[600px] overflow-y-auto space-y-10">
+                            
+                            <!-- Exercise 1 -->
+                            <div>
+                                <h5 class="text-xl font-bold text-amber-700 mb-2">Exercise 1</h5>
+                                <p class="text-sm font-medium text-gray-600 mb-5">Match the words with the synonyms/pictures.</p>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+                                    <div class="space-y-4 font-medium text-gray-700">
+                                        <div class="flex items-center">1. <span class="font-semibold text-amber-600 mx-2">hub</span> <span class="text-gray-400">/hʌb/</span> <span class="blank-ans text-emerald-600 font-bold ml-3">→ C</span></div>
+                                        <div class="flex items-center">2. <span class="font-semibold text-amber-600 mx-2">sensor</span> <span class="text-gray-400">/ˈsensə(r)/</span> <span class="blank-ans text-emerald-600 font-bold ml-3">→ F</span></div>
+                                        <div class="flex items-center">3. <span class="font-semibold text-amber-600 mx-2">virtuoso</span> <span class="text-gray-400">/ˌvɜːtʃuˈəʊsəʊ/</span> <span class="blank-ans text-emerald-600 font-bold ml-3">→ E</span></div>
+                                        <div class="flex items-center">4. <span class="font-semibold text-amber-600 mx-2">corridor</span> <span class="text-gray-400">/ˈkɒrɪdɔːr/</span> <span class="blank-ans text-emerald-600 font-bold ml-3">→ A</span></div>
+                                        <div class="flex items-center">5. <span class="font-semibold text-amber-600 mx-2">hammer</span> <span class="text-gray-400">/ˈhæmə(r)/</span> <span class="blank-ans text-emerald-600 font-bold ml-3">→ H</span></div>
+                                        <div class="flex items-center">6. <span class="font-semibold text-amber-600 mx-2">anvil</span> <span class="text-gray-400">/ˈænvɪl/</span> <span class="blank-ans text-emerald-600 font-bold ml-3">→ D</span></div>
+                                        <div class="flex items-center">7. <span class="font-semibold text-amber-600 mx-2">cello</span> <span class="text-gray-400">/ˈtʃeləʊ/</span> <span class="blank-ans text-emerald-600 font-bold ml-3">→ G</span></div>
+                                        <div class="flex items-center">8. <span class="font-semibold text-amber-600 mx-2">contact lens</span> <span class="blank-ans text-emerald-600 font-bold ml-3">→ I</span></div>
+                                        <div class="flex items-center">9. <span class="font-semibold text-amber-600 mx-2">alternative energies</span> <span class="blank-ans text-emerald-600 font-bold ml-3">→ B</span></div>
+                                    </div>
+                                    <div class="space-y-4 text-gray-600 bg-white p-4 rounded-xl border border-amber-200">
+                                        <div class="flex gap-2">A. <span class="italic text-gray-500">[Picture: Hallway]</span></div>
+                                        <div class="flex gap-2">B. <span class="italic text-gray-500">[Picture: Wind power & Biofuel]</span></div>
+                                        <div class="flex gap-2">C. core</div>
+                                        <div class="flex gap-2">D. <span class="italic text-gray-500">[Picture: Anvil]</span></div>
+                                        <div class="flex gap-2">E. expert</div>
+                                        <div class="flex gap-2">F. <span class="italic text-gray-500">[Picture: Smartwatch with heart rate]</span></div>
+                                        <div class="flex gap-2">G. <span class="italic text-gray-500">[Picture: Person playing cello]</span></div>
+                                        <div class="flex gap-2">H. <span class="italic text-gray-500">[Picture: Hammer]</span></div>
+                                        <div class="flex gap-2">I. <span class="italic text-gray-500">[Picture: Contact lens]</span></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr class="border-amber-200">
+
+                            <!-- Exercise 2 -->
+                            <div>
+                                <h5 class="text-xl font-bold text-amber-700 mb-2">Exercise 2</h5>
+                                <p class="text-sm font-medium text-gray-600 mb-5">Match the phrases to form complete sentences.</p>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+                                    <div class="space-y-4 font-medium text-gray-700">
+                                        <div>1. A <span class="font-bold text-amber-600 italic">down-to-earth</span> person is <span class="blank-ans text-emerald-600 font-bold ml-2">→ C</span></div>
+                                        <div>2. A <span class="font-bold text-amber-600 italic">highly-motivated</span> person is <span class="blank-ans text-emerald-600 font-bold ml-2">→ D</span></div>
+                                        <div>3. Having <span class="font-bold text-amber-600 italic">hands-on</span> experience means <span class="blank-ans text-emerald-600 font-bold ml-2">→ B</span></div>
+                                        <div>4. A <span class="font-bold text-amber-600 italic">vast</span> amount of information means <span class="blank-ans text-emerald-600 font-bold ml-2">→ E</span></div>
+                                        <div>5. An <span class="font-bold text-amber-600 italic">iterative</span> process <span class="blank-ans text-emerald-600 font-bold ml-2">→ A</span></div>
+                                    </div>
+                                    <div class="space-y-4 text-gray-600 bg-white p-4 rounded-xl border border-amber-200">
+                                        <div class="flex gap-2"><span class="font-bold text-gray-400">A.</span> repeats again and again.</div>
+                                        <div class="flex gap-2"><span class="font-bold text-gray-400">B.</span> having done it rather than just read or learned it.</div>
+                                        <div class="flex gap-2"><span class="font-bold text-gray-400">C.</span> practical, and friendly.</div>
+                                        <div class="flex gap-2"><span class="font-bold text-gray-400">D.</span> enthusiastic, especially about striving toward a goal.</div>
+                                        <div class="flex gap-2"><span class="font-bold text-gray-400">E.</span> a lot of information.</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr class="border-amber-200">
+
+                            <!-- Exercise 3 -->
+                            <div>
+                                <h5 class="text-xl font-bold text-amber-700 mb-2">Exercise 3</h5>
+                                <p class="text-sm font-medium text-gray-600 mb-4">Decide whether the following sentences are correct or incorrect.</p>
+                                <div class="space-y-3 text-sm font-medium text-gray-700">
+                                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center bg-white p-4 rounded-xl border border-gray-200 shadow-sm gap-2">
+                                        <span>1. <span class="font-bold text-amber-600 italic">Take something for granted</span> means you believe it will always be available.</span>
+                                        <span class="blank-ans text-emerald-600 font-bold px-3 py-1 bg-emerald-50 rounded-lg border border-emerald-200 text-center">CORRECT</span>
+                                    </div>
+                                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center bg-white p-4 rounded-xl border border-gray-200 shadow-sm gap-2">
+                                        <span>2. If something is <span class="font-bold text-amber-600 italic">at a premium</span>, it is not common and therefore valuable.</span>
+                                        <span class="blank-ans text-emerald-600 font-bold px-3 py-1 bg-emerald-50 rounded-lg border border-emerald-200 text-center">CORRECT</span>
+                                    </div>
+                                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center bg-white p-4 rounded-xl border border-gray-200 shadow-sm gap-2">
+                                        <span>3. When you <span class="font-bold text-amber-600 italic">bump into</span> your ex-boyfriend, you plan to meet him.</span>
+                                        <span class="blank-ans text-red-600 font-bold px-3 py-1 bg-red-50 rounded-lg border border-red-200 text-center">INCORRECT</span>
+                                    </div>
+                                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center bg-white p-4 rounded-xl border border-gray-200 shadow-sm gap-2">
+                                        <span>4. <span class="font-bold text-amber-600 italic">Forge ahead</span> with something means making a lot of progress with it.</span>
+                                        <span class="blank-ans text-emerald-600 font-bold px-3 py-1 bg-emerald-50 rounded-lg border border-emerald-200 text-center">CORRECT</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr class="border-amber-200">
+
+                            <!-- Exercise 4 -->
+                            <div>
+                                <h5 class="text-xl font-bold text-amber-700 mb-2">Exercise 4</h5>
+                                <p class="text-sm font-medium text-gray-600 mb-5">Fill in each blank with the suitable form of one <strong>verb</strong> from the list below.</p>
+                                
+                                <div class="flex flex-wrap gap-4 bg-white p-5 rounded-2xl border border-amber-200 justify-center mb-6 shadow-sm">
+                                    <div class="text-center"><span class="font-bold text-amber-700 text-base block">suffuse</span> <span class="text-xs text-gray-400">/səˈfjuːz/</span></div>
+                                    <div class="text-gray-300 mx-1">•</div>
+                                    <div class="text-center"><span class="font-bold text-amber-700 text-base block">conquer</span> <span class="text-xs text-gray-400">/ˈkɒŋkə(r)/</span></div>
+                                    <div class="text-gray-300 mx-1">•</div>
+                                    <div class="text-center"><span class="font-bold text-amber-700 text-base block">leap</span> <span class="text-xs text-gray-400">/liːp/</span></div>
+                                    <div class="text-gray-300 mx-1">•</div>
+                                    <div class="text-center"><span class="font-bold text-amber-700 text-base block">augment</span> <span class="text-xs text-gray-400">/ɔːɡˈment/</span></div>
+                                    <div class="text-gray-300 mx-1">•</div>
+                                    <div class="text-center"><span class="font-bold text-amber-700 text-base block">found</span> <span class="text-xs text-gray-400">/faʊnd/</span></div>
+                                    <div class="text-gray-300 mx-1">•</div>
+                                    <div class="text-center"><span class="font-bold text-amber-700 text-base block">unleash</span> <span class="text-xs text-gray-400">/ʌnˈliːʃ/</span></div>
+                                    <div class="text-gray-300 mx-1">•</div>
+                                    <div class="text-center"><span class="font-bold text-amber-700 text-base block">enshrine</span> <span class="text-xs text-gray-400">/ɪnˈʃraɪn/</span></div>
+                                    <div class="text-gray-300 mx-1">•</div>
+                                    <div class="text-center"><span class="font-bold text-amber-700 text-base block">channel</span> <span class="text-xs text-gray-400">/ˈtʃænl/</span></div>
+                                </div>
+
+                                <div class="space-y-4 text-sm text-gray-700 font-medium">
+                                    <p class="leading-relaxed">1. Mount Everest was <span class="blank-dots text-gray-400">........................</span><span class="blank-ans text-emerald-600 font-bold underline px-1">conquered</span> (= successfully climbed) in 1953.</p>
+                                    <p class="leading-relaxed">2. He wrote magazine articles in order to <span class="blank-dots text-gray-400">........................</span><span class="blank-ans text-emerald-600 font-bold underline px-1">augment</span> (= increase) his income.</p>
+                                    <p class="leading-relaxed">3. He <span class="blank-dots text-gray-400">........................</span><span class="blank-ans text-emerald-600 font-bold underline px-1">leapt / leaped</span> (= moved suddenly) out of his car and ran towards the house.</p>
+                                    <p class="leading-relaxed">4. There was a tremendous spirit of cooperation and encouragement that <span class="blank-dots text-gray-400">........................</span><span class="blank-ans text-emerald-600 font-bold underline px-1">suffused</span> (= spread all over) the movement.</p>
+                                    <p class="leading-relaxed">5. The town was <span class="blank-dots text-gray-400">........................</span><span class="blank-ans text-emerald-600 font-bold underline px-1">founded</span> (= established) by English settlers in 1790.</p>
+                                    <p class="leading-relaxed">6. These rights are <span class="blank-dots text-gray-400">........................</span><span class="blank-ans text-emerald-600 font-bold underline px-1">enshrined</span> (officially stated) in the country's constitution.</p>
+                                    <p class="leading-relaxed">7. Fans had been waiting for months to <span class="blank-dots text-gray-400">........................</span><span class="blank-ans text-emerald-600 font-bold underline px-1">unleash</span> (= suddenly release) their anger.</p>
+                                    <p class="leading-relaxed">8. A lot of money has been <span class="blank-dots text-gray-400">........................</span><span class="blank-ans text-emerald-600 font-bold underline px-1">channelled</span> (= directed) into research in that particular field.</p>
+                                </div>
+                            </div>
+
+                            <hr class="border-amber-200">
+
+                            <!-- Exercise 5 -->
+                            <div>
+                                <h5 class="text-xl font-bold text-amber-700 mb-2">Exercise 5</h5>
+                                <p class="text-sm font-medium text-gray-600 mb-5">Fill in each blank with the suitable <strong>noun</strong> from the list below.</p>
+                                
+                                <div class="flex flex-wrap gap-4 bg-white p-5 rounded-2xl border border-amber-200 justify-center mb-6 shadow-sm">
+                                    <div class="text-center"><span class="font-bold text-amber-700 text-base block">intellect</span> <span class="text-xs text-gray-400">/ˈɪntəlekt/</span></div>
+                                    <div class="text-gray-300 mx-1">•</div>
+                                    <div class="text-center"><span class="font-bold text-amber-700 text-base block">craftsmanship</span></div>
+                                    <div class="text-gray-300 mx-1">•</div>
+                                    <div class="text-center"><span class="font-bold text-amber-700 text-base block">symbiosis</span> <span class="text-xs text-gray-400">/ˌsɪmbaɪˈəʊsɪs/</span></div>
+                                    <div class="text-gray-300 mx-1">•</div>
+                                    <div class="text-center"><span class="font-bold text-amber-700 text-base block">alumni</span> <span class="text-xs text-gray-400">/əˈlʌmnaɪ/</span></div>
+                                    <div class="text-gray-300 mx-1">•</div>
+                                    <div class="text-center"><span class="font-bold text-amber-700 text-base block">discipline</span> <span class="text-xs text-gray-400">/ˈdɪsəplɪn/</span></div>
+                                </div>
+
+                                <div class="space-y-4 text-sm text-gray-700 font-medium">
+                                    <p class="leading-relaxed">1. She was a brilliant scholar with a formidable <span class="blank-dots text-gray-400">........................</span><span class="blank-ans text-emerald-600 font-bold underline px-1">intellect</span> (intelligence).</p>
+                                    <p class="leading-relaxed">2. The day's last event was a/an <span class="blank-dots text-gray-400">........................</span><span class="blank-ans text-emerald-600 font-bold underline px-1">alumni</span> reunion (for former students).</p>
+                                    <p class="leading-relaxed">3. <span class="blank-dots text-gray-400">........................</span><span class="blank-ans text-emerald-600 font-bold underline px-1">Symbiosis</span> refers to a relationship of mutual benefit.</p>
+                                    <p class="leading-relaxed">4. The university offers a wide range of <span class="blank-dots text-gray-400">........................</span><span class="blank-ans text-emerald-600 font-bold underline px-1">disciplines</span> (fields of study).</p>
+                                    <p class="leading-relaxed">5. The company has won high praise for the fine materials it uses, and the superb <span class="blank-dots text-gray-400">........................</span><span class="blank-ans text-emerald-600 font-bold underline px-1">craftsmanship</span> of its products.</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="w-full rounded-2xl overflow-hidden border border-gray-200 shadow-inner bg-gray-50 relative h-[800px]">
+                        <iframe src="https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/passage1_complete_ielts_6.5_7.5_sb_unit1.html" class="absolute inset-0 w-full h-full border-0" title="Reading Practice"></iframe>
+                    </div>
+                </div>
+            `
+        },
+        {
+            id: 'reading_unit1_wb',
+            type: 'Reading',
+            themeClass: 'bg-gradient-to-r from-orange-400 to-red-500',
+            iconColor: 'text-orange-500',
+            bgColor: 'bg-orange-50',
+            title: '2. Reading Unit 1 WB',
+            content: `
+                <div class="fade-in bg-white rounded-3xl shadow-xl border border-orange-50 p-5 md:p-6 flex flex-col">
+                    <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-6 border-b border-gray-100 pb-5 shrink-0">
+                        <div class="flex items-center gap-4">
+                            <div class="w-14 h-14 rounded-2xl bg-orange-100 flex items-center justify-center text-orange-600 flex-shrink-0 shadow-sm">
+                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                            </div>
+                            <div>
+                                <div class="flex items-center gap-3 mb-1 flex-wrap">
+                                    <h3 class="text-xl md:text-2xl font-bold text-gray-800">Unit 1 Reading Practice</h3>
+                                    <a href="https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/passage1_complete_ielts_6.5_7.5_wb_unit1.html" target="_blank" class="inline-flex items-center gap-1.5 text-orange-600 hover:text-white hover:bg-orange-600 transition-colors px-4 py-1.5 bg-orange-50 rounded-full shadow-sm border border-orange-200 text-sm font-bold" title="Open in new tab">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                                        Open in New Tab
+                                    </a>
+                                </div>
+                                <p class="text-orange-600 font-medium text-sm">Workbook - Complete IELTS</p>
+                            </div>
+                        </div>
+                        <button onclick="toggleVisibility('ans-wb-1-read')" class="w-full md:w-auto bg-orange-50 text-orange-700 px-5 py-2.5 rounded-xl font-bold hover:bg-orange-100 transition-colors text-sm border border-orange-200 flex justify-center items-center gap-2 shrink-0 shadow-sm">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                            Show Answers
+                        </button>
+                    </div>
+
+                    <div id="ans-wb-1-read" class="hidden mb-6 bg-slate-50 border border-orange-200 rounded-2xl p-6 shrink-0 shadow-sm transition-all fade-in">
+                        <h4 class="font-bold text-orange-800 mb-4 flex items-center gap-2 border-b border-orange-100 pb-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            Teacher Reference: Answer Key
+                        </h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 text-sm text-gray-700 font-medium">
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-200 shadow-sm flex items-center"><span class="w-6 h-6 rounded-md bg-orange-100 text-orange-700 flex items-center justify-center font-bold mr-3 shrink-0">1</span> Not Given</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-200 shadow-sm flex items-center"><span class="w-6 h-6 rounded-md bg-orange-100 text-orange-700 flex items-center justify-center font-bold mr-3 shrink-0">2</span> True</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-200 shadow-sm flex items-center"><span class="w-6 h-6 rounded-md bg-orange-100 text-orange-700 flex items-center justify-center font-bold mr-3 shrink-0">3</span> Not Given</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-200 shadow-sm flex items-center"><span class="w-6 h-6 rounded-md bg-orange-100 text-orange-700 flex items-center justify-center font-bold mr-3 shrink-0">4</span> False</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-200 shadow-sm flex items-center"><span class="w-6 h-6 rounded-md bg-orange-100 text-orange-700 flex items-center justify-center font-bold mr-3 shrink-0">5</span> True</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-200 shadow-sm flex items-center"><span class="w-6 h-6 rounded-md bg-orange-100 text-orange-700 flex items-center justify-center font-bold mr-3 shrink-0">6</span> voluntary work</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-200 shadow-sm flex items-center"><span class="w-6 h-6 rounded-md bg-orange-100 text-orange-700 flex items-center justify-center font-bold mr-3 shrink-0">7</span> confidence</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-200 shadow-sm flex items-center"><span class="w-6 h-6 rounded-md bg-orange-100 text-orange-700 flex items-center justify-center font-bold mr-3 shrink-0">8</span> education</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-200 shadow-sm flex items-center"><span class="w-6 h-6 rounded-md bg-orange-100 text-orange-700 flex items-center justify-center font-bold mr-3 shrink-0">9</span> International Development</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-200 shadow-sm flex items-center"><span class="w-6 h-6 rounded-md bg-orange-100 text-orange-700 flex items-center justify-center font-bold mr-3 shrink-0">10</span> working abroad</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-200 shadow-sm flex items-center"><span class="w-6 h-6 rounded-md bg-orange-100 text-orange-700 flex items-center justify-center font-bold mr-3 shrink-0">11</span> (A) focus</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-200 shadow-sm flex items-center"><span class="w-6 h-6 rounded-md bg-orange-100 text-orange-700 flex items-center justify-center font-bold mr-3 shrink-0">12</span> Young girls</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-200 shadow-sm flex items-center"><span class="w-6 h-6 rounded-md bg-orange-100 text-orange-700 flex items-center justify-center font-bold mr-3 shrink-0">13</span> Goals</div>
+                        </div>
+                    </div>
+
+                    <div class="bg-orange-50 border-l-4 border-orange-400 rounded-r-xl mb-6 flex flex-col shadow-sm">
+                        <div class="flex justify-between items-center p-4 border-b border-orange-200 shrink-0 bg-white/50">
+                            <h4 class="font-bold text-orange-800 text-lg flex items-center gap-2">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                                Vocab Exercises Check (Pink Book page 11)
+                            </h4>
+                            <button id="btn-wb-vocab-1" onclick="toggleInlineAnswers('wb-vocab-container-1', 'btn-wb-vocab-1')" class="bg-white text-gray-700 px-4 py-2 rounded-lg font-bold hover:bg-gray-50 transition-colors text-sm border border-gray-300 shadow-sm shrink-0">
+                                Show Answers
+                            </button>
+                        </div>
+                        <div id="wb-vocab-container-1" class="p-5 max-h-[600px] overflow-y-auto space-y-10">
+                            
+                            <!-- Exercise 1 -->
+                            <div>
+                                <h5 class="text-xl font-bold text-orange-700 mb-2">Exercise 1</h5>
+                                <p class="text-sm font-medium text-gray-600 mb-5">Match the words with the meanings.</p>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+                                    <div class="space-y-4 font-medium text-gray-700">
+                                        <div class="font-bold text-gray-800 border-b border-gray-200 pb-1 mb-2">Adjectives</div>
+                                        <div class="flex items-center">1. <span class="font-semibold text-orange-600 mx-2">irresistible</span> <span class="text-gray-400">/ˌɪrɪˈzɪstəbl/</span> <span class="blank-ans text-emerald-600 font-bold ml-3">→ C</span></div>
+                                        <div class="flex items-center">2. <span class="font-semibold text-orange-600 mx-2">lapsed</span> <span class="text-gray-400">/læpst/</span> <span class="blank-ans text-emerald-600 font-bold ml-3">→ A</span></div>
+                                        <div class="flex items-center">3. <span class="font-semibold text-orange-600 mx-2">ironic</span> <span class="text-gray-400">/aɪˈrɒnɪk/</span> <span class="blank-ans text-emerald-600 font-bold ml-3">→ B</span></div>
+                                        
+                                        <div class="font-bold text-gray-800 border-b border-gray-200 pb-1 mt-4 mb-2">Verbs</div>
+                                        <div class="flex items-center">4. <span class="font-semibold text-orange-600 mx-2">reinvigorate</span> <span class="text-gray-400">/ˌriːɪnˈvɪɡəreɪt/</span> <span class="blank-ans text-emerald-600 font-bold ml-3">→ G</span></div>
+                                        <div class="flex items-center">5. <span class="font-semibold text-orange-600 mx-2">streamline something</span> <span class="blank-ans text-emerald-600 font-bold ml-3">→ F</span></div>
+                                        <div class="flex items-center">6. <span class="font-semibold text-orange-600 mx-2">flag</span> <span class="text-gray-400">/flæɡ/</span> <span class="blank-ans text-emerald-600 font-bold ml-3">→ D</span></div>
+                                        <div class="flex items-center">7. <span class="font-semibold text-orange-600 mx-2">supplement</span> <span class="text-gray-400">/ˈsʌp.lɪ.ment/</span> <span class="blank-ans text-emerald-600 font-bold ml-3">→ E</span></div>
+                                    </div>
+                                    <div class="space-y-4 text-gray-600 bg-white p-4 rounded-xl border border-orange-200">
+                                        <div class="flex gap-2"><span class="font-bold text-gray-400">A.</span> no longer valid</div>
+                                        <div class="flex gap-2"><span class="font-bold text-gray-400">B.</span> expressing the opposite</div>
+                                        <div class="flex gap-2"><span class="font-bold text-gray-400">C.</span> so attractive that you feel you must have it</div>
+                                        <div class="flex gap-2"><span class="font-bold text-gray-400">D.</span> become less enthusiastic</div>
+                                        <div class="flex gap-2"><span class="font-bold text-gray-400">E.</span> add something to something else to improve it</div>
+                                        <div class="flex gap-2"><span class="font-bold text-gray-400">F.</span> make a system/organization work better</div>
+                                        <div class="flex gap-2"><span class="font-bold text-gray-400">G.</span> give new energy to something/somebody</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr class="border-orange-200">
+
+                            <!-- Exercise 2 -->
+                            <div>
+                                <h5 class="text-xl font-bold text-orange-700 mb-2">Exercise 2</h5>
+                                <p class="text-sm font-medium text-gray-600 mb-5">Fill in each blank with one suitable <strong>phrasal verb</strong> from the list below.</p>
+                                
+                                <div class="flex flex-wrap gap-4 bg-white p-5 rounded-2xl border border-orange-200 justify-center mb-6 shadow-sm">
+                                    <div class="text-center"><span class="font-bold text-orange-700 text-base block">take something/somebody on</span></div>
+                                    <div class="text-gray-300 mx-1">•</div>
+                                    <div class="text-center"><span class="font-bold text-orange-700 text-base block">head back</span></div>
+                                    <div class="text-gray-300 mx-1">•</div>
+                                    <div class="text-center"><span class="font-bold text-orange-700 text-base block">drop out</span></div>
+                                    <div class="text-gray-300 mx-1">•</div>
+                                    <div class="text-center"><span class="font-bold text-orange-700 text-base block">dawn on</span></div>
+                                </div>
+
+                                <div class="space-y-4 text-sm text-gray-700 font-medium">
+                                    <p class="leading-relaxed">1. I was about to pay for the shopping when it suddenly <span class="blank-dots text-gray-400">........................</span><span class="blank-ans text-emerald-600 font-bold underline px-1">dawned on</span> me (= I suddenly realized) that I'd left my wallet at home.</p>
+                                    <p class="leading-relaxed">2. She started a degree but <span class="blank-dots text-gray-400">........................</span><span class="blank-ans text-emerald-600 font-bold underline px-1">dropped out</span> (= quit) after only a year.</p>
+                                    <p class="leading-relaxed">3. I walked to the end of the street and then <span class="blank-dots text-gray-400">........................</span><span class="blank-ans text-emerald-600 font-bold underline px-1">headed back</span> home. This is far enough.</p>
+                                    <p class="leading-relaxed">4. In order to supplement my income, I <span class="blank-dots text-gray-400">........................</span><span class="blank-ans text-emerald-600 font-bold underline px-1">took on / take on</span> a part-time job at a nearby restaurant in the evening.</p>
+                                </div>
+                            </div>
+
+                            <hr class="border-orange-200">
+
+                            <!-- Exercise 3 -->
+                            <div>
+                                <h5 class="text-xl font-bold text-orange-700 mb-2">Exercise 3</h5>
+                                <p class="text-sm font-medium text-gray-600 mb-4">Decide whether the following sentences are correct or incorrect.</p>
+                                <div class="space-y-3 text-sm font-medium text-gray-700">
+                                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center bg-white p-4 rounded-xl border border-gray-200 shadow-sm gap-2">
+                                        <span>1. Stepping <span class="font-bold text-orange-600 italic">out of comfort zone</span> means playing it safe.</span>
+                                        <span class="blank-ans text-red-600 font-bold px-3 py-1 bg-red-50 rounded-lg border border-red-200 text-center">INCORRECT</span>
+                                    </div>
+                                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center bg-white p-4 rounded-xl border border-gray-200 shadow-sm gap-2">
+                                        <span>2. Being <span class="font-bold text-orange-600 italic">under the auspices</span> <span class="text-gray-400 font-normal">/ˈɔːspɪsɪz/</span> of somebody/something means receiving help/support/protection.</span>
+                                        <span class="blank-ans text-emerald-600 font-bold px-3 py-1 bg-emerald-50 rounded-lg border border-emerald-200 text-center">CORRECT</span>
+                                    </div>
+                                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center bg-white p-4 rounded-xl border border-gray-200 shadow-sm gap-2">
+                                        <span>3. An <span class="font-bold text-orange-600 italic">attribute</span> is a quality/feature of somebody/something.</span>
+                                        <span class="blank-ans text-emerald-600 font-bold px-3 py-1 bg-emerald-50 rounded-lg border border-emerald-200 text-center">CORRECT</span>
+                                    </div>
+                                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center bg-white p-4 rounded-xl border border-gray-200 shadow-sm gap-2">
+                                        <span>4. <span class="font-bold text-orange-600 italic">Vocational training</span> provides knowledge, skills to do a job.</span>
+                                        <span class="blank-ans text-emerald-600 font-bold px-3 py-1 bg-emerald-50 rounded-lg border border-emerald-200 text-center">CORRECT</span>
+                                    </div>
+                                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center bg-white p-4 rounded-xl border border-gray-200 shadow-sm gap-2">
+                                        <span>5. Being on a <span class="font-bold text-orange-600 italic">work placement</span> means doing an internship.</span>
+                                        <span class="blank-ans text-emerald-600 font-bold px-3 py-1 bg-emerald-50 rounded-lg border border-emerald-200 text-center">CORRECT</span>
+                                    </div>
+                                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center bg-white p-4 rounded-xl border border-gray-200 shadow-sm gap-2">
+                                        <span>6. An <span class="font-bold text-orange-600 italic">ambassador</span> represents or promotes a particular activity.</span>
+                                        <span class="blank-ans text-emerald-600 font-bold px-3 py-1 bg-emerald-50 rounded-lg border border-emerald-200 text-center">CORRECT</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="w-full rounded-2xl overflow-hidden border border-gray-200 shadow-inner bg-gray-50 relative h-[800px]">
+                        <iframe src="https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/passage1_complete_ielts_6.5_7.5_wb_unit1.html" class="absolute inset-0 w-full h-full border-0" title="Reading Practice Workbook"></iframe>
+                    </div>
+                </div>
+            `
+        },
+        {
+            id: 'listening_unit1_sb',
+            type: 'Listening',
+            themeClass: 'bg-gradient-to-r from-yellow-400 to-amber-500',
+            iconColor: 'text-yellow-500',
+            bgColor: 'bg-yellow-50',
+            title: '3. Listening Unit 1 SB',
+            content: `
+                <div class="fade-in bg-white rounded-3xl shadow-xl border border-yellow-50 p-5 md:p-6 flex flex-col">
+                    <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-6 border-b border-gray-100 pb-5 shrink-0">
+                        <div class="flex items-center gap-4">
+                            <div class="w-14 h-14 rounded-2xl bg-yellow-100 flex items-center justify-center text-yellow-600 flex-shrink-0 shadow-sm">
+                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+                            </div>
+                            <div>
+                                <div class="flex items-center gap-3 mb-1 flex-wrap">
+                                    <h3 class="text-xl md:text-2xl font-bold text-gray-800">Unit 1 Listening Practice</h3>
+                                    <a href="https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/section1_complete_ielts_6.5_7.5_sb_unit1.html" target="_blank" class="inline-flex items-center gap-1.5 text-yellow-600 hover:text-white hover:bg-yellow-600 transition-colors px-4 py-1.5 bg-yellow-50 rounded-full shadow-sm border border-yellow-200 text-sm font-bold" title="Open in new tab">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                                        Open in New Tab
+                                    </a>
+                                </div>
+                                <p class="text-yellow-600 font-medium text-sm">Student's Book - Complete IELTS</p>
+                            </div>
+                        </div>
+                        <button onclick="toggleVisibility('ans-sb-1-lis')" class="w-full md:w-auto bg-yellow-50 text-yellow-700 px-5 py-2.5 rounded-xl font-bold hover:bg-yellow-100 transition-colors text-sm border border-yellow-200 flex justify-center items-center gap-2 shrink-0 shadow-sm">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                            Show Answers
+                        </button>
+                    </div>
+
+                    <div id="ans-sb-1-lis" class="hidden mb-6 bg-slate-50 border border-yellow-200 rounded-2xl p-6 shrink-0 shadow-sm transition-all fade-in">
+                        <h4 class="font-bold text-yellow-800 mb-4 flex items-center gap-2 border-b border-yellow-100 pb-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            Teacher Reference: Answer Key
+                        </h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 text-sm text-gray-700 font-medium">
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-200 shadow-sm flex items-center"><span class="w-6 h-6 rounded-md bg-yellow-100 text-yellow-700 flex items-center justify-center font-bold mr-3 shrink-0">1</span> Alexandrovna</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-200 shadow-sm flex items-center"><span class="w-6 h-6 rounded-md bg-yellow-100 text-yellow-700 flex items-center justify-center font-bold mr-3 shrink-0">2</span> (She is) Russian</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-200 shadow-sm flex items-center"><span class="w-6 h-6 rounded-md bg-yellow-100 text-yellow-700 flex items-center justify-center font-bold mr-3 shrink-0">3</span> dom54</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-200 shadow-sm flex items-center"><span class="w-6 h-6 rounded-md bg-yellow-100 text-yellow-700 flex items-center justify-center font-bold mr-3 shrink-0">4</span> (a) full-time</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-200 shadow-sm flex items-center"><span class="w-6 h-6 rounded-md bg-yellow-100 text-yellow-700 flex items-center justify-center font-bold mr-3 shrink-0">5</span> 21 July/ 21/7 / 7/21</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-200 shadow-sm flex items-center"><span class="w-6 h-6 rounded-md bg-yellow-100 text-yellow-700 flex items-center justify-center font-bold mr-3 shrink-0">6</span> competition</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-200 shadow-sm flex items-center lg:col-span-2"><span class="w-6 h-6 rounded-md bg-yellow-100 text-yellow-700 flex items-center justify-center font-bold mr-3 shrink-0">7</span> cooking/cookery; swimming</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-200 shadow-sm flex items-center"><span class="w-6 h-6 rounded-md bg-yellow-100 text-yellow-700 flex items-center justify-center font-bold mr-3 shrink-0">8</span> children's tutor</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-200 shadow-sm flex items-center"><span class="w-6 h-6 rounded-md bg-yellow-100 text-yellow-700 flex items-center justify-center font-bold mr-3 shrink-0">9</span> project manager</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-200 shadow-sm flex items-center"><span class="w-6 h-6 rounded-md bg-yellow-100 text-yellow-700 flex items-center justify-center font-bold mr-3 shrink-0">10</span> (a) friend</div>
+                        </div>
+                    </div>
+
+                    <div class="w-full rounded-2xl overflow-hidden border border-gray-200 shadow-inner bg-gray-50 relative h-[800px]">
+                        <iframe src="https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/section1_complete_ielts_6.5_7.5_sb_unit1.html" class="absolute inset-0 w-full h-full border-0" title="Listening Practice"></iframe>
+                    </div>
+                </div>
+            `
+        },
+        {
+            id: 'listening_unit1_wb',
+            type: 'Listening',
+            themeClass: 'bg-gradient-to-r from-red-400 to-rose-500',
+            iconColor: 'text-red-500',
+            bgColor: 'bg-red-50',
+            title: '4. Listening Unit 1 WB',
+            content: `
+                <div class="fade-in bg-white rounded-3xl shadow-xl border border-red-50 p-5 md:p-6 flex flex-col">
+                    <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-6 border-b border-gray-100 pb-5 shrink-0">
+                        <div class="flex items-center gap-4">
+                            <div class="w-14 h-14 rounded-2xl bg-red-100 flex items-center justify-center text-red-600 flex-shrink-0 shadow-sm">
+                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+                            </div>
+                            <div>
+                                <div class="flex items-center gap-3 mb-1 flex-wrap">
+                                    <h3 class="text-xl md:text-2xl font-bold text-gray-800">Unit 1 Listening Practice</h3>
+                                    <a href="https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/section1_complete_ielts_6.5_7.5_wb_unit1.html" target="_blank" class="inline-flex items-center gap-1.5 text-red-600 hover:text-white hover:bg-red-600 transition-colors px-4 py-1.5 bg-red-50 rounded-full shadow-sm border border-red-200 text-sm font-bold" title="Open in new tab">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                                        Open in New Tab
+                                    </a>
+                                </div>
+                                <p class="text-red-600 font-medium text-sm">Workbook - Complete IELTS</p>
+                            </div>
+                        </div>
+                        <button onclick="toggleVisibility('ans-wb-1-lis')" class="w-full md:w-auto bg-red-50 text-red-700 px-5 py-2.5 rounded-xl font-bold hover:bg-red-100 transition-colors text-sm border border-red-200 flex justify-center items-center gap-2 shrink-0 shadow-sm">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                            Show Answers
+                        </button>
+                    </div>
+
+                    <div id="ans-wb-1-lis" class="hidden mb-6 bg-slate-50 border border-red-200 rounded-2xl p-6 shrink-0 shadow-sm transition-all fade-in">
+                        <h4 class="font-bold text-red-800 mb-4 flex items-center gap-2 border-b border-red-100 pb-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            Teacher Reference: Answer Key
+                        </h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 text-sm text-gray-700 font-medium">
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-200 shadow-sm flex items-center"><span class="w-6 h-6 rounded-md bg-red-100 text-red-700 flex items-center justify-center font-bold mr-3 shrink-0">1</span> Philippa Tailor</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-200 shadow-sm flex items-center"><span class="w-6 h-6 rounded-md bg-red-100 text-red-700 flex items-center justify-center font-bold mr-3 shrink-0">2</span> Third / 3rd year</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-200 shadow-sm flex items-center"><span class="w-6 h-6 rounded-md bg-red-100 text-red-700 flex items-center justify-center font-bold mr-3 shrink-0">3</span> Social Care Studies</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-200 shadow-sm flex items-center"><span class="w-6 h-6 rounded-md bg-red-100 text-red-700 flex items-center justify-center font-bold mr-3 shrink-0">4</span> 0878 643 9884</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-200 shadow-sm flex items-center"><span class="w-6 h-6 rounded-md bg-red-100 text-red-700 flex items-center justify-center font-bold mr-3 shrink-0">5</span> flipt14</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-200 shadow-sm flex items-center"><span class="w-6 h-6 rounded-md bg-red-100 text-red-700 flex items-center justify-center font-bold mr-3 shrink-0">6</span> three evenings</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-200 shadow-sm flex items-center lg:col-span-2"><span class="w-6 h-6 rounded-md bg-red-100 text-red-700 flex items-center justify-center font-bold mr-3 shrink-0">7</span> (some) work experience</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-200 shadow-sm flex items-center"><span class="w-6 h-6 rounded-md bg-red-100 text-red-700 flex items-center justify-center font-bold mr-3 shrink-0">8</span> learning difficulties</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-200 shadow-sm flex items-center"><span class="w-6 h-6 rounded-md bg-red-100 text-red-700 flex items-center justify-center font-bold mr-3 shrink-0">9</span> summer camp</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-200 shadow-sm flex items-center lg:col-span-2"><span class="w-6 h-6 rounded-md bg-red-100 text-red-700 flex items-center justify-center font-bold mr-3 shrink-0">10</span> challenging but rewarding</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-200 shadow-sm flex items-center"><span class="w-6 h-6 rounded-md bg-red-100 text-red-700 flex items-center justify-center font-bold mr-3 shrink-0">11</span> communication skills</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-200 shadow-sm flex items-center"><span class="w-6 h-6 rounded-md bg-red-100 text-red-700 flex items-center justify-center font-bold mr-3 shrink-0">12</span> Appointment</div>
+                        </div>
+                    </div>
+
+                    <div class="w-full rounded-2xl overflow-hidden border border-gray-200 shadow-inner bg-gray-50 relative h-[800px]">
+                        <iframe src="https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/section1_complete_ielts_6.5_7.5_wb_unit1.html" class="absolute inset-0 w-full h-full border-0" title="Listening Practice Workbook"></iframe>
+                    </div>
+                </div>
+            `
+        }
+    ];
+
+    // Navigation and Logic Handlers
+    let currentIndex = 0;
+
+    const headerEl = document.getElementById('app-header');
+    const titleEl = document.getElementById('slide-title');
+    const containerEl = document.getElementById('content-container');
+    const prevBtn = document.getElementById('btn-prev');
+    const nextBtn = document.getElementById('btn-next');
+    const indicatorEl = document.getElementById('step-indicator');
+    const progressBarEl = document.getElementById('progress-bar');
+    const navDropdown = document.getElementById('nav-dropdown');
+    const navMenuList = document.getElementById('nav-menu-list');
+
+    window.addEventListener('DOMContentLoaded', () => {
+        populateNavMenu();
+        
+        // Toggle menu
+        document.getElementById('nav-toggle-btn').addEventListener('click', (e) => {
+            e.stopPropagation();
+            navDropdown.classList.toggle('hidden');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navDropdown.contains(e.target) && !document.getElementById('nav-toggle-btn').contains(e.target)) {
+                navDropdown.classList.add('hidden');
+            }
+        });
+
+        // Navigation handlers
+        if(prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                if (currentIndex > 0) renderSlide(--currentIndex);
+            });
+        }
+
+        if(nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                if (currentIndex < sessionData.length - 1) {
+                    renderSlide(++currentIndex);
+                } else {
+                    alert("Lesson 03 Completed! Excellent work today.");
+                }
+            });
+        }
+
+        renderSlide(0);
+    });
+
+    function populateNavMenu() {
+        if(!navMenuList) return;
+        navMenuList.innerHTML = sessionData.map((data, index) => `
+            <button onclick="goToSlide(${index})" class="nav-item-btn w-full text-left p-3 mb-1 rounded-xl hover:bg-white transition-all flex items-center gap-3 border border-transparent shadow-sm">
+                <div class="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 text-sm font-bold text-white shadow-sm ${data.themeClass || ''}">
+                    ${index + 1}
+                </div>
+                <div>
+                    <div class="text-sm font-bold text-gray-800 leading-tight">${data.title ? data.title.substring(3) : 'Section ' + (index + 1)}</div>
+                    <div class="text-[10px] font-bold uppercase tracking-wider ${data.iconColor || ''}">${data.type || 'Lesson'}</div>
+                </div>
+            </button>
+        `).join('');
+    }
+
+    window.goToSlide = function(index) {
+        currentIndex = index;
+        renderSlide(currentIndex);
+        if(navDropdown) navDropdown.classList.add('hidden');
+    };
+
+    function renderSlide(index) {
+        const data = sessionData[index];
+        if(!headerEl || !titleEl || !containerEl) return;
+        
+        // Update header classes and content dynamically based on section theme
+        headerEl.className = `text-white p-4 shadow-lg transition-colors duration-700 z-20 relative ${data.themeClass}`;
+        titleEl.textContent = data.title;
+        
+        // Update progress
+        const progressPercent = ((index + 1) / sessionData.length) * 100;
+        if(progressBarEl) progressBarEl.style.width = `${progressPercent}%`;
+        if(indicatorEl) indicatorEl.textContent = `Section ${index + 1} of ${sessionData.length}`;
+
+        // Highlight Nav menu
+        document.querySelectorAll('.nav-item-btn').forEach((btn, i) => {
+            if (i === index) {
+                btn.classList.add('bg-white', 'border-amber-200', 'shadow-md');
+                btn.classList.remove('border-transparent', 'shadow-sm');
+            } else {
+                btn.classList.remove('bg-white', 'border-amber-200', 'shadow-md');
+                btn.classList.add('border-transparent', 'shadow-sm');
+            }
+        });
+
+        // Inject content
+        containerEl.innerHTML = ''; 
+        setTimeout(() => {
+            containerEl.innerHTML = data.content;
+        }, 10);
+
+        // Update buttons
+        if(prevBtn) prevBtn.disabled = index === 0;
+        if(nextBtn) nextBtn.innerHTML = index === sessionData.length - 1 ? 
+            'Finish Lesson <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>' : 
+            'Next Section <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>';
+    }
+
+    // Toggle logic for inline answers and panels
+    window.toggleInlineAnswers = function(containerId, btnId) {
+        const container = document.getElementById(containerId);
+        const btn = document.getElementById(btnId);
+        if(container) {
+            container.classList.toggle('show-answers');
+            if(container.classList.contains('show-answers')) {
+                container.classList.add('bg-emerald-50/30', 'border-emerald-200');
+            } else {
+                container.classList.remove('bg-emerald-50/30', 'border-emerald-200');
+            }
+            if(btn) {
+                btn.textContent = container.classList.contains('show-answers') ? 'Hide Answers' : 'Show Answers';
+                btn.classList.toggle('bg-white');
+                btn.classList.toggle('bg-emerald-100');
+                btn.classList.toggle('text-gray-700');
+                btn.classList.toggle('text-emerald-800');
+                btn.classList.toggle('border-gray-300');
+                btn.classList.toggle('border-emerald-300');
+            }
+        }
+    }
+
+    window.toggleVisibility = function(id) {
+        const el = document.getElementById(id);
+        if(el) {
+            if(el.classList.contains('hidden')){
+                el.classList.remove('hidden');
+                el.classList.add('fade-in');
+                setTimeout(() => { el.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }, 50);
+            } else {
+                el.classList.add('hidden');
+                el.classList.remove('fade-in');
+            }
+        }
+    };
+</script>
+</body>
+</html>

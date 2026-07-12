@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Chan Truong | Lesson 04</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            background-color: #fff1f2; /* soft rose-50 */
+        }
+        .fade-in { animation: fadeIn 0.5s ease-out forwards; }
+        @keyframes fadeIn { 
+            from { opacity: 0; transform: translateY(15px); } 
+            to { opacity: 1; transform: translateY(0); } 
+        }
+        .timer-text { font-variant-numeric: tabular-nums; }
+        
+        /* Elegant Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #ffe4e6; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb { background: #f43f5e; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #e11d48; }
+
+        /* Glassmorphism utilities */
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+    </style>
+</head>
+<body class="h-screen flex flex-col overflow-hidden text-gray-800">
+
+    <!-- Elegant Header -->
+    <header id="app-header" class="text-white p-4 shadow-lg transition-colors duration-700 z-20 relative bg-gradient-to-r from-rose-400 via-pink-400 to-fuchsia-400">
+        <div class="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9IiNmZmYiLz48L3N2Zz4=')]"></div>
+        
+        <div class="max-w-7xl mx-auto flex justify-between items-center relative z-10">
+            <div>
+                <div class="flex items-center gap-2 mb-1">
+                    <span class="bg-white/20 text-white text-xs font-bold px-2 py-0.5 rounded uppercase tracking-wider backdrop-blur-sm">Band 6.5 - 7.5</span>
+                    <span class="bg-white/20 text-white text-xs font-bold px-2 py-0.5 rounded uppercase tracking-wider backdrop-blur-sm">Lesson 04</span>
+                </div>
+                <h1 class="text-2xl font-bold tracking-tight drop-shadow-sm flex items-center gap-2">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                    IELTS Chan Truong
+                </h1>
+                <h2 id="slide-title" class="text-sm font-medium mt-1 text-rose-50">Loading session...</h2>
+            </div>
+            
+            <div class="flex items-center space-x-2 sm:space-x-3">
+                <div class="relative">
+                    <button id="nav-toggle-btn" class="flex items-center space-x-2 text-sm font-semibold bg-white/20 hover:bg-white/30 transition-all px-3 sm:px-5 py-2 rounded-full focus:outline-none backdrop-blur-md shadow-sm border border-white/20">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                        <span class="hidden sm:inline">Sections</span>
+                    </button>
+                    
+                    <div id="nav-dropdown" class="hidden absolute right-0 mt-3 w-80 bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-rose-100 overflow-hidden z-50 origin-top-right transition-all fade-in">
+                        <div class="p-3 bg-rose-50 border-b border-rose-100">
+                            <p class="text-xs font-bold text-rose-800 uppercase tracking-wider text-center">Lesson Agenda</p>
+                        </div>
+                        <div class="max-h-[60vh] overflow-y-auto p-2" id="nav-menu-list"></div>
+                    </div>
+                </div>
+
+                <div class="hidden sm:flex items-center space-x-2 text-sm font-bold text-rose-900 bg-white px-4 py-2 rounded-full shadow-sm">
+                    <svg class="w-4 h-4 text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <span>90 Mins</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto mt-5 bg-black/10 rounded-full h-1.5 overflow-hidden relative z-10">
+            <div id="progress-bar" class="bg-white h-full transition-all duration-700 ease-out shadow-[0_0_10px_rgba(255,255,255,0.8)]" style="width: 0%"></div>
+        </div>
+    </header>
+
+    <main class="flex-grow overflow-y-auto relative p-4 md:p-8">
+        <div id="content-container" class="max-w-6xl mx-auto"></div>
+    </main>
+
+    <footer class="bg-white/80 backdrop-blur-md border-t border-rose-100 p-4 md:px-10 z-10 shadow-[0_-10px_15px_-3px_rgba(0,0,0,0.02)]">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <button id="btn-prev" class="px-6 py-2.5 rounded-xl border border-rose-200 text-rose-600 font-semibold hover:bg-rose-50 hover:border-rose-300 transition-all disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-2">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                Previous
+            </button>
+            
+            <div class="flex items-center gap-2">
+                <div class="w-2 h-2 rounded-full bg-rose-400 animate-pulse"></div>
+                <div id="step-indicator" class="text-sm font-semibold text-rose-800 uppercase tracking-wide">
+                    Section 1 of X
+                </div>
+                <div class="w-2 h-2 rounded-full bg-rose-400 animate-pulse delay-75"></div>
+            </div>
+
+            <button id="btn-next" class="px-6 py-2.5 rounded-xl bg-gradient-to-r from-rose-500 to-pink-500 text-white font-semibold hover:from-rose-600 hover:to-pink-600 shadow-md hover:shadow-lg transition-all flex items-center gap-2 transform hover:-translate-y-0.5">
+                Next
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </button>
+        </div>
+    </footer>
+
+<script>
+    // --- TIMER LOGIC ---
+    let timers = {
+        prep: { interval: null, remaining: 60, isRunning: false },
+        speak: { interval: null, remaining: 120, isRunning: false }
+    };
+
+    function formatTime(seconds) {
+        const m = Math.floor(seconds / 60).toString().padStart(2, '0');
+        const s = (seconds % 60).toString().padStart(2, '0');
+        return `${m}:${s}`;
+    }
+
+    function updateTimerUI(id, seconds) {
+        const displayEl = document.getElementById(`${id}-timer`);
+        if (displayEl) displayEl.textContent = formatTime(seconds);
+    }
+
+    function toggleTimer(id, defaultTime) {
+        const timer = timers[id];
+        const btn = document.getElementById(`btn-${id}-timer`);
+        
+        if (timer.isRunning) {
+            clearInterval(timer.interval);
+            timer.isRunning = false;
+            if(btn) btn.textContent = 'Resume';
+        } else {
+            if (timer.remaining <= 0) timer.remaining = defaultTime;
+            
+            timer.isRunning = true;
+            if(btn) btn.textContent = 'Pause';
+            
+            timer.interval = setInterval(() => {
+                timer.remaining--;
+                updateTimerUI(id, timer.remaining);
+                
+                if (timer.remaining <= 0) {
+                    clearInterval(timer.interval);
+                    timer.isRunning = false;
+                    if(btn) btn.textContent = 'Time Up!';
+                    try {
+                        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+                        const playBeep = (st) => {
+                            const osc = ctx.createOscillator();
+                            const gain = ctx.createGain();
+                            osc.connect(gain);
+                            gain.connect(ctx.destination);
+                            osc.frequency.setValueAtTime(800, st);
+                            gain.gain.setValueAtTime(0.1, st);
+                            osc.start(st);
+                            gain.gain.exponentialRampToValueAtTime(0.00001, st + 0.3);
+                            osc.stop(st + 0.3);
+                        };
+                        playBeep(ctx.currentTime);
+                        playBeep(ctx.currentTime + 0.4);
+                    } catch(e) {}
+                }
+            }, 1000);
+        }
+    }
+
+    function resetTimer(id, defaultTime) {
+        const timer = timers[id];
+        clearInterval(timer.interval);
+        timer.isRunning = false;
+        timer.remaining = defaultTime;
+        updateTimerUI(id, defaultTime);
+        const btn = document.getElementById(`btn-${id}-timer`);
+        if(btn) btn.textContent = 'Start';
+    }
+
+    function pauseAllTimers() {
+        Object.keys(timers).forEach(key => {
+            if (timers[key].isRunning) {
+                clearInterval(timers[key].interval);
+                timers[key].isRunning = false;
+            }
+        });
+    }
+
+    // --- DATA STRUCTURE ---
+    const sessionData = [
+        {
+            id: 'speaking_vocab',
+            type: 'Speaking',
+            themeClass: 'bg-gradient-to-r from-rose-400 to-pink-500',
+            iconColor: 'text-rose-500',
+            bgColor: 'bg-rose-50',
+            title: '1. Unit 1 Vocab Exercises',
+            content: `
+                <div class="fade-in bg-white rounded-3xl shadow-xl border border-rose-50 p-8 md:p-12 relative">
+                    <div class="flex items-center gap-3 mb-6 border-b border-gray-100 pb-4">
+                        <span class="inline-block py-1 px-3 rounded-full bg-rose-100 text-rose-700 font-bold text-xs uppercase tracking-widest">Pink Book</span>
+                        <h3 class="text-3xl font-bold text-gray-800">Unit 1 Vocabulary Exercises</h3>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <!-- Exercise 7 -->
+                        <div class="bg-gray-50 rounded-2xl p-6 border border-gray-200">
+                            <div class="flex justify-between items-start gap-4 mb-4">
+                                <h4 class="font-bold text-gray-800 text-lg">Exercise 7: Arrange the adjectives into the suitable column.</h4>
+                                <button onclick="toggleVisibility('ans-ex7')" class="text-xs font-bold text-rose-600 bg-rose-100 hover:bg-rose-200 px-4 py-2 rounded-lg transition-colors whitespace-nowrap shadow-sm">Show Answers</button>
+                            </div>
+                            
+                            <div class="flex flex-wrap gap-x-4 gap-y-2 justify-center mb-6 text-sm font-semibold text-rose-700 bg-white p-4 rounded-xl border border-rose-100 shadow-sm">
+                                <span>spacious</span> • <span>selective</span> • <span>like-minded</span> • <span>conscientious</span> • <span>interactive</span> • <span>student-centered</span> • <span>witty</span> • <span>prestigious</span> • <span>sagacious</span> • <span>diligent</span> • <span>impartial</span> • <span>elite</span> • <span>broad-minded</span> • <span>comprehensive</span>
+                            </div>
+
+                            <div id="ans-ex7" class="hidden mt-4 bg-white p-5 rounded-xl border-l-4 border-emerald-400 shadow-sm">
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
+                                    <div>
+                                        <span class="font-bold border-b-2 border-emerald-100 pb-2 mb-3 block text-gray-800 uppercase tracking-wider text-xs">Teachers</span>
+                                        <p class="text-emerald-700 font-medium leading-relaxed">conscientious, witty, sagacious, diligent, impartial</p>
+                                    </div>
+                                    <div>
+                                        <span class="font-bold border-b-2 border-emerald-100 pb-2 mb-3 block text-gray-800 uppercase tracking-wider text-xs">Friends</span>
+                                        <p class="text-emerald-700 font-medium leading-relaxed">like-minded, witty, broad-minded, conscientious</p>
+                                    </div>
+                                    <div>
+                                        <span class="font-bold border-b-2 border-emerald-100 pb-2 mb-3 block text-gray-800 uppercase tracking-wider text-xs">School/Class</span>
+                                        <p class="text-emerald-700 font-medium leading-relaxed">spacious, selective, student-centered, prestigious, interactive, elite, comprehensive</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Exercise 8 -->
+                        <div class="bg-gray-50 rounded-2xl p-6 border border-gray-200">
+                            <div class="flex justify-between items-start gap-4 mb-4">
+                                <h4 class="font-bold text-gray-800 text-lg">Exercise 8: Fill in each blank with one suitable word.</h4>
+                                <button onclick="toggleVisibility('ans-ex8')" class="text-xs font-bold text-rose-600 bg-rose-100 hover:bg-rose-200 px-4 py-2 rounded-lg transition-colors whitespace-nowrap shadow-sm">Show Answers</button>
+                            </div>
+                            
+                            <div class="flex flex-wrap gap-x-6 gap-y-2 justify-center mb-6 text-sm font-semibold text-rose-700 bg-white p-4 rounded-xl border border-rose-100 shadow-sm">
+                                <span>colors</span> • <span>morale</span> <span class="text-gray-400 text-xs font-normal">/mə'ræl/</span> • <span>recollection</span> • <span>accountability</span> • <span>endeavor</span> <span class="text-gray-400 text-xs font-normal">/ɪn'devər/</span> • <span>attainment</span>
+                            </div>
+
+                            <div class="space-y-3 text-gray-700 text-sm font-medium">
+                                <p>1. Citizens must demand <span class="text-gray-400">........................</span> from their leaders.</p>
+                                <p>2. So they took it and passed with flying <span class="text-gray-400">........................</span></p>
+                                <p>3. It's a school with high levels of academic <span class="text-gray-400">........................</span></p>
+                                <p>4. Another win would be good for the team's <span class="text-gray-400">........................</span></p>
+                                <p>5. You must make a/an <span class="text-gray-400">........................</span> to work harder.</p>
+                                <p>6. To the best of my <span class="text-gray-400">........................</span>, he did not make any contributions.</p>
+                            </div>
+
+                            <div id="ans-ex8" class="hidden mt-5 bg-white p-4 rounded-xl border-l-4 border-emerald-400 shadow-sm">
+                                <p class="font-bold text-emerald-700 mb-2 text-xs uppercase tracking-wider">Answer Key</p>
+                                <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 text-emerald-700 font-bold text-sm">
+                                    <p>1. accountability</p>
+                                    <p>2. colors</p>
+                                    <p>3. attainment</p>
+                                    <p>4. morale</p>
+                                    <p>5. endeavor</p>
+                                    <p>6. recollection</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Exercise 9 -->
+                        <div class="bg-gray-50 rounded-2xl p-6 border border-gray-200">
+                            <div class="flex justify-between items-start gap-4 mb-4">
+                                <h4 class="font-bold text-gray-800 text-lg">Exercise 9: Choose the option with the same meaning.</h4>
+                                <button onclick="toggleVisibility('ans-ex9')" class="text-xs font-bold text-rose-600 bg-rose-100 hover:bg-rose-200 px-4 py-2 rounded-lg transition-colors whitespace-nowrap shadow-sm">Show Answers</button>
+                            </div>
+                            
+                            <div class="space-y-6 text-sm text-gray-700">
+                                <div>
+                                    <p class="font-bold mb-2">1. It's very easy to <span class="text-rose-600">fall behind</span> with your studies if you miss even just a few classes.</p>
+                                    <div class="ml-4 space-y-1">
+                                        <p>A. stay close behind other students</p>
+                                        <p>B. find yourself far behind other students</p>
+                                        <p>C. get ahead of other students</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="font-bold mb-2">2. She seemed to just <span class="text-rose-600">breeze through</span> the exams. Everyone else was in such a panic and almost had nervous breakdowns.</p>
+                                    <div class="ml-4 space-y-1">
+                                        <p>A. do them calmly and efficiently</p>
+                                        <p>B. not take them seriously</p>
+                                        <p>C. cheat in them</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="font-bold mb-2">3. I just can't seem to <span class="text-rose-600">get the hang of</span> English prepositions. Just when I think I've learnt them I make new mistakes.</p>
+                                    <div class="ml-4 space-y-1">
+                                        <p>A. enjoy</p>
+                                        <p>B. memorise</p>
+                                        <p>C. understand</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="font-bold mb-2">4. When I sat down and looked at the exam paper my mind just <span class="text-rose-600">went blank</span>. Everyone else seemed to be writing away quite happily.</p>
+                                    <div class="ml-4 space-y-1">
+                                        <p>A. became confused</p>
+                                        <p>B. became very focused</p>
+                                        <p>C. became empty</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="ans-ex9" class="hidden mt-5 bg-white p-4 rounded-xl border-l-4 border-emerald-400 shadow-sm">
+                                <p class="font-bold text-emerald-700 mb-2 text-xs uppercase tracking-wider">Answer Key</p>
+                                <div class="flex gap-6 text-emerald-700 font-bold text-sm">
+                                    <p>1. B</p>
+                                    <p>2. A</p>
+                                    <p>3. C</p>
+                                    <p>4. C</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            `
+        },
+        {
+            id: 'speaking_practice',
+            type: 'Speaking',
+            themeClass: 'bg-gradient-to-r from-pink-500 to-fuchsia-500',
+            iconColor: 'text-pink-500',
+            bgColor: 'bg-pink-50',
+            title: '2. Unit 1 Speaking Practice',
+            content: `
+                <div class="fade-in">
+                    <!-- Global Timer UI for Part 2 -->
+                    <div class="bg-white rounded-3xl shadow-lg border border-pink-100 p-6 mb-8 flex flex-col md:flex-row justify-between items-center gap-6">
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-800">Part 2: Long Turn</h3>
+                            <p class="text-gray-500 mt-1 font-medium">Manage the candidate's preparation and speaking time.</p>
+                        </div>
+                        
+                        <div class="flex gap-4 w-full md:w-auto">
+                            <!-- Prep Timer -->
+                            <div class="bg-pink-50 rounded-2xl p-4 border border-pink-100 text-center flex-1 md:w-40 shadow-sm">
+                                <h4 class="text-pink-500 font-bold uppercase text-[10px] tracking-wider mb-2">Prep Time (1 Min)</h4>
+                                <div class="text-4xl font-black text-pink-700 timer-text mb-3 drop-shadow-sm" id="prep-timer">01:00</div>
+                                <button onclick="toggleTimer('prep', 60)" id="btn-prep-timer" class="w-full bg-pink-200 text-pink-800 py-2 rounded-xl font-bold hover:bg-pink-300 transition-colors text-sm">Start</button>
+                            </div>
+                            <!-- Speak Timer -->
+                            <div class="bg-fuchsia-50 rounded-2xl p-4 border border-fuchsia-100 text-center flex-1 md:w-40 shadow-sm">
+                                <h4 class="text-fuchsia-600 font-bold uppercase text-[10px] tracking-wider mb-2">Speaking (2 Mins)</h4>
+                                <div class="text-4xl font-black text-fuchsia-600 timer-text mb-3 drop-shadow-sm" id="speak-timer">02:00</div>
+                                <button onclick="toggleTimer('speak', 120)" id="btn-speak-timer" class="w-full bg-gradient-to-r from-fuchsia-500 to-pink-500 text-white py-2 rounded-xl font-bold hover:opacity-90 transition-opacity text-sm shadow-sm">Start</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-3xl shadow-xl border border-pink-50 p-8 mb-8">
+                        <div class="bg-pink-50 border-l-4 border-pink-500 p-6 rounded-r-2xl mb-8 shadow-sm">
+                            <p class="text-pink-800 font-bold uppercase tracking-wider text-xs mb-2">Candidate Task Card</p>
+                            <p class="text-xl font-bold text-gray-800 mb-4">Describe a family member you might like to work with in the future</p>
+                            <ul class="text-gray-700 space-y-2 list-disc list-inside font-medium ml-2">
+                                <li>Who the member is</li>
+                                <li>What kind of work you want to do with him or her</li>
+                                <li>What he or she did impressed you most</li>
+                                <li>And explain why you would like to work with him or her</li>
+                            </ul>
+                        </div>
+                        
+                        <button onclick="toggleVisibility('p2-sample')" class="w-full text-left py-3 px-5 bg-gray-50 rounded-xl text-sm font-bold text-gray-700 hover:bg-gray-100 transition-colors flex justify-between items-center mb-4 border border-gray-200">
+                            Show Band 6.5-7.5 Sample Response
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        
+                        <div id="p2-sample" class="hidden bg-white border border-emerald-100 rounded-2xl p-6 shadow-sm">
+                            <h4 class="font-bold text-emerald-600 flex items-center gap-2 mb-4">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                High-Scoring Sample
+                            </h4>
+                            <div class="text-gray-700 text-sm leading-relaxed space-y-3 italic">
+                                <p>"I'd like to talk about my older cousin, who I genuinely hope to collaborate with in the future. He recently founded a <span class="font-bold text-pink-600">prestigious</span> English center in my city, which is highly <span class="font-bold text-pink-600">student-centered</span> and <span class="font-bold text-pink-600">interactive</span>. Since I am studying education, I'd love to work alongside him as an academic coordinator once I graduate."</p>
+                                <p>"What impresses me most about him is that he is incredibly <span class="font-bold text-pink-600">diligent</span> and <span class="font-bold text-pink-600">conscientious</span>. To the best of my <span class="font-bold text-pink-600">recollection</span>, he has never missed a single day of work since starting the business. He always demands high <span class="font-bold text-pink-600">accountability</span> from his staff, ensuring that everyone puts in their best <span class="font-bold text-pink-600">endeavor</span>, yet he remains very approachable and <span class="font-bold text-pink-600">impartial</span> when resolving conflicts."</p>
+                                <p>"I want to work with him because we are quite <span class="font-bold text-pink-600">like-minded</span> when it comes to teaching methodologies. Moreover, working under a <span class="font-bold text-pink-600">sagacious</span> leader like him would definitely boost my <span class="font-bold text-pink-600">morale</span> and help me <span class="font-bold text-pink-600">breeze through</span> any professional challenges I might face early in my career."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-3xl shadow-xl border border-fuchsia-50 p-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6 border-b border-gray-100 pb-4">Part 3: Two-way Discussion</h3>
+                        
+                        <div class="space-y-5">
+                            <div class="bg-gray-50 rounded-2xl p-5 border border-gray-200">
+                                <div class="flex justify-between items-start gap-4 mb-3">
+                                    <p class="font-bold text-gray-800 text-lg">1. Why do people want to do family business?</p>
+                                    <button onclick="toggleVisibility('p3-ans-1')" class="text-xs font-bold text-emerald-600 bg-emerald-100 hover:bg-emerald-200 px-4 py-2 rounded-lg transition-colors whitespace-nowrap shadow-sm">Sample</button>
+                                </div>
+                                <div id="p3-ans-1" class="hidden bg-white border-l-4 border-emerald-400 p-4 rounded-r-lg shadow-sm mt-3">
+                                    <p class="text-gray-700 italic text-sm leading-relaxed">"People usually prefer family businesses because there is an inherent level of trust. Family members tend to be <span class="font-semibold text-fuchsia-600">like-minded</span> and share similar values, which makes it easier to align their goals. Plus, when working with relatives, everyone feels a stronger sense of shared <span class="font-semibold text-fuchsia-600">accountability</span> to make the business succeed."</p>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gray-50 rounded-2xl p-5 border border-gray-200">
+                                <div class="flex justify-between items-start gap-4 mb-3">
+                                    <p class="font-bold text-gray-800 text-lg">2. Are family businesses common in your country?</p>
+                                    <button onclick="toggleVisibility('p3-ans-2')" class="text-xs font-bold text-emerald-600 bg-emerald-100 hover:bg-emerald-200 px-4 py-2 rounded-lg transition-colors whitespace-nowrap shadow-sm">Sample</button>
+                                </div>
+                                <div id="p3-ans-2" class="hidden bg-white border-l-4 border-emerald-400 p-4 rounded-r-lg shadow-sm mt-3">
+                                    <p class="text-gray-700 italic text-sm leading-relaxed">"Yes, they are extremely common in Vietnam. You can see them everywhere, from small, local mom-and-pop grocery stores to massive, <span class="font-semibold text-fuchsia-600">elite</span> corporations. Many successful companies started as small family <span class="font-semibold text-fuchsia-600">endeavors</span> and gradually expanded into major enterprises."</p>
+                                </div>
+                            </div>
+
+                            <div class="bg-gray-50 rounded-2xl p-5 border border-gray-200">
+                                <div class="flex justify-between items-start gap-4 mb-3">
+                                    <p class="font-bold text-gray-800 text-lg">3. What are the advantages and disadvantages of a family business?</p>
+                                    <button onclick="toggleVisibility('p3-ans-3')" class="text-xs font-bold text-emerald-600 bg-emerald-100 hover:bg-emerald-200 px-4 py-2 rounded-lg transition-colors whitespace-nowrap shadow-sm">Sample</button>
+                                </div>
+                                <div id="p3-ans-3" class="hidden bg-white border-l-4 border-emerald-400 p-4 rounded-r-lg shadow-sm mt-3">
+                                    <p class="text-gray-700 italic text-sm leading-relaxed">"The main advantage is the high level of loyalty and team <span class="font-semibold text-fuchsia-600">morale</span>, as everyone is working toward the family's shared <span class="font-semibold text-fuchsia-600">attainment</span>. However, a major disadvantage is that leaders might struggle to be completely <span class="font-semibold text-fuchsia-600">impartial</span>. For example, if a relative starts to <span class="font-semibold text-fuchsia-600">fall behind</span> in their work, it’s much harder to fire or discipline them compared to a regular employee."</p>
+                                </div>
+                            </div>
+
+                            <div class="bg-gray-50 rounded-2xl p-5 border border-gray-200">
+                                <div class="flex justify-between items-start gap-4 mb-3">
+                                    <p class="font-bold text-gray-800 text-lg">4. How to prevent problems in a family business?</p>
+                                    <button onclick="toggleVisibility('p3-ans-4')" class="text-xs font-bold text-emerald-600 bg-emerald-100 hover:bg-emerald-200 px-4 py-2 rounded-lg transition-colors whitespace-nowrap shadow-sm">Sample</button>
+                                </div>
+                                <div id="p3-ans-4" class="hidden bg-white border-l-4 border-emerald-400 p-4 rounded-r-lg shadow-sm mt-3">
+                                    <p class="text-gray-700 italic text-sm leading-relaxed">"To avoid conflicts, it is crucial to establish clear rules and strict <span class="font-semibold text-fuchsia-600">accountability</span> from the very beginning. The founders need to be <span class="font-semibold text-fuchsia-600">broad-minded</span> and ensure that promotions are based on actual skills and performance, rather than just family ties. This keeps the environment professional and fair."</p>
+                                </div>
+                            </div>
+
+                            <div class="bg-gray-50 rounded-2xl p-5 border border-gray-200">
+                                <div class="flex justify-between items-start gap-4 mb-3">
+                                    <p class="font-bold text-gray-800 text-lg">5. What are the qualities of a good leader?</p>
+                                    <button onclick="toggleVisibility('p3-ans-5')" class="text-xs font-bold text-emerald-600 bg-emerald-100 hover:bg-emerald-200 px-4 py-2 rounded-lg transition-colors whitespace-nowrap shadow-sm">Sample</button>
+                                </div>
+                                <div id="p3-ans-5" class="hidden bg-white border-l-4 border-emerald-400 p-4 rounded-r-lg shadow-sm mt-3">
+                                    <p class="text-gray-700 italic text-sm leading-relaxed">"A good leader needs to be <span class="font-semibold text-fuchsia-600">sagacious</span> and forward-thinking. They should also be <span class="font-semibold text-fuchsia-600">conscientious</span> and treat everyone in an <span class="font-semibold text-fuchsia-600">impartial</span> manner. Furthermore, they need the ability to maintain high <span class="font-semibold text-fuchsia-600">morale</span> during tough times, helping their team <span class="font-semibold text-fuchsia-600">get the hang of</span> new challenges instead of letting their minds <span class="font-semibold text-fuchsia-600">go blank</span> under pressure."</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `
+        },
+        {
+            id: 'listening_sec1',
+            type: 'Listening',
+            themeClass: 'bg-gradient-to-r from-red-500 to-rose-500',
+            iconColor: 'text-red-500',
+            bgColor: 'bg-red-50',
+            title: '3. Guide to IELTS - Test 2 Sec 1',
+            content: `
+                <div class="fade-in bg-white rounded-3xl shadow-xl border border-red-50 p-5 md:p-6 flex flex-col" style="height: calc(100vh - 11rem); min-height: 600px;">
+                    <div class="flex flex-col gap-4 mb-4 border-b border-gray-100 pb-4 shrink-0">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-2xl bg-red-100 flex items-center justify-center text-red-500 flex-shrink-0">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+                            </div>
+                            <div class="flex-grow flex flex-col md:flex-row justify-between md:items-center gap-2">
+                                <div>
+                                    <div class="flex items-center gap-3 mb-1 flex-wrap">
+                                        <h3 class="text-xl font-bold text-gray-800">Listening Practice</h3>
+                                        <a href="https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/section1_guide_to_ielts_test2.html" target="_blank" class="inline-flex items-center gap-1.5 text-red-600 hover:text-red-700 transition-colors px-3 py-1.5 bg-red-50 hover:bg-red-100 rounded-lg shadow-sm border border-red-200 text-sm font-bold" title="Open in new tab">
+                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                                            Open in New Tab
+                                        </a>
+                                    </div>
+                                    <p class="text-red-600 font-medium text-sm">Test 2 Section 1 | Guide to IELTS</p>
+                                </div>
+                                <button onclick="toggleVisibility('keys-sec1')" class="bg-gray-100 text-gray-700 px-5 py-2.5 rounded-xl font-bold hover:bg-gray-200 transition-colors shadow-sm flex items-center gap-2 whitespace-nowrap self-start md:self-auto">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                                    Show Answers
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Answer Keys -->
+                        <div id="keys-sec1" class="hidden bg-red-50 rounded-2xl p-5 border border-red-100 shadow-inner mt-2">
+                            <h4 class="font-bold text-red-800 mb-3 uppercase text-xs tracking-wider">Answer Key (1-10)</h4>
+                            <div class="grid grid-cols-2 sm:grid-cols-5 gap-3 text-sm">
+                                <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-gray-400 font-bold mr-2">1</span> 3000 words</div>
+                                <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-gray-400 font-bold mr-2">2</span> surprise ending</div>
+                                <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-gray-400 font-bold mr-2">3</span> sixteen</div>
+                                <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-gray-400 font-bold mr-2">4</span> August</div>
+                                <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-gray-400 font-bold mr-2">5</span> COMP4SS</div>
+                                <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-gray-400 font-bold mr-2">6</span> post</div>
+                                <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-gray-400 font-bold mr-2">7</span> famous authors</div>
+                                <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-gray-400 font-bold mr-2">8</span> online</div>
+                                <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-gray-400 font-bold mr-2">9</span> public</div>
+                                <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-gray-400 font-bold mr-2">10</span> Spain</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="w-full flex-grow rounded-2xl overflow-hidden border border-gray-200 shadow-inner bg-gray-50 relative">
+                        <iframe src="https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/section1_guide_to_ielts_test2.html" class="absolute inset-0 w-full h-full border-0" title="Listening Practice"></iframe>
+                    </div>
+                </div>
+            `
+        },
+        {
+            id: 'listening_sec2',
+            type: 'Listening',
+            themeClass: 'bg-gradient-to-r from-rose-500 to-red-400',
+            iconColor: 'text-rose-500',
+            bgColor: 'bg-rose-50',
+            title: '4. Guide to IELTS - Test 2 Sec 2',
+            content: `
+                <div class="fade-in bg-white rounded-3xl shadow-xl border border-rose-50 p-5 md:p-6 flex flex-col" style="height: calc(100vh - 11rem); min-height: 600px;">
+                    <div class="flex flex-col gap-4 mb-4 border-b border-gray-100 pb-4 shrink-0">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-2xl bg-rose-100 flex items-center justify-center text-rose-500 flex-shrink-0">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+                            </div>
+                            <div class="flex-grow flex flex-col md:flex-row justify-between md:items-center gap-2">
+                                <div>
+                                    <div class="flex items-center gap-3 mb-1 flex-wrap">
+                                        <h3 class="text-xl font-bold text-gray-800">Listening Practice</h3>
+                                        <a href="https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/section2_guide_to_ielts_test2.html" target="_blank" class="inline-flex items-center gap-1.5 text-rose-600 hover:text-rose-700 transition-colors px-3 py-1.5 bg-rose-50 hover:bg-rose-100 rounded-lg shadow-sm border border-rose-200 text-sm font-bold" title="Open in new tab">
+                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                                            Open in New Tab
+                                        </a>
+                                    </div>
+                                    <p class="text-rose-600 font-medium text-sm">Test 2 Section 2 | Guide to IELTS</p>
+                                </div>
+                                <button onclick="toggleVisibility('keys-sec2')" class="bg-gray-100 text-gray-700 px-5 py-2.5 rounded-xl font-bold hover:bg-gray-200 transition-colors shadow-sm flex items-center gap-2 whitespace-nowrap self-start md:self-auto">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                                    Show Answers
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Answer Keys -->
+                        <div id="keys-sec2" class="hidden bg-rose-50 rounded-2xl p-5 border border-rose-100 shadow-inner mt-2">
+                            <h4 class="font-bold text-rose-800 mb-3 uppercase text-xs tracking-wider">Answer Key (11-20)</h4>
+                            <div class="grid grid-cols-2 sm:grid-cols-5 gap-3 text-sm">
+                                <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-gray-400 font-bold mr-2">11</span> World of water</div>
+                                <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-gray-400 font-bold mr-2">12</span> the splash ride</div>
+                                <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-gray-400 font-bold mr-2">13</span> (at) noon</div>
+                                <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-gray-400 font-bold mr-2">14</span> feed the sharks</div>
+                                <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-gray-400 font-bold mr-2">15</span> a birthday party</div>
+                                <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-gray-400 font-bold mr-2">16</span> the government</div>
+                                <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-gray-400 font-bold mr-2">17</span> (the) quiz</div>
+                                <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-gray-400 font-bold mr-2">18</span> E</div>
+                                <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-gray-400 font-bold mr-2">19</span> C</div>
+                                <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-gray-400 font-bold mr-2">20</span> B</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="w-full flex-grow rounded-2xl overflow-hidden border border-gray-200 shadow-inner bg-gray-50 relative">
+                        <iframe src="https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/section2_guide_to_ielts_test2.html" class="absolute inset-0 w-full h-full border-0" title="Listening Practice"></iframe>
+                    </div>
+                </div>
+            `
+        }
+    ];
+
+    let currentIndex = 0;
+
+    const headerEl = document.getElementById('app-header');
+    const titleEl = document.getElementById('slide-title');
+    const containerEl = document.getElementById('content-container');
+    const prevBtn = document.getElementById('btn-prev');
+    const nextBtn = document.getElementById('btn-next');
+    const indicatorEl = document.getElementById('step-indicator');
+    const progressBarEl = document.getElementById('progress-bar');
+    const navDropdown = document.getElementById('nav-dropdown');
+    const navMenuList = document.getElementById('nav-menu-list');
+
+    function populateNavMenu() {
+        navMenuList.innerHTML = sessionData.map((data, index) => `
+            <button onclick="goToSlide(${index})" class="nav-item-btn w-full text-left p-3 mb-1 rounded-xl hover:bg-white transition-all flex items-center gap-3 border border-transparent shadow-sm">
+                <div class="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 text-sm font-bold text-white shadow-sm ${data.themeClass}">
+                    ${index + 1}
+                </div>
+                <div>
+                    <div class="text-sm font-bold text-gray-800 leading-tight">${data.title.substring(3)}</div>
+                    <div class="text-[10px] font-bold uppercase tracking-wider ${data.iconColor}">${data.type}</div>
+                </div>
+            </button>
+        `).join('');
+    }
+
+    window.goToSlide = function(index) {
+        currentIndex = index;
+        renderSlide(currentIndex);
+        navDropdown.classList.add('hidden');
+    };
+
+    document.getElementById('nav-toggle-btn').addEventListener('click', (e) => {
+        e.stopPropagation();
+        navDropdown.classList.toggle('hidden');
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!navDropdown.contains(e.target) && !document.getElementById('nav-toggle-btn').contains(e.target)) {
+            navDropdown.classList.add('hidden');
+        }
+    });
+
+    function renderSlide(index) {
+        if (typeof pauseAllTimers === 'function') pauseAllTimers();
+        const data = sessionData[index];
+        
+        headerEl.className = `text-white p-4 shadow-lg transition-colors duration-700 z-20 relative ${data.themeClass}`;
+        titleEl.textContent = data.title;
+        
+        const progressPercent = ((index + 1) / sessionData.length) * 100;
+        progressBarEl.style.width = `${progressPercent}%`;
+        indicatorEl.textContent = `Section ${index + 1} of ${sessionData.length}`;
+
+        document.querySelectorAll('.nav-item-btn').forEach((btn, i) => {
+            if (i === index) {
+                btn.classList.add('bg-white', 'border-rose-200', 'shadow-md');
+                btn.classList.remove('border-transparent', 'shadow-sm');
+            } else {
+                btn.classList.remove('bg-white', 'border-rose-200', 'shadow-md');
+                btn.classList.add('border-transparent', 'shadow-sm');
+            }
+        });
+
+        containerEl.innerHTML = ''; 
+        setTimeout(() => {
+            containerEl.innerHTML = data.content;
+            if(data.id === 'speaking_practice') {
+                updateTimerUI('prep', timers.prep.remaining);
+                updateTimerUI('speak', timers.speak.remaining);
+            }
+        }, 10);
+
+        prevBtn.disabled = index === 0;
+        nextBtn.innerHTML = index === sessionData.length - 1 ? 
+            'Finish Lesson <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>' : 
+            'Next Section <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>';
+    }
+
+    prevBtn.addEventListener('click', () => {
+        if (currentIndex > 0) renderSlide(--currentIndex);
+    });
+
+    nextBtn.addEventListener('click', () => {
+        if (currentIndex < sessionData.length - 1) {
+            renderSlide(++currentIndex);
+        } else {
+            alert("Lesson 04 Completed! Great job.");
+        }
+    });
+
+    window.toggleVisibility = function(id) {
+        const el = document.getElementById(id);
+        if(el) {
+            if(el.classList.contains('hidden')){
+                el.classList.remove('hidden');
+                el.classList.add('fade-in');
+            } else {
+                el.classList.add('hidden');
+                el.classList.remove('fade-in');
+            }
+        }
+    };
+
+    window.addEventListener('DOMContentLoaded', () => {
+        populateNavMenu();
+        renderSlide(0);
+    });
+</script>
+</body>
+</html>
