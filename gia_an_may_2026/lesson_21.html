@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Chan Truong | Lesson 21 Detailed Plan</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Inter"', 'sans-serif'],
+                    },
+                    colors: {
+                        pastel: {
+                            pink: '#ffe4e6',
+                            purple: '#f3e8ff',
+                            blue: '#e0e7ff',
+                            teal: '#ccfbf1',
+                            orange: '#ffedd5',
+                            indigo: '#e0e7ff',
+                            cyan: '#cffafe'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { 
+            background-color: #fdfbfb;
+            background-image: 
+                radial-gradient(at 80% 0%, hsla(250, 50%, 95%, 1) 0px, transparent 50%),
+                radial-gradient(at 10% 30%, hsla(280, 60%, 90%, 1) 0px, transparent 50%),
+                radial-gradient(at 90% 80%, hsla(200, 60%, 90%, 1) 0px, transparent 50%),
+                radial-gradient(at 20% 90%, hsla(220, 60%, 90%, 1) 0px, transparent 50%);
+            background-attachment: fixed;
+            color: #334155;
+        }
+        
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 10px 40px -10px rgba(0,0,0,0.05);
+        }
+
+        .skill-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.25rem 0.6rem;
+            border-radius: 8px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            backdrop-filter: blur(4px);
+        }
+
+        .badge-listening { background-color: rgba(243, 232, 255, 0.7); color: #9333ea; border: 1px solid rgba(233, 213, 255, 0.5); }
+        .badge-speaking { background-color: rgba(255, 237, 213, 0.7); color: #ea580c; border: 1px solid rgba(253, 216, 163, 0.5); }
+        .badge-vocab { background-color: rgba(204, 251, 241, 0.7); color: #0d9488; border: 1px solid rgba(153, 246, 228, 0.5); }
+
+        /* Accordion transition utility matching Lesson 14/16/20 */
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s cubic-bezier(0, 1, 0, 1), padding 0.3s ease;
+        }
+        .accordion-content.open {
+            max-height: 1000px;
+            padding-top: 1rem;
+            transition: max-height 0.3s cubic-bezier(0.95, 0.05, 0.795, 0.035), padding 0.3s ease;
+        }
+        .arrow-rotate {
+            transition: transform 0.2s ease-in-out;
+        }
+        .arrow-rotate.rotated {
+            transform: rotate(180deg);
+        }
+
+        .guidance-box {
+            background: linear-gradient(to right, rgba(255,255,255,0.95), rgba(255,255,255,0.7));
+            border-left: 4px solid;
+            border-radius: 0.5rem;
+            padding: 1.25rem;
+            margin-bottom: 1.25rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: rgba(203, 213, 225, 0.8); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(148, 163, 184, 0.8); }
+    </style>
+</head>
+<body class="antialiased min-h-screen pb-16">
+
+<div class="max-w-4xl mx-auto px-4 py-10 sm:px-6 lg:px-8">
+    
+    <!-- Header Block (Matches Lesson 20 Theme) -->
+    <header class="glass-panel rounded-[2rem] p-8 mb-8 relative overflow-hidden">
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-pastel-indigo rounded-full mix-blend-multiply filter blur-3xl opacity-50 z-0"></div>
+        <div class="absolute -bottom-24 -left-24 w-72 h-72 bg-pastel-purple rounded-full mix-blend-multiply filter blur-3xl opacity-50 z-0"></div>
+
+        <div class="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+            <div>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 border border-white text-[10px] font-bold text-slate-500 tracking-widest uppercase mb-3 shadow-sm">
+                    IELTS Chan Truong • Tutor 1
+                </div>
+                <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight text-slate-800 mb-2">Lesson 21: Societal Assessment & Mock Listening</h1>
+                <p class="text-slate-500 font-medium">90-Minute Advanced Speaking & Listening Integration</p>
+            </div>
+            
+            <div class="flex flex-col gap-2">
+                <span class="skill-badge badge-speaking shadow-sm justify-center">Speaking P3 (45 Min)</span>
+                <span class="skill-badge badge-listening shadow-sm justify-center">Listening Mock (45 Min)</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="space-y-8">
+        
+        <!-- Section 1: Society & Culture Vocab Assessment -->
+        <section class="glass-panel rounded-2xl p-6 md:p-8 relative overflow-hidden bg-gradient-to-br from-white/60 to-teal-50/40">
+            <div class="absolute top-0 left-0 w-2 h-full bg-teal-400"></div>
+            
+            <div class="flex items-center justify-between gap-4 mb-5">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-teal-100 flex items-center justify-center text-teal-600 shadow-sm border border-teal-200">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <div>
+                        <h2 class="text-xl font-bold text-slate-800">1. Society & Culture Vocab Test</h2>
+                        <p class="text-sm text-slate-500">In-class vocabulary retention verification</p>
+                    </div>
+                </div>
+                <span class="skill-badge badge-vocab shadow-sm font-bold">Society Theme</span>
+            </div>
+            
+            <p class="text-sm text-slate-600 mb-4">Administer the Society & Culture Vocabulary Assessment to verify student's active recall of structural lexis prior to the mock interview drills:</p>
+
+            <a href="https://ieltschantruong.github.io/IELTS/lesson_plan/vocab_test/speaking_society_and_culture.html" target="_blank" class="flex items-center justify-between p-4 bg-white/80 border border-teal-200 rounded-xl hover:shadow-md hover:border-teal-400 transition-all group">
+                <div class="flex items-center gap-4">
+                    <div class="bg-teal-50 p-2.5 rounded-lg text-teal-600 group-hover:bg-teal-100 transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                    </div>
+                    <div>
+                        <span class="block text-[15px] font-bold text-slate-800 group-hover:text-teal-700 transition-colors">Society & Culture Vocab Test</span>
+                        <span class="block text-xs text-slate-500 mt-0.5">Speaking-Focused Lexical Assessment</span>
+                    </div>
+                </div>
+                <span class="text-xs text-teal-600 font-bold uppercase tracking-wider bg-teal-50 px-3 py-1.5 rounded border border-teal-100 group-hover:bg-teal-100 transition-colors">Open Test &rarr;</span>
+            </a>
+        </section>
+
+        <!-- Section 2: Speaking Part 3 Society & Culture Practice -->
+        <section class="glass-panel rounded-2xl p-6 md:p-8 relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-2 h-full bg-orange-400"></div>
+            
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 rounded-full bg-orange-50 flex items-center justify-center text-orange-500 border border-orange-100 shadow-sm">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                </div>
+                <h2 class="text-2xl font-bold text-slate-800">2. Speaking Part 3 Mock Drills</h2>
+            </div>
+
+            <!-- Tutoring Guidance Box -->
+            <div class="guidance-box border-orange-400 text-sm text-slate-700 space-y-3">
+                <h3 class="text-[13px] font-bold text-orange-800 uppercase tracking-wider flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    Strategic Guidance: Upgrading Band 5.5 Fluency to Band 6.5
+                </h3>
+                <p>When executing abstract societal and culture comparisons, the student struggles with hesitation and pauses. Direct him to keep his output continuous by applying these core criteria:</p>
+                <ul class="list-disc list-inside space-y-1.5 ml-1 text-xs text-slate-600">
+                    <li><strong>Speaking Placeholders:</strong> Teach the student to win thinking time instead of holding long silence gaps (e.g. <em>"Well, to be honest, I haven't thought about that before but..."</em>).</li>
+                    <li><strong>Repetitive AREA Structure:</strong> Force the A.R.E.A structure cleanly so he knows exactly what to say next: Direct Answer <strong>[A]</strong> &rarr; Connective Reason <strong>[R]</strong> &rarr; Broad Social Example <strong>[E]</strong> &rarr; Conditional Consequence <strong>[A]</strong>.</li>
+                    <li><strong>Easy-to-use Collocations:</strong> Ditch rare academic jargon. Guide him to prioritize simple, precise collocations (e.g., <em>"traffic congestion"</em>, <em>"wealth inequality"</em>, <em>"digital tools"</em>) that maintain high Fluency and Lexic scores.</li>
+                </ul>
+            </div>
+
+            <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">Click to inspect Band 6.5 A.R.E.A structured model answers:</p>
+
+            <div class="space-y-3">
+                
+                <!-- Q1 -->
+                <div class="border border-slate-150 rounded-xl bg-white/80 overflow-hidden shadow-sm hover:border-orange-200 transition-colors">
+                    <button onclick="toggleAccordion(1)" class="w-full text-left px-5 py-4 flex justify-between items-center gap-3">
+                        <span class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                            <span class="text-orange-500 font-bold">Q1.</span> What are the most pressing social problems facing your country today?
+                        </span>
+                        <svg id="arrow-1" class="w-4 h-4 text-slate-400 arrow-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="acc-1" class="accordion-content px-5 pb-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="text-xs text-slate-600 space-y-2">
+                            <p><strong>[A - Answer]</strong> In my opinion, traffic congestion and environmental pollution are the most critical social problems we face.</p>
+                            <p><strong>[R - Reason]</strong> This is because cities are expanding too quickly and there are too many private motorbikes on the road.</p>
+                            <p><strong>[E - Example]</strong> For example, during rush hour in Ho Chi Minh City, thousands of vehicles get stuck and create severe air pollution.</p>
+                            <p><strong>[A - Alternative]</strong> If we construct more convenient public train lines, commuting times and air quality will definitely improve.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q2 -->
+                <div class="border border-slate-150 rounded-xl bg-white/80 overflow-hidden shadow-sm hover:border-orange-200 transition-colors">
+                    <button onclick="toggleAccordion(2)" class="w-full text-left px-5 py-4 flex justify-between items-center gap-3">
+                        <span class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                            <span class="text-orange-500 font-bold">Q2.</span> How can individuals contribute to solving social issues in their community?
+                        </span>
+                        <svg id="arrow-2" class="w-4 h-4 text-slate-400 arrow-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="acc-2" class="accordion-content px-5 pb-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="text-xs text-slate-600 space-y-2">
+                            <p><strong>[A - Answer]</strong> I think citizens can help solve local issues by starting with small, daily positive actions.</p>
+                            <p><strong>[R - Reason]</strong> This is because big problems are often solved when thousands of individuals collectively alter their behavior.</p>
+                            <p><strong>[E - Example]</strong> For example, sorting family garbage and reducing single-use plastic bags directly minimizes neighborhood waste.</p>
+                            <p><strong>[A - Alternative]</strong> Without individual effort, even the best government laws will fail to keep our environment clean.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q3 -->
+                <div class="border border-slate-150 rounded-xl bg-white/80 overflow-hidden shadow-sm hover:border-orange-200 transition-colors">
+                    <button onclick="toggleAccordion(3)" class="w-full text-left px-5 py-4 flex justify-between items-center gap-3">
+                        <span class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                            <span class="text-orange-500 font-bold">Q3.</span> Do you think the gap between the rich and the poor is widening? Why?
+                        </span>
+                        <svg id="arrow-3" class="w-4 h-4 text-slate-400 arrow-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="acc-3" class="accordion-content px-5 pb-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="text-xs text-slate-600 space-y-2">
+                            <p><strong>[A - Answer]</strong> Yes, I believe that the wealth gap is becoming much more visible nowadays.</p>
+                            <p><strong>[R - Reason]</strong> The main reason is that wealthy people have better access to high-quality education and modern investments, which helps them earn money much faster.</p>
+                            <p><strong>[E - Example]</strong> For instance, kids from rich families attend international schools and get global jobs, while poorer kids study in underfunded schools.</p>
+                            <p><strong>[A - Alternative]</strong> Unless we improve public school standards, this social inequality will continue to widen.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q4 -->
+                <div class="border border-slate-150 rounded-xl bg-white/80 overflow-hidden shadow-sm hover:border-orange-200 transition-colors">
+                    <button onclick="toggleAccordion(4)" class="w-full text-left px-5 py-4 flex justify-between items-center gap-3">
+                        <span class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                            <span class="text-orange-500 font-bold">Q4.</span> What role should the government play in providing social welfare?
+                        </span>
+                        <svg id="arrow-4" class="w-4 h-4 text-slate-400 arrow-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="acc-4" class="accordion-content px-5 pb-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="text-xs text-slate-600 space-y-2">
+                            <p><strong>[A - Answer]</strong> I believe the government must provide a strong support system for disadvantaged citizens.</p>
+                            <p><strong>[R - Reason]</strong> This is because private companies only care about making money, so the state has a duty to make healthcare and education affordable for everyone.</p>
+                            <p><strong>[E - Example]</strong> For example, many European countries provide free schools and low-cost health treatments to all citizens.</p>
+                            <p><strong>[A - Alternative]</strong> Without this support, low-income families can quickly fall into heavy debt if a relative gets seriously sick.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q5 -->
+                <div class="border border-slate-150 rounded-xl bg-white/80 overflow-hidden shadow-sm hover:border-orange-200 transition-colors">
+                    <button onclick="toggleAccordion(5)" class="w-full text-left px-5 py-4 flex justify-between items-center gap-3">
+                        <span class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                            <span class="text-orange-500 font-bold">Q5.</span> How has technology changed the way people socialize and form communities?
+                        </span>
+                        <svg id="arrow-5" class="w-4 h-4 text-slate-400 arrow-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="acc-5" class="accordion-content px-5 pb-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="text-xs text-slate-600 space-y-2">
+                            <p><strong>[A - Answer]</strong> Well, technology makes global connections extremely easy, but it also makes real-world meetings less common.</p>
+                            <p><strong>[R - Reason]</strong> The main reason is that we can join online hobby groups instantly, which means we spend much less time speaking with neighbors.</p>
+                            <p><strong>[E - Example]</strong> For example, many teenagers have thousands of virtual friends but feel quite isolated on weekends.</p>
+                            <p><strong>[A - Alternative]</strong> If we don't balance online chats with face-to-face meetups, our real-world social skills will definitely decline.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q6 -->
+                <div class="border border-slate-150 rounded-xl bg-white/80 overflow-hidden shadow-sm hover:border-orange-200 transition-colors">
+                    <button onclick="toggleAccordion(6)" class="w-full text-left px-5 py-4 flex justify-between items-center gap-3">
+                        <span class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                            <span class="text-orange-500 font-bold">Q6.</span> Is it more important to prioritize individual freedom or social harmony?
+                        </span>
+                        <svg id="arrow-6" class="w-4 h-4 text-slate-400 arrow-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="acc-6" class="accordion-content px-5 pb-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="text-xs text-slate-600 space-y-2">
+                            <p><strong>[A - Answer]</strong> In my view, keeping social order and safety should be prioritized, especially during difficult times.</p>
+                            <p><strong>[R - Reason]</strong> Personal choices are great, but if everyone does whatever they want, it can create chaos in the community.</p>
+                            <p><strong>[E - Example]</strong> For example, wearing face masks in public is necessary during health emergencies, even if some people don't like it.</p>
+                            <p><strong>[A - Alternative]</strong> However, if a country has zero personal freedom, its citizens will feel too suppressed and unhappy.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q7 -->
+                <div class="border border-slate-150 rounded-xl bg-white/80 overflow-hidden shadow-sm hover:border-orange-200 transition-colors">
+                    <button onclick="toggleAccordion(7)" class="w-full text-left px-5 py-4 flex justify-between items-center gap-3">
+                        <span class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                            <span class="text-orange-500 font-bold">Q7.</span> What are the challenges of an aging population for a society?
+                        </span>
+                        <svg id="arrow-7" class="w-4 h-4 text-slate-400 arrow-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="acc-7" class="accordion-content px-5 pb-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="text-xs text-slate-600 space-y-2">
+                            <p><strong>[A - Answer]</strong> An aging demographic places a lot of pressure on medical systems and reduces the number of young workers.</p>
+                            <p><strong>[R - Reason]</strong> This is because there are fewer young taxpayers to fund pensions and care for retired citizens who need regular hospital visits.</p>
+                            <p><strong>[E - Example]</strong> For instance, countries like Japan are currently struggling to recruit enough young nurses to work in senior homes.</p>
+                            <p><strong>[A - Alternative]</strong> If governments do not support families to have more children, this economic issue will become much worse.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q8 -->
+                <div class="border border-slate-150 rounded-xl bg-white/80 overflow-hidden shadow-sm hover:border-orange-200 transition-colors">
+                    <button onclick="toggleAccordion(8)" class="w-full text-left px-5 py-4 flex justify-between items-center gap-3">
+                        <span class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                            <span class="text-orange-500 font-bold">Q8.</span> How can we promote better understanding between different generations?
+                        </span>
+                        <svg id="arrow-8" class="w-4 h-4 text-slate-400 arrow-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="acc-8" class="accordion-content px-5 pb-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="text-xs text-slate-600 space-y-2">
+                            <p><strong>[A - Answer]</strong> I believe we can bridge the age gap by organizing community projects where old and young people work together.</p>
+                            <p><strong>[R - Reason]</strong> Friction usually occurs because different generations don't interact face-to-face often, which leads to false stereotypes.</p>
+                            <p><strong>[E - Example]</strong> For example, neighborhood centers can host classes where youth teach grandparents smartphone tech, and elders teach crafts.</p>
+                            <p><strong>[A - Alternative]</strong> Without these cooperative channels, different generations will continue to misunderstand and ignore each other.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q9 -->
+                <div class="border border-slate-150 rounded-xl bg-white/80 overflow-hidden shadow-sm hover:border-orange-200 transition-colors">
+                    <button onclick="toggleAccordion(9)" class="w-full text-left px-5 py-4 flex justify-between items-center gap-3">
+                        <span class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                            <span class="text-orange-500 font-bold">Q9.</span> Does living in a large city make people more isolated from their neighbors?
+                        </span>
+                        <svg id="arrow-9" class="w-4 h-4 text-slate-400 arrow-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="acc-9" class="accordion-content px-5 pb-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="text-xs text-slate-600 space-y-2">
+                            <p><strong>[A - Answer]</strong> Yes, unfortunately, urban living often makes residents feel quite disconnected.</p>
+                            <p><strong>[R - Reason]</strong> The biggest reason is that apartment blocks are highly private, and busy commuters rarely have time to socialize with neighbors.</p>
+                            <p><strong>[E - Example]</strong> For instance, many people residing in city high-rises do not even know the names of the families next door.</p>
+                            <p><strong>[A - Alternative]</strong> In contrast, small countryside villages offer tight-knit networks where neighbors support each other like family.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q10 -->
+                <div class="border border-slate-150 rounded-xl bg-white/80 overflow-hidden shadow-sm hover:border-orange-200 transition-colors">
+                    <button onclick="toggleAccordion(10)" class="w-full text-left px-5 py-4 flex justify-between items-center gap-3">
+                        <span class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                            <span class="text-orange-500 font-bold">Q10.</span> What impact does volunteering have on both the individual and the community?
+                        </span>
+                        <svg id="arrow-10" class="w-4 h-4 text-slate-400 arrow-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="acc-10" class="accordion-content px-5 pb-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="text-xs text-slate-600 space-y-2">
+                            <p><strong>[A - Answer]</strong> Volunteering is amazing because it solves local problems while teaching volunteers valuable life skills.</p>
+                            <p><strong>[R - Reason]</strong> It provides essential aid to poor neighborhoods and helps young people learn real empathy.</p>
+                            <p><strong>[E - Example]</strong> For example, students who volunteer to clean public beaches learn to protect nature and feel more responsible.</p>
+                            <p><strong>[A - Alternative]</strong> Without this charity work, communities would lack supportive networks and students would remain too self-centered.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Master link referencing the society and culture resource -->
+            <div class="mt-5 pt-3 border-t border-slate-100 flex justify-end">
+                <a href="https://ieltschantruong.github.io/IELTS/learning_resources/speaking/part2_3/society_and_culture.html" target="_blank" class="inline-flex items-center gap-1.5 px-4 py-2 bg-orange-50 hover:bg-orange-100 text-orange-700 text-xs font-bold rounded-lg border border-orange-100 transition-colors">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                    Master Society & Culture Resource
+                </a>
+            </div>
+        </section>
+
+        <!-- Section 3: Listening Section -->
+        <section class="glass-panel rounded-2xl p-6 md:p-8 relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-2 h-full bg-purple-400"></div>
+            
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 rounded-full bg-purple-50 flex items-center justify-center text-purple-600 border border-purple-100 shadow-sm">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"></path></svg>
+                </div>
+                <h2 class="text-2xl font-bold text-slate-800">3. Listening Mock Practice</h2>
+            </div>
+
+            <!-- Listening Guidance Box -->
+            <div class="guidance-box border-purple-400 text-sm text-slate-700 space-y-2">
+                <h3 class="text-[13px] font-bold text-purple-800 uppercase tracking-wider mb-2 flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    PET Intensive Exam Standards & Interface Strategy
+                </h3>
+                <p>Maintain maximum audio concentration during the <strong>PET Intensive Mock Test 08</strong> execution. Ensure the student practices predicting the word types of gaps before playing tracks, typing clean spellings directly on screen.</p>
+            </div>
+
+            <a href="https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/test_view_pet_intensive_08.html" target="_blank" class="p-4 rounded-xl border border-purple-200 bg-white flex flex-col sm:flex-row items-center justify-between gap-4 transition-all hover:border-purple-400 hover:shadow-md group">
+                <div class="flex items-center gap-4 w-full sm:w-auto">
+                    <div class="w-10 h-10 bg-purple-50 rounded-lg flex items-center justify-center text-purple-600 font-bold group-hover:bg-purple-100 transition-colors shrink-0">08</div>
+                    <div>
+                        <p class="font-bold text-slate-800 text-[15px] group-hover:text-purple-600 transition-colors">PET Intensive Mock Test 08</p>
+                        <p class="text-xs text-slate-500 mt-0.5">Focus: High-speed dictation, name spellings, and numbers verification</p>
+                    </div>
+                </div>
+                <span class="w-full sm:w-auto text-center sm:text-right text-[11px] font-bold text-purple-600 uppercase tracking-wider bg-purple-50 px-4 py-2.5 rounded-lg border border-purple-100 group-hover:bg-purple-100 transition-colors shrink-0">Open Mock Test</span>
+            </a>
+        </section>
+
+        <!-- Section 4: Homework Assignments -->
+        <section class="glass-panel rounded-2xl p-6 md:p-8 relative overflow-hidden bg-gradient-to-br from-white/60 to-blue-50/40">
+            <div class="absolute top-0 left-0 w-2 h-full bg-blue-400"></div>
+            
+            <div class="flex items-center gap-3 mb-5">
+                <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 shadow-sm border border-blue-200">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                </div>
+                <h2 class="text-xl font-bold text-slate-800">4. Homework Assignments</h2>
+            </div>
+            
+            <p class="text-sm text-slate-600 mb-6 font-medium">Study and prep speaking responses for the new topic, listing vocabulary to learn inside your study logs:</p>
+
+            <div class="bg-white/80 rounded-xl p-5 border border-indigo-100 shadow-sm space-y-4">
+                <div class="flex items-start gap-4">
+                    <div class="p-2.5 bg-orange-50 text-orange-500 rounded-lg shadow-sm shrink-0">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+                    </div>
+                    <div>
+                        <p class="font-bold text-slate-800 text-base leading-snug">New Topic: Health & Lifestyle</p>
+                        <p class="text-xs text-slate-500 mt-1">Study general collocations and prepare Part 2 & Part 3 responses on the new topic. Track newly learned vocabulary phrases inside your workbook notes.</p>
+                    </div>
+                </div>
+
+                <!-- Direct resource link -->
+                <div class="pt-2">
+                    <a href="https://ieltschantruong.github.io/IELTS/learning_resources/speaking/part2_3/health_and_lifestyle.html" target="_blank" class="w-full bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold py-3 px-4 rounded-xl shadow-md transition-all flex items-center justify-center gap-2">
+                        <span>Open Health & Lifestyle Resource</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</div>
+
+<script>
+    function toggleAccordion(id) {
+        const content = document.getElementById(`acc-${id}`);
+        const arrow = document.getElementById(`arrow-${id}`);
+        
+        if (content.classList.contains('open')) {
+            content.classList.remove('open');
+            arrow.classList.remove('rotated');
+        } else {
+            // Close all other accordions first for clean navigation
+            for (let i = 1; i <= 10; i++) {
+                const otherContent = document.getElementById(`acc-${i}`);
+                const otherArrow = document.getElementById(`arrow-${i}`);
+                if (otherContent) otherContent.classList.remove('open');
+                if (otherArrow) otherArrow.classList.remove('rotated');
+            }
+            
+            content.classList.add('open');
+            arrow.classList.add('rotated');
+        }
+    }
+</script>
+
+</body>
+</html>
