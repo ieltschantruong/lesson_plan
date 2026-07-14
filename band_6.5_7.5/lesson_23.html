@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Chan Truong | Lesson 23</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            background-color: #ecfdf5; /* emerald-50 */
+        }
+        .fade-in { animation: fadeIn 0.4s ease-out forwards; }
+        @keyframes fadeIn { 
+            from { opacity: 0; transform: translateY(10px); } 
+            to { opacity: 1; transform: translateY(0); } 
+        }
+        .timer-text { font-variant-numeric: tabular-nums; }
+        
+        /* Elegant Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #d1fae5; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb { background: #10b981; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #059669; }
+
+        /* Glassmorphism utilities */
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        /* Inline Answer Toggle Utilities */
+        .blank-ans { display: none; }
+        .show-answers .blank-dots { display: none; }
+        .show-answers .blank-ans { display: inline-block; animation: fadeIn 0.3s forwards; }
+    </style>
+</head>
+<body class="h-screen flex flex-col overflow-hidden text-gray-800">
+
+    <!-- Elegant Header -->
+    <header id="app-header" class="text-white p-4 shadow-lg transition-colors duration-700 z-20 relative bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-500">
+        <div class="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9IiNmZmYiLz48L3N2Zz4=')]"></div>
+        
+        <div class="max-w-7xl mx-auto flex justify-between items-center relative z-10">
+            <div>
+                <div class="flex items-center gap-2 mb-1">
+                    <span class="bg-white/20 text-white text-xs font-bold px-2 py-0.5 rounded uppercase tracking-wider backdrop-blur-sm">Band 6.5 - 7.5</span>
+                    <span class="bg-white/20 text-white text-xs font-bold px-2 py-0.5 rounded uppercase tracking-wider backdrop-blur-sm">Lesson 23</span>
+                </div>
+                <h1 class="text-2xl font-bold tracking-tight drop-shadow-sm flex items-center gap-2">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                    IELTS Chan Truong
+                </h1>
+                <h2 id="slide-title" class="text-sm font-medium mt-1 text-emerald-50">Loading session...</h2>
+            </div>
+            
+            <div class="flex items-center space-x-2 sm:space-x-3">
+                <a href="https://online.flipbuilder.com/xtrvf/rzwv/" target="_blank" class="flex items-center space-x-2 text-sm font-semibold bg-white/20 hover:bg-white/30 transition-all px-3 sm:px-4 py-2 rounded-full focus:outline-none backdrop-blur-md shadow-sm border border-white/20 text-white" title="Complete IELTS 6.5-7.5 Ebook">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                    <span class="hidden sm:inline">Ebook</span>
+                </a>
+
+                <div class="relative">
+                    <button id="nav-toggle-btn" class="flex items-center space-x-2 text-sm font-semibold bg-white/20 hover:bg-white/30 transition-all px-3 sm:px-5 py-2 rounded-full focus:outline-none backdrop-blur-md shadow-sm border border-white/20">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                        <span class="hidden sm:inline">Sections</span>
+                    </button>
+                    
+                    <div id="nav-dropdown" class="hidden absolute right-0 mt-3 w-80 bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-emerald-100 overflow-hidden z-50 origin-top-right transition-all fade-in">
+                        <div class="p-3 bg-emerald-50 border-b border-emerald-100">
+                            <p class="text-xs font-bold text-emerald-800 uppercase tracking-wider text-center">Lesson Agenda</p>
+                        </div>
+                        <div class="max-h-[60vh] overflow-y-auto p-2" id="nav-menu-list"></div>
+                    </div>
+                </div>
+
+                <div class="hidden sm:flex items-center space-x-2 text-sm font-bold text-emerald-900 bg-white px-4 py-2 rounded-full shadow-sm">
+                    <svg class="w-4 h-4 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <span>90 Mins</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto mt-5 bg-black/10 rounded-full h-1.5 overflow-hidden relative z-10">
+            <div id="progress-bar" class="bg-white h-full transition-all duration-700 ease-out shadow-[0_0_10px_rgba(255,255,255,0.8)]" style="width: 0%"></div>
+        </div>
+    </header>
+
+    <main class="flex-grow overflow-y-auto relative p-4 md:p-8">
+        <div id="content-container" class="max-w-6xl mx-auto"></div>
+    </main>
+
+    <footer class="bg-white/80 backdrop-blur-md border-t border-emerald-100 p-4 md:px-10 z-10 shadow-[0_-10px_15px_-3px_rgba(0,0,0,0.02)]">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <button id="btn-prev" class="px-6 py-2.5 rounded-xl border border-emerald-200 text-emerald-600 font-semibold hover:bg-emerald-50 hover:border-emerald-300 transition-all disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-2">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                Previous
+            </button>
+            
+            <div class="flex items-center gap-2">
+                <div class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></div>
+                <div id="step-indicator" class="text-sm font-semibold text-emerald-800 uppercase tracking-wide">
+                    Section 1 of X
+                </div>
+                <div class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse delay-75"></div>
+            </div>
+
+            <button id="btn-next" class="px-6 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-semibold hover:from-emerald-600 hover:to-teal-600 shadow-md hover:shadow-lg transition-all flex items-center gap-2 transform hover:-translate-y-0.5">
+                Next
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </button>
+        </div>
+    </footer>
+
+<script>
+    // --- TIMER LOGIC ---
+    let timers = {
+        prep1: { interval: null, remaining: 60, isRunning: false },
+        speak1: { interval: null, remaining: 120, isRunning: false },
+        prep2: { interval: null, remaining: 60, isRunning: false },
+        speak2: { interval: null, remaining: 120, isRunning: false }
+    };
+
+    function formatTime(seconds) {
+        const m = Math.floor(seconds / 60).toString().padStart(2, '0');
+        const s = (seconds % 60).toString().padStart(2, '0');
+        return `${m}:${s}`;
+    }
+
+    function updateTimerUI(id, seconds) {
+        const displayEl = document.getElementById(`${id}-timer`);
+        if (displayEl) displayEl.textContent = formatTime(seconds);
+    }
+
+    function toggleTimer(id, defaultTime) {
+        const timer = timers[id];
+        const btn = document.getElementById(`btn-${id}-timer`);
+        
+        if (timer.isRunning) {
+            clearInterval(timer.interval);
+            timer.isRunning = false;
+            if(btn) btn.textContent = 'Resume';
+        } else {
+            if (timer.remaining <= 0) timer.remaining = defaultTime;
+            
+            timer.isRunning = true;
+            if(btn) btn.textContent = 'Pause';
+            
+            timer.interval = setInterval(() => {
+                timer.remaining--;
+                updateTimerUI(id, timer.remaining);
+                
+                if (timer.remaining <= 0) {
+                    clearInterval(timer.interval);
+                    timer.isRunning = false;
+                    if(btn) btn.textContent = 'Time Up!';
+                    try {
+                        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+                        const playBeep = (st) => {
+                            const osc = ctx.createOscillator();
+                            const gain = ctx.createGain();
+                            osc.connect(gain);
+                            gain.connect(ctx.destination);
+                            osc.frequency.setValueAtTime(800, st);
+                            gain.gain.setValueAtTime(0.1, st);
+                            osc.start(st);
+                            gain.gain.exponentialRampToValueAtTime(0.00001, st + 0.3);
+                            osc.stop(st + 0.3);
+                        };
+                        playBeep(ctx.currentTime);
+                        playBeep(ctx.currentTime + 0.4);
+                    } catch(e) {}
+                }
+            }, 1000);
+        }
+    }
+
+    function resetTimer(id, defaultTime) {
+        const timer = timers[id];
+        clearInterval(timer.interval);
+        timer.isRunning = false;
+        timer.remaining = defaultTime;
+        updateTimerUI(id, defaultTime);
+        const btn = document.getElementById(`btn-${id}-timer`);
+        if(btn) btn.textContent = 'Start';
+    }
+
+    function pauseAllTimers() {
+        Object.keys(timers).forEach(key => {
+            if (timers[key].isRunning) {
+                clearInterval(timers[key].interval);
+                timers[key].isRunning = false;
+            }
+        });
+    }
+
+    // --- DATA STRUCTURE ---
+    const sessionData = [
+        {
+            id: 'speaking_unit7_1',
+            type: 'Speaking',
+            themeClass: 'bg-gradient-to-r from-emerald-400 to-teal-500',
+            iconColor: 'text-emerald-500',
+            bgColor: 'bg-emerald-50',
+            title: '1. Unit 7 Vocab & Practice (p.75-76)',
+            content: `
+                <div class="fade-in space-y-8">
+                    <!-- Vocab Exercises -->
+                    <div class="bg-white rounded-3xl shadow-xl border border-emerald-50 p-8 relative overflow-hidden">
+                        <div class="absolute -top-24 -right-24 w-64 h-64 bg-emerald-100 rounded-full mix-blend-multiply filter blur-2xl opacity-70"></div>
+                        
+                        <div class="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6 border-b border-gray-100 pb-4">
+                            <div class="flex items-center gap-3">
+                                <span class="inline-block py-1 px-3 rounded-full bg-emerald-100 text-emerald-700 font-bold text-xs uppercase tracking-widest">Pink Book</span>
+                                <h3 class="text-2xl font-bold text-gray-800">Unit 7 Vocab (Pages 75-76)</h3>
+                            </div>
+                        </div>
+
+                        <div class="space-y-6">
+                            <!-- Exercise 1 -->
+                            <div id="spk7-ex1-container" class="bg-emerald-50/50 border border-emerald-100 rounded-xl p-6 shadow-sm transition-all duration-300">
+                                <div class="flex justify-between items-center mb-4">
+                                    <h5 class="font-bold text-emerald-800 text-lg">Exercise 1</h5>
+                                    <button id="btn-spk7-ex1" onclick="toggleInlineAnswers('spk7-ex1-container', 'btn-spk7-ex1')" class="text-xs bg-white text-emerald-700 px-3 py-1.5 rounded-lg font-bold border border-emerald-200 hover:bg-emerald-100 transition-colors">Show Answers</button>
+                                </div>
+                                <p class="text-gray-700 text-sm mb-4 font-medium">Fill in each blank with one suitable word from the list below.</p>
+                                
+                                <div class="flex flex-wrap gap-x-6 gap-y-2 justify-center mb-6 bg-white border border-emerald-200 p-4 rounded-lg font-bold text-emerald-700 text-sm shadow-sm">
+                                    <span>programs</span> <span>environmentalist</span> <span>waste</span> <span>habitats</span> <span>generations</span> <span>polluted</span> <span>conscious</span> <span>consumerism</span>
+                                </div>
+
+                                <div class="space-y-4 text-sm text-gray-700 leading-relaxed font-medium">
+                                    <p><span class="font-bold text-emerald-800">1</span> Ms. Lan is a young active <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 mx-1">environmentalist</span> .</p>
+                                    <p><span class="font-bold text-emerald-800">2</span> She has conducted various <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 mx-1">programs</span> to protect rivers in my hometown from being heavily <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 mx-1">polluted</span> .</p>
+                                    <p><span class="font-bold text-emerald-800">3</span> Green <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 mx-1">consumerism</span> is the buying of products that are not harmful to the environment.</p>
+                                    <p><span class="font-bold text-emerald-800">4</span> Copenhageners are environment - <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 mx-1">conscious</span> and very attached to their bikes.</p>
+                                    <p><span class="font-bold text-emerald-800">5</span> Toxic <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 mx-1">waste</span> is discharged into the rivers without being properly treated.</p>
+                                    <p><span class="font-bold text-emerald-800">6</span> You probably know that rivers are natural <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 mx-1">habitats</span> of many aquatic species.</p>
+                                    <p><span class="font-bold text-emerald-800">7</span> She believes that everything we do has impact on future <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 mx-1">generations</span> .</p>
+                                </div>
+                            </div>
+
+                            <!-- Exercise 2 -->
+                            <div id="spk7-ex2-container" class="bg-emerald-50/50 border border-emerald-100 rounded-xl p-6 shadow-sm transition-all duration-300">
+                                <div class="flex justify-between items-center mb-4">
+                                    <h5 class="font-bold text-emerald-800 text-lg">Exercise 2</h5>
+                                    <button id="btn-spk7-ex2" onclick="toggleInlineAnswers('spk7-ex2-container', 'btn-spk7-ex2')" class="text-xs bg-white text-emerald-700 px-3 py-1.5 rounded-lg font-bold border border-emerald-200 hover:bg-emerald-100 transition-colors">Show Answers</button>
+                                </div>
+                                <p class="text-gray-700 text-sm mb-4 font-medium">Match the phrases with the meanings.</p>
+                                
+                                <div class="grid md:grid-cols-2 gap-8 text-sm">
+                                    <div class="space-y-4 font-medium text-gray-800">
+                                        <p>1 avoid <span class="text-emerald-700 italic font-bold">disposable</span> products <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ E</span></p>
+                                        <p>2 <span class="text-emerald-700 italic font-bold">enhance</span> public <span class="text-emerald-700 italic font-bold">awareness</span> of something <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ D</span></p>
+                                        <p>3 <span class="text-emerald-700 italic font-bold">pursue</span> a green lifestyle <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ C</span></p>
+                                        <p>4 use <span class="text-emerald-700 italic font-bold">public transit</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ B</span></p>
+                                        <p>5 use <span class="text-emerald-700 italic font-bold">unleaded</span> petrol <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ A</span></p>
+                                    </div>
+                                    <div class="space-y-4 text-gray-600 font-medium">
+                                        <p><span class="font-bold text-gray-800">A.</span> use energy less harmful to the environment</p>
+                                        <p><span class="font-bold text-gray-800">B.</span> use buses or trains</p>
+                                        <p><span class="font-bold text-gray-800">C.</span> be environmentally-friendly</p>
+                                        <p><span class="font-bold text-gray-800">D.</span> make people know the significance of something</p>
+                                        <p><span class="font-bold text-gray-800">E.</span> avoid single-use items</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Exercise 3 -->
+                            <div id="spk7-ex3-container" class="bg-emerald-50/50 border border-emerald-100 rounded-xl p-6 shadow-sm transition-all duration-300">
+                                <div class="flex justify-between items-center mb-4">
+                                    <h5 class="font-bold text-emerald-800 text-lg">Exercise 3</h5>
+                                    <button id="btn-spk7-ex3" onclick="toggleInlineAnswers('spk7-ex3-container', 'btn-spk7-ex3')" class="text-xs bg-white text-emerald-700 px-3 py-1.5 rounded-lg font-bold border border-emerald-200 hover:bg-emerald-100 transition-colors">Show Answers</button>
+                                </div>
+                                <p class="text-gray-700 text-sm mb-4 font-medium">Fill in each blank with one suitable word from the list below.</p>
+                                
+                                <div class="flex flex-wrap gap-x-6 gap-y-2 justify-center mb-6 bg-white border border-emerald-200 p-4 rounded-lg font-bold text-emerald-700 text-sm shadow-sm">
+                                    <span>living</span> <span>organisms</span> <span>deforestation</span> <span>yields</span> <span>zones</span>
+                                </div>
+
+                                <p class="text-sm text-gray-700 leading-relaxed font-medium">
+                                    Population growth has had unfavorable repercussions on the world’s flora and fauna. As more land is used for agriculture or (1) <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 mx-1">living</span> purposes, many habitats are being destroyed. This leads to extreme (2) <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 mx-1">deforestation</span> in many countries. In addition, more technologies and practices will be implemented to increase agricultural (3) <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 mx-1">yields</span> , which produces waste products. This will increase dead (4) <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 mx-1">zones</span> in pools, lakes, and rivers. As a result, fishes and other marine (5) <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 mx-1">organisms</span> will start to die more frequently.
+                                </p>
+                            </div>
+
+                            <!-- Exercise 4 -->
+                            <div id="spk7-ex4-container" class="bg-emerald-50/50 border border-emerald-100 rounded-xl p-6 shadow-sm transition-all duration-300">
+                                <div class="flex justify-between items-center mb-4">
+                                    <h5 class="font-bold text-emerald-800 text-lg">Exercise 4</h5>
+                                    <button id="btn-spk7-ex4" onclick="toggleInlineAnswers('spk7-ex4-container', 'btn-spk7-ex4')" class="text-xs bg-white text-emerald-700 px-3 py-1.5 rounded-lg font-bold border border-emerald-200 hover:bg-emerald-100 transition-colors">Show Answers</button>
+                                </div>
+                                <p class="text-gray-700 text-sm mb-4 font-medium">Fill in each blank with one suitable word from the list below.</p>
+                                
+                                <div class="flex flex-wrap gap-x-6 gap-y-2 justify-center mb-6 bg-white border border-emerald-200 p-4 rounded-lg font-bold text-emerald-700 text-sm shadow-sm">
+                                    <span>security</span> <span>biodiversity</span> <span>thumb</span> <span>ecosystems</span> <span>profitable</span>
+                                </div>
+
+                                <div class="space-y-4 text-sm text-gray-700 leading-relaxed font-medium">
+                                    <p><span class="font-bold text-emerald-800">1</span> One compelling benefit of wildlife conservation is that it ensures food <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 mx-1">security</span> .</p>
+                                    <p><span class="font-bold text-emerald-800">2</span> Wildlife conservation promotes agricultural <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 mx-1">biodiversity</span> , which plays an important role in building a secure and thriving food system.</p>
+                                    <p><span class="font-bold text-emerald-800">3</span> Amy has a green <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 mx-1">thumb</span> , and enjoys tending to her many plants.</p>
+                                    <p><span class="font-bold text-emerald-800">4</span> Increasing biodiversity and healthy <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 mx-1">ecosystems</span> through conservation improves agricultural productivity, thereby allowing farms to become more <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 mx-1">profitable</span> .</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Speaking Practice -->
+                    <div class="bg-white rounded-3xl shadow-xl border border-teal-50 p-8">
+                        <div class="flex flex-col md:flex-row justify-between items-center gap-6 mb-8 border-b border-gray-100 pb-6">
+                            <div>
+                                <h3 class="text-2xl font-bold text-gray-800">Part 2: Long Turn</h3>
+                                <p class="text-gray-500 mt-1 font-medium">Manage the candidate's preparation and speaking time.</p>
+                            </div>
+                            
+                            <div class="flex gap-4 w-full md:w-auto">
+                                <div class="bg-emerald-50 rounded-2xl p-4 border border-emerald-100 text-center flex-1 md:w-36 shadow-sm">
+                                    <h4 class="text-emerald-600 font-bold uppercase text-[10px] tracking-wider mb-2">Prep Time (1 Min)</h4>
+                                    <div class="text-3xl font-black text-emerald-700 timer-text mb-3 drop-shadow-sm" id="prep1-timer">01:00</div>
+                                    <button onclick="toggleTimer('prep1', 60)" id="btn-prep1-timer" class="w-full bg-emerald-200 text-emerald-800 py-1.5 rounded-xl font-bold hover:bg-emerald-300 transition-colors text-sm">Start</button>
+                                </div>
+                                <div class="bg-teal-50 rounded-2xl p-4 border border-teal-100 text-center flex-1 md:w-36 shadow-sm">
+                                    <h4 class="text-teal-600 font-bold uppercase text-[10px] tracking-wider mb-2">Speaking (2 Mins)</h4>
+                                    <div class="text-3xl font-black text-teal-600 timer-text mb-3 drop-shadow-sm" id="speak1-timer">02:00</div>
+                                    <button onclick="toggleTimer('speak1', 120)" id="btn-speak1-timer" class="w-full bg-gradient-to-r from-teal-500 to-emerald-500 text-white py-1.5 rounded-xl font-bold hover:opacity-90 transition-opacity text-sm shadow-sm">Start</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-teal-50 border-l-4 border-teal-500 p-6 rounded-r-2xl mb-8 shadow-sm">
+                            <p class="text-teal-800 font-bold uppercase tracking-wider text-xs mb-2">Candidate Task Card</p>
+                            <p class="text-xl font-bold text-gray-800 mb-4">Describe a person you know who loves to grow plants</p>
+                            <ul class="text-gray-700 space-y-2 list-disc list-inside font-medium ml-2">
+                                <li>Who this person is</li>
+                                <li>What he/she grows</li>
+                                <li>Where he/she grows them</li>
+                                <li>And explain why he/she enjoys growing plants</li>
+                            </ul>
+                            <div class="mt-5 pt-5 border-t border-teal-200">
+                                <button onclick="toggleVisibility('p2-s1-sample')" class="text-xs font-bold text-teal-700 bg-teal-100 hover:bg-teal-200 px-4 py-2 rounded-lg transition-colors whitespace-nowrap shadow-sm">Show Sample Response</button>
+                                <div id="p2-s1-sample" class="hidden mt-4 bg-white p-4 rounded-xl border border-teal-100 shadow-sm">
+                                    <p class="text-sm text-gray-700 italic leading-relaxed">"I'd like to talk about my grandfather, who has a profound passion for gardening. He spends most of his free time nurturing a variety of plants in his small rooftop garden and front yard. He mainly grows ornamental plants, particularly orchids, which require meticulous care, alongside some seasonal herbs and vegetables like tomatoes and basil. I believe he thoroughly enjoys growing plants because he finds it incredibly <strong>therapeutic</strong>. It helps him unwind, stay physically active in his retirement, and feel closely connected to nature. Plus, harvesting his own pesticide-free vegetables gives him a great sense of accomplishment and promotes a sustainable lifestyle."</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6 border-b border-gray-100 pb-4 mt-10">Part 3: Discussion Questions</h3>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="bg-gray-50 rounded-xl p-4 border border-gray-200">
+                                <div class="flex justify-between items-start gap-2 mb-2">
+                                    <p><span class="font-bold text-teal-600 mr-2">1.</span> Is it important to teach students environmental protection at school?</p>
+                                    <button onclick="toggleVisibility('p3-s1-q1')" class="text-[10px] font-bold text-teal-600 bg-teal-100 hover:bg-teal-200 px-2 py-1 rounded transition-colors whitespace-nowrap">Sample</button>
+                                </div>
+                                <div id="p3-s1-q1" class="hidden mt-2 pt-2 border-t border-gray-200">
+                                    <p class="text-sm text-gray-600 italic">"Yes, it is absolutely crucial. Teaching this at school cultivates <strong>eco-consciousness</strong> from a young age, ensuring the next generation understands the consequences of their actions and grows up to be responsible citizens."</p>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gray-50 rounded-xl p-4 border border-gray-200">
+                                <div class="flex justify-between items-start gap-2 mb-2">
+                                    <p><span class="font-bold text-teal-600 mr-2">2.</span> How can people protect the environment?</p>
+                                    <button onclick="toggleVisibility('p3-s1-q2')" class="text-[10px] font-bold text-teal-600 bg-teal-100 hover:bg-teal-200 px-2 py-1 rounded transition-colors whitespace-nowrap">Sample</button>
+                                </div>
+                                <div id="p3-s1-q2" class="hidden mt-2 pt-2 border-t border-gray-200">
+                                    <p class="text-sm text-gray-600 italic">"Individuals can make a significant impact through small daily habits, such as reducing <strong>single-use plastics</strong>, sorting recycling, conserving water, and opting for public transport to minimize their carbon footprint."</p>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gray-50 rounded-xl p-4 border border-gray-200">
+                                <div class="flex justify-between items-start gap-2 mb-2">
+                                    <p><span class="font-bold text-teal-600 mr-2">3.</span> Do you think it is necessary to make environmental protection a subject at school?</p>
+                                    <button onclick="toggleVisibility('p3-s1-q3')" class="text-[10px] font-bold text-teal-600 bg-teal-100 hover:bg-teal-200 px-2 py-1 rounded transition-colors whitespace-nowrap">Sample</button>
+                                </div>
+                                <div id="p3-s1-q3" class="hidden mt-2 pt-2 border-t border-gray-200">
+                                    <p class="text-sm text-gray-600 italic">"Definitely. While it can be integrated into science or geography, having it as a dedicated subject allows for deep, hands-on learning about <strong>sustainability</strong> and practical conservation efforts."</p>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gray-50 rounded-xl p-4 border border-gray-200">
+                                <div class="flex justify-between items-start gap-2 mb-2">
+                                    <p><span class="font-bold text-teal-600 mr-2">4.</span> How is population growth likely to affect the world’s flora and fauna?</p>
+                                    <button onclick="toggleVisibility('p3-s1-q4')" class="text-[10px] font-bold text-teal-600 bg-teal-100 hover:bg-teal-200 px-2 py-1 rounded transition-colors whitespace-nowrap">Sample</button>
+                                </div>
+                                <div id="p3-s1-q4" class="hidden mt-2 pt-2 border-t border-gray-200">
+                                    <p class="text-sm text-gray-600 italic">"Rapid population growth leads to urbanization and agricultural expansion, which cause massive <strong>deforestation</strong> and <strong>habitat destruction</strong>, ultimately resulting in a tragic loss of biodiversity."</p>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gray-50 rounded-xl p-4 border border-gray-200">
+                                <div class="flex justify-between items-start gap-2 mb-2">
+                                    <p><span class="font-bold text-teal-600 mr-2">5.</span> What are the potential benefits of animal conservation programmes to people?</p>
+                                    <button onclick="toggleVisibility('p3-s1-q5')" class="text-[10px] font-bold text-teal-600 bg-teal-100 hover:bg-teal-200 px-2 py-1 rounded transition-colors whitespace-nowrap">Sample</button>
+                                </div>
+                                <div id="p3-s1-q5" class="hidden mt-2 pt-2 border-t border-gray-200">
+                                    <p class="text-sm text-gray-600 italic">"Beyond maintaining the ecological balance, which is vital for human survival, these programs boost <strong>ecotourism</strong>, providing livelihoods for local communities and allowing for important medical and scientific research."</p>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gray-50 rounded-xl p-4 border border-gray-200">
+                                <div class="flex justify-between items-start gap-2 mb-2">
+                                    <p><span class="font-bold text-teal-600 mr-2">6.</span> Is there any justification for continuing to keep animals in captivity?</p>
+                                    <button onclick="toggleVisibility('p3-s1-q6')" class="text-[10px] font-bold text-teal-600 bg-teal-100 hover:bg-teal-200 px-2 py-1 rounded transition-colors whitespace-nowrap">Sample</button>
+                                </div>
+                                <div id="p3-s1-q6" class="hidden mt-2 pt-2 border-t border-gray-200">
+                                    <p class="text-sm text-gray-600 italic">"The only true justification is for <strong>conservation and rehabilitation</strong>. Zoos and sanctuaries that focus on breeding endangered species and educating the public are acceptable, whereas keeping them purely for entertainment is increasingly seen as unethical."</p>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gray-50 rounded-xl p-4 border border-gray-200">
+                                <div class="flex justify-between items-start gap-2 mb-2">
+                                    <p><span class="font-bold text-teal-600 mr-2">7.</span> What benefits do you think will come from preserving the world’s rainforests?</p>
+                                    <button onclick="toggleVisibility('p3-s1-q7')" class="text-[10px] font-bold text-teal-600 bg-teal-100 hover:bg-teal-200 px-2 py-1 rounded transition-colors whitespace-nowrap">Sample</button>
+                                </div>
+                                <div id="p3-s1-q7" class="hidden mt-2 pt-2 border-t border-gray-200">
+                                    <p class="text-sm text-gray-600 italic">"Rainforests act as the Earth's lungs. Preserving them helps regulate the global climate by acting as massive <strong>carbon sinks</strong>, while also protecting the natural habitats of millions of unique plant and animal species."</p>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gray-50 rounded-xl p-4 border border-gray-200 lg:col-span-2">
+                                <div class="flex justify-between items-start gap-2 mb-2">
+                                    <p><span class="font-bold text-teal-600 mr-2">8.</span> What future role do governments have to play in the preservation of their country’s wildlife?</p>
+                                    <button onclick="toggleVisibility('p3-s1-q8')" class="text-[10px] font-bold text-teal-600 bg-teal-100 hover:bg-teal-200 px-2 py-1 rounded transition-colors whitespace-nowrap">Sample</button>
+                                </div>
+                                <div id="p3-s1-q8" class="hidden mt-2 pt-2 border-t border-gray-200">
+                                    <p class="text-sm text-gray-600 italic">"Governments must take the lead by enforcing much stricter laws against <strong>poaching and illegal logging</strong>. They also need to allocate more funding to establish well-protected national parks and subsidize green initiatives."</p>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gray-50 rounded-xl p-4 border border-gray-200 lg:col-span-2">
+                                <div class="flex justify-between items-start gap-2 mb-2">
+                                    <p><span class="font-bold text-teal-600 mr-2">9.</span> Is wildlife preservation a global or national issue?</p>
+                                    <button onclick="toggleVisibility('p3-s1-q9')" class="text-[10px] font-bold text-teal-600 bg-teal-100 hover:bg-teal-200 px-2 py-1 rounded transition-colors whitespace-nowrap">Sample</button>
+                                </div>
+                                <div id="p3-s1-q9" class="hidden mt-2 pt-2 border-t border-gray-200">
+                                    <p class="text-sm text-gray-600 italic">"It is fundamentally a <strong>global issue</strong>. Ecosystems do not recognize human borders. The extinction of species in one part of the world can disrupt the ecological balance globally, requiring international treaties and unified action to manage effectively."</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `
+        },
+        {
+            id: 'speaking_unit7_2',
+            type: 'Speaking',
+            themeClass: 'bg-gradient-to-r from-teal-400 to-cyan-500',
+            iconColor: 'text-teal-500',
+            bgColor: 'bg-teal-50',
+            title: '2. Unit 7 Vocab & Practice (p.77-78)',
+            content: `
+                <div class="fade-in space-y-8">
+                    <!-- Vocab Exercises -->
+                    <div class="bg-white rounded-3xl shadow-xl border border-teal-50 p-8 relative overflow-hidden">
+                        <div class="absolute -top-24 -right-24 w-64 h-64 bg-teal-100 rounded-full mix-blend-multiply filter blur-2xl opacity-70"></div>
+                        
+                        <div class="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6 border-b border-gray-100 pb-4">
+                            <div class="flex items-center gap-3">
+                                <span class="inline-block py-1 px-3 rounded-full bg-teal-100 text-teal-700 font-bold text-xs uppercase tracking-widest">Pink Book</span>
+                                <h3 class="text-2xl font-bold text-gray-800">Unit 7 Vocab (Pages 77-78)</h3>
+                            </div>
+                        </div>
+
+                        <div class="space-y-6">
+                            <!-- Exercise 4 -->
+                            <div id="spk7-p77-ex4-container" class="bg-teal-50/50 border border-teal-100 rounded-xl p-6 shadow-sm transition-all duration-300">
+                                <div class="flex justify-between items-center mb-4">
+                                    <h5 class="font-bold text-teal-800 text-lg">Exercise 4</h5>
+                                    <button id="btn-spk7-p77-ex4" onclick="toggleInlineAnswers('spk7-p77-ex4-container', 'btn-spk7-p77-ex4')" class="text-xs bg-white text-teal-700 px-3 py-1.5 rounded-lg font-bold border border-teal-200 hover:bg-teal-100 transition-colors">Show Answers</button>
+                                </div>
+                                <p class="text-gray-700 text-sm mb-4 font-medium">Read the passage below and decide the meaning of the words in bold.</p>
+
+                                <!-- Passage -->
+                                <div class="bg-white p-5 rounded-xl border border-teal-100 text-sm text-gray-700 leading-relaxed mb-6 shadow-sm">
+                                    <p class="mb-3">A couple of years ago I paid a visit to Jakarta, one of the <span class="font-bold text-teal-700 italic">metropolises</span> in Asia, which happened to be one of the most contaminated places I had <span class="font-bold text-teal-700 italic">set foot in</span>. Before the trip, somehow I was <span class="font-bold text-teal-700 italic">under the impression</span> that this city would be clean and cutting-edge. I hadn't had any clues about the state of environment there.</p>
+                                    <p class="mb-3">Let me continue by telling you the reason for this trip. Having a <span class="font-bold text-teal-700 italic">once-in-a-lifetime</span> trip in Bali, a splendid <span class="font-bold text-teal-700 italic">tourist hotspot</span> in Indonesia, I thought it would be a fascinating idea to stay in Jakarta a few days to experience the modernity and gain a more profound understanding of life in this <span class="font-bold text-teal-700 italic">megacity</span>. But it turned out to be a disaster. To my disbelief, the entire city was filled with dust and virtually <span class="font-bold text-teal-700 italic">bereft of</span> green spaces. The whole landscape was nothing but <span class="font-bold text-teal-700 italic">concrete jungle</span>. The severe level of contamination just <span class="font-bold text-teal-700 italic">exacerbated</span> the unbearable boiling heat of the summer. So I decided to stay in the hotel and not visit any renowned tourist meccas <span class="font-bold text-teal-700 italic">for the sake of</span> my health. As you can probably guess, it was so <span class="font-bold text-teal-700 italic">oppressive</span> that I couldn't even breathe, <span class="font-bold text-teal-700 italic">let alone</span> getting engaged in any outdoor activities like going sightseeing.</p>
+                                    <p>I have to confess that initially this problem ruined my trip, but later on I <span class="font-bold text-teal-700 italic">came to a realization</span> that I could spare time in hotel for <span class="font-bold text-teal-700 italic">lazing around</span>, genuinely unwinding. The valuable lesson I drew from this trip was that it is of great significance to do <span class="font-bold text-teal-700 italic">meticulous</span> research about the destination beforehand.</p>
+                                </div>
+
+                                <!-- Questions -->
+                                <div class="grid md:grid-cols-2 gap-x-8 gap-y-6 text-sm">
+                                    <div>
+                                        <p class="font-bold text-gray-800 mb-2">1 <span class="text-teal-700">metropolis</span> (n)</p>
+                                        <div class="pl-4 space-y-1 text-gray-600">
+                                            <p class="flex items-start"><span class="mr-2">a.</span> <span>big city <span class="blank-ans text-emerald-600 font-bold ml-1">✓</span></span></p>
+                                            <p class="flex items-start"><span class="mr-2">b.</span> <span>small city</span></p>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-gray-800 mb-2">2 <span class="text-teal-700">set foot in</span> (v)</p>
+                                        <div class="pl-4 space-y-1 text-gray-600">
+                                            <p class="flex items-start"><span class="mr-2">a.</span> <span>visit <span class="blank-ans text-emerald-600 font-bold ml-1">✓</span></span></p>
+                                            <p class="flex items-start"><span class="mr-2">b.</span> <span>leave</span></p>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-gray-800 mb-2">3 <span class="text-teal-700">be under the impression</span></p>
+                                        <div class="pl-4 space-y-1 text-gray-600">
+                                            <p class="flex items-start"><span class="mr-2">a.</span> <span>believe (usually right)</span></p>
+                                            <p class="flex items-start"><span class="mr-2">b.</span> <span>believe (usually wrongly) <span class="blank-ans text-emerald-600 font-bold ml-1">✓</span></span></p>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-gray-800 mb-2">4 <span class="text-teal-700">tourist hotspot</span> (n)</p>
+                                        <div class="pl-4 space-y-1 text-gray-600">
+                                            <p class="flex items-start"><span class="mr-2">a.</span> <span>renowned destination <span class="blank-ans text-emerald-600 font-bold ml-1">✓</span></span></p>
+                                            <p class="flex items-start"><span class="mr-2">b.</span> <span>unknown destination</span></p>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-gray-800 mb-2">5 <span class="text-teal-700">megacity</span> (n)</p>
+                                        <div class="pl-4 space-y-1 text-gray-600">
+                                            <p class="flex items-start"><span class="mr-2">a.</span> <span>very large city (over 10 million people) <span class="blank-ans text-emerald-600 font-bold ml-1">✓</span></span></p>
+                                            <p class="flex items-start"><span class="mr-2">b.</span> <span>medium-sized city</span></p>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-gray-800 mb-2">6 <span class="text-teal-700">be bereft of</span></p>
+                                        <div class="pl-4 space-y-1 text-gray-600">
+                                            <p class="flex items-start"><span class="mr-2">a.</span> <span>lack <span class="blank-ans text-emerald-600 font-bold ml-1">✓</span></span></p>
+                                            <p class="flex items-start"><span class="mr-2">b.</span> <span>have a lot of</span></p>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-gray-800 mb-2">7 <span class="text-teal-700">concrete jungle</span> (n)</p>
+                                        <div class="pl-4 space-y-1 text-gray-600">
+                                            <p class="flex items-start"><span class="mr-2">a.</span> <span>green city</span></p>
+                                            <p class="flex items-start"><span class="mr-2">b.</span> <span>unpleasant place <span class="blank-ans text-emerald-600 font-bold ml-1">✓</span></span></p>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-gray-800 mb-2">8 <span class="text-teal-700">exacerbate</span> (v)</p>
+                                        <div class="pl-4 space-y-1 text-gray-600">
+                                            <p class="flex items-start"><span class="mr-2">a.</span> <span>make something better</span></p>
+                                            <p class="flex items-start"><span class="mr-2">b.</span> <span>make something worse <span class="blank-ans text-emerald-600 font-bold ml-1">✓</span></span></p>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-gray-800 mb-2">9 <span class="text-teal-700">for the sake of</span></p>
+                                        <div class="pl-4 space-y-1 text-gray-600">
+                                            <p class="flex items-start"><span class="mr-2">a.</span> <span>for worse</span></p>
+                                            <p class="flex items-start"><span class="mr-2">b.</span> <span>for the benefit of <span class="blank-ans text-emerald-600 font-bold ml-1">✓</span></span></p>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-gray-800 mb-2">10 <span class="text-teal-700">oppressive</span> (a)</p>
+                                        <div class="pl-4 space-y-1 text-gray-600">
+                                            <p class="flex items-start"><span class="mr-2">a.</span> <span>clement with slight wind</span></p>
+                                            <p class="flex items-start"><span class="mr-2">b.</span> <span>extremely hot, not enough fresh air <span class="blank-ans text-emerald-600 font-bold ml-1">✓</span></span></p>
+                                        </div>
+                                    </div>
+                                    <div class="md:col-span-2 lg:col-span-1">
+                                        <p class="font-bold text-gray-800 mb-2">11 <span class="text-teal-700">let alone</span></p>
+                                        <div class="pl-4 space-y-2 text-gray-600">
+                                            <p class="flex items-start"><span class="mr-2">a.</span> <span>used to emphasize that because the first thing is impossible, the next thing is also impossible <span class="blank-ans text-emerald-600 font-bold ml-1">✓</span></span></p>
+                                            <p class="flex items-start"><span class="mr-2">b.</span> <span>used to emphasize that although the first thing is impossible, the next thing is still possible</span></p>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-gray-800 mb-2">12 <span class="text-teal-700">come to a realization</span></p>
+                                        <div class="pl-4 space-y-1 text-gray-600">
+                                            <p class="flex items-start"><span class="mr-2">a.</span> <span>realize <span class="blank-ans text-emerald-600 font-bold ml-1">✓</span></span></p>
+                                            <p class="flex items-start"><span class="mr-2">b.</span> <span>shock</span></p>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-gray-800 mb-2">13 <span class="text-teal-700">laze around</span> (v)</p>
+                                        <div class="pl-4 space-y-1 text-gray-600">
+                                            <p class="flex items-start"><span class="mr-2">a.</span> <span>relax <span class="blank-ans text-emerald-600 font-bold ml-1">✓</span></span></p>
+                                            <p class="flex items-start"><span class="mr-2">b.</span> <span>work hard</span></p>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-gray-800 mb-2">14 <span class="text-teal-700">meticulous</span> (a)</p>
+                                        <div class="pl-4 space-y-1 text-gray-600">
+                                            <p class="flex items-start"><span class="mr-2">a.</span> <span>careless</span></p>
+                                            <p class="flex items-start"><span class="mr-2">b.</span> <span>thorough <span class="blank-ans text-emerald-600 font-bold ml-1">✓</span></span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Speaking Practice -->
+                    <div class="bg-white rounded-3xl shadow-xl border border-cyan-50 p-8">
+                        <div class="flex flex-col md:flex-row justify-between items-center gap-6 mb-8 border-b border-gray-100 pb-6">
+                            <div>
+                                <h3 class="text-2xl font-bold text-gray-800">Part 2: Long Turn</h3>
+                                <p class="text-gray-500 mt-1 font-medium">Manage the candidate's preparation and speaking time.</p>
+                            </div>
+                            
+                            <div class="flex gap-4 w-full md:w-auto">
+                                <div class="bg-teal-50 rounded-2xl p-4 border border-teal-100 text-center flex-1 md:w-36 shadow-sm">
+                                    <h4 class="text-teal-600 font-bold uppercase text-[10px] tracking-wider mb-2">Prep Time (1 Min)</h4>
+                                    <div class="text-3xl font-black text-teal-700 timer-text mb-3 drop-shadow-sm" id="prep2-timer">01:00</div>
+                                    <button onclick="toggleTimer('prep2', 60)" id="btn-prep2-timer" class="w-full bg-teal-200 text-teal-800 py-1.5 rounded-xl font-bold hover:bg-teal-300 transition-colors text-sm">Start</button>
+                                </div>
+                                <div class="bg-cyan-50 rounded-2xl p-4 border border-cyan-100 text-center flex-1 md:w-36 shadow-sm">
+                                    <h4 class="text-cyan-600 font-bold uppercase text-[10px] tracking-wider mb-2">Speaking (2 Mins)</h4>
+                                    <div class="text-3xl font-black text-cyan-600 timer-text mb-3 drop-shadow-sm" id="speak2-timer">02:00</div>
+                                    <button onclick="toggleTimer('speak2', 120)" id="btn-speak2-timer" class="w-full bg-gradient-to-r from-cyan-500 to-teal-500 text-white py-1.5 rounded-xl font-bold hover:opacity-90 transition-opacity text-sm shadow-sm">Start</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-cyan-50 border-l-4 border-cyan-500 p-6 rounded-r-2xl shadow-sm">
+                            <p class="text-cyan-800 font-bold uppercase tracking-wider text-xs mb-2">Candidate Task Card</p>
+                            <p class="text-xl font-bold text-gray-800 mb-4">Describe a place you visited that has been affected by pollution</p>
+                            <ul class="text-gray-700 space-y-2 list-disc list-inside font-medium ml-2">
+                                <li>Where it is</li>
+                                <li>When you visited this place</li>
+                                <li>What kinds of pollution you saw there</li>
+                                <li>And explain how this place was affected</li>
+                            </ul>
+                            <div class="mt-5 pt-5 border-t border-cyan-200">
+                                <button onclick="toggleVisibility('p2-s2-sample')" class="text-xs font-bold text-cyan-700 bg-cyan-100 hover:bg-cyan-200 px-4 py-2 rounded-lg transition-colors whitespace-nowrap shadow-sm">Show Sample Response</button>
+                                <div id="p2-s2-sample" class="hidden mt-4 bg-white p-4 rounded-xl border border-cyan-100 shadow-sm">
+                                    <p class="text-sm text-gray-700 italic leading-relaxed">"I'm going to describe a beach in a coastal town that I visited last summer. I had heard it was a pristine tourist destination, but upon arrival, I was deeply disappointed by the severe pollution. The main issue was plastic waste; the shoreline was heavily <strong>littered</strong> with discarded plastic bags, bottles, and food wrappers. Moreover, the water looked murky and had a slight chemical odor, indicating water pollution, possibly from nearby unregulated factories or <strong>untreated sewage</strong>. This pollution has drastically affected the area. Not only has it ruined the natural beauty and deterred tourists, which hurts the local economy, but it also poses a massive threat to the marine ecosystem. It was a stark reminder of the <strong>devastating impact</strong> of human negligence on the environment."</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `
+        },
+        {
+            id: 'extra_speaking',
+            type: 'Speaking',
+            themeClass: 'bg-gradient-to-r from-cyan-500 to-blue-500',
+            iconColor: 'text-cyan-500',
+            bgColor: 'bg-cyan-50',
+            title: '3. Extra Speaking Practice',
+            content: `
+                <div class="fade-in bg-white rounded-3xl shadow-xl border border-cyan-50 p-8 md:p-10 relative">
+                    <div class="absolute -top-24 -right-24 w-64 h-64 bg-cyan-100 rounded-full mix-blend-multiply filter blur-2xl opacity-70 pointer-events-none"></div>
+                    
+                    <div class="relative z-10 mb-8 pb-4 border-b border-gray-100">
+                        <span class="inline-block py-1 px-3 rounded-full bg-cyan-100 text-cyan-700 font-bold text-xs uppercase tracking-widest mb-3">Supplementary Material</span>
+                        <h3 class="text-3xl font-bold text-gray-800">Part 3: Ideas & Vocabulary Expansion</h3>
+                    </div>
+
+                    <!-- Topic: TECHNOLOGY -->
+                    <div class="mb-10">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-10 h-10 rounded-xl bg-blue-100 flex items-center justify-center text-blue-600">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                            </div>
+                            <h4 class="text-2xl font-bold text-blue-800">TECHNOLOGY</h4>
+                        </div>
+                        
+                        <div class="grid md:grid-cols-2 gap-5">
+                            ${[
+                                {
+                                    q: "1. What modern technological devices are most common in your country?",
+                                    ideas: ["Smartphones (communication, banking, entertainment)", "Laptops (work, study)", "Smartwatches (health tracking)", "Tablets (online learning)", "Smart home devices (convenience)"],
+                                    vocab: ["indispensable", "multifunctional", "wearable technology", "smart appliances", "integrated into daily life", "digital ecosystem"]
+                                },
+                                {
+                                    q: "2. Do you think modern technology is useful?",
+                                    ideas: ["Boosts productivity", "Improves communication", "Makes education more accessible", "Advances healthcare", "Saves time and effort", "Should be used responsibly"],
+                                    vocab: ["streamline daily tasks", "enhance efficiency", "revolutionise communication", "facilitate remote work", "improve accessibility"]
+                                },
+                                {
+                                    q: "3. Do you think people rely too much on technology?",
+                                    ideas: ["Dependence on GPS and smartphones", "AI reduces critical thinking", "Less face-to-face interaction", "Convenience can lead to laziness", "Technology should complement, not replace, human skills"],
+                                    vocab: ["overly dependent", "digital dependency", "critical thinking", "convenience comes at a cost", "complement rather than replace", "overreliance"]
+                                },
+                                {
+                                    q: "4. Do you think men and women view technological devices differently?",
+                                    ideas: ["Less about gender, more about interests", "Profession influences preferences", "Younger generations have similar attitudes", "Traditional stereotypes are fading"],
+                                    vocab: ["gender stereotypes", "digital literacy", "tech-savvy", "occupational needs", "personal preferences", "increasingly blurred"]
+                                },
+                                {
+                                    q: "5. Why do people spend so much money buying the latest devices?",
+                                    ideas: ["Better performance", "Social status", "Marketing and influencers", "Fear of missing out (FOMO)", "Work requirements"],
+                                    vocab: ["cutting-edge technology", "status symbol", "consumerism", "peer pressure", "upgrade cycle", "fear of missing out (FOMO)"]
+                                }
+                            ].map((item, idx) => `
+                                <div class="bg-gray-50 border border-gray-200 rounded-xl p-5 shadow-sm flex flex-col">
+                                    <p class="font-bold text-gray-800 mb-3">${item.q}</p>
+                                    <button onclick="toggleVisibility('tech-q${idx}')" class="self-start text-xs bg-blue-100 text-blue-700 px-3 py-1.5 rounded-lg font-bold hover:bg-blue-200 transition-colors mb-3">Show Ideas & Vocab</button>
+                                    <div id="tech-q${idx}" class="hidden flex-grow flex flex-col pt-3 border-t border-gray-200">
+                                        <div class="mb-3">
+                                            <p class="text-[10px] font-bold text-blue-600 uppercase tracking-wider mb-1.5">Suggested Ideas</p>
+                                            <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+                                                ${item.ideas.map(idea => `<li>${idea}</li>`).join('')}
+                                            </ul>
+                                        </div>
+                                        <div class="mt-auto">
+                                            <p class="text-[10px] font-bold text-emerald-600 uppercase tracking-wider mb-1.5">Advanced Vocabulary</p>
+                                            <div class="flex flex-wrap gap-1.5">
+                                                ${item.vocab.map(v => `<span class="bg-white border border-emerald-100 text-emerald-700 px-2 py-1 rounded text-xs font-medium">${v}</span>`).join('')}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+
+                    <!-- Topic: MEDIA & NEWS -->
+                    <div>
+                        <div class="flex items-center gap-3 mb-6 border-t border-gray-100 pt-8">
+                            <div class="w-10 h-10 rounded-xl bg-purple-100 flex items-center justify-center text-purple-600">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9.5a2.5 2.5 0 00-2.5-2.5H15M9 11l3 3L22 4"></path></svg>
+                            </div>
+                            <h4 class="text-2xl font-bold text-purple-800">MEDIA & NEWS</h4>
+                        </div>
+                        
+                        <div class="grid md:grid-cols-2 gap-5">
+                            ${[
+                                {
+                                    q: "1. Do you believe everything you read in the newspapers?",
+                                    ideas: ["Different newspapers have different biases", "Human errors occur", "Cross-check information", "Trust reputable sources"],
+                                    vocab: ["media bias", "fact-check", "verify information", "reputable source", "objective reporting", "sensational headlines"]
+                                },
+                                {
+                                    q: "2. How do most people get their news in your country?",
+                                    ideas: ["Social media", "News apps", "Online newspapers", "TV for older generations"],
+                                    vocab: ["digital platforms", "real-time updates", "online news outlets", "instant access", "traditional media", "personalised news feed"]
+                                },
+                                {
+                                    q: "3. How do you think people will get their news in the future?",
+                                    ideas: ["AI-curated news", "Voice assistants", "Smart devices", "Short-form videos", "More personalised content"],
+                                    vocab: ["AI-driven recommendations", "algorithm-based content", "personalised news feed", "digital literacy", "immersive media"]
+                                },
+                                {
+                                    q: "4. How has TV changed our lives?",
+                                    ideas: ["Easier access to information", "Better entertainment", "Greater cultural awareness", "More sedentary lifestyle", "Less family interaction"],
+                                    vocab: ["broaden people's horizons", "raise public awareness", "sedentary lifestyle", "cultural exposure", "mass communication", "household entertainment"]
+                                },
+                                {
+                                    q: "5. Do you think TV influences the way we think?",
+                                    ideas: ["Shapes public opinion", "Influences purchasing decisions", "Promotes social values", "Depends on viewers' critical thinking"],
+                                    vocab: ["shape public opinion", "influence consumer behaviour", "sway people's opinions", "cultural norms", "media influence", "think critically"]
+                                },
+                                {
+                                    q: "6. Should children be allowed to watch a lot of TV?",
+                                    ideas: ["Educational programmes are beneficial", "Excessive viewing affects health", "Reduces physical activity", "Parents should set limits"],
+                                    vocab: ["excessive screen time", "parental supervision", "educational content", "cognitive development", "healthy balance", "attention span"]
+                                },
+                                {
+                                    q: "7. Are all people on TV famous?",
+                                    ideas: ["Experts", "Journalists", "Contestants", "Ordinary people", "Some become famous after appearing on TV"],
+                                    vocab: ["public figures", "media personalities", "subject-matter experts", "gain public recognition", "media exposure", "household names"]
+                                },
+                                {
+                                    q: "8. Do you think famous people have a responsibility to act as role models?",
+                                    ideas: ["Young people imitate celebrities", "They should promote positive values", "Parents remain the biggest influence", "Celebrities are not perfect"],
+                                    vocab: ["role model", "set a positive example", "social responsibility", "influence impressionable audiences", "moral obligation", "positive influence"]
+                                }
+                            ].map((item, idx) => `
+                                <div class="bg-gray-50 border border-gray-200 rounded-xl p-5 shadow-sm flex flex-col">
+                                    <p class="font-bold text-gray-800 mb-3">${item.q}</p>
+                                    <button onclick="toggleVisibility('media-q${idx}')" class="self-start text-xs bg-purple-100 text-purple-700 px-3 py-1.5 rounded-lg font-bold hover:bg-purple-200 transition-colors mb-3">Show Ideas & Vocab</button>
+                                    <div id="media-q${idx}" class="hidden flex-grow flex flex-col pt-3 border-t border-gray-200">
+                                        <div class="mb-3">
+                                            <p class="text-[10px] font-bold text-purple-600 uppercase tracking-wider mb-1.5">Suggested Ideas</p>
+                                            <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+                                                ${item.ideas.map(idea => `<li>${idea}</li>`).join('')}
+                                            </ul>
+                                        </div>
+                                        <div class="mt-auto">
+                                            <p class="text-[10px] font-bold text-emerald-600 uppercase tracking-wider mb-1.5">Advanced Vocabulary</p>
+                                            <div class="flex flex-wrap gap-1.5">
+                                                ${item.vocab.map(v => `<span class="bg-white border border-emerald-100 text-emerald-700 px-2 py-1 rounded text-xs font-medium">${v}</span>`).join('')}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+            `
+        }
+    ];
+
+    let currentIndex = 0;
+
+    const headerEl = document.getElementById('app-header');
+    const titleEl = document.getElementById('slide-title');
+    const containerEl = document.getElementById('content-container');
+    const prevBtn = document.getElementById('btn-prev');
+    const nextBtn = document.getElementById('btn-next');
+    const indicatorEl = document.getElementById('step-indicator');
+    const progressBarEl = document.getElementById('progress-bar');
+    const navDropdown = document.getElementById('nav-dropdown');
+    const navMenuList = document.getElementById('nav-menu-list');
+
+    window.addEventListener('DOMContentLoaded', () => {
+        populateNavMenu();
+        
+        // Toggle menu
+        document.getElementById('nav-toggle-btn').addEventListener('click', (e) => {
+            e.stopPropagation();
+            navDropdown.classList.toggle('hidden');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navDropdown.contains(e.target) && !document.getElementById('nav-toggle-btn').contains(e.target)) {
+                navDropdown.classList.add('hidden');
+            }
+        });
+
+        // Navigation handlers
+        if(prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                if (currentIndex > 0) renderSlide(--currentIndex);
+            });
+        }
+
+        if(nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                if (currentIndex < sessionData.length - 1) {
+                    renderSlide(++currentIndex);
+                } else {
+                    alert("Lesson 23 Completed! Excellent work today.");
+                }
+            });
+        }
+
+        renderSlide(0);
+    });
+
+    function populateNavMenu() {
+        if(!navMenuList) return;
+        navMenuList.innerHTML = sessionData.map((data, index) => `
+            <button onclick="goToSlide(${index})" class="nav-item-btn w-full text-left p-3 mb-1 rounded-xl hover:bg-white transition-all flex items-center gap-3 border border-transparent shadow-sm">
+                <div class="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 text-sm font-bold text-white shadow-sm ${data.themeClass || ''}">
+                    ${index + 1}
+                </div>
+                <div>
+                    <div class="text-sm font-bold text-gray-800 leading-tight">${data.title ? data.title.substring(3) : 'Section ' + (index + 1)}</div>
+                    <div class="text-[10px] font-bold uppercase tracking-wider ${data.iconColor || ''}">${data.type || 'Lesson'}</div>
+                </div>
+            </button>
+        `).join('');
+    }
+
+    window.goToSlide = function(index) {
+        currentIndex = index;
+        renderSlide(currentIndex);
+        if(navDropdown) navDropdown.classList.add('hidden');
+    };
+
+    function renderSlide(index) {
+        if (typeof pauseAllTimers === 'function') pauseAllTimers();
+        const data = sessionData[index];
+        if(!headerEl || !titleEl || !containerEl) return;
+        
+        // Update header classes and content dynamically based on section theme
+        headerEl.className = `text-white p-4 shadow-lg transition-colors duration-700 z-20 relative ${data.themeClass}`;
+        titleEl.textContent = data.title;
+        
+        // Update progress
+        const progressPercent = ((index + 1) / sessionData.length) * 100;
+        if(progressBarEl) progressBarEl.style.width = `${progressPercent}%`;
+        if(indicatorEl) indicatorEl.textContent = `Section ${index + 1} of ${sessionData.length}`;
+
+        // Highlight Nav menu
+        document.querySelectorAll('.nav-item-btn').forEach((btn, i) => {
+            if (i === index) {
+                btn.classList.add('bg-white', 'border-emerald-200', 'shadow-md');
+                btn.classList.remove('border-transparent', 'shadow-sm');
+            } else {
+                btn.classList.remove('bg-white', 'border-emerald-200', 'shadow-md');
+                btn.classList.add('border-transparent', 'shadow-sm');
+            }
+        });
+
+        // Inject content
+        containerEl.innerHTML = ''; 
+        setTimeout(() => {
+            containerEl.innerHTML = data.content;
+            
+            // Restore timers visually if returning to slide
+            if(data.id === 'speaking_unit7_1') {
+                updateTimerUI('prep1', timers.prep1.remaining);
+                updateTimerUI('speak1', timers.speak1.remaining);
+            }
+            if(data.id === 'speaking_unit7_2') {
+                updateTimerUI('prep2', timers.prep2.remaining);
+                updateTimerUI('speak2', timers.speak2.remaining);
+            }
+        }, 10);
+
+        // Update buttons
+        if(prevBtn) prevBtn.disabled = index === 0;
+        if(nextBtn) nextBtn.innerHTML = index === sessionData.length - 1 ? 
+            'Finish Lesson <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>' : 
+            'Next Section <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>';
+    }
+
+    window.toggleVisibility = function(id) {
+        const el = document.getElementById(id);
+        if(el) {
+            if(el.classList.contains('hidden')){
+                el.classList.remove('hidden');
+                el.classList.add('fade-in');
+                setTimeout(() => { el.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }, 50);
+            } else {
+                el.classList.add('hidden');
+                el.classList.remove('fade-in');
+            }
+        }
+    };
+
+    window.toggleInlineAnswers = function(containerId, btnId) {
+        const container = document.getElementById(containerId);
+        const btn = document.getElementById(btnId);
+        if(container) {
+            container.classList.toggle('show-answers');
+            
+            // Highlight the container slightly when answers are shown
+            if(container.classList.contains('show-answers')) {
+                container.classList.add('shadow-md', 'border-emerald-300');
+                container.classList.remove('shadow-sm', 'border-emerald-100');
+            } else {
+                container.classList.remove('shadow-md', 'border-emerald-300');
+                container.classList.add('shadow-sm', 'border-emerald-100');
+            }
+
+            // Update button text and style
+            if(btn) {
+                btn.textContent = container.classList.contains('show-answers') ? 'Hide Answers' : 'Show Answers';
+                btn.classList.toggle('bg-white');
+                btn.classList.toggle('bg-emerald-100');
+            }
+        }
+    };
+</script>
+</body>
+</html>
