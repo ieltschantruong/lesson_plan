@@ -9,28 +9,30 @@
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
         body { 
             font-family: 'Poppins', sans-serif; 
-            background-color: #fff7ed; /* orange-50 */
+            background-color: #fffbeb; /* amber-50 */
         }
-        .fade-in { animation: fadeIn 0.5s ease-out forwards; }
+        .fade-in { animation: fadeIn 0.4s ease-out forwards; }
         @keyframes fadeIn { 
-            from { opacity: 0; transform: translateY(15px); } 
+            from { opacity: 0; transform: translateY(10px); } 
             to { opacity: 1; transform: translateY(0); } 
         }
         .timer-text { font-variant-numeric: tabular-nums; }
         
-        /* Elegant Custom Scrollbar */
         ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #ffedd5; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb { background: #f97316; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #ea580c; }
+        ::-webkit-scrollbar-track { background: #fef3c7; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb { background: #f59e0b; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #d97706; }
 
-        /* Glassmorphism utilities */
         .glass {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.5);
         }
+
+        .blank-ans { display: none; }
+        .show-answers .blank-dots { display: none; }
+        .show-answers .blank-ans { display: inline-block; animation: fadeIn 0.3s forwards; }
     </style>
 </head>
 <body class="h-screen flex flex-col overflow-hidden text-gray-800">
@@ -70,11 +72,6 @@
                         <div class="max-h-[60vh] overflow-y-auto p-2" id="nav-menu-list"></div>
                     </div>
                 </div>
-
-                <div class="hidden sm:flex items-center space-x-2 text-sm font-bold text-orange-900 bg-white px-4 py-2 rounded-full shadow-sm">
-                    <svg class="w-4 h-4 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    <span>90 Mins</span>
-                </div>
             </div>
         </div>
         
@@ -84,7 +81,7 @@
     </header>
 
     <main class="flex-grow overflow-y-auto relative p-4 md:p-8">
-        <div id="content-container" class="max-w-6xl mx-auto"></div>
+        <div id="content-container" class="max-w-7xl mx-auto min-h-full"></div>
     </main>
 
     <footer class="bg-white/80 backdrop-blur-md border-t border-orange-100 p-4 md:px-10 z-10 shadow-[0_-10px_15px_-3px_rgba(0,0,0,0.02)]">
@@ -110,130 +107,100 @@
     </footer>
 
 <script>
-    // --- TIMER LOGIC ---
-    let timers = {};
+    const boardData = [
+        { sq: 1, type: 'Q', text: "Why do some governments not want to spend money on the arts?", ans: "Governments often prioritize essential services like healthcare, education, and infrastructure. Art is sometimes viewed as a luxury rather than a necessity, especially during economic downturns." },
+        { sq: 2, type: 'V', text: "Governments are often slow to ............ action on this issue.", ans: "take" },
+        { sq: 3, type: 'A', text: "Move back one square." },
+        { sq: 4, type: 'V', text: "The Internet could ............ damage to the music industry.", ans: "do / cause" },
+        { sq: 5, type: 'A', text: "Miss a turn." },
+        { sq: 6, type: 'Q', text: "Should fashion designers be counted as artists?", ans: "Yes, definitely. Fashion design requires immense creativity, an understanding of aesthetics, and the ability to express ideas and cultural trends through clothing, much like a painter does with a canvas." },
+        { sq: 7, type: 'V', text: "Fashion designers ............ more influence on society than painters.", ans: "have / exert" },
+        { sq: 8, type: 'Q', text: "How has the Internet affected people's access to art and design?", ans: "It has democratized access incredibly. Anyone with a connection can view high-definition museum archives globally, discover independent artists on social media, or learn design skills through online tutorials." },
+        { sq: 9, type: 'A', text: "Move forward four squares." },
+        { sq: 10, type: 'Q', text: "Do pop stars deserve the attention they receive?", ans: "To some extent, yes, because they entertain millions and work rigorously. However, sometimes the media obsession with their personal lives overshadows their actual artistic contributions." },
+        { sq: 11, type: 'V', text: "Some people don't ............ style into consideration when buying clothes.", ans: "take" },
+        { sq: 12, type: 'A', text: "Move back two squares." },
+        { sq: 13, type: 'Q', text: "Why might parents stop their children following a career in the arts?", ans: "Parents usually worry about financial stability. Careers in the arts are notoriously unpredictable and competitive, so parents often push for safer professions like medicine or engineering." },
+        { sq: 14, type: 'A', text: "Miss a turn." },
+        { sq: 15, type: 'V', text: "A really good photograph can ............ an instant impression.", ans: "make / create" },
+        { sq: 16, type: 'Q', text: "What makes a good photograph?", ans: "A great photograph usually relies on excellent composition and lighting. Beyond technical skills, it should capture a unique emotion or tell a compelling story that resonates with the viewer." },
+        { sq: 17, type: 'A', text: "Move forward two squares." },
+        { sq: 18, type: 'Q', text: "Should people have to pay to visit art galleries?", ans: "Ideally, basic entry should be free to encourage cultural education. However, charging fees for special exhibitions is reasonable to help maintain the gallery and support the featured artists." },
+        { sq: 19, type: 'Q', text: "Should artists be allowed to say whatever they want?", ans: "Freedom of expression is crucial for art to challenge society. However, like any speech, it shouldn't incite violence or spread hate speech. There's a fine line between provocation and harm." },
+        { sq: 20, type: 'V', text: "Children who enjoy arts ............ better in creative tasks later on in life.", ans: "perform / do" },
+        { sq: 21, type: 'A', text: "Move back two squares." },
+        { sq: 22, type: 'Q', text: "Should art be a hobby rather than a profession?", ans: "It can be both. For many, it's a therapeutic hobby. But for those with exceptional talent and dedication, it is a legitimate profession that contributes significantly to culture and the economy." },
+        { sq: 23, type: 'V', text: "Art therapy can really help to ............ people better.", ans: "make / make sick" },
+        { sq: 24, type: 'A', text: "Miss a turn." },
+        { sq: 25, type: 'Q', text: "Why do some artists choose never to show their work to others?", ans: "Some create art purely for personal therapy or self-expression without seeking validation. Others might be perfectionists or fear harsh public criticism and rejection." },
+        { sq: 26, type: 'V', text: "Social networking sites ............ advantages for new artists.", ans: "have / provide / offer" },
+        { sq: 27, type: 'A', text: "Move forward three squares." },
+        { sq: 28, type: 'Q', text: "How can art be used as a therapy for people with health problems?", ans: "Art therapy provides a non-verbal outlet for expressing complex emotions, trauma, or stress. The physical act of painting or sculpting can be incredibly calming and grounding." },
+        { sq: 29, type: 'V', text: "It's hard to ............ predictions about the future of the music industry.", ans: "make" },
+        { sq: 30, type: 'A', text: "Move back one square." },
+        { sq: 31, type: 'Q', text: "What effect has the Internet had on the music industry?", ans: "It has revolutionized distribution via streaming, causing physical sales to plummet. While artists earn less per stream, they have a platform to reach a global audience without major record labels." },
+        { sq: 32, type: 'V', text: "Public opinion doesn't always ............ an effect on government spending.", ans: "have" },
+        { sq: 33, type: 'Q', text: "Should artists be paid more than other people?", ans: "Not necessarily more, but they should be paid fairly for their work. Currently, many artists struggle to earn a living wage compared to standard corporate professions." },
+        { sq: 34, type: 'A', text: "Move back two squares." },
+        { sq: 35, type: 'V', text: "It's essential to ............ into account the role of artists in society.", ans: "take" },
+        { sq: 36, type: 'Q', text: "Could you live without the Internet?", ans: "Practically, it would be extremely difficult now. The Internet is heavily integrated into communication, work, banking, and entertainment. However, disconnecting occasionally is healthy." },
+        { sq: 37, type: 'A', text: "Miss a turn." },
+        { sq: 38, type: 'V', text: "Writers ............ a lot of research before they start work.", ans: "do / conduct" },
+        { sq: 39, type: 'Q', text: "Should people study art from other cultures?", ans: "Absolutely. Studying foreign art fosters cultural empathy, broadens our perspectives, and helps dismantle stereotypes by showcasing the shared human experience." },
+        { sq: 40, type: 'V', text: "Parents should encourage their children ............ an interest in art.", ans: "to take / to develop" }
+    ];
 
-    function formatTime(seconds) {
-        const m = Math.floor(seconds / 60).toString().padStart(2, '0');
-        const s = (seconds % 60).toString().padStart(2, '0');
-        return `${m}:${s}`;
-    }
+    const colors = {
+        'Q': 'bg-amber-50 border-amber-200 text-amber-900',
+        'V': 'bg-emerald-50 border-emerald-200 text-emerald-900',
+        'A': 'bg-gray-800 border-gray-900 text-white'
+    };
 
-    function updateTimerUI(id, seconds) {
-        const displayEl = document.getElementById(`${id}-timer`);
-        if (displayEl) displayEl.textContent = formatTime(seconds);
-    }
+    const badges = {
+        'Q': '<span class="bg-amber-200 text-amber-800 text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">Discuss</span>',
+        'V': '<span class="bg-emerald-200 text-emerald-800 text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">Fill-in</span>',
+        'A': '<span class="bg-gray-600 text-gray-200 text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">Action</span>'
+    };
 
-    window.toggleTimer = function(id, defaultTime) {
-        if(!timers[id]) timers[id] = { interval: null, remaining: defaultTime, isRunning: false };
-        const timer = timers[id];
-        const btn = document.getElementById(`btn-${id}-timer`);
-        
-        if (timer.isRunning) {
-            clearInterval(timer.interval);
-            timer.isRunning = false;
-            if(btn) btn.textContent = 'Resume';
-        } else {
-            if (timer.remaining <= 0) timer.remaining = defaultTime;
-            timer.isRunning = true;
-            if(btn) btn.textContent = 'Pause';
+    const artsTrailHTML = boardData.map(item => `
+        <div class="rounded-xl p-4 border shadow-sm flex flex-col ${colors[item.type]} hover:shadow-md transition-shadow">
+            <div class="flex justify-between items-start mb-2">
+                <span class="font-black text-lg opacity-60">#${item.sq}</span>
+                ${badges[item.type]}
+            </div>
+            <p class="font-medium flex-grow mb-4 text-sm leading-relaxed">${item.text}</p>
             
-            timer.interval = setInterval(() => {
-                timer.remaining--;
-                updateTimerUI(id, timer.remaining);
-                
-                if (timer.remaining <= 0) {
-                    clearInterval(timer.interval);
-                    timer.isRunning = false;
-                    if(btn) btn.textContent = 'Time Up!';
-                    try {
-                        const ctx = new (window.AudioContext || window.webkitAudioContext)();
-                        const playBeep = (st) => {
-                            const osc = ctx.createOscillator();
-                            const gain = ctx.createGain();
-                            osc.connect(gain);
-                            gain.connect(ctx.destination);
-                            osc.frequency.setValueAtTime(800, st);
-                            gain.gain.setValueAtTime(0.1, st);
-                            osc.start(st);
-                            gain.gain.exponentialRampToValueAtTime(0.00001, st + 0.3);
-                            osc.stop(st + 0.3);
-                        };
-                        playBeep(ctx.currentTime);
-                        playBeep(ctx.currentTime + 0.4);
-                    } catch(e) {}
-                }
-            }, 1000);
-        }
-    };
+            ${item.type !== 'A' ? `
+                <div class="mt-auto pt-2 border-t border-black/10">
+                    <button onclick="toggleInlineAnswers('sq-${item.sq}-ans', 'btn-sq-${item.sq}')" id="btn-sq-${item.sq}" class="text-xs font-bold px-3 py-1.5 rounded bg-white hover:bg-opacity-80 transition-colors shadow-sm w-full border border-black/10 text-gray-700">Show Answer</button>
+                    <div id="sq-${item.sq}-ans" class="hidden mt-3 p-3 bg-white/90 rounded-lg text-sm italic font-medium shadow-inner border border-black/5 text-gray-800">
+                        ${item.ans}
+                    </div>
+                </div>
+            ` : ''}
+        </div>
+    `).join('');
 
-    window.resetTimer = function(id, defaultTime) {
-        if(!timers[id]) return;
-        const timer = timers[id];
-        clearInterval(timer.interval);
-        timer.isRunning = false;
-        timer.remaining = defaultTime;
-        updateTimerUI(id, defaultTime);
-        const btn = document.getElementById(`btn-${id}-timer`);
-        if(btn) btn.textContent = 'Start';
-    };
-
-    function pauseAllTimers() {
-        Object.keys(timers).forEach(key => {
-            if (timers[key].isRunning) {
-                clearInterval(timers[key].interval);
-                timers[key].isRunning = false;
-            }
-        });
-    }
-
-    // Helper functions for dynamic UI
-    window.toggleInlineAnswers = function(containerId, btnId) {
-        const container = document.getElementById(containerId);
-        const btn = document.getElementById(btnId);
-        if(container) {
-            container.classList.toggle('show-answers');
-            if(btn) {
-                btn.textContent = container.classList.contains('show-answers') ? 'Hide Answers' : 'Show Answers';
-                btn.classList.toggle('bg-white');
-                btn.classList.toggle('bg-orange-100');
-            }
-        }
-    }
-
-    window.toggleVisibility = function(id) {
-        const el = document.getElementById(id);
-        if(el) {
-            if(el.classList.contains('hidden')){
-                el.classList.remove('hidden');
-                el.classList.add('fade-in');
-            } else {
-                el.classList.add('hidden');
-                el.classList.remove('fade-in');
-            }
-        }
-    };
-
-    // --- DATA STRUCTURE ---
     const sessionData = [
         {
-            id: 'reading_unit4_wb',
+            id: 'reading_wb_unit4',
             type: 'Reading',
             themeClass: 'bg-gradient-to-r from-orange-400 to-amber-500',
             iconColor: 'text-orange-500',
-            bgColor: 'bg-orange-50',
             title: '1. Reading Unit 4 WB',
             content: `
-                <div class="fade-in bg-white rounded-3xl shadow-xl border border-orange-50 p-5 md:p-6 flex flex-col">
-                    <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-6 border-b border-gray-100 pb-5 shrink-0">
+                <div class="fade-in bg-white rounded-3xl shadow-xl border border-orange-50 p-6 flex flex-col">
+                    
+                    <!-- Header -->
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6 border-b border-gray-100 pb-4 shrink-0">
                         <div class="flex items-center gap-4">
-                            <div class="w-14 h-14 rounded-2xl bg-orange-100 flex items-center justify-center text-orange-600 flex-shrink-0 shadow-sm">
+                            <div class="w-14 h-14 rounded-2xl bg-orange-100 flex items-center justify-center text-orange-600 flex-shrink-0">
                                 <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
                             </div>
                             <div>
                                 <div class="flex items-center gap-3 mb-1 flex-wrap">
-                                    <h3 class="text-xl md:text-2xl font-bold text-gray-800">Unit 4 Reading Practice</h3>
-                                    <a href="http://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/passage1_complete_ielts_6.5_7.5_wb_unit4.html" target="_blank" class="inline-flex items-center gap-1.5 text-orange-600 hover:text-white hover:bg-orange-600 transition-colors px-4 py-1.5 bg-orange-50 rounded-full shadow-sm border border-orange-200 text-sm font-bold" title="Open in new tab">
+                                    <h3 class="text-2xl font-bold text-gray-800">Unit 4 Reading Practice</h3>
+                                    <a href="https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/passage1_complete_ielts_6.5_7.5_wb_unit4.html" target="_blank" class="inline-flex items-center gap-1.5 text-orange-600 hover:text-white hover:bg-orange-500 transition-colors px-3 py-1.5 bg-orange-50 rounded-lg shadow-sm border border-orange-200 text-sm font-bold" title="Open in new tab">
                                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
                                         Open in New Tab
                                     </a>
@@ -241,272 +208,187 @@
                                 <p class="text-orange-600 font-medium text-sm">Workbook - Complete IELTS</p>
                             </div>
                         </div>
-                        <button onclick="toggleVisibility('ans-wb-4-read')" class="w-full md:w-auto bg-orange-50 text-orange-700 px-5 py-2.5 rounded-xl font-bold hover:bg-orange-100 transition-colors text-sm border border-orange-200 flex justify-center items-center gap-2 shrink-0 shadow-sm">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
-                            Show Answers
-                        </button>
-                    </div>
-
-                    <div id="ans-wb-4-read" class="hidden mb-6 bg-slate-50 border border-orange-200 rounded-2xl p-6 shrink-0 shadow-sm transition-all fade-in">
-                        <h4 class="font-bold text-orange-800 mb-4 flex items-center gap-2 border-b border-orange-100 pb-2">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                            Teacher Reference: Answer Key
-                        </h4>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 text-sm text-gray-700 font-medium">
-                            <div class="bg-white p-2.5 rounded-lg border border-gray-200 shadow-sm flex items-center"><span class="w-6 h-6 rounded-md bg-orange-100 text-orange-700 flex items-center justify-center font-bold mr-3 shrink-0">1</span> (visually) stunning</div>
-                            <div class="bg-white p-2.5 rounded-lg border border-gray-200 shadow-sm flex items-center"><span class="w-6 h-6 rounded-md bg-orange-100 text-orange-700 flex items-center justify-center font-bold mr-3 shrink-0">2</span> real-life situations</div>
-                            <div class="bg-white p-2.5 rounded-lg border border-gray-200 shadow-sm flex items-center"><span class="w-6 h-6 rounded-md bg-orange-100 text-orange-700 flex items-center justify-center font-bold mr-3 shrink-0">3</span> Commercial colour film</div>
-                            <div class="bg-white p-2.5 rounded-lg border border-gray-200 shadow-sm flex items-center"><span class="w-6 h-6 rounded-md bg-orange-100 text-orange-700 flex items-center justify-center font-bold mr-3 shrink-0">4</span> ambitious and experimental</div>
-                            <div class="bg-white p-2.5 rounded-lg border border-gray-200 shadow-sm flex items-center"><span class="w-6 h-6 rounded-md bg-orange-100 text-orange-700 flex items-center justify-center font-bold mr-3 shrink-0">5</span> Gender roles</div>
-                            <div class="bg-white p-2.5 rounded-lg border border-gray-200 shadow-sm flex items-center"><span class="w-6 h-6 rounded-md bg-orange-100 text-orange-700 flex items-center justify-center font-bold mr-3 shrink-0">6</span> major advertising agency</div>
-                            <div class="bg-white p-2.5 rounded-lg border border-gray-200 shadow-sm flex items-center"><span class="w-6 h-6 rounded-md bg-orange-100 text-orange-700 flex items-center justify-center font-bold mr-3 shrink-0">7</span> twenty / 20 years</div>
-                            <div class="bg-white p-2.5 rounded-lg border border-gray-200 shadow-sm flex items-center"><span class="w-6 h-6 rounded-md bg-orange-100 text-orange-700 flex items-center justify-center font-bold mr-3 shrink-0">8</span> conventional</div>
-                            <div class="bg-white p-2.5 rounded-lg border border-gray-200 shadow-sm flex items-center lg:col-span-2"><span class="w-6 h-6 rounded-md bg-orange-100 text-orange-700 flex items-center justify-center font-bold mr-3 shrink-0">9</span> persuasive photography style</div>
-                            <div class="bg-white p-2.5 rounded-lg border border-gray-200 shadow-sm flex items-center"><span class="w-6 h-6 rounded-md bg-orange-100 text-orange-700 flex items-center justify-center font-bold mr-3 shrink-0">10</span> False</div>
-                            <div class="bg-white p-2.5 rounded-lg border border-gray-200 shadow-sm flex items-center"><span class="w-6 h-6 rounded-md bg-orange-100 text-orange-700 flex items-center justify-center font-bold mr-3 shrink-0">11</span> Not given</div>
-                            <div class="bg-white p-2.5 rounded-lg border border-gray-200 shadow-sm flex items-center"><span class="w-6 h-6 rounded-md bg-orange-100 text-orange-700 flex items-center justify-center font-bold mr-3 shrink-0">12</span> True</div>
-                            <div class="bg-white p-2.5 rounded-lg border border-gray-200 shadow-sm flex items-center"><span class="w-6 h-6 rounded-md bg-orange-100 text-orange-700 flex items-center justify-center font-bold mr-3 shrink-0">13</span> Not given</div>
+                        <div class="flex items-center gap-2">
+                            <button onclick="toggleVisibility('ans-wb-4')" class="bg-gray-100 text-gray-700 px-5 py-2.5 rounded-xl font-bold hover:bg-gray-200 transition-colors text-sm shadow-sm flex items-center gap-2">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                Reading Keys
+                            </button>
                         </div>
                     </div>
 
-                    <div class="bg-orange-50 border-l-4 border-orange-400 rounded-r-xl mb-6 flex flex-col shadow-sm">
-                        <div class="flex justify-between items-center p-4 border-b border-orange-200 shrink-0 bg-white/50">
+                    <!-- Reading Answer Keys Panel -->
+                    <div id="ans-wb-4" class="hidden mb-6 bg-slate-50 border border-gray-200 rounded-2xl p-6 shrink-0 shadow-inner transition-all fade-in">
+                        <h4 class="font-bold text-gray-800 mb-4 border-b border-gray-200 pb-2 uppercase tracking-wide text-xs">Answer Key</h4>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 text-sm text-gray-700 font-medium">
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-orange-500 font-bold mr-2">1</span> (visually) stunning</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-orange-500 font-bold mr-2">2</span> real-life situations</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm lg:col-span-2"><span class="text-orange-500 font-bold mr-2">3</span> Commercial colour film</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm lg:col-span-2"><span class="text-orange-500 font-bold mr-2">4</span> ambitious and experimental</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-orange-500 font-bold mr-2">5</span> Gender roles</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm lg:col-span-2"><span class="text-orange-500 font-bold mr-2">6</span> major advertising agency</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-orange-500 font-bold mr-2">7</span> twenty / 20 years</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-orange-500 font-bold mr-2">8</span> conventional</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm lg:col-span-2"><span class="text-orange-500 font-bold mr-2">9</span> persuasive photography style</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-orange-500 font-bold mr-2">10</span> False</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-orange-500 font-bold mr-2">11</span> Not given</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-orange-500 font-bold mr-2">12</span> True</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-orange-500 font-bold mr-2">13</span> Not given</div>
+                        </div>
+                    </div>
+
+                    <!-- Vocab Exercises Accordion -->
+                    <div class="bg-orange-50 border border-orange-200 rounded-2xl mb-6 shrink-0 shadow-sm">
+                        <div class="flex justify-between items-center p-5 cursor-pointer hover:bg-orange-100/50 transition-colors rounded-t-2xl" onclick="toggleVisibility('vocab-exercises-panel')">
                             <h4 class="font-bold text-orange-800 text-lg flex items-center gap-2">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                                <svg class="w-6 h-6 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
                                 Vocab Exercises Check (Pink Book page 44)
                             </h4>
+                            <svg class="w-5 h-5 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </div>
-                        <div class="p-5 max-h-[600px] overflow-y-auto space-y-8">
+                        
+                        <div id="vocab-exercises-panel" class="hidden border-t border-orange-100 p-5 space-y-6 max-h-[60vh] overflow-y-auto bg-white/50 rounded-b-2xl">
+                            
                             <!-- Exercise 1 -->
-                            <div id="read-wb-ex1-container" class="bg-white border border-orange-100 rounded-xl p-5 shadow-sm transition-all duration-300">
+                            <div id="vocab-ex1-container" class="bg-white border border-orange-100 rounded-xl p-5 shadow-sm transition-all duration-300">
                                 <div class="flex justify-between items-center mb-4">
                                     <h5 class="font-bold text-orange-700 text-md">Exercise 1</h5>
-                                    <button id="btn-read-wb-ex1" onclick="toggleInlineAnswers('read-wb-ex1-container', 'btn-read-wb-ex1')" class="text-xs bg-orange-50 text-orange-700 px-3 py-1.5 rounded-lg font-bold hover:bg-orange-100 transition-colors border border-orange-200">Show Answers</button>
+                                    <button id="btn-vocab-ex1" onclick="toggleInlineAnswers('vocab-ex1-container', 'btn-vocab-ex1')" class="text-xs bg-orange-50 text-orange-700 px-3 py-1.5 rounded-lg font-bold hover:bg-orange-100 transition-colors border border-orange-200">Show Answers</button>
                                 </div>
                                 <p class="text-gray-600 text-sm mb-4 font-medium">Fill in each blank with one suitable word from the list below.</p>
                                 
-                                <div class="grid grid-cols-2 md:grid-cols-5 gap-4 text-center mb-6 bg-orange-50/50 p-4 rounded-lg border border-orange-100">
-                                    <div>
-                                        <p class="font-bold text-purple-500">circulation</p>
-                                        <p class="text-[10px] text-gray-500 font-mono">/ˌsɜːrkjəˈleɪʃn/</p>
-                                    </div>
-                                    <div>
-                                        <p class="font-bold text-purple-500">utility</p>
-                                        <p class="text-[10px] text-gray-500 font-mono">/juːˈtɪləti/</p>
-                                    </div>
-                                    <div>
-                                        <p class="font-bold text-purple-500">composition</p>
-                                        <p class="text-[10px] text-gray-500 font-mono">/ˌkɑːmpəˈzɪʃn/</p>
-                                    </div>
-                                    <div>
-                                        <p class="font-bold text-purple-500">collaboration</p>
-                                        <p class="text-[10px] text-gray-500 font-mono">/kəˌlæbəˈreɪʃn/</p>
-                                    </div>
-                                    <div>
-                                        <p class="font-bold text-purple-500">aspiration</p>
-                                        <p class="text-[10px] text-gray-500 font-mono">/ˌæspəˈreɪʃn/</p>
-                                    </div>
+                                <div class="flex flex-wrap gap-x-6 gap-y-2 justify-center mb-6 bg-orange-50/50 border border-orange-100 p-4 rounded-lg font-bold text-orange-600 text-sm shadow-inner">
+                                    <div class="text-center">circulation <span class="block text-xs font-normal text-gray-500">/ˌsɜːrkjəˈleɪʃn/</span></div>
+                                    <div class="text-center">utility <span class="block text-xs font-normal text-gray-500">/juːˈtɪləti/</span></div>
+                                    <div class="text-center">composition <span class="block text-xs font-normal text-gray-500">/ˌkɑːmpəˈzɪʃn/</span></div>
+                                    <div class="text-center">collaboration <span class="block text-xs font-normal text-gray-500">/kəˌlæbəˈreɪʃn/</span></div>
+                                    <div class="text-center">aspiration <span class="block text-xs font-normal text-gray-500">/ˌæspəˈreɪʃn/</span></div>
                                 </div>
 
-                                <div class="space-y-4 text-sm text-gray-700 font-medium">
-                                    <p>1 He argued that the arts have great social <span class="blank-dots text-gray-300">..............................</span><span class="blank-ans text-emerald-600 font-bold underline px-1">utility</span> .</p>
-                                    <p>2 She wrote the book in <span class="blank-dots text-gray-300">..............................</span><span class="blank-ans text-emerald-600 font-bold underline px-1">collaboration</span> with one of her students.</p>
-                                    <p>3 He has never had any <span class="blank-dots text-gray-300">..............................</span><span class="blank-ans text-emerald-600 font-bold underline px-1">aspiration</span> to earn a lot of money.</p>
-                                    <p>4 I love the <span class="blank-dots text-gray-300">..............................</span><span class="blank-ans text-emerald-600 font-bold underline px-1">composition</span> of people and objects in this painting.</p>
-                                    <p>5 The newspaper has a daily <span class="blank-dots text-gray-300">..............................</span><span class="blank-ans text-emerald-600 font-bold underline px-1">circulation</span> of 20 000.</p>
+                                <div class="space-y-3 text-sm text-gray-700 leading-relaxed font-medium">
+                                    <p>1 He argued that the arts have great social <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 mx-1">utility</span> .</p>
+                                    <p>2 She wrote the book in <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 mx-1">collaboration</span> with one of her students.</p>
+                                    <p>3 He has never had any <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 mx-1">aspiration</span> to earn a lot of money.</p>
+                                    <p>4 I love the <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 mx-1">composition</span> of people and objects in this painting.</p>
+                                    <p>5 The newspaper has a daily <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 mx-1">circulation</span> of 20 000.</p>
                                 </div>
                             </div>
 
                             <!-- Exercise 2 -->
-                            <div id="read-wb-ex2-container" class="bg-white border border-orange-100 rounded-xl p-5 shadow-sm transition-all duration-300">
+                            <div id="vocab-ex2-container" class="bg-white border border-orange-100 rounded-xl p-5 shadow-sm transition-all duration-300">
                                 <div class="flex justify-between items-center mb-4">
                                     <h5 class="font-bold text-orange-700 text-md">Exercise 2</h5>
-                                    <button id="btn-read-wb-ex2" onclick="toggleInlineAnswers('read-wb-ex2-container', 'btn-read-wb-ex2')" class="text-xs bg-orange-50 text-orange-700 px-3 py-1.5 rounded-lg font-bold hover:bg-orange-100 transition-colors border border-orange-200">Show Answers</button>
+                                    <button id="btn-vocab-ex2" onclick="toggleInlineAnswers('vocab-ex2-container', 'btn-vocab-ex2')" class="text-xs bg-orange-50 text-orange-700 px-3 py-1.5 rounded-lg font-bold hover:bg-orange-100 transition-colors border border-orange-200">Show Answers</button>
                                 </div>
-                                <p class="text-gray-600 text-sm mb-4 font-medium">Match the words with the synonyms/ meanings.</p>
+                                <p class="text-gray-600 text-sm mb-4 font-medium">Match the words with the synonyms/meanings.</p>
                                 
                                 <div class="grid md:grid-cols-2 gap-6 text-sm">
-                                    <div class="space-y-3 font-medium text-gray-700">
-                                        <div class="flex items-center">1 <span class="text-purple-500 font-bold mx-2">revolutionary</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ C</span></div>
-                                        <div class="flex items-center">2 <span class="text-purple-500 font-bold mx-2">informative</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ A</span></div>
-                                        <div class="flex items-center">3 <span class="text-purple-500 font-bold mx-2">affordable</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ E</span></div>
-                                        <div class="flex items-center">4 <span class="text-purple-500 font-bold mx-2">attainable</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ B</span></div>
-                                        <div class="flex items-center">5 <span class="text-purple-500 font-bold mx-2">notorious</span> <span class="text-gray-400 font-normal text-xs ml-1">/noʊˈtɔːriəs/</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ D</span></div>
+                                    <div class="space-y-3">
+                                        <p><span class="font-bold text-gray-800">1</span> <span class="text-orange-500 font-semibold">revolutionary</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ C. involving a great or complete change</span></p>
+                                        <p><span class="font-bold text-gray-800">2</span> <span class="text-orange-500 font-semibold">informative</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ A. giving useful information</span></p>
+                                        <p><span class="font-bold text-gray-800">3</span> <span class="text-orange-500 font-semibold">affordable</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ E. cheap enough</span></p>
+                                        <p><span class="font-bold text-gray-800">4</span> <span class="text-orange-500 font-semibold">attainable</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ B. achievable</span></p>
+                                        <p><span class="font-bold text-gray-800">5</span> <span class="text-orange-500 font-semibold">notorious</span> <span class="text-gray-400 font-normal">/noʊˈtɔːriəs/</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ D. infamous</span></p>
                                     </div>
-                                    <div class="space-y-3 text-gray-600">
-                                        <p>A. giving useful information</p>
-                                        <p>B. achievable</p>
-                                        <p>C. involving a great or complete change</p>
-                                        <p>D. infamous</p>
-                                        <p>E. cheap enough</p>
+                                    <div class="space-y-3 text-gray-600 font-medium">
+                                        <p><span class="font-bold text-gray-800">A.</span> giving useful information</p>
+                                        <p><span class="font-bold text-gray-800">B.</span> achievable</p>
+                                        <p><span class="font-bold text-gray-800">C.</span> involving a great or complete change</p>
+                                        <p><span class="font-bold text-gray-800">D.</span> infamous</p>
+                                        <p><span class="font-bold text-gray-800">E.</span> cheap enough</p>
                                     </div>
                                 </div>
                             </div>
 
                             <!-- Exercise 3 -->
-                            <div id="read-wb-ex3-container" class="bg-white border border-orange-100 rounded-xl p-5 shadow-sm transition-all duration-300">
+                            <div id="vocab-ex3-container" class="bg-white border border-orange-100 rounded-xl p-5 shadow-sm transition-all duration-300">
                                 <div class="flex justify-between items-center mb-4">
                                     <h5 class="font-bold text-orange-700 text-md">Exercise 3</h5>
-                                    <button id="btn-read-wb-ex3" onclick="toggleInlineAnswers('read-wb-ex3-container', 'btn-read-wb-ex3')" class="text-xs bg-orange-50 text-orange-700 px-3 py-1.5 rounded-lg font-bold hover:bg-orange-100 transition-colors border border-orange-200">Show Answers</button>
+                                    <button id="btn-vocab-ex3" onclick="toggleInlineAnswers('vocab-ex3-container', 'btn-vocab-ex3')" class="text-xs bg-orange-50 text-orange-700 px-3 py-1.5 rounded-lg font-bold hover:bg-orange-100 transition-colors border border-orange-200">Show Answers</button>
                                 </div>
                                 <p class="text-gray-600 text-sm mb-4 font-medium">Decide whether the following sentences are correct or incorrect.</p>
                                 
-                                <div class="space-y-4 text-sm text-gray-700 font-medium">
-                                    <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-2 border-b border-gray-50 pb-2">
-                                        <p>1 <span class="font-bold text-purple-500">Glamorize</span> something means making it look unattractive.</p>
-                                        <div class="w-32 shrink-0 font-bold"><span class="blank-dots text-gray-300">...................</span><span class="blank-ans text-red-600 bg-red-50 px-3 py-1 rounded-lg border border-red-200 shadow-sm">INCORRECT</span></div>
+                                <div class="space-y-3 text-sm text-gray-700 leading-relaxed">
+                                    <div class="flex flex-col md:flex-row justify-between md:items-center gap-2 border-b border-gray-50 pb-2">
+                                        <p><span class="font-bold text-gray-800">1</span> <span class="font-bold text-orange-500">Glamorize</span> something means making it look unattractive.</p>
+                                        <div class="w-32 shrink-0 font-bold"><span class="blank-dots text-gray-300">...................</span><span class="blank-ans text-rose-600 bg-rose-50 px-3 py-1 rounded-lg border border-rose-200 shadow-sm">INCORRECT</span></div>
                                     </div>
-                                    <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-2 border-b border-gray-50 pb-2">
-                                        <p>2 <span class="font-bold text-purple-500">Convey</span> a message means making it unknown.</p>
-                                        <div class="w-32 shrink-0 font-bold"><span class="blank-dots text-gray-300">...................</span><span class="blank-ans text-red-600 bg-red-50 px-3 py-1 rounded-lg border border-red-200 shadow-sm">INCORRECT</span></div>
+                                    <div class="flex flex-col md:flex-row justify-between md:items-center gap-2 border-b border-gray-50 pb-2">
+                                        <p><span class="font-bold text-gray-800">2</span> <span class="font-bold text-orange-500">Convey</span> a message means making it unknown.</p>
+                                        <div class="w-32 shrink-0 font-bold"><span class="blank-dots text-gray-300">...................</span><span class="blank-ans text-rose-600 bg-rose-50 px-3 py-1 rounded-lg border border-rose-200 shadow-sm">INCORRECT</span></div>
                                     </div>
-                                    <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-2 border-b border-gray-50 pb-2">
-                                        <p>3 <span class="font-bold text-purple-500">Provoke</span> something means causing a reaction/effect.</p>
+                                    <div class="flex flex-col md:flex-row justify-between md:items-center gap-2 border-b border-gray-50 pb-2">
+                                        <p><span class="font-bold text-gray-800">3</span> <span class="font-bold text-orange-500">Provoke</span> something means causing a reaction/effect.</p>
                                         <div class="w-32 shrink-0 font-bold"><span class="blank-dots text-gray-300">...................</span><span class="blank-ans text-emerald-600 bg-emerald-50 px-3 py-1 rounded-lg border border-emerald-200 shadow-sm">&nbsp;&nbsp;CORRECT&nbsp;&nbsp;</span></div>
                                     </div>
-                                    <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-2">
-                                        <p>4 Go <span class="font-bold text-purple-500">on sale</span> means available to be bought.</p>
-                                        <div class="w-32 shrink-0 font-bold"><span class="blank-dots text-gray-300">...................</span><span class="blank-ans text-emerald-600 bg-emerald-50 px-3 py-1 rounded-lg border border-emerald-200 shadow-sm">&nbsp;&nbsp;CORRECT&nbsp;&nbsp;</span></div>
+                                    <div class="flex flex-col md:flex-row justify-between md:items-center gap-2">
+                                        <p><span class="font-bold text-gray-800">4</span> Go <span class="font-bold text-orange-500">on sale</span> means available to be bought.</p>
+                                        <div class="shrink-0 font-bold text-right">
+                                            <span class="blank-dots text-gray-300">...................</span>
+                                            <span class="blank-ans text-rose-600 bg-rose-50 px-3 py-1 rounded-lg border border-rose-200 shadow-sm">INCORRECT</span>
+                                            <p class="blank-ans text-[10px] text-gray-500 mt-1 block font-medium font-normal">("For sale" = available to buy. "On sale" = reduced price)</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="w-full rounded-2xl overflow-hidden border border-gray-200 shadow-inner bg-gray-50 relative h-[800px]">
-                        <iframe src="http://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/passage1_complete_ielts_6.5_7.5_wb_unit4.html" class="absolute inset-0 w-full h-full border-0" title="Reading Practice"></iframe>
+                    <!-- Iframe Container -->
+                    <div class="w-full flex-grow rounded-2xl overflow-hidden border border-gray-200 shadow-inner bg-gray-50 relative min-h-[500px]">
+                        <iframe src="https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/passage1_complete_ielts_6.5_7.5_wb_unit4.html" class="absolute inset-0 w-full h-full border-0" title="Reading Practice"></iframe>
                     </div>
                 </div>
             `
         },
         {
             id: 'speaking_arts_trail',
-            type: 'Speaking Game',
-            themeClass: 'bg-gradient-to-r from-amber-500 to-yellow-500',
+            type: 'Speaking',
+            themeClass: 'bg-gradient-to-r from-amber-500 to-orange-600',
             iconColor: 'text-amber-500',
-            bgColor: 'bg-amber-50',
             title: '2. Speaking: The Arts Trail',
             content: `
-                <div class="fade-in space-y-8">
-                    <div class="bg-white rounded-3xl shadow-xl border border-amber-50 p-8 md:p-12 relative overflow-hidden">
-                        <div class="absolute -top-24 -right-24 w-64 h-64 bg-amber-100 rounded-full mix-blend-multiply filter blur-2xl opacity-70 pointer-events-none"></div>
-                        
-                        <div class="relative z-10 flex flex-col md:flex-row justify-between items-start gap-8 mb-8 border-b border-gray-100 pb-6">
+                <div class="fade-in bg-white rounded-3xl shadow-xl border border-amber-50 p-6 md:p-10 relative overflow-hidden">
+                    <div class="absolute -top-32 -right-32 w-80 h-80 bg-amber-100 rounded-full mix-blend-multiply filter blur-3xl opacity-60"></div>
+                    
+                    <div class="relative z-10">
+                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-8 border-b border-gray-100 pb-6">
                             <div>
-                                <span class="inline-block py-1 px-3 rounded-full bg-amber-100 text-amber-700 font-bold text-xs uppercase tracking-widest mb-3">Board Game Activity</span>
-                                <h3 class="text-3xl font-black text-gray-800 tracking-tight flex items-center gap-3">
-                                    🎲 The Arts Trail
-                                </h3>
-                                <p class="text-gray-500 mt-2 text-lg font-medium">Use the board game image provided in class. Students roll dice and answer the corresponding questions or fill in the blanks below.</p>
-                                
-                                <div class="mt-5">
-                                    <a href="https://www.online-stopwatch.com/3d-dice" target="_blank" class="inline-flex items-center gap-2 bg-gradient-to-r from-red-500 to-red-600 text-white px-5 py-2.5 rounded-xl font-bold hover:from-red-600 hover:to-red-700 shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5 text-sm" title="Open 3D Dice Roller in new tab">
-                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-                                        Open 3D Dice Roller
-                                    </a>
-                                </div>
+                                <span class="inline-block py-1 px-3 rounded-full bg-amber-100 text-amber-700 font-bold text-xs uppercase tracking-widest mb-2">Speaking Game</span>
+                                <h3 class="text-3xl font-bold text-gray-800 mb-2">The Arts Trail</h3>
+                                <p class="text-gray-500 font-medium">Use the board game provided in class. Roll the dice and answer the questions or fill in the blanks.</p>
                             </div>
                             
-                            <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 w-full md:w-72 shadow-sm shrink-0">
-                                <h4 class="font-bold text-amber-800 text-sm mb-2 flex items-center gap-2">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                                    Game Rules
-                                </h4>
-                                <ul class="text-xs text-gray-700 space-y-1.5 list-disc list-inside">
-                                    <li>Roll the dice and move your token.</li>
-                                    <li>If you land on a <strong class="text-blue-600">Question</strong>, provide a full, detailed answer.</li>
-                                    <li>If you land on a <strong class="text-green-600">Blank</strong>, provide the missing word.</li>
-                                    <li>If incorrect, move back to your previous square.</li>
-                                </ul>
+                            <div class="flex flex-col sm:flex-row gap-3">
+                                <a href="https://canva.link/6non6l0kqd1bpe6" target="_blank" class="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-purple-500 to-indigo-600 text-white px-5 py-2.5 rounded-xl font-bold hover:from-purple-600 hover:to-indigo-700 shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5 text-sm" title="Open Game Board in new tab">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                                    Open Game Board
+                                </a>
+                                <a href="https://www.online-stopwatch.com/3d-dice" target="_blank" class="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-red-500 to-red-600 text-white px-5 py-2.5 rounded-xl font-bold hover:from-red-600 hover:to-red-700 shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5 text-sm" title="Open 3D Dice Roller in new tab">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                                    Open 3D Dice
+                                </a>
+                                <button onclick="toggleVisibility('game-rules')" class="bg-amber-100 text-amber-800 px-5 py-2.5 rounded-xl font-bold hover:bg-amber-200 transition-colors shadow-sm text-sm">
+                                    View Game Rules
+                                </button>
                             </div>
                         </div>
 
-                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-                            <!-- Helper logic incorporated directly into HTML generation for the 40 items -->
-                            
-                            ${[
-                                { type: 'Q', q: "Why do some governments not want to spend money on the arts?", a: "They often prioritize more pressing issues like healthcare, education, and infrastructure over arts funding, viewing art as a luxury rather than a necessity." },
-                                { type: 'F', q: "Governments are often slow to ............ action on this issue.", a: "take" },
-                                { type: 'A', q: "Move back one square." },
-                                { type: 'F', q: "The Internet could ............ damage to the music industry.", a: "do / cause" },
-                                { type: 'A', q: "Miss a turn." },
-                                { type: 'Q', q: "Should fashion designers be counted as artists?", a: "Absolutely. They use colors, textures, and innovative concepts to express ideas and push boundaries, much like painters or sculptors do." },
-                                { type: 'F', q: "Fashion designers ............ more influence on society than painters.", a: "have / exert" },
-                                { type: 'Q', q: "How has the Internet affected people's access to art and design?", a: "It has democratized access. People can now view high-definition artworks from global museums virtually and discover independent artists instantly." },
-                                { type: 'A', q: "Move forward four squares." },
-                                { type: 'Q', q: "Do pop stars deserve the attention they receive?", a: "It's debatable. While they entertain millions and work incredibly hard, the idolization they receive can sometimes overshadow more vital professions." },
-                                { type: 'F', q: "Some people don't ............ style into consideration when buying clothes.", a: "take" },
-                                { type: 'A', q: "Move back two squares." },
-                                { type: 'Q', q: "Why might parents stop their children following a career in the arts?", a: "Parents often worry about job security and financial stability, as the arts are notoriously competitive and unpredictable compared to STEM fields." },
-                                { type: 'A', q: "Miss a turn." },
-                                { type: 'F', q: "A really good photograph can ............ an instant impression.", a: "make / create" },
-                                { type: 'Q', q: "What makes a good photograph?", a: "Beyond technical aspects like lighting and composition, a great photograph captures raw emotion, tells a compelling story, and offers a unique perspective." },
-                                { type: 'A', q: "Move forward two squares." },
-                                { type: 'Q', q: "Should people have to pay to visit art galleries?", a: "I believe a small fee is reasonable to help with the upkeep of the gallery and support artists, though there should be free days to ensure public accessibility." },
-                                { type: 'Q', q: "Should artists be allowed to say whatever they want?", a: "Generally, yes. Freedom of expression is crucial for art to challenge societal norms. However, it shouldn't be used to incite violence or spread hate speech." },
-                                { type: 'F', q: "Children who enjoy arts ............ better in creative tasks later on in life.", a: "perform / do" },
-                                { type: 'A', q: "Move back two squares." },
-                                { type: 'Q', q: "Should art be a hobby rather than a profession?", a: "Not necessarily. While it's a great hobby for relaxation, society needs professional artists to challenge our perspectives and create lasting cultural heritage." },
-                                { type: 'F', q: "Art therapy can really help to ............ people better.", a: "make / treat" },
-                                { type: 'A', q: "Miss a turn." },
-                                { type: 'Q', q: "Why do some artists choose never to show their work to others?", a: "Some create art purely for personal therapy or self-expression. They might fear public scrutiny, harsh criticism, or simply prefer to keep their emotions private." },
-                                { type: 'F', q: "Social networking sites ............ advantages for new artists.", a: "offer / provide / have" },
-                                { type: 'A', q: "Move forward three squares." },
-                                { type: 'Q', q: "How can art be used as a therapy for people with health problems?", a: "Engaging in art helps patients express subconscious feelings, reduce severe anxiety, and provides a calming, meditative focus away from their illness." },
-                                { type: 'F', q: "It's hard to ............ predictions about the future of the music industry.", a: "make" },
-                                { type: 'A', q: "Move back one square." },
-                                { type: 'Q', q: "What effect has the Internet had on the music industry?", a: "It has drastically shifted revenue from physical sales to streaming, making it easier for indie artists to be discovered but much harder to earn a living wage." },
-                                { type: 'F', q: "Public opinion doesn't always ............ an effect on government spending.", a: "have" },
-                                { type: 'Q', q: "Should artists be paid more than other people?", a: "Not necessarily more than essential workers like doctors or teachers, but they absolutely deserve a fair, livable wage for their cultural contributions." },
-                                { type: 'A', q: "Move back two squares." },
-                                { type: 'F', q: "It's essential to ............ into account the role of artists in society.", a: "take" },
-                                { type: 'Q', q: "Could you live without the Internet?", a: "It would be incredibly difficult. My work, social life, and daily entertainment are deeply integrated with online platforms." },
-                                { type: 'A', q: "Miss a turn." },
-                                { type: 'F', q: "Writers ............ a lot of research before they start work.", a: "do" },
-                                { type: 'Q', q: "Should people study art from other cultures?", a: "Yes, definitely. It broadens our horizons and fosters mutual respect and deeper understanding between different global communities." },
-                                { type: 'F', q: "Parents should encourage their children ............ an interest in art.", a: "to take / to develop" }
-                            ].map((item, index) => {
-                                const num = index + 1;
-                                if (item.type === 'A') {
-                                    return `
-                                        <div class="bg-gray-50 border border-gray-200 rounded-xl p-4 shadow-sm flex items-center gap-3 grayscale opacity-80">
-                                            <span class="w-8 h-8 rounded-lg bg-gray-200 text-gray-500 flex items-center justify-center font-bold shrink-0">${num}</span>
-                                            <span class="font-bold text-gray-600 text-sm uppercase tracking-wide">${item.q}</span>
-                                        </div>
-                                    `;
-                                } else if (item.type === 'Q') {
-                                    return `
-                                        <div class="bg-white border border-blue-100 rounded-xl p-4 shadow-sm flex flex-col">
-                                            <div class="flex items-start gap-3 mb-3 flex-grow">
-                                                <span class="w-8 h-8 rounded-lg bg-blue-100 text-blue-700 flex items-center justify-center font-bold shrink-0 shadow-sm">${num}</span>
-                                                <div>
-                                                    <span class="text-[10px] font-bold text-blue-500 uppercase tracking-wider mb-1 block">Discussion</span>
-                                                    <p class="font-semibold text-gray-800 text-sm leading-snug">${item.q}</p>
-                                                </div>
-                                            </div>
-                                            <button onclick="toggleVisibility('ans-game-${num}')" class="self-start text-[10px] bg-blue-50 text-blue-700 px-3 py-1.5 rounded-lg font-bold hover:bg-blue-100 transition-colors border border-blue-200">Show Sample</button>
-                                            <div id="ans-game-${num}" class="hidden mt-3 p-3 bg-gray-50 border-l-2 border-blue-400 rounded-r-lg text-xs text-gray-600 italic">"${item.a}"</div>
-                                        </div>
-                                    `;
-                                } else if (item.type === 'F') {
-                                    // Highlight the blank for better readability
-                                    const formattedQ = item.q.replace('............', '<span class="text-green-400 font-bold">............</span>');
-                                    return `
-                                        <div class="bg-white border border-green-100 rounded-xl p-4 shadow-sm flex flex-col">
-                                            <div class="flex items-start gap-3 mb-3 flex-grow">
-                                                <span class="w-8 h-8 rounded-lg bg-green-100 text-green-700 flex items-center justify-center font-bold shrink-0 shadow-sm">${num}</span>
-                                                <div>
-                                                    <span class="text-[10px] font-bold text-green-600 uppercase tracking-wider mb-1 block">Fill in the blank</span>
-                                                    <p class="font-semibold text-gray-700 text-sm leading-snug">${formattedQ}</p>
-                                                </div>
-                                            </div>
-                                            <button onclick="toggleVisibility('ans-game-${num}')" class="self-start text-[10px] bg-green-50 text-green-700 px-3 py-1.5 rounded-lg font-bold hover:bg-green-100 transition-colors border border-green-200">Show Answer</button>
-                                            <div id="ans-game-${num}" class="hidden mt-3 p-2 bg-green-50 rounded-lg text-xs font-bold text-green-800 text-center uppercase tracking-widest border border-green-200">${item.a}</div>
-                                        </div>
-                                    `;
-                                }
-                            }).join('')}
+                        <div id="game-rules" class="hidden mb-8 bg-amber-50 border border-amber-200 rounded-xl p-5 shadow-sm text-gray-700 text-sm">
+                            <h4 class="font-bold text-amber-900 mb-3 flex items-center gap-2 text-base">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                How to Play
+                            </h4>
+                            <ul class="list-disc list-inside space-y-2 font-medium">
+                                <li>Students take turns rolling the dice and moving their marker along the board.</li>
+                                <li><strong class="text-amber-700">Question Squares:</strong> The student must provide a full, reasoned answer (similar to Speaking Part 3).</li>
+                                <li><strong class="text-amber-700">Fill-in-the-blank Squares:</strong> The student must guess the missing vocabulary word.</li>
+                                <li><strong class="text-amber-700">Action Squares:</strong> Follow the instructions (e.g., "Miss a turn", "Move forward two squares").</li>
+                                <li>The teacher can use the toggles below to reveal sample answers and vocabulary keys.</li>
+                            </ul>
+                        </div>
 
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                            ${artsTrailHTML}
                         </div>
                     </div>
                 </div>
@@ -514,7 +396,6 @@
         }
     ];
 
-    // --- APPLICATION LOGIC ---
     let currentIndex = 0;
 
     const headerEl = document.getElementById('app-header');
@@ -530,20 +411,17 @@
     window.addEventListener('DOMContentLoaded', () => {
         populateNavMenu();
         
-        // Toggle menu
         document.getElementById('nav-toggle-btn').addEventListener('click', (e) => {
             e.stopPropagation();
             navDropdown.classList.toggle('hidden');
         });
 
-        // Close menu when clicking outside
         document.addEventListener('click', (e) => {
             if (!navDropdown.contains(e.target) && !document.getElementById('nav-toggle-btn').contains(e.target)) {
                 navDropdown.classList.add('hidden');
             }
         });
 
-        // Navigation handlers
         if(prevBtn) {
             prevBtn.addEventListener('click', () => {
                 if (currentIndex > 0) renderSlide(--currentIndex);
@@ -585,42 +463,70 @@
     };
 
     function renderSlide(index) {
-        if (typeof pauseAllTimers === 'function') pauseAllTimers();
         const data = sessionData[index];
         if(!headerEl || !titleEl || !containerEl) return;
         
-        // Update header classes and content dynamically based on section theme
         headerEl.className = `text-white p-4 shadow-lg transition-colors duration-700 z-20 relative ${data.themeClass}`;
         titleEl.textContent = data.title;
         
-        // Update progress
         const progressPercent = ((index + 1) / sessionData.length) * 100;
         if(progressBarEl) progressBarEl.style.width = `${progressPercent}%`;
         if(indicatorEl) indicatorEl.textContent = `Section ${index + 1} of ${sessionData.length}`;
 
-        // Highlight Nav menu
         document.querySelectorAll('.nav-item-btn').forEach((btn, i) => {
             if (i === index) {
-                btn.classList.add('bg-white', 'border-gray-200', 'shadow-md');
+                btn.classList.add('bg-white', 'border-orange-200', 'shadow-md');
                 btn.classList.remove('border-transparent', 'shadow-sm');
             } else {
-                btn.classList.remove('bg-white', 'border-gray-200', 'shadow-md');
+                btn.classList.remove('bg-white', 'border-orange-200', 'shadow-md');
                 btn.classList.add('border-transparent', 'shadow-sm');
             }
         });
 
-        // Inject content
         containerEl.innerHTML = ''; 
         setTimeout(() => {
             containerEl.innerHTML = data.content;
         }, 10);
 
-        // Update buttons
         if(prevBtn) prevBtn.disabled = index === 0;
         if(nextBtn) nextBtn.innerHTML = index === sessionData.length - 1 ? 
             'Finish Lesson <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>' : 
             'Next Section <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>';
     }
+
+    window.toggleInlineAnswers = function(containerId, btnId) {
+        const container = document.getElementById(containerId);
+        const btn = document.getElementById(btnId);
+        if(container) {
+            container.classList.toggle('show-answers');
+            if(container.classList.contains('show-answers')) {
+                container.classList.add('shadow-md', 'border-emerald-300');
+            } else {
+                container.classList.remove('shadow-md', 'border-emerald-300');
+            }
+            if(btn) {
+                btn.textContent = container.classList.contains('show-answers') ? 'Hide Answer' : 'Show Answer';
+                btn.classList.toggle('bg-white');
+                btn.classList.toggle('bg-emerald-100');
+                btn.classList.toggle('text-gray-700');
+                btn.classList.toggle('text-emerald-800');
+            }
+        }
+    }
+
+    window.toggleVisibility = function(id) {
+        const el = document.getElementById(id);
+        if(el) {
+            if(el.classList.contains('hidden')){
+                el.classList.remove('hidden');
+                el.classList.add('fade-in');
+                setTimeout(() => { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 50);
+            } else {
+                el.classList.add('hidden');
+                el.classList.remove('fade-in');
+            }
+        }
+    };
 </script>
 </body>
 </html>
