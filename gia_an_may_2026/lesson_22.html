@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Chan Truong | Lesson 22 Detailed Plan</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Inter"', 'sans-serif'],
+                    },
+                    colors: {
+                        pastel: {
+                            pink: '#ffe4e6',
+                            purple: '#f3e8ff',
+                            blue: '#e0e7ff',
+                            teal: '#ccfbf1',
+                            orange: '#ffedd5',
+                            indigo: '#e0e7ff',
+                            cyan: '#cffafe'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { 
+            background-color: #fdfbfb;
+            background-image: 
+                radial-gradient(at 80% 0%, hsla(250, 50%, 95%, 1) 0px, transparent 50%),
+                radial-gradient(at 10% 30%, hsla(280, 60%, 90%, 1) 0px, transparent 50%),
+                radial-gradient(at 90% 80%, hsla(200, 60%, 90%, 1) 0px, transparent 50%),
+                radial-gradient(at 20% 90%, hsla(220, 60%, 90%, 1) 0px, transparent 50%);
+            background-attachment: fixed;
+            color: #334155;
+        }
+        
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 10px 40px -10px rgba(0,0,0,0.05);
+        }
+
+        .skill-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.25rem 0.6rem;
+            border-radius: 8px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            backdrop-filter: blur(4px);
+        }
+
+        .badge-speaking { background-color: rgba(255, 237, 213, 0.7); color: #ea580c; border: 1px solid rgba(253, 216, 163, 0.5); }
+        .badge-vocab { background-color: rgba(204, 251, 241, 0.7); color: #0d9488; border: 1px solid rgba(153, 246, 228, 0.5); }
+        .badge-mock { background-color: rgba(243, 232, 255, 0.7); color: #9333ea; border: 1px solid rgba(233, 213, 255, 0.5); }
+
+        /* Accordion transition utility matching Lesson 20/21 */
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s cubic-bezier(0, 1, 0, 1), padding 0.3s ease;
+        }
+        .accordion-content.open {
+            max-height: 1000px;
+            padding-top: 1rem;
+            transition: max-height 0.3s cubic-bezier(0.95, 0.05, 0.795, 0.035), padding 0.3s ease;
+        }
+        .arrow-rotate {
+            transition: transform 0.2s ease-in-out;
+        }
+        .arrow-rotate.rotated {
+            transform: rotate(180deg);
+        }
+
+        .guidance-box {
+            background: linear-gradient(to right, rgba(255,255,255,0.95), rgba(255,255,255,0.7));
+            border-left: 4px solid;
+            border-radius: 0.5rem;
+            padding: 1.25rem;
+            margin-bottom: 1.25rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
+
+        .topic-card {
+            background: linear-gradient(to bottom right, #ffffff, #fffbeb);
+            border: 1px solid rgba(253, 230, 138, 0.5);
+        }
+
+        /* Modal system transition controls */
+        .modal-overlay {
+            transition: opacity 0.25s ease-in-out;
+        }
+        .modal-container {
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease-in-out;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: rgba(203, 213, 225, 0.8); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(148, 163, 184, 0.8); }
+    </style>
+</head>
+<body class="antialiased min-h-screen pb-16">
+
+<div class="max-w-4xl mx-auto px-4 py-10 sm:px-6 lg:px-8">
+    
+    <!-- Header Block -->
+    <header class="glass-panel rounded-[2rem] p-8 mb-8 relative overflow-hidden">
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-pastel-indigo rounded-full mix-blend-multiply filter blur-3xl opacity-50 z-0"></div>
+        <div class="absolute -bottom-24 -left-24 w-72 h-72 bg-pastel-purple rounded-full mix-blend-multiply filter blur-3xl opacity-50 z-0"></div>
+
+        <div class="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+            <div>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 border border-white text-[10px] font-bold text-slate-500 tracking-widest uppercase mb-3 shadow-sm">
+                    IELTS Chan Truong • Tutor 1
+                </div>
+                <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight text-slate-800 mb-2">Lesson 22: Health & Lifestyle & Mock Test 05</h1>
+                <p class="text-slate-500 font-medium">90-Minute Advanced Speaking & Evaluation Integration</p>
+            </div>
+            
+            <div class="flex flex-col gap-2">
+                <span class="skill-badge badge-speaking shadow-sm justify-center">Speaking P2 & P3 (45 Min)</span>
+                <span class="skill-badge badge-mock shadow-sm justify-center">Mock Test 05 (45 Min)</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="space-y-8">
+        
+        <!-- Section 1: Vocab Assessment -->
+        <section class="glass-panel rounded-2xl p-6 md:p-8 relative overflow-hidden bg-gradient-to-br from-white/60 to-teal-50/40">
+            <div class="absolute top-0 left-0 w-2 h-full bg-teal-400"></div>
+            
+            <div class="flex items-center justify-between gap-4 mb-5">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-teal-100 flex items-center justify-center text-teal-600 shadow-sm border border-teal-200">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <div>
+                        <h2 class="text-xl font-bold text-slate-800">1. Vocab Test: Health & Lifestyle</h2>
+                        <p class="text-sm text-slate-500">In-class vocabulary retention verification</p>
+                    </div>
+                </div>
+                <span class="skill-badge badge-vocab shadow-sm font-bold">Health Theme</span>
+            </div>
+            
+            <p class="text-sm text-slate-600 mb-4">Administer the Health & Lifestyle Vocabulary Assessment to verify student's active recall of topical lexis prior to the mock interview drills:</p>
+
+            <a href="https://ieltschantruong.github.io/IELTS/lesson_plan/vocab_test/speaking_health_and_lifestyle.html" target="_blank" class="flex items-center justify-between p-4 bg-white/80 border border-teal-200 rounded-xl hover:shadow-md hover:border-teal-400 transition-all group">
+                <div class="flex items-center gap-4">
+                    <div class="bg-teal-50 p-2.5 rounded-lg text-teal-600 group-hover:bg-teal-100 transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                    </div>
+                    <div>
+                        <span class="block text-[15px] font-bold text-slate-800 group-hover:text-teal-700 transition-colors">Health & Lifestyle Vocab Test</span>
+                        <span class="block text-xs text-slate-500 mt-0.5">Speaking-Focused Lexical Assessment</span>
+                    </div>
+                </div>
+                <span class="text-xs text-teal-600 font-bold uppercase tracking-wider bg-teal-50 px-3 py-1.5 rounded border border-teal-100 group-hover:bg-teal-100 transition-colors">Open Test &rarr;</span>
+            </a>
+        </section>
+
+        <!-- Section 2: Speaking Part 2-3 Practice -->
+        <section class="glass-panel rounded-2xl p-6 md:p-8 relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-2 h-full bg-orange-400"></div>
+            
+            <div class="flex items-center justify-between gap-4 mb-6">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-orange-50 flex items-center justify-center text-orange-500 border border-orange-100 shadow-sm">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+                    </div>
+                    <h2 class="text-2xl font-bold text-slate-800">2. Speaking Part 2 & 3 Practice</h2>
+                </div>
+
+                <a href="https://ieltschantruong.github.io/IELTS/learning_resources/speaking/part2_3/health_and_lifestyle.html" target="_blank" class="flex items-center gap-1.5 px-3 py-1.5 bg-orange-50 text-orange-700 text-xs font-bold rounded-lg border border-orange-100/60 hover:bg-orange-100 transition-colors whitespace-nowrap">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                    Topic Resource List
+                </a>
+            </div>
+
+            <!-- Tutoring Guidance Box -->
+            <div class="guidance-box border-orange-400 text-sm text-slate-700 space-y-3 mb-6">
+                <h3 class="text-[13px] font-bold text-orange-800 uppercase tracking-wider flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    Strategic Guidance: Upgrading Band 5.5 to Band 6.5
+                </h3>
+                <p>Ensure the student presents coherent, structured responses without long pauses when discussing personal health habits and broader lifestyle issues:</p>
+                <ul class="list-disc list-inside space-y-1 ml-1 text-xs text-slate-600">
+                    <li><strong>Part 2 Storytelling:</strong> Structure monologues using chronological markers (*"In the beginning...", "What I usually do is...", "The main reason why this helps me..."*).</li>
+                    <li><strong>Part 3 A.R.E.A Framework:</strong> Maintain strict response flow: Direct Answer <strong>[A]</strong> &rarr; Reason <strong>[R]</strong> &rarr; General Example <strong>[E]</strong> &rarr; Alternative/Conditional <strong>[A]</strong>.</li>
+                    <li><strong>Natural Collocations:</strong> Focus on practical, natural phrases like *"balanced diet"*, *"reduce stress"*, *"stay in shape"*, *"junk food tax"*.</li>
+                </ul>
+            </div>
+
+            <!-- Part 2 Cue Cards -->
+            <h3 class="text-sm font-bold text-slate-800 uppercase tracking-wider mb-4 flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-orange-500"></span>
+                Part 2 Cue Cards (Click to inspect Band 6.5 Model Stories)
+            </h3>
+
+            <div class="space-y-4 mb-8">
+                
+                <!-- Topic A -->
+                <div class="topic-card rounded-xl p-5 shadow-sm relative border border-orange-100">
+                    <div class="absolute top-0 right-0 bg-orange-100 text-orange-700 text-[10px] font-bold px-2.5 py-1 rounded-bl-lg rounded-tr-xl border-l border-b border-orange-200">CUE CARD A</div>
+                    <h4 class="font-bold text-slate-800 text-[15px] mb-2 w-11/12">Describe a healthy lifestyle you know about.</h4>
+                    <div class="bg-white/80 rounded p-3 text-xs text-slate-600 border border-orange-100">
+                        <ul class="list-none space-y-1">
+                            <li>• <span class="font-medium">Whose lifestyle it is?</span></li>
+                            <li>• <span class="font-medium">What this lifestyle involves?</span></li>
+                            <li>• <span class="font-medium">How easy or difficult it is to follow?</span></li>
+                            <li>• <span class="font-medium">And explain why you think this lifestyle is healthy.</span></li>
+                        </ul>
+                    </div>
+                    <button onclick="openModal('healthyLifestyle')" class="mt-4 w-full py-2 bg-white text-orange-700 border border-orange-200 hover:bg-orange-50 rounded-lg text-xs font-bold transition-all flex justify-center items-center gap-2">
+                        <svg class="w-4 h-4 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+                        View Band 6.5 Model Story
+                    </button>
+                </div>
+
+                <!-- Topic B -->
+                <div class="topic-card rounded-xl p-5 shadow-sm relative border border-orange-100">
+                    <div class="absolute top-0 right-0 bg-orange-100 text-orange-700 text-[10px] font-bold px-2.5 py-1 rounded-bl-lg rounded-tr-xl border-l border-b border-orange-200">CUE CARD B</div>
+                    <h4 class="font-bold text-slate-800 text-[15px] mb-2 w-11/12">Describe an outdoor activity you do to stay healthy.</h4>
+                    <div class="bg-white/80 rounded p-3 text-xs text-slate-600 border border-orange-100">
+                        <ul class="list-none space-y-1">
+                            <li>• <span class="font-medium">What the activity is?</span></li>
+                            <li>• <span class="font-medium">Where and when you do it?</span></li>
+                            <li>• <span class="font-medium">Who you do it with?</span></li>
+                            <li>• <span class="font-medium">And explain why you think it helps you stay healthy.</span></li>
+                        </ul>
+                    </div>
+                    <button onclick="openModal('outdoorActivity')" class="mt-4 w-full py-2 bg-white text-orange-700 border border-orange-200 hover:bg-orange-50 rounded-lg text-xs font-bold transition-all flex justify-center items-center gap-2">
+                        <svg class="w-4 h-4 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+                        View Band 6.5 Model Story
+                    </button>
+                </div>
+
+                <!-- Topic C -->
+                <div class="topic-card rounded-xl p-5 shadow-sm relative border border-orange-100">
+                    <div class="absolute top-0 right-0 bg-orange-100 text-orange-700 text-[10px] font-bold px-2.5 py-1 rounded-bl-lg rounded-tr-xl border-l border-b border-orange-200">CUE CARD C</div>
+                    <h4 class="font-bold text-slate-800 text-[15px] mb-2 w-11/12">Describe a time you felt very stressed and how you relaxed.</h4>
+                    <div class="bg-white/80 rounded p-3 text-xs text-slate-600 border border-orange-100">
+                        <ul class="list-none space-y-1">
+                            <li>• <span class="font-medium">When it happened and why you felt stressed?</span></li>
+                            <li>• <span class="font-medium">What you did to relax?</span></li>
+                            <li>• <span class="font-medium">Who helped you or gave you advice?</span></li>
+                            <li>• <span class="font-medium">And explain how you felt after doing this activity.</span></li>
+                        </ul>
+                    </div>
+                    <button onclick="openModal('stressRelaxed')" class="mt-4 w-full py-2 bg-white text-orange-700 border border-orange-200 hover:bg-orange-50 rounded-lg text-xs font-bold transition-all flex justify-center items-center gap-2">
+                        <svg class="w-4 h-4 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+                        View Band 6.5 Model Story
+                    </button>
+                </div>
+
+            </div>
+
+            <!-- Part 3 Questions -->
+            <h3 class="text-sm font-bold text-slate-800 uppercase tracking-wider mb-4 flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-orange-500"></span>
+                Part 3 Discussion Questions (Click to expand A.R.E.A Model Answers)
+            </h3>
+
+            <div class="space-y-3">
+                
+                <!-- Q d -->
+                <div class="border border-slate-150 rounded-xl bg-white/80 overflow-hidden shadow-sm hover:border-orange-200 transition-colors">
+                    <button onclick="toggleAccordion(1)" class="w-full text-left px-5 py-4 flex justify-between items-center gap-3">
+                        <span class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                            <span class="text-orange-500 font-bold">Q d.</span> Why do you think fast food is so popular despite being unhealthy?
+                        </span>
+                        <svg id="arrow-1" class="w-4 h-4 text-slate-400 arrow-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="acc-1" class="accordion-content px-5 pb-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="text-xs text-slate-600 space-y-2">
+                            <p><strong>[A - Answer]</strong> In my opinion, fast food is extremely popular mainly because it is convenient and affordable for busy workers.</p>
+                            <p><strong>[R - Reason]</strong> Many people today work long hours and do not have enough energy or time to buy fresh ingredients and cook meals at home.</p>
+                            <p><strong>[E - Example]</strong> For instance, students and office workers in big cities often grab quick burgers or fried chicken during short lunch breaks.</p>
+                            <p><strong>[A - Alternative]</strong> If healthy restaurants served quick meals at lower prices, more people would definitely choose healthier options.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q e -->
+                <div class="border border-slate-150 rounded-xl bg-white/80 overflow-hidden shadow-sm hover:border-orange-200 transition-colors">
+                    <button onclick="toggleAccordion(2)" class="w-full text-left px-5 py-4 flex justify-between items-center gap-3">
+                        <span class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                            <span class="text-orange-500 font-bold">Q e.</span> Do you think the government should tax sugary drinks and unhealthy foods?
+                        </span>
+                        <svg id="arrow-2" class="w-4 h-4 text-slate-400 arrow-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="acc-2" class="accordion-content px-5 pb-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="text-xs text-slate-600 space-y-2">
+                            <p><strong>[A - Answer]</strong> Yes, I believe introducing a tax on sugary products is a effective way to encourage healthier dietary choices.</p>
+                            <p><strong>[R - Reason]</strong> Higher prices naturally discourage consumers from buying junk food frequently, while tax money can fund healthcare facilities.</p>
+                            <p><strong>[E - Example]</strong> For example, countries like the UK implemented a sugar tax on soft drinks, which led companies to reduce sugar levels in their products.</p>
+                            <p><strong>[A - Alternative]</strong> However, if governments only raise taxes without educating citizens about nutrition, people might still buy unhealthy snacks anyway.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q f -->
+                <div class="border border-slate-150 rounded-xl bg-white/80 overflow-hidden shadow-sm hover:border-orange-200 transition-colors">
+                    <button onclick="toggleAccordion(3)" class="w-full text-left px-5 py-4 flex justify-between items-center gap-3">
+                        <span class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                            <span class="text-orange-500 font-bold">Q f.</span> How has people's diet changed over the last 50 years?
+                        </span>
+                        <svg id="arrow-3" class="w-4 h-4 text-slate-400 arrow-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="acc-3" class="accordion-content px-5 pb-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="text-xs text-slate-600 space-y-2">
+                            <p><strong>[A - Answer]</strong> Overall, modern diets contain far more processed items and red meat than in the past.</p>
+                            <p><strong>[R - Reason]</strong> Fifty years ago, families relied heavily on fresh, locally grown vegetables, whereas today food processing and global trade dominate market shelves.</p>
+                            <p><strong>[E - Example]</strong> For instance, instead of eating home-cooked rice and fresh fish, many families now eat pre-packaged frozen meals or canned foods.</p>
+                            <p><strong>[A - Alternative]</strong> On the positive side, awareness of organic diets and vegetarian lifestyles is growing rapidly among young urbanites today.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q g -->
+                <div class="border border-slate-150 rounded-xl bg-white/80 overflow-hidden shadow-sm hover:border-orange-200 transition-colors">
+                    <button onclick="toggleAccordion(4)" class="w-full text-left px-5 py-4 flex justify-between items-center gap-3">
+                        <span class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                            <span class="text-orange-500 font-bold">Q g.</span> Why do many people find it difficult to stick to an exercise routine?
+                        </span>
+                        <svg id="arrow-4" class="w-4 h-4 text-slate-400 arrow-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="acc-4" class="accordion-content px-5 pb-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="text-xs text-slate-600 space-y-2">
+                            <p><strong>[A - Answer]</strong> I think the primary reason is a lack of time combined with unrealistic initial expectations.</p>
+                            <p><strong>[R - Reason]</strong> People often set overly difficult goals at first, so when they feel exhausted after a long workday, they easily give up.</p>
+                            <p><strong>[E - Example]</strong> For instance, many people buy expensive gym memberships in January, but stop attending after just a few weeks because they lack motivation.</p>
+                            <p><strong>[A - Alternative]</strong> If individuals start with short 15-minute daily walks, it becomes much easier to form a long-term habit.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q h -->
+                <div class="border border-slate-150 rounded-xl bg-white/80 overflow-hidden shadow-sm hover:border-orange-200 transition-colors">
+                    <button onclick="toggleAccordion(5)" class="w-full text-left px-5 py-4 flex justify-between items-center gap-3">
+                        <span class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                            <span class="text-orange-500 font-bold">Q h.</span> Is it better to exercise indoors at a gym or outdoors in nature? Why?
+                        </span>
+                        <svg id="arrow-5" class="w-4 h-4 text-slate-400 arrow-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="acc-5" class="accordion-content px-5 pb-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="text-xs text-slate-600 space-y-2">
+                            <p><strong>[A - Answer]</strong> In my view, exercising outdoors in nature is generally better for both physical and mental well-being.</p>
+                            <p><strong>[R - Reason]</strong> Outdoor environments provide fresh oxygen, natural sunlight, and a peaceful atmosphere that helps relieve mental stress.</p>
+                            <p><strong>[E - Example]</strong> For example, jogging in a green park helps people clear their minds much better than running on a treadmill in a noisy room.</p>
+                            <p><strong>[A - Alternative]</strong> However, during extremely hot or rainy weather, indoor gyms provide essential climate control and specialized equipment.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Section 3: Speaking Mock Test -->
+        <section class="glass-panel rounded-2xl p-6 md:p-8 relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-2 h-full bg-purple-400"></div>
+            
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 rounded-full bg-purple-50 flex items-center justify-center text-purple-600 border border-purple-100 shadow-sm">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </div>
+                <h2 class="text-2xl font-bold text-slate-800">3. Speaking Mock Test 05</h2>
+            </div>
+
+            <!-- Guidance Box -->
+            <div class="guidance-box border-purple-400 text-sm text-slate-700 space-y-2">
+                <h3 class="text-[13px] font-bold text-purple-800 uppercase tracking-wider mb-2 flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    Full Exam Simulation Protocols
+                </h3>
+                <p>Conduct **Speaking Mock Test 05** under strict exam conditions. Evaluate the student across all four IELTS Speaking criteria (FC, LR, GRA, PR), focusing on eliminating hesitation and maintaining continuous speech.</p>
+            </div>
+
+            <a href="https://ieltschantruong.github.io/IELTS/learning_resources/speaking/mock_test/speaking_mock_05.html" target="_blank" class="p-4 rounded-xl border border-purple-200 bg-white flex flex-col sm:flex-row items-center justify-between gap-4 transition-all hover:border-purple-400 hover:shadow-md group">
+                <div class="flex items-center gap-4 w-full sm:w-auto">
+                    <div class="w-10 h-10 bg-purple-50 rounded-lg flex items-center justify-center text-purple-600 font-extrabold group-hover:bg-purple-100 transition-colors shrink-0">05</div>
+                    <div>
+                        <p class="font-bold text-slate-800 text-[15px] group-hover:text-purple-600 transition-colors">Speaking Mock Test 05</p>
+                        <p class="text-xs text-slate-500 mt-0.5">Full 3-Part Exam Simulation with live scoring feedback</p>
+                    </div>
+                </div>
+                <span class="w-full sm:w-auto text-center sm:text-right text-[11px] font-bold text-purple-600 uppercase tracking-wider bg-purple-50 px-4 py-2.5 rounded-lg border border-purple-100 group-hover:bg-purple-100 transition-colors shrink-0">Open Mock Test</span>
+            </a>
+        </section>
+
+        <!-- Section 4: Homework Assignments -->
+        <section class="glass-panel rounded-2xl p-6 md:p-8 relative overflow-hidden bg-gradient-to-br from-white/60 to-blue-50/40">
+            <div class="absolute top-0 left-0 w-2 h-full bg-blue-400"></div>
+            
+            <div class="flex items-center gap-3 mb-5">
+                <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 shadow-sm border border-blue-200">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                </div>
+                <h2 class="text-xl font-bold text-slate-800">4. Homework Assignments</h2>
+            </div>
+            
+            <p class="text-sm text-slate-600 mb-6 font-medium">Review mock test diagnostic feedback and record oral responses for the remaining Health & Lifestyle prompts:</p>
+
+            <div class="bg-white/80 rounded-xl p-5 border border-indigo-100 shadow-sm space-y-4">
+                <div class="flex items-start gap-4">
+                    <div class="p-2.5 bg-orange-50 text-orange-500 rounded-lg shadow-sm shrink-0">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+                    </div>
+                    <div>
+                        <p class="font-bold text-slate-800 text-base leading-snug">Health & Lifestyle Audio Recording</p>
+                        <p class="text-xs text-slate-500 mt-1">Record and submit your oral responses for Part 2 Topic B or C, and at least 3 Part 3 questions from today's session. Review weaknesses identified in Mock Test 05.</p>
+                    </div>
+                </div>
+
+                <!-- Direct resource link -->
+                <div class="pt-2">
+                    <a href="https://ieltschantruong.github.io/IELTS/learning_resources/speaking/part2_3/health_and_lifestyle.html" target="_blank" class="w-full bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold py-3 px-4 rounded-xl shadow-md transition-all flex items-center justify-center gap-2">
+                        <span>Open Health & Lifestyle Resource</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</div>
+
+<!-- Modal Component System (Overlay popup for Part 2 Model Answers) -->
+<div id="modalOverlay" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-50 flex items-center justify-center p-4 md:p-6 opacity-0 pointer-events-none modal-overlay">
+    <div id="modalContainer" class="bg-white rounded-3xl w-full max-w-2xl max-h-[85vh] overflow-y-auto shadow-2xl flex flex-col border border-slate-100 transform scale-95 opacity-0 modal-container">
+        
+        <!-- Modal Header -->
+        <div class="px-6 py-5 border-b border-slate-100 bg-slate-50 flex items-center justify-between sticky top-0 z-10 rounded-t-3xl">
+            <div class="flex items-center gap-3">
+                <div class="w-2.5 h-2.5 rounded-full bg-orange-500"></div>
+                <h3 id="modalTitle" class="text-sm font-bold text-slate-800 tracking-tight">Speaking Model Answer</h3>
+            </div>
+            <button onclick="closeModal()" class="p-1.5 rounded-lg bg-slate-200/60 hover:bg-slate-200 text-slate-500 hover:text-slate-700 transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+        </div>
+        
+        <!-- Modal Body Content -->
+        <div id="modalBody" class="p-6 md:p-8 space-y-6">
+            <!-- Dynamic Content Injected here -->
+        </div>
+        
+        <!-- Modal Footer -->
+        <div class="px-6 py-4 border-t border-slate-100 bg-slate-50 flex justify-end rounded-b-3xl">
+            <button onclick="closeModal()" class="bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold py-2.5 px-5 rounded-xl transition-all shadow-sm">
+                Return to Lesson Plan
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Database for Speaking Responses & Structural Blueprints
+    const speakingDB = {
+        healthyLifestyle: {
+            title: "Model Story: Healthy Lifestyle (My Uncle's Daily Routine)",
+            topic: "Describe a healthy lifestyle you know about.",
+            story: `"I would like to talk about a very healthy lifestyle that my uncle follows. He is in his late 40s, but he looks much younger and always has a lot of energy.<br><br>Regarding his daily routine, he wakes up very early every morning around 5:30 AM to go jogging in the nearby park. After that, he prepares a **balanced breakfast** with eggs, fresh fruit, and green tea. He avoids processed food completely and **cooks home-made meals** with lots of fresh vegetables.<br><br>Another important habit is that he limits his screen time in the evening. Instead of scrolling on his smartphone before sleeping, he spends an hour reading books or meditating. He also makes sure to **drink enough water** throughout the day and sleeps for at least eight hours every night.<br><br>I believe this lifestyle is extremely beneficial because it keeps both his body and mind healthy. Even though it requires strong self-discipline, seeing his positive mood and high energy inspires me to build similar healthy habits."`,
+            grammar: [
+                "<strong>Relative Clauses (that my uncle follows / who is in his...):</strong> Combines short ideas naturally to improve Coherence.",
+                "<strong>Frequency Adverbs & Time Markers (every morning / before sleeping):</strong> Maintains clear narrative progression.",
+                "<strong>Fluency Placeholders (Regarding his daily routine... / Another important habit is...):</strong> Smooth transitions that prevent hesitation pauses."
+            ],
+            adjectives: ["Balanced breakfast", "Home-made meals", "High energy", "Self-discipline", "Positive mood", "Beneficial routine"]
+        },
+        outdoorActivity: {
+            title: "Model Story: Cycling Around the Lake",
+            topic: "Describe an outdoor activity you do to stay healthy.",
+            story: `"An outdoor activity that I regularly enjoy to keep fit is **cycling around West Lake** in my city.<br><br>I usually do this activity on weekend mornings with two of my high school friends. We wake up early when the air is still fresh and cool, and we ride our bicycles for about one or two hours along the lake path.<br><br>I really enjoy this outdoor exercise because it combines physical training with relaxation. While **we are cycling**, we can enjoy the fresh air, watch the morning sunlight on the water, and have pleasant conversations. It feels much more refreshing than working out in a closed, noisy gym.<br><br>I believe this activity is wonderful for my health because it strengthens my legs and **improves my cardiovascular system**. Most importantly, spending time outdoors in nature helps me **reduce stress** after a long week of intense studying."`,
+            grammar: [
+                "<strong>Past Continuous setting (While we are cycling...):</strong> Frames background atmosphere vividly.",
+                "<strong>Comparative Structures (much more refreshing than...):</strong> Naturally adds descriptive depth.",
+                "<strong>Causal Connectors (because it combines... / Most importantly...):</strong> Connects reasons and personal feelings cleanly."
+            ],
+            adjectives: ["Fresh and cool air", "Pleasant conversations", "Physical training", "Cardiovascular system", "Reduce stress", "Intense studying"]
+        },
+        stressRelaxed: {
+            title: "Model Story: Relaxing After High School Exams",
+            topic: "Describe a time you felt very stressed and how you relaxed.",
+            story: `"I'm going to talk about a time when I felt under immense pressure, which was last year during my final high school examination period.<br><br>Before those exams, **I had been studying** for almost ten hours every day, so I felt extremely exhausted and anxious. Seeing how stressed I was, my mother advised me to take a break and go for a peaceful walk in a nearby botanical garden.<br><br>I decided to follow her advice. I turned off my mobile phone for the afternoon, put on comfortable shoes, and walked quietly under the tall trees. While **I was strolling through the garden**, I listened to soft acoustic music and just focused on breathing fresh air.<br><br>After two hours, I felt completely recharged and much calmer. This experience taught me that taking short, mindful breaks is essential for **maintaining mental health** whenever life becomes overwhelming."`,
+            grammar: [
+                "<strong>Past Perfect Continuous (I had been studying):</strong> Establishes background duration before the key relaxing event.",
+                "<strong>Time Connectors (Before those exams... / After two hours...):</strong> Creates logical sequential storytelling.",
+                "<strong>Adverbials of Consequence (so I felt extremely exhausted):</strong> Highlights cause-and-effect clearly."
+            ],
+            adjectives: ["Immense pressure", "Final exams", "Extremely exhausted", "Mindful breaks", "Mental health", "Overwhelming time"]
+        }
+    };
+
+    function openModal(type) {
+        const data = speakingDB[type];
+        if (!data) return;
+
+        const overlay = document.getElementById('modalOverlay');
+        const container = document.getElementById('modalContainer');
+        const body = document.getElementById('modalBody');
+
+        document.getElementById('modalTitle').innerText = data.title;
+
+        body.innerHTML = `
+            <div>
+                <span class="text-[10px] font-bold text-orange-600 bg-orange-50 border border-orange-100 px-2.5 py-1 rounded-md uppercase">Band 6.5 Structured Storyboard</span>
+                <div class="mt-3 text-xs leading-relaxed text-slate-700 bg-slate-50 border border-slate-100 p-5 rounded-2xl">
+                    <p class="mb-4 italic text-slate-800 border-l-2 border-orange-300 pl-3 bg-white/40 p-2 rounded">
+                        <strong>Topic:</strong> ${data.topic}
+                    </p>
+                    <p class="text-slate-600 leading-relaxed">${data.story}</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+                <div>
+                    <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-2.5">Key Grammatical Markers</span>
+                    <ul class="space-y-2">
+                        ${data.grammar.map(item => `
+                            <li class="flex items-start text-[11px] text-slate-600">
+                                <span class="text-orange-400 font-bold mr-2">•</span>
+                                <span>${item}</span>
+                            </li>
+                        `).join('')}
+                    </ul>
+                </div>
+                <div>
+                    <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-2.5">Band 6.5 Collocations & Lexis</span>
+                    <div class="flex flex-wrap gap-1.5">
+                        ${data.adjectives.map(word => `
+                            <span class="text-[11px] font-semibold text-slate-600 bg-slate-100 border border-slate-200/60 px-2.5 py-1 rounded-md">${word}</span>
+                        `).join('')}
+                    </div>
+                </div>
+            </div>
+        `;
+
+        overlay.classList.remove('pointer-events-none');
+        overlay.classList.add('opacity-100');
+        container.classList.remove('scale-95', 'opacity-0');
+        container.classList.add('scale-100', 'opacity-100');
+        
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+        const overlay = document.getElementById('modalOverlay');
+        const container = document.getElementById('modalContainer');
+
+        overlay.classList.remove('opacity-100');
+        overlay.classList.add('pointer-events-none');
+        container.classList.remove('scale-100', 'opacity-100');
+        container.classList.add('scale-95', 'opacity-0');
+        
+        document.body.style.overflow = '';
+    }
+
+    function toggleAccordion(id) {
+        const content = document.getElementById(`acc-${id}`);
+        const arrow = document.getElementById(`arrow-${id}`);
+        
+        if (content.classList.contains('open')) {
+            content.classList.remove('open');
+            arrow.classList.remove('rotated');
+        } else {
+            for (let i = 1; i <= 5; i++) {
+                const otherContent = document.getElementById(`acc-${i}`);
+                const otherArrow = document.getElementById(`arrow-${i}`);
+                if (otherContent) otherContent.classList.remove('open');
+                if (otherArrow) otherArrow.classList.remove('rotated');
+            }
+            
+            content.classList.add('open');
+            arrow.classList.add('rotated');
+        }
+    }
+</script>
+
+</body>
+</html>
