@@ -172,7 +172,7 @@
             
             ${item.type !== 'A' ? `
                 <div class="mt-auto pt-2 border-t border-black/10">
-                    <button onclick="toggleInlineAnswers('sq-${item.sq}-ans', 'btn-sq-${item.sq}')" id="btn-sq-${item.sq}" class="text-xs font-bold px-3 py-1.5 rounded bg-white hover:bg-opacity-80 transition-colors shadow-sm w-full border border-black/10 text-gray-700">Show Answer</button>
+                    <button onclick="toggleGameAnswer('sq-${item.sq}-ans', 'btn-sq-${item.sq}')" id="btn-sq-${item.sq}" class="text-xs font-bold px-3 py-1.5 rounded bg-white hover:bg-opacity-80 transition-colors shadow-sm w-full border border-black/10 text-gray-700">Show Answer</button>
                     <div id="sq-${item.sq}-ans" class="hidden mt-3 p-3 bg-white/90 rounded-lg text-sm italic font-medium shadow-inner border border-black/5 text-gray-800">
                         ${item.ans}
                     </div>
@@ -510,6 +510,30 @@
                 btn.classList.toggle('bg-emerald-100');
                 btn.classList.toggle('text-gray-700');
                 btn.classList.toggle('text-emerald-800');
+            }
+        }
+    }
+
+    window.toggleGameAnswer = function(containerId, btnId) {
+        const container = document.getElementById(containerId);
+        const btn = document.getElementById(btnId);
+        if(container) {
+            if(container.classList.contains('hidden')){
+                container.classList.remove('hidden');
+                container.classList.add('fade-in');
+                if(btn) {
+                    btn.textContent = 'Hide Answer';
+                    btn.classList.remove('bg-white', 'text-gray-700');
+                    btn.classList.add('bg-gray-800', 'text-white');
+                }
+            } else {
+                container.classList.add('hidden');
+                container.classList.remove('fade-in');
+                if(btn) {
+                    btn.textContent = 'Show Answer';
+                    btn.classList.add('bg-white', 'text-gray-700');
+                    btn.classList.remove('bg-gray-800', 'text-white');
+                }
             }
         }
     }
