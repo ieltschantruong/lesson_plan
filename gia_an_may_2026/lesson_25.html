@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Chan Truong | Lesson 25 Detailed Plan</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Inter"', 'sans-serif'],
+                    },
+                    colors: {
+                        pastel: {
+                            pink: '#ffe4e6',
+                            purple: '#f3e8ff',
+                            blue: '#e0e7ff',
+                            teal: '#ccfbf1',
+                            orange: '#ffedd5',
+                            indigo: '#e0e7ff',
+                            cyan: '#cffafe'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { 
+            background-color: #fdfbfb;
+            background-image: 
+                radial-gradient(at 80% 0%, hsla(250, 50%, 95%, 1) 0px, transparent 50%),
+                radial-gradient(at 10% 30%, hsla(280, 60%, 90%, 1) 0px, transparent 50%),
+                radial-gradient(at 90% 80%, hsla(200, 60%, 90%, 1) 0px, transparent 50%),
+                radial-gradient(at 20% 90%, hsla(220, 60%, 90%, 1) 0px, transparent 50%);
+            background-attachment: fixed;
+            color: #334155;
+        }
+        
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 10px 40px -10px rgba(0,0,0,0.05);
+        }
+
+        .skill-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.25rem 0.6rem;
+            border-radius: 8px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            backdrop-filter: blur(4px);
+        }
+
+        .badge-speaking { background-color: rgba(255, 237, 213, 0.7); color: #ea580c; border: 1px solid rgba(253, 216, 163, 0.5); }
+        .badge-vocab { background-color: rgba(204, 251, 241, 0.7); color: #0d9488; border: 1px solid rgba(153, 246, 228, 0.5); }
+        .badge-mock { background-color: rgba(243, 232, 255, 0.7); color: #9333ea; border: 1px solid rgba(233, 213, 255, 0.5); }
+
+        /* Accordion transition utility */
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s cubic-bezier(0, 1, 0, 1), padding 0.3s ease;
+        }
+        .accordion-content.open {
+            max-height: 1000px;
+            padding-top: 1rem;
+            transition: max-height 0.3s cubic-bezier(0.95, 0.05, 0.795, 0.035), padding 0.3s ease;
+        }
+        .arrow-rotate {
+            transition: transform 0.2s ease-in-out;
+        }
+        .arrow-rotate.rotated {
+            transform: rotate(180deg);
+        }
+
+        .guidance-box {
+            background: linear-gradient(to right, rgba(255,255,255,0.95), rgba(255,255,255,0.7));
+            border-left: 4px solid;
+            border-radius: 0.5rem;
+            padding: 1.25rem;
+            margin-bottom: 1.25rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
+
+        .topic-card {
+            background: linear-gradient(to bottom right, #ffffff, #fffbeb);
+            border: 1px solid rgba(253, 230, 138, 0.5);
+        }
+
+        /* Modal system transition controls */
+        .modal-overlay {
+            transition: opacity 0.25s ease-in-out;
+        }
+        .modal-container {
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease-in-out;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: rgba(203, 213, 225, 0.8); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(148, 163, 184, 0.8); }
+    </style>
+</head>
+<body class="antialiased min-h-screen pb-16">
+
+<div class="max-w-4xl mx-auto px-4 py-10 sm:px-6 lg:px-8">
+    
+    <header class="glass-panel rounded-[2rem] p-8 mb-8 relative overflow-hidden">
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-pastel-indigo rounded-full mix-blend-multiply filter blur-3xl opacity-50 z-0"></div>
+        <div class="absolute -bottom-24 -left-24 w-72 h-72 bg-pastel-purple rounded-full mix-blend-multiply filter blur-3xl opacity-50 z-0"></div>
+
+        <div class="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+            <div>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 border border-white text-[10px] font-bold text-slate-500 tracking-widest uppercase mb-3 shadow-sm">
+                    IELTS Chan Truong • Tutor 1
+                </div>
+                <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight text-slate-800 mb-2">Lesson 25: Art & History & Mock Test 06</h1>
+                <p class="text-slate-500 font-medium">90-Minute Advanced Speaking & Evaluation Integration</p>
+            </div>
+            
+            <div class="flex flex-col gap-2">
+                <span class="skill-badge badge-speaking shadow-sm justify-center">Speaking P2 & P3 (45 Min)</span>
+                <span class="skill-badge badge-mock shadow-sm justify-center">Mock Test 06 (45 Min)</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="space-y-8">
+        
+        <section class="glass-panel rounded-2xl p-6 md:p-8 relative overflow-hidden bg-gradient-to-br from-white/60 to-teal-50/40">
+            <div class="absolute top-0 left-0 w-2 h-full bg-teal-400"></div>
+            
+            <div class="flex items-center justify-between gap-4 mb-5">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-teal-100 flex items-center justify-center text-teal-600 shadow-sm border border-teal-200">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <div>
+                        <h2 class="text-xl font-bold text-slate-800">1. Vocab Review: Art & History</h2>
+                        <p class="text-sm text-slate-500">In-class vocabulary retention verification</p>
+                    </div>
+                </div>
+                <span class="skill-badge badge-vocab shadow-sm font-bold">Art & History Theme</span>
+            </div>
+            
+            <p class="text-sm text-slate-600 mb-4">Conduct a warm-up review of active topical lexis for historical events, artistic expressions, and cultural artifacts before starting the monologue drills:</p>
+
+            <a href="https://ieltschantruong.github.io/IELTS/learning_resources/speaking/part2_3/art_and_history.html" target="_blank" class="flex items-center justify-between p-4 bg-white/80 border border-teal-200 rounded-xl hover:shadow-md hover:border-teal-400 transition-all group">
+                <div class="flex items-center gap-4">
+                    <div class="bg-teal-50 p-2.5 rounded-lg text-teal-600 group-hover:bg-teal-100 transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                    </div>
+                    <div>
+                        <span class="block text-[15px] font-bold text-slate-800 group-hover:text-teal-700 transition-colors">Art & History Resource & Vocab Sheet</span>
+                        <span class="block text-xs text-slate-500 mt-0.5">Topical Collocations, Part 2 Storyboards & Part 3 Discussion Maps</span>
+                    </div>
+                </div>
+                <span class="text-xs text-teal-600 font-bold uppercase tracking-wider bg-teal-50 px-3 py-1.5 rounded border border-teal-100 group-hover:bg-teal-100 transition-colors">Open Resource &rarr;</span>
+            </a>
+        </section>
+
+        <section class="glass-panel rounded-2xl p-6 md:p-8 relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-2 h-full bg-orange-400"></div>
+            
+            <div class="flex items-center justify-between gap-4 mb-6">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-orange-50 flex items-center justify-center text-orange-500 border border-orange-100 shadow-sm">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+                    </div>
+                    <h2 class="text-2xl font-bold text-slate-800">2. Speaking Part 2 & 3 Practice</h2>
+                </div>
+
+                <a href="https://ieltschantruong.github.io/IELTS/learning_resources/speaking/part2_3/art_and_history.html" target="_blank" class="flex items-center gap-1.5 px-3 py-1.5 bg-orange-50 text-orange-700 text-xs font-bold rounded-lg border border-orange-100/60 hover:bg-orange-100 transition-colors whitespace-nowrap">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                    Topic Resource List
+                </a>
+            </div>
+
+            <!-- Strategic Guidance Box -->
+            <div class="guidance-box border-orange-400 text-sm text-slate-700 space-y-3 mb-6">
+                <h3 class="text-[13px] font-bold text-orange-800 uppercase tracking-wider flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    Strategic Guidance: Band 5.5 to 6.5 Upgrade in Art & History
+                </h3>
+                <p>When discussing abstract historical developments or artistic concepts, Band 5.5 students often pause due to a lack of specialized words. Guide the student to utilize clear, natural structures:</p>
+                <ul class="list-disc list-inside space-y-1 ml-1 text-xs text-slate-600">
+                    <li><strong>Part 2 Monologues:</strong> Use chronological past markers (*"In the 20th century...", "Before I studied this event...", "What impressed me most was..."*).</li>
+                    <li><strong>Part 3 A.R.E.A Framework:</strong> Direct Answer <strong>[A]</strong> &rarr; Reason <strong>[R]</strong> &rarr; Example <strong>[E]</strong> &rarr; Alternative/Conditional <strong>[A]</strong>.</li>
+                    <li><strong>Accessible Lexis:</strong> Focus on practical collocations (*"preserve heritage"*, *"cultural identity"*, *"historical significance"*, *"creative freedom"*, *"digital artwork"*).</li>
+                </ul>
+            </div>
+
+            <!-- Part 2 Cue Cards -->
+            <h3 class="text-sm font-bold text-slate-800 uppercase tracking-wider mb-4 flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-orange-500"></span>
+                Part 2 Cue Cards (Click to inspect Band 6.5 Model Stories)
+            </h3>
+
+            <div class="space-y-4 mb-8">
+                
+                <!-- Cue Card A -->
+                <div class="topic-card rounded-xl p-5 shadow-sm relative border border-orange-100">
+                    <div class="absolute top-0 right-0 bg-orange-100 text-orange-700 text-[10px] font-bold px-2.5 py-1 rounded-bl-lg rounded-tr-xl border-l border-b border-orange-200">CUE CARD A</div>
+                    <h4 class="font-bold text-slate-800 text-[15px] mb-2 w-11/12">Describe a historical event you find interesting.</h4>
+                    <div class="bg-white/80 rounded p-3 text-xs text-slate-600 border border-orange-100">
+                        <ul class="list-none space-y-1">
+                            <li>• <span class="font-medium">What the event was and when it happened?</span></li>
+                            <li>• <span class="font-medium">Where it took place?</span></li>
+                            <li>• <span class="font-medium">What happened during the event?</span></li>
+                            <li>• <span class="font-medium">And explain why you find this historical event interesting.</span></li>
+                        </ul>
+                    </div>
+                    <button onclick="openModal('historicalEvent')" class="mt-4 w-full py-2 bg-white text-orange-700 border border-orange-200 hover:bg-orange-50 rounded-lg text-xs font-bold transition-all flex justify-center items-center gap-2">
+                        <svg class="w-4 h-4 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+                        View Band 6.5 Model Story
+                    </button>
+                </div>
+
+                <!-- Cue Card B -->
+                <div class="topic-card rounded-xl p-5 shadow-sm relative border border-orange-100">
+                    <div class="absolute top-0 right-0 bg-orange-100 text-orange-700 text-[10px] font-bold px-2.5 py-1 rounded-bl-lg rounded-tr-xl border-l border-b border-orange-200">CUE CARD B</div>
+                    <h4 class="font-bold text-slate-800 text-[15px] mb-2 w-11/12">Describe a creative person whose work you admire.</h4>
+                    <div class="bg-white/80 rounded p-3 text-xs text-slate-600 border border-orange-100">
+                        <ul class="list-none space-y-1">
+                            <li>• <span class="font-medium">Who this person is?</span></li>
+                            <li>• <span class="font-medium">What kind of creative work they do?</span></li>
+                            <li>• <span class="font-medium">How you first learned about their work?</span></li>
+                            <li>• <span class="font-medium">And explain why you admire this person's creative work.</span></li>
+                        </ul>
+                    </div>
+                    <button onclick="openModal('creativePerson')" class="mt-4 w-full py-2 bg-white text-orange-700 border border-orange-200 hover:bg-orange-50 rounded-lg text-xs font-bold transition-all flex justify-center items-center gap-2">
+                        <svg class="w-4 h-4 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+                        View Band 6.5 Model Story
+                    </button>
+                </div>
+
+            </div>
+
+            <h3 class="text-sm font-bold text-slate-800 uppercase tracking-wider mb-4 flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-orange-500"></span>
+                Part 3 Discussion Questions (Click to expand A.R.E.A Model Answers)
+            </h3>
+
+            <div class="space-y-3">
+                
+                <!-- Q i -->
+                <div class="border border-slate-150 rounded-xl bg-white/80 overflow-hidden shadow-sm hover:border-orange-200 transition-colors">
+                    <button onclick="toggleAccordion(1)" class="w-full text-left px-5 py-4 flex justify-between items-center gap-3">
+                        <span class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                            <span class="text-orange-500 font-bold">Q i.</span> Do you think art should be a mandatory subject in schools?
+                        </span>
+                        <svg id="arrow-1" class="w-4 h-4 text-slate-400 arrow-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="acc-1" class="accordion-content px-5 pb-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="text-xs text-slate-600 space-y-2">
+                            <p><strong>[A - Answer]</strong> Yes, I strongly believe that basic art education should be compulsory for primary and secondary students.</p>
+                            <p><strong>[R - Reason]</strong> Art classes help children develop creative thinking skills and relieve academic stress from subjects like math or science.</p>
+                            <p><strong>[E - Example]</strong> For example, drawing or painting allows young students to express their emotions and improve their focus.</p>
+                            <p><strong>[A - Alternative]</strong> If schools focus purely on academic exams, students might become overly stressed and lack imagination.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q ii -->
+                <div class="border border-slate-150 rounded-xl bg-white/80 overflow-hidden shadow-sm hover:border-orange-200 transition-colors">
+                    <button onclick="toggleAccordion(2)" class="w-full text-left px-5 py-4 flex justify-between items-center gap-3">
+                        <span class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                            <span class="text-orange-500 font-bold">Q ii.</span> How has modern technology changed the way artists create their work?
+                        </span>
+                        <svg id="arrow-2" class="w-4 h-4 text-slate-400 arrow-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="acc-2" class="accordion-content px-5 pb-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="text-xs text-slate-600 space-y-2">
+                            <p><strong>[A - Answer]</strong> Technology has given creators digital tools that make designing much faster and more versatile.</p>
+                            <p><strong>[R - Reason]</strong> Instead of using traditional physical paints and canvases, many modern artists now work on graphic tablets or use software programs.</p>
+                            <p><strong>[E - Example]</strong> For instance, digital illustrators can undo mistakes easily and share their artwork instantly across global social media platforms.</p>
+                            <p><strong>[A - Alternative]</strong> However, traditional painting techniques remain deeply valued by art collectors who appreciate physical craftsmanship.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q iii -->
+                <div class="border border-slate-150 rounded-xl bg-white/80 overflow-hidden shadow-sm hover:border-orange-200 transition-colors">
+                    <button onclick="toggleAccordion(3)" class="w-full text-left px-5 py-4 flex justify-between items-center gap-3">
+                        <span class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                            <span class="text-orange-500 font-bold">Q iii.</span> Why do some people pay millions of dollars for a single painting?
+                        </span>
+                        <svg id="arrow-3" class="w-4 h-4 text-slate-400 arrow-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="acc-3" class="accordion-content px-5 pb-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="text-xs text-slate-600 space-y-2">
+                            <p><strong>[A - Answer]</strong> In my view, wealthy collectors spend huge sums mainly because of the artwork's rarity and investment potential.</p>
+                            <p><strong>[R - Reason]</strong> Original masterpieces by famous historical artists are extremely scarce, so owning them brings social prestige and financial value.</p>
+                            <p><strong>[E - Example]</strong> For instance, paintings by Van Gogh or Da Vinci increase in value over time, making them safe assets for rich investors.</p>
+                            <p><strong>[A - Alternative]</strong> On the other hand, average buyers simply purchase prints or local artwork for home decoration at modest prices.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q iv -->
+                <div class="border border-slate-150 rounded-xl bg-white/80 overflow-hidden shadow-sm hover:border-orange-200 transition-colors">
+                    <button onclick="toggleAccordion(4)" class="w-full text-left px-5 py-4 flex justify-between items-center gap-3">
+                        <span class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                            <span class="text-orange-500 font-bold">Q iv.</span> Should museums be free of charge for the public?
+                        </span>
+                        <svg id="arrow-4" class="w-4 h-4 text-slate-400 arrow-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="acc-4" class="accordion-content px-5 pb-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="text-xs text-slate-600 space-y-2">
+                            <p><strong>[A - Answer]</strong> I think entrance to public museums should ideally be free so everyone can access national culture.</p>
+                            <p><strong>[R - Reason]</strong> Free admission encourages students and lower-income families to learn about history and heritage without financial barriers.</p>
+                            <p><strong>[E - Example]</strong> For instance, major state museums in London offer free entry, attracting millions of local students every year.</p>
+                            <p><strong>[A - Alternative]</strong> However, if governments cannot fund them, charging a small, affordable ticket fee helps maintain the facilities.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q v -->
+                <div class="border border-slate-150 rounded-xl bg-white/80 overflow-hidden shadow-sm hover:border-orange-200 transition-colors">
+                    <button onclick="toggleAccordion(5)" class="w-full text-left px-5 py-4 flex justify-between items-center gap-3">
+                        <span class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                            <span class="text-orange-500 font-bold">Q v.</span> What can we learn from the mistakes made in the past?
+                        </span>
+                        <svg id="arrow-5" class="w-4 h-4 text-slate-400 arrow-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="acc-5" class="accordion-content px-5 pb-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="text-xs text-slate-600 space-y-2">
+                            <p><strong>[A - Answer]</strong> Studying historical errors teaches us how to prevent devastating wars and protect global peace.</p>
+                            <p><strong>[R - Reason]</strong> History shows the heavy human and economic costs of armed conflicts and social injustice.</p>
+                            <p><strong>[E - Example]</strong> For example, understanding the destruction caused by World War II led nations to establish international peace organizations.</p>
+                            <p><strong>[A - Alternative]</strong> If society ignores these historical lessons, we risk repeating similar political or environmental catastrophes.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q vi -->
+                <div class="border border-slate-150 rounded-xl bg-white/80 overflow-hidden shadow-sm hover:border-orange-200 transition-colors">
+                    <button onclick="toggleAccordion(6)" class="w-full text-left px-5 py-4 flex justify-between items-center gap-3">
+                        <span class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                            <span class="text-orange-500 font-bold">Q vi.</span> How has the way we teach history changed in recent years?
+                        </span>
+                        <svg id="arrow-6" class="w-4 h-4 text-slate-400 arrow-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="acc-6" class="accordion-content px-5 pb-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="text-xs text-slate-600 space-y-2">
+                            <p><strong>[A - Answer]</strong> Modern history education relies much more on interactive media rather than memorizing dry dates from textbooks.</p>
+                            <p><strong>[R - Reason]</strong> Teachers now use documentary films, virtual museum tours, and interactive games to make lessons engaging.</p>
+                            <p><strong>[E - Example]</strong> For instance, high school students today watch 3D historical reconstructions instead of just reading long chapters.</p>
+                            <p><strong>[A - Alternative]</strong> Without these engaging digital tools, teenagers often consider history to be a boring subject.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q vii -->
+                <div class="border border-slate-150 rounded-xl bg-white/80 overflow-hidden shadow-sm hover:border-orange-200 transition-colors">
+                    <button onclick="toggleAccordion(7)" class="w-full text-left px-5 py-4 flex justify-between items-center gap-3">
+                        <span class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                            <span class="text-orange-500 font-bold">Q vii.</span> Should artifacts taken from other countries in the past be returned?
+                        </span>
+                        <svg id="arrow-7" class="w-4 h-4 text-slate-400 arrow-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="acc-7" class="accordion-content px-5 pb-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="text-xs text-slate-600 space-y-2">
+                            <p><strong>[A - Answer]</strong> Yes, I believe historical relics should be returned to their countries of origin whenever possible.</p>
+                            <p><strong>[R - Reason]</strong> These artifacts represent national identity, and returning them shows moral respect for a nation's heritage.</p>
+                            <p><strong>[E - Example]</strong> For example, several Western museums are currently returning ancient statues back to Greece and African nations.</p>
+                            <p><strong>[A - Alternative]</strong> However, if the origin country lacks secure facilities, temporary loans with shared ownership might be a better compromise.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="glass-panel rounded-2xl p-6 md:p-8 relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-2 h-full bg-purple-400"></div>
+            
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 rounded-full bg-purple-50 flex items-center justify-center text-purple-600 border border-purple-100 shadow-sm">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </div>
+                <h2 class="text-2xl font-bold text-slate-800">3. Speaking Mock Test 06</h2>
+            </div>
+
+            <!-- Guidance Box -->
+            <div class="guidance-box border-purple-400 text-sm text-slate-700 space-y-2">
+                <h3 class="text-[13px] font-bold text-purple-800 uppercase tracking-wider mb-2 flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    Full Exam Simulation Protocols
+                </h3>
+                <p>Administer **Speaking Mock Test 06** under strict exam timing. Focus on evaluating response coherence, speech continuity without excessive pauses, and proper time management during Part 2.</p>
+            </div>
+
+            <a href="https://ieltschantruong.github.io/IELTS/learning_resources/speaking/mock_test/speaking_mock_06.html" target="_blank" class="p-4 rounded-xl border border-purple-200 bg-white flex flex-col sm:flex-row items-center justify-between gap-4 transition-all hover:border-purple-400 hover:shadow-md group">
+                <div class="flex items-center gap-4 w-full sm:w-auto">
+                    <div class="w-10 h-10 bg-purple-50 rounded-lg flex items-center justify-center text-purple-600 font-extrabold group-hover:bg-purple-100 transition-colors shrink-0">06</div>
+                    <div>
+                        <p class="font-bold text-slate-800 text-[15px] group-hover:text-purple-600 transition-colors">Speaking Mock Test 06</p>
+                        <p class="text-xs text-slate-500 mt-0.5">Full 3-Part Exam Simulation with live scoring diagnostic feedback</p>
+                    </div>
+                </div>
+                <span class="w-full sm:w-auto text-center sm:text-right text-[11px] font-bold text-purple-600 uppercase tracking-wider bg-purple-50 px-4 py-2.5 rounded-lg border border-purple-100 group-hover:bg-purple-100 transition-colors shrink-0">Open Mock Test</span>
+            </a>
+        </section>
+
+        <section class="glass-panel rounded-2xl p-6 md:p-8 relative overflow-hidden bg-gradient-to-br from-white/60 to-blue-50/40">
+            <div class="absolute top-0 left-0 w-2 h-full bg-blue-400"></div>
+            
+            <div class="flex items-center gap-3 mb-5">
+                <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 shadow-sm border border-blue-200">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                </div>
+                <h2 class="text-xl font-bold text-slate-800">4. Homework Assignments</h2>
+            </div>
+            
+            <p class="text-sm text-slate-600 mb-6 font-medium">Review diagnostic feedback from Mock Test 06 and record oral responses for the remaining Art & History topics:</p>
+
+            <div class="bg-white/80 rounded-xl p-5 border border-indigo-100 shadow-sm space-y-4">
+                <div class="flex items-start gap-4">
+                    <div class="p-2.5 bg-orange-50 text-orange-500 rounded-lg shadow-sm shrink-0">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+                    </div>
+                    <div>
+                        <p class="font-bold text-slate-800 text-base leading-snug">Art & History Audio Recording</p>
+                        <p class="text-xs text-slate-500 mt-1">Record and submit your oral responses for Part 2 Cue Cards and at least 4 Part 3 questions from today's list. Review weaknesses identified in Mock Test 06.</p>
+                    </div>
+                </div>
+
+                <div class="pt-2">
+                    <a href="https://ieltschantruong.github.io/IELTS/learning_resources/speaking/part2_3/art_and_history.html" target="_blank" class="w-full bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold py-3 px-4 rounded-xl shadow-md transition-all flex items-center justify-center gap-2">
+                        <span>Open Art & History Resource</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</div>
+
+<!-- Modal Component System (Overlay popup for Part 2 Model Answers) -->
+<div id="modalOverlay" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-50 flex items-center justify-center p-4 md:p-6 opacity-0 pointer-events-none modal-overlay">
+    <div id="modalContainer" class="bg-white rounded-3xl w-full max-w-2xl max-h-[85vh] overflow-y-auto shadow-2xl flex flex-col border border-slate-100 transform scale-95 opacity-0 modal-container">
+        
+        <!-- Modal Header -->
+        <div class="px-6 py-5 border-b border-slate-100 bg-slate-50 flex items-center justify-between sticky top-0 z-10 rounded-t-3xl">
+            <div class="flex items-center gap-3">
+                <div class="w-2.5 h-2.5 rounded-full bg-orange-500"></div>
+                <h3 id="modalTitle" class="text-sm font-bold text-slate-800 tracking-tight">Speaking Model Answer</h3>
+            </div>
+            <button onclick="closeModal()" class="p-1.5 rounded-lg bg-slate-200/60 hover:bg-slate-200 text-slate-500 hover:text-slate-700 transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+        </div>
+        
+        <!-- Modal Body Content -->
+        <div id="modalBody" class="p-6 md:p-8 space-y-6">
+            <!-- Dynamic Content Injected here -->
+        </div>
+        
+        <!-- Modal Footer -->
+        <div class="px-6 py-4 border-t border-slate-100 bg-slate-50 flex justify-end rounded-b-3xl">
+            <button onclick="closeModal()" class="bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold py-2.5 px-5 rounded-xl transition-all shadow-sm">
+                Return to Lesson Plan
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+    const speakingDB = {
+        historicalEvent: {
+            title: "Model Story: The Declaration of Independence (1945)",
+            topic: "Describe a historical event you find interesting.",
+            story: `"I would like to talk about a very important historical event in my country, which is the **Declaration of Independence of Vietnam** in September 1945.<br><br>Regarding where and when it took place, it happened at Ba Dinh Square in Hanoi on September 2nd, 1945. On that famous morning, thousands of people gathered in the central square, waiting eagerly to hear President Ho Chi Minh read the historical declaration.<br><br>During the event, President Ho Chi Minh announced to the entire world that Vietnam was finally a free and independent nation after decades of colonial rule. I learned that **the crowd was cheering enthusiastically** throughout his speech, and the atmosphere was full of national pride.<br><br>I find this event extremely interesting because it was a **pivotal milestone** in our history. It transformed our national identity and marked the beginning of a new era of freedom for our people. Whenever I visit Hanoi and walk across Ba Dinh Square, I still feel deeply inspired by this monumentous historical moment."`,
+            grammar: [
+                "<strong>Time Connectors & Past Markers (in September 1945 / On that famous morning):</strong> Establishes clear narrative timeline.",
+                "<strong>Past Continuous setting (The crowd was cheering):</strong> Sets background atmosphere vividly.",
+                "<strong>Relative Clauses (which is... / who gathered...):</strong> Connects ideas smoothly to raise Coherence scores."
+            ],
+            adjectives: ["Historical declaration", "Central square", "Cheering enthusiastically", "National pride", "Pivotal milestone", "National identity", "Deeply inspired"]
+        },
+        creativePerson: {
+            title: "Model Story: Vincent van Gogh (Impressionist Painter)",
+            topic: "Describe a creative person whose work you admire.",
+            story: `"A creative person whose work I really admire is **Vincent van Gogh**, the famous Dutch post-impressionist painter.<br><br>Regarding his creative work, he painted unique landscapes, portraits, and still-life paintings using bold colors and dramatic brushstrokes. His most famous artwork is **'The Starry Night'**, which features vibrant swirling night skies.<br><br>I first learned about his art when **I was studying** art history in high school. Our teacher showed us digital images of his paintings, and I was instantly amazed by the vivid colors and strong emotions in his work.<br><br>I admire him deeply because he showed incredible passion and dedication despite facing immense hardship and mental health struggles during his lifetime. Even though he wasn't appreciated while he was alive, his creative legacy now inspires millions of people around the world."`,
+            grammar: [
+                "<strong>Past Continuous setting (when I was studying):</strong> Sets context cleanly before key event.",
+                "<strong>Passive Voice (wasn't appreciated / was amazed):</strong> Accurate usage for artistic recognition context.",
+                "<strong>Concessive Clauses (despite facing immense hardship / Even though he wasn't...):</strong> Demonstrates complex sentence structures."
+            ],
+            adjectives: ["Unique landscapes", "Vibrant swirling skies", "Vivid colors", "Strong emotions", "Incredible passion", "Immense hardship", "Creative legacy"]
+        }
+    };
+
+    function openModal(type) {
+        const data = speakingDB[type];
+        if (!data) return;
+
+        const overlay = document.getElementById('modalOverlay');
+        const container = document.getElementById('modalContainer');
+        const body = document.getElementById('modalBody');
+
+        document.getElementById('modalTitle').innerText = data.title;
+
+        body.innerHTML = `
+            <div>
+                <span class="text-[10px] font-bold text-orange-600 bg-orange-50 border border-orange-100 px-2.5 py-1 rounded-md uppercase">Band 6.5 Structured Storyboard</span>
+                <div class="mt-3 text-xs leading-relaxed text-slate-700 bg-slate-50 border border-slate-100 p-5 rounded-2xl">
+                    <p class="mb-4 italic text-slate-800 border-l-2 border-orange-300 pl-3 bg-white/40 p-2 rounded">
+                        <strong>Topic:</strong> ${data.topic}
+                    </p>
+                    <p class="text-slate-600 leading-relaxed">${data.story}</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+                <div>
+                    <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-2.5">Key Grammatical Markers</span>
+                    <ul class="space-y-2">
+                        ${data.grammar.map(item => `
+                            <li class="flex items-start text-[11px] text-slate-600">
+                                <span class="text-orange-400 font-bold mr-2">•</span>
+                                <span>${item}</span>
+                            </li>
+                        `).join('')}
+                    </ul>
+                </div>
+                <div>
+                    <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-2.5">Band 6.5 Collocations & Lexis</span>
+                    <div class="flex flex-wrap gap-1.5">
+                        ${data.adjectives.map(word => `
+                            <span class="text-[11px] font-semibold text-slate-600 bg-slate-100 border border-slate-200/60 px-2.5 py-1 rounded-md">${word}</span>
+                        `).join('')}
+                    </div>
+                </div>
+            </div>
+        `;
+
+        overlay.classList.remove('pointer-events-none');
+        overlay.classList.add('opacity-100');
+        container.classList.remove('scale-95', 'opacity-0');
+        container.classList.add('scale-100', 'opacity-100');
+        
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+        const overlay = document.getElementById('modalOverlay');
+        const container = document.getElementById('modalContainer');
+
+        overlay.classList.remove('opacity-100');
+        overlay.classList.add('pointer-events-none');
+        container.classList.remove('scale-100', 'opacity-100');
+        container.classList.add('scale-95', 'opacity-0');
+        
+        document.body.style.overflow = '';
+    }
+
+    function toggleAccordion(id) {
+        const content = document.getElementById(`acc-${id}`);
+        const arrow = document.getElementById(`arrow-${id}`);
+        
+        if (content.classList.contains('open')) {
+            content.classList.remove('open');
+            arrow.classList.remove('rotated');
+        } else {
+            for (let i = 1; i <= 7; i++) {
+                const otherContent = document.getElementById(`acc-${i}`);
+                const otherArrow = document.getElementById(`arrow-${i}`);
+                if (otherContent) otherContent.classList.remove('open');
+                if (otherArrow) otherArrow.classList.remove('rotated');
+            }
+            
+            content.classList.add('open');
+            arrow.classList.add('rotated');
+        }
+    }
+</script>
+
+</body>
+</html>
