@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Chan Truong | Lesson 16</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            background-color: #f0fdfa; /* soft teal-50 */
+        }
+        .fade-in { animation: fadeIn 0.4s ease-out forwards; }
+        @keyframes fadeIn { 
+            from { opacity: 0; transform: translateY(10px); } 
+            to { opacity: 1; transform: translateY(0); } 
+        }
+        .timer-text { font-variant-numeric: tabular-nums; }
+        
+        /* Elegant Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #ccfbf1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb { background: #14b8a6; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #0f766e; }
+
+        /* Glassmorphism utilities */
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        /* Inline Answer Toggle Utilities */
+        .blank-ans { display: none; }
+        .show-answers .blank-dots { display: none; }
+        .show-answers .blank-ans { display: inline-block; animation: fadeIn 0.3s forwards; }
+    </style>
+</head>
+<body class="h-screen flex flex-col overflow-hidden text-gray-800">
+
+    <!-- Elegant Header -->
+    <header id="app-header" class="text-white p-4 shadow-lg transition-colors duration-700 z-20 relative bg-gradient-to-r from-teal-500 via-emerald-500 to-cyan-500">
+        <div class="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9IiNmZmYiLz48L3N2Zz4=')]"></div>
+        
+        <div class="max-w-7xl mx-auto flex justify-between items-center relative z-10">
+            <div>
+                <div class="flex items-center gap-2 mb-1">
+                    <span class="bg-white/20 text-white text-xs font-bold px-2 py-0.5 rounded uppercase tracking-wider backdrop-blur-sm">Band 6.5 - 7.5</span>
+                    <span class="bg-white/20 text-white text-xs font-bold px-2 py-0.5 rounded uppercase tracking-wider backdrop-blur-sm">Lesson 16</span>
+                </div>
+                <h1 class="text-2xl font-bold tracking-tight drop-shadow-sm flex items-center gap-2">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                    IELTS Chan Truong
+                </h1>
+                <h2 id="slide-title" class="text-sm font-medium mt-1 text-teal-50">Loading session...</h2>
+            </div>
+            
+            <div class="flex items-center space-x-2 sm:space-x-3">
+                <a href="https://online.flipbuilder.com/xtrvf/rzwv/" target="_blank" class="flex items-center space-x-2 text-sm font-semibold bg-white/20 hover:bg-white/30 transition-all px-3 sm:px-4 py-2 rounded-full focus:outline-none backdrop-blur-md shadow-sm border border-white/20 text-white" title="Complete IELTS 6.5-7.5 Ebook">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                    <span class="hidden sm:inline">Ebook</span>
+                </a>
+
+                <div class="relative">
+                    <button id="nav-toggle-btn" class="flex items-center space-x-2 text-sm font-semibold bg-white/20 hover:bg-white/30 transition-all px-3 sm:px-5 py-2 rounded-full focus:outline-none backdrop-blur-md shadow-sm border border-white/20">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                        <span class="hidden sm:inline">Sections</span>
+                    </button>
+                    
+                    <div id="nav-dropdown" class="hidden absolute right-0 mt-3 w-80 bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-teal-100 overflow-hidden z-50 origin-top-right transition-all fade-in">
+                        <div class="p-3 bg-teal-50 border-b border-teal-100">
+                            <p class="text-xs font-bold text-teal-800 uppercase tracking-wider text-center">Lesson Agenda</p>
+                        </div>
+                        <div class="max-h-[60vh] overflow-y-auto p-2" id="nav-menu-list"></div>
+                    </div>
+                </div>
+
+                <div class="hidden sm:flex items-center space-x-2 text-sm font-bold text-teal-900 bg-white px-4 py-2 rounded-full shadow-sm">
+                    <svg class="w-4 h-4 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <span>90 Mins</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto mt-5 bg-black/10 rounded-full h-1.5 overflow-hidden relative z-10">
+            <div id="progress-bar" class="bg-white h-full transition-all duration-700 ease-out shadow-[0_0_10px_rgba(255,255,255,0.8)]" style="width: 0%"></div>
+        </div>
+    </header>
+
+    <main class="flex-grow overflow-y-auto relative p-4 md:p-8">
+        <div id="content-container" class="max-w-6xl mx-auto"></div>
+    </main>
+
+    <footer class="bg-white/80 backdrop-blur-md border-t border-teal-100 p-4 md:px-10 z-10 shadow-[0_-10px_15px_-3px_rgba(0,0,0,0.02)]">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <button id="btn-prev" class="px-6 py-2.5 rounded-xl border border-teal-200 text-teal-600 font-semibold hover:bg-teal-50 hover:border-teal-300 transition-all disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-2">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                Previous
+            </button>
+            
+            <div class="flex items-center gap-2">
+                <div class="w-2 h-2 rounded-full bg-teal-400 animate-pulse"></div>
+                <div id="step-indicator" class="text-sm font-semibold text-teal-800 uppercase tracking-wide">
+                    Section 1 of X
+                </div>
+                <div class="w-2 h-2 rounded-full bg-teal-400 animate-pulse delay-75"></div>
+            </div>
+
+            <button id="btn-next" class="px-6 py-2.5 rounded-xl bg-gradient-to-r from-teal-500 to-emerald-500 text-white font-semibold hover:from-teal-600 hover:to-emerald-600 shadow-md hover:shadow-lg transition-all flex items-center gap-2 transform hover:-translate-y-0.5">
+                Next
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </button>
+        </div>
+    </footer>
+
+<script>
+    // --- TIMER LOGIC ---
+    let timers = {
+        prep1: { interval: null, remaining: 60, isRunning: false },
+        speak1: { interval: null, remaining: 120, isRunning: false },
+        prep2: { interval: null, remaining: 60, isRunning: false },
+        speak2: { interval: null, remaining: 120, isRunning: false }
+    };
+
+    function formatTime(seconds) {
+        const m = Math.floor(seconds / 60).toString().padStart(2, '0');
+        const s = (seconds % 60).toString().padStart(2, '0');
+        return `${m}:${s}`;
+    }
+
+    function updateTimerUI(id, seconds) {
+        const displayEl = document.getElementById(`${id}-timer`);
+        if (displayEl) displayEl.textContent = formatTime(seconds);
+    }
+
+    window.toggleTimer = function(id, defaultTime) {
+        const timer = timers[id];
+        const btn = document.getElementById(`btn-${id}-timer`);
+        
+        if (timer.isRunning) {
+            clearInterval(timer.interval);
+            timer.isRunning = false;
+            if(btn) btn.textContent = 'Resume';
+        } else {
+            if (timer.remaining <= 0) timer.remaining = defaultTime;
+            
+            timer.isRunning = true;
+            if(btn) btn.textContent = 'Pause';
+            
+            timer.interval = setInterval(() => {
+                timer.remaining--;
+                updateTimerUI(id, timer.remaining);
+                
+                if (timer.remaining <= 0) {
+                    clearInterval(timer.interval);
+                    timer.isRunning = false;
+                    if(btn) btn.textContent = 'Time Up!';
+                    try {
+                        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+                        const playBeep = (st) => {
+                            const osc = ctx.createOscillator();
+                            const gain = ctx.createGain();
+                            osc.connect(gain);
+                            gain.connect(ctx.destination);
+                            osc.frequency.setValueAtTime(800, st);
+                            gain.gain.setValueAtTime(0.1, st);
+                            osc.start(st);
+                            gain.gain.exponentialRampToValueAtTime(0.00001, st + 0.3);
+                            osc.stop(st + 0.3);
+                        };
+                        playBeep(ctx.currentTime);
+                        playBeep(ctx.currentTime + 0.4);
+                    } catch(e) {}
+                }
+            }, 1000);
+        }
+    };
+
+    window.resetTimer = function(id, defaultTime) {
+        const timer = timers[id];
+        clearInterval(timer.interval);
+        timer.isRunning = false;
+        timer.remaining = defaultTime;
+        updateTimerUI(id, defaultTime);
+        const btn = document.getElementById(`btn-${id}-timer`);
+        if(btn) btn.textContent = 'Start';
+    };
+
+    function pauseAllTimers() {
+        Object.keys(timers).forEach(key => {
+            if (timers[key].isRunning) {
+                clearInterval(timers[key].interval);
+                timers[key].isRunning = false;
+            }
+        });
+    }
+
+    // --- DATA STRUCTURE ---
+    const sessionData = [
+        {
+            id: 'listening_sb_u5',
+            type: 'Listening',
+            themeClass: 'bg-gradient-to-r from-teal-500 to-emerald-500',
+            iconColor: 'text-teal-500',
+            title: '1. Listening Unit 5 SB',
+            content: `
+                <div class="fade-in bg-white rounded-3xl shadow-xl border border-teal-50 p-5 md:p-6 flex flex-col" style="height: calc(100vh - 11rem); min-height: 650px;">
+                    <div class="flex items-center gap-4 mb-4 border-b border-gray-100 pb-4 shrink-0">
+                        <div class="w-12 h-12 rounded-2xl bg-teal-100 flex items-center justify-center text-teal-600 flex-shrink-0">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+                        </div>
+                        <div class="flex-grow flex flex-col md:flex-row justify-between md:items-center gap-4">
+                            <div>
+                                <div class="flex items-center gap-3 mb-1 flex-wrap">
+                                    <h3 class="text-xl font-bold text-gray-800">Listening Practice</h3>
+                                    <a href="https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/section3_complete_ielts_6.5_7.5_sb_unit5.html" target="_blank" class="inline-flex items-center gap-1.5 text-teal-600 hover:text-white hover:bg-teal-600 transition-colors px-3 py-1.5 bg-teal-50 rounded-lg shadow-sm border border-teal-200 text-sm font-bold" title="Open in new tab">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                                        Open in New Tab
+                                    </a>
+                                </div>
+                                <p class="text-teal-600 font-medium text-sm">Unit 5 SB | Complete IELTS</p>
+                            </div>
+                            <button onclick="toggleVisibility('ans-sb-u5')" class="bg-teal-50 text-teal-700 px-4 py-2 rounded-xl font-bold hover:bg-teal-100 transition-colors text-sm border border-teal-200 flex items-center gap-2 shrink-0 shadow-sm">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                Show Answers
+                            </button>
+                        </div>
+                    </div>
+
+                    <div id="ans-sb-u5" class="hidden mb-4 bg-gray-50 border border-teal-100 rounded-xl p-5 shrink-0 shadow-inner transition-all fade-in">
+                        <h4 class="font-bold text-teal-800 mb-3 border-b border-teal-100 pb-2 uppercase tracking-wide text-xs">Answer Key</h4>
+                        <div class="grid grid-cols-2 sm:grid-cols-5 gap-3 text-sm text-gray-700 font-medium">
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-teal-500 font-bold mr-2">1</span> B</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-teal-500 font-bold mr-2">2</span> B</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-teal-500 font-bold mr-2">3</span> A</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-teal-500 font-bold mr-2">4</span> C</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-teal-500 font-bold mr-2">5</span> A</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-teal-500 font-bold mr-2">6</span> muddy</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-teal-500 font-bold mr-2">7</span> oxygen</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-teal-500 font-bold mr-2">8</span> rock</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-teal-500 font-bold mr-2">9</span> minerals</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-teal-500 font-bold mr-2">10</span> erosion</div>
+                        </div>
+                    </div>
+
+                    <div class="w-full flex-grow rounded-2xl overflow-hidden border border-gray-200 shadow-inner bg-gray-50 relative">
+                        <iframe src="https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/section3_complete_ielts_6.5_7.5_sb_unit5.html" class="absolute inset-0 w-full h-full border-0" title="Listening Practice"></iframe>
+                    </div>
+                </div>
+            `
+        },
+        {
+            id: 'speaking_u5_vocab_p1',
+            type: 'Speaking',
+            themeClass: 'bg-gradient-to-r from-emerald-400 to-cyan-500',
+            iconColor: 'text-emerald-500',
+            title: '2. Speaking Unit 5 | Vocab & Part 1',
+            content: `
+                <div class="fade-in space-y-8">
+                    <!-- Vocab Placeholder -->
+                    <div class="bg-emerald-50 border-l-4 border-emerald-500 p-6 rounded-r-xl shadow-sm">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="inline-block py-1 px-3 rounded-full bg-emerald-100 text-emerald-700 font-bold text-xs uppercase tracking-widest">Pink Book</span>
+                            <h3 class="text-xl font-bold text-emerald-900">Vocab Exercises</h3>
+                        </div>
+                        
+                        <div class="mt-4 space-y-6">
+                            <!-- Exercise 1 -->
+                            <div id="spk-ex1-container" class="bg-white border border-emerald-100 rounded-xl p-5 shadow-sm transition-all duration-300">
+                                <div class="flex justify-between items-center mb-4">
+                                    <h5 class="font-bold text-emerald-700 text-md">Exercise 1</h5>
+                                    <button id="btn-spk-ex1" onclick="toggleInlineAnswers('spk-ex1-container', 'btn-spk-ex1')" class="text-xs bg-emerald-50 text-emerald-700 px-3 py-1.5 rounded-lg font-bold hover:bg-emerald-100 transition-colors border border-emerald-200">Show Answers</button>
+                                </div>
+                                <p class="text-gray-600 text-sm mb-4 font-medium">Arrange the following features into the suitable column.</p>
+                                
+                                <div class="grid grid-cols-2 md:grid-cols-3 gap-3 text-xs text-gray-700 font-medium bg-emerald-50/50 p-4 rounded-lg border border-emerald-100 mb-6">
+                                    <p>a. Rich in national and traditional legacies</p>
+                                    <p>b. Portable design</p>
+                                    <p>c. Historical orientation</p>
+                                    <p>d. Versatile</p>
+                                    <p>e. Distant accessibility</p>
+                                    <p>f. Automatic processed</p>
+                                    <p>g. Bulky /'bʌlki/ (cumbersome)</p>
+                                    <p>h. Obsolete /ˌɑːbsəˈliːt/ (old-fashioned/ outdated/ antiquated)</p>
+                                    <p>i. Durable</p>
+                                    <p>j. Technological orientation</p>
+                                    <p>k. Manually processed</p>
+                                </div>
+
+                                <div class="grid md:grid-cols-2 gap-6 text-sm">
+                                    <div class="bg-gray-50 border border-gray-200 rounded-lg p-4">
+                                        <h6 class="font-bold text-gray-800 text-center mb-3 uppercase tracking-wider">Ancient Objects</h6>
+                                        <div class="space-y-2 text-center relative min-h-[60px]">
+                                            <div class="blank-dots text-gray-400 absolute inset-0 flex items-center justify-center">......................................................</div>
+                                            <div class="blank-ans text-emerald-700 font-bold bg-emerald-50 px-3 py-2 rounded-lg border border-emerald-200 w-full shadow-sm flex flex-col gap-1">
+                                                <span>a. Rich in national and traditional legacies</span>
+                                                <span>c. Historical orientation</span>
+                                                <span>g. Bulky (cumbersome)</span>
+                                                <span>h. Obsolete (old-fashioned)</span>
+                                                <span>i. Durable</span>
+                                                <span>k. Manually processed</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="bg-gray-50 border border-gray-200 rounded-lg p-4">
+                                        <h6 class="font-bold text-gray-800 text-center mb-3 uppercase tracking-wider">Modern-Day Objects</h6>
+                                        <div class="space-y-2 text-center relative min-h-[60px]">
+                                            <div class="blank-dots text-gray-400 absolute inset-0 flex items-center justify-center">......................................................</div>
+                                            <div class="blank-ans text-emerald-700 font-bold bg-emerald-50 px-3 py-2 rounded-lg border border-emerald-200 w-full shadow-sm flex flex-col gap-1">
+                                                <span>b. Portable design</span>
+                                                <span>d. Versatile</span>
+                                                <span>e. Distant accessibility</span>
+                                                <span>f. Automatic processed</span>
+                                                <span>j. Technological orientation</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Exercise 2 -->
+                            <div id="spk-ex2-container" class="bg-white border border-emerald-100 rounded-xl p-5 shadow-sm transition-all duration-300">
+                                <div class="flex justify-between items-center mb-4">
+                                    <h5 class="font-bold text-emerald-700 text-md">Exercise 2</h5>
+                                    <button id="btn-spk-ex2" onclick="toggleInlineAnswers('spk-ex2-container', 'btn-spk-ex2')" class="text-xs bg-emerald-50 text-emerald-700 px-3 py-1.5 rounded-lg font-bold hover:bg-emerald-100 transition-colors border border-emerald-200">Show Answers</button>
+                                </div>
+                                <p class="text-gray-600 text-sm mb-4 font-medium">Fill in each blank with one suitable word from the list below.</p>
+                                
+                                <div class="flex justify-center mb-6">
+                                    <div class="flex gap-6 text-emerald-600 font-bold border border-emerald-200 rounded-lg p-3 bg-emerald-50">
+                                        <span>adversity</span>
+                                        <span>lessons</span>
+                                        <span>sacrifices</span>
+                                        <span>endure</span>
+                                    </div>
+                                </div>
+
+                                <p class="text-sm text-gray-700 leading-relaxed font-medium">
+                                    The past allows the people of the present and the future to learn without having to (1) <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 mx-1">endure</span> . From knowing how people coped with and survived (2) <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 mx-1">adversity</span> , we can draw valuable (3) <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 mx-1">lessons</span> for ourselves. Seeing the (4) <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 mx-1">sacrifices</span> that have been made by those in the past, we will value the present and get more motivated in life.
+                                </p>
+                            </div>
+
+                            <!-- Exercise 3 -->
+                            <div id="spk-ex3-container" class="bg-white border border-emerald-100 rounded-xl p-5 shadow-sm transition-all duration-300">
+                                <div class="flex justify-between items-center mb-4">
+                                    <h5 class="font-bold text-emerald-700 text-md">Exercise 3</h5>
+                                    <button id="btn-spk-ex3" onclick="toggleInlineAnswers('spk-ex3-container', 'btn-spk-ex3')" class="text-xs bg-emerald-50 text-emerald-700 px-3 py-1.5 rounded-lg font-bold hover:bg-emerald-100 transition-colors border border-emerald-200">Show Answers</button>
+                                </div>
+                                <p class="text-gray-600 text-sm mb-4 font-medium">Fill in each blank with one suitable word from the list below.</p>
+                                
+                                <div class="flex flex-wrap justify-center gap-4 text-emerald-600 font-bold border border-emerald-200 rounded-lg p-3 bg-emerald-50 mb-6 text-sm">
+                                    <span>turmoil</span>
+                                    <span>unrest</span>
+                                    <span>reflect</span>
+                                    <span>retrospective</span>
+                                    <span>nostalgic</span>
+                                    <span>artifact(s)</span>
+                                </div>
+
+                                <div class="space-y-3 text-sm text-gray-700 leading-relaxed font-medium">
+                                    <p>1 Museums launch a $19.2 million bid to acquire <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 mx-1">artifact(s)</span> salvaged from the wreck site.</p>
+                                    <p>2 The rural areas provide a/an <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 mx-1">nostalgic</span> return to the past and a respite from the pressures of the competitive urban environment.</p>
+                                    <p>3 He was the subject of a/an <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 mx-1">retrospective</span> exhibit.</p>
+                                    <p>4 Celebrated each year on the first Monday in September, this holiday was born amid violence and <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 mx-1">unrest</span> over oppressive working conditions.</p>
+                                    <p>5 The 'special status' of this powerful global city is the result of two centuries of growth, <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 mx-1">turmoil</span> , and change.</p>
+                                    <p>6 We should now seriously <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 mx-1">reflect</span> on what we've failed to learn from past pandemics.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Speaking Practice Part 1 -->
+                    <div class="bg-white rounded-3xl shadow-xl border border-teal-50 p-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6 border-b border-gray-100 pb-4">Part 1: History</h3>
+                        <div class="grid md:grid-cols-2 gap-4 mb-8">
+                            <div class="bg-gray-50 rounded-xl p-5 border border-gray-200 shadow-sm">
+                                <div class="flex justify-between items-start gap-2 mb-3">
+                                    <p class="font-bold text-gray-800 text-[15px]"><span class="text-teal-600 mr-2">1.</span> Have you ever been to historical museums?</p>
+                                </div>
+                                <button onclick="toggleVisibility('p1-q1')" class="text-[10px] font-bold text-teal-600 bg-teal-100 hover:bg-teal-200 px-3 py-1.5 rounded transition-colors mb-2">Show Sample</button>
+                                <div id="p1-q1" class="hidden mt-2 pt-2 border-t border-gray-200">
+                                    <p class="text-sm text-gray-600 italic leading-relaxed">"Yes, several times. Just last year, I visited the National History Museum in my capital. It was fascinating to see actual <span class="font-semibold text-teal-600">artifacts</span> rather than just reading about them in textbooks."</p>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gray-50 rounded-xl p-5 border border-gray-200 shadow-sm">
+                                <div class="flex justify-between items-start gap-2 mb-3">
+                                    <p class="font-bold text-gray-800 text-[15px]"><span class="text-teal-600 mr-2">2.</span> Do you like history?</p>
+                                </div>
+                                <button onclick="toggleVisibility('p1-q2')" class="text-[10px] font-bold text-teal-600 bg-teal-100 hover:bg-teal-200 px-3 py-1.5 rounded transition-colors mb-2">Show Sample</button>
+                                <div id="p1-q2" class="hidden mt-2 pt-2 border-t border-gray-200">
+                                    <p class="text-sm text-gray-600 italic leading-relaxed">"Absolutely. I find it incredibly engaging. Knowing how our ancestors coped with <span class="font-semibold text-teal-600">adversity</span> and <span class="font-semibold text-teal-600">turmoil</span> provides valuable <span class="font-semibold text-teal-600">lessons</span> for navigating the challenges we face today."</p>
+                                </div>
+                            </div>
+
+                            <div class="bg-gray-50 rounded-xl p-5 border border-gray-200 shadow-sm">
+                                <div class="flex justify-between items-start gap-2 mb-3">
+                                    <p class="font-bold text-gray-800 text-[15px]"><span class="text-teal-600 mr-2">3.</span> When was the last time you read about history?</p>
+                                </div>
+                                <button onclick="toggleVisibility('p1-q3')" class="text-[10px] font-bold text-teal-600 bg-teal-100 hover:bg-teal-200 px-3 py-1.5 rounded transition-colors mb-2">Show Sample</button>
+                                <div id="p1-q3" class="hidden mt-2 pt-2 border-t border-gray-200">
+                                    <p class="text-sm text-gray-600 italic leading-relaxed">"Just a few weeks ago, actually. I was reading an article about the industrial revolution. It was quite a <span class="font-semibold text-teal-600">retrospective</span> look at how technological <span class="font-semibold text-teal-600">advances</span> changed society forever."</p>
+                                </div>
+                            </div>
+
+                            <div class="bg-gray-50 rounded-xl p-5 border border-gray-200 shadow-sm">
+                                <div class="flex justify-between items-start gap-2 mb-3">
+                                    <p class="font-bold text-gray-800 text-[15px]"><span class="text-teal-600 mr-2">4.</span> Did you like history when you were young?</p>
+                                </div>
+                                <button onclick="toggleVisibility('p1-q4')" class="text-[10px] font-bold text-teal-600 bg-teal-100 hover:bg-teal-200 px-3 py-1.5 rounded transition-colors mb-2">Show Sample</button>
+                                <div id="p1-q4" class="hidden mt-2 pt-2 border-t border-gray-200">
+                                    <p class="text-sm text-gray-600 italic leading-relaxed">"Not at all. In school, it was mostly <span class="font-semibold text-teal-600">rote learning</span> of dates and battles, which I found incredibly tedious. I only developed an appreciation for it when I started reading historical fiction in my late teens."</p>
+                                </div>
+                            </div>
+
+                            <div class="bg-gray-50 rounded-xl p-5 border border-gray-200 shadow-sm">
+                                <div class="flex justify-between items-start gap-2 mb-3">
+                                    <p class="font-bold text-gray-800 text-[15px]"><span class="text-teal-600 mr-2">5.</span> What features distinguish modern-day objects from ancient ones?</p>
+                                </div>
+                                <button onclick="toggleVisibility('p1-q5')" class="text-[10px] font-bold text-teal-600 bg-teal-100 hover:bg-teal-200 px-3 py-1.5 rounded transition-colors mb-2">Show Sample</button>
+                                <div id="p1-q5" class="hidden mt-2 pt-2 border-t border-gray-200">
+                                    <p class="text-sm text-gray-600 italic leading-relaxed">"Well, modern objects tend to have a highly <span class="font-semibold text-teal-600">technological orientation</span> and are often <span class="font-semibold text-teal-600">automatically processed</span>. Conversely, ancient items are usually <span class="font-semibold text-teal-600">manually processed</span> and, while sometimes <span class="font-semibold text-teal-600">bulky</span>, they are deeply <span class="font-semibold text-teal-600">rich in national legacies</span>."</p>
+                                </div>
+                            </div>
+
+                            <div class="bg-gray-50 rounded-xl p-5 border border-gray-200 shadow-sm">
+                                <div class="flex justify-between items-start gap-2 mb-3">
+                                    <p class="font-bold text-gray-800 text-[15px]"><span class="text-teal-600 mr-2">6.</span> How important is it for human beings to maintain their links with the past?</p>
+                                </div>
+                                <button onclick="toggleVisibility('p1-q6')" class="text-[10px] font-bold text-teal-600 bg-teal-100 hover:bg-teal-200 px-3 py-1.5 rounded transition-colors mb-2">Show Sample</button>
+                                <div id="p1-q6" class="hidden mt-2 pt-2 border-t border-gray-200">
+                                    <p class="text-sm text-gray-600 italic leading-relaxed">"It's vital. Maintaining these links allows us to <span class="font-semibold text-teal-600">reflect</span> on the <span class="font-semibold text-teal-600">sacrifices</span> made by our ancestors. It gives us a <span class="font-semibold text-teal-600">nostalgic</span> yet grounded understanding of our identity and prevents us from repeating historical mistakes."</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `
+        },
+        {
+            id: 'speaking_u5_p2_apology',
+            type: 'Speaking',
+            themeClass: 'bg-gradient-to-r from-cyan-500 to-blue-500',
+            iconColor: 'text-cyan-500',
+            title: '3. Speaking Part 2 | Apology',
+            content: `
+                <div class="fade-in space-y-8">
+                    
+                    <div class="bg-white rounded-3xl shadow-xl border border-cyan-50 p-8">
+                        <div class="flex flex-col md:flex-row justify-between items-center gap-6 mb-8 border-b border-gray-100 pb-6">
+                            <div>
+                                <h3 class="text-2xl font-bold text-gray-800">Part 2: Long Turn (Apology)</h3>
+                                <p class="text-gray-500 mt-1 font-medium">Manage the candidate's preparation and speaking time.</p>
+                            </div>
+                            
+                            <div class="flex gap-4 w-full md:w-auto">
+                                <div class="bg-cyan-50 rounded-2xl p-4 border border-cyan-100 text-center flex-1 md:w-36 shadow-sm">
+                                    <h4 class="text-cyan-600 font-bold uppercase text-[10px] tracking-wider mb-2">Prep Time (1 Min)</h4>
+                                    <div class="text-3xl font-black text-cyan-700 timer-text mb-3 drop-shadow-sm" id="prep1-timer">01:00</div>
+                                    <button onclick="toggleTimer('prep1', 60)" id="btn-prep1-timer" class="w-full bg-cyan-200 text-cyan-800 py-1.5 rounded-xl font-bold hover:bg-cyan-300 transition-colors text-sm">Start</button>
+                                </div>
+                                <div class="bg-blue-50 rounded-2xl p-4 border border-blue-100 text-center flex-1 md:w-36 shadow-sm">
+                                    <h4 class="text-blue-600 font-bold uppercase text-[10px] tracking-wider mb-2">Speaking (2 Mins)</h4>
+                                    <div class="text-3xl font-black text-blue-600 timer-text mb-3 drop-shadow-sm" id="speak1-timer">02:00</div>
+                                    <button onclick="toggleTimer('speak1', 120)" id="btn-speak1-timer" class="w-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-1.5 rounded-xl font-bold hover:opacity-90 transition-opacity text-sm shadow-sm">Start</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-900 border-l-4 border-cyan-500 p-6 rounded-r-2xl shadow-sm text-slate-100 mb-8">
+                            <p class="text-cyan-400 font-bold uppercase tracking-wider text-xs mb-2">Candidate Task Card</p>
+                            <p class="text-xl font-bold text-white mb-4">Describe a time when someone apologized to you</p>
+                            <p class="text-slate-300 mb-2 font-medium">You should say:</p>
+                            <ul class="text-slate-300 space-y-2 list-disc list-inside font-medium ml-2">
+                                <li>When it was</li>
+                                <li>Who this person is</li>
+                                <li>Why he or she apologized to you</li>
+                                <li>And explain how you felt about it</li>
+                            </ul>
+                        </div>
+
+                        <!-- Apology Vocab -->
+                        <div id="spk-apology-vocab" class="bg-cyan-50/50 border border-cyan-100 rounded-xl p-5 shadow-sm transition-all duration-300 mb-8">
+                            <div class="flex justify-between items-center mb-4">
+                                <h5 class="font-bold text-cyan-800 text-md">Vocabulary Preparation</h5>
+                                <button id="btn-spk-apology" onclick="toggleInlineAnswers('spk-apology-vocab', 'btn-spk-apology')" class="text-xs bg-white border border-cyan-200 text-cyan-700 px-3 py-1.5 rounded-lg font-bold hover:bg-cyan-100 transition-colors shadow-sm">Show Answers</button>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-4 font-medium">Fill in each blank with one suitable word from the list below.</p>
+                            
+                            <div class="flex flex-wrap gap-x-4 gap-y-2 justify-center mb-6 bg-white border border-cyan-200 p-3 rounded-lg font-bold text-cyan-600 text-sm shadow-sm">
+                                <span>sense</span> <span>altruistic</span> <span>token</span> <span>remorse</span> <span>know</span> <span>weight</span> <span>ear</span>
+                            </div>
+
+                            <div class="space-y-3 text-sm text-gray-700 leading-relaxed font-medium">
+                                <p>1 After the argument, she was <span class="italic font-bold text-cyan-700">filled with</span> <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 mx-1">remorse</span> .</p>
+                                <p>2 With tact and prudence, I've tried time and time again to somehow express my annoyance to her, but it just <span class="italic font-bold text-cyan-700">goes in one</span> <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 mx-1">ear</span> <span class="italic font-bold text-cyan-700">and out the other</span>.</p>
+                                <p>3 I'm surprised at Tom behaving so badly - I think he should <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 mx-1">know</span> better.</p>
+                                <p>4 We talked to her for an hour, but we couldn't make her <span class="italic font-bold text-cyan-700">see</span> <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 mx-1">sense</span> .</p>
+                                <p>5 He gave me a gift as a/an <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 mx-1">token</span> of his apology.</p>
+                                <p>6 I had been in a negative frame of mind all day, but then my face started to brighten when I heard her say sorry - it's such a/an <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 mx-1">weight</span> <span class="italic font-bold text-cyan-700">off my mind</span>!</p>
+                                <p>7 It wasn't all his fault when I look back on it, and it's fair to say that I was the one to blame too, so he was really a/an <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 mx-1">altruistic</span> man to apologize first.</p>
+                            </div>
+                        </div>
+
+                        <div class="border-t border-gray-100 pt-6">
+                            <button onclick="toggleVisibility('p2-sample-1')" class="text-xs font-bold text-cyan-700 bg-cyan-100 hover:bg-cyan-200 px-4 py-2 rounded-lg transition-colors shadow-sm">Show Sample Response</button>
+                            <div id="p2-sample-1" class="hidden mt-4 bg-gray-50 p-5 rounded-xl border border-gray-200 shadow-inner">
+                                <p class="text-sm text-gray-700 italic leading-relaxed">"I'm going to tell you about a time when a colleague apologized to me. It happened about six months ago during a highly stressful project at work. This colleague, whom I usually get along with quite well, snapped at me in front of the whole team during a meeting, blaming me for a delay that wasn't actually my fault.<br><br>At the time, I felt incredibly embarrassed and angry. I tried to explain, but he was too worked up, so my words just went in one ear and out the other. However, the next morning, he came to my desk. He looked genuinely filled with remorse. He apologized profusely, explaining that he was under immense personal stress and took it out on me, acknowledging that he should know better.<br><br>He even brought me a coffee as a small token of his apology. Honestly, hearing him say sorry was a huge weight off my mind. I respected that he was altruistic enough to swallow his pride and admit he was wrong. It instantly defused the tension, and we were able to move forward and finish the project successfully."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `
+        },
+        {
+            id: 'speaking_u5_p2_achievement',
+            type: 'Speaking',
+            themeClass: 'bg-gradient-to-r from-blue-500 to-indigo-500',
+            iconColor: 'text-blue-500',
+            title: '4. Speaking Part 2 & 3 | Achievement',
+            content: `
+                <div class="fade-in space-y-8">
+                    
+                    <div class="bg-white rounded-3xl shadow-xl border border-blue-50 p-8">
+                        <div class="flex flex-col md:flex-row justify-between items-center gap-6 mb-8 border-b border-gray-100 pb-6">
+                            <div>
+                                <h3 class="text-2xl font-bold text-gray-800">Part 2: Long Turn (Achievement)</h3>
+                                <p class="text-gray-500 mt-1 font-medium">Manage the candidate's preparation and speaking time.</p>
+                            </div>
+                            
+                            <div class="flex gap-4 w-full md:w-auto">
+                                <div class="bg-blue-50 rounded-2xl p-4 border border-blue-100 text-center flex-1 md:w-36 shadow-sm">
+                                    <h4 class="text-blue-600 font-bold uppercase text-[10px] tracking-wider mb-2">Prep Time (1 Min)</h4>
+                                    <div class="text-3xl font-black text-blue-700 timer-text mb-3 drop-shadow-sm" id="prep2-timer">01:00</div>
+                                    <button onclick="toggleTimer('prep2', 60)" id="btn-prep2-timer" class="w-full bg-blue-200 text-blue-800 py-1.5 rounded-xl font-bold hover:bg-blue-300 transition-colors text-sm">Start</button>
+                                </div>
+                                <div class="bg-indigo-50 rounded-2xl p-4 border border-indigo-100 text-center flex-1 md:w-36 shadow-sm">
+                                    <h4 class="text-indigo-600 font-bold uppercase text-[10px] tracking-wider mb-2">Speaking (2 Mins)</h4>
+                                    <div class="text-3xl font-black text-indigo-600 timer-text mb-3 drop-shadow-sm" id="speak2-timer">02:00</div>
+                                    <button onclick="toggleTimer('speak2', 120)" id="btn-speak2-timer" class="w-full bg-gradient-to-r from-blue-500 to-indigo-500 text-white py-1.5 rounded-xl font-bold hover:opacity-90 transition-opacity text-sm shadow-sm">Start</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-900 border-l-4 border-blue-500 p-6 rounded-r-2xl shadow-sm text-slate-100 mb-8">
+                            <p class="text-blue-400 font-bold uppercase tracking-wider text-xs mb-2">Candidate Task Card</p>
+                            <p class="text-xl font-bold text-white mb-4">Describe an achievement when you put great effort to gain (a goal you set and achieved)</p>
+                            <p class="text-slate-300 mb-2 font-medium">You should say:</p>
+                            <ul class="text-slate-300 space-y-2 list-disc list-inside font-medium ml-2">
+                                <li>What it was</li>
+                                <li>Why you set this goal</li>
+                                <li>Whether it was difficult to achieve this goal</li>
+                                <li>And explain how you felt about achieving this goal</li>
+                            </ul>
+                        </div>
+
+                        <!-- Achievement Vocab -->
+                        <div id="spk-achieve-vocab" class="bg-blue-50/50 border border-blue-100 rounded-xl p-5 shadow-sm transition-all duration-300 mb-8">
+                            <div class="flex justify-between items-center mb-4">
+                                <h5 class="font-bold text-blue-800 text-md">Vocabulary Preparation</h5>
+                                <button id="btn-spk-achieve" onclick="toggleInlineAnswers('spk-achieve-vocab', 'btn-spk-achieve')" class="text-xs bg-white border border-blue-200 text-blue-700 px-3 py-1.5 rounded-lg font-bold hover:bg-blue-100 transition-colors shadow-sm">Show Answers</button>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-4 font-medium">Fill in each blank with one suitable word from the list below.</p>
+                            
+                            <div class="flex flex-wrap gap-x-4 gap-y-2 justify-center mb-6 bg-white border border-blue-200 p-3 rounded-lg font-bold text-blue-600 text-sm shadow-sm">
+                                <span>resolution</span> <span>ecstatic</span> <span>taxing</span> <span>heart</span> <span>leaf</span> <span>air</span> <span>disillusioned</span>
+                            </div>
+
+                            <div class="space-y-3 text-sm text-gray-700 leading-relaxed font-medium">
+                                <p>1 This year I've decided to <span class="italic font-bold text-blue-700">turn over a new</span> <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 mx-1">leaf</span> , and one of my goals is to achieve a decent IELTS certificate.</p>
+                                <p>2 I felt extremely <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 mx-1">disillusioned</span> at first because I had always envisaged that this exam would be a piece of cake for me.</p>
+                                <p>3 <span class="italic font-bold text-blue-700">Cramming for the exam</span> was utterly exhausting and <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 mx-1">taxing</span> , especially when you had spent all day on your work/school study.</p>
+                                <p>4 I was <span class="italic font-bold text-blue-700">walking on</span> <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 mx-1">air</span> the day I received the results. All my attempts had panned out.</p>
+                                <p>5 I <span class="italic font-bold text-blue-700">made</span> a New Year's <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 mx-1">resolution</span> to give up chocolate.</p>
+                                <p>6 Maybe I would have to pursue lifelong study, but I've <span class="italic font-bold text-blue-700">set my</span> <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 mx-1">heart</span> <span class="italic font-bold text-blue-700">on</span> getting a 9 in the future.</p>
+                                <p>7 He gave a/an <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 mx-1">ecstatic</span> <span class="italic font-bold text-blue-700">sigh</span> of happiness.</p>
+                            </div>
+                        </div>
+
+                        <div class="border-t border-gray-100 pt-6 mb-10">
+                            <button onclick="toggleVisibility('p2-sample-2')" class="text-xs font-bold text-blue-700 bg-blue-100 hover:bg-blue-200 px-4 py-2 rounded-lg transition-colors shadow-sm">Show Sample Response</button>
+                            <div id="p2-sample-2" class="hidden mt-4 bg-gray-50 p-5 rounded-xl border border-gray-200 shadow-inner">
+                                <p class="text-sm text-gray-700 italic leading-relaxed">"I'd like to talk about a goal I set and achieved recently, which was passing a rigorous professional certification exam for my career. I set this goal because I wanted to turn over a new leaf professionally and advance to a senior position at my company. I knew this certificate was the key to unlocking those opportunities.<br><br>It was incredibly difficult to achieve. At first, I felt a bit disillusioned when I saw the sheer volume of material I had to cover. Cramming for the exam after working a full nine-to-five job was physically and mentally taxing. There were many weekends where I had to sacrifice socializing to stay home and study.<br><br>However, when I finally received the email saying I had passed, I gave an ecstatic sigh of relief. I felt like I was walking on air. All the grueling hours had finally panned out. It gave me a massive confidence boost and proved to me that setting my heart on a difficult goal and persevering truly pays off."</p>
+                            </div>
+                        </div>
+
+                        <!-- Part 3 -->
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6 border-b border-gray-100 pb-4">Part 3: Discussion Questions</h3>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="bg-gray-50 rounded-xl p-5 border border-gray-200 shadow-sm">
+                                <div class="flex justify-between items-start gap-2 mb-3">
+                                    <p class="font-bold text-gray-800 text-[15px]"><span class="text-blue-600 mr-2">1.</span> What kinds of ambitions do people usually have?</p>
+                                </div>
+                                <button onclick="toggleVisibility('p3-q1')" class="text-[10px] font-bold text-blue-600 bg-blue-100 hover:bg-blue-200 px-3 py-1.5 rounded transition-colors mb-2">Show Sample</button>
+                                <div id="p3-q1" class="hidden mt-2 pt-2 border-t border-gray-200">
+                                    <p class="text-sm text-gray-600 italic leading-relaxed">"It varies greatly depending on their stage of life. Young people often have academic ambitions, like getting into a prestigious university. Adults usually focus on career progression, financial stability, or starting a family, while older individuals might aim for health and a peaceful retirement."</p>
+                                </div>
+                            </div>
+
+                            <div class="bg-gray-50 rounded-xl p-5 border border-gray-200 shadow-sm">
+                                <div class="flex justify-between items-start gap-2 mb-3">
+                                    <p class="font-bold text-gray-800 text-[15px]"><span class="text-blue-600 mr-2">2.</span> Who has the greater influence on goal-setting of children, parents or teacher?</p>
+                                </div>
+                                <button onclick="toggleVisibility('p3-q2')" class="text-[10px] font-bold text-blue-600 bg-blue-100 hover:bg-blue-200 px-3 py-1.5 rounded transition-colors mb-2">Show Sample</button>
+                                <div id="p3-q2" class="hidden mt-2 pt-2 border-t border-gray-200">
+                                    <p class="text-sm text-gray-600 italic leading-relaxed">"I believe parents have a more profound, foundational influence. They shape a child's core values and self-esteem from birth. While teachers definitely inspire and guide academic goals, parents typically provide the emotional support needed for a child to set and pursue long-term life ambitions."</p>
+                                </div>
+                            </div>
+
+                            <div class="bg-gray-50 rounded-xl p-5 border border-gray-200 shadow-sm">
+                                <div class="flex justify-between items-start gap-2 mb-3">
+                                    <p class="font-bold text-gray-800 text-[15px]"><span class="text-blue-600 mr-2">3.</span> Should parents set goals for children?</p>
+                                </div>
+                                <button onclick="toggleVisibility('p3-q3')" class="text-[10px] font-bold text-blue-600 bg-blue-100 hover:bg-blue-200 px-3 py-1.5 rounded transition-colors mb-2">Show Sample</button>
+                                <div id="p3-q3" class="hidden mt-2 pt-2 border-t border-gray-200">
+                                    <p class="text-sm text-gray-600 italic leading-relaxed">"Parents should guide rather than dictate. They can help children set realistic, short-term goals to teach them discipline and work ethic. However, forcing rigid, long-term goals on a child can lead to resentment; children need autonomy to discover their own passions."</p>
+                                </div>
+                            </div>
+
+                            <div class="bg-gray-50 rounded-xl p-5 border border-gray-200 shadow-sm">
+                                <div class="flex justify-between items-start gap-2 mb-3">
+                                    <p class="font-bold text-gray-800 text-[15px]"><span class="text-blue-600 mr-2">4.</span> Should parents stop their children when they have unrealistic ambitions?</p>
+                                </div>
+                                <button onclick="toggleVisibility('p3-q4')" class="text-[10px] font-bold text-blue-600 bg-blue-100 hover:bg-blue-200 px-3 py-1.5 rounded transition-colors mb-2">Show Sample</button>
+                                <div id="p3-q4" class="hidden mt-2 pt-2 border-t border-gray-200">
+                                    <p class="text-sm text-gray-600 italic leading-relaxed">"Not abruptly. Instead of crushing their dreams, parents should gently encourage them to explore the practical steps required to achieve that ambition. This helps the child realize the reality themselves, turning an unrealistic dream into a valuable learning experience rather than a failure."</p>
+                                </div>
+                            </div>
+
+                            <div class="bg-gray-50 rounded-xl p-5 border border-gray-200 shadow-sm">
+                                <div class="flex justify-between items-start gap-2 mb-3">
+                                    <p class="font-bold text-gray-800 text-[15px]"><span class="text-blue-600 mr-2">5.</span> When do young children start setting goal for themselves?</p>
+                                </div>
+                                <button onclick="toggleVisibility('p3-q5')" class="text-[10px] font-bold text-blue-600 bg-blue-100 hover:bg-blue-200 px-3 py-1.5 rounded transition-colors mb-2">Show Sample</button>
+                                <div id="p3-q5" class="hidden mt-2 pt-2 border-t border-gray-200">
+                                    <p class="text-sm text-gray-600 italic leading-relaxed">"I think very basic goal-setting starts as early as toddlerhood, like trying to build a tall block tower. More conscious, structured goal-setting usually begins around early primary school, when they start understanding concepts like saving allowance for a toy or practicing for a sports game."</p>
+                                </div>
+                            </div>
+
+                            <div class="bg-gray-50 rounded-xl p-5 border border-gray-200 shadow-sm">
+                                <div class="flex justify-between items-start gap-2 mb-3">
+                                    <p class="font-bold text-gray-800 text-[15px]"><span class="text-blue-600 mr-2">6.</span> What kinds of goals are not realistic?</p>
+                                </div>
+                                <button onclick="toggleVisibility('p3-q6')" class="text-[10px] font-bold text-blue-600 bg-blue-100 hover:bg-blue-200 px-3 py-1.5 rounded transition-colors mb-2">Show Sample</button>
+                                <div id="p3-q6" class="hidden mt-2 pt-2 border-t border-gray-200">
+                                    <p class="text-sm text-gray-600 italic leading-relaxed">"Goals that completely ignore one's current limitations or resources are unrealistic. For example, aiming to become an Olympic athlete within a year without prior training, or setting financial goals that require a sudden, miraculous windfall rather than steady effort."</p>
+                                </div>
+                            </div>
+
+                            <div class="bg-gray-50 rounded-xl p-5 border border-gray-200 shadow-sm">
+                                <div class="flex justify-between items-start gap-2 mb-3">
+                                    <p class="font-bold text-gray-800 text-[15px]"><span class="text-blue-600 mr-2">7.</span> Why do people set goals?</p>
+                                </div>
+                                <button onclick="toggleVisibility('p3-q7')" class="text-[10px] font-bold text-blue-600 bg-blue-100 hover:bg-blue-200 px-3 py-1.5 rounded transition-colors mb-2">Show Sample</button>
+                                <div id="p3-q7" class="hidden mt-2 pt-2 border-t border-gray-200">
+                                    <p class="text-sm text-gray-600 italic leading-relaxed">"Goals provide direction and a sense of purpose. They act as a roadmap, helping people prioritize their time and energy. Achieving goals also triggers a sense of accomplishment and boosts self-confidence, which motivates people to continue improving themselves."</p>
+                                </div>
+                            </div>
+
+                            <div class="bg-gray-50 rounded-xl p-5 border border-gray-200 shadow-sm">
+                                <div class="flex justify-between items-start gap-2 mb-3">
+                                    <p class="font-bold text-gray-800 text-[15px]"><span class="text-blue-600 mr-2">8.</span> Why is it important for teenagers to set goals?</p>
+                                </div>
+                                <button onclick="toggleVisibility('p3-q8')" class="text-[10px] font-bold text-blue-600 bg-blue-100 hover:bg-blue-200 px-3 py-1.5 rounded transition-colors mb-2">Show Sample</button>
+                                <div id="p3-q8" class="hidden mt-2 pt-2 border-t border-gray-200">
+                                    <p class="text-sm text-gray-600 italic leading-relaxed">"Teenage years are highly formative. Setting goals helps them develop focus and shields them from negative peer pressure or distractions. It teaches them crucial life skills like time management, resilience when they face setbacks, and how to take responsibility for their own future."</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            `
+        }
+    ];
+
+    let currentIndex = 0;
+
+    const headerEl = document.getElementById('app-header');
+    const titleEl = document.getElementById('slide-title');
+    const containerEl = document.getElementById('content-container');
+    const prevBtn = document.getElementById('btn-prev');
+    const nextBtn = document.getElementById('btn-next');
+    const indicatorEl = document.getElementById('step-indicator');
+    const progressBarEl = document.getElementById('progress-bar');
+    const navDropdown = document.getElementById('nav-dropdown');
+    const navMenuList = document.getElementById('nav-menu-list');
+
+    window.addEventListener('DOMContentLoaded', () => {
+        populateNavMenu();
+        
+        document.getElementById('nav-toggle-btn').addEventListener('click', (e) => {
+            e.stopPropagation();
+            navDropdown.classList.toggle('hidden');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!navDropdown.contains(e.target) && !document.getElementById('nav-toggle-btn').contains(e.target)) {
+                navDropdown.classList.add('hidden');
+            }
+        });
+
+        if(prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                if (currentIndex > 0) renderSlide(--currentIndex);
+            });
+        }
+
+        if(nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                if (currentIndex < sessionData.length - 1) {
+                    renderSlide(++currentIndex);
+                } else {
+                    alert("Lesson 16 Completed! Excellent work today.");
+                }
+            });
+        }
+
+        renderSlide(0);
+    });
+
+    function populateNavMenu() {
+        if(!navMenuList) return;
+        navMenuList.innerHTML = sessionData.map((data, index) => `
+            <button onclick="goToSlide(${index})" class="nav-item-btn w-full text-left p-3 mb-1 rounded-xl hover:bg-white transition-all flex items-center gap-3 border border-transparent shadow-sm">
+                <div class="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 text-sm font-bold text-white shadow-sm ${data.themeClass || ''}">
+                    ${index + 1}
+                </div>
+                <div>
+                    <div class="text-sm font-bold text-gray-800 leading-tight">${data.title ? data.title.substring(3) : 'Section ' + (index + 1)}</div>
+                    <div class="text-[10px] font-bold uppercase tracking-wider ${data.iconColor || ''}">${data.type || 'Lesson'}</div>
+                </div>
+            </button>
+        `).join('');
+    }
+
+    window.goToSlide = function(index) {
+        currentIndex = index;
+        renderSlide(currentIndex);
+        if(navDropdown) navDropdown.classList.add('hidden');
+    };
+
+    function renderSlide(index) {
+        pauseAllTimers();
+        const data = sessionData[index];
+        if(!headerEl || !titleEl || !containerEl) return;
+        
+        headerEl.className = `text-white p-4 shadow-lg transition-colors duration-700 z-20 relative ${data.themeClass}`;
+        titleEl.textContent = data.title;
+        
+        const progressPercent = ((index + 1) / sessionData.length) * 100;
+        if(progressBarEl) progressBarEl.style.width = `${progressPercent}%`;
+        if(indicatorEl) indicatorEl.textContent = `Section ${index + 1} of ${sessionData.length}`;
+
+        document.querySelectorAll('.nav-item-btn').forEach((btn, i) => {
+            if (i === index) {
+                btn.classList.add('bg-white', 'border-teal-200', 'shadow-md');
+                btn.classList.remove('border-transparent', 'shadow-sm');
+            } else {
+                btn.classList.remove('bg-white', 'border-teal-200', 'shadow-md');
+                btn.classList.add('border-transparent', 'shadow-sm');
+            }
+        });
+
+        containerEl.innerHTML = ''; 
+        setTimeout(() => {
+            containerEl.innerHTML = data.content;
+            
+            if(data.id === 'speaking_u5_p2_apology') {
+                updateTimerUI('prep1', timers.prep1.remaining);
+                updateTimerUI('speak1', timers.speak1.remaining);
+            }
+            if(data.id === 'speaking_u5_p2_achievement') {
+                updateTimerUI('prep2', timers.prep2.remaining);
+                updateTimerUI('speak2', timers.speak2.remaining);
+            }
+        }, 10);
+
+        if(prevBtn) prevBtn.disabled = index === 0;
+        if(nextBtn) nextBtn.innerHTML = index === sessionData.length - 1 ? 
+            'Finish Lesson <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>' : 
+            'Next Section <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>';
+    }
+
+    window.toggleInlineAnswers = function(containerId, btnId) {
+        const container = document.getElementById(containerId);
+        const btn = document.getElementById(btnId);
+        if(container) {
+            container.classList.toggle('show-answers');
+            if(container.classList.contains('show-answers')) {
+                container.classList.add('shadow-md', 'border-emerald-300');
+            } else {
+                container.classList.remove('shadow-md', 'border-emerald-300');
+            }
+            if(btn) {
+                btn.textContent = container.classList.contains('show-answers') ? 'Hide Answer' : 'Show Answer';
+                btn.classList.toggle('bg-white');
+                btn.classList.toggle('bg-emerald-100');
+                btn.classList.toggle('text-gray-700');
+                btn.classList.toggle('text-emerald-800');
+            }
+        }
+    }
+
+    window.toggleVisibility = function(id) {
+        const el = document.getElementById(id);
+        if(el) {
+            if(el.classList.contains('hidden')){
+                el.classList.remove('hidden');
+                el.classList.add('fade-in');
+                setTimeout(() => { el.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }, 50);
+            } else {
+                el.classList.add('hidden');
+                el.classList.remove('fade-in');
+            }
+        }
+    };
+</script>
+</body>
+</html>
