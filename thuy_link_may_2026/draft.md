@@ -712,3 +712,19 @@ Part 3
  {Diagram: https://ieltschantruong.github.io/IELTS/src/writing_questions/writing_task1_maps_museum_1998_2008.png}
  + Task 2: In many places large amounts of food are wasted. What might be the reasons for this problem? What can best be done to reduce food waste?
 - Speaking: https://ieltschantruong.github.io/IELTS/learning_resources/speaking/mock_test/speaking_mock_02.html
+
+======
+
+Listening:
+- P1 | https://youpass.vn/thi-thu/listening/8451?passage=35 | Bakewell Travel
+- P2 | https://youpass.vn/thi-thu/listening/10238 | Bridge to Brisbane Fun Run
+- P3 | https://youpass.vn/thi-thu/listening/8487 | Using scientific techniques to investigate works of art
+- P4 | https://youpass.vn/thi-thu/listening/8510 | Life on the International Space Station
+
+
+Writing | Task 2:
+1. In recent years, tourists have paid attention to preserving both the culture and environment of the places they visit. However, some people think that it is impossible to be a responsible tourist. To what extent do you agree or disagree with this opinion?
+2. Many celebrities complain about the way media publicize the private life. Many people think that they should accept that as a part of fame. To what extend do you agree or disagree
+3. Some people think that schools should select students according to their academic abilities, while others believe that it is better to have students with different abilities studying together. Discuss both views and state your own opinion.
+4. It is a good thing for senior management positions to have much higher salaries than other workers in a company. To what extent do you agree or disagree?
+5. Some people believe that women should play an equal role as men in military force, while others think women are not suitable for these kinds of jobs. Discuss both views and give your opinion.
