@@ -54,7 +54,7 @@
         }
         
         .glass-card:hover {
-            box-shadow: 0 10px 25px -3px rgba(252, 231, 243, 0.8), 0 4px 6px -2px rgba(24bc, 231, 243, 0.4);
+            box-shadow: 0 10px 25px -3px rgba(252, 231, 243, 0.8), 0 4px 6px -2px rgba(252, 231, 243, 0.4);
             transform: translateY(-2px);
         }
 
@@ -106,6 +106,7 @@
 </head>
 <body class="min-h-screen flex flex-col">
 
+    <!-- Sticky Progress Bar -->
     <div class="fixed top-0 left-0 w-full h-1.5 bg-brand-100 z-50">
         <div id="progressBar" class="h-full bg-brand-500 transition-all duration-500 ease-out" style="width: 0%;"></div>
     </div>
@@ -120,7 +121,7 @@
         <div class="max-w-5xl mx-auto relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
             <div>
                 <h2 class="text-brand-800 font-semibold tracking-widest text-sm uppercase mb-2 flex items-center gap-2">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
                     IELTS Chan Truong
                 </h2>
                 <h1 class="text-4xl md:text-5xl font-serif font-bold text-brand-900 leading-tight drop-shadow-sm">
@@ -141,25 +142,25 @@
         </div>
     </header>
 
-    <!-- Main Content Grid -->
+    <!-- Main Content -->
     <main class="max-w-5xl mx-auto px-6 w-full -mt-8 relative z-20 pb-20 flex-grow">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
             
             <!-- Left Column: Lesson Content -->
             <div class="lg:col-span-8 space-y-6">
                 
-                <!-- Section 1: Listening Check -->
+                <!-- Section 1: Reading Test 10 -->
                 <section class="glass-card rounded-2xl p-6 md:p-8 fade-in-up" id="section-1">
                     <div class="flex items-start justify-between mb-6">
                         <div class="flex items-center gap-4">
                             <div class="bg-brand-50 text-brand-500 p-3 rounded-xl">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
                             </div>
                             <div>
-                                <h3 class="text-xl font-bold text-brand-900">1. Listening Test 09 Practice & Check</h3>
+                                <h3 class="text-xl font-bold text-brand-900">1. Reading Test 10 | Check & Explain</h3>
                                 <p class="text-sm text-brand-400 font-medium flex items-center gap-2 mt-1">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                                    Practice, Check & Deconstruct (35 mins)
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    Class Review & Analysis (25 mins)
                                 </p>
                             </div>
                         </div>
@@ -167,33 +168,33 @@
                         <label class="flex items-center cursor-pointer group">
                             <input type="checkbox" class="checkbox-custom hidden" data-task="1" onchange="updateProgress()">
                             <div class="w-8 h-8 rounded-full border-2 border-brand-200 flex items-center justify-center transition-colors group-hover:border-brand-500 bg-white shadow-inner">
-                                <svg class="w-4 h-4 text-white opacity-0 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                                <svg class="w-4 h-4 text-white opacity-0 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
                             </div>
                         </label>
                     </div>
 
                     <div class="bg-brand-50/50 border border-brand-100 rounded-xl p-5 mb-5">
-                        <h4 class="font-semibold text-brand-900 mb-2">Listening Mock Test 09 Review</h4>
-                        <p class="text-slate-600 text-sm mb-4">Go over answers for Listening Mock Test 09. Evaluate key spelling variations, pinpoint audio traps, resolve complex map label descriptors, and audit student response forms.</p>
-                        <a href="https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/test_view_pet_intensive_09.html" target="_blank" class="inline-flex items-center gap-2 bg-brand-500 text-white px-5 py-2.5 rounded-lg text-sm font-medium hover:bg-brand-400 transition-colors w-full sm:w-auto justify-center shadow-md shadow-brand-200">
-                            Open Listening Test 09
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                        <h4 class="font-semibold text-brand-900 mb-2">Reading Mock Test 10 Review</h4>
+                        <p class="text-slate-600 text-sm mb-4">Review student answers for Reading Mock Test 10. Deconstruct structural logic, analyze complex paragraph matching, and log key paraphrased cues.</p>
+                        <a href="https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/pet_intensive_10.html" target="_blank" class="inline-flex items-center gap-2 bg-brand-500 text-white px-5 py-2.5 rounded-lg text-sm font-medium hover:bg-brand-400 transition-colors w-full sm:w-auto justify-center shadow-md shadow-brand-200">
+                            Open Reading Test 10
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
                         </a>
                     </div>
                 </section>
 
-                <!-- Section 2: Speaking Part 2 & 3 -->
+                <!-- Section 2: Speaking Part 2 & 3 (Pages 76 -> 82) -->
                 <section class="glass-card rounded-2xl p-6 md:p-8 fade-in-up delay-100" id="section-2">
                     <div class="flex items-start justify-between mb-6">
                         <div class="flex items-center gap-4">
                             <div class="bg-brand-50 text-brand-500 p-3 rounded-xl">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
                             </div>
                             <div>
                                 <h3 class="text-xl font-bold text-brand-900">2. Speaking Part 2 & 3: Practice</h3>
                                 <p class="text-sm text-brand-400 font-medium flex items-center gap-2 mt-1">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                                    Pages 77 to 82 (50 mins)
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    Syllabus Pages 76 to 82 (60 mins)
                                 </p>
                             </div>
                         </div>
@@ -201,294 +202,529 @@
                         <label class="flex items-center cursor-pointer group">
                             <input type="checkbox" class="checkbox-custom hidden" data-task="2" onchange="updateProgress()">
                             <div class="w-8 h-8 rounded-full border-2 border-brand-200 flex items-center justify-center transition-colors group-hover:border-brand-500 bg-white shadow-inner">
-                                <svg class="w-4 h-4 text-white opacity-0 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                                <svg class="w-4 h-4 text-white opacity-0 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
                             </div>
                         </label>
                     </div>
 
-                    <p class="text-slate-600 text-sm mb-6 leading-relaxed">Study high-scoring vocabulary, collocations, and fully developed monologues. Expand each card below to view custom **Band 7.5+ Sample Responses**, **Lexical Masterclasses**, and structured **Part 3 extensions**:</p>
+                    <p class="text-slate-600 text-sm mb-6 leading-relaxed">Expand the panels below to access Band 7.5+ Sample Responses, Lexical Masterclasses, and full Part 3 extensions for each target topic (Pages 76–82):</p>
 
-                    <!-- Cue Card Accordions -->
                     <div class="space-y-4">
                         
-                        <!-- Topic 1: Lost your way -->
+                        <!-- Page 76: Place with a lot of trees -->
                         <details class="group border border-brand-200 rounded-lg bg-white overflow-hidden shadow-sm hover:border-brand-400 transition-colors">
                             <summary class="flex justify-between items-center font-medium cursor-pointer p-4 hover:bg-brand-50/50 text-brand-900 transition-colors">
                                 <span class="flex items-center gap-3">
-                                    <span class="w-7 h-7 bg-brand-100 text-brand-800 rounded-full flex items-center justify-center font-bold text-xs">01</span>
+                                    <span class="w-7 h-7 bg-brand-100 text-brand-800 rounded-full flex items-center justify-center font-bold text-xs">76</span>
+                                    <span class="font-serif text-sm md:text-base font-bold text-slate-800">Describe a place with a lot of trees that you would like to visit (e.g. a forest)</span>
+                                </span>
+                                <svg class="w-5 h-5 transition duration-300 group-open:rotate-180 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg>
+                            </summary>
+                            <div class="p-5 border-t border-brand-100 text-sm text-slate-800 space-y-4 bg-brand-50/10 leading-relaxed">
+                                <div class="mb-2 bg-brand-50 p-3 rounded border border-brand-100">
+                                    <p class="text-xs font-bold text-brand-800 mb-1">Part 2 Cue Card:</p>
+                                    <p class="text-xs text-slate-600">You should say: Where it is; How you knew this place; What it is like; And explain why you would like to visit it.</p>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg border border-brand-200 shadow-sm">
+                                    <p class="text-xs font-bold text-brand-800 mb-2">Band 7.5+ Sample Response:</p>
+                                    <p class="text-xs text-slate-700 italic">"A place with an abundance of trees that I am dying to visit is the <strong class="text-brand-800 font-semibold">Cuc Phuong National Park</strong> in Ninh Binh Province, Vietnam. I first learned about this pristine sanctuary through a nature documentary on national TV. The park is renowned for its <strong class="text-brand-800 font-semibold">dense primeval canopy</strong>, ancient thousand-year-old trees, and rich biodiversity. What makes it so appealing is its <strong class="text-brand-800 font-semibold">untouched, serene wilderness</strong> where one can immerse oneself in pure nature away from city pollution. I want to visit it because trekking beneath giant ancient banyans offers a deeply <strong class="text-brand-800 font-semibold">rejuvenating, therapeutic escape</strong> that restores my mental energy."</p>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg border border-brand-200 shadow-sm">
+                                    <p class="text-xs font-bold text-brand-800 mb-2">Lexical Masterclass:</p>
+                                    <div class="space-y-2 text-xs">
+                                        <p><strong>1. Primeval canopy (noun phrase)</strong> /praɪˈmiː.vəl ˈkæn.ə.pi/ - Ancient, untouched forest ceiling created by dense tree tops.</p>
+                                        <p><strong>2. Rejuvenating (adjective)</strong> /rɪˈdʒuː.vən.eɪ.tɪŋ/ - Making someone feel fresh, energetic, and young again.</p>
+                                        <p><strong>3. Sanctuary (noun)</strong> /ˈsæŋk.tʃu.ər.i/ - A protected, peaceful place of safety or natural refuge.</p>
+                                    </div>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg border border-brand-200 shadow-sm">
+                                    <p class="text-xs font-bold text-brand-800 mb-2">Part 3 Extensions (10 Questions):</p>
+                                    <div class="space-y-3 text-xs">
+                                        <div>
+                                            <p class="font-semibold text-slate-700">1. Why do people like visiting places with trees or forests?</p>
+                                            <p class="text-slate-600"><strong>Ans:</strong> People visit wooded areas to seek <strong class="text-brand-800">psychological respite</strong> from urban noise. Forest environments lower cortisol levels and provide fresh oxygen. For instance, weekend hikers often report lower stress after spending hours among pine trees. Therefore, forests serve as natural mental restores.</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold text-slate-700">2. What are the benefits of spending time in nature?</p>
+                                            <p class="text-slate-600"><strong>Ans:</strong> Spending time outdoors boosts immunity and fosters <strong class="text-brand-800">mindful contemplation</strong>. Exposure to natural sunlight enhances vitamin D synthesis and improves mood balance. For example, regular nature walks reduce symptoms of anxiety. Consequently, nature visits improve holistic health.</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold text-slate-700">3. How do forests contribute to environmental protection?</p>
+                                            <p class="text-slate-600"><strong>Ans:</strong> Forests act as massive <strong class="text-brand-800">carbon sinks</strong> and prevent soil erosion during heavy rains. Tree root networks absorb floodwaters, while leaves filter air pollutants. For instance, rainforests regulate global humidity cycles. Thus, forest ecosystems stabilize global climates.</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold text-slate-700">4. Do you think cities should have more green spaces?</p>
+                                            <p class="text-slate-600"><strong>Ans:</strong> Yes, urban planning must prioritize green corridors to combat the <strong class="text-brand-800">urban heat island effect</strong>. Parks provide essential recreational zones for residents. For example, public gardens in Singapore significantly cool local ambient temperatures. Hence, green infrastructure is essential for modern cities.</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold text-slate-700">5. What activities can people do in forests?</p>
+                                            <p class="text-slate-600"><strong>Ans:</strong> Visitors can engage in eco-tourism activities such as <strong class="text-brand-800">guided bird watching</strong>, trail camping, and photography. These activities foster environmental appreciation without harming wildlife. For example, camping under forest canopies teaches survival skills. Therefore, forests offer diverse educational leisure.</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold text-slate-700">6. How has deforestation affected your country?</p>
+                                            <p class="text-slate-600"><strong>Ans:</strong> Deforestation has heightened risks of <strong class="text-brand-800">flash floods</strong> and habitat loss in mountainous regions. Tree loss destabilizes soil structures, triggering severe landslides during monsoon seasons. For instance, hill deforestation led to severe mudslides in central Vietnam. Consequently, clearing forests degrades natural safety buffers.</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold text-slate-700">7. Should governments invest more money in protecting forests?</p>
+                                            <p class="text-slate-600"><strong>Ans:</strong> Absolutely, state budgets must allocate funding toward <strong class="text-brand-800">forest ranger patrols</strong> and re-afforestation projects. Protecting existing reserves prevents costly ecological disasters down the road. For example, anti-poaching units safeguard endangered species. Thus, state investment guarantees ecological survival.</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold text-slate-700">8. What's the difference between visiting a park and visiting a natural forest?</p>
+                                            <p class="text-slate-600"><strong>Ans:</strong> City parks offer manicured, predictable spaces, whereas natural forests provide <strong class="text-brand-800">untamed biodiversity</strong>. Parks feature paved walkways, whereas forests require rugged trekking skills. For instance, walking in a manicured park differs from navigating dense jungle trails. Hence, forests offer deeper wilderness immersion.</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold text-slate-700">9. How can people help protect trees and forests?</p>
+                                            <p class="text-slate-600"><strong>Ans:</strong> Citizens can reduce consumption of paper goods and support <strong class="text-brand-800">sustainable forestry certifications</strong>. Participating in local tree-planting drives directly restores green cover. For example, choosing recycled wood products discourages illegal logging. Therefore, conscious consumer choices protect global forests.</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold text-slate-700">10. Do you think children today spend enough time in nature?</p>
+                                            <p class="text-slate-600"><strong>Ans:</strong> Unfortunately no, contemporary youth suffer from <strong class="text-brand-800">sedentary indoor lifestyles</strong> due to screen addiction. Modern kids spend hours on gaming consoles rather than exploring outdoor parks. For instance, weekend screen time far exceeds outdoor play. Consequently, parents must actively encourage outdoor excursions.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </details>
+
+                        <!-- Page 77: Lost your way -->
+                        <details class="group border border-brand-200 rounded-lg bg-white overflow-hidden shadow-sm hover:border-brand-400 transition-colors">
+                            <summary class="flex justify-between items-center font-medium cursor-pointer p-4 hover:bg-brand-50/50 text-brand-900 transition-colors">
+                                <span class="flex items-center gap-3">
+                                    <span class="w-7 h-7 bg-brand-100 text-brand-800 rounded-full flex items-center justify-center font-bold text-xs">77</span>
                                     <span class="font-serif text-sm md:text-base font-bold text-slate-800">Describe an occasion when you lost your way</span>
                                 </span>
                                 <svg class="w-5 h-5 transition duration-300 group-open:rotate-180 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg>
                             </summary>
                             <div class="p-5 border-t border-brand-100 text-sm text-slate-800 space-y-4 bg-brand-50/10 leading-relaxed">
                                 <div class="mb-2 bg-brand-50 p-3 rounded border border-brand-100">
-                                    <p class="text-xs font-bold text-brand-800 mb-1">Part 2 Cue Card Bullets:</p>
-                                    <p class="text-xs text-slate-600">You should say: Where you were going; Who you were with; How you lost your way; And explain how you felt and handled the situation.</p>
+                                    <p class="text-xs font-bold text-brand-800 mb-1">Part 2 Cue Card:</p>
+                                    <p class="text-xs text-slate-600">You should say: Where you were; What happened; How you felt; And explain how you found your way.</p>
                                 </div>
                                 <div class="bg-white p-4 rounded-lg border border-brand-200 shadow-sm">
-                                    <p class="text-xs font-bold text-brand-800 mb-2 flex items-center gap-1.5">
-                                        <svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
-                                        Band 7.5+ Sample Response (Monologue):
-                                    </p>
-                                    <p class="text-xs text-slate-700 italic leading-relaxed">
-                                        "I’d like to share an occasion when I became completely disoriented while trekking in the lush mountain valleys surrounding Sapa with my cousin. We had planned to hike to a secluded waterfall based on hand-drawn maps we received at our homestay. However, as deep mountain fog swept in rapidly, we missed a critical fork in the trail and found ourselves essentially in the middle of nowhere. Since there was no cellular coverage whatsoever, our digital maps were useless, and my heart sank immediately. We had to keep our heads, so we decided to retrace our steps calmly and follow a small stream downhill. Fortunately, we crossed paths with a local farmer who kindly pointed us back toward the main trail. It was a nerve-wracking experience, but it taught me an invaluable lesson about preparing alternative navigational backups."
-                                    </p>
+                                    <p class="text-xs font-bold text-brand-800 mb-2">Band 7.5+ Sample Response:</p>
+                                    <p class="text-xs text-slate-700 italic">"I’d like to recount an occasion when I became completely <strong class="text-brand-800 font-semibold">disoriented in the labyrinthine alleys</strong> of Hanoi's Old Quarter during my first solo visit. I was trying to find a famous hidden cafe, but because the streets look nearly identical with dense shopfronts, my phone battery suddenly died. Without digital navigation, my heart sank. I felt a surge of panic initially, but I managed to <strong class="text-brand-800 font-semibold">keep my composure</strong>. I stepped into a local handicraft shop and asked an elderly artisan for directions. He kindly drew a crude map on paper and pointed me toward a main thoroughfare. Following his guidance, I successfully reached my destination, feeling relieved and proud of my <strong class="text-brand-800 font-semibold">spontaneous problem-solving skills</strong>."</p>
                                 </div>
                                 <div class="bg-white p-4 rounded-lg border border-brand-200 shadow-sm">
-                                    <p class="text-xs font-bold text-brand-800 mb-2">Lexical Masterclass (Detailed Vocab & Idioms):</p>
-                                    <div class="space-y-3 text-xs">
-                                        <div>
-                                            <span class="font-semibold text-brand-600">1. Disoriented (adjective)</span> /dɪsˈɔː.ri.en.tɪd/
-                                            <p class="text-slate-600 text-[11px] mt-0.5"><strong>Definition:</strong> Confused and not knowing where you are or which direction you are facing. <br/><strong>Collocations:</strong> Become disoriented, completely disoriented. <br/><strong>Example:</strong> The dense mist on the mountain passes caused us to become disoriented within minutes.</p>
-                                        </div>
-                                        <div>
-                                            <span class="font-semibold text-brand-600">2. Navigational (adjective)</span> /ˌnæv.ɪˈɡeɪ.ʃən.əl/
-                                            <p class="text-slate-600 text-[11px] mt-0.5"><strong>Definition:</strong> Relating to finding the way to a destination. <br/><strong>Collocations:</strong> Navigational backup, navigational skills. <br/><strong>Example:</strong> In remote regions, carrying offline navigational tools is an absolute necessity.</p>
-                                        </div>
-                                        <div>
-                                            <span class="font-semibold text-brand-600">3. Get one's bearings (idiom)</span>
-                                            <p class="text-slate-600 text-[11px] mt-0.5"><strong>Definition:</strong> To find out exactly where you are or what you should do next. <br/><strong>Example:</strong> We paused at the top of the ridge to look at the landscape and try to get our bearings.</p>
-                                        </div>
+                                    <p class="text-xs font-bold text-brand-800 mb-2">Lexical Masterclass:</p>
+                                    <div class="space-y-2 text-xs">
+                                        <p><strong>1. Labyrinthine (adjective)</strong> /ˌlæb.əˈrɪn.θaɪn/ - Intricate, complicated, or maze-like structure of paths.</p>
+                                        <p><strong>2. Keep one's composure (idiom)</strong> - To remain calm and self-controlled under stressful circumstances.</p>
+                                        <p><strong>3. Thoroughfare (noun)</strong> /ˈθʌr.ə.feər/ - A main road or public highway open at both ends.</p>
                                     </div>
                                 </div>
-                                <div class="bg-brand-50/50 p-4 rounded-lg border border-brand-200 text-xs">
-                                    <p class="font-bold text-brand-800 mb-1.5">Part 3 Analytical Extension:</p>
-                                    <p class="text-[11px] text-slate-700"><strong>Q: How has the widespread usage of GPS and smartphone navigation changed human cognitive mapping?</strong><br/><em>Ans (OREO):</em> In my view, relying heavily on automated GPS tools has significantly weakened our organic navigational skills. This is because users passively follow turn-by-turn voice directions instead of actively processing landmark signals and spatial layouts. For instance, many drivers fail to remember basic routes they traverse daily without digital assistance. Therefore, while modern technology offers incredible convenience, it has diluted our natural ability to map environments mentally.</p>
+                                <div class="bg-white p-4 rounded-lg border border-brand-200 shadow-sm">
+                                    <p class="text-xs font-bold text-brand-800 mb-2">Part 3 Extensions (10 Questions):</p>
+                                    <div class="space-y-3 text-xs">
+                                        <div>
+                                            <p class="font-semibold text-slate-700">1. Is a paper map still necessary?</p>
+                                            <p class="text-slate-600"><strong>Ans:</strong> Yes, paper maps remain an essential <strong class="text-brand-800">failsafe backup</strong> when digital devices lose power or satellite signal. In remote areas without cellular coverage, physical maps save travelers from getting stranded. For example, mountain trekkers rely on printed topographical maps. Thus, paper maps preserve vital navigational security.</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold text-slate-700">2. How do people react when they get lost?</p>
+                                            <p class="text-slate-600"><strong>Ans:</strong> Reactions vary from immediate anxiety to <strong class="text-brand-800">methodical orientation attempts</strong>. Unprepared travelers often panic, whereas experienced commuters systematically retrace their steps or consult locals. For instance, tourists in foreign cities usually seek help at information kiosks. Therefore, emotional resilience dictates one's response.</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold text-slate-700">3. Why do some people get lost more easily than others?</p>
+                                            <p class="text-slate-600"><strong>Ans:</strong> Variations stem from individual differences in <strong class="text-brand-800">spatial awareness</strong> and observation habits. People who pay attention to visual landmarks navigate far better than those distracted by phones. For example, noticing distinct buildings helps memory retention. Hence, active observation prevents disorientation.</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold text-slate-700">4. Do you think it is important to be able to read a map?</p>
+                                            <p class="text-slate-600"><strong>Ans:</strong> Absolutely, map literacy is a fundamental life skill that builds <strong class="text-brand-800">spatial reasoning</strong> and independence. Understanding cardinal directions and scales prevents dangerous navigation errors. For example, reading subway maps allows seamless transit in global cities. Consequently, map reading fosters self-reliance.</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold text-slate-700">5. Do you think it is important to do some preparation before you travel to new places?</p>
+                                            <p class="text-slate-600"><strong>Ans:</strong> Yes, pre-trip research minimizes safety risks and <strong class="text-brand-800">unforeseen travel delays</strong>. Reviewing neighborhood layouts and downloading offline maps ensures smooth navigation upon arrival. For instance, knowing transport routes prevents airport scams. Thus, preparation guarantees enjoyable journeys.</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold text-slate-700">6. How can people find their way when they are lost?</p>
+                                            <p class="text-slate-600"><strong>Ans:</strong> Individuals can seek assistance from local shopkeepers, spot major architectural landmarks, or <strong class="text-brand-800">retrace their steps</strong> to a known intersection. Observing public transit stops also provides orientation cues. For example, finding a metro station helps realign with city maps. Therefore, using environment cues resolves disorientation.</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold text-slate-700">7. How has GPS technology changed the way people navigate?</p>
+                                            <p class="text-slate-600"><strong>Ans:</strong> GPS tools have completely <strong class="text-brand-800">democratized global travel</strong> by providing turn-by-turn voice prompts and real-time traffic updates. Navigating complex cities no longer requires memorizing street grids. For instance, drivers avoid traffic jams using live route re-direction. Consequently, travel anxiety is significantly reduced.</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold text-slate-700">8. What are the disadvantages of relying too much on navigation apps?</p>
+                                            <p class="text-slate-600"><strong>Ans:</strong> Over-reliance leads to <strong class="text-brand-800">cognitive atrophy</strong> of natural direction senses and vulnerability during battery drain. Users follow screens blindly without noticing surroundings. For example, drivers occasionally turn onto unsuitable roads due to app glitches. Hence, digital dependence dulls spatial instinct.</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold text-slate-700">9. Do you think people's sense of direction has gotten worse because of technology?</p>
+                                            <p class="text-slate-600"><strong>Ans:</strong> Yes, constant reliance on automated prompts reduces our need to build <strong class="text-brand-800">internal mental maps</strong>. Because algorithms guide every turn, people rarely practice landmark recall. For example, drivers struggle without active GPS prompts in familiar areas. Therefore, technological convenience weakens spatial skills.</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold text-slate-700">10. What should parents teach their children about navigation and direction?</p>
+                                            <p class="text-slate-600"><strong>Ans:</strong> Parents should teach kids how to identify major landmarks, read basic neighborhood maps, and memorize <strong class="text-brand-800">emergency contact checkpoints</strong>. Engaging children in direction games during walks builds spatial confidence. For instance, asking a child to guide the walk back home builds memory. Thus, early navigation practice instills independence.</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </details>
 
-                        <!-- Topic 2: Outdoor Sport -->
+                        <!-- Page 78: Outdoor sport -->
                         <details class="group border border-brand-200 rounded-lg bg-white overflow-hidden shadow-sm hover:border-brand-400 transition-colors">
                             <summary class="flex justify-between items-center font-medium cursor-pointer p-4 hover:bg-brand-50/50 text-brand-900 transition-colors">
                                 <span class="flex items-center gap-3">
-                                    <span class="w-7 h-7 bg-brand-100 text-brand-800 rounded-full flex items-center justify-center font-bold text-xs">02</span>
+                                    <span class="w-7 h-7 bg-brand-100 text-brand-800 rounded-full flex items-center justify-center font-bold text-xs">78</span>
                                     <span class="font-serif text-sm md:text-base font-bold text-slate-800">Describe an outdoor sport you would like to try for the first time</span>
                                 </span>
                                 <svg class="w-5 h-5 transition duration-300 group-open:rotate-180 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg>
                             </summary>
                             <div class="p-5 border-t border-brand-100 text-sm text-slate-800 space-y-4 bg-brand-50/10 leading-relaxed">
                                 <div class="mb-2 bg-brand-50 p-3 rounded border border-brand-100">
-                                    <p class="text-xs font-bold text-brand-800 mb-1">Part 2 Cue Card Bullets:</p>
-                                    <p class="text-xs text-slate-600">You should say: What sport it is; Where you can do it; What equipment is needed; And explain why you would like to try this outdoor sport.</p>
+                                    <p class="text-xs font-bold text-brand-800 mb-1">Part 2 Cue Card:</p>
+                                    <p class="text-xs text-slate-600">You should say: What it is; When/where you would like to do it; With whom you would like to do it; And explain why you would like to do it.</p>
                                 </div>
                                 <div class="bg-white p-4 rounded-lg border border-brand-200 shadow-sm">
-                                    <p class="text-xs font-bold text-brand-800 mb-2 flex items-center gap-1.5">
-                                        <svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
-                                        Band 7.5+ Sample Response (Monologue):
-                                    </p>
-                                    <p class="text-xs text-slate-700 italic leading-relaxed">
-                                        "An outdoor sport that I have been deeply yearning to try is windsurfing, which is a fantastic combination of sailing and surfing. I would love to try this at the coastal town of Mui Ne, which is widely celebrated for its consistent, strong winds and excellent wave conditions. The necessary equipment consists of a specialized board, a rig containing a mast, boom, and sail, alongside safety gear like a life vest and a wetsuit. I want to try this sport because it seems like an incredibly exhilarating way to harness the raw momentum of both wind and water. While I know it has a notoriously steep learning curve and demands robust core strength, I am eager to break out of my comfort zone, dive headfirst into this challenge, and experience the sheer thrill of gliding across the ocean waves."
-                                    </p>
+                                    <p class="text-xs font-bold text-brand-800 mb-2">Band 7.5+ Sample Response:</p>
+                                    <p class="text-xs text-slate-700 italic">"An outdoor sport that I have been dying to try is <strong class="text-brand-800 font-semibold">kayaking down the scenic waters</strong> of Ha Long Bay. I would love to go there next summer with my closest group of university friends. The sport involves paddling a small narrow watercraft through open coastal waters. I am drawn to kayaking because it offers an <strong class="text-brand-800 font-semibold">exhilarating adrenaline rush</strong> while allowing intimate exploration of secluded limestone caves and hidden lagoons that large cruise ships cannot access. Furthermore, it demands robust upper-body endurance, making it a perfect blend of <strong class="text-brand-800 font-semibold">rigorous physical exercise</strong> and peaceful natural discovery."</p>
                                 </div>
                                 <div class="bg-white p-4 rounded-lg border border-brand-200 shadow-sm">
-                                    <p class="text-xs font-bold text-brand-800 mb-2">Lexical Masterclass (Detailed Vocab & Idioms):</p>
-                                    <div class="space-y-3 text-xs">
-                                        <div>
-                                            <span class="font-semibold text-brand-600">1. Exhilarating (adjective)</span> /ɪɡˈzɪl.ə.reɪ.tɪŋ/
-                                            <p class="text-slate-600 text-[11px] mt-0.5"><strong>Definition:</strong> Making you feel extremely happy, excited, and full of energy. <br/><strong>Collocations:</strong> Exhilarating experience, exhilarating ride. <br/><strong>Example:</strong> Gliding across open water at high speeds is an exhilarating sensation like no other.</p>
-                                        </div>
-                                        <div>
-                                            <span class="font-semibold text-brand-600">2. Momentum (noun)</span> /məˈmen.təm/
-                                            <p class="text-slate-600 text-[11px] mt-0.5"><strong>Definition:</strong> The force or speed with which something moves. <br/><strong>Collocations:</strong> Gain momentum, gather momentum. <br/><strong>Example:</strong> The sail caught a sudden gust, helping the board gather momentum across the water.</p>
-                                        </div>
-                                        <div>
-                                            <span class="font-semibold text-brand-600">3. Dive headfirst into (idiom)</span>
-                                            <p class="text-slate-600 text-[11px] mt-0.5"><strong>Definition:</strong> To start doing something with immense enthusiasm and energy without hesitation. <br/><strong>Example:</strong> Instead of worrying about falling, I decided to dive headfirst into my first windsurfing lesson.</p>
-                                        </div>
+                                    <p class="text-xs font-bold text-brand-800 mb-2">Lexical Masterclass:</p>
+                                    <div class="space-y-2 text-xs">
+                                        <p><strong>1. Exhilarating (adjective)</strong> /ɪɡˈzɪl.ə.reɪ.tɪŋ/ - Making one feel exceptionally happy, excited, and energized.</p>
+                                        <p><strong>2. Secluded (adjective)</strong> /sɪˈkluː.dɪd/ - Quiet, private, and sheltered from screen noise or human crowds.</p>
+                                        <p><strong>3. Rigorous (adjective)</strong> /ˈrɪɡ.ər.əs/ - Extremely thorough, demanding, and challenging physically or mentally.</p>
                                     </div>
                                 </div>
-                                <div class="bg-brand-50/50 p-4 rounded-lg border border-brand-200 text-xs">
-                                    <p class="font-bold text-brand-800 mb-1.5">Part 3 Analytical Extension:</p>
-                                    <p class="text-[11px] text-slate-700"><strong>Q: Why are modern metropolitan youths showing a growing preference for adventurous outdoor sports over traditional team sports?</strong><br/><em>Ans (OREO):</em> In my estimation, the shift toward extreme outdoor sports is a direct reaction to the highly structured, sedentary nature of urban lives. Adventurous sports like windsurfing or rock climbing offer a pure, sensory adrenaline rush that traditional sports like soccer cannot replicate, alongside a profound escape into nature. For example, a young corporate professional gains deep therapeutic release from navigating open waves. Therefore, these sports serve as active, psychological outlets to conquer fears and experience raw freedom.</p>
+                                <div class="bg-white p-4 rounded-lg border border-brand-200 shadow-sm">
+                                    <p class="text-xs font-bold text-brand-800 mb-2">Part 3 Extensions (10 Questions):</p>
+                                    <div class="space-y-3 text-xs">
+                                        <div>
+                                            <p class="font-semibold text-slate-700">1. What are the differences between indoor sports and outdoor sports?</p>
+                                            <p class="text-slate-600"><strong>Ans:</strong> Indoor sports offer <strong class="text-brand-800">climate-controlled consistency</strong>, whereas outdoor sports provide fresh air and natural terrain variety. Indoor activities like badminton avoid weather disruptions, while outdoor sports like trail running build mental resilience against elements. Thus, environment dictates the athletic experience.</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold text-slate-700">2. What outdoor sports are popular in Vietnam?</p>
+                                            <p class="text-slate-600"><strong>Ans:</strong> Football, street badminton, and outdoor marathon running are exceptionally popular across Vietnamese cities. Public parks are packed with jogging groups every early morning. For instance, marathon events in Da Nang attract thousands of runners annually. Hence, group fitness leads outdoor trends.</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold text-slate-700">3. What sports are popular among elderly people?</p>
+                                            <p class="text-slate-600"><strong>Ans:</strong> Seniors generally favor <strong class="text-brand-800">low-impact physical activities</strong> such as Tai Chi, brisk walking, and outdoor morning aerobics. These exercises protect fragile joints while promoting cardiovascular health. For example, elderly groups gather by lakes at dawn for gentle stretching. Therefore, low-impact movement supports senior health.</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold text-slate-700">4. Which outdoor sports are popular with children?</p>
+                                            <p class="text-slate-600"><strong>Ans:</strong> Children naturally gravitate toward energetic activities like roller-skating, outdoor cycling, and football. These sports offer playful competition and physical energy release. For instance, neighborhood playgrounds are full of kids playing tag and cycling. Thus, dynamic games dominate youth preferences.</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold text-slate-700">5. How does weather affect outdoor sports?</p>
+                                            <p class="text-slate-600"><strong>Ans:</strong> Weather conditions directly dictate event scheduling and <strong class="text-brand-800">athlete performance levels</strong>. Extreme heat causes rapid dehydration, while heavy rains make playing fields dangerous. For example, monsoon storms often force football match cancellations. Consequently, outdoor sports require flexible weather planning.</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold text-slate-700">6. Which is more dangerous, team sports or individual sports?</p>
+                                            <p class="text-slate-600"><strong>Ans:</strong> Danger depends on the sport type rather than group size, though extreme individual sports carry higher severe injury risks. Contact team sports like rugby cause frequent collisions, but solo extreme sports like free-solo climbing lack immediate team safety nets. Thus, risk factors vary widely.</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold text-slate-700">7. How can governments encourage more people to participate in outdoor sports?</p>
+                                            <p class="text-slate-600"><strong>Ans:</strong> Authorities should subsidize <strong class="text-brand-800">public sports facilities</strong> and build dedicated pedestrian bike paths in urban districts. Hosting free civic sports festivals raises health awareness. For instance, public outdoor gyms in public parks encourage daily exercise. Therefore, accessible infrastructure drives participation.</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold text-slate-700">8. What equipment is necessary for different outdoor sports?</p>
+                                            <p class="text-slate-600"><strong>Ans:</strong> Equipment ranges from basic protective footwear to specialized gear like helmets, harnesses, and safety vests. Water sports demand flotation vests, while cycling requires certified helmets. For example, rock climbing demands high-grade ropes and carabiners. Hence, safety gear is vital across disciplines.</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold text-slate-700">9. Do you think outdoor sports are more beneficial than indoor sports?</p>
+                                            <p class="text-slate-600"><strong>Ans:</strong> Yes, outdoor sports combine physical conditioning with <strong class="text-brand-800">natural psychological stress relief</strong>. Exercising in natural sunlight boosts vitamin D levels and mental mood better than indoor gyms. For example, outdoor trail running offers richer sensory stimulation. Consequently, outdoor fitness provides holistic benefits.</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold text-slate-700">10. How has technology changed outdoor sports activities?</p>
+                                            <p class="text-slate-600"><strong>Ans:</strong> Wearable fitness trackers and smart fabrics have revolutionized performance monitoring and personal safety. Athletes analyze real-time heart rates and elevation data on smartwatches. For instance, GPS tracking lets solo hikers send emergency distress signals. Thus, technology enhances performance and safety.</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </details>
 
-                        <!-- Topic 3: Unusual Building -->
+                        <!-- Page 79: Unusual building -->
                         <details class="group border border-brand-200 rounded-lg bg-white overflow-hidden shadow-sm hover:border-brand-400 transition-colors">
                             <summary class="flex justify-between items-center font-medium cursor-pointer p-4 hover:bg-brand-50/50 text-brand-900 transition-colors">
                                 <span class="flex items-center gap-3">
-                                    <span class="w-7 h-7 bg-brand-100 text-brand-800 rounded-full flex items-center justify-center font-bold text-xs">03</span>
+                                    <span class="w-7 h-7 bg-brand-100 text-brand-800 rounded-full flex items-center justify-center font-bold text-xs">79</span>
                                     <span class="font-serif text-sm md:text-base font-bold text-slate-800">Describe an unusual but interesting building you would like to visit</span>
                                 </span>
                                 <svg class="w-5 h-5 transition duration-300 group-open:rotate-180 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg>
                             </summary>
                             <div class="p-5 border-t border-brand-100 text-sm text-slate-800 space-y-4 bg-brand-50/10 leading-relaxed">
                                 <div class="mb-2 bg-brand-50 p-3 rounded border border-brand-100">
-                                    <p class="text-xs font-bold text-brand-800 mb-1">Part 2 Cue Card Bullets:</p>
-                                    <p class="text-xs text-slate-600">You should say: Where this building is; What it looks like; How you first learned about it; And explain why you would like to visit this unusual building.</p>
+                                    <p class="text-xs font-bold text-brand-800 mb-1">Part 2 Cue Card:</p>
+                                    <p class="text-xs text-slate-600">You should say: Where it is; What it looks like; Why you think it is unusual and interesting; And explain why you would like to visit it.</p>
                                 </div>
                                 <div class="bg-white p-4 rounded-lg border border-brand-200 shadow-sm">
-                                    <p class="text-xs font-bold text-brand-800 mb-2 flex items-center gap-1.5">
-                                        <svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
-                                        Band 7.5+ Sample Response (Monologue):
-                                    </p>
-                                    <p class="text-xs text-slate-700 italic leading-relaxed">
-                                        "An unusual but completely fascinating landmark that I am highly eager to visit is the famous 'Crazy House' (officially named Hang Nga Guesthouse) located in the mountainous city of Da Lat. This extraordinary architectural masterpiece resembles a giant, organic banyan tree, featuring twisted, cave-like stone pathways, spiderweb windows, and animal-themed guestrooms built directly into its structure. I first stumbled upon this building in an online art magazine highlighting avant-garde structures. I want to visit this place because it completely breaks the mold of traditional, rigid urban planning. It is a stunning, physical manifestation of artistic expression, showing a beautiful juxtaposition between man-made structures and the chaotic, majestic forms of raw nature. Standing inside its twisted corridors would be an absolute feast for the eyes."
-                                    </p>
+                                    <p class="text-xs font-bold text-brand-800 mb-2">Band 7.5+ Sample Response:</p>
+                                    <p class="text-xs text-slate-700 italic">"An architectural wonder that I am dying to visit is the famous <strong class="text-brand-800 font-semibold">'Crazy House' (Hang Nga Guesthouse)</strong> in Da Lat. Designed by an expressionist architect, the building resembles a massive, organic banyan tree with sculptural branches, cave-like guestrooms, and winding outdoor staircases. I first discovered it in an international travel magazine highlighting <strong class="text-brand-800 font-semibold">avant-garde architecture</strong>. It is so unusual because it rejects traditional straight lines and symmetrical geometry completely. I want to visit it because stepping through its surreal, fairytale-like pathways offers an <strong class="text-brand-800 font-semibold">unmatched visual feast</strong> that pushes the boundaries of human imagination."</p>
                                 </div>
                                 <div class="bg-white p-4 rounded-lg border border-brand-200 shadow-sm">
-                                    <p class="text-xs font-bold text-brand-800 mb-2">Lexical Masterclass (Detailed Vocab & Idioms):</p>
-                                    <div class="space-y-3 text-xs">
-                                        <div>
-                                            <span class="font-semibold text-brand-600">1. Avant-garde (adjective)</span> /ˌæv.ɒ̃ˈɡɑːd/
-                                            <p class="text-slate-600 text-[11px] mt-0.5"><strong>Definition:</strong> Ultra-modern, highly innovative, and experimenting with new style concepts. <br/><strong>Example:</strong> The architect's avant-garde approach to using recycled plastics has won global acclaim.</p>
-                                        </div>
-                                        <div>
-                                            <span class="font-semibold text-brand-600">2. Architectural (adjective)</span> /ˌɑː.kɪˈtek.tʃər.əl/
-                                            <p class="text-slate-600 text-[11px] mt-0.5"><strong>Definition:</strong> Relating to the design and construction of buildings. <br/><strong>Collocations:</strong> Architectural masterpiece, architectural styles. <br/><strong>Example:</strong> The historic cathedral is celebrated for its unique Goth-style architectural features.</p>
-                                        </div>
-                                        <div>
-                                            <span class="font-semibold text-brand-600">3. Break the mold (idiom)</span>
-                                            <p class="text-slate-600 text-[11px] mt-0.5"><strong>Definition:</strong> To do something completely different from what has been done before, rejecting conventional limits. <br/><strong>Example:</strong> Designing a house that looks like a giant tree really broke the mold of standard modern housing.</p>
-                                        </div>
+                                    <p class="text-xs font-bold text-brand-800 mb-2">Lexical Masterclass:</p>
+                                    <div class="space-y-2 text-xs">
+                                        <p><strong>1. Avant-garde (adjective)</strong> /ˌæv.ɒ̃ˈɡɑːd/ - Ultra-modern, experimental, and unconventional in style.</p>
+                                        <p><strong>2. Expressionist (adjective)</strong> /ɪkˈspreʃ.ən.ɪst/ - Art or architecture seeking to express emotional experience rather than physical reality.</p>
+                                        <p><strong>3. Visual feast (idiom)</strong> - A magnificent, pleasing sight featuring rich artistic or natural details.</p>
                                     </div>
                                 </div>
-                                <div class="bg-brand-50/50 p-4 rounded-lg border border-brand-200 text-xs">
-                                    <p class="font-bold text-brand-800 mb-1.5">Part 3 Analytical Extension:</p>
-                                    <p class="text-[11px] text-slate-700"><strong>Q: Should municipal governments invest heavily in preserving historic buildings, even if the maintenance costs are exceptionally high?</strong><br/><em>Ans (OREO):</em> In my view, safeguarding historical architecture is paramount for maintaining a city's cultural identity. This is because historic buildings serve as a tangible link to a community’s past struggles, aesthetic achievements, and historical narrative, which modern glass skyscrapers cannot replicate. For example, preserving traditional wooden townhouses in Hoi An sustains the city's historical soul and local tourist economy. Therefore, these landmarks prevent cultural erosion and deserve public funding despite high maintenance costs.</p>
+                                <div class="bg-white p-4 rounded-lg border border-brand-200 shadow-sm">
+                                    <p class="text-xs font-bold text-brand-800 mb-2">Part 3 Extensions (10 Questions):</p>
+                                    <div class="space-y-3 text-xs">
+                                        <div>
+                                            <p class="font-semibold text-slate-700">1. Do you think old buildings should be preserved?</p>
+                                            <p class="text-slate-600"><strong>Ans:</strong> Yes, historic structures serve as <strong class="text-brand-800">tangible cultural anchors</strong> that embody a nation's history. Preserving old buildings maintains local character and attracts heritage tourism. For example, preserving French colonial buildings in Hanoi enriches urban identity. Therefore, historic preservation protects cultural legacy.</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold text-slate-700">2. Do you think a city's buildings affect its vibe or atmosphere?</p>
+                                            <p class="text-slate-600"><strong>Ans:</strong> Absolutely, architecture dictates a city's <strong class="text-brand-800">visual energy and pedestrian mood</strong>. Cities with open plazas and historic facades feel welcoming, whereas uniform concrete towers can feel sterile. For instance, Hoi An's yellow shopfronts create a warm, nostalgic atmosphere. Consequently, architecture defines urban identity.</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold text-slate-700">3. What factors do you consider when choosing a house or an apartment?</p>
+                                            <p class="text-slate-600"><strong>Ans:</strong> Primary considerations include location safety, proximity to public transit, and <strong class="text-brand-800">natural ventilation efficiency</strong>. Affordability and natural lighting are also critical. For example, living near metro stops saves daily commuting time. Thus, convenience and comfort guide housing decisions.</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold text-slate-700">4. Why do some people choose to build houses by themselves?</p>
+                                            <p class="text-slate-600"><strong>Ans:</strong> Building independently allows complete <strong class="text-brand-800">architectural customization</strong> tailored to personal family needs. It also ensures strict oversight over material quality. For instance, homeowners can install custom eco-friendly solar systems. Hence, self-building guarantees tailored quality.</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold text-slate-700">5. How do modern buildings differ from traditional architecture in your country?</p>
+                                            <p class="text-slate-600"><strong>Ans:</strong> Modern buildings utilize glass and steel for vertical efficiency, whereas traditional homes featured wooden frames and curved tile roofs designed for tropical ventilation. Traditional layouts prioritized communal courtyards. For example, modern high-rises focus on spatial density. Thus, materials and structural concepts differ.</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold text-slate-700">6. What makes a building environmentally friendly?</p>
+                                            <p class="text-slate-600"><strong>Ans:</strong> Sustainable buildings incorporate <strong class="text-brand-800">solar power generation</strong>, rainwater harvesting, and energy-efficient insulation. Utilizing local recycled materials reduces carbon footprints during construction. For instance, buildings with vertical gardens reduce air-conditioning needs. Therefore, eco-design minimizes environmental impact.</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold text-slate-700">7. Should governments invest more in unique architectural projects?</p>
+                                            <p class="text-slate-600"><strong>Ans:</strong> Yes, iconic public buildings boost civic pride and serve as <strong class="text-brand-800">major tourism magnets</strong>. Distinctive cultural centers enhance international reputation. For example, Sydney's Opera House generates huge tourism revenues. Consequently, artistic public architecture yields long-term economic returns.</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold text-slate-700">8. How do famous buildings contribute to tourism?</p>
+                                            <p class="text-slate-600"><strong>Ans:</strong> Landmark structures act as visual symbols that define travel itineraries. Travelers journey across the globe specifically to photograph iconic monuments. For example, the Eiffel Tower attracts millions to Paris annually. Thus, famous architecture powers hospitality industries.</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold text-slate-700">9. What are the challenges of maintaining historical buildings?</p>
+                                            <p class="text-slate-600"><strong>Ans:</strong> Challenges include finding rare traditional materials, high restoration expenses, and <strong class="text-brand-800">structural weather degradation</strong>. Ancient wooden components decay without specialized treatment. For instance, historic temples require skilled artisans for restoration. Therefore, preservation demands continuous expertise and funds.</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold text-slate-700">10. Do you think all cities should have some unique architectural landmarks?</p>
+                                            <p class="text-slate-600"><strong>Ans:</strong> Yes, landmark architecture prevents cities from becoming <strong class="text-brand-800">monotonous concrete jungles</strong>. Unique landmarks provide orientation points and foster local pride. For example, distinct bridges become city symbols. Hence, iconic landmarks enrich urban character.</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </details>
 
-                        <!-- Topic 4: Environmental Person -->
+                        <!-- Page 80: Person protecting environment -->
                         <details class="group border border-brand-200 rounded-lg bg-white overflow-hidden shadow-sm hover:border-brand-400 transition-colors">
                             <summary class="flex justify-between items-center font-medium cursor-pointer p-4 hover:bg-brand-50/50 text-brand-900 transition-colors">
                                 <span class="flex items-center gap-3">
-                                    <span class="w-7 h-7 bg-brand-100 text-brand-800 rounded-full flex items-center justify-center font-bold text-xs">04</span>
+                                    <span class="w-7 h-7 bg-brand-100 text-brand-800 rounded-full flex items-center justify-center font-bold text-xs">80</span>
                                     <span class="font-serif text-sm md:text-base font-bold text-slate-800">Describe a person who helps to protect the environment</span>
                                 </span>
                                 <svg class="w-5 h-5 transition duration-300 group-open:rotate-180 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg>
                             </summary>
                             <div class="p-5 border-t border-brand-100 text-sm text-slate-800 space-y-4 bg-brand-50/10 leading-relaxed">
                                 <div class="mb-2 bg-brand-50 p-3 rounded border border-brand-100">
-                                    <p class="text-xs font-bold text-brand-800 mb-1">Part 2 Cue Card Bullets:</p>
-                                    <p class="text-xs text-slate-600">You should say: Who this person is; How you know him/her; What they do to protect the environment; And explain why you admire this person.</p>
+                                    <p class="text-xs font-bold text-brand-800 mb-1">Part 2 Cue Card:</p>
+                                    <p class="text-xs text-slate-600">You should say: Who this person is; When this person does this; What has the person done; And explain why you think this person does this.</p>
                                 </div>
                                 <div class="bg-white p-4 rounded-lg border border-brand-200 shadow-sm">
-                                    <p class="text-xs font-bold text-brand-800 mb-2 flex items-center gap-1.5">
-                                        <svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
-                                        Band 7.5+ Sample Response (Monologue):
-                                    </p>
-                                    <p class="text-xs text-slate-700 italic leading-relaxed">
-                                        "I would love to tell you about an exceptional, eco-conscious classmate named Lan, who is incredibly active in green initiatives. We met during our freshman orientation, and we've collaborated on multiple school projects since. Lan runs a highly successful community-driven zero-waste advocacy campaign in our neighborhood. Every single weekend, she organizes a group of student volunteers to clean up local riverside parks and sort recyclable plastics. Furthermore, she conducts informative workshops at primary schools, teaching young kids the importance of reducing single-use packaging. I deeply admire Lan because she truly leads by example; she lives a completely plastic-free lifestyle, carrying her own reusable containers everywhere. Her absolute devotion and infectious energy prove that any single person, with enough passion, can make a monumental difference in protecting our local ecosystems."
-                                    </p>
+                                    <p class="text-xs font-bold text-brand-800 mb-2">Band 7.5+ Sample Response:</p>
+                                    <p class="text-xs text-slate-700 italic">"I would like to tell you about my inspiring university classmate, Lan, who is a passionate <strong class="text-brand-800 font-semibold">grassroots environmental advocate</strong>. Every single weekend, she mobilizes groups of student volunteers to organize beach cleanups and tree-planting drives along local rivers. She also founded a campus zero-waste initiative that teaches students how to compost organic waste and replace single-use plastics. I admire her deeply because she <strong class="text-brand-800 font-semibold">leads by example with unyielding commitment</strong>. She does this out of a profound sense of responsibility toward future generations, believing firmly that individual daily actions can spark <strong class="text-brand-800 font-semibold">systemic ecological change</strong>."</p>
                                 </div>
                                 <div class="bg-white p-4 rounded-lg border border-brand-200 shadow-sm">
-                                    <p class="text-xs font-bold text-brand-800 mb-2">Lexical Masterclass (Detailed Vocab & Idioms):</p>
-                                    <div class="space-y-3 text-xs">
-                                        <div>
-                                            <span class="font-semibold text-brand-600">1. Eco-conscious (adjective)</span> /ˌiː.kəʊˈkɒn.ʃəs/
-                                            <p class="text-slate-600 text-[11px] mt-0.5"><strong>Definition:</strong> Showing deep concern for the preservation of the environment and minimizing pollution. <br/><strong>Collocations:</strong> Eco-conscious consumer, eco-conscious lifestyle. <br/><strong>Example:</strong> Purchasing locally sourced items is a key habit of eco-conscious citizens.</p>
-                                        </div>
-                                        <div>
-                                            <span class="font-semibold text-brand-600">2. Advocacy (noun)</span> /ˈæd.və.kə.si/
-                                            <p class="text-slate-600 text-[11px] mt-0.5"><strong>Definition:</strong> Public support for or recommendation of a particular cause or policy. <br/><strong>Collocations:</strong> Environmental advocacy, legal advocacy. <br/><strong>Example:</strong> Her non-profit organization is dedicated to clean water advocacy in remote delta communities.</p>
-                                        </div>
-                                        <div>
-                                            <span class="font-semibold text-brand-600">3. Lead by example (idiom)</span>
-                                            <p class="text-slate-600 text-[11px] mt-0.5"><strong>Definition:</strong> To guide or influence others through your own personal, positive actions instead of words. <br/><strong>Example:</strong> Lan always leads by example, showing up first at the weekend community cleanups.</p>
-                                        </div>
+                                    <p class="text-xs font-bold text-brand-800 mb-2">Lexical Masterclass:</p>
+                                    <div class="space-y-2 text-xs">
+                                        <p><strong>1. Grassroots (adjective)</strong> /ˈɡrɑːs.ruːts/ - Driven by ordinary citizens at a local community level rather than political leaders.</p>
+                                        <p><strong>2. Mobilize (verb)</strong> /ˈməʊ.bɪ.laɪz/ - To organize people or resources for a specific active goal or cause.</p>
+                                        <p><strong>3. Lead by example (idiom)</strong> - To guide others by personal positive behavior rather than mere instructions.</p>
                                     </div>
                                 </div>
-                                <div class="bg-brand-50/50 p-4 rounded-lg border border-brand-200 text-xs">
-                                    <p class="font-bold text-brand-800 mb-1.5">Part 3 Analytical Extension:</p>
-                                    <p class="text-[11px] text-slate-700"><strong>Q: What is the most effective way for public educational institutions to instill active environmental values in children?</strong><br/><em>Ans (OREO):</em> In my view, integrating hands-on ecological projects directly into the primary school curriculum is highly effective. This is because theoretical textbook lectures fail to foster actual empathy, whereas real experiences build a lifetime bond with nature. For example, schools managing small organic gardens teach children about biodiversity and food waste through daily care. Therefore, physical engagement develops actual eco-conscious citizens far better than classroom exams.</p>
+                                <div class="bg-white p-4 rounded-lg border border-brand-200 shadow-sm">
+                                    <p class="text-xs font-bold text-brand-800 mb-2">Part 3 Extensions (10 Questions):</p>
+                                    <div class="space-y-3 text-xs">
+                                        <div>
+                                            <p class="font-semibold text-slate-700">1. Why can recycling help the environment?</p>
+                                            <p class="text-slate-600"><strong>Ans:</strong> Recycling conserves raw natural resources and reduces landfill pollution. Processing recycled glass or aluminum consumes far less energy than extracting new materials. For example, recycling paper saves millions of trees from deforestation. Thus, recycling minimizes resource depletion.</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold text-slate-700">2. What have people done to damage the environment?</p>
+                                            <p class="text-slate-600"><strong>Ans:</strong> Human industrial expansion has caused <strong class="text-brand-800">uncontrolled deforestation</strong>, ocean plastic contamination, and excessive fossil fuel emissions. These activities destroy natural habitats and accelerate global warming. For instance, industrial discharge pollutes major river basins. Consequently, ecosystems suffer severe degradation.</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold text-slate-700">3. Do you think technology can improve environment-related problems?</p>
+                                            <p class="text-slate-600"><strong>Ans:</strong> Yes, green technological innovations like solar energy, electric vehicles, and carbon capture offer vital solutions. Advanced recycling technology processes plastics far more efficiently. For instance, solar technology reduces reliance on coal power plants. Therefore, green tech powers environmental recovery.</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold text-slate-700">4. Is it important to teach students environmental protection at school?</p>
+                                            <p class="text-slate-600"><strong>Ans:</strong> Absolutely, early environmental education instills <strong class="text-brand-800">lifelong eco-conscious habits</strong> in children. Understanding ecological impact encourages responsible waste habits from a young age. For example, school recycling programs teach sorting skills early. Hence, green curricula build responsible citizens.</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold text-slate-700">5. What are the most serious environmental problems facing the world today?</p>
+                                            <p class="text-slate-600"><strong>Ans:</strong> Climate change, global ocean pollution, and biodiversity loss are the most critical crises. Rising sea levels threaten coastal cities, while plastic waste destroys marine food chains. For instance, extreme weather disasters occur with higher frequency. Consequently, urgent global action is required.</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold text-slate-700">6. How can individuals contribute to environmental protection in their daily lives?</p>
+                                            <p class="text-slate-600"><strong>Ans:</strong> Individuals can adopt zero-waste habits, cut household energy waste, and choose public transportation over private cars. Using reusable bags stops single-use plastic pollution. For example, commuting by metro lowers personal carbon footprints. Thus, small daily choices drive collective change.</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold text-slate-700">7. Do you think governments are doing enough to protect the environment?</p>
+                                            <p class="text-slate-600"><strong>Ans:</strong> While many nations have signed climate pledges, progress remains slow due to short-term economic priorities. Stricter corporate emissions penalties and renewable subsidies are needed. For example, fossil fuel subsidies still hinder clean energy transitions. Hence, stronger legislative action is required.</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold text-slate-700">8. What role do businesses play in environmental conservation?</p>
+                                            <p class="text-slate-600"><strong>Ans:</strong> Corporations must adopt <strong class="text-brand-800">sustainable supply chain models</strong> and minimize industrial manufacturing waste. Transitioning to eco-friendly packaging significantly reduces global plastic pollution. For instance, major brands replacing plastic cups with paper cuts tons of waste. Therefore, corporate responsibility is crucial.</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold text-slate-700">9. How can we encourage more people to care about environmental issues?</p>
+                                            <p class="text-slate-600"><strong>Ans:</strong> Media campaigns illustrating local environmental impacts make climate crises feel immediate rather than distant. Financial incentives like recycling tax rebates also motivate green behavior. For example, charging for plastic shopping bags encourages cloth bag usage. Thus, education combined with incentives works best.</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold text-slate-700">10. What will happen if we don't take action to protect the environment now?</p>
+                                            <p class="text-slate-600"><strong>Ans:</strong> Inaction will lead to <strong class="text-brand-800">catastrophic climate displacement</strong>, severe food shortages, and irreversible ecosystem collapses. Coastal cities risk flooding while agricultural yields drop sharply. For instance, extreme droughts threaten global farming security. Consequently, delayed action jeopardizes human survival.</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </details>
 
-                        <!-- Topic 5: Old family thing -->
+                        <!-- Page 81: Important old thing -->
                         <details class="group border border-brand-200 rounded-lg bg-white overflow-hidden shadow-sm hover:border-brand-400 transition-colors">
                             <summary class="flex justify-between items-center font-medium cursor-pointer p-4 hover:bg-brand-50/50 text-brand-900 transition-colors">
                                 <span class="flex items-center gap-3">
-                                    <span class="w-7 h-7 bg-brand-100 text-brand-800 rounded-full flex items-center justify-center font-bold text-xs">05</span>
+                                    <span class="w-7 h-7 bg-brand-100 text-brand-800 rounded-full flex items-center justify-center font-bold text-xs">81</span>
                                     <span class="font-serif text-sm md:text-base font-bold text-slate-800">Describe an important old thing that your family has kept for a long time</span>
                                 </span>
                                 <svg class="w-5 h-5 transition duration-300 group-open:rotate-180 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg>
                             </summary>
                             <div class="p-5 border-t border-brand-100 text-sm text-slate-800 space-y-4 bg-brand-50/10 leading-relaxed">
                                 <div class="mb-2 bg-brand-50 p-3 rounded border border-brand-100">
-                                    <p class="text-xs font-bold text-brand-800 mb-1">Part 2 Cue Card Bullets:</p>
-                                    <p class="text-xs text-slate-600">You should say: What this thing is; How your family got it; How long your family has kept it; And explain why this old thing is so important to your family.</p>
+                                    <p class="text-xs font-bold text-brand-800 mb-1">Part 2 Cue Card:</p>
+                                    <p class="text-xs text-slate-600">You should say: What it is; How/when your family first got this thing; How long your family has kept it; Why this thing is important to your family.</p>
                                 </div>
                                 <div class="bg-white p-4 rounded-lg border border-brand-200 shadow-sm">
-                                    <p class="text-xs font-bold text-brand-800 mb-2 flex items-center gap-1.5">
-                                        <svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
-                                        Band 7.5+ Sample Response (Monologue):
-                                    </p>
-                                    <p class="text-xs text-slate-700 italic leading-relaxed">
-                                        "I want to share the story of a precious mechanical Swiss watch inherited from my great-grandfather, which is an invaluable family heirloom. This beautiful watch was originally purchased in the late 1940s, and it has been preserved by our family for almost eighty years. It features an elegant silver dial, a worn brown leather strap, and a visible mechanical movement that still winds perfectly. What makes this old watch so important to us is its immense sentimental value. It has accompanied our family through thick and thin, surviving various socio-economic transitions and wars. To me, it is a brilliant symbol of historical resilience and family continuity. Staring at its rhythmic hands ticking smoothly is a grounding reminder of my ancestors' struggles and successes, proving that some objects possess a timeless soul that digital replacements can never replicate."
-                                    </p>
+                                    <p class="text-xs font-bold text-brand-800 mb-2">Band 7.5+ Sample Response:</p>
+                                    <p class="text-xs text-slate-700 italic">"A treasured item that my family has preserved for over seventy years is my great-grandfather's <strong class="text-brand-800 font-semibold">antique mechanical pocket watch</strong>. He acquired it in the late 1940s while working as a schoolmaster. The watch features an intricate silver casing and hand-carved Roman numerals. This timepiece is an invaluable <strong class="text-brand-800 font-semibold">family heirloom</strong> because it symbolizes our family's perseverance through historical hardships. Looking at its ticking hands offers a deeply grounding reminder of my ancestors' values, proving that certain physical objects possess an <strong class="text-brand-800 font-semibold">irreplaceable sentimental value</strong> that modern gadgets cannot replicate."</p>
                                 </div>
                                 <div class="bg-white p-4 rounded-lg border border-brand-200 shadow-sm">
-                                    <p class="text-xs font-bold text-brand-800 mb-2">Lexical Masterclass (Detailed Vocab & Idioms):</p>
-                                    <div class="space-y-3 text-xs">
-                                        <div>
-                                            <span class="font-semibold text-brand-600">1. Heirloom (noun)</span> /ˈeə.luːm/
-                                            <p class="text-slate-600 text-[11px] mt-0.5"><strong>Definition:</strong> A valuable object that has belonged to a family for several generations. <br/><strong>Collocations:</strong> Family heirloom, cherished heirloom. <br/><strong>Example:</strong> Her mother gave her a vintage jade necklace as a treasured family heirloom.</p>
-                                        </div>
-                                        <div>
-                                            <span class="font-semibold text-brand-600">2. Sentimental (adjective)</span> /ˌsen.tɪˈmen.təl/
-                                            <p class="text-slate-600 text-[11px] mt-0.5"><strong>Definition:</strong> Relating to feelings of tenderness, nostalgia, or sadness. <br/><strong>Collocations:</strong> Sentimental value, sentimental attachment. <br/><strong>Example:</strong> Although the old wooden desk was practically worthless, it held deep sentimental value for my father.</p>
-                                        </div>
-                                        <div>
-                                            <span class="font-semibold text-brand-600">3. Through thick and thin (idiom)</span>
-                                            <p class="text-slate-600 text-[11px] mt-0.5"><strong>Definition:</strong> Under all circumstances, surviving both the good times and very difficult challenges. <br/><strong>Example:</strong> My parents stood by each other through thick and thin for over forty years.</p>
-                                        </div>
+                                    <p class="text-xs font-bold text-brand-800 mb-2">Lexical Masterclass:</p>
+                                    <div class="space-y-2 text-xs">
+                                        <p><strong>1. Heirloom (noun)</strong> /ˈeə.luːm/ - A valuable object passed down through several generations of a family.</p>
+                                        <p><strong>2. Sentimental value (noun phrase)</strong> - The emotional worth an object holds due to personal memories rather than its price tag.</p>
+                                        <p><strong>3. Timepiece (noun)</strong> /ˈtaɪm.piːs/ - An instrument for measuring time, especially a clock or watch.</p>
                                     </div>
                                 </div>
-                                <div class="bg-brand-50/50 p-4 rounded-lg border border-brand-200 text-xs">
-                                    <p class="font-bold text-brand-800 mb-1.5">Part 3 Analytical Extension:</p>
-                                    <p class="text-[11px] text-slate-700"><strong>Q: Why do some cultures place a significantly higher value on preserving antique objects than others?</strong><br/><em>Ans (OREO):</em> In my view, cultures that emphasize ancestral worship and family legacy naturally prioritize the preservation of antiques. This is because ancient objects are viewed as sacred conduits of historical continuity, grounding current generations in their ancestral origins. For instance, in many traditional East Asian households, families maintain shrines featuring historic tools and heirlooms to pay respect. Therefore, keeping these items is a vital moral duty that preserves collective memory and resists modern individualistic consumerism.</p>
+                                <div class="bg-white p-4 rounded-lg border border-brand-200 shadow-sm">
+                                    <p class="text-xs font-bold text-brand-800 mb-2">Part 3 Extensions (11 Questions):</p>
+                                    <div class="space-y-3 text-xs">
+                                        <div>
+                                            <p class="font-semibold text-slate-700">1. What kind of old things do people in your country like to keep?</p>
+                                            <p class="text-slate-600"><strong>Ans:</strong> In Vietnam, families often preserve vintage photo albums, antique wooden furniture, traditional lacquerware, and inherited jewelry. These items carry ancestral memories and heritage. For example, family altars often showcase multi-generational brass incense burners. Thus, heirlooms connect generations.</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold text-slate-700">2. Why do people keep old things?</p>
+                                            <p class="text-slate-600"><strong>Ans:</strong> People keep vintage objects due to <strong class="text-brand-800">deep nostalgic attachment</strong> and historical value. Physical items evoke specific memories of departed relatives far better than digital photos. For example, holding a grandmother's hand-written recipe book brings comfort. Hence, old items preserve emotional continuity.</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold text-slate-700">3. What are the differences between the things old people keep and those young people keep?</p>
+                                            <p class="text-slate-600"><strong>Ans:</strong> Seniors hold onto traditional physical heirlooms like letters and clocks, whereas youth preserve digital archives, vintage fashion, or collectible vinyl records. Older generations value historical permanence, while youth value aesthetic trends. For example, teens collect retro cameras. Thus, generational values differ.</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold text-slate-700">4. What are the differences between the things that people keep today and the things that people kept in the past?</p>
+                                            <p class="text-slate-600"><strong>Ans:</strong> Past generations kept durable, hand-crafted utilitarian goods built to last lifetimes, whereas modern populations store digital files or mass-produced goods. High-quality craftsmanship was prioritized historically. For instance, antique furniture lasted centuries unlike flat-pack items. Consequently, durability has declined.</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold text-slate-700">5. What can we see in a museum?</p>
+                                            <p class="text-slate-600"><strong>Ans:</strong> Museums showcase archaeological artifacts, historical military gear, fine art, and ancient manuscripts. These collections document human cultural evolution across eras. For instance, history museums display ancient bronze drums. Therefore, museums archive human history.</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold text-slate-700">6. What can we learn from a museum?</p>
+                                            <p class="text-slate-600"><strong>Ans:</strong> Museums offer <strong class="text-brand-800">contextual historical insights</strong> into societal triumphs, artistic movements, and past struggles. Seeing physical historical artifacts deepens textbook knowledge. For example, visiting war memorials teaches resilience lessons. Thus, museums provide immersive education.</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold text-slate-700">7. Do you think it's important for families to pass on old things to the next generation?</p>
+                                            <p class="text-slate-600"><strong>Ans:</strong> Yes, passing down heirlooms instills family pride and preserves ancestral identity. Inherited objects keep family oral histories alive across centuries. For instance, receiving an ancestor's ring builds belonging. Therefore, heirlooms strengthen family continuity.</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold text-slate-700">8. How do old objects help us understand history?</p>
+                                            <p class="text-slate-600"><strong>Ans:</strong> Artifacts provide <strong class="text-brand-800">tangible evidence</strong> of ancient manufacturing techniques, daily domestic habits, and trade networks. Examining ancient tools reveals technical capacities of past societies. For example, ancient coins illuminate historical trade routes. Hence, objects validate history.</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold text-slate-700">9. Are there any risks or disadvantages to keeping old things?</p>
+                                            <p class="text-slate-600"><strong>Ans:</strong> Excessive hoarding leads to cluttered living spaces and potential maintenance burdens. Old items deteriorate without costly climate-controlled storage. For example, ancient textiles decay if exposed to humidity. Thus, keeping antiques requires careful care.</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold text-slate-700">10. How do people usually take care of valuable old things?</p>
+                                            <p class="text-slate-600"><strong>Ans:</strong> Valuables are stored in protective display cases, maintained with specialized cleaning solutions, or kept in climate-controlled environments. High-value antiques are often professionally restored. For instance, old oil paintings undergo varnish restoration. Therefore, preservation requires meticulous upkeep.</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold text-slate-700">11. In what ways can old things be preserved for the future?</p>
+                                            <p class="text-slate-600"><strong>Ans:</strong> Beyond physical museum conservation, 3D scanning and <strong class="text-brand-800">digital archiving</strong> allow eternal virtual preservation. High-resolution digital catalogs ensure historical knowledge survives physical decay. For example, ancient manuscripts are scanned for online access. Thus, digitization secures heritage.</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </details>
 
-                        <!-- Topic 6: Natural Talent -->
+                        <!-- Page 82: Natural talent -->
                         <details class="group border border-brand-200 rounded-lg bg-white overflow-hidden shadow-sm hover:border-brand-400 transition-colors">
                             <summary class="flex justify-between items-center font-medium cursor-pointer p-4 hover:bg-brand-50/50 text-brand-900 transition-colors">
                                 <span class="flex items-center gap-3">
-                                    <span class="w-7 h-7 bg-brand-100 text-brand-800 rounded-full flex items-center justify-center font-bold text-xs">06</span>
+                                    <span class="w-7 h-7 bg-brand-100 text-brand-800 rounded-full flex items-center justify-center font-bold text-xs">82</span>
                                     <span class="font-serif text-sm md:text-base font-bold text-slate-800">Describe a natural talent (sports, music, etc.) you want to improve</span>
                                 </span>
                                 <svg class="w-5 h-5 transition duration-300 group-open:rotate-180 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg>
                             </summary>
                             <div class="p-5 border-t border-brand-100 text-sm text-slate-800 space-y-4 bg-brand-50/10 leading-relaxed">
                                 <div class="mb-2 bg-brand-50 p-3 rounded border border-brand-100">
-                                    <p class="text-xs font-bold text-brand-800 mb-1">Part 2 Cue Card Bullets:</p>
-                                    <p class="text-xs text-slate-600">You should say: What this natural talent is; How you discovered you had it; How you want to improve it; And explain why you want to improve this natural talent.</p>
+                                    <p class="text-xs font-bold text-brand-800 mb-1">Part 2 Cue Card:</p>
+                                    <p class="text-xs text-slate-600">You should say: What it is; When you discovered it; How you want to improve it; And how you feel about it.</p>
                                 </div>
                                 <div class="bg-white p-4 rounded-lg border border-brand-200 shadow-sm">
-                                    <p class="text-xs font-bold text-brand-800 mb-2 flex items-center gap-1.5">
-                                        <svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
-                                        Band 7.5+ Sample Response (Monologue):
-                                    </p>
-                                    <p class="text-xs text-slate-700 italic leading-relaxed">
-                                        "A natural talent that I have always wanted to systematically improve is playing the piano by ear. I discovered this gift during childhood, when I realized I could replicate simple melodies on a toy keyboard without any formal sheet music. While I am not a child prodigy by any means, I possess an intuitive sense of pitch and melody. Currently, I want to elevate this skill to absolute mastery by studying advanced jazz improvisation and music theory under a certified tutor. I want to improve this talent because music is my ultimate psychological sanctuary; it allows me to translate my raw emotions into complex, beautiful harmonies. Enhancing this skill would not only boost my personal confidence but also let me connect on a much deeper level with listeners, playing moving songs that truly strike a chord."
-                                    </p>
+                                    <p class="text-xs font-bold text-brand-800 mb-2">Band 7.5+ Sample Response:</p>
+                                    <p class="text-xs text-slate-700 italic">"A natural gift that I am eager to systematically refine is my ability to <strong class="text-brand-800 font-semibold">play piano melodies by ear</strong>. I first discovered this talent in primary school when I picked out simple tunes on a keyboard without sheet music. While I have an intuitive pitch sense, I lack formal music theory mastery. I plan to improve this by taking professional jazz piano lessons and practicing <strong class="text-brand-800 font-semibold">structured ear-training exercises</strong> daily. I feel immensely grateful for this gift because music acts as my <strong class="text-brand-800 font-semibold">ultimate creative outlet</strong>, allowing me to express emotions authentically through harmonies."</p>
                                 </div>
                                 <div class="bg-white p-4 rounded-lg border border-brand-200 shadow-sm">
-                                    <p class="text-xs font-bold text-brand-800 mb-2">Lexical Masterclass (Detailed Vocab & Idioms):</p>
-                                    <div class="space-y-3 text-xs">
-                                        <div>
-                                            <span class="font-semibold text-brand-600">1. Prodigy (noun)</span> /ˈprɒd.ɪ.dʒi/
-                                            <p class="text-slate-600 text-[11px] mt-0.5"><strong>Definition:</strong> A young person who has an exceptional natural ability or talent for something. <br/><strong>Collocations:</strong> Child prodigy, musical prodigy. <br/><strong>Example:</strong> At only six, the child prodigy played complex Bach sonatas flawlessly.</p>
-                                        </div>
-                                        <div>
-                                            <span class="font-semibold text-brand-600">2. Mastery (noun)</span> /ˈmɑː.stər.i/
-                                            <p class="text-slate-600 text-[11px] mt-0.5"><strong>Definition:</strong> Complete control, deep understanding, or elite skill in a particular subject or activity. <br/><strong>Collocations:</strong> Absolute mastery, gain mastery over. <br/><strong>Example:</strong> Achieving absolute mastery of the violin requires thousands of hours of deliberate practice.</p>
-                                        </div>
-                                        <div>
-                                            <span class="font-semibold text-brand-600">3. Strike a chord (idiom)</span>
-                                            <p class="text-slate-600 text-[11px] mt-0.5"><strong>Definition:</strong> To create a strong, emotional response or connect deeply with others. <br/><strong>Example:</strong> Her moving performance of the folk song struck a chord with the older audience.</p>
-                                        </div>
+                                    <p class="text-xs font-bold text-brand-800 mb-2">Lexical Masterclass:</p>
+                                    <div class="space-y-2 text-xs">
+                                        <p><strong>1. Intuitive (adjective)</strong> /ɪnˈtʃuː.ɪ.tɪv/ - Based on natural instinct or feelings rather than conscious reasoning.</p>
+                                        <p><strong>2. Ear-training (noun phrase)</strong> - Exercises helping musicians identify pitches, intervals, and chords by hearing.</p>
+                                        <p><strong>3. Creative outlet (noun phrase)</strong> - An activity letting one express feelings and imaginative energy freely.</p>
                                     </div>
                                 </div>
-                                <div class="bg-brand-50/50 p-4 rounded-lg border border-brand-200 text-xs">
-                                    <p class="font-bold text-brand-800 mb-1.5">Part 3 Analytical Extension:</p>
-                                    <p class="text-[11px] text-slate-700"><strong>Q: Do you believe natural talent is more important than hard work (deliberate practice) in achieving elite mastery in creative fields?</strong><br/><em>Ans (OREO):</em> In my estimation, deliberate practice and hard work far outweigh raw, natural talent. This is because talent only provides an initial, baseline advantage, whereas continuous, structured effort is what develops the actual skill into elite mastery. For example, a child born with perfect pitch must still study music theory and practice scale exercises for decades to become an actual concert pianist. Therefore, as the proverb goes, practice makes perfect, and grit is the key driver of long-term success.</p>
+                                <div class="bg-white p-4 rounded-lg border border-brand-200 shadow-sm">
+                                    <p class="text-xs font-bold text-brand-800 mb-2">Part 3 Extensions (9 Questions):</p>
+                                    <div class="space-y-3 text-xs">
+                                        <div>
+                                            <p class="font-semibold text-slate-700">1. Do you think artists with talents should focus on their talents?</p>
+                                            <p class="text-slate-600"><strong>Ans:</strong> Yes, gifted individuals should nurture their abilities through dedicated practice to reach <strong class="text-brand-800">artistic excellence</strong>. Raw talent requires structured training to produce meaningful artistic works. For instance, natural painters still master technique. Thus, focus turns raw potential into mastery.</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold text-slate-700">2. Why do people like to watch talent shows?</p>
+                                            <p class="text-slate-600"><strong>Ans:</strong> Talent shows offer engaging entertainment and inspire audiences through <strong class="text-brand-800">compelling underdog stories</strong>. Viewers enjoy witnessing ordinary citizens achieve overnight success. For example, singing competitions captivate millions of television viewers. Consequently, talent shows offer emotional inspiration.</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold text-slate-700">3. Do you think it is more interesting to watch famous people's or ordinary people's shows?</p>
+                                            <p class="text-slate-600"><strong>Ans:</strong> Watching ordinary people is far more authentic and relatable, as audiences witness raw undiscovered talent. Celebrity shows often feel rehearsed, whereas amateur performances display genuine emotion. For example, unknown singers winning competitions creates viral excitement. Hence, amateur talent feels more authentic.</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold text-slate-700">4. How important is family support in developing a natural talent?</p>
+                                            <p class="text-slate-600"><strong>Ans:</strong> Family support is vital for providing financial tuition resources and <strong class="text-brand-800">emotional encouragement</strong> during early childhood practice. Without parental guidance, young talent often goes undiscovered. For instance, young athletes depend on parents for training transport. Therefore, family support fuels talent development.</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold text-slate-700">5. Should talented individuals receive special opportunities or treatment in education?</p>
+                                            <p class="text-slate-600"><strong>Ans:</strong> Yes, gifted students benefit from tailored academies that accelerate their specific skill sets without neglecting core academics. Specialized sports or music schools help prodigies excel. For example, conservatory training develops elite musicians. Thus, specialized tracks maximize potential.</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold text-slate-700">6. What challenges do talented people often face in their careers?</p>
+                                            <p class="text-slate-600"><strong>Ans:</strong> Challenges include intense public pressure, <strong class="text-brand-800">burnout from perfectionism</strong>, and fierce commercial competition. High early expectations create severe performance anxiety. For example, child prodigies occasionally struggle with adult career transitions. Consequently, mental resilience is required alongside talent.</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold text-slate-700">7. Can hard work compensate for a lack of natural talent?</p>
+                                            <p class="text-slate-600"><strong>Ans:</strong> Absolutely, <strong class="text-brand-800">deliberate practice and discipline</strong> often outperform unpracticed raw talent over the long run. Consistent effort builds technical mastery that surpasses effortless initial ability. As the saying goes, hard work beats talent when talent doesn't work hard. Thus, grit guarantees success.</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold text-slate-700">8. How do cultural values influence the recognition of talent?</p>
+                                            <p class="text-slate-600"><strong>Ans:</strong> Cultural priorities determine which talents receive prestige and financial backing. Some societies celebrate academic or athletic excellence, while others value artistic or musical mastery. For instance, sports talents receive huge sponsorships in Western markets. Therefore, culture shapes talent recognition.</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold text-slate-700">9. In what ways can society encourage the development of young people's talents?</p>
+                                            <p class="text-slate-600"><strong>Ans:</strong> Communities can subsidize youth art programs, build public sports complexes, and host <strong class="text-brand-800">regional talent competitions</strong>. Accessible grants allow underprivileged youth to pursue training. For example, public music workshops expose kids to instruments early. Hence, public funding nurtures future talent.</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </details>
@@ -496,18 +732,18 @@
                     </div>
                 </section>
 
-                <!-- Section 3: Homework & Wrap-up -->
+                <!-- Section 3: Homework -->
                 <section class="glass-card rounded-2xl p-6 md:p-8 fade-in-up delay-200" id="section-3">
                      <div class="flex items-start justify-between mb-6">
                         <div class="flex items-center gap-4">
                             <div class="bg-brand-50 text-brand-500 p-3 rounded-xl">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>
                             </div>
                             <div>
-                                <h3 class="text-xl font-bold text-brand-900">3. Homework & Session Wrap-up</h3>
+                                <h3 class="text-xl font-bold text-brand-900">3. Homework Assignment</h3>
                                 <p class="text-sm text-brand-400 font-medium flex items-center gap-2 mt-1">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                                    Wrap-up Directives (5 mins)
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    Wrap-up & Guidance (5 mins)
                                 </p>
                             </div>
                         </div>
@@ -515,36 +751,22 @@
                         <label class="flex items-center cursor-pointer group">
                             <input type="checkbox" class="checkbox-custom hidden" data-task="3" onchange="updateProgress()">
                             <div class="w-8 h-8 rounded-full border-2 border-brand-200 flex items-center justify-center transition-colors group-hover:border-brand-500 bg-white shadow-inner">
-                                <svg class="w-4 h-4 text-white opacity-0 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                                <svg class="w-4 h-4 text-white opacity-0 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
                             </div>
                         </label>
                     </div>
 
-                    <div class="space-y-4">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            
-                            <!-- Homework Task 1: Learn Speaking P2 & 3 Pages 77-82 Vocab -->
-                            <div class="flex items-start gap-3 p-4 bg-white border border-brand-100 rounded-xl hover:shadow-sm">
+                    <div class="space-y-3">
+                        <div class="p-4 bg-white rounded-xl border border-brand-100 space-y-3">
+                            <div class="flex items-start gap-3">
                                 <div class="bg-brand-50 p-2 rounded-lg text-brand-600">
-                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
                                 </div>
                                 <div>
-                                    <p class="font-medium text-brand-900 text-sm">Review Speaking P2 & 3 (pp. 77-82)</p>
-                                    <p class="text-xs text-slate-500 mt-1">Review the sample monologues, phonetic definitions, and collocations for lost way, outdoor sport, unusual building, environmentalist, family heirloom, and talent topics.</p>
+                                    <p class="font-medium text-brand-900 text-sm">Review Speaking Part 2 & 3 Topics (pp. 76–82)</p>
+                                    <p class="text-xs text-slate-500 mt-1">Review all 7 cue cards and practice responses for the 69 Part 3 questions using the highlighted vocabulary and OREO framework.</p>
                                 </div>
                             </div>
-
-                            <!-- Homework Task 2: Prepare Listening Test 09 Vocab -->
-                            <div class="flex items-start gap-3 p-4 bg-white border border-brand-100 rounded-xl hover:shadow-sm">
-                                <div class="bg-brand-50 p-2 rounded-lg text-brand-600">
-                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
-                                </div>
-                                <div>
-                                    <p class="font-medium text-brand-900 text-sm">Review Listening 09 Vocab</p>
-                                    <p class="text-xs text-slate-500 mt-1">Check transcripts from Listening Mock Test 09 and write out confusing spelling mistakes or distractors in your error log.</p>
-                                </div>
-                            </div>
-
                         </div>
                     </div>
                 </section>
@@ -569,16 +791,16 @@
                         <li class="flex items-center justify-between p-3 rounded-lg bg-brand-50/50 border border-brand-100 transition-all" id="tracker-1">
                             <span class="flex items-center gap-2">
                                 <span class="w-2 h-2 rounded-full bg-brand-200 transition-colors" id="dot-1"></span>
-                                Listening Test 09 Check
+                                Reading Test 10 Check
                             </span>
-                            <span class="text-xs bg-white text-brand-800 border border-brand-100 px-2 py-1 rounded">35m</span>
+                            <span class="text-xs bg-white text-brand-800 border border-brand-100 px-2 py-1 rounded">25m</span>
                         </li>
                         <li class="flex items-center justify-between p-3 rounded-lg bg-brand-50/50 border border-brand-100 transition-all" id="tracker-2">
                             <span class="flex items-center gap-2">
                                 <span class="w-2 h-2 rounded-full bg-brand-200 transition-colors" id="dot-2"></span>
-                                Speaking (Pages 77–82)
+                                Speaking (pp. 76-82)
                             </span>
-                            <span class="text-xs bg-white text-brand-800 border border-brand-100 px-2 py-1 rounded">50m</span>
+                            <span class="text-xs bg-white text-brand-800 border border-brand-100 px-2 py-1 rounded">60m</span>
                         </li>
                         <li class="flex items-center justify-between p-3 rounded-lg bg-brand-50/50 border border-brand-100 transition-all" id="tracker-3">
                             <span class="flex items-center gap-2">

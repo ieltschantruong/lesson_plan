@@ -270,15 +270,14 @@ Writing Mock Test 1 (Practice + Overall assessment)
 
 # Lesson 23:
 1. Reading Test 09 | Check & Explain: https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/pet_intensive_09.html
-2. Speaking Part 2&3: Vocab explain & practices | Pages 73->76
- - Describe an interesting traditional story
- - Describe a kind of foreign food you like and you have had
- - Describe a person from a different cultural background with whom you enjoy spending time
- - Describe a place with a lot of trees that you would like to visit (e.g. a forest)
+2. Listening Test 09 | Practice, Check & Explain: https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/test_view_pet_intensive_09.html
+3. Homework:
+ - Complete Reading T10: https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/pet_intensive_10.html
 
 # Lesson 24: 
-1. Listening Test 9 | Practice, Check & Explain: https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/test_view_pet_intensive_09.html
-2. Speaking Part 2&3: Vocab explain & practices | Pages 77->82
+1. Reading Test 10 | Check & Explain: https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/pet_intensive_10.html
+2. Speaking Part 2&3: Vocab explain & practices | Pages 76->82
+ - Describe a place with a lot of trees that you would like to visit (e.g. a forest)
  - Describe an occasion when you lost your way
  - Describe an outdoor sport you would like to try for the first time
  - Describe an unusual but interesting building you would like to visit
