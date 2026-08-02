@@ -29,6 +29,11 @@
             -webkit-backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.5);
         }
+
+        /* Inline Answer Toggle Utilities */
+        .blank-ans { display: none; }
+        .show-answers .blank-dots { display: none; }
+        .show-answers .blank-ans { display: inline-block; animation: fadeIn 0.3s forwards; }
     </style>
 </head>
 <body class="h-screen flex flex-col overflow-hidden text-gray-800">
@@ -81,8 +86,8 @@
         </div>
     </header>
 
-    <main class="flex-grow overflow-y-auto relative p-4 md:p-8">
-        <div id="content-container" class="max-w-6xl mx-auto"></div>
+    <main class="flex-grow overflow-y-auto relative p-4 md:p-8" id="main-scroll-area">
+        <div id="content-container" class="max-w-6xl mx-auto min-h-full flex flex-col"></div>
     </main>
 
     <footer class="bg-white/80 backdrop-blur-md border-t border-rose-100 p-4 md:px-10 z-10 shadow-[0_-10px_15px_-3px_rgba(0,0,0,0.02)]">
@@ -110,470 +115,125 @@
 <script>
     const sessionData = [
         {
-            id: 'vocab_exercises',
-            type: 'Vocabulary',
-            themeClass: 'bg-gradient-to-r from-pink-400 to-rose-400',
-            iconColor: 'text-rose-500',
-            bgColor: 'bg-rose-50',
-            title: '1. Unit 3 Vocab Exercises',
-            content: `
-                <div class="fade-in bg-white rounded-3xl shadow-xl border border-rose-50 p-8 md:p-12 overflow-hidden relative">
-                    <div class="absolute -top-24 -right-24 w-64 h-64 bg-rose-100 rounded-full mix-blend-multiply filter blur-2xl opacity-70"></div>
-                    
-                    <div class="relative z-10 flex flex-col lg:flex-row gap-10 items-start justify-between">
-                        <div class="flex-1 w-full">
-                            <div class="flex items-center gap-3 mb-4">
-                                <span class="inline-block py-1 px-3 rounded-full bg-rose-100 text-rose-700 font-bold text-xs uppercase tracking-widest">Pink Book</span>
-                                <span class="inline-block py-1 px-3 rounded-full bg-gray-100 text-gray-700 font-bold text-xs uppercase tracking-widest">Pages 28-32</span>
-                            </div>
-                            <h3 class="text-3xl font-bold text-gray-800 mb-4 leading-tight">Unit 3 Vocabulary <br><span class="text-rose-500">Exercises & Review</span></h3>
-                            <p class="text-gray-500 mb-8 text-lg">Work through the targeted vocabulary exercises for Unit 3. Click "Show Answers" to review with the class.</p>
-                            
-                            <div class="space-y-8">
-                                <div class="bg-white border border-rose-200 rounded-2xl shadow-sm overflow-hidden">
-                                    <div class="bg-rose-50 px-6 py-4 border-b border-rose-100">
-                                        <h4 class="font-bold text-rose-800 text-lg flex items-center gap-2">
-                                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
-                                            Listening Vocabulary
-                                        </h4>
-                                    </div>
-                                    <div class="p-6 space-y-6">
-                                        <!-- Listening Ex 1 -->
-                                        <div class="border-b border-gray-100 pb-6">
-                                            <div class="flex justify-between items-center mb-3">
-                                                <h5 class="font-bold text-gray-800 text-md">Exercise 1</h5>
-                                                <button onclick="toggleVisibility('ans-lis-1')" class="text-xs bg-gray-100 text-gray-700 px-3 py-1.5 rounded-lg font-bold hover:bg-rose-100 hover:text-rose-700 transition-colors">Show Answers</button>
-                                            </div>
-                                            <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 text-sm">
-                                                <p class="font-semibold text-gray-700 mb-4">Match the words with the synonyms / pictures.</p>
-                                                <div class="grid grid-cols-2 gap-x-8 gap-y-4">
-                                                    <div class="space-y-4">
-                                                        <p><span class="font-bold text-gray-800">1</span> <span class="text-rose-600 font-semibold">seminar</span> /'semɪnɑ:(r)/</p>
-                                                        <p><span class="font-bold text-gray-800">2</span> <span class="text-rose-600 font-semibold">clinic</span> /'klɪnɪk/</p>
-                                                        <p><span class="font-bold text-gray-800">3</span> <span class="text-rose-600 font-semibold">stiffness</span> /'stɪfnəs/</p>
-                                                        <p><span class="font-bold text-gray-800">4</span> <span class="text-rose-600 font-semibold">posture</span> /'pɒstʃə(r)/</p>
-                                                        <p><span class="font-bold text-gray-800">5</span> <span class="text-rose-600 font-semibold">painkiller</span> /'peɪnkɪlə(r)/</p>
-                                                        <p><span class="font-bold text-gray-800">6</span> <span class="text-rose-600 font-semibold">rehabilitation</span> /ˌri:əˌbɪlɪ'teɪʃn/</p>
-                                                    </div>
-                                                    <div class="space-y-4 text-gray-600">
-                                                        <p><span class="font-bold text-gray-800">A.</span> a drug that reduces pain</p>
-                                                        <p><span class="font-bold text-gray-800">B.</span> [Picture: Woman doing yoga/stretching]</p>
-                                                        <p><span class="font-bold text-gray-800">C.</span> [Picture: Speaker presenting to an audience]</p>
-                                                        <p><span class="font-bold text-gray-800">D.</span> [Picture: A doctor's office/waiting room]</p>
-                                                        <p><span class="font-bold text-gray-800">E.</span> recovery (after severe illness)</p>
-                                                        <p><span class="font-bold text-gray-800">F.</span> difficulty in moving because of pain in your muscles</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div id="ans-lis-1" class="hidden mt-3 p-4 bg-white border-l-4 border-emerald-400 rounded-r-xl shadow-sm text-sm">
-                                                <p class="font-bold text-emerald-700 mb-2">Answer Key:</p>
-                                                <div class="grid grid-cols-3 gap-2 text-gray-700 font-medium">
-                                                    <p>1 - C</p>
-                                                    <p>2 - D</p>
-                                                    <p>3 - F</p>
-                                                    <p>4 - B</p>
-                                                    <p>5 - A</p>
-                                                    <p>6 - E</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- Listening Ex 2 -->
-                                        <div>
-                                            <div class="flex justify-between items-center mb-3">
-                                                <h5 class="font-bold text-gray-800 text-md">Exercise 2</h5>
-                                                <button onclick="toggleVisibility('ans-lis-2')" class="text-xs bg-gray-100 text-gray-700 px-3 py-1.5 rounded-lg font-bold hover:bg-rose-100 hover:text-rose-700 transition-colors">Show Answers</button>
-                                            </div>
-                                            <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 text-sm">
-                                                <p class="font-semibold text-gray-700 mb-4">Match the phrases in column A with the pictures in column B.</p>
-                                                <div class="grid grid-cols-2 gap-x-8 gap-y-4">
-                                                    <div class="space-y-4">
-                                                        <p class="font-bold text-rose-400 uppercase text-xs tracking-wider mb-2">Column A</p>
-                                                        <p><span class="font-bold text-gray-800">1</span> <span class="text-rose-600 font-semibold">manipulate</span> a machine</p>
-                                                        <p><span class="font-bold text-gray-800">2</span> <span class="text-rose-600 font-semibold">prescribe</span> something</p>
-                                                        <p><span class="font-bold text-gray-800">3</span> lead a <span class="text-rose-600 font-semibold">sedentary</span> lifestyle</p>
-                                                        <p><span class="font-bold text-gray-800">4</span> <span class="text-rose-600 font-semibold">sustain</span>/suffer an injury</p>
-                                                        <p><span class="font-bold text-gray-800">5</span> <span class="text-rose-600 font-semibold">sprain</span> an ankle</p>
-                                                        <p><span class="font-bold text-gray-800">6</span> <span class="text-rose-600 font-semibold">devise</span> something</p>
-                                                        <p><span class="font-bold text-gray-800">7</span> <span class="text-rose-600 font-semibold">get fed up</span> with something</p>
-                                                    </div>
-                                                    <div class="space-y-4 text-gray-600">
-                                                        <p class="font-bold text-rose-400 uppercase text-xs tracking-wider mb-2">Column B</p>
-                                                        <p><span class="font-bold text-gray-800">A.</span> [Picture: A bandaged foot/ankle]</p>
-                                                        <p><span class="font-bold text-gray-800">B.</span> [Picture: Person operating an ATM/machine]</p>
-                                                        <p><span class="font-bold text-gray-800">C.</span> [Picture: Injured person with bandages and a crutch]</p>
-                                                        <p><span class="font-bold text-gray-800">D.</span> [Picture: Doctor writing on a notepad]</p>
-                                                        <p><span class="font-bold text-gray-800">E.</span> [Picture: Person lounging on a sofa watching TV]</p>
-                                                        <p><span class="font-bold text-gray-800">F.</span> [Picture: A hand clicking an 'INVENT' button]</p>
-                                                        <p><span class="font-bold text-gray-800">G.</span> [Picture: Frustrated person sitting with head in hands]</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div id="ans-lis-2" class="hidden mt-3 p-4 bg-white border-l-4 border-emerald-400 rounded-r-xl shadow-sm text-sm">
-                                                <p class="font-bold text-emerald-700 mb-2">Answer Key:</p>
-                                                <div class="grid grid-cols-4 gap-2 text-gray-700 font-medium">
-                                                    <p>1 - B</p>
-                                                    <p>2 - D</p>
-                                                    <p>3 - E</p>
-                                                    <p>4 - C</p>
-                                                    <p>5 - A</p>
-                                                    <p>6 - F</p>
-                                                    <p>7 - G</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="bg-white border border-rose-200 rounded-2xl shadow-sm overflow-hidden">
-                                    <div class="bg-rose-50 px-6 py-4 border-b border-rose-100">
-                                        <h4 class="font-bold text-rose-800 text-lg flex items-center gap-2">
-                                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-                                            Reading Vocabulary
-                                        </h4>
-                                    </div>
-                                    <div class="p-6 space-y-6">
-                                        <div class="border-b border-gray-100 pb-6">
-                                            <div class="flex justify-between items-center mb-3">
-                                                <h5 class="font-bold text-gray-800 text-md">Exercise 1</h5>
-                                                <button onclick="toggleVisibility('ans-read-1')" class="text-xs bg-gray-100 text-gray-700 px-3 py-1.5 rounded-lg font-bold hover:bg-rose-100 hover:text-rose-700 transition-colors">Show Answers</button>
-                                            </div>
-                                            <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 text-sm">
-                                                <p class="font-semibold text-gray-700 mb-4">Choose the correct meaning of the following words/terms by circling A or B.</p>
-                                                <div class="space-y-4">
-                                                    <div>
-                                                        <p><span class="font-bold text-gray-800">1</span> <span class="text-rose-600 font-semibold">Placebo effect</span> /plə'si:bəʊ/</p>
-                                                        <p class="text-gray-600 ml-4"><span class="font-bold">A.</span> A beneficial effect of taking a "fake" drug and feeling better due to patient's belief in that treatment.</p>
-                                                        <p class="text-gray-600 ml-4"><span class="font-bold">B.</span> A detrimental effect of taking a drug in an excessive amount.</p>
-                                                    </div>
-                                                    <div>
-                                                        <p><span class="font-bold text-gray-800">2</span> <span class="text-rose-600 font-semibold">Side effect</span></p>
-                                                        <p class="text-gray-600 ml-4"><span class="font-bold">A.</span> an additional effect of a drug that brings about benefits.</p>
-                                                        <p class="text-gray-600 ml-4"><span class="font-bold">B.</span> an unpleasant effect of a drug that happens in addition to the main effect.</p>
-                                                    </div>
-                                                    <div>
-                                                        <p><span class="font-bold text-gray-800">3</span> <span class="text-rose-600 font-semibold">Anti-depressant</span> /ˌæntidi'presnt/</p>
-                                                        <div class="grid grid-cols-2 text-gray-600 ml-4">
-                                                            <p><span class="font-bold">A.</span> a drug used to treat depression</p>
-                                                            <p><span class="font-bold">B.</span> a substance triggering depression</p>
-                                                        </div>
-                                                    </div>
-                                                    <div>
-                                                        <p><span class="font-bold text-gray-800">4</span> <span class="text-rose-600 font-semibold">Pharmacology</span> /ˌfɑ:rmə'kɑ:lədʒi/</p>
-                                                        <p class="text-gray-600 ml-4"><span class="font-bold">A.</span> the scientific study of drugs and their use in medicine</p>
-                                                        <p class="text-gray-600 ml-4"><span class="font-bold">B.</span> the scientific study of plants and their structure</p>
-                                                    </div>
-                                                    <div>
-                                                        <p><span class="font-bold text-gray-800">5</span> <span class="text-rose-600 font-semibold">Psychiatry</span> /saɪ'kaɪətri/</p>
-                                                        <div class="grid grid-cols-2 text-gray-600 ml-4">
-                                                            <p><span class="font-bold">A.</span> the study and treatment of physical illness</p>
-                                                            <p><span class="font-bold">B.</span> the study and treatment of mental illness</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div id="ans-read-1" class="hidden mt-3 p-4 bg-white border-l-4 border-emerald-400 rounded-r-xl shadow-sm text-sm">
-                                                <p class="font-bold text-emerald-700 mb-2">Answer Key:</p>
-                                                <div class="flex gap-4 text-gray-700 font-medium">
-                                                    <p>1 - A</p>
-                                                    <p>2 - B</p>
-                                                    <p>3 - A</p>
-                                                    <p>4 - A</p>
-                                                    <p>5 - B</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="border-b border-gray-100 pb-6">
-                                            <div class="flex justify-between items-center mb-3">
-                                                <h5 class="font-bold text-gray-800 text-md">Exercise 2</h5>
-                                                <button onclick="toggleVisibility('ans-read-2')" class="text-xs bg-gray-100 text-gray-700 px-3 py-1.5 rounded-lg font-bold hover:bg-rose-100 hover:text-rose-700 transition-colors">Show Answers</button>
-                                            </div>
-                                            <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 text-sm">
-                                                <p class="font-semibold text-gray-700 mb-4">Fill in the blanks with suitable words from the list below.</p>
-                                                
-                                                <div class="bg-rose-50 border border-rose-200 rounded-lg p-4 mb-6 flex flex-wrap gap-x-6 gap-y-2 font-bold text-rose-700 justify-center">
-                                                    <span>make matters worse</span>
-                                                    <span>hinge</span>
-                                                    <span>breakthrough</span>
-                                                    <span>venture</span>
-                                                    <span>comb</span>
-                                                    <span>empathy</span>
-                                                    <span>rival</span>
-                                                    <span>outcome</span>
-                                                    <span>blockbuster</span>
-                                                    <span>trail</span>
-                                                    <span>jargon</span>
-                                                </div>
-
-                                                <div class="space-y-3 text-gray-700">
-                                                    <p><span class="font-bold text-gray-900">1</span> It's hard to find any ........................................ for such an evil man.</p>
-                                                    <p><span class="font-bold text-gray-900">2</span> The economy is regarded as the decisive/key factor which will determine the ........................................ of the general election.</p>
-                                                    <p><span class="font-bold text-gray-900">3</span> His success ........................................ <span class="italic">on</span> how well he does at the interview.</p>
-                                                    <p><span class="font-bold text-gray-900">4</span> When it comes to my favorite films, it would be Hollywood ........................................ .</p>
-                                                    <p><span class="font-bold text-gray-900">5</span> Don't let yourself despair; this will only ........................................</p>
-                                                    <p><span class="font-bold text-gray-900">6</span> This latest design has no ........................................ (= it is easily the best design available).</p>
-                                                    <p><span class="font-bold text-gray-900">7</span> Scientists are hoping for a/an ........................................ in the search for a cure for cancer.</p>
-                                                    <p><span class="font-bold text-gray-900">8</span> They ........................................ <span class="italic">through</span> the files for evidence of fraud.</p>
-                                                    <p><span class="font-bold text-gray-900">9</span> The directors of the company refused to undertake such a risky ........................................</p>
-                                                    <p><span class="font-bold text-gray-900">10</span> Try to avoid using too much technical ........................................ Normal people cannot understand.</p>
-                                                    <p><span class="font-bold text-gray-900">11</span> UK cancer survival rates currently ........................................ <span class="italic">behind</span> much of Europe.</p>
-                                                </div>
-                                            </div>
-                                            <div id="ans-read-2" class="hidden mt-3 p-4 bg-white border-l-4 border-emerald-400 rounded-r-xl shadow-sm text-sm">
-                                                <p class="font-bold text-emerald-700 mb-2">Answer Key:</p>
-                                                <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 text-gray-700 font-medium">
-                                                    <p>1 - empathy</p>
-                                                    <p>2 - outcome</p>
-                                                    <p>3 - hinges</p>
-                                                    <p>4 - blockbusters</p>
-                                                    <p>5 - make matters worse</p>
-                                                    <p>6 - rival</p>
-                                                    <p>7 - breakthrough</p>
-                                                    <p>8 - combed</p>
-                                                    <p>9 - venture</p>
-                                                    <p>10 - jargon</p>
-                                                    <p>11 - trail</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <div class="flex justify-between items-center mb-3">
-                                                <h5 class="font-bold text-gray-800 text-md">Exercise 3</h5>
-                                                <button onclick="toggleVisibility('ans-read-3')" class="text-xs bg-gray-100 text-gray-700 px-3 py-1.5 rounded-lg font-bold hover:bg-rose-100 hover:text-rose-700 transition-colors">Show Answers</button>
-                                            </div>
-                                            <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 text-sm">
-                                                <p class="font-semibold text-gray-700 mb-4">Match the words with the synonyms.</p>
-                                                
-                                                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                                                    <!-- Adjectives -->
-                                                    <div>
-                                                        <h6 class="font-bold text-rose-800 mb-2">Adjectives</h6>
-                                                        <div class="grid grid-cols-2 gap-4">
-                                                            <div class="space-y-3">
-                                                                <p><span class="font-bold text-gray-800">1</span> <span class="text-rose-600 font-semibold">futile</span> /'fju:taɪl/</p>
-                                                                <p><span class="font-bold text-gray-800">2</span> <span class="text-rose-600 font-semibold">mistaken</span></p>
-                                                                <p><span class="font-bold text-gray-800">3</span> <span class="text-rose-600 font-semibold">innovative</span></p>
-                                                                <p><span class="font-bold text-gray-800">4</span> <span class="text-rose-600 font-semibold">hybrid</span> /'haɪbrɪd/</p>
-                                                                <p><span class="font-bold text-gray-800">5</span> <span class="text-rose-600 font-semibold">baffled</span> /'bæfld/</p>
-                                                                <p><span class="font-bold text-gray-800">6</span> <span class="text-rose-600 font-semibold">consistent</span> /kən'sɪstənt/</p>
-                                                                <p><span class="font-bold text-gray-800">7</span> <span class="text-rose-600 font-semibold">bogus</span></p>
-                                                            </div>
-                                                            <div class="space-y-3 text-gray-600">
-                                                                <p><span class="font-bold text-gray-800">A.</span> incorrect</p>
-                                                                <p><span class="font-bold text-gray-800">B.</span> same</p>
-                                                                <p><span class="font-bold text-gray-800">C.</span> pointless</p>
-                                                                <p><span class="font-bold text-gray-800">D.</span> confused</p>
-                                                                <p><span class="font-bold text-gray-800">E.</span> mixed</p>
-                                                                <p><span class="font-bold text-gray-800">F.</span> cutting-edge</p>
-                                                                <p><span class="font-bold text-gray-800">G.</span> false</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    
-                                                    <!-- Verbs -->
-                                                    <div>
-                                                        <h6 class="font-bold text-rose-800 mb-2">Verbs</h6>
-                                                        <div class="grid grid-cols-[1fr_2fr] gap-4">
-                                                            <div class="space-y-3">
-                                                                <p><span class="font-bold text-gray-800">7</span> <span class="text-rose-600 font-semibold">falter</span> /'fɔ:ltə(r)/</p>
-                                                                <p><span class="font-bold text-gray-800">8</span> <span class="text-rose-600 font-semibold">gauge</span> /geɪdʒ/</p>
-                                                                <p><span class="font-bold text-gray-800">9</span> <span class="text-rose-600 font-semibold">dominate</span> /'dɒmɪneɪt/</p>
-                                                                <p><span class="font-bold text-gray-800">10</span> <span class="text-rose-600 font-semibold">yield</span> /ji:ld/</p>
-                                                                <p><span class="font-bold text-gray-800">11</span> <span class="text-rose-600 font-semibold">persist</span> /pə'sɪst/</p>
-                                                                <p><span class="font-bold text-gray-800">12</span> <span class="text-rose-600 font-semibold">unravel</span> /ʌn'rævl/</p>
-                                                                <p><span class="font-bold text-gray-800">13</span> <span class="text-rose-600 font-semibold">aggregate</span> /'ægrɪgeɪt/</p>
-                                                            </div>
-                                                            <div class="space-y-3 text-gray-600">
-                                                                <p><span class="font-bold text-gray-800">A.</span> control</p>
-                                                                <p><span class="font-bold text-gray-800">B.</span> waver (become weaker)</p>
-                                                                <p><span class="font-bold text-gray-800">C.</span> continue to do something in a seemingly unreasonable way</p>
-                                                                <p><span class="font-bold text-gray-800">D.</span> measure</p>
-                                                                <p><span class="font-bold text-gray-800">E.</span> produce</p>
-                                                                <p><span class="font-bold text-gray-800">F.</span> put together different things into a single group or total</p>
-                                                                <p><span class="font-bold text-gray-800">G.</span> explain something difficult</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div id="ans-read-3" class="hidden mt-3 p-4 bg-white border-l-4 border-emerald-400 rounded-r-xl shadow-sm text-sm">
-                                                <div class="grid grid-cols-2 gap-8">
-                                                    <div>
-                                                        <p class="font-bold text-emerald-700 mb-2">Adjectives Key:</p>
-                                                        <div class="grid grid-cols-2 gap-2 text-gray-700 font-medium">
-                                                            <p>1 - C</p>
-                                                            <p>2 - A</p>
-                                                            <p>3 - F</p>
-                                                            <p>4 - E</p>
-                                                            <p>5 - D</p>
-                                                            <p>6 - B</p>
-                                                            <p>7 - G</p>
-                                                        </div>
-                                                    </div>
-                                                    <div>
-                                                        <p class="font-bold text-emerald-700 mb-2">Verbs Key:</p>
-                                                        <div class="grid grid-cols-2 gap-2 text-gray-700 font-medium">
-                                                            <p>7 - B</p>
-                                                            <p>8 - D</p>
-                                                            <p>9 - A</p>
-                                                            <p>10 - E</p>
-                                                            <p>11 - C</p>
-                                                            <p>12 - G</p>
-                                                            <p>13 - F</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="bg-white border border-rose-200 rounded-2xl shadow-sm overflow-hidden">
-                                    <div class="bg-rose-50 px-6 py-4 border-b border-rose-100">
-                                        <h4 class="font-bold text-rose-800 text-lg flex items-center gap-2">
-                                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-                                            Workbook Exercises
-                                        </h4>
-                                    </div>
-                                    <div class="p-6 space-y-6">
-                                        <div class="border-b border-gray-100 pb-6">
-                                            <div class="flex justify-between items-center mb-3">
-                                                <h5 class="font-bold text-gray-800 text-md">Exercise 1</h5>
-                                                <button onclick="toggleVisibility('ans-wb-1')" class="text-xs bg-gray-100 text-gray-700 px-3 py-1.5 rounded-lg font-bold hover:bg-rose-100 hover:text-rose-700 transition-colors">Show Answers</button>
-                                            </div>
-                                            <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 text-sm">
-                                                <p class="font-semibold text-gray-700 mb-4">Match the words in column A with the words in column B to form correct phrases.</p>
-                                                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                                                    <div class="space-y-3">
-                                                        <p class="font-bold text-rose-400 uppercase text-xs tracking-wider mb-2">Column A</p>
-                                                        <p><span class="font-bold text-gray-800">1</span> Children today are often <span class="text-rose-600 font-semibold italic">glued</span></p>
-                                                        <p><span class="font-bold text-gray-800">2</span> Physical activity can improve</p>
-                                                        <p><span class="font-bold text-gray-800">3</span> There is a <span class="text-rose-600 font-semibold italic">concern</span> about kids with</p>
-                                                        <p><span class="font-bold text-gray-800">4</span> Jogging and running are <span class="text-rose-600 font-semibold italic">vigorous</span></p>
-                                                        <p><span class="font-bold text-gray-800">5</span> Reading is believed to <span class="text-rose-600 font-semibold italic">combat</span></p>
-                                                        <p><span class="font-bold text-gray-800">6</span> Eating small portions can reduce</p>
-                                                        <p><span class="font-bold text-gray-800">7</span> Some struggle to <span class="text-rose-600 font-semibold italic">retain</span></p>
-                                                        <p><span class="font-bold text-gray-800">8</span> It is <span class="text-rose-600 font-semibold italic">of the essence</span> to <span class="text-rose-600 font-semibold italic">put efforts</span></p>
-                                                        <p><span class="font-bold text-gray-800">9</span> Being physically active <span class="text-rose-600 font-semibold italic">yields</span></p>
-                                                    </div>
-                                                    <div class="space-y-3 text-gray-600">
-                                                        <p class="font-bold text-rose-400 uppercase text-xs tracking-wider mb-2">Column B</p>
-                                                        <p><span class="font-bold text-gray-800">A.</span> physical activities.</p>
-                                                        <p><span class="font-bold text-gray-800">B.</span> to the TV.</p>
-                                                        <p><span class="font-bold text-gray-800">C.</span> low fitness levels.</p>
-                                                        <p><span class="font-bold text-gray-800">D.</span> students' academic ability/performance.</p>
-                                                        <p><span class="font-bold text-gray-800">E.</span> calorie <span class="text-rose-600 font-semibold italic">intake</span>.</p>
-                                                        <p><span class="font-bold text-gray-800">F.</span> facts.</p>
-                                                        <p><span class="font-bold text-gray-800">G.</span> into whatever we do.</p>
-                                                        <p><span class="font-bold text-gray-800">H.</span> memory loss.</p>
-                                                        <p><span class="font-bold text-gray-800">I.</span> benefits for physical and mental health.</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div id="ans-wb-1" class="hidden mt-3 p-4 bg-white border-l-4 border-emerald-400 rounded-r-xl shadow-sm text-sm">
-                                                <p class="font-bold text-emerald-700 mb-2">Answer Key:</p>
-                                                <div class="grid grid-cols-3 sm:grid-cols-5 gap-2 text-gray-700 font-medium">
-                                                    <p>1 - B</p>
-                                                    <p>2 - D</p>
-                                                    <p>3 - C</p>
-                                                    <p>4 - A</p>
-                                                    <p>5 - H</p>
-                                                    <p>6 - E</p>
-                                                    <p>7 - F</p>
-                                                    <p>8 - G</p>
-                                                    <p>9 - I</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <div class="flex justify-between items-center mb-3">
-                                                <h5 class="font-bold text-gray-800 text-md">Exercise 2</h5>
-                                                <button onclick="toggleVisibility('ans-wb-2')" class="text-xs bg-gray-100 text-gray-700 px-3 py-1.5 rounded-lg font-bold hover:bg-rose-100 hover:text-rose-700 transition-colors">Show Answers</button>
-                                            </div>
-                                            <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 text-sm">
-                                                <p class="font-semibold text-gray-700 mb-4">Fill in each blank with one suitable word from the list below.</p>
-                                                
-                                                <div class="bg-rose-50 border border-rose-200 rounded-lg p-4 mb-6 flex flex-wrap gap-x-8 gap-y-2 font-bold text-rose-700 justify-center">
-                                                    <span>cognition</span>
-                                                    <span>nerve</span>
-                                                    <span>implication</span>
-                                                    <span>simulation</span>
-                                                    <span>conviction</span>
-                                                    <span>synapse</span>
-                                                </div>
-
-                                                <div class="space-y-3 text-gray-700">
-                                                    <p><span class="font-bold text-gray-900">1</span> To test the model under different conditions, it is necessary to run .............................. on a computer.</p>
-                                                    <p><span class="font-bold text-gray-900">2</span> He damaged a/an .............................. in his spine.</p>
-                                                    <p><span class="font-bold text-gray-900">3</span> These results have important practical .............................. .</p>
-                                                    <p><span class="font-bold text-gray-900">4</span> He has done extensive research into theories of human .............................. .</p>
-                                                    <p><span class="font-bold text-gray-900">5</span> He had a strong personal .............................. about the power of the printed word.</p>
-                                                    <p><span class="font-bold text-gray-900">6</span> Information from one neuron flows to another neuron across a .............................. .</p>
-                                                </div>
-                                            </div>
-                                            <div id="ans-wb-2" class="hidden mt-3 p-4 bg-white border-l-4 border-emerald-400 rounded-r-xl shadow-sm text-sm">
-                                                <p class="font-bold text-emerald-700 mb-2">Answer Key:</p>
-                                                <div class="grid grid-cols-2 gap-2 text-gray-700 font-medium">
-                                                    <p>1 - simulation</p>
-                                                    <p>2 - nerve</p>
-                                                    <p>3 - implication</p>
-                                                    <p>4 - cognition</p>
-                                                    <p>5 - conviction</p>
-                                                    <p>6 - synapse</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="w-full lg:w-80 glass rounded-3xl p-8 border border-rose-100 shadow-sm text-center sticky top-4 overflow-hidden group hover:shadow-md transition-shadow">
-                            <div class="absolute inset-0 bg-gradient-to-b from-rose-50/50 to-transparent"></div>
-                            <div class="relative z-10">
-                                <h4 class="text-rose-400 font-bold uppercase tracking-widest text-sm mb-4">Exercise Timer</h4>
-                                <div class="text-6xl font-black text-rose-600 tracking-tighter timer-text mb-6 drop-shadow-sm" id="vocab-timer">15:00</div>
-                                
-                                <div class="flex gap-2 w-full">
-                                    <button onclick="toggleTimer('vocab', 900)" id="btn-vocab-timer" class="flex-1 bg-gradient-to-r from-rose-500 to-pink-500 text-white py-3 rounded-xl font-bold hover:from-rose-600 hover:to-pink-600 shadow-sm transition-all">Start 15m</button>
-                                    <button onclick="resetTimer('vocab', 900)" class="px-4 bg-white border border-rose-200 text-rose-500 rounded-xl hover:bg-rose-50 transition-colors shadow-sm">
-                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `
-        },
-        {
             id: 'listening_wb',
             type: 'Listening',
             themeClass: 'bg-gradient-to-r from-violet-400 to-indigo-400',
             iconColor: 'text-violet-500',
             bgColor: 'bg-violet-50',
-            title: '2. Listening Unit 3 WB',
+            title: '1. Listening Unit 3 WB',
             content: `
-                <div class="fade-in bg-white rounded-3xl shadow-xl border border-violet-50 p-5 md:p-6 flex flex-col" style="height: calc(100vh - 11rem); min-height: 600px;">
+                <div class="fade-in bg-white rounded-3xl shadow-xl border border-violet-50 p-5 md:p-6 flex flex-col flex-grow">
                     <div class="flex items-center gap-4 mb-4 border-b border-gray-100 pb-4 shrink-0">
                         <div class="w-12 h-12 rounded-2xl bg-violet-100 flex items-center justify-center text-violet-600 flex-shrink-0">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
                         </div>
-                        <div class="flex-grow flex flex-col md:flex-row justify-between md:items-center gap-2">
+                        <div class="flex-grow flex flex-col md:flex-row justify-between md:items-center gap-4">
                             <div>
                                 <div class="flex items-center gap-3 mb-1 flex-wrap">
                                     <h3 class="text-xl font-bold text-gray-800">Unit 3 Listening Practice</h3>
-                                    <a href="https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/section3_complete_ielts_6.5_7.5_wb_unit3.html" target="_blank" class="inline-flex items-center gap-1.5 text-violet-600 hover:text-violet-700 transition-colors px-3 py-1.5 bg-violet-50 hover:bg-violet-100 rounded-lg shadow-sm border border-violet-200 text-sm font-bold" title="Open in new tab">
+                                    <a href="https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/section3_complete_ielts_6.5_7.5_wb_unit3.html" target="_blank" class="inline-flex items-center gap-1.5 text-violet-600 hover:text-white hover:bg-violet-600 transition-colors px-3 py-1.5 bg-violet-50 rounded-lg shadow-sm border border-violet-200 text-sm font-bold" title="Open in new tab">
                                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
                                         Open in New Tab
                                     </a>
                                 </div>
                                 <p class="text-violet-600 font-medium text-sm">Workbook - Complete IELTS</p>
                             </div>
-                            <p class="text-gray-500 text-sm hidden md:block">Discuss the answers and common traps once completed.</p>
+                            <button onclick="toggleVisibility('listening-key-panel')" class="bg-violet-50 text-violet-700 px-4 py-2 rounded-xl font-bold hover:bg-violet-100 transition-colors text-sm border border-violet-200 flex items-center gap-2 shrink-0 shadow-sm">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                Answer Keys
+                            </button>
                         </div>
                     </div>
 
-                    <div class="w-full flex-grow rounded-2xl overflow-hidden border border-gray-200 shadow-inner bg-gray-50 relative">
+                    <!-- Answer Key Panel -->
+                    <div id="listening-key-panel" class="hidden mb-4 bg-gray-50 border border-violet-100 rounded-xl p-5 shrink-0 shadow-inner transition-all fade-in">
+                        <h4 class="font-bold text-violet-800 mb-3 border-b border-violet-100 pb-2 uppercase tracking-wide text-xs">Listening Answer Key</h4>
+                        <div class="grid grid-cols-2 sm:grid-cols-5 gap-3 text-sm text-gray-700 font-medium">
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-violet-500 font-bold mr-2">1</span> B</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-violet-500 font-bold mr-2">2</span> F</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-violet-500 font-bold mr-2">3</span> A</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-violet-500 font-bold mr-2">4</span> E</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-violet-500 font-bold mr-2">5</span> D</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-violet-500 font-bold mr-2">6</span> dried leaves</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-violet-500 font-bold mr-2">7</span> active ingredient</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-violet-500 font-bold mr-2">8</span> liquid form</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-violet-500 font-bold mr-2">9</span> synthetic version</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-violet-500 font-bold mr-2">10</span> clinical trials</div>
+                        </div>
+                    </div>
+
+                    <!-- Listening Vocab Panel -->
+                    <div class="bg-violet-50 border-l-4 border-violet-400 rounded-r-xl mb-6 flex flex-col shadow-sm shrink-0">
+                        <div class="flex justify-between items-center p-4 border-b border-violet-200 shrink-0 bg-white/50 cursor-pointer hover:bg-violet-100/50 transition-colors" onclick="toggleVisibility('lis-vocab-panel')">
+                            <h4 class="font-bold text-violet-800 text-lg flex items-center gap-2">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                                Vocab Exercises Check (Pink Book)
+                            </h4>
+                            <svg class="w-5 h-5 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                        
+                        <div id="lis-vocab-panel" class="hidden p-5 max-h-[400px] overflow-y-auto space-y-6">
+                            <!-- Listening Ex 1 -->
+                            <div id="ans-lis-1-container" class="bg-white border border-violet-100 rounded-xl p-5 shadow-sm transition-all duration-300">
+                                <div class="flex justify-between items-center mb-4">
+                                    <h5 class="font-bold text-violet-700 text-md">Exercise 1</h5>
+                                    <button id="btn-ans-lis-1" onclick="toggleInlineAnswers('ans-lis-1-container', 'btn-ans-lis-1')" class="text-xs bg-violet-50 text-violet-700 px-3 py-1.5 rounded-lg font-bold hover:bg-violet-100 transition-colors border border-violet-200">Show Answers</button>
+                                </div>
+                                <p class="text-gray-600 text-sm mb-4 font-medium">Match the words with the synonyms / pictures.</p>
+                                <div class="grid grid-cols-2 gap-x-8 gap-y-4 text-sm">
+                                    <div class="space-y-4">
+                                        <p><span class="font-bold text-gray-800">1</span> <span class="text-violet-600 font-semibold">seminar</span> /'semɪnɑ:(r)/ <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ C. [Picture: Speaker presenting to an audience]</span></p>
+                                        <p><span class="font-bold text-gray-800">2</span> <span class="text-violet-600 font-semibold">clinic</span> /'klɪnɪk/ <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ D. [Picture: A doctor's office/waiting room]</span></p>
+                                        <p><span class="font-bold text-gray-800">3</span> <span class="text-violet-600 font-semibold">stiffness</span> /'stɪfnəs/ <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ F. difficulty in moving because of pain in your muscles</span></p>
+                                        <p><span class="font-bold text-gray-800">4</span> <span class="text-violet-600 font-semibold">posture</span> /'pɒstʃə(r)/ <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ B. [Picture: Woman doing yoga/stretching]</span></p>
+                                        <p><span class="font-bold text-gray-800">5</span> <span class="text-violet-600 font-semibold">painkiller</span> /'peɪnkɪlə(r)/ <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ A. a drug that reduces pain</span></p>
+                                        <p><span class="font-bold text-gray-800">6</span> <span class="text-violet-600 font-semibold">rehabilitation</span> /ˌri:əˌbɪlɪ'teɪʃn/ <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ E. recovery (after severe illness)</span></p>
+                                    </div>
+                                    <div class="space-y-4 text-gray-600">
+                                        <p><span class="font-bold text-gray-800">A.</span> a drug that reduces pain</p>
+                                        <p><span class="font-bold text-gray-800">B.</span> [Picture: Woman doing yoga/stretching]</p>
+                                        <p><span class="font-bold text-gray-800">C.</span> [Picture: Speaker presenting to an audience]</p>
+                                        <p><span class="font-bold text-gray-800">D.</span> [Picture: A doctor's office/waiting room]</p>
+                                        <p><span class="font-bold text-gray-800">E.</span> recovery (after severe illness)</p>
+                                        <p><span class="font-bold text-gray-800">F.</span> difficulty in moving because of pain in your muscles</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Listening Ex 2 -->
+                            <div id="ans-lis-2-container" class="bg-white border border-violet-100 rounded-xl p-5 shadow-sm transition-all duration-300">
+                                <div class="flex justify-between items-center mb-4">
+                                    <h5 class="font-bold text-violet-700 text-md">Exercise 2</h5>
+                                    <button id="btn-ans-lis-2" onclick="toggleInlineAnswers('ans-lis-2-container', 'btn-ans-lis-2')" class="text-xs bg-violet-50 text-violet-700 px-3 py-1.5 rounded-lg font-bold hover:bg-violet-100 transition-colors border border-violet-200">Show Answers</button>
+                                </div>
+                                <p class="text-gray-600 text-sm mb-4 font-medium">Match the phrases in column A with the pictures in column B.</p>
+                                <div class="grid grid-cols-2 gap-x-8 gap-y-4 text-sm">
+                                    <div class="space-y-4">
+                                        <p class="font-bold text-violet-400 uppercase text-xs tracking-wider mb-2">Column A</p>
+                                        <p><span class="font-bold text-gray-800">1</span> <span class="text-violet-600 font-semibold">manipulate</span> a machine <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ B. [Picture: Person operating an ATM]</span></p>
+                                        <p><span class="font-bold text-gray-800">2</span> <span class="text-violet-600 font-semibold">prescribe</span> something <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ D. [Picture: Doctor writing on a notepad]</span></p>
+                                        <p><span class="font-bold text-gray-800">3</span> lead a <span class="text-violet-600 font-semibold">sedentary</span> lifestyle <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ E. [Picture: Person lounging on a sofa]</span></p>
+                                        <p><span class="font-bold text-gray-800">4</span> <span class="text-violet-600 font-semibold">sustain</span>/suffer an injury <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ C. [Picture: Injured person with crutch]</span></p>
+                                        <p><span class="font-bold text-gray-800">5</span> <span class="text-violet-600 font-semibold">sprain</span> an ankle <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ A. [Picture: A bandaged foot/ankle]</span></p>
+                                        <p><span class="font-bold text-gray-800">6</span> <span class="text-violet-600 font-semibold">devise</span> something <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ F. [Picture: A hand clicking an 'INVENT' button]</span></p>
+                                        <p><span class="font-bold text-gray-800">7</span> <span class="text-violet-600 font-semibold">get fed up</span> with something <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ G. [Picture: Frustrated person sitting]</span></p>
+                                    </div>
+                                    <div class="space-y-4 text-gray-600">
+                                        <p class="font-bold text-violet-400 uppercase text-xs tracking-wider mb-2">Column B</p>
+                                        <p><span class="font-bold text-gray-800">A.</span> [Picture: A bandaged foot/ankle]</p>
+                                        <p><span class="font-bold text-gray-800">B.</span> [Picture: Person operating an ATM/machine]</p>
+                                        <p><span class="font-bold text-gray-800">C.</span> [Picture: Injured person with bandages and a crutch]</p>
+                                        <p><span class="font-bold text-gray-800">D.</span> [Picture: Doctor writing on a notepad]</p>
+                                        <p><span class="font-bold text-gray-800">E.</span> [Picture: Person lounging on a sofa watching TV]</p>
+                                        <p><span class="font-bold text-gray-800">F.</span> [Picture: A hand clicking an 'INVENT' button]</p>
+                                        <p><span class="font-bold text-gray-800">G.</span> [Picture: Frustrated person sitting with head in hands]</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="w-full flex-grow rounded-2xl overflow-hidden border border-gray-200 shadow-inner bg-gray-50 relative min-h-[600px] shrink-0">
                         <iframe src="https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/section3_complete_ielts_6.5_7.5_wb_unit3.html" class="absolute inset-0 w-full h-full border-0" title="Listening Practice"></iframe>
                     </div>
                 </div>
@@ -585,29 +245,124 @@
             themeClass: 'bg-gradient-to-r from-fuchsia-400 to-purple-400',
             iconColor: 'text-fuchsia-500',
             bgColor: 'bg-fuchsia-50',
-            title: '3. Reading Unit 3 WB',
+            title: '2. Reading Unit 3 WB',
             content: `
-                <div class="fade-in bg-white rounded-3xl shadow-xl border border-fuchsia-50 p-5 md:p-6 flex flex-col" style="height: calc(100vh - 11rem); min-height: 600px;">
+                <div class="fade-in bg-white rounded-3xl shadow-xl border border-fuchsia-50 p-5 md:p-6 flex flex-col flex-grow">
                     <div class="flex items-center gap-4 mb-4 border-b border-gray-100 pb-4 shrink-0">
                         <div class="w-12 h-12 rounded-2xl bg-fuchsia-100 flex items-center justify-center text-fuchsia-500 flex-shrink-0">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
                         </div>
-                        <div class="flex-grow flex flex-col md:flex-row justify-between md:items-center gap-2">
+                        <div class="flex-grow flex flex-col md:flex-row justify-between md:items-center gap-4">
                             <div>
                                 <div class="flex items-center gap-3 mb-1 flex-wrap">
                                     <h3 class="text-xl font-bold text-gray-800">Unit 3 Reading Practice</h3>
-                                    <a href="https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/passage3_complete_ielts_6.5_7.5_wb_unit3.html" target="_blank" class="inline-flex items-center gap-1.5 text-fuchsia-600 hover:text-fuchsia-700 transition-colors px-3 py-1.5 bg-fuchsia-50 hover:bg-fuchsia-100 rounded-lg shadow-sm border border-fuchsia-200 text-sm font-bold" title="Open in new tab">
+                                    <a href="https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/passage3_complete_ielts_6.5_7.5_wb_unit3.html" target="_blank" class="inline-flex items-center gap-1.5 text-fuchsia-600 hover:text-white hover:bg-fuchsia-600 transition-colors px-3 py-1.5 bg-fuchsia-50 rounded-lg shadow-sm border border-fuchsia-200 text-sm font-bold" title="Open in new tab">
                                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
                                         Open in New Tab
                                     </a>
                                 </div>
                                 <p class="text-fuchsia-600 font-medium text-sm">Workbook - Complete IELTS</p>
                             </div>
-                            <p class="text-gray-500 text-sm hidden md:block">Guide the class through the test. Explain answers focusing on paraphrasing techniques.</p>
+                            <button onclick="toggleVisibility('reading-key-panel')" class="bg-fuchsia-50 text-fuchsia-700 px-4 py-2 rounded-xl font-bold hover:bg-fuchsia-100 transition-colors text-sm border border-fuchsia-200 flex items-center gap-2 shrink-0 shadow-sm">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                Answer Keys
+                            </button>
                         </div>
                     </div>
 
-                    <div class="w-full flex-grow rounded-2xl overflow-hidden border border-gray-200 shadow-inner bg-gray-50 relative">
+                    <!-- Answer Key Panel -->
+                    <div id="reading-key-panel" class="hidden mb-4 bg-gray-50 border border-fuchsia-100 rounded-xl p-5 shrink-0 shadow-inner transition-all fade-in">
+                        <h4 class="font-bold text-fuchsia-800 mb-3 border-b border-fuchsia-100 pb-2 uppercase tracking-wide text-xs">Reading Answer Key</h4>
+                        <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3 text-sm text-gray-700 font-medium">
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-fuchsia-500 font-bold mr-2">1</span> Yes</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-fuchsia-500 font-bold mr-2">2</span> No</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-fuchsia-500 font-bold mr-2">3</span> No</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-fuchsia-500 font-bold mr-2">4</span> Yes</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-fuchsia-500 font-bold mr-2">5</span> Not Given</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-fuchsia-500 font-bold mr-2">6</span> B</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-fuchsia-500 font-bold mr-2">7</span> I</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-fuchsia-500 font-bold mr-2">8</span> E</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-fuchsia-500 font-bold mr-2">9</span> C</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-fuchsia-500 font-bold mr-2">10</span> D</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-fuchsia-500 font-bold mr-2">11</span> C</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-fuchsia-500 font-bold mr-2">12</span> A</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-fuchsia-500 font-bold mr-2">13</span> D</div>
+                        </div>
+                    </div>
+
+                    <!-- Workbook Vocab Panel -->
+                    <div class="bg-fuchsia-50 border-l-4 border-fuchsia-400 rounded-r-xl mb-6 flex flex-col shadow-sm shrink-0">
+                        <div class="flex justify-between items-center p-4 border-b border-fuchsia-200 shrink-0 bg-white/50 cursor-pointer hover:bg-fuchsia-100/50 transition-colors" onclick="toggleVisibility('wb-vocab-panel')">
+                            <h4 class="font-bold text-fuchsia-800 text-lg flex items-center gap-2">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                                Workbook Exercises Check
+                            </h4>
+                            <svg class="w-5 h-5 text-fuchsia-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                        
+                        <div id="wb-vocab-panel" class="hidden p-5 max-h-[400px] overflow-y-auto space-y-6">
+                            <!-- WB Ex 1 -->
+                            <div id="ans-wb-1-container" class="bg-white border border-fuchsia-100 rounded-xl p-5 shadow-sm transition-all duration-300">
+                                <div class="flex justify-between items-center mb-4">
+                                    <h5 class="font-bold text-fuchsia-700 text-md">Exercise 1</h5>
+                                    <button id="btn-ans-wb-1" onclick="toggleInlineAnswers('ans-wb-1-container', 'btn-ans-wb-1')" class="text-xs bg-fuchsia-50 text-fuchsia-700 px-3 py-1.5 rounded-lg font-bold hover:bg-fuchsia-100 transition-colors border border-fuchsia-200">Show Answers</button>
+                                </div>
+                                <p class="text-gray-600 text-sm mb-4 font-medium">Match the words in column A with the words in column B to form correct phrases.</p>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm">
+                                    <div class="space-y-3">
+                                        <p class="font-bold text-fuchsia-400 uppercase text-xs tracking-wider mb-2">Column A</p>
+                                        <p><span class="font-bold text-gray-800">1</span> Children today are often <span class="text-fuchsia-600 font-semibold italic">glued</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ B. to the TV.</span></p>
+                                        <p><span class="font-bold text-gray-800">2</span> Physical activity can improve <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ D. students' academic ability.</span></p>
+                                        <p><span class="font-bold text-gray-800">3</span> There is a <span class="text-fuchsia-600 font-semibold italic">concern</span> about kids with <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ C. low fitness levels.</span></p>
+                                        <p><span class="font-bold text-gray-800">4</span> Jogging and running are <span class="text-fuchsia-600 font-semibold italic">vigorous</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ A. physical activities.</span></p>
+                                        <p><span class="font-bold text-gray-800">5</span> Reading is believed to <span class="text-fuchsia-600 font-semibold italic">combat</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ H. memory loss.</span></p>
+                                        <p><span class="font-bold text-gray-800">6</span> Eating small portions can reduce <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ E. calorie intake.</span></p>
+                                        <p><span class="font-bold text-gray-800">7</span> Some struggle to <span class="text-fuchsia-600 font-semibold italic">retain</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ F. facts.</span></p>
+                                        <p><span class="font-bold text-gray-800">8</span> It is <span class="text-fuchsia-600 font-semibold italic">of the essence</span> to <span class="text-fuchsia-600 font-semibold italic">put efforts</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ G. into whatever we do.</span></p>
+                                        <p><span class="font-bold text-gray-800">9</span> Being physically active <span class="text-fuchsia-600 font-semibold italic">yields</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ I. benefits for physical/mental health.</span></p>
+                                    </div>
+                                    <div class="space-y-3 text-gray-600">
+                                        <p class="font-bold text-fuchsia-400 uppercase text-xs tracking-wider mb-2">Column B</p>
+                                        <p><span class="font-bold text-gray-800">A.</span> physical activities.</p>
+                                        <p><span class="font-bold text-gray-800">B.</span> to the TV.</p>
+                                        <p><span class="font-bold text-gray-800">C.</span> low fitness levels.</p>
+                                        <p><span class="font-bold text-gray-800">D.</span> students' academic ability/performance.</p>
+                                        <p><span class="font-bold text-gray-800">E.</span> calorie <span class="text-fuchsia-600 font-semibold italic">intake</span>.</p>
+                                        <p><span class="font-bold text-gray-800">F.</span> facts.</p>
+                                        <p><span class="font-bold text-gray-800">G.</span> into whatever we do.</p>
+                                        <p><span class="font-bold text-gray-800">H.</span> memory loss.</p>
+                                        <p><span class="font-bold text-gray-800">I.</span> benefits for physical and mental health.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- WB Ex 2 -->
+                            <div id="ans-wb-2-container" class="bg-white border border-fuchsia-100 rounded-xl p-5 shadow-sm transition-all duration-300">
+                                <div class="flex justify-between items-center mb-4">
+                                    <h5 class="font-bold text-fuchsia-700 text-md">Exercise 2</h5>
+                                    <button id="btn-ans-wb-2" onclick="toggleInlineAnswers('ans-wb-2-container', 'btn-ans-wb-2')" class="text-xs bg-fuchsia-50 text-fuchsia-700 px-3 py-1.5 rounded-lg font-bold hover:bg-fuchsia-100 transition-colors border border-fuchsia-200">Show Answers</button>
+                                </div>
+                                <p class="text-gray-600 text-sm mb-4 font-medium">Fill in each blank with one suitable word from the list below.</p>
+                                <div class="bg-fuchsia-50 border border-fuchsia-200 rounded-lg p-4 mb-6 flex flex-wrap gap-x-8 gap-y-2 font-bold text-fuchsia-700 justify-center text-sm">
+                                    <span>cognition</span>
+                                    <span>nerve</span>
+                                    <span>implication</span>
+                                    <span>simulation</span>
+                                    <span>conviction</span>
+                                    <span>synapse</span>
+                                </div>
+                                <div class="space-y-3 text-gray-700 text-sm">
+                                    <p><span class="font-bold text-gray-900">1</span> To test the model under different conditions, it is necessary to run <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 mx-1">simulation</span> on a computer.</p>
+                                    <p><span class="font-bold text-gray-900">2</span> He damaged a/an <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 mx-1">nerve</span> in his spine.</p>
+                                    <p><span class="font-bold text-gray-900">3</span> These results have important practical <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 mx-1">implication</span> .</p>
+                                    <p><span class="font-bold text-gray-900">4</span> He has done extensive research into theories of human <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 mx-1">cognition</span> .</p>
+                                    <p><span class="font-bold text-gray-900">5</span> He had a strong personal <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 mx-1">conviction</span> about the power of the printed word.</p>
+                                    <p><span class="font-bold text-gray-900">6</span> Information from one neuron flows to another neuron across a <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 mx-1">synapse</span> .</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="w-full flex-grow rounded-2xl overflow-hidden border border-gray-200 shadow-inner bg-gray-50 relative min-h-[600px] shrink-0">
                         <iframe src="https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/passage3_complete_ielts_6.5_7.5_wb_unit3.html" class="absolute inset-0 w-full h-full border-0" title="Reading Practice"></iframe>
                     </div>
                 </div>
@@ -621,14 +376,14 @@
             bgColor: 'bg-red-50',
             title: '4. Reading Practice (20 mins)',
             content: `
-                <div class="fade-in bg-white rounded-3xl shadow-xl border border-red-50 p-5 md:p-6 flex flex-col" style="height: calc(100vh - 11rem); min-height: 600px;">
-                    <div class="flex flex-col lg:flex-row gap-6 flex-grow h-full">
-                        <div class="flex-1 w-full flex flex-col h-full">
+                <div class="fade-in bg-white rounded-3xl shadow-xl border border-red-50 p-5 md:p-6 flex flex-col flex-grow">
+                    <div class="flex flex-col lg:flex-row gap-6 flex-grow">
+                        <div class="flex-1 w-full flex flex-col">
                             <div class="mb-3 shrink-0">
                                 <span class="inline-block py-1 px-3 rounded-full bg-red-100 text-red-700 font-bold text-xs uppercase tracking-widest mb-2">Timed Test</span>
                                 <div class="flex items-center gap-3 mb-2 flex-wrap">
                                     <h3 class="text-2xl font-bold text-gray-800">Measures to Combat Disease</h3>
-                                    <a href="https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/passage1_measures_combat_disease_russia.html" target="_blank" class="inline-flex items-center gap-1.5 text-red-600 hover:text-red-700 transition-colors px-3 py-1.5 bg-red-50 hover:bg-red-100 rounded-lg shadow-sm border border-red-200 text-sm font-bold" title="Open in new tab">
+                                    <a href="https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/passage1_measures_combat_disease_russia.html" target="_blank" class="inline-flex items-center gap-1.5 text-red-600 hover:text-white hover:bg-red-500 transition-colors px-3 py-1.5 bg-red-50 rounded-lg shadow-sm border border-red-200 text-sm font-bold" title="Open in new tab">
                                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
                                         Open in New Tab
                                     </a>
@@ -636,15 +391,40 @@
                                 <p class="text-gray-600 text-sm">Have the class complete this reading passage under exam conditions.</p>
                             </div>
                             
-                            <div class="w-full flex-grow rounded-2xl overflow-hidden border border-gray-200 shadow-inner bg-gray-50 relative mb-4">
+                            <div class="w-full flex-grow rounded-2xl overflow-hidden border border-gray-200 shadow-inner bg-gray-50 relative mb-4 min-h-[600px] shrink-0">
                                 <iframe src="https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/passage1_measures_combat_disease_russia.html" class="absolute inset-0 w-full h-full border-0" title="Measures to Combat Disease"></iframe>
                             </div>
 
                             <div class="border-t border-gray-100 pt-3 shrink-0">
-                                <button onclick="toggleVisibility('reading-answers-explain')" class="inline-flex items-center gap-2 bg-gray-50 text-gray-700 px-5 py-2.5 rounded-lg text-sm font-bold border border-gray-200 hover:bg-gray-100 transition-colors">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                                    Show Teacher Notes
-                                </button>
+                                <div class="flex items-center gap-2">
+                                    <button onclick="toggleVisibility('reading-answers-explain')" class="inline-flex items-center gap-2 bg-gray-50 text-gray-700 px-5 py-2.5 rounded-xl text-sm font-bold border border-gray-200 hover:bg-gray-100 transition-colors shadow-sm">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                        Teacher Notes
+                                    </button>
+                                    <button onclick="toggleVisibility('reading-mock-key-panel')" class="inline-flex items-center gap-2 bg-red-50 text-red-700 px-5 py-2.5 rounded-xl text-sm font-bold border border-red-200 hover:bg-red-100 transition-colors shadow-sm">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                        Answer Keys
+                                    </button>
+                                </div>
+
+                                <div id="reading-mock-key-panel" class="hidden mt-4 bg-gray-50 border border-red-100 rounded-xl p-5 shadow-inner transition-all fade-in">
+                                    <h4 class="font-bold text-red-800 mb-3 border-b border-red-100 pb-2 uppercase tracking-wide text-xs">Reading Answer Key</h4>
+                                    <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3 text-sm text-gray-700 font-medium">
+                                        <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-red-500 font-bold mr-2">1</span> Yes</div>
+                                        <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-red-500 font-bold mr-2">2</span> No</div>
+                                        <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-red-500 font-bold mr-2">3</span> No</div>
+                                        <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-red-500 font-bold mr-2">4</span> Yes</div>
+                                        <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-red-500 font-bold mr-2">5</span> Not Given</div>
+                                        <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-red-500 font-bold mr-2">6</span> B</div>
+                                        <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-red-500 font-bold mr-2">7</span> I</div>
+                                        <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-red-500 font-bold mr-2">8</span> E</div>
+                                        <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-red-500 font-bold mr-2">9</span> C</div>
+                                        <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-red-500 font-bold mr-2">10</span> D</div>
+                                        <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-red-500 font-bold mr-2">11</span> C</div>
+                                        <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-red-500 font-bold mr-2">12</span> A</div>
+                                        <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-red-500 font-bold mr-2">13</span> D</div>
+                                    </div>
+                                </div>
                                 
                                 <div id="reading-answers-explain" class="hidden mt-4 bg-red-50 border border-red-100 rounded-xl p-5 text-sm text-gray-700">
                                     <h4 class="font-bold text-red-800 mb-2">Teacher Review Notes:</h4>
@@ -657,16 +437,16 @@
                             </div>
                         </div>
 
-                        <div class="w-full lg:w-72 glass rounded-3xl p-6 border border-red-100 shadow-sm text-center relative overflow-hidden flex flex-col justify-center shrink-0 lg:h-full">
+                        <div class="w-full lg:w-72 glass rounded-3xl p-6 border border-red-100 shadow-sm text-center sticky top-4 overflow-hidden flex flex-col justify-center shrink-0 lg:h-80 group hover:shadow-md transition-shadow">
                             <div class="absolute inset-0 bg-gradient-to-b from-red-50/50 to-transparent"></div>
                             <div class="relative z-10">
                                 <h4 class="text-red-500 font-bold uppercase tracking-widest text-xs mb-4">Exam Timer</h4>
                                 <div class="text-5xl font-black text-red-600 tracking-tighter timer-text mb-6 drop-shadow-sm" id="reading20-timer">20:00</div>
                                 
                                 <div class="flex gap-2 w-full">
-                                    <button onclick="toggleTimer('reading20', 1200)" id="btn-reading20-timer" class="flex-1 bg-gradient-to-r from-red-500 to-rose-500 text-white py-2.5 rounded-xl font-bold text-sm hover:from-red-600 hover:to-rose-600 shadow-sm transition-all">Start 20m</button>
-                                    <button onclick="resetTimer('reading20', 1200)" class="px-3 bg-white border border-red-200 text-red-500 rounded-xl hover:bg-red-50 transition-colors shadow-sm">
-                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                                    <button onclick="toggleTimer('reading20', 1200)" id="btn-reading20-timer" class="flex-1 bg-gradient-to-r from-red-500 to-rose-500 text-white py-3 rounded-xl font-bold text-sm hover:from-red-600 hover:to-rose-600 shadow-sm transition-all">Start 20m</button>
+                                    <button onclick="resetTimer('reading20', 1200)" class="px-4 bg-white border border-red-200 text-red-500 rounded-xl hover:bg-red-50 transition-colors shadow-sm">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
                                     </button>
                                 </div>
                             </div>
@@ -680,7 +460,6 @@
     let currentIndex = 0;
     
     let timers = {
-        vocab: { interval: null, remaining: 900, isRunning: false },
         reading20: { interval: null, remaining: 1200, isRunning: false }
     };
 
@@ -747,11 +526,13 @@
             }
         });
 
+        // Reset scroll position on slide change
+        document.getElementById('main-scroll-area').scrollTop = 0;
+
         containerEl.innerHTML = ''; 
         setTimeout(() => {
             containerEl.innerHTML = data.content;
             
-            if(data.id === 'vocab_exercises') updateTimerUI('vocab', timers.vocab.remaining);
             if(data.id === 'reading_practice') updateTimerUI('reading20', timers.reading20.remaining);
         }, 10);
 
@@ -783,6 +564,26 @@
             } else {
                 el.classList.add('hidden');
                 el.classList.remove('fade-in');
+            }
+        }
+    };
+    
+    window.toggleInlineAnswers = function(containerId, btnId) {
+        const container = document.getElementById(containerId);
+        const btn = document.getElementById(btnId);
+        if(container) {
+            container.classList.toggle('show-answers');
+            if(container.classList.contains('show-answers')) {
+                container.classList.add('shadow-md', 'border-emerald-300');
+            } else {
+                container.classList.remove('shadow-md', 'border-emerald-300');
+            }
+            if(btn) {
+                btn.textContent = container.classList.contains('show-answers') ? 'Hide Answers' : 'Show Answers';
+                btn.classList.toggle('bg-white');
+                btn.classList.toggle('bg-emerald-100');
+                btn.classList.toggle('text-gray-700');
+                btn.classList.toggle('text-emerald-800');
             }
         }
     };
@@ -834,7 +635,7 @@
         updateTimerUI(id, defaultTime);
         const btn = document.getElementById(`btn-${id}-timer`);
         if(btn) {
-            btn.textContent = id === 'reading20' ? 'Start 20m' : 'Start 15m';
+            btn.textContent = 'Start 20m';
         }
     }
 
