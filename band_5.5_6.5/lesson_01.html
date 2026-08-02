@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Chan Truong - Lesson 01</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #fdf2f8;
+            background-image: 
+                radial-gradient(at 0% 0%, #ffe4e6 0px, transparent 50%),
+                radial-gradient(at 100% 0%, #fce7f3 0px, transparent 50%),
+                radial-gradient(at 100% 100%, #fbcfe8 0px, transparent 50%),
+                radial-gradient(at 0% 100%, #fdf2f8 0px, transparent 50%),
+                radial-gradient(at 50% 50%, #fff1f2 0px, transparent 50%);
+            background-attachment: fixed;
+            color: #4c0519; /* rose-950 */
+        }
+        
+        .slide { display: none; opacity: 0; transition: opacity 0.5s ease, transform 0.5s ease; transform: translateY(20px); }
+        .slide.active { display: block; opacity: 1; transform: translateY(0); }
+        
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: transparent; } 
+        ::-webkit-scrollbar-thumb { background: rgba(244, 114, 182, 0.4); border-radius: 10px; border: 2px solid transparent; background-clip: padding-box; } 
+        ::-webkit-scrollbar-thumb:hover { background: rgba(225, 29, 72, 0.5); border: 2px solid transparent; background-clip: padding-box; } 
+        
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
+        .hidden-answer { display: none; }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 10px 40px -10px rgba(225, 29, 72, 0.15);
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.45);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: inset 0 2px 4px 0 rgba(255, 255, 255, 0.3), 0 4px 15px -5px rgba(225, 29, 72, 0.05);
+        }
+        .glass-button {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.5));
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 15px -5px rgba(225, 29, 72, 0.15);
+            transition: all 0.3s ease;
+        }
+        .glass-button:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px -5px rgba(225, 29, 72, 0.25);
+        }
+        
+        .hover-lift { transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease; }
+        .hover-lift:hover { transform: translateY(-4px); box-shadow: 0 15px 30px -10px rgba(225, 29, 72, 0.2); }
+
+        /* Select Dropdown Styling */
+        select.nav-dropdown {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23881337' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1em;
+            padding-right: 2.5rem;
+        }
+    </style>
+</head>
+<body class="h-screen flex flex-col overflow-hidden">
+
+    <!-- Header / Navigation -->
+    <header class="glass-card border-b border-white/60 z-20 shrink-0 relative">
+        <div class="p-4 flex flex-col md:flex-row justify-between items-center gap-4 max-w-7xl mx-auto w-full">
+            <div>
+                <h1 class="text-2xl font-extrabold tracking-tight text-rose-950">IELTS Chan Truong <span class="text-rose-600 font-semibold ml-2 px-3 py-1 bg-white/50 border border-white/60 rounded-full text-base shadow-sm">Class 5.5-6.5</span></h1>
+                <p class="text-sm text-rose-900/70 mt-1.5 flex items-center gap-2 font-medium">
+                    <span class="w-2 h-2 rounded-full bg-pink-400 shadow-[0_0_8px_rgba(244,114,182,0.8)]"></span> Lesson 01: Course Intro & Speaking
+                </p>
+            </div>
+            
+            <div class="flex items-center gap-4 w-full md:w-auto justify-between md:justify-end">
+                <select id="section-nav" onchange="jumpToSection(this.value)" class="nav-dropdown glass-panel text-rose-900 font-bold py-2 px-4 rounded-xl shadow-sm outline-none cursor-pointer border border-white/60 hover:bg-white/60 transition">
+                    <option value="0">1. Lesson Overview</option>
+                    <option value="1">2. Speaking Vocabulary</option>
+                    <option value="2">3. Speaking Part 1 Strategies</option>
+                </select>
+
+                <div class="flex items-center gap-3">
+                    <span id="slide-counter" class="font-bold text-rose-900 px-3 py-1.5 glass-panel rounded-full text-sm hidden md:inline-block">1 / 3</span>
+                    <button onclick="prevSlide()" class="glass-button text-rose-800 px-4 py-2 rounded-full font-semibold flex items-center gap-2">
+                        <span>←</span> <span class="hidden sm:inline">Prev</span>
+                    </button>
+                    <button onclick="nextSlide()" class="bg-gradient-to-r from-pink-500 to-rose-400 hover:from-pink-400 hover:to-rose-300 text-white px-5 py-2 rounded-full shadow-lg shadow-pink-500/30 transition-all hover:shadow-pink-500/50 hover:-translate-y-0.5 font-bold flex items-center gap-2">
+                        <span class="hidden sm:inline">Next</span> <span>→</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="h-1 bg-white/40 w-full absolute bottom-0 left-0">
+            <div id="progress-bar" class="h-full bg-gradient-to-r from-pink-400 to-rose-500 transition-all duration-500 ease-out shadow-[0_0_10px_rgba(244,114,182,0.5)]" style="width: 33.33%;"></div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 overflow-y-auto p-4 md:p-8 relative">
+        <div class="max-w-7xl mx-auto pb-24">
+
+            <!-- SLIDE 0: Intro -->
+            <div class="slide active" id="slide-0">
+                <div class="text-center py-16">
+                    <div class="inline-block mb-6 px-5 py-2 rounded-full glass-panel text-rose-600 font-bold text-sm tracking-widest uppercase shadow-sm">Lesson Overview</div>
+                    <h2 class="text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-rose-950 to-pink-700 mb-6 tracking-tight drop-shadow-sm">Course Intro & Speaking</h2>
+                    <p class="text-xl text-rose-900/70 mb-16 max-w-2xl mx-auto font-medium leading-relaxed">Welcome to the first lesson! Today we will go over the class rules and introduce the fundamentals of IELTS Speaking Part 1.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto text-left">
+                        <div class="glass-card p-8 rounded-3xl hover-lift relative overflow-hidden group">
+                            <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-purple-400 to-pink-400 opacity-80"></div>
+                            <div class="w-14 h-14 glass-panel rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-sm group-hover:scale-110 transition-transform">👋</div>
+                            <h3 class="text-2xl font-bold mb-4 text-rose-950">Part 1: Course Introduction</h3>
+                            <ul class="text-rose-900/80 space-y-3 font-medium mb-6">
+                                <li class="flex items-start gap-3"><span class="text-pink-400 mt-1">✦</span> Class Greeting</li>
+                                <li class="flex items-start gap-3"><span class="text-pink-400 mt-1">✦</span> Class Rules & Expectations</li>
+                            </ul>
+                            <a href="https://www.canva.com/design/DAEMFl5XiLU/A0PW13WY3f9UbxiVIt4wVw/edit" target="_blank" class="inline-flex items-center gap-2 bg-gradient-to-r from-pink-500 to-rose-400 hover:from-pink-400 hover:to-rose-300 text-white font-bold py-2.5 px-6 rounded-full shadow-lg shadow-pink-500/30 transition-all hover:-translate-y-1 text-sm">
+                                Open Canva Presentation <span>↗</span>
+                            </a>
+                        </div>
+                        <div class="glass-card p-8 rounded-3xl hover-lift relative overflow-hidden group">
+                            <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-pink-400 to-rose-400 opacity-80"></div>
+                            <div class="w-14 h-14 glass-panel rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-sm group-hover:scale-110 transition-transform">🗣️</div>
+                            <h3 class="text-2xl font-bold mb-4 text-rose-950">Part 2: Speaking Part 1</h3>
+                            <ul class="text-rose-900/80 space-y-3 font-medium">
+                                <li class="flex items-start gap-3"><span class="text-rose-400 mt-1">✦</span> Structure Vocabulary Exercises</li>
+                                <li class="flex items-start gap-3"><span class="text-rose-400 mt-1">✦</span> Question Types & Filters</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <button onclick="nextSlide()" class="mt-16 bg-gradient-to-r from-rose-900 to-pink-800 hover:from-rose-800 hover:to-pink-700 text-white px-10 py-4 rounded-full text-lg font-bold shadow-[0_10px_25px_rgba(159,18,57,0.3)] transition-all hover:shadow-[0_15px_35px_rgba(159,18,57,0.4)] hover:-translate-y-1 flex items-center gap-3 mx-auto">
+                        Begin Lesson <span class="text-xl">✨</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- SLIDE 1: Speaking Vocabulary -->
+            <div class="slide" id="slide-1">
+                <div class="flex items-center gap-4 mb-10">
+                    <span class="w-12 h-12 rounded-2xl glass-panel flex items-center justify-center text-2xl shadow-sm">🗣️</span>
+                    <div>
+                        <span class="text-pink-600 font-extrabold text-xs tracking-widest uppercase">Speaking Part 1</span>
+                        <h2 class="text-3xl font-extrabold text-rose-950">Structure Vocabulary</h2>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 gap-8">
+                    <!-- Exercise 1: Gap Fill -->
+                    <div class="glass-card rounded-3xl p-6 md:p-8 exercise-container relative">
+                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
+                            <div>
+                                <h3 class="text-xl font-bold text-rose-950">Exercise 1: Gap Fill</h3>
+                                <p class="text-sm text-rose-900/60 mt-1">Fill in each blank with one suitable word from the list provided in each section.</p>
+                            </div>
+                            <button onclick="toggleAnswers(this)" class="glass-button text-rose-800 font-bold py-2 px-4 rounded-xl text-sm shadow-sm shrink-0">
+                                ✨ Reveal Answers
+                            </button>
+                        </div>
+                        
+                        <!-- Question 1 -->
+                        <div class="mb-10">
+                            <p class="font-bold text-rose-950 mb-4 text-lg border-b border-pink-200 pb-2">1. Tell me something about your hometown.</p>
+                            
+                            <div class="glass-panel p-4 rounded-xl flex flex-wrap justify-center gap-6 mb-6 border-white/60 bg-white/20">
+                                <div class="flex items-center gap-2"><span class="text-orange-600 font-bold">characteristic</span><span class="text-xs text-rose-900/60">/ˌkærəktəˈrɪstɪk/</span><button onclick="playAudio('characteristic')" class="text-pink-500 text-xs hover:scale-110 transition">🔊</button></div>
+                                <div class="flex items-center gap-2"><span class="text-orange-600 font-bold">suppose</span><button onclick="playAudio('suppose')" class="text-pink-500 text-xs hover:scale-110 transition">🔊</button></div>
+                                <div class="flex items-center gap-2"><span class="text-orange-600 font-bold">pace</span><button onclick="playAudio('pace')" class="text-pink-500 text-xs hover:scale-110 transition">🔊</button></div>
+                                <div class="flex items-center gap-2"><span class="text-orange-600 font-bold">stunning</span><button onclick="playAudio('stunning')" class="text-pink-500 text-xs hover:scale-110 transition">🔊</button></div>
+                            </div>
+                            
+                            <p class="text-[0.95rem] font-medium text-rose-950 leading-loose">
+                                Well I come from Hue and I have been living here all my life. I 
+                                <span class="inline-flex items-center justify-center min-w-[120px] border-b-2 border-dashed border-pink-400 text-orange-600 font-bold px-2 h-7"><span class="hidden-answer">suppose</span></span> 
+                                the first thing I would say is that it's <em class="text-orange-600 font-bold">blessed with</em> 
+                                <span class="inline-flex items-center justify-center min-w-[120px] border-b-2 border-dashed border-pink-400 text-orange-600 font-bold px-2 h-7"><span class="hidden-answer">stunning</span></span> 
+                                natural beauty. Another significant 
+                                <span class="inline-flex items-center justify-center min-w-[120px] border-b-2 border-dashed border-pink-400 text-orange-600 font-bold px-2 h-7"><span class="hidden-answer">characteristic</span></span> 
+                                is that the 
+                                <span class="inline-flex items-center justify-center min-w-[120px] border-b-2 border-dashed border-pink-400 text-orange-600 font-bold px-2 h-7"><span class="hidden-answer">pace</span></span> 
+                                of living here is relatively slow, especially compared to fast-developing cities.
+                            </p>
+                        </div>
+
+                        <!-- Question 2 -->
+                        <div class="mb-10">
+                            <p class="font-bold text-rose-950 mb-4 text-lg border-b border-pink-200 pb-2">2. Do you like music? <span class="text-2xl ml-2 drop-shadow-sm">🎶</span></p>
+                            
+                            <div class="glass-panel p-4 rounded-xl flex flex-wrap justify-center gap-6 mb-6 border-white/60 bg-white/20">
+                                <div class="flex items-center gap-2"><span class="text-orange-600 font-bold">particular</span><span class="text-xs text-rose-900/60">/pərˈtɪkjələr/</span><button onclick="playAudio('particular')" class="text-pink-500 text-xs hover:scale-110 transition">🔊</button></div>
+                                <div class="flex items-center gap-2"><span class="text-orange-600 font-bold">bedtime</span><button onclick="playAudio('bedtime')" class="text-pink-500 text-xs hover:scale-110 transition">🔊</button></div>
+                                <div class="flex items-center gap-2"><span class="text-orange-600 font-bold">genre</span><span class="text-xs text-rose-900/60">/ˈʒɑːnrə/</span><button onclick="playAudio('genre')" class="text-pink-500 text-xs hover:scale-110 transition">🔊</button></div>
+                                <div class="flex items-center gap-2"><span class="text-orange-600 font-bold">ease</span><button onclick="playAudio('ease')" class="text-pink-500 text-xs hover:scale-110 transition">🔊</button></div>
+                                <div class="flex items-center gap-2"><span class="text-orange-600 font-bold">general</span><button onclick="playAudio('general')" class="text-pink-500 text-xs hover:scale-110 transition">🔊</button></div>
+                            </div>
+
+                            <p class="text-[0.95rem] font-medium text-rose-950 leading-loose">
+                                Actually, in 
+                                <span class="inline-flex items-center justify-center min-w-[120px] border-b-2 border-dashed border-pink-400 text-orange-600 font-bold px-2 h-7"><span class="hidden-answer">general</span></span> 
+                                I'm a big fan of music. But in 
+                                <span class="inline-flex items-center justify-center min-w-[120px] border-b-2 border-dashed border-pink-400 text-orange-600 font-bold px-2 h-7"><span class="hidden-answer">particular</span></span>, 
+                                I'm keen on classical music. And I guess this is probably because it can 
+                                <span class="inline-flex items-center justify-center min-w-[120px] border-b-2 border-dashed border-pink-400 text-orange-600 font-bold px-2 h-7"><span class="hidden-answer">ease</span></span> 
+                                my mind. So I have a habit of listening to this 
+                                <span class="inline-flex items-center justify-center min-w-[120px] border-b-2 border-dashed border-pink-400 text-orange-600 font-bold px-2 h-7"><span class="hidden-answer">genre</span></span> 
+                                of music before 
+                                <span class="inline-flex items-center justify-center min-w-[120px] border-b-2 border-dashed border-pink-400 text-orange-600 font-bold px-2 h-7"><span class="hidden-answer">bedtime</span></span>.
+                            </p>
+                        </div>
+
+                        <!-- Question 3 -->
+                        <div class="mb-10">
+                            <p class="font-bold text-rose-950 mb-4 text-lg border-b border-pink-200 pb-2">3. What do you often do in your free time?</p>
+                            
+                            <div class="glass-panel p-4 rounded-xl flex flex-wrap justify-center gap-6 mb-6 border-white/60 bg-white/20">
+                                <div class="flex items-center gap-2"><span class="text-orange-600 font-bold">contrast</span><span class="text-xs text-rose-900/60">/ˈkɑːntræst/</span><button onclick="playAudio('contrast')" class="text-pink-500 text-xs hover:scale-110 transition">🔊</button></div>
+                                <div class="flex items-center gap-2"><span class="text-orange-600 font-bold">scorching</span><span class="text-xs text-rose-900/60">/ˈskɔːrtʃɪŋ/</span><button onclick="playAudio('scorching')" class="text-pink-500 text-xs hover:scale-110 transition">🔊</button></div>
+                                <div class="flex items-center gap-2"><span class="text-orange-600 font-bold">absorb</span><span class="text-xs text-rose-900/60">/əbˈzɔːrb/</span><button onclick="playAudio('absorb')" class="text-pink-500 text-xs hover:scale-110 transition">🔊</button></div>
+                                <div class="flex items-center gap-2"><span class="text-orange-600 font-bold">depends</span><button onclick="playAudio('depends')" class="text-pink-500 text-xs hover:scale-110 transition">🔊</button></div>
+                                <div class="flex items-center gap-2"><span class="text-orange-600 font-bold">pleasant</span><button onclick="playAudio('pleasant')" class="text-pink-500 text-xs hover:scale-110 transition">🔊</button></div>
+                            </div>
+
+                            <p class="text-[0.95rem] font-medium text-rose-950 leading-loose flex items-start gap-4">
+                                <span class="text-5xl drop-shadow-sm shrink-0">🛋️</span>
+                                <span>
+                                    I think I would have to say that it really 
+                                    <span class="inline-flex items-center justify-center min-w-[120px] border-b-2 border-dashed border-pink-400 text-orange-600 font-bold px-2 h-7"><span class="hidden-answer">depends</span></span>. 
+                                    For instance, if the weather is 
+                                    <span class="inline-flex items-center justify-center min-w-[120px] border-b-2 border-dashed border-pink-400 text-orange-600 font-bold px-2 h-7"><span class="hidden-answer">pleasant</span></span>, 
+                                    I will most likely <em class="text-orange-600 font-bold">go for a stroll</em>. In 
+                                    <span class="inline-flex items-center justify-center min-w-[120px] border-b-2 border-dashed border-pink-400 text-orange-600 font-bold px-2 h-7"><span class="hidden-answer">contrast</span></span>, 
+                                    if it is <em class="text-orange-600 font-bold">showery</em> or 
+                                    <span class="inline-flex items-center justify-center min-w-[120px] border-b-2 border-dashed border-pink-400 text-orange-600 font-bold px-2 h-7"><span class="hidden-answer">scorching</span></span>, 
+                                    I will certainly stay at home and 
+                                    <span class="inline-flex items-center justify-center min-w-[120px] border-b-2 border-dashed border-pink-400 text-orange-600 font-bold px-2 h-7"><span class="hidden-answer">absorb</span></span> 
+                                    myself in music.
+                                </span>
+                            </p>
+                        </div>
+
+                        <!-- Question 4 -->
+                        <div class="mb-10">
+                            <p class="font-bold text-rose-950 mb-4 text-lg border-b border-pink-200 pb-2">4. Would you like to live in another city?</p>
+                            
+                            <div class="glass-panel p-4 rounded-xl flex flex-wrap justify-center gap-6 mb-6 border-white/60 bg-white/20">
+                                <div class="flex items-center gap-2"><span class="text-orange-600 font-bold">aquatic</span><button onclick="playAudio('aquatic')" class="text-pink-500 text-xs hover:scale-110 transition">🔊</button></div>
+                                <div class="flex items-center gap-2"><span class="text-orange-600 font-bold">considered</span><button onclick="playAudio('considered')" class="text-pink-500 text-xs hover:scale-110 transition">🔊</button></div>
+                                <div class="flex items-center gap-2"><span class="text-orange-600 font-bold">hang</span><button onclick="playAudio('hang')" class="text-pink-500 text-xs hover:scale-110 transition">🔊</button></div>
+                                <div class="flex items-center gap-2"><span class="text-orange-600 font-bold">coastal</span><button onclick="playAudio('coastal')" class="text-pink-500 text-xs hover:scale-110 transition">🔊</button></div>
+                            </div>
+
+                            <p class="text-[0.95rem] font-medium text-rose-950 leading-loose">
+                                Actually, this isn't something that I've ever 
+                                <span class="inline-flex items-center justify-center min-w-[120px] border-b-2 border-dashed border-pink-400 text-orange-600 font-bold px-2 h-7"><span class="hidden-answer">considered</span></span>, 
+                                but I suppose it would be incredible to move to a 
+                                <span class="inline-flex items-center justify-center min-w-[120px] border-b-2 border-dashed border-pink-400 text-orange-600 font-bold px-2 h-7"><span class="hidden-answer">coastal</span></span> 
+                                city like Nha Trang or Da Nang. If I lived in a seaside city I would be able to 
+                                <span class="inline-flex items-center justify-center min-w-[120px] border-b-2 border-dashed border-pink-400 text-orange-600 font-bold px-2 h-7"><span class="hidden-answer">hang</span></span> 
+                                out on the beach every day and I would also have the opportunity to play 
+                                <span class="inline-flex items-center justify-center min-w-[120px] border-b-2 border-dashed border-pink-400 text-orange-600 font-bold px-2 h-7"><span class="hidden-answer">aquatic</span></span> 
+                                sports.
+                            </p>
+                        </div>
+
+                        <!-- Question 5 -->
+                        <div>
+                            <p class="font-bold text-rose-950 mb-4 text-lg border-b border-pink-200 pb-2">5. What kinds of restaurants are common in Vietnam?</p>
+                            
+                            <div class="glass-panel p-4 rounded-xl flex flex-wrap justify-center gap-6 mb-6 border-white/60 bg-white/20">
+                                <div class="flex items-center gap-2"><span class="text-orange-600 font-bold">popularity</span><button onclick="playAudio('popularity')" class="text-pink-500 text-xs hover:scale-110 transition">🔊</button></div>
+                                <div class="flex items-center gap-2"><span class="text-orange-600 font-bold">preferred</span><button onclick="playAudio('preferred')" class="text-pink-500 text-xs hover:scale-110 transition">🔊</button></div>
+                                <div class="flex items-center gap-2"><span class="text-orange-600 font-bold">aspect</span><button onclick="playAudio('aspect')" class="text-pink-500 text-xs hover:scale-110 transition">🔊</button></div>
+                                <div class="flex items-center gap-2"><span class="text-orange-600 font-bold">appetites</span><button onclick="playAudio('appetites')" class="text-pink-500 text-xs hover:scale-110 transition">🔊</button></div>
+                                <div class="flex items-center gap-2"><span class="text-orange-600 font-bold">settings</span><button onclick="playAudio('settings')" class="text-pink-500 text-xs hover:scale-110 transition">🔊</button></div>
+                            </div>
+
+                            <p class="text-[0.95rem] font-medium text-rose-950 leading-loose">
+                                There's quite a wide range of restaurants in my country, but I guess the most 
+                                <span class="inline-flex items-center justify-center min-w-[120px] border-b-2 border-dashed border-pink-400 text-orange-600 font-bold px-2 h-7"><span class="hidden-answer">preferred</span></span> 
+                                would be Vietnamese restaurants, which serve traditional food in traditional 
+                                <span class="inline-flex items-center justify-center min-w-[120px] border-b-2 border-dashed border-pink-400 text-orange-600 font-bold px-2 h-7"><span class="hidden-answer">settings</span></span>. 
+                                As well as these, foreign restaurants are also gaining in 
+                                <span class="inline-flex items-center justify-center min-w-[120px] border-b-2 border-dashed border-pink-400 text-orange-600 font-bold px-2 h-7"><span class="hidden-answer">popularity</span></span>. 
+                                And one exceptional 
+                                <span class="inline-flex items-center justify-center min-w-[120px] border-b-2 border-dashed border-pink-400 text-orange-600 font-bold px-2 h-7"><span class="hidden-answer">aspect</span></span> 
+                                is that they can certainly satisfy people's 
+                                <span class="inline-flex items-center justify-center min-w-[120px] border-b-2 border-dashed border-pink-400 text-orange-600 font-bold px-2 h-7"><span class="hidden-answer">appetites</span></span> 
+                                for something new.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Exercises 2 & 3: Matching -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="glass-card rounded-3xl p-6 exercise-container relative h-full">
+                            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-4 border-b border-pink-200 pb-2">
+                                <div>
+                                    <h3 class="text-xl font-bold text-rose-950 flex items-center gap-2">Exercise 2 <span class="text-3xl drop-shadow-sm ml-2">❤️</span></h3>
+                                    <p class="text-sm text-rose-900/60 mt-1">Match the beginnings and endings.</p>
+                                </div>
+                                <button onclick="toggleAnswers(this)" class="glass-button text-rose-800 font-bold py-1.5 px-4 rounded-xl text-sm shadow-sm shrink-0">
+                                    ✨ Reveal
+                                </button>
+                            </div>
+                            
+                            <div class="space-y-3 text-[0.95rem] font-semibold text-rose-950">
+                                <div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition">
+                                    <span>1 I'm <strong class="text-orange-600">hooked</strong></span>
+                                    <span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ C. on photography.</span>
+                                </div>
+                                <div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition">
+                                    <span>2 My boy friend is</span>
+                                    <span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ A. into cooking.</span>
+                                </div>
+                                <div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition">
+                                    <span>3 My friends <strong class="text-orange-600">derive</strong> a lot of enjoyment</span>
+                                    <span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ B. from going shopping.</span>
+                                </div>
+                                <div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition">
+                                    <span>4 My brother is very <strong class="text-orange-600">fond</strong></span>
+                                    <span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ F. of singing.</span>
+                                </div>
+                                <div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition">
+                                    <span>5 My roommate seems totally <strong class="text-orange-600">engrossed</strong></span>
+                                    <span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ D. in his book.</span>
+                                </div>
+                                <div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition">
+                                    <span>6. My grandparents <strong class="text-orange-600">have a thing</strong></span>
+                                    <span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ E. for gardening.</span>
+                                </div>
+                            </div>
+                            
+                            <div class="glass-panel p-4 mt-6 rounded-xl text-sm space-y-2 font-medium text-rose-950/80 bg-white/20 border border-white/40">
+                                <p><strong class="text-pink-500 mr-1">A.</strong> into cooking.</p>
+                                <p><strong class="text-pink-500 mr-1">B.</strong> from going shopping.</p>
+                                <p><strong class="text-pink-500 mr-1">C.</strong> on photography.</p>
+                                <p><strong class="text-pink-500 mr-1">D.</strong> in his book.</p>
+                                <p><strong class="text-pink-500 mr-1">E.</strong> for gardening.</p>
+                                <p><strong class="text-pink-500 mr-1">F.</strong> of singing.</p>
+                            </div>
+                        </div>
+
+                        <div class="glass-card rounded-3xl p-6 exercise-container relative h-full">
+                            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-4 border-b border-pink-200 pb-2">
+                                <div>
+                                    <h3 class="text-xl font-bold text-rose-950 flex items-center gap-2">Exercise 3 <span class="text-3xl drop-shadow-sm ml-2">😡</span></h3>
+                                    <p class="text-sm text-rose-900/60 mt-1">Match the beginnings and endings.</p>
+                                </div>
+                                <button onclick="toggleAnswers(this)" class="glass-button text-rose-800 font-bold py-1.5 px-4 rounded-xl text-sm shadow-sm shrink-0">
+                                    ✨ Reveal
+                                </button>
+                            </div>
+                            
+                            <div class="space-y-3 text-[0.95rem] font-semibold text-rose-950">
+                                <div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition">
+                                    <span>1 I have <strong class="text-orange-600">no time</strong></span>
+                                    <span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ B. for latecomers.</span>
+                                </div>
+                                <div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition">
+                                    <span>2 Doing laundry is</span>
+                                    <span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ A. my boy friend's <strong class="text-orange-600">pet peeve</strong>.</span>
+                                </div>
+                                <div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition">
+                                    <span>3 Mothers often <strong class="text-orange-600">hate the sight</strong></span>
+                                    <span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ C. of messy desks.</span>
+                                </div>
+                                <div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition">
+                                    <span>4 My deskmate is <strong class="text-orange-600">averse</strong> <span class="text-xs font-normal text-rose-900/60">/əˈvɜːrs/</span></span>
+                                    <span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ E. to cooking.</span>
+                                </div>
+                                <div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition">
+                                    <span>5 My brother <strong class="text-orange-600">can't stand</strong></span>
+                                    <span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ D. advertisements.</span>
+                                </div>
+                            </div>
+
+                            <div class="glass-panel p-4 mt-6 rounded-xl text-sm space-y-2 font-medium text-rose-950/80 bg-white/20 border border-white/40">
+                                <p><strong class="text-pink-500 mr-1">A.</strong> my boy friend's <strong class="text-orange-600">pet peeve</strong>.</p>
+                                <p><strong class="text-pink-500 mr-1">B.</strong> for latecomers.</p>
+                                <p><strong class="text-pink-500 mr-1">C.</strong> of messy desks.</p>
+                                <p><strong class="text-pink-500 mr-1">D.</strong> advertisements.</p>
+                                <p><strong class="text-pink-500 mr-1">E.</strong> to cooking.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 2: Speaking Part 1 Strategies -->
+            <div class="slide" id="slide-2">
+                <div class="flex items-center gap-4 mb-10">
+                    <span class="w-12 h-12 rounded-2xl glass-panel flex items-center justify-center text-2xl shadow-sm">🗣️</span>
+                    <div>
+                        <span class="text-pink-600 font-extrabold text-xs tracking-widest uppercase">Speaking Part 1</span>
+                        <h2 class="text-3xl font-extrabold text-rose-950">Question Types & Fillers</h2>
+                    </div>
+                </div>
+
+                <div class="space-y-12">
+                    <!-- DESCRIBE questions -->
+                    <div class="glass-card rounded-3xl p-8 relative overflow-hidden group">
+                        <div class="absolute top-0 left-0 w-1.5 h-full bg-orange-400"></div>
+                        <h3 class="text-2xl font-bold text-orange-600 mb-6 uppercase tracking-wider">DESCRIBE questions</h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                            <div class="space-y-4 text-[0.95rem] font-medium text-rose-950">
+                                <div>
+                                    <p class="font-bold text-rose-900 mb-1">0. Lead in</p>
+                                    <ul class="list-disc pl-5 space-y-1 text-rose-900/80">
+                                        <li>OK then ...</li>
+                                        <li>Alright ...</li>
+                                        <li>Well, you know ...</li>
+                                        <li>Actually ...</li>
+                                        <li>Well ...</li>
+                                        <li>Well first of all ...</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-rose-900 mb-1">1. Pointing phrase 1</p>
+                                    <ul class="list-disc pl-5 space-y-1 text-rose-900/80">
+                                        <li>... the first thing I should mention is that ...</li>
+                                        <li>... the point I'd like to begin with is that ...</li>
+                                        <li>... my initial point would be that ...</li>
+                                        <li>... the main thing you need to know is that ...</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="space-y-4 text-[0.95rem] font-medium text-rose-950">
+                                <div>
+                                    <p class="font-bold text-rose-900 mb-1">2. Pointing phrase 2</p>
+                                    <ul class="list-disc pl-5 space-y-1 text-rose-900/80">
+                                        <li>Another point which I could add is that ...</li>
+                                        <li>A second feature which I should mention is that ...</li>
+                                        <li>As well as that, I could say that ...</li>
+                                        <li>On top of that I can also add that ...</li>
+                                        <li>Also, I suppose I should say that ...</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-rose-900 mb-1">3. Pointing phrase 3</p>
+                                    <ul class="list-disc pl-5 space-y-1 text-rose-900/80">
+                                        <li>And I shouldn't forget to mention that ...</li>
+                                        <li>In addition to what I've just said, I can add that ...</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="glass-panel p-5 rounded-2xl border border-orange-200 text-rose-950 font-medium italic leading-relaxed mb-6">
+                            Well first of all, the main thing you need to know is that ...<em class="text-orange-600 font-bold">(point 1)</em>... In fact ...<em class="text-orange-600 font-bold">(detail 1)</em> ... On top of that I can also add that ...<em class="text-orange-600 font-bold">(point 2)</em>... which means ...<em class="text-orange-600 font-bold">(detail 2)</em>... Something else that I need to comment on is that ...<em class="text-orange-600 font-bold">(point 3)</em>... So actually ...<em class="text-orange-600 font-bold">(detail 3)</em>...
+                        </div>
+
+                        <div class="bg-white/60 p-5 rounded-2xl border border-white/80">
+                            <p class="font-bold text-rose-900 mb-4 text-lg flex items-center gap-2"><span>🗣️</span> Practice Questions</p>
+                            <div class="space-y-3">
+                                <details class="group bg-white/50 border border-orange-200 rounded-xl overflow-hidden shadow-sm">
+                                    <summary class="cursor-pointer font-bold text-rose-900 p-4 hover:bg-white/80 transition flex justify-between items-center outline-none">
+                                        <span class="flex items-center gap-2"><span class="text-orange-500">Q1:</span> Describe your hometown.</span>
+                                        <span class="text-orange-400 group-open:rotate-180 transition-transform">▼</span>
+                                    </summary>
+                                    <div class="p-4 border-t border-orange-200 text-rose-950 font-medium leading-relaxed bg-white/60">
+                                        <p class="text-rose-950 font-medium"><strong>Well first of all</strong>, <strong>the main thing you need to know is that</strong> Hue is a very historic city. In fact, it was the former imperial capital of Vietnam. <strong>On top of that I can also add that</strong> the pace of life here is quite slow, which means it's incredibly peaceful compared to other major cities. <strong>Something else that I need to comment on is that</strong> the local cuisine is amazing. So actually, people travel from all over just to try our traditional dishes.</p>
+                                    </div>
+                                </details>
+                                
+                                <details class="group bg-white/50 border border-orange-200 rounded-xl overflow-hidden shadow-sm">
+                                    <summary class="cursor-pointer font-bold text-rose-900 p-4 hover:bg-white/80 transition flex justify-between items-center outline-none">
+                                        <span class="flex items-center gap-2"><span class="text-orange-500">Q2:</span> Describe your current accommodation.</span>
+                                        <span class="text-orange-400 group-open:rotate-180 transition-transform">▼</span>
+                                    </summary>
+                                    <div class="p-4 border-t border-orange-200 text-rose-950 font-medium leading-relaxed bg-white/60">
+                                        <p class="text-rose-950 font-medium"><strong>Well first of all, the point I'd like to begin with is that</strong> I currently live in a cozy apartment in the city center. In fact, it's very close to my workplace. <strong>Another point which I could add is that</strong> it has a beautiful balcony, which means I can enjoy the city view at night. <strong>Also, I suppose I should say that</strong> the neighborhood is quite safe.</p>
+                                    </div>
+                                </details>
+
+                                <details class="group bg-white/50 border border-orange-200 rounded-xl overflow-hidden shadow-sm">
+                                    <summary class="cursor-pointer font-bold text-rose-900 p-4 hover:bg-white/80 transition flex justify-between items-center outline-none">
+                                        <span class="flex items-center gap-2"><span class="text-orange-500">Q3:</span> Describe a close friend.</span>
+                                        <span class="text-orange-400 group-open:rotate-180 transition-transform">▼</span>
+                                    </summary>
+                                    <div class="p-4 border-t border-orange-200 text-rose-950 font-medium leading-relaxed bg-white/60">
+                                        <p class="text-rose-950 font-medium"><strong>Actually, my initial point would be that</strong> my best friend is incredibly supportive. In fact, she always stands by me during tough times. <strong>A second feature which I should mention is that</strong> she has a great sense of humor, so we always have a good laugh together. <strong>And I shouldn't forget to mention that</strong> she is a fantastic cook.</p>
+                                    </div>
+                                </details>
+
+                                <details class="group bg-white/50 border border-orange-200 rounded-xl overflow-hidden shadow-sm">
+                                    <summary class="cursor-pointer font-bold text-rose-900 p-4 hover:bg-white/80 transition flex justify-between items-center outline-none">
+                                        <span class="flex items-center gap-2"><span class="text-orange-500">Q4:</span> Describe your typical morning routine.</span>
+                                        <span class="text-orange-400 group-open:rotate-180 transition-transform">▼</span>
+                                    </summary>
+                                    <div class="p-4 border-t border-orange-200 text-rose-950 font-medium leading-relaxed bg-white/60">
+                                        <p class="text-rose-950 font-medium"><strong>Alright, the main thing you need to know is that</strong> my mornings are usually quite rushed. In fact, I only have about 30 minutes to get ready before leaving for work. <strong>As well as that, I could say that</strong> I always start my day with a strong cup of coffee, which helps me wake up. <strong>In addition to what I've just said, I can add that</strong> I prefer listening to podcasts while commuting.</p>
+                                    </div>
+                                </details>
+
+                                <details class="group bg-white/50 border border-orange-200 rounded-xl overflow-hidden shadow-sm">
+                                    <summary class="cursor-pointer font-bold text-rose-900 p-4 hover:bg-white/80 transition flex justify-between items-center outline-none">
+                                        <span class="flex items-center gap-2"><span class="text-orange-500">Q5:</span> Describe a popular festival in your country.</span>
+                                        <span class="text-orange-400 group-open:rotate-180 transition-transform">▼</span>
+                                    </summary>
+                                    <div class="p-4 border-t border-orange-200 text-rose-950 font-medium leading-relaxed bg-white/60">
+                                        <p class="text-rose-950 font-medium"><strong>Well, you know, the first thing I should mention is that</strong> Tet is the most significant holiday in Vietnam. In fact, it marks the lunar new year. <strong>On top of that I can also add that</strong> it is a time for family reunions, which means people travel from all over to be with their loved ones. <strong>Also, I suppose I should say that</strong> traditional food plays a massive role in the celebrations.</p>
+                                    </div>
+                                </details>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- DO YOU LIKE questions -->
+                    <div class="glass-card rounded-3xl p-8 relative overflow-hidden group">
+                        <div class="absolute top-0 left-0 w-1.5 h-full bg-orange-400"></div>
+                        <h3 class="text-2xl font-bold text-orange-600 mb-6 uppercase tracking-wider">DO YOU LIKE questions</h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                            <div class="space-y-4 text-[0.95rem] font-medium text-rose-950">
+                                <div>
+                                    <p class="font-bold text-rose-900 mb-1">0. Starting phrases</p>
+                                    <ul class="list-disc pl-5 space-y-1 text-rose-900/80">
+                                        <li>Well in general I would say that ...</li>
+                                        <li>Actually, I suppose that for the most part I'd probably say that ...</li>
+                                        <li>Well, to be honest I should really say that ...</li>
+                                        <li>Of course I think I'd have to say that ...</li>
+                                        <li>Certainly I would definitely say that ...</li>
+                                        <li>Well, I guess that generally speaking I would certainly say that ...</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-rose-900 mb-1">1. Like 1</p>
+                                    <ul class="list-disc pl-5 space-y-1 text-rose-900/80">
+                                        <li>... but in particular ...</li>
+                                        <li>... particularly ...</li>
+                                        <li>... especially ...</li>
+                                        <li>... specifically ...</li>
+                                        <li>... to be more precise ...</li>
+                                        <li>... to be more specific ...</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="space-y-4 text-[0.95rem] font-medium text-rose-950">
+                                <div>
+                                    <p class="font-bold text-rose-900 mb-1">2. Reason 1</p>
+                                    <ul class="list-disc pl-5 space-y-1 text-rose-900/80">
+                                        <li>And I guess this is probably because ...</li>
+                                        <li>This could be because ...</li>
+                                        <li>This might be because ...</li>
+                                        <li>This is due to the fact that ...</li>
+                                        <li>I suppose the reason has something to do with the fact that ...</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-rose-900 mb-1">3. Like 2</p>
+                                    <ul class="list-disc pl-5 space-y-1 text-rose-900/80">
+                                        <li>In addition, ...</li>
+                                        <li>To add to this ...</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-rose-900 mb-1">4. Reason 2</p>
+                                    <p class="text-rose-900/80">(Provide further explanation)</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="glass-panel p-5 rounded-2xl border border-orange-200 text-rose-950 font-medium italic leading-relaxed mb-6">
+                            Well to be quite honest, in general I would say that I'm actually quite keen on ..., but in particular I would probably have to say that I'm really into ... you know, things like ... I guess the reason why I'm a fan of ... is because I adore ... In addition to this I suppose I'm so pretty passionate about ..., especially ... and things like that, and this is due to the fact that ...
+                        </div>
+
+                        <div class="bg-white/60 p-5 rounded-2xl border border-white/80">
+                            <p class="font-bold text-rose-900 mb-4 text-lg flex items-center gap-2"><span>🗣️</span> Practice Questions</p>
+                            <div class="space-y-3">
+                                <details class="group bg-white/50 border border-orange-200 rounded-xl overflow-hidden shadow-sm">
+                                    <summary class="cursor-pointer font-bold text-rose-900 p-4 hover:bg-white/80 transition flex justify-between items-center outline-none">
+                                        <span class="flex items-center gap-2"><span class="text-orange-500">Q1:</span> Do you like reading books?</span>
+                                        <span class="text-orange-400 group-open:rotate-180 transition-transform">▼</span>
+                                    </summary>
+                                    <div class="p-4 border-t border-orange-200 text-rose-950 font-medium leading-relaxed bg-white/60">
+                                        <p class="text-rose-950 font-medium"><strong>Well, to be honest I should really say that</strong> I enjoy reading, <strong>but to be more specific</strong>, I'm really into science fiction novels. <strong>And I guess this is probably because</strong> they allow me to escape reality and explore fascinating futuristic worlds. <strong>In addition,</strong> I also like reading biographies of successful people, <strong>and this is due to the fact that</strong> they are incredibly inspiring and motivating.</p>
+                                    </div>
+                                </details>
+
+                                <details class="group bg-white/50 border border-orange-200 rounded-xl overflow-hidden shadow-sm">
+                                    <summary class="cursor-pointer font-bold text-rose-900 p-4 hover:bg-white/80 transition flex justify-between items-center outline-none">
+                                        <span class="flex items-center gap-2"><span class="text-orange-500">Q2:</span> Do you like traveling?</span>
+                                        <span class="text-orange-400 group-open:rotate-180 transition-transform">▼</span>
+                                    </summary>
+                                    <div class="p-4 border-t border-orange-200 text-rose-950 font-medium leading-relaxed bg-white/60">
+                                        <p class="text-rose-950 font-medium"><strong>Well, I guess that generally speaking I would certainly say that</strong> I love traveling, <strong>but in particular</strong>, I'm a big fan of backpacking. <strong>This could be because</strong> it gives me a sense of absolute freedom and adventure. <strong>To add to this</strong>, I also enjoy experiencing local cultures, <strong>and this is due to the fact that</strong> it broadens my horizons significantly.</p>
+                                    </div>
+                                </details>
+
+                                <details class="group bg-white/50 border border-orange-200 rounded-xl overflow-hidden shadow-sm">
+                                    <summary class="cursor-pointer font-bold text-rose-900 p-4 hover:bg-white/80 transition flex justify-between items-center outline-none">
+                                        <span class="flex items-center gap-2"><span class="text-orange-500">Q3:</span> Do you like cooking?</span>
+                                        <span class="text-orange-400 group-open:rotate-180 transition-transform">▼</span>
+                                    </summary>
+                                    <div class="p-4 border-t border-orange-200 text-rose-950 font-medium leading-relaxed bg-white/60">
+                                        <p class="text-rose-950 font-medium"><strong>Actually, I suppose that for the most part I'd probably say that</strong> I'm quite keen on cooking, <strong>especially</strong> baking pastries and cakes. <strong>I suppose the reason has something to do with the fact that</strong> the process is very therapeutic for me. <strong>In addition</strong>, I love seeing my family enjoy the treats, <strong>which is because</strong> sharing food brings us closer.</p>
+                                    </div>
+                                </details>
+
+                                <details class="group bg-white/50 border border-orange-200 rounded-xl overflow-hidden shadow-sm">
+                                    <summary class="cursor-pointer font-bold text-rose-900 p-4 hover:bg-white/80 transition flex justify-between items-center outline-none">
+                                        <span class="flex items-center gap-2"><span class="text-orange-500">Q4:</span> Do you like listening to music?</span>
+                                        <span class="text-orange-400 group-open:rotate-180 transition-transform">▼</span>
+                                    </summary>
+                                    <div class="p-4 border-t border-orange-200 text-rose-950 font-medium leading-relaxed bg-white/60">
+                                        <p class="text-rose-950 font-medium"><strong>Certainly I would definitely say that</strong> I'm a massive music lover, <strong>to be more precise</strong>, I'm really into acoustic indie pop. <strong>And I guess this is probably because</strong> the gentle melodies help me de-stress after a long day. <strong>To add to this</strong>, I often listen to instrumental tracks when I study, <strong>since</strong> it boosts my concentration.</p>
+                                    </div>
+                                </details>
+
+                                <details class="group bg-white/50 border border-orange-200 rounded-xl overflow-hidden shadow-sm">
+                                    <summary class="cursor-pointer font-bold text-rose-900 p-4 hover:bg-white/80 transition flex justify-between items-center outline-none">
+                                        <span class="flex items-center gap-2"><span class="text-orange-500">Q5:</span> Do you like shopping?</span>
+                                        <span class="text-orange-400 group-open:rotate-180 transition-transform">▼</span>
+                                    </summary>
+                                    <div class="p-4 border-t border-orange-200 text-rose-950 font-medium leading-relaxed bg-white/60">
+                                        <p class="text-rose-950 font-medium"><strong>Well in general I would say that</strong> I do enjoy retail therapy occasionally, <strong>particularly</strong> shopping for clothes. <strong>This might be because</strong> finding a flattering outfit instantly boosts my confidence. <strong>In addition</strong>, I also like hunting for bargains during sales seasons, <strong>and this is due to the fact that</strong> it saves me quite a bit of money.</p>
+                                    </div>
+                                </details>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TYPE questions -->
+                    <div class="glass-card rounded-3xl p-8 relative overflow-hidden group">
+                        <div class="absolute top-0 left-0 w-1.5 h-full bg-orange-400"></div>
+                        <h3 class="text-2xl font-bold text-orange-600 mb-6 uppercase tracking-wider">TYPE questions</h3>
+                        <p class="text-sm font-bold text-rose-900/60 mb-6 italic">What kinds of public transports are common in your hometown?</p>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                            <div class="space-y-6 text-[0.95rem] font-medium text-rose-950">
+                                <div>
+                                    <p class="font-bold text-rose-900 mb-1">0. An opening phrase</p>
+                                    <ul class="list-disc pl-5 space-y-1 text-rose-900/80">
+                                        <li>Well actually ... Of course, you know ...</li>
+                                        <li>Sure, obviously ... Of course, it goes without saying ...</li>
+                                        <li>... there's quite a wide range of ...</li>
+                                        <li>... there's quite an extensive diversity of ...</li>
+                                        <li>... there's quite a diverse mixture of ...</li>
+                                        <li>... there's a fairly broad range of ...</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-rose-900 mb-1">1. Introduce the first type</p>
+                                    <ul class="list-disc pl-5 space-y-1 text-rose-900/80">
+                                        <li>But I guess the most + adj ... would probably be ...</li>
+                                        <li>However, I suppose the most+ adj ... could possibly be ...</li>
+                                        <li>Though I think the most + adj ... would potentially be ...</li>
+                                        <li>Yet I imagine the most + adj ... may well be ...</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-rose-900 mb-1">2. Develop the first type</p>
+                                    <ul class="list-disc pl-5 space-y-1 text-rose-900/80">
+                                        <li>And the main characteristic of (buses) is that ...</li>
+                                        <li>And the unique aspect of (buses) is that ...</li>
+                                        <li>And the exceptional aspect with (buses) is that ...</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="space-y-6 text-[0.95rem] font-medium text-rose-950">
+                                <div>
+                                    <p class="font-bold text-rose-900 mb-1">3. Introduce the second type</p>
+                                    <ul class="list-disc pl-5 space-y-1 text-rose-900/80">
+                                        <li>Besides (buses), ... / As well as (buses), ... / In addition to (buses), ...</li>
+                                        <li>Another kind of (public transport) would be ...</li>
+                                        <li>Another form of (public transport) worth mentioning could be ...</li>
+                                        <li>A second variety of (public transport) would be something like...</li>
+                                        <li>A subsequent category would be something like ...</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-rose-900 mb-1">4. Develop the second type</p>
+                                    <ul class="list-disc pl-5 space-y-1 text-rose-900/80">
+                                        <li>And the main characteristic of (taxis) is that ...</li>
+                                        <li>And the unique aspect of (taxis) is that ...</li>
+                                        <li>And the exceptional aspect with (taxis) is that ...</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-rose-900 mb-1">5. Add a vague end line</p>
+                                    <ul class="list-disc pl-5 space-y-1 text-rose-900/80">
+                                        <li>And of course there are usual things like ...</li>
+                                        <li>And obviously you can also find things like ...</li>
+                                        <li>Likewise, as might be expected, there are things like ...</li>
+                                        <li>And naturally, there are things like ...</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="glass-panel p-5 rounded-2xl border border-orange-200 text-rose-950 font-medium italic leading-relaxed mb-6">
+                            Of course, It goes without saying there's quite an extensive diversity of .... <em class="text-orange-600 font-bold">(topic)</em>. Still, I suspect that the most + adj could perhaps be ... <em class="text-orange-600 font-bold">(type 1)</em>. And what you have to realize with ... <em class="text-orange-600 font-bold">(type 1)</em> is that ... In fact/ so/ but/ because ... <em class="text-orange-600 font-bold">(detail)</em>. Another form of .... <em class="text-orange-600 font-bold">(topic)</em> worth mentioning could be ... <em class="text-orange-600 font-bold">(type 2)</em>. And the main characteristic of ... <em class="text-orange-600 font-bold">(type 2)</em> is that ... <em class="text-orange-600 font-bold">(detail)</em> (+ linking word/ complex structure). And naturally, there are things like <em class="text-orange-600 font-bold">(type2 or 3 other types)</em>.
+                        </div>
+
+                        <!-- Vocabulary Box -->
+                        <div class="bg-white/60 p-5 rounded-2xl border border-orange-200 mb-6 flex flex-wrap justify-between gap-4 text-sm font-semibold text-rose-900">
+                            <span class="text-orange-600 font-black uppercase tracking-widest block w-full border-b border-orange-200 pb-1 mb-2">Vocabulary</span>
+                            <ul class="space-y-1">
+                                <li>common → commonplace</li>
+                                <li>popular → frequent</li>
+                                <li>fashionable → trendy</li>
+                                <li>famous → well-known</li>
+                                <li>widely-used → widely-known</li>
+                            </ul>
+                            <ul class="space-y-1">
+                                <li>important → significant</li>
+                                <li>standard → conventional</li>
+                                <li>usual → customary</li>
+                                <li>current → fashionable</li>
+                                <li>best-selling → up-to-date</li>
+                            </ul>
+                            <ul class="space-y-1">
+                                <li>influential</li>
+                                <li>prevalent</li>
+                                <li>crucial</li>
+                                <li>prominent</li>
+                                <li>widespread</li>
+                                <li>celebrated</li>
+                                <li>commonly-used</li>
+                                <li>common-known</li>
+                                <li>notable</li>
+                                <li>renowned</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-white/60 p-5 rounded-2xl border border-white/80">
+                            <p class="font-bold text-rose-900 mb-4 text-lg flex items-center gap-2"><span>🗣️</span> Practice Questions</p>
+                            <div class="space-y-3">
+                                <details class="group bg-white/50 border border-orange-200 rounded-xl overflow-hidden shadow-sm">
+                                    <summary class="cursor-pointer font-bold text-rose-900 p-4 hover:bg-white/80 transition flex justify-between items-center outline-none">
+                                        <span class="flex items-center gap-2"><span class="text-orange-500">Q1:</span> What kinds of sports are popular in your country?</span>
+                                        <span class="text-orange-400 group-open:rotate-180 transition-transform">▼</span>
+                                    </summary>
+                                    <div class="p-4 border-t border-orange-200 text-rose-950 font-medium leading-relaxed bg-white/60">
+                                        <p class="text-rose-950 font-medium"><strong>Well actually, there's quite a wide range of</strong> sports played in Vietnam. <strong>But I guess the most</strong> prominent one <strong>would probably be</strong> football. <strong>And the main characteristic of</strong> football here <strong>is that</strong> it truly brings people together, especially during major tournaments. <strong>Besides football, another form of</strong> sport <strong>worth mentioning could be</strong> badminton. <strong>And the unique aspect of</strong> badminton <strong>is that</strong> it's accessible to people of all ages in local parks. <strong>And naturally, there are things like</strong> volleyball and martial arts.</p>
+                                    </div>
+                                </details>
+
+                                <details class="group bg-white/50 border border-orange-200 rounded-xl overflow-hidden shadow-sm">
+                                    <summary class="cursor-pointer font-bold text-rose-900 p-4 hover:bg-white/80 transition flex justify-between items-center outline-none">
+                                        <span class="flex items-center gap-2"><span class="text-orange-500">Q2:</span> What types of movies are popular among young people?</span>
+                                        <span class="text-orange-400 group-open:rotate-180 transition-transform">▼</span>
+                                    </summary>
+                                    <div class="p-4 border-t border-orange-200 text-rose-950 font-medium leading-relaxed bg-white/60">
+                                        <p class="text-rose-950 font-medium"><strong>Sure, obviously there's quite an extensive diversity of</strong> film genres that young people enjoy nowadays. <strong>Yet I imagine the most</strong> trendy one <strong>may well be</strong> superhero blockbusters. <strong>And the unique aspect of</strong> these films <strong>is that</strong> the visual and sound effects are absolutely stunning. <strong>Another kind of</strong> movie <strong>worth mentioning could be</strong> romantic comedies. <strong>And of course there are usual things like</strong> horror films and psychological thrillers.</p>
+                                    </div>
+                                </details>
+
+                                <details class="group bg-white/50 border border-orange-200 rounded-xl overflow-hidden shadow-sm">
+                                    <summary class="cursor-pointer font-bold text-rose-900 p-4 hover:bg-white/80 transition flex justify-between items-center outline-none">
+                                        <span class="flex items-center gap-2"><span class="text-orange-500">Q3:</span> What kinds of weather do you experience in your hometown?</span>
+                                        <span class="text-orange-400 group-open:rotate-180 transition-transform">▼</span>
+                                    </summary>
+                                    <div class="p-4 border-t border-orange-200 text-rose-950 font-medium leading-relaxed bg-white/60">
+                                        <p class="text-rose-950 font-medium"><strong>Of course, you know, there's a fairly broad range of</strong> weather conditions here depending on the season. <strong>However, I suppose the most</strong> prevalent <strong>could possibly be</strong> hot and humid weather during the summer. <strong>And the exceptional aspect with</strong> this season <strong>is that</strong> it often ends with sudden torrential downpours. <strong>A second variety of</strong> weather <strong>would be something like</strong> our cool, drizzly winters. <strong>Likewise, as might be expected, there are things like</strong> mild autumn breezes.</p>
+                                    </div>
+                                </details>
+
+                                <details class="group bg-white/50 border border-orange-200 rounded-xl overflow-hidden shadow-sm">
+                                    <summary class="cursor-pointer font-bold text-rose-900 p-4 hover:bg-white/80 transition flex justify-between items-center outline-none">
+                                        <span class="flex items-center gap-2"><span class="text-orange-500">Q4:</span> What types of technology do you use daily?</span>
+                                        <span class="text-orange-400 group-open:rotate-180 transition-transform">▼</span>
+                                    </summary>
+                                    <div class="p-4 border-t border-orange-200 text-rose-950 font-medium leading-relaxed bg-white/60">
+                                        <p class="text-rose-950 font-medium"><strong>Well actually, there's quite a diverse mixture of</strong> gadgets I rely on. <strong>But I guess the most</strong> crucial one <strong>would probably be</strong> my smartphone. <strong>And the main characteristic of</strong> it <strong>is that</strong> it allows me to stay connected and manage my work simultaneously on the go. <strong>In addition to my phone, a subsequent category would be something like</strong> my lightweight laptop. <strong>And obviously you can also find things like</strong> wireless earbuds and smartwatches in my daily routine.</p>
+                                    </div>
+                                </details>
+
+                                <details class="group bg-white/50 border border-orange-200 rounded-xl overflow-hidden shadow-sm">
+                                    <summary class="cursor-pointer font-bold text-rose-900 p-4 hover:bg-white/80 transition flex justify-between items-center outline-none">
+                                        <span class="flex items-center gap-2"><span class="text-orange-500">Q5:</span> What kinds of restaurants are common in your city?</span>
+                                        <span class="text-orange-400 group-open:rotate-180 transition-transform">▼</span>
+                                    </summary>
+                                    <div class="p-4 border-t border-orange-200 text-rose-950 font-medium leading-relaxed bg-white/60">
+                                        <p class="text-rose-950 font-medium"><strong>Sure, obviously there's quite a wide range of</strong> dining options here. <strong>But I guess the most</strong> widespread <strong>would probably be</strong> traditional street food stalls. <strong>And the unique aspect of</strong> these places <strong>is that</strong> they offer incredibly authentic flavors at very affordable prices. <strong>Another form of</strong> eatery <strong>worth mentioning could be</strong> Korean BBQ restaurants, which are very trendy right now. <strong>And naturally, there are things like</strong> fast-food chains and high-end cafes.</p>
+                                    </div>
+                                </details>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- WH - HOW questions -->
+                    <div class="glass-card rounded-3xl p-8 relative overflow-hidden group">
+                        <div class="absolute top-0 left-0 w-1.5 h-full bg-orange-400"></div>
+                        <h3 class="text-2xl font-bold text-orange-600 mb-6 uppercase tracking-wider">WH - HOW questions</h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                            <div class="space-y-6 text-[0.95rem] font-medium text-rose-950">
+                                <div>
+                                    <p class="font-bold text-rose-900 mb-1">0. Opening phrase</p>
+                                    <ul class="list-disc pl-5 space-y-1 text-rose-900/80">
+                                        <li>Well to be honest ...</li>
+                                        <li>In actual fact ...</li>
+                                        <li>Well in truth ...</li>
+                                        <li>In fact, in all honesty ...</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-rose-900 mb-1">1. A - depend phrase</p>
+                                    <ul class="list-disc pl-5 space-y-1 text-rose-900/80">
+                                        <li>... I think I would have to say that it is really depends.</li>
+                                        <li>... I imagine that it would depend on the situation.</li>
+                                        <li>... I guess my answer would be determined by different conditions.</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-rose-900 mb-1">2. A linking phrase</p>
+                                    <ul class="list-disc pl-5 space-y-1 text-rose-900/80">
+                                        <li>Like for instance ...</li>
+                                        <li>Like more specifically ...</li>
+                                        <li>You know like, to be exact ...</li>
+                                        <li>More precisely like ...</li>
+                                        <li>Like, to be more direct ...</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="space-y-6 text-[0.95rem] font-medium text-rose-950">
+                                <div>
+                                    <p class="font-bold text-rose-900 mb-1">3. Compare situation A with situation B</p>
+                                    <ul class="list-disc pl-5 space-y-1 text-rose-900/80 mb-3">
+                                        <li>If (situation A) ... then I will most likely ...</li>
+                                        <li>If (situation A) ... then it's quite possible that I will ...</li>
+                                        <li>If (situation A) ... then as a consequence I will probably ...</li>
+                                        <li>If(situation A) ... then I guess it's quite likely that I will ...</li>
+                                    </ul>
+                                    <ul class="list-disc pl-5 space-y-1 text-rose-900/80 mb-3">
+                                        <li>In contrast ...</li>
+                                        <li>On the other hand ...</li>
+                                        <li>Though, at the same time ...</li>
+                                    </ul>
+                                    <ul class="list-disc pl-5 space-y-1 text-rose-900/80">
+                                        <li>If (situation B) ... then it's more likely that I'll ...</li>
+                                        <li>If (situation B) ... then it's almost certain that I will ...</li>
+                                        <li>If (situation B) ... then I will almost always ....</li>
+                                        <li>If (situation B) ... then I will most certainly ...</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="glass-panel p-5 rounded-2xl border border-orange-200 text-rose-950 font-medium italic leading-relaxed mb-6">
+                            Well in all fairness, I imagine that it would depend on the situation. Like for instance, if <em class="text-orange-600 font-bold">(situation A)</em> ... then I will most likely ... so/because/in fact ...
+                        </div>
+
+                        <div class="bg-white/60 p-5 rounded-2xl border border-orange-200 mb-6 grid grid-cols-2 gap-4 text-sm font-semibold text-rose-900">
+                            <div>
+                                <p class="text-orange-600 font-black uppercase tracking-widest border-b border-orange-200 pb-1 mb-2">Situation A</p>
+                                <ul class="space-y-1">
+                                    <li>Weekdays</li>
+                                    <li>Summer</li>
+                                    <li>Good weather</li>
+                                    <li>Term time</li>
+                                    <li>If I'm alone ...</li>
+                                    <li>If I've got a lot of time ...</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <p class="text-orange-600 font-black uppercase tracking-widest border-b border-orange-200 pb-1 mb-2">Situation B</p>
+                                <ul class="space-y-1">
+                                    <li>Weekends</li>
+                                    <li>Winter</li>
+                                    <li>Bad weather</li>
+                                    <li>School holidays</li>
+                                    <li>If I'm with friends</li>
+                                    <li>If I'm fairly busy</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="bg-white/60 p-5 rounded-2xl border border-white/80">
+                            <p class="font-bold text-rose-900 mb-4 text-lg flex items-center gap-2"><span>🗣️</span> Practice Questions</p>
+                            <div class="space-y-3">
+                                <details class="group bg-white/50 border border-orange-200 rounded-xl overflow-hidden shadow-sm">
+                                    <summary class="cursor-pointer font-bold text-rose-900 p-4 hover:bg-white/80 transition flex justify-between items-center outline-none">
+                                        <span class="flex items-center gap-2"><span class="text-orange-500">Q1:</span> How do you usually spend your evenings?</span>
+                                        <span class="text-orange-400 group-open:rotate-180 transition-transform">▼</span>
+                                    </summary>
+                                    <div class="p-4 border-t border-orange-200 text-rose-950 font-medium leading-relaxed bg-white/60">
+                                        <p class="text-rose-950 font-medium"><strong>Well to be honest, I think I would have to say that it really depends. Like for instance,</strong> if it's a weekday, <strong>then I will most likely</strong> stay home and read a book because I'm usually tired from work. <strong>On the other hand,</strong> if it's the weekend, <strong>then it's almost certain that I will</strong> go out to a cafe with my friends to catch up.</p>
+                                    </div>
+                                </details>
+
+                                <details class="group bg-white/50 border border-orange-200 rounded-xl overflow-hidden shadow-sm">
+                                    <summary class="cursor-pointer font-bold text-rose-900 p-4 hover:bg-white/80 transition flex justify-between items-center outline-none">
+                                        <span class="flex items-center gap-2"><span class="text-orange-500">Q2:</span> What do you usually do on your holidays?</span>
+                                        <span class="text-orange-400 group-open:rotate-180 transition-transform">▼</span>
+                                    </summary>
+                                    <div class="p-4 border-t border-orange-200 text-rose-950 font-medium leading-relaxed bg-white/60">
+                                        <p class="text-rose-950 font-medium"><strong>In actual fact, I imagine that it would depend on the situation. Like more specifically,</strong> if I've got a lot of time, <strong>then as a consequence I will probably</strong> book a flight to a coastal city and relax by the beach. <strong>In contrast,</strong> if I'm fairly busy with a short break, <strong>then I will almost always</strong> just have a staycation and catch up on sleep.</p>
+                                    </div>
+                                </details>
+
+                                <details class="group bg-white/50 border border-orange-200 rounded-xl overflow-hidden shadow-sm">
+                                    <summary class="cursor-pointer font-bold text-rose-900 p-4 hover:bg-white/80 transition flex justify-between items-center outline-none">
+                                        <span class="flex items-center gap-2"><span class="text-orange-500">Q3:</span> How do you usually travel to work or school?</span>
+                                        <span class="text-orange-400 group-open:rotate-180 transition-transform">▼</span>
+                                    </summary>
+                                    <div class="p-4 border-t border-orange-200 text-rose-950 font-medium leading-relaxed bg-white/60">
+                                        <p class="text-rose-950 font-medium"><strong>Well in truth, I guess my answer would be determined by different conditions. You know like, to be exact,</strong> if the weather is good, <strong>then it's quite possible that I will</strong> ride my motorbike to enjoy the fresh air. <strong>Though, at the same time,</strong> if it's pouring rain, <strong>then it's more likely that I'll</strong> book a taxi to avoid getting drenched.</p>
+                                    </div>
+                                </details>
+
+                                <details class="group bg-white/50 border border-orange-200 rounded-xl overflow-hidden shadow-sm">
+                                    <summary class="cursor-pointer font-bold text-rose-900 p-4 hover:bg-white/80 transition flex justify-between items-center outline-none">
+                                        <span class="flex items-center gap-2"><span class="text-orange-500">Q4:</span> Where do you usually go shopping for clothes?</span>
+                                        <span class="text-orange-400 group-open:rotate-180 transition-transform">▼</span>
+                                    </summary>
+                                    <div class="p-4 border-t border-orange-200 text-rose-950 font-medium leading-relaxed bg-white/60">
+                                        <p class="text-rose-950 font-medium"><strong>In fact, in all honesty, I think I would have to say that it really depends. Like, to be more direct,</strong> if I'm looking for basic, everyday wear, <strong>then I will most likely</strong> just browse online stores for convenience. <strong>On the other hand,</strong> if I need something for a special occasion, <strong>then I will most certainly</strong> visit a shopping mall to try the garments on in person.</p>
+                                    </div>
+                                </details>
+
+                                <details class="group bg-white/50 border border-orange-200 rounded-xl overflow-hidden shadow-sm">
+                                    <summary class="cursor-pointer font-bold text-rose-900 p-4 hover:bg-white/80 transition flex justify-between items-center outline-none">
+                                        <span class="flex items-center gap-2"><span class="text-orange-500">Q5:</span> When do you usually listen to music?</span>
+                                        <span class="text-orange-400 group-open:rotate-180 transition-transform">▼</span>
+                                    </summary>
+                                    <div class="p-4 border-t border-orange-200 text-rose-950 font-medium leading-relaxed bg-white/60">
+                                        <p class="text-rose-950 font-medium"><strong>Well to be honest, I imagine that it would depend on the situation. More precisely like,</strong> if I'm studying or working, <strong>then I guess it's quite likely that I will</strong> put on some instrumental music to help me focus. <strong>In contrast,</strong> if I'm working out at the gym, <strong>then it's almost certain that I will</strong> listen to upbeat pop or rock songs to boost my energy.</p>
+                                    </div>
+                                </details>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- YES/NO questions -->
+                    <div class="glass-card rounded-3xl p-8 relative overflow-hidden group">
+                        <div class="absolute top-0 left-0 w-1.5 h-full bg-orange-400"></div>
+                        <h3 class="text-2xl font-bold text-orange-600 mb-6 uppercase tracking-wider">YES/NO questions</h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                            <div class="space-y-6 text-[0.95rem] font-medium text-rose-950">
+                                <div>
+                                    <p class="font-bold text-rose-900 mb-1">0. An opening phrase</p>
+                                    <ul class="list-disc pl-5 space-y-1 text-rose-900/80">
+                                        <li>Well in actual fact, if I think about it, I guess that in many ways ...</li>
+                                        <li>OK, well in reality, I suppose that to some extent ...</li>
+                                        <li>Alright, I guess that on the one hand ...</li>
+                                        <li>Well certainly in some ways ...</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-rose-900 mb-1">1. Yes</p>
+                                    <ul class="list-disc pl-5 space-y-1 text-rose-900/80">
+                                        <li>... especially when you consider that ...</li>
+                                        <li>... particularly if you think about the point that ...</li>
+                                        <li>...especially with regard to the point that ...</li>
+                                        <li>... and this is definitely the case with ...</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="space-y-6 text-[0.95rem] font-medium text-rose-950">
+                                <div>
+                                    <p class="font-bold text-rose-900 mb-1">2. No</p>
+                                    <ul class="list-disc pl-5 space-y-1 text-rose-900/80">
+                                        <li>But you also have to understand that ...</li>
+                                        <li>Even so, you could also say that ...</li>
+                                        <li>At the same time you could say that ...</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-rose-900 mb-1">3. Round-off</p>
+                                    <ul class="list-disc pl-5 space-y-1 text-rose-900/80">
+                                        <li>So all in all I guess my answer would have to be yes and no.</li>
+                                        <li>So on the whole I suppose the answer has to be yes and no.</li>
+                                        <li>So all things considered I guess the answer is both yes and no.</li>
+                                        <li>So in the main, I suppose the answer is probably yes and no.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white/60 p-5 rounded-2xl border border-white/80">
+                            <p class="font-bold text-rose-900 mb-4 text-lg flex items-center gap-2"><span>🗣️</span> Practice Questions</p>
+                            <div class="space-y-3">
+                                <details class="group bg-white/50 border border-orange-200 rounded-xl overflow-hidden shadow-sm">
+                                    <summary class="cursor-pointer font-bold text-rose-900 p-4 hover:bg-white/80 transition flex justify-between items-center outline-none">
+                                        <span class="flex items-center gap-2"><span class="text-orange-500">Q1:</span> Is your hometown a good place for young people to live?</span>
+                                        <span class="text-orange-400 group-open:rotate-180 transition-transform">▼</span>
+                                    </summary>
+                                    <div class="p-4 border-t border-orange-200 text-rose-950 font-medium leading-relaxed bg-white/60">
+                                        <p class="text-rose-950 font-medium"><strong>OK, well in reality, I suppose that to some extent</strong> it is a good place, <strong>especially when you consider that</strong> the cost of living is very affordable. <strong>But you also have to understand that</strong> there aren't many job opportunities in tech or finance here. <strong>So all things considered I guess the answer is both yes and no.</strong></p>
+                                    </div>
+                                </details>
+
+                                <details class="group bg-white/50 border border-orange-200 rounded-xl overflow-hidden shadow-sm">
+                                    <summary class="cursor-pointer font-bold text-rose-900 p-4 hover:bg-white/80 transition flex justify-between items-center outline-none">
+                                        <span class="flex items-center gap-2"><span class="text-orange-500">Q2:</span> Do you think reading is important?</span>
+                                        <span class="text-orange-400 group-open:rotate-180 transition-transform">▼</span>
+                                    </summary>
+                                    <div class="p-4 border-t border-orange-200 text-rose-950 font-medium leading-relaxed bg-white/60">
+                                        <p class="text-rose-950 font-medium"><strong>Well in actual fact, if I think about it, I guess that in many ways</strong> it is extremely important, <strong>particularly if you think about the point that</strong> it vastly improves your vocabulary and broadens your horizons. <strong>Even so, you could also say that</strong> learning from real-life experiences is equally crucial for personal growth. <strong>So all in all I guess my answer would have to be yes and no.</strong></p>
+                                    </div>
+                                </details>
+
+                                <details class="group bg-white/50 border border-orange-200 rounded-xl overflow-hidden shadow-sm">
+                                    <summary class="cursor-pointer font-bold text-rose-900 p-4 hover:bg-white/80 transition flex justify-between items-center outline-none">
+                                        <span class="flex items-center gap-2"><span class="text-orange-500">Q3:</span> Is public transport efficient in your city?</span>
+                                        <span class="text-orange-400 group-open:rotate-180 transition-transform">▼</span>
+                                    </summary>
+                                    <div class="p-4 border-t border-orange-200 text-rose-950 font-medium leading-relaxed bg-white/60">
+                                        <p class="text-rose-950 font-medium"><strong>Alright, I guess that on the one hand</strong> it is quite useful, <strong>especially with regard to the point that</strong> the bus network covers most major districts very cheaply. <strong>But you also have to understand that</strong> during rush hours, the buses are often delayed due to heavy traffic jams. <strong>So on the whole I suppose the answer has to be yes and no.</strong></p>
+                                    </div>
+                                </details>
+
+                                <details class="group bg-white/50 border border-orange-200 rounded-xl overflow-hidden shadow-sm">
+                                    <summary class="cursor-pointer font-bold text-rose-900 p-4 hover:bg-white/80 transition flex justify-between items-center outline-none">
+                                        <span class="flex items-center gap-2"><span class="text-orange-500">Q4:</span> Do you think children should be given homework?</span>
+                                        <span class="text-orange-400 group-open:rotate-180 transition-transform">▼</span>
+                                    </summary>
+                                    <div class="p-4 border-t border-orange-200 text-rose-950 font-medium leading-relaxed bg-white/60">
+                                        <p class="text-rose-950 font-medium"><strong>Well certainly in some ways</strong> it is beneficial, <strong>and this is definitely the case with</strong> helping them review what they learned in class and building discipline. <strong>At the same time you could say that</strong> too much homework causes unnecessary stress and limits their playtime. <strong>So in the main, I suppose the answer is probably yes and no.</strong></p>
+                                    </div>
+                                </details>
+
+                                <details class="group bg-white/50 border border-orange-200 rounded-xl overflow-hidden shadow-sm">
+                                    <summary class="cursor-pointer font-bold text-rose-900 p-4 hover:bg-white/80 transition flex justify-between items-center outline-none">
+                                        <span class="flex items-center gap-2"><span class="text-orange-500">Q5:</span> Is it easy to find a good job nowadays?</span>
+                                        <span class="text-orange-400 group-open:rotate-180 transition-transform">▼</span>
+                                    </summary>
+                                    <div class="p-4 border-t border-orange-200 text-rose-950 font-medium leading-relaxed bg-white/60">
+                                        <p class="text-rose-950 font-medium"><strong>OK, well in reality, I suppose that to some extent</strong> it is easier than before, <strong>especially when you consider that</strong> the internet provides access to countless global remote opportunities. <strong>Even so, you could also say that</strong> the job market is incredibly competitive due to the rising number of highly qualified candidates. <strong>So all things considered I guess the answer is both yes and no.</strong></p>
+                                    </div>
+                                </details>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- WOULD questions -->
+                    <div class="glass-card rounded-3xl p-8 relative overflow-hidden group">
+                        <div class="absolute top-0 left-0 w-1.5 h-full bg-orange-400"></div>
+                        <h3 class="text-2xl font-bold text-orange-600 mb-6 uppercase tracking-wider">WOULD questions</h3>
+                        
+                        <p class="text-rose-900/80 font-medium mb-6 text-[0.95rem]">For most of these questions, you should use the second conditional tense in your answer. In fact the examiner is expecting you to produce an example of this verb tense.</p>
+                        
+                        <div class="glass-panel p-6 rounded-2xl border border-orange-200 mb-6 text-center shadow-sm">
+                            <p class="text-rose-900 font-bold mb-2">The form of the second conditional is quite simple:</p>
+                            <p class="text-2xl font-black text-orange-600 tracking-wide">If + S + V(past simple), S + would / could / might + V(infinitive).</p>
+                        </div>
+
+                        <div class="space-y-3 font-medium text-rose-950 text-[0.95rem] mb-8">
+                            <p><span class="font-bold text-orange-600 mr-2">Ex:</span> If I lived near the sea, I would be able to eat fresh seafood.</p>
+                            <p><span class="font-bold text-orange-600 mr-2">Ex:</span> If I had time, I would go for travelling.</p>
+                        </div>
+
+                        <div class="bg-white/60 p-5 rounded-2xl border border-white/80">
+                            <p class="font-bold text-rose-900 mb-4 text-lg flex items-center gap-2"><span>🗣️</span> Practice Questions</p>
+                            <div class="space-y-3">
+                                <details class="group bg-white/50 border border-orange-200 rounded-xl overflow-hidden shadow-sm">
+                                    <summary class="cursor-pointer font-bold text-rose-900 p-4 hover:bg-white/80 transition flex justify-between items-center outline-none">
+                                        <span class="flex items-center gap-2"><span class="text-orange-500">Q1:</span> Would you like to change your job in the future?</span>
+                                        <span class="text-orange-400 group-open:rotate-180 transition-transform">▼</span>
+                                    </summary>
+                                    <div class="p-4 border-t border-orange-200 text-rose-950 font-medium leading-relaxed bg-white/60">
+                                        <p class="text-rose-950 font-medium">To be honest, <strong>if I had the opportunity, I would definitely change</strong> my job. My current role is quite stressful. <strong>If I found a position</strong> that offered better work-life balance, <strong>I would be much happier</strong>.</p>
+                                    </div>
+                                </details>
+
+                                <details class="group bg-white/50 border border-orange-200 rounded-xl overflow-hidden shadow-sm">
+                                    <summary class="cursor-pointer font-bold text-rose-900 p-4 hover:bg-white/80 transition flex justify-between items-center outline-none">
+                                        <span class="flex items-center gap-2"><span class="text-orange-500">Q2:</span> Would you like to move to another city?</span>
+                                        <span class="text-orange-400 group-open:rotate-180 transition-transform">▼</span>
+                                    </summary>
+                                    <div class="p-4 border-t border-orange-200 text-rose-950 font-medium leading-relaxed bg-white/60">
+                                        <p class="text-rose-950 font-medium">Actually, yes. <strong>If I could choose anywhere to live, I would probably move</strong> to Da Nang. <strong>If I lived in a coastal city like that, I would be able to</strong> enjoy fresh seafood and go to the beach every single weekend.</p>
+                                    </div>
+                                </details>
+
+                                <details class="group bg-white/50 border border-orange-200 rounded-xl overflow-hidden shadow-sm">
+                                    <summary class="cursor-pointer font-bold text-rose-900 p-4 hover:bg-white/80 transition flex justify-between items-center outline-none">
+                                        <span class="flex items-center gap-2"><span class="text-orange-500">Q3:</span> Would you like to learn a new skill?</span>
+                                        <span class="text-orange-400 group-open:rotate-180 transition-transform">▼</span>
+                                    </summary>
+                                    <div class="p-4 border-t border-orange-200 text-rose-950 font-medium leading-relaxed bg-white/60">
+                                        <p class="text-rose-950 font-medium">Definitely. <strong>If I had more free time, I would certainly learn</strong> how to play the piano. I think <strong>if I mastered a musical instrument, it would be</strong> a fantastic way to relieve stress after a tiring day.</p>
+                                    </div>
+                                </details>
+
+                                <details class="group bg-white/50 border border-orange-200 rounded-xl overflow-hidden shadow-sm">
+                                    <summary class="cursor-pointer font-bold text-rose-900 p-4 hover:bg-white/80 transition flex justify-between items-center outline-none">
+                                        <span class="flex items-center gap-2"><span class="text-orange-500">Q4:</span> Would you like to travel to space?</span>
+                                        <span class="text-orange-400 group-open:rotate-180 transition-transform">▼</span>
+                                    </summary>
+                                    <div class="p-4 border-t border-orange-200 text-rose-950 font-medium leading-relaxed bg-white/60">
+                                        <p class="text-rose-950 font-medium">To be quite honest, no. Even <strong>if I were offered a free ticket, I wouldn't go</strong>. I'm terrified of heights, so <strong>if I went to space, I would probably have</strong> a panic attack rather than enjoy the view.</p>
+                                    </div>
+                                </details>
+
+                                <details class="group bg-white/50 border border-orange-200 rounded-xl overflow-hidden shadow-sm">
+                                    <summary class="cursor-pointer font-bold text-rose-900 p-4 hover:bg-white/80 transition flex justify-between items-center outline-none">
+                                        <span class="flex items-center gap-2"><span class="text-orange-500">Q5:</span> Would you like to be famous?</span>
+                                        <span class="text-orange-400 group-open:rotate-180 transition-transform">▼</span>
+                                    </summary>
+                                    <div class="p-4 border-t border-orange-200 text-rose-950 font-medium leading-relaxed bg-white/60">
+                                        <p class="text-rose-950 font-medium">Not really. <strong>If I became a celebrity, I would lose</strong> all my privacy. I value my quiet life, so <strong>if the paparazzi followed me around, I would feel</strong> incredibly uncomfortable and stressed.</p>
+                                    </div>
+                                </details>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        let currentSlide = 0;
+        let totalSlides = 0;
+        let slides = [];
+
+        function initSlides() {
+            slides = document.querySelectorAll('.slide');
+            totalSlides = slides.length;
+            updateUI();
+        }
+
+        function updateUI() {
+            slides.forEach((el, index) => {
+                if (index === currentSlide) {
+                    el.classList.add('active');
+                } else {
+                    el.classList.remove('active');
+                }
+            });
+            // Update counter
+            const counter = document.getElementById('slide-counter');
+            if (counter) counter.innerText = `${currentSlide + 1} / ${totalSlides}`;
+            
+            // Update dropdown
+            const navDropdown = document.getElementById('section-nav');
+            if (navDropdown) navDropdown.value = currentSlide;
+
+            // Update Progress Bar
+            const progress = ((currentSlide + 1) / totalSlides) * 100;
+            const progressBar = document.getElementById('progress-bar');
+            if(progressBar) progressBar.style.width = `${progress}%`;
+
+            document.querySelector('main').scrollTop = 0;
+        }
+
+        function jumpToSection(slideIndex) {
+            const index = parseInt(slideIndex);
+            if (!isNaN(index) && index >= 0 && index < totalSlides) {
+                currentSlide = index;
+                updateUI();
+            }
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides - 1) {
+                currentSlide++;
+                updateUI();
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 0) {
+                currentSlide--;
+                updateUI();
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') nextSlide();
+            if (e.key === 'ArrowLeft') prevSlide();
+        });
+
+        function toggleAnswers(button) {
+            const container = button.closest('.exercise-container');
+            if (!container) return;
+            const hiddenElements = container.querySelectorAll('.hidden-answer');
+
+            let isHidden = true;
+            if (hiddenElements.length > 0) {
+                isHidden = hiddenElements[0].style.display === 'none' || hiddenElements[0].style.display === '';
+            }
+
+            hiddenElements.forEach(el => {
+                if (isHidden) {
+                    el.style.display = el.tagName === 'SPAN' ? (el.classList.contains('inline-block') ? 'inline-block' : 'inline') : 'block';
+                } else {
+                    el.style.display = 'none';
+                }
+            });
+
+            if (isHidden) {
+                button.innerHTML = "✨ Hide Answers";
+            } else {
+                button.innerHTML = button.getAttribute('data-default-text') || "✨ Reveal Answers";
+            }
+        }
+
+        function playAudio(word) {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel(); 
+                const utterance = new SpeechSynthesisUtterance(word);
+                utterance.lang = 'en-US';
+                utterance.rate = 0.85; 
+                window.speechSynthesis.speak(utterance);
+            } else {
+                console.warn("Text-to-Speech is not supported in this browser environment.");
+            }
+        }
+
+        // Initialize display
+        document.addEventListener('DOMContentLoaded', initSlides);
+    </script>
+</body>
+</html>
