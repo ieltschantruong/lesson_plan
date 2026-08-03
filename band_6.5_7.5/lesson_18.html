@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Chan Truong | Lesson 18</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            background-color: #f8fafc; /* slate-50 */
+        }
+        .fade-in { animation: fadeIn 0.4s ease-out forwards; }
+        @keyframes fadeIn { 
+            from { opacity: 0; transform: translateY(10px); } 
+            to { opacity: 1; transform: translateY(0); } 
+        }
+        .timer-text { font-variant-numeric: tabular-nums; }
+        
+        /* Elegant Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #e2e8f0; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb { background: #94a3b8; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #64748b; }
+
+        /* Glassmorphism utilities */
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        /* Inline Answer Toggle Utilities */
+        .blank-ans { display: none; }
+        .show-answers .blank-dots { display: none; }
+        .show-answers .blank-ans { display: inline-block; animation: fadeIn 0.3s forwards; }
+
+        /* Custom Audio Player styling */
+        audio::-webkit-media-controls-panel {
+            background-color: #f1f5f9;
+        }
+    </style>
+</head>
+<body class="h-screen flex flex-col overflow-hidden text-gray-800">
+
+    <!-- Elegant Header -->
+    <header id="app-header" class="text-white p-4 shadow-lg transition-colors duration-700 z-20 relative bg-gradient-to-r from-amber-400 via-orange-500 to-red-500">
+        <div class="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9IiNmZmYiLz48L3N2Zz4=')]"></div>
+        
+        <div class="max-w-7xl mx-auto flex justify-between items-center relative z-10">
+            <div>
+                <div class="flex items-center gap-2 mb-1">
+                    <span class="bg-white/20 text-white text-xs font-bold px-2 py-0.5 rounded uppercase tracking-wider backdrop-blur-sm">Band 6.5 - 7.5</span>
+                    <span class="bg-white/20 text-white text-xs font-bold px-2 py-0.5 rounded uppercase tracking-wider backdrop-blur-sm">Lesson 18</span>
+                </div>
+                <h1 class="text-2xl font-bold tracking-tight drop-shadow-sm flex items-center gap-2">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                    IELTS Chan Truong
+                </h1>
+                <h2 id="slide-title" class="text-sm font-medium mt-1 text-orange-50">Loading session...</h2>
+            </div>
+            
+            <div class="flex items-center space-x-2 sm:space-x-3">
+                <a href="https://online.flipbuilder.com/xtrvf/rzwv/" target="_blank" class="flex items-center space-x-2 text-sm font-semibold bg-white/20 hover:bg-white/30 transition-all px-3 sm:px-4 py-2 rounded-full focus:outline-none backdrop-blur-md shadow-sm border border-white/20 text-white" title="Complete IELTS 6.5-7.5 Ebook">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                    <span class="hidden sm:inline">Ebook</span>
+                </a>
+
+                <div class="relative">
+                    <button id="nav-toggle-btn" class="flex items-center space-x-2 text-sm font-semibold bg-white/20 hover:bg-white/30 transition-all px-3 sm:px-5 py-2 rounded-full focus:outline-none backdrop-blur-md shadow-sm border border-white/20">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                        <span class="hidden sm:inline">Sections</span>
+                    </button>
+                    
+                    <div id="nav-dropdown" class="hidden absolute right-0 mt-3 w-80 bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-gray-200 overflow-hidden z-50 origin-top-right transition-all fade-in">
+                        <div class="p-3 bg-gray-50 border-b border-gray-100">
+                            <p class="text-xs font-bold text-gray-500 uppercase tracking-wider text-center">Lesson Agenda</p>
+                        </div>
+                        <div class="max-h-[60vh] overflow-y-auto p-2" id="nav-menu-list"></div>
+                    </div>
+                </div>
+
+                <div class="hidden sm:flex items-center space-x-2 text-sm font-bold text-orange-900 bg-white px-4 py-2 rounded-full shadow-sm">
+                    <svg class="w-4 h-4 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <span>90 Mins</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto mt-5 bg-black/10 rounded-full h-1.5 overflow-hidden relative z-10">
+            <div id="progress-bar" class="bg-white h-full transition-all duration-700 ease-out shadow-[0_0_10px_rgba(255,255,255,0.8)]" style="width: 0%"></div>
+        </div>
+    </header>
+
+    <main class="flex-grow overflow-y-auto relative p-4 md:p-8" id="main-scroll-area">
+        <div id="content-container" class="max-w-6xl mx-auto min-h-full flex flex-col"></div>
+    </main>
+
+    <footer class="bg-white/80 backdrop-blur-md border-t border-gray-200 p-4 md:px-10 z-10 shadow-[0_-10px_15px_-3px_rgba(0,0,0,0.02)]">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <button id="btn-prev" class="px-6 py-2.5 rounded-xl border border-gray-300 text-gray-600 font-semibold hover:bg-gray-50 hover:border-gray-400 transition-all disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-2">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                Previous
+            </button>
+            
+            <div class="flex items-center gap-2">
+                <div class="w-2 h-2 rounded-full bg-orange-400 animate-pulse"></div>
+                <div id="step-indicator" class="text-sm font-semibold text-gray-600 uppercase tracking-wide">
+                    Section 1 of X
+                </div>
+                <div class="w-2 h-2 rounded-full bg-orange-400 animate-pulse delay-75"></div>
+            </div>
+
+            <button id="btn-next" class="px-6 py-2.5 rounded-xl bg-gradient-to-r from-orange-500 to-red-500 text-white font-semibold hover:from-orange-600 hover:to-red-600 shadow-md hover:shadow-lg transition-all flex items-center gap-2 transform hover:-translate-y-0.5">
+                Next
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </button>
+        </div>
+    </footer>
+
+<script>
+    // --- DATA STRUCTURE ---
+    const sessionData = [
+        {
+            id: 'reading_unit5_sb',
+            type: 'Reading',
+            themeClass: 'bg-gradient-to-r from-amber-400 to-orange-500',
+            iconColor: 'text-orange-500',
+            bgColor: 'bg-orange-50',
+            title: '1. Reading Unit 5 SB (Passage 2)',
+            content: `
+                <div class="fade-in bg-white rounded-3xl shadow-xl border border-orange-50 p-5 md:p-8 flex flex-col flex-grow">
+                    <!-- Header -->
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6 border-b border-gray-100 pb-5 shrink-0">
+                        <div class="flex items-center gap-4">
+                            <div class="w-14 h-14 rounded-2xl bg-orange-100 flex items-center justify-center text-orange-600 flex-shrink-0 shadow-sm">
+                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                            </div>
+                            <div>
+                                <div class="flex items-center gap-3 mb-1 flex-wrap">
+                                    <h3 class="text-xl md:text-2xl font-bold text-gray-800">Reading Practice</h3>
+                                    <a href="https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/passage2_complete_ielts_6.5_7.5_sb_unit5.html" target="_blank" class="inline-flex items-center gap-1.5 text-orange-600 hover:text-white hover:bg-orange-500 transition-colors px-4 py-1.5 bg-orange-50 rounded-full shadow-sm border border-orange-200 text-sm font-bold" title="Open in new tab">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                                        Open in New Tab
+                                    </a>
+                                </div>
+                                <p class="text-orange-600 font-medium text-sm">Unit 5 SB (Passage 2) - Complete IELTS</p>
+                            </div>
+                        </div>
+                        <button onclick="toggleVisibility('ans-read-u5')" class="w-full md:w-auto bg-orange-50 text-orange-700 px-5 py-2.5 rounded-xl font-bold hover:bg-orange-100 transition-colors text-sm border border-orange-200 flex justify-center items-center gap-2 shrink-0 shadow-sm">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                            Show Answer Keys
+                        </button>
+                    </div>
+
+                    <!-- Reading Answer Keys -->
+                    <div id="ans-read-u5" class="hidden mb-6 bg-slate-50 border border-gray-200 rounded-2xl p-6 shrink-0 shadow-inner transition-all fade-in">
+                        <h4 class="font-bold text-orange-800 mb-4 border-b border-orange-100 pb-2 uppercase tracking-wide text-xs">Answer Key</h4>
+                        <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7 gap-3 text-sm text-gray-700 font-medium">
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-orange-500 font-bold mr-2">1</span> D</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-orange-500 font-bold mr-2">2</span> E</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-orange-500 font-bold mr-2">3</span> A</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-orange-500 font-bold mr-2">4</span> G</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-orange-500 font-bold mr-2">5</span> C</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm lg:col-span-2"><span class="text-orange-500 font-bold mr-2">6</span> (dating) sediment layers</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm lg:col-span-2"><span class="text-orange-500 font-bold mr-2">7</span> ivory and bone</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm lg:col-span-2"><span class="text-orange-500 font-bold mr-2">8</span> (new) technologies</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm lg:col-span-2"><span class="text-orange-500 font-bold mr-2">9</span> skull shapes</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-orange-500 font-bold mr-2">10</span> C</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-orange-500 font-bold mr-2">11</span> B</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-orange-500 font-bold mr-2">12</span> A</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-orange-500 font-bold mr-2">13</span> B</div>
+                        </div>
+                    </div>
+
+                    <!-- Vocab Exercises Check -->
+                    <div class="bg-orange-50 border-l-4 border-orange-400 rounded-r-xl mb-6 flex flex-col shadow-sm shrink-0">
+                        <div class="flex justify-between items-center p-4 border-b border-orange-200 shrink-0 bg-white/50 cursor-pointer hover:bg-orange-100/50 transition-colors" onclick="toggleVisibility('read-vocab-panel')">
+                            <h4 class="font-bold text-orange-800 text-lg flex items-center gap-2">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                                Vocab Exercises Check (Pink Book)
+                            </h4>
+                            <svg class="w-5 h-5 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                        
+                        <div id="read-vocab-panel" class="hidden p-5 max-h-[600px] overflow-y-auto space-y-6">
+                            <!-- Exercise 1 -->
+                            <div id="read-ex1-container" class="bg-white border border-orange-100 rounded-xl p-5 shadow-sm transition-all duration-300">
+                                <div class="flex justify-between items-center mb-4">
+                                    <h5 class="font-bold text-orange-700 text-md">Exercise 1</h5>
+                                    <button id="btn-read-ex1" onclick="toggleInlineAnswers('read-ex1-container', 'btn-read-ex1')" class="text-xs bg-orange-50 text-orange-700 px-3 py-1.5 rounded-lg font-bold hover:bg-orange-100 transition-colors border border-orange-200">Show Answers</button>
+                                </div>
+                                <p class="text-gray-600 text-sm mb-4 font-medium">Match the words with the synonyms.</p>
+                                
+                                <div class="grid md:grid-cols-2 gap-8 text-sm">
+                                    <div class="space-y-3">
+                                        <p><span class="font-bold text-gray-800">1</span> <span class="text-orange-600 font-semibold">sole</span> <span class="text-gray-400 font-normal">/səʊl/</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ D</span></p>
+                                        <p><span class="font-bold text-gray-800">2</span> <span class="text-orange-600 font-semibold">inhospitable</span> <span class="text-gray-400 font-normal">/ˌɪnhɒˈspɪtəbl/</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ A</span></p>
+                                        <p><span class="font-bold text-gray-800">3</span> <span class="text-orange-600 font-semibold">habitable</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ E</span></p>
+                                        <p><span class="font-bold text-gray-800">4</span> <span class="text-orange-600 font-semibold">robust</span> <span class="text-gray-400 font-normal">/rəʊˈbʌst/</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ C</span></p>
+                                        <p><span class="font-bold text-gray-800">5</span> <span class="text-orange-600 font-semibold">stocky</span> <span class="text-gray-400 font-normal">/ˈstɒki/</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ B</span></p>
+                                        <p><span class="font-bold text-gray-800">6</span> <span class="text-orange-600 font-semibold">die out</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ F</span></p>
+                                        <p><span class="font-bold text-gray-800">7</span> <span class="text-orange-600 font-semibold">plummet</span> <span class="text-gray-400 font-normal">/ˈplʌmɪt/</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ I</span></p>
+                                        <p><span class="font-bold text-gray-800">8</span> <span class="text-orange-600 font-semibold">retreat</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ J</span></p>
+                                        <p><span class="font-bold text-gray-800">9</span> <span class="text-orange-600 font-semibold">speculate</span> <span class="text-gray-400 font-normal">/ˈspekjuleɪt/</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ G</span></p>
+                                        <p><span class="font-bold text-gray-800">10</span> <span class="text-orange-600 font-semibold">emerge</span> <span class="text-gray-400 font-normal">/ɪˈmɜːdʒ/</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ H</span></p>
+                                    </div>
+                                    <div class="space-y-3 text-gray-600 font-medium">
+                                        <p><span class="font-bold text-gray-800">A.</span> unwelcoming</p>
+                                        <p><span class="font-bold text-gray-800">B.</span> thickset</p>
+                                        <p><span class="font-bold text-gray-800">C.</span> sturdy</p>
+                                        <p><span class="font-bold text-gray-800">D.</span> only</p>
+                                        <p><span class="font-bold text-gray-800">E.</span> liveable</p>
+                                        <p><span class="font-bold text-gray-800">F.</span> stop existing</p>
+                                        <p><span class="font-bold text-gray-800">G.</span> form an opinion</p>
+                                        <p><span class="font-bold text-gray-800">H.</span> appear</p>
+                                        <p><span class="font-bold text-gray-800">I.</span> plunge</p>
+                                        <p><span class="font-bold text-gray-800">J.</span> move away from danger</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Exercise 2 -->
+                            <div id="read-ex2-container" class="bg-white border border-orange-100 rounded-xl p-5 shadow-sm transition-all duration-300">
+                                <div class="flex justify-between items-center mb-4">
+                                    <h5 class="font-bold text-orange-700 text-md">Exercise 2</h5>
+                                    <button id="btn-read-ex2" onclick="toggleInlineAnswers('read-ex2-container', 'btn-read-ex2')" class="text-xs bg-orange-50 text-orange-700 px-3 py-1.5 rounded-lg font-bold hover:bg-orange-100 transition-colors border border-orange-200">Show Answers</button>
+                                </div>
+                                <p class="text-gray-600 text-sm mb-4 font-medium">Match the words in column A with the words in column B to form correct phrases.</p>
+                                
+                                <div class="grid md:grid-cols-2 gap-8 text-sm">
+                                    <div class="space-y-4">
+                                        <p class="font-bold text-orange-400 uppercase text-xs tracking-wider mb-2">Column A</p>
+                                        <p><span class="font-bold text-gray-800">1</span> <span class="text-orange-600 font-semibold">barter</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ B. goods</span></p>
+                                        <p><span class="font-bold text-gray-800">2</span> <span class="text-orange-600 font-semibold">acquire</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ E. new skills</span></p>
+                                        <p><span class="font-bold text-gray-800">3</span> <span class="text-orange-600 font-semibold">get an insight</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ A. into something</span></p>
+                                        <p><span class="font-bold text-gray-800">4</span> <span class="text-orange-600 font-semibold">allocate tasks</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ C. to different members</span></p>
+                                        <p><span class="font-bold text-gray-800">5</span> <span class="text-orange-600 font-semibold">comprehend</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ D. abstract concepts</span></p>
+                                    </div>
+                                    <div class="space-y-4 text-gray-600 font-medium">
+                                        <p class="font-bold text-orange-400 uppercase text-xs tracking-wider mb-2">Column B</p>
+                                        <p><span class="font-bold text-gray-800">A.</span> into something</p>
+                                        <p><span class="font-bold text-gray-800">B.</span> goods</p>
+                                        <p><span class="font-bold text-gray-800">C.</span> to different members</p>
+                                        <p><span class="font-bold text-gray-800">D.</span> abstract concepts</p>
+                                        <p><span class="font-bold text-gray-800">E.</span> new skills</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Exercise 3 -->
+                            <div id="read-ex3-container" class="bg-white border border-orange-100 rounded-xl p-5 shadow-sm transition-all duration-300">
+                                <div class="flex justify-between items-center mb-4">
+                                    <h5 class="font-bold text-orange-700 text-md">Exercise 3</h5>
+                                    <button id="btn-read-ex3" onclick="toggleInlineAnswers('read-ex3-container', 'btn-read-ex3')" class="text-xs bg-orange-50 text-orange-700 px-3 py-1.5 rounded-lg font-bold hover:bg-orange-100 transition-colors border border-orange-200">Show Answers</button>
+                                </div>
+                                <p class="text-gray-600 text-sm mb-4 font-medium">Match the words with the pictures.</p>
+                                
+                                <div class="grid md:grid-cols-2 gap-6 text-sm">
+                                    <div class="space-y-3">
+                                        <p><span class="font-bold text-gray-800">1</span> <span class="text-orange-600 font-semibold">axe</span> <span class="text-gray-400 font-normal">/æks/</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ E</span></p>
+                                        <p><span class="font-bold text-gray-800">2</span> <span class="text-orange-600 font-semibold">spear</span> <span class="text-gray-400 font-normal">/spɪə(r)/</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ A</span></p>
+                                        <p><span class="font-bold text-gray-800">3</span> <span class="text-orange-600 font-semibold">ash</span> <span class="text-gray-400 font-normal">/æʃ/</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ I</span></p>
+                                        <p><span class="font-bold text-gray-800">4</span> <span class="text-orange-600 font-semibold">anthropologist</span> <span class="text-gray-400 font-normal">/ˌænθrəˈpɒlədʒɪst/</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ B</span></p>
+                                        <p><span class="font-bold text-gray-800">5</span> <span class="text-orange-600 font-semibold">forearm</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ C</span></p>
+                                        <p><span class="font-bold text-gray-800">6</span> <span class="text-orange-600 font-semibold">weave</span> <span class="text-gray-400 font-normal">/wiːv/</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ J</span></p>
+                                        <p><span class="font-bold text-gray-800">7</span> <span class="text-orange-600 font-semibold">sew</span> <span class="text-gray-400 font-normal">/səʊ/</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ D</span></p>
+                                        <p><span class="font-bold text-gray-800">8</span> <span class="text-orange-600 font-semibold">ivory</span> <span class="text-gray-400 font-normal">/ˈaɪvəri/</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ F</span></p>
+                                        <p><span class="font-bold text-gray-800">9</span> <span class="text-orange-600 font-semibold">beads</span> <span class="text-gray-400 font-normal">/biːdz/</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ H</span></p>
+                                        <p><span class="font-bold text-gray-800">10</span> <span class="text-orange-600 font-semibold">thorn</span> <span class="text-gray-400 font-normal">/θɔːn/</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ G</span></p>
+                                    </div>
+                                    <div class="space-y-3 text-gray-600 font-medium">
+                                        <p><span class="font-bold text-gray-800">A.</span> [Picture: A wooden spear with a sharp tip]</p>
+                                        <p><span class="font-bold text-gray-800">B.</span> [Picture: Anthropologist examining a skull]</p>
+                                        <p><span class="font-bold text-gray-800">C.</span> [Picture: A human forearm]</p>
+                                        <p><span class="font-bold text-gray-800">D.</span> [Picture: A mother and daughter sewing/making clothes]</p>
+                                        <p><span class="font-bold text-gray-800">E.</span> [Picture: A metal axe with a wooden handle]</p>
+                                        <p><span class="font-bold text-gray-800">F.</span> [Picture: A curved ivory tusk]</p>
+                                        <p><span class="font-bold text-gray-800">G.</span> [Picture: A circular crown of thorns]</p>
+                                        <p><span class="font-bold text-gray-800">H.</span> [Picture: A colorful beaded bracelet]</p>
+                                        <p><span class="font-bold text-gray-800">I.</span> [Picture: A pile of dark ash/powder]</p>
+                                        <p><span class="font-bold text-gray-800">J.</span> [Picture: A girl weaving on a small loom]</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Iframe for Reading Practice -->
+                    <div class="w-full flex-grow rounded-2xl overflow-hidden border border-gray-200 shadow-inner bg-gray-50 relative min-h-[500px] shrink-0">
+                        <iframe src="https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/passage2_complete_ielts_6.5_7.5_sb_unit5.html" class="absolute inset-0 w-full h-full border-0" title="Reading Practice Unit 5"></iframe>
+                    </div>
+                </div>
+            `
+        },
+        {
+            id: 'listening_guide_test3',
+            type: 'Listening',
+            themeClass: 'bg-gradient-to-r from-indigo-500 to-purple-600',
+            iconColor: 'text-indigo-500',
+            bgColor: 'bg-indigo-50',
+            title: '2. Listening Guide To IELTS (Test 03)',
+            content: `
+                <div class="fade-in bg-white rounded-3xl shadow-xl border border-indigo-50 p-5 md:p-8 flex flex-col flex-grow">
+                    <!-- Header & Audio Player -->
+                    <div class="mb-6 border-b border-gray-100 pb-6 shrink-0">
+                        <div class="flex items-center gap-4 mb-5">
+                            <div class="w-14 h-14 rounded-2xl bg-indigo-100 flex items-center justify-center text-indigo-600 flex-shrink-0 shadow-sm">
+                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl md:text-2xl font-bold text-gray-800">Listening Practice</h3>
+                                <p class="text-indigo-600 font-medium text-sm">The Official Cambridge Guide to IELTS | Test 03</p>
+                            </div>
+                        </div>
+
+                        <!-- Audio Player -->
+                        <div class="bg-indigo-50 rounded-2xl p-4 border border-indigo-100 flex flex-col sm:flex-row items-center gap-4">
+                            <span class="text-xs font-bold text-indigo-800 uppercase tracking-widest bg-indigo-200 px-3 py-1 rounded-lg">Full Audio</span>
+                            <audio controls class="w-full h-10 outline-none">
+                                <source src="https://ieltschantruong.github.io/IELTS/src/listening_audios/Cambridge Official Guide Book Test 3 Listening Module.mp3" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    </div>
+
+                    <!-- External Links Grid & Answer Toggle -->
+                    <div class="flex flex-col lg:flex-row gap-6 mb-6 shrink-0">
+                        <div class="flex-grow">
+                            <h4 class="font-bold text-gray-700 mb-3 text-sm uppercase tracking-wider">Mock Test Links</h4>
+                            <div class="grid grid-cols-2 lg:grid-cols-4 gap-3">
+                                <a href="https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/section1_guide_to_ielts_test3.html" target="_blank" class="flex flex-col items-center justify-center p-3 bg-white border border-gray-200 rounded-xl hover:border-indigo-400 hover:shadow-md transition-all group">
+                                    <span class="text-indigo-500 font-bold group-hover:text-indigo-600 transition-colors">Section 1</span>
+                                    <span class="text-xs text-gray-400 mt-1">Open Link</span>
+                                </a>
+                                <a href="https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/section2_guide_to_ielts_test3.html" target="_blank" class="flex flex-col items-center justify-center p-3 bg-white border border-gray-200 rounded-xl hover:border-indigo-400 hover:shadow-md transition-all group">
+                                    <span class="text-indigo-500 font-bold group-hover:text-indigo-600 transition-colors">Section 2</span>
+                                    <span class="text-xs text-gray-400 mt-1">Open Link</span>
+                                </a>
+                                <a href="https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/section3_guide_to_ielts_test3.html" target="_blank" class="flex flex-col items-center justify-center p-3 bg-white border border-gray-200 rounded-xl hover:border-indigo-400 hover:shadow-md transition-all group">
+                                    <span class="text-indigo-500 font-bold group-hover:text-indigo-600 transition-colors">Section 3</span>
+                                    <span class="text-xs text-gray-400 mt-1">Open Link</span>
+                                </a>
+                                <a href="https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/section4_guide_to_ielts_test3.html" target="_blank" class="flex flex-col items-center justify-center p-3 bg-white border border-gray-200 rounded-xl hover:border-indigo-400 hover:shadow-md transition-all group">
+                                    <span class="text-indigo-500 font-bold group-hover:text-indigo-600 transition-colors">Section 4</span>
+                                    <span class="text-xs text-gray-400 mt-1">Open Link</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col justify-end lg:w-48 shrink-0">
+                            <button onclick="toggleVisibility('ans-list-t3')" class="w-full bg-indigo-600 text-white px-5 py-3.5 rounded-xl font-bold hover:bg-indigo-700 transition-colors shadow-md hover:shadow-lg flex justify-center items-center gap-2">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                Check Answers
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Mega Answer Key Panel -->
+                    <div id="ans-list-t3" class="hidden bg-slate-50 border border-indigo-100 rounded-2xl p-6 shadow-inner transition-all fade-in">
+                        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                            
+                            <!-- Section 1 -->
+                            <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
+                                <h5 class="text-indigo-700 font-bold mb-3 border-b border-gray-100 pb-2">Section 1</h5>
+                                <div class="space-y-2 text-sm">
+                                    <p class="flex items-start"><span class="w-6 text-gray-400 font-bold shrink-0">1</span> <span class="text-gray-800 font-medium">S-Y-M-O-N-D-S / S-y-m-o-n-d-s</span></p>
+                                    <p class="flex items-start"><span class="w-6 text-gray-400 font-bold shrink-0">2</span> <span class="text-gray-800 font-medium">1996</span></p>
+                                    <p class="flex items-start"><span class="w-6 text-gray-400 font-bold shrink-0">3</span> <span class="text-gray-800 font-medium">full(-)time</span></p>
+                                    <p class="flex items-start"><span class="w-6 text-gray-400 font-bold shrink-0">4</span> <span class="text-gray-800 font-medium">swimming</span></p>
+                                    <p class="flex items-start"><span class="w-6 text-gray-400 font-bold shrink-0">5</span> <span class="text-gray-800 font-medium">monthly</span></p>
+                                    <p class="flex items-start"><span class="w-6 text-gray-400 font-bold shrink-0">6</span> <span class="text-gray-800 font-medium">(go/do) jogging</span></p>
+                                    <p class="flex items-start"><span class="w-6 text-gray-400 font-bold shrink-0">7</span> <span class="text-gray-800 font-medium">bad ankle</span></p>
+                                    <p class="flex items-start"><span class="w-6 text-gray-400 font-bold shrink-0">8</span> <span class="text-gray-800 font-medium">fitness level</span></p>
+                                    <p class="flex items-start"><span class="w-6 text-gray-400 font-bold shrink-0">9</span> <span class="text-gray-800 font-medium">charity worker</span></p>
+                                    <p class="flex items-start"><span class="w-6 text-gray-400 font-bold shrink-0">10</span> <span class="text-gray-800 font-medium">(on) (the) radio</span></p>
+                                </div>
+                            </div>
+
+                            <!-- Section 2 -->
+                            <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
+                                <h5 class="text-indigo-700 font-bold mb-3 border-b border-gray-100 pb-2">Section 2</h5>
+                                <div class="space-y-2 text-sm">
+                                    <p class="flex items-start"><span class="w-6 text-gray-400 font-bold shrink-0">11</span> <span class="text-gray-800 font-medium">C</span></p>
+                                    <p class="flex items-start"><span class="w-6 text-gray-400 font-bold shrink-0">12</span> <span class="text-gray-800 font-medium">B</span></p>
+                                    <p class="flex items-start"><span class="w-6 text-gray-400 font-bold shrink-0">13</span> <span class="text-gray-800 font-medium">A</span></p>
+                                    <p class="flex items-start"><span class="w-6 text-gray-400 font-bold shrink-0">14</span> <span class="text-gray-800 font-medium">B</span></p>
+                                    <p class="flex items-start"><span class="w-6 text-gray-400 font-bold shrink-0">15</span> <span class="text-gray-800 font-medium">C</span></p>
+                                    <p class="flex items-start"><span class="w-6 text-gray-400 font-bold shrink-0">16</span> <span class="text-gray-800 font-medium">E</span></p>
+                                    <p class="flex items-start"><span class="w-6 text-gray-400 font-bold shrink-0">17</span> <span class="text-gray-800 font-medium">A</span></p>
+                                    <p class="flex items-start"><span class="w-6 text-gray-400 font-bold shrink-0">18</span> <span class="text-gray-800 font-medium">ring a bell</span></p>
+                                    <p class="flex items-start"><span class="w-6 text-gray-400 font-bold shrink-0">19</span> <span class="text-gray-800 font-medium">lounge</span></p>
+                                    <p class="flex items-start"><span class="w-6 text-gray-400 font-bold shrink-0">20</span> <span class="text-gray-800 font-medium">speeches / speakers</span></p>
+                                </div>
+                            </div>
+
+                            <!-- Section 3 -->
+                            <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
+                                <h5 class="text-indigo-700 font-bold mb-3 border-b border-gray-100 pb-2">Section 3</h5>
+                                <div class="space-y-2 text-sm">
+                                    <p class="flex items-start"><span class="w-6 text-gray-400 font-bold shrink-0">21</span> <span class="text-gray-800 font-medium">pine forests</span></p>
+                                    <p class="flex items-start"><span class="w-6 text-gray-400 font-bold shrink-0">22</span> <span class="text-gray-800 font-medium">water</span></p>
+                                    <p class="flex items-start"><span class="w-6 text-gray-400 font-bold shrink-0">23</span> <span class="text-gray-800 font-medium">print</span></p>
+                                    <p class="flex items-start"><span class="w-6 text-gray-400 font-bold shrink-0">24</span> <span class="text-gray-800 font-medium">sort</span></p>
+                                    <p class="flex items-start"><span class="w-6 text-gray-400 font-bold shrink-0">25</span> <span class="text-gray-800 font-medium">remove ink</span></p>
+                                    <p class="flex items-start"><span class="w-6 text-gray-400 font-bold shrink-0">26</span> <span class="text-gray-800 font-medium">(the) introduction</span></p>
+                                    <p class="flex items-start"><span class="w-6 text-gray-400 font-bold shrink-0">27</span> <span class="text-gray-800 font-medium">(the) council</span></p>
+                                    <p class="flex items-start"><span class="w-6 text-gray-400 font-bold shrink-0">28</span> <span class="text-gray-800 font-medium">(some) data</span></p>
+                                    <p class="flex items-start"><span class="w-6 text-gray-400 font-bold shrink-0">29</span> <span class="text-gray-800 font-medium">first draft</span></p>
+                                    <p class="flex items-start"><span class="w-6 text-gray-400 font-bold shrink-0">30</span> <span class="text-gray-800 font-medium">(their/the) tutor</span></p>
+                                </div>
+                            </div>
+
+                            <!-- Section 4 -->
+                            <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
+                                <h5 class="text-indigo-700 font-bold mb-3 border-b border-gray-100 pb-2">Section 4</h5>
+                                <div class="space-y-2 text-sm">
+                                    <p class="flex items-start"><span class="w-6 text-gray-400 font-bold shrink-0">31</span> <span class="text-gray-800 font-medium">protection</span></p>
+                                    <p class="flex items-start"><span class="w-6 text-gray-400 font-bold shrink-0">32</span> <span class="text-gray-800 font-medium">flexible</span></p>
+                                    <p class="flex items-start"><span class="w-6 text-gray-400 font-bold shrink-0">33</span> <span class="text-gray-800 font-medium">elephants</span></p>
+                                    <p class="flex items-start"><span class="w-6 text-gray-400 font-bold shrink-0">34</span> <span class="text-gray-800 font-medium">100 000 / 100,000</span></p>
+                                    <p class="flex items-start"><span class="w-6 text-gray-400 font-bold shrink-0">35</span> <span class="text-gray-800 font-medium">products</span></p>
+                                    <p class="flex items-start"><span class="w-6 text-gray-400 font-bold shrink-0">36</span> <span class="text-gray-800 font-medium">cap</span></p>
+                                    <p class="flex items-start"><span class="w-6 text-gray-400 font-bold shrink-0">37</span> <span class="text-gray-800 font-medium">oil</span></p>
+                                    <p class="flex items-start"><span class="w-6 text-gray-400 font-bold shrink-0">38</span> <span class="text-gray-800 font-medium">active</span></p>
+                                    <p class="flex items-start"><span class="w-6 text-gray-400 font-bold shrink-0">39</span> <span class="text-gray-800 font-medium">skin</span></p>
+                                    <p class="flex items-start"><span class="w-6 text-gray-400 font-bold shrink-0">40</span> <span class="text-gray-800 font-medium">blue(-)berries</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `
+        }
+    ];
+
+    let currentIndex = 0;
+
+    const headerEl = document.getElementById('app-header');
+    const titleEl = document.getElementById('slide-title');
+    const containerEl = document.getElementById('content-container');
+    const prevBtn = document.getElementById('btn-prev');
+    const nextBtn = document.getElementById('btn-next');
+    const indicatorEl = document.getElementById('step-indicator');
+    const progressBarEl = document.getElementById('progress-bar');
+    const navDropdown = document.getElementById('nav-dropdown');
+    const navMenuList = document.getElementById('nav-menu-list');
+
+    window.addEventListener('DOMContentLoaded', () => {
+        populateNavMenu();
+        
+        // Toggle menu
+        document.getElementById('nav-toggle-btn').addEventListener('click', (e) => {
+            e.stopPropagation();
+            navDropdown.classList.toggle('hidden');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navDropdown.contains(e.target) && !document.getElementById('nav-toggle-btn').contains(e.target)) {
+                navDropdown.classList.add('hidden');
+            }
+        });
+
+        // Navigation handlers
+        if(prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                if (currentIndex > 0) renderSlide(--currentIndex);
+            });
+        }
+
+        if(nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                if (currentIndex < sessionData.length - 1) {
+                    renderSlide(++currentIndex);
+                } else {
+                    alert("Lesson 18 Completed! Excellent work today.");
+                }
+            });
+        }
+
+        renderSlide(0);
+    });
+
+    function populateNavMenu() {
+        if(!navMenuList) return;
+        navMenuList.innerHTML = sessionData.map((data, index) => `
+            <button onclick="goToSlide(${index})" class="nav-item-btn w-full text-left p-3 mb-1 rounded-xl hover:bg-white transition-all flex items-center gap-3 border border-transparent shadow-sm">
+                <div class="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 text-sm font-bold text-white shadow-sm ${data.themeClass || ''}">
+                    ${index + 1}
+                </div>
+                <div>
+                    <div class="text-sm font-bold text-gray-800 leading-tight">${data.title ? data.title.substring(3) : 'Section ' + (index + 1)}</div>
+                    <div class="text-[10px] font-bold uppercase tracking-wider ${data.iconColor || ''}">${data.type || 'Lesson'}</div>
+                </div>
+            </button>
+        `).join('');
+    }
+
+    window.goToSlide = function(index) {
+        currentIndex = index;
+        renderSlide(currentIndex);
+        if(navDropdown) navDropdown.classList.add('hidden');
+    };
+
+    function renderSlide(index) {
+        const data = sessionData[index];
+        if(!headerEl || !titleEl || !containerEl) return;
+        
+        // Update header classes and content dynamically based on section theme
+        headerEl.className = `text-white p-4 shadow-lg transition-colors duration-700 z-20 relative ${data.themeClass}`;
+        titleEl.textContent = data.title;
+        
+        // Update progress
+        const progressPercent = ((index + 1) / sessionData.length) * 100;
+        if(progressBarEl) progressBarEl.style.width = `${progressPercent}%`;
+        if(indicatorEl) indicatorEl.textContent = `Section ${index + 1} of ${sessionData.length}`;
+
+        // Highlight Nav menu
+        document.querySelectorAll('.nav-item-btn').forEach((btn, i) => {
+            if (i === index) {
+                btn.classList.add('bg-white', 'border-gray-200', 'shadow-md');
+                btn.classList.remove('border-transparent', 'shadow-sm');
+            } else {
+                btn.classList.remove('bg-white', 'border-gray-200', 'shadow-md');
+                btn.classList.add('border-transparent', 'shadow-sm');
+            }
+        });
+
+        // Inject content
+        containerEl.innerHTML = ''; 
+        setTimeout(() => {
+            containerEl.innerHTML = data.content;
+            
+            // Re-bind any specific events needed after injection (like pausing audio)
+            const audioPlayers = document.querySelectorAll('audio');
+            if(audioPlayers) {
+                audioPlayers.forEach(player => {
+                    player.pause(); // Ensure audio doesn't play automatically or overlap
+                });
+            }
+        }, 10);
+
+        // Update buttons
+        if(prevBtn) prevBtn.disabled = index === 0;
+        if(nextBtn) nextBtn.innerHTML = index === sessionData.length - 1 ? 
+            'Finish Lesson <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>' : 
+            'Next Section <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>';
+    }
+
+    window.toggleVisibility = function(id) {
+        const el = document.getElementById(id);
+        if(el) {
+            if(el.classList.contains('hidden')){
+                el.classList.remove('hidden');
+                el.classList.add('fade-in');
+                setTimeout(() => { el.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }, 50);
+            } else {
+                el.classList.add('hidden');
+                el.classList.remove('fade-in');
+            }
+        }
+    };
+    
+    window.toggleInlineAnswers = function(containerId, btnId) {
+        const container = document.getElementById(containerId);
+        const btn = document.getElementById(btnId);
+        if(container) {
+            container.classList.toggle('show-answers');
+            if(container.classList.contains('show-answers')) {
+                container.classList.add('shadow-md', 'border-emerald-300');
+            } else {
+                container.classList.remove('shadow-md', 'border-emerald-300');
+            }
+            if(btn) {
+                btn.textContent = container.classList.contains('show-answers') ? 'Hide Answers' : 'Show Answers';
+                btn.classList.toggle('bg-white');
+                btn.classList.toggle('bg-emerald-100');
+                btn.classList.toggle('text-gray-700');
+                btn.classList.toggle('text-emerald-800');
+            }
+        }
+    };
+</script>
+</body>
+</html>
