@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Chan Truong | Lesson 28 Detailed Plan</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Inter"', 'sans-serif'],
+                    },
+                    colors: {
+                        pastel: {
+                            pink: '#ffe4e6',
+                            purple: '#f3e8ff',
+                            blue: '#e0e7ff',
+                            teal: '#ccfbf1',
+                            orange: '#ffedd5',
+                            indigo: '#e0e7ff',
+                            cyan: '#cffafe'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { 
+            background-color: #fdfbfb;
+            background-image: 
+                radial-gradient(at 80% 0%, hsla(250, 50%, 95%, 1) 0px, transparent 50%),
+                radial-gradient(at 10% 30%, hsla(280, 60%, 90%, 1) 0px, transparent 50%),
+                radial-gradient(at 90% 80%, hsla(200, 60%, 90%, 1) 0px, transparent 50%),
+                radial-gradient(at 20% 90%, hsla(220, 60%, 90%, 1) 0px, transparent 50%);
+            background-attachment: fixed;
+            color: #334155;
+        }
+        
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 10px 40px -10px rgba(0,0,0,0.05);
+        }
+
+        .skill-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.25rem 0.6rem;
+            border-radius: 8px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            backdrop-filter: blur(4px);
+        }
+
+        .badge-speaking { background-color: rgba(255, 237, 213, 0.7); color: #ea580c; border: 1px solid rgba(253, 216, 163, 0.5); }
+        .badge-vocab { background-color: rgba(204, 251, 241, 0.7); color: #0d9488; border: 1px solid rgba(153, 246, 228, 0.5); }
+        .badge-mock { background-color: rgba(243, 232, 255, 0.7); color: #9333ea; border: 1px solid rgba(233, 213, 255, 0.5); }
+
+        /* Accordion transition utility */
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s cubic-bezier(0, 1, 0, 1), padding 0.3s ease;
+        }
+        .accordion-content.open {
+            max-height: 1000px;
+            padding-top: 1rem;
+            transition: max-height 0.3s cubic-bezier(0.95, 0.05, 0.795, 0.035), padding 0.3s ease;
+        }
+        .arrow-rotate {
+            transition: transform 0.2s ease-in-out;
+        }
+        .arrow-rotate.rotated {
+            transform: rotate(180deg);
+        }
+
+        .guidance-box {
+            background: linear-gradient(to right, rgba(255,255,255,0.95), rgba(255,255,255,0.7));
+            border-left: 4px solid;
+            border-radius: 0.5rem;
+            padding: 1.25rem;
+            margin-bottom: 1.25rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: rgba(203, 213, 225, 0.8); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(148, 163, 184, 0.8); }
+    </style>
+</head>
+<body class="antialiased min-h-screen pb-16">
+
+<div class="max-w-4xl mx-auto px-4 py-10 sm:px-6 lg:px-8">
+    
+    <header class="glass-panel rounded-[2rem] p-8 mb-8 relative overflow-hidden">
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-pastel-indigo rounded-full mix-blend-multiply filter blur-3xl opacity-50 z-0"></div>
+        <div class="absolute -bottom-24 -left-24 w-72 h-72 bg-pastel-purple rounded-full mix-blend-multiply filter blur-3xl opacity-50 z-0"></div>
+
+        <div class="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+            <div>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 border border-white text-[10px] font-bold text-slate-500 tracking-widest uppercase mb-3 shadow-sm">
+                    IELTS Chan Truong • Tutor 1
+                </div>
+                <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight text-slate-800 mb-2">Lesson 28: Entertainment & Mock Test 08</h1>
+                <p class="text-slate-500 font-medium">90-Minute Movies, Music & Mock Interview Integration</p>
+            </div>
+            
+            <div class="flex flex-col gap-2">
+                <span class="skill-badge badge-vocab shadow-sm justify-center">Media Vocab (20 Min)</span>
+                <span class="skill-badge badge-mock shadow-sm justify-center">Mock Test 08 (70 Min)</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="space-y-8">
+        
+        <section class="glass-panel rounded-2xl p-6 md:p-8 relative overflow-hidden bg-gradient-to-br from-white/60 to-teal-50/40">
+            <div class="absolute top-0 left-0 w-2 h-full bg-teal-400"></div>
+            
+            <div class="flex items-center justify-between gap-4 mb-5">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-teal-100 flex items-center justify-center text-teal-600 shadow-sm border border-teal-200">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <div>
+                        <h2 class="text-xl font-bold text-slate-800">1. Vocab Review & Practice: Movies, Music & Entertainment</h2>
+                        <p class="text-sm text-slate-500">In-class vocabulary retention verification & media topic resources</p>
+                    </div>
+                </div>
+                <span class="skill-badge badge-vocab shadow-sm font-bold">Media Theme</span>
+            </div>
+            
+            <p class="text-sm text-slate-600 mb-4">Conduct a warm-up review of active topical lexis for cinematic features, streaming technology, artistic censorship, and music trends prior to mock exam execution:</p>
+
+            <a href="https://ieltschantruong.github.io/IELTS/learning_resources/speaking/part2_3/movies_music_entertainment.html" target="_blank" class="flex items-center justify-between p-4 bg-white/80 border border-teal-200 rounded-xl hover:shadow-md hover:border-teal-400 transition-all group">
+                <div class="flex items-center gap-4">
+                    <div class="bg-teal-50 p-2.5 rounded-lg text-teal-600 group-hover:bg-teal-100 transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                    </div>
+                    <div>
+                        <span class="block text-[15px] font-bold text-slate-800 group-hover:text-teal-700 transition-colors">Movies, Music & Entertainment Resource Sheet</span>
+                        <span class="block text-xs text-slate-500 mt-0.5">Topical Collocations, Part 2 Cue Cards & Part 3 Discussion Maps</span>
+                    </div>
+                </div>
+                <span class="text-xs text-teal-600 font-bold uppercase tracking-wider bg-teal-50 px-3 py-1.5 rounded border border-teal-100 group-hover:bg-teal-100 transition-colors">Open Resource &rarr;</span>
+            </a>
+        </section>
+
+        <section class="glass-panel rounded-2xl p-6 md:p-8 relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-2 h-full bg-orange-400"></div>
+            
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-orange-50 flex items-center justify-center text-orange-500 border border-orange-100 shadow-sm">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-slate-800">2. Part 3 Discussion Practice</h2>
+                        <p class="text-sm text-slate-500">10 Entertainment & Media Discussion Blueprints</p>
+                    </div>
+                </div>
+
+                <a href="https://ieltschantruong.github.io/IELTS/learning_resources/speaking/part2_3/movies_music_entertainment.html" target="_blank" class="flex items-center gap-1.5 px-3 py-1.5 bg-orange-50 text-orange-700 text-xs font-bold rounded-lg border border-orange-100/60 hover:bg-orange-100 transition-colors whitespace-nowrap">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                    Topic Resource List
+                </a>
+            </div>
+
+            <!-- Tutoring Guidance Box -->
+            <div class="guidance-box border-orange-400 text-sm text-slate-700 space-y-3 mb-6">
+                <h3 class="text-[13px] font-bold text-orange-800 uppercase tracking-wider flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    Strategic Guidance: Upgrading Band 5.5 to Band 6.5 in Media Topics
+                </h3>
+                <p>When discussing abstract entertainment concepts, Band 5.5 students often pause due to a lack of specialized words. Guide the student to utilize clear, natural structures:</p>
+                <ul class="list-disc list-inside space-y-1 ml-1 text-xs text-slate-600">
+                    <li><strong>Spoken Placeholders:</strong> Use natural fillers to prevent silence (*"Well, to be honest, I haven't thought about that deeply, but...", "From my perspective..."*).</li>
+                    <li><strong>Part 3 A.R.E.A Framework:</strong> Direct Answer <strong>[A]</strong> &rarr; Reason <strong>[R]</strong> &rarr; Example <strong>[E]</strong> &rarr; Alternative/Conditional <strong>[A]</strong>.</li>
+                    <li><strong>Accessible Lexis:</strong> Focus on practical collocations (*"immersive experience"*, *"box office sales"*, *"binge watching"*, *"special effects"*, *"cultural identity"*).</li>
+                </ul>
+            </div>
+
+            <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">Click to inspect Band 6.5 A.R.E.A structured model answers:</p>
+
+            <div class="space-y-3">
+                
+                <!-- Q a -->
+                <div class="border border-slate-150 rounded-xl bg-white/80 overflow-hidden shadow-sm hover:border-orange-200 transition-colors">
+                    <button onclick="toggleAccordion(1)" class="w-full text-left px-5 py-4 flex justify-between items-center gap-3">
+                        <span class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                            <span class="text-orange-500 font-bold">a.</span> Why do you think people still go to the cinema when they can watch movies at home?
+                        </span>
+                        <svg id="arrow-1" class="w-4 h-4 text-slate-400 arrow-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="acc-1" class="accordion-content px-5 pb-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="text-xs text-slate-600 space-y-2">
+                            <p><strong>[A - Answer]</strong> People still visit cinemas primarily for the immersive audio-visual experience and social atmosphere.</p>
+                            <p><strong>[R - Reason]</strong> Giant screens, high-tech surround sound, and watching in a crowd create excitement that cannot be matched on a home TV.</p>
+                            <p><strong>[E - Example]</strong> For instance, watching a blockbuster action film in IMAX with friends feels like a special event rather than casual viewing.</p>
+                            <p><strong>[A - Alternative]</strong> If people only cared about convenience, traditional theaters would have closed down completely years ago.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q b -->
+                <div class="border border-slate-150 rounded-xl bg-white/80 overflow-hidden shadow-sm hover:border-orange-200 transition-colors">
+                    <button onclick="toggleAccordion(2)" class="w-full text-left px-5 py-4 flex justify-between items-center gap-3">
+                        <span class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                            <span class="text-orange-500 font-bold">b.</span> How have streaming services changed the way we consume television?
+                        </span>
+                        <svg id="arrow-2" class="w-4 h-4 text-slate-400 arrow-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="acc-2" class="accordion-content px-5 pb-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="text-xs text-slate-600 space-y-2">
+                            <p><strong>[A - Answer]</strong> Streaming platforms have shifted viewing habits from scheduled cable broadcasts to on-demand binge-watching.</p>
+                            <p><strong>[R - Reason]</strong> Viewers no longer have to wait a week for a new episode or sit through long commercial breaks.</p>
+                            <p><strong>[E - Example]</strong> For example, services like Netflix release entire series at once, allowing subscribers to watch several episodes in one sitting.</p>
+                            <p><strong>[A - Alternative]</strong> However, this instant access has also made some people less patient when waiting for new media releases.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q c -->
+                <div class="border border-slate-150 rounded-xl bg-white/80 overflow-hidden shadow-sm hover:border-orange-200 transition-colors">
+                    <button onclick="toggleAccordion(3)" class="w-full text-left px-5 py-4 flex justify-between items-center gap-3">
+                        <span class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                            <span class="text-orange-500 font-bold">c.</span> Do you think international blockbusters are destroying local film industries?
+                        </span>
+                        <svg id="arrow-3" class="w-4 h-4 text-slate-400 arrow-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="acc-3" class="accordion-content px-5 pb-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="text-xs text-slate-600 space-y-2">
+                            <p><strong>[A - Answer]</strong> Foreign blockbusters create tough competition, but they do not destroy domestic film industries entirely.</p>
+                            <p><strong>[R - Reason]</strong> Huge production budgets and global marketing allow Hollywood movies to dominate screen time in local cinemas.</p>
+                            <p><strong>[E - Example]</strong> For example, during major holidays, local theaters often dedicate most screens to popular superhero films.</p>
+                            <p><strong>[A - Alternative]</strong> Nevertheless, when local directors produce stories deeply rooted in native culture, domestic audiences still support them strongly.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q d -->
+                <div class="border border-slate-150 rounded-xl bg-white/80 overflow-hidden shadow-sm hover:border-orange-200 transition-colors">
+                    <button onclick="toggleAccordion(4)" class="w-full text-left px-5 py-4 flex justify-between items-center gap-3">
+                        <span class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                            <span class="text-orange-500 font-bold">d.</span> Should films be censored if they contain violent or offensive material?
+                        </span>
+                        <svg id="arrow-4" class="w-4 h-4 text-slate-400 arrow-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="acc-4" class="accordion-content px-5 pb-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="text-xs text-slate-600 space-y-2">
+                            <p><strong>[A - Answer]</strong> Yes, I believe age-appropriate film rating systems and censorship are necessary to protect younger viewers.</p>
+                            <p><strong>[R - Reason]</strong> Explicit violence or offensive themes can negatively affect impressionable teenagers and encourage aggressive behavior.</p>
+                            <p><strong>[E - Example]</strong> For instance, age classification tags ensure that young children cannot purchase tickets for graphic action movies.</p>
+                            <p><strong>[A - Alternative]</strong> On the other hand, censorship should not be used strictly to suppress creative freedom or healthy political discussion.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q e -->
+                <div class="border border-slate-150 rounded-xl bg-white/80 overflow-hidden shadow-sm hover:border-orange-200 transition-colors">
+                    <button onclick="toggleAccordion(5)" class="w-full text-left px-5 py-4 flex justify-between items-center gap-3">
+                        <span class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                            <span class="text-orange-500 font-bold">e.</span> What makes a movie a masterpiece in your opinion?
+                        </span>
+                        <svg id="arrow-5" class="w-4 h-4 text-slate-400 arrow-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="acc-5" class="accordion-content px-5 pb-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="text-xs text-slate-600 space-y-2">
+                            <p><strong>[A - Answer]</strong> In my view, a cinematic masterpiece requires a compelling storyline combined with strong character development.</p>
+                            <p><strong>[R - Reason]</strong> Fancy computer graphics fade quickly over time, but a deeply moving human story remains memorable for decades.</p>
+                            <p><strong>[E - Example]</strong> For example, classic movies like 'Titanic' are remembered for their powerful emotional themes rather than just visual effects.</p>
+                            <p><strong>[A - Alternative]</strong> Without a well-written script, even the most expensive blockbuster becomes forgettable after a few weeks.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q f -->
+                <div class="border border-slate-150 rounded-xl bg-white/80 overflow-hidden shadow-sm hover:border-orange-200 transition-colors">
+                    <button onclick="toggleAccordion(6)" class="w-full text-left px-5 py-4 flex justify-between items-center gap-3">
+                        <span class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                            <span class="text-orange-500 font-bold">f.</span> How important are special effects compared to a good storyline?
+                        </span>
+                        <svg id="arrow-6" class="w-4 h-4 text-slate-400 arrow-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="acc-6" class="accordion-content px-5 pb-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="text-xs text-slate-600 space-y-2">
+                            <p><strong>[A - Answer]</strong> While special effects enhance the spectacle, a solid storyline is far more important for a film's lasting success.</p>
+                            <p><strong>[R - Reason]</strong> CGI can impress audiences visually in the moment, but without meaningful plot progression, viewers quickly grow bored.</p>
+                            <p><strong>[E - Example]</strong> For instance, many big-budget superhero films with amazing special effects fail at the box office if the plot feels weak.</p>
+                            <p><strong>[A - Alternative]</strong> Conversely, low-budget indie movies with brilliant scripts often win prestigious awards and gain loyal fanbases.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q g -->
+                <div class="border border-slate-150 rounded-xl bg-white/80 overflow-hidden shadow-sm hover:border-orange-200 transition-colors">
+                    <button onclick="toggleAccordion(7)" class="w-full text-left px-5 py-4 flex justify-between items-center gap-3">
+                        <span class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                            <span class="text-orange-500 font-bold">g.</span> Why are sequels and remakes so common in Hollywood today?
+                        </span>
+                        <svg id="arrow-7" class="w-4 h-4 text-slate-400 arrow-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="acc-7" class="accordion-content px-5 pb-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="text-xs text-slate-600 space-y-2">
+                            <p><strong>[A - Answer]</strong> Film studios produce sequels and remakes mostly because they carry low financial risk and guaranteed brand recognition.</p>
+                            <p><strong>[R - Reason]</strong> Developing an original story is risky, whereas famous franchises already have built-in global fanbases willing to buy tickets.</p>
+                            <p><strong>[E - Example]</strong> For example, major studios consistently release new 'Spider-Man' or 'Batman' movies because they are almost guaranteed to turn a profit.</p>
+                            <p><strong>[A - Alternative]</strong> However, if studios only produce remakes, audiences will eventually grow tired of repetitive concepts.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q h -->
+                <div class="border border-slate-150 rounded-xl bg-white/80 overflow-hidden shadow-sm hover:border-orange-200 transition-colors">
+                    <button onclick="toggleAccordion(8)" class="w-full text-left px-5 py-4 flex justify-between items-center gap-3">
+                        <span class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                            <span class="text-orange-500 font-bold">h.</span> Do actors deserve the extremely high salaries they are paid?
+                        </span>
+                        <svg id="arrow-8" class="w-4 h-4 text-slate-400 arrow-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="acc-8" class="accordion-content px-5 pb-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="text-xs text-slate-600 space-y-2">
+                            <p><strong>[A - Answer]</strong> While their salaries seem excessive compared to essential workers, famous actors generate enormous commercial value.</p>
+                            <p><strong>[R - Reason]</strong> Top movie stars draw millions of viewers to theaters single-handedly, making them primary assets for film studios.</p>
+                            <p><strong>[E - Example]</strong> For instance, hiring a world-famous actor like Tom Cruise can guarantee hundreds of millions of dollars in international ticket sales.</p>
+                            <p><strong>[A - Alternative]</strong> However, if production budgets allocated more funds to writers and crew members, overall movie quality would improve.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q i -->
+                <div class="border border-slate-150 rounded-xl bg-white/80 overflow-hidden shadow-sm hover:border-orange-200 transition-colors">
+                    <button onclick="toggleAccordion(9)" class="w-full text-left px-5 py-4 flex justify-between items-center gap-3">
+                        <span class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                            <span class="text-orange-500 font-bold">i.</span> How do movies influence the culture and behavior of young people?
+                        </span>
+                        <svg id="arrow-9" class="w-4 h-4 text-slate-400 arrow-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="acc-9" class="accordion-content px-5 pb-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="text-xs text-slate-600 space-y-2">
+                            <p><strong>[A - Answer]</strong> Movies exert a huge influence on teenagers by shaping their fashion choices, speech patterns, and social values.</p>
+                            <p><strong>[R - Reason]</strong> Young people frequently copy the lifestyles, clothing, and slang of film characters they idolize on screen.</p>
+                            <p><strong>[E - Example]</strong> For example, when a high-school drama becomes popular, teenagers quickly adopt the main characters' hairstyles and fashion trends.</p>
+                            <p><strong>[A - Alternative]</strong> If films promote positive themes like teamwork and perseverance, they can inspire teenagers in very constructive ways.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q j -->
+                <div class="border border-slate-150 rounded-xl bg-white/80 overflow-hidden shadow-sm hover:border-orange-200 transition-colors">
+                    <button onclick="toggleAccordion(10)" class="w-full text-left px-5 py-4 flex justify-between items-center gap-3">
+                        <span class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                            <span class="text-orange-500 font-bold">j.</span> Will virtual reality eventually replace traditional cinema screens?
+                        </span>
+                        <svg id="arrow-10" class="w-4 h-4 text-slate-400 arrow-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="acc-10" class="accordion-content px-5 pb-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="text-xs text-slate-600 space-y-2">
+                            <p><strong>[A - Answer]</strong> I do not think virtual reality will replace traditional cinemas completely in the near future.</p>
+                            <p><strong>[R - Reason]</strong> VR headsets are isolating and uncomfortable to wear for hours, whereas going to the cinema is an enjoyable shared social event.</p>
+                            <p><strong>[E - Example]</strong> For example, people love sharing reactions, eating snacks together, and discussing a movie in a grand theater environment.</p>
+                            <p><strong>[A - Alternative]</strong> However, VR might become a popular niche alternative for interactive gaming or specialized 3D entertainment at home.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="glass-panel rounded-2xl p-6 md:p-8 relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-2 h-full bg-purple-400"></div>
+            
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 rounded-full bg-purple-50 flex items-center justify-center text-purple-600 border border-purple-100 shadow-sm">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold text-slate-800">3. Speaking Mock Test 08</h2>
+                    <p class="text-sm text-slate-500">Full 3-Part Exam Simulation with diagnostic breakdown</p>
+                </div>
+            </div>
+
+            <!-- Guidance Box -->
+            <div class="guidance-box border-purple-400 text-sm text-slate-700 space-y-3 mb-6">
+                <h3 class="text-[13px] font-bold text-purple-800 uppercase tracking-wider flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    Strict Exam Protocol Guidelines
+                </h3>
+                <p>Execute **Speaking Mock Test 08** under official exam conditions. Do not interrupt during student delivery. Take note of exact error patterns across all 4 criteria:</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-slate-600 border-t border-purple-100 pt-3">
+                    <div class="bg-white/80 p-2.5 rounded-lg border border-purple-100">
+                        <strong class="text-purple-900 block mb-1">Fluency & Coherence (FC)</strong>
+                        <span>Monitor hesitation pauses, self-correction frequency, and smooth usage of connectors.</span>
+                    </div>
+                    <div class="bg-white/80 p-2.5 rounded-lg border border-purple-100">
+                        <strong class="text-purple-900 block mb-1">Lexical Resource (LR)</strong>
+                        <span>Check active usage of topic-specific collocations and flexible paraphrasing.</span>
+                    </div>
+                    <div class="bg-white/80 p-2.5 rounded-lg border border-purple-100">
+                        <strong class="text-purple-900 block mb-1">Grammatical Range (GRA)</strong>
+                        <span>Track accuracy in complex sentences, relative clauses, and past narrative tenses.</span>
+                    </div>
+                    <div class="bg-white/80 p-2.5 rounded-lg border border-purple-100">
+                        <strong class="text-purple-900 block mb-1">Pronunciation (PR)</strong>
+                        <span>Assess word stress, sentence intonation, connected speech, and clarity.</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mock Link -->
+            <a href="https://ieltschantruong.github.io/IELTS/learning_resources/speaking/mock_test/speaking_mock_08.html" target="_blank" class="p-4 rounded-xl border border-purple-200 bg-white flex flex-col sm:flex-row items-center justify-between gap-4 transition-all hover:border-purple-400 hover:shadow-md group">
+                <div class="flex items-center gap-4 w-full sm:w-auto">
+                    <div class="w-12 h-12 bg-purple-50 rounded-xl flex items-center justify-center text-purple-600 font-extrabold text-lg group-hover:bg-purple-100 transition-colors shrink-0 border border-purple-100">08</div>
+                    <div>
+                        <p class="font-bold text-slate-800 text-base group-hover:text-purple-600 transition-colors">Speaking Mock Test 08</p>
+                        <p class="text-xs text-slate-500 mt-0.5">Full 3-Part Exam Simulation with diagnostic breakdown</p>
+                    </div>
+                </div>
+                <span class="w-full sm:w-auto text-center sm:text-right text-[11px] font-bold text-purple-600 uppercase tracking-wider bg-purple-50 px-4 py-2.5 rounded-lg border border-purple-100 group-hover:bg-purple-100 transition-colors shrink-0">Open Mock Test 08 &rarr;</span>
+            </a>
+        </section>
+
+        <section class="glass-panel rounded-2xl p-6 md:p-8 relative overflow-hidden bg-gradient-to-br from-white/60 to-blue-50/40">
+            <div class="absolute top-0 left-0 w-2 h-full bg-blue-400"></div>
+            
+            <div class="flex items-center gap-3 mb-5">
+                <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 shadow-sm border border-blue-200">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                </div>
+                <h2 class="text-xl font-bold text-slate-800">4. Homework Assignments</h2>
+            </div>
+            
+            <p class="text-sm text-slate-600 mb-6 font-medium">Review diagnostic feedback from Mock Test 08 and re-record weak responses for submission:</p>
+
+            <div class="bg-white/80 rounded-xl p-5 border border-indigo-100 shadow-sm space-y-4">
+                <div class="flex items-start gap-4">
+                    <div class="p-2.5 bg-orange-50 text-orange-500 rounded-lg shadow-sm shrink-0">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+                    </div>
+                    <div>
+                        <p class="font-bold text-slate-800 text-base leading-snug">Mock Test 08 Audio Self-Correction & Media Topic Practice</p>
+                        <p class="text-xs text-slate-500 mt-1">Re-record and submit oral responses for any Part 2 cue cards or Part 3 questions that scored below Band 6.5 in today's mock test. Review weaknesses identified during feedback.</p>
+                    </div>
+                </div>
+
+                <div class="pt-2 flex flex-col sm:flex-row gap-3">
+                    <a href="https://ieltschantruong.github.io/IELTS/learning_resources/speaking/part2_3/movies_music_entertainment.html" target="_blank" class="flex-1 bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold py-3 px-4 rounded-xl shadow-md transition-all flex items-center justify-center gap-2">
+                        <span>Movies & Music Resource</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                    </a>
+                    <a href="https://ieltschantruong.github.io/IELTS/learning_resources/speaking/mock_test/speaking_mock_08.html" target="_blank" class="flex-1 bg-purple-700 hover:bg-purple-800 text-white text-xs font-bold py-3 px-4 rounded-xl shadow-md transition-all flex items-center justify-center gap-2">
+                        <span>Review Mock Test 08</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</div>
+
+<script>
+    function toggleAccordion(id) {
+        const content = document.getElementById(`acc-${id}`);
+        const arrow = document.getElementById(`arrow-${id}`);
+        
+        if (content.classList.contains('open')) {
+            content.classList.remove('open');
+            arrow.classList.remove('rotated');
+        } else {
+            for (let i = 1; i <= 10; i++) {
+                const otherContent = document.getElementById(`acc-${i}`);
+                const otherArrow = document.getElementById(`arrow-${i}`);
+                if (otherContent) otherContent.classList.remove('open');
+                if (otherArrow) otherArrow.classList.remove('rotated');
+            }
+            
+            content.classList.add('open');
+            arrow.classList.add('rotated');
+        }
+    }
+</script>
+
+</body>
+</html>

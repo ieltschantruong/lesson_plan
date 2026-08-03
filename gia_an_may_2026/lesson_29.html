@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Chan Truong | Lesson 29 Detailed Plan</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Inter"', 'sans-serif'],
+                    },
+                    colors: {
+                        pastel: {
+                            pink: '#ffe4e6',
+                            purple: '#f3e8ff',
+                            blue: '#e0e7ff',
+                            teal: '#ccfbf1',
+                            orange: '#ffedd5',
+                            indigo: '#e0e7ff',
+                            cyan: '#cffafe'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { 
+            background-color: #fdfbfb;
+            background-image: 
+                radial-gradient(at 80% 0%, hsla(250, 50%, 95%, 1) 0px, transparent 50%),
+                radial-gradient(at 10% 30%, hsla(280, 60%, 90%, 1) 0px, transparent 50%),
+                radial-gradient(at 90% 80%, hsla(200, 60%, 90%, 1) 0px, transparent 50%),
+                radial-gradient(at 20% 90%, hsla(220, 60%, 90%, 1) 0px, transparent 50%);
+            background-attachment: fixed;
+            color: #334155;
+        }
+        
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 10px 40px -10px rgba(0,0,0,0.05);
+        }
+
+        .skill-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.25rem 0.6rem;
+            border-radius: 8px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            backdrop-filter: blur(4px);
+        }
+
+        .badge-speaking { background-color: rgba(255, 237, 213, 0.7); color: #ea580c; border: 1px solid rgba(253, 216, 163, 0.5); }
+        .badge-vocab { background-color: rgba(204, 251, 241, 0.7); color: #0d9488; border: 1px solid rgba(153, 246, 228, 0.5); }
+        .badge-mock { background-color: rgba(243, 232, 255, 0.7); color: #9333ea; border: 1px solid rgba(233, 213, 255, 0.5); }
+
+        /* Accordion transition utility */
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s cubic-bezier(0, 1, 0, 1), padding 0.3s ease;
+        }
+        .accordion-content.open {
+            max-height: 1000px;
+            padding-top: 1rem;
+            transition: max-height 0.3s cubic-bezier(0.95, 0.05, 0.795, 0.035), padding 0.3s ease;
+        }
+        .arrow-rotate {
+            transition: transform 0.2s ease-in-out;
+        }
+        .arrow-rotate.rotated {
+            transform: rotate(180deg);
+        }
+
+        .guidance-box {
+            background: linear-gradient(to right, rgba(255,255,255,0.95), rgba(255,255,255,0.7));
+            border-left: 4px solid;
+            border-radius: 0.5rem;
+            padding: 1.25rem;
+            margin-bottom: 1.25rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: rgba(203, 213, 225, 0.8); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(148, 163, 184, 0.8); }
+    </style>
+</head>
+<body class="antialiased min-h-screen pb-16">
+
+<div class="max-w-4xl mx-auto px-4 py-10 sm:px-6 lg:px-8">
+    
+    <header class="glass-panel rounded-[2rem] p-8 mb-8 relative overflow-hidden">
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-pastel-indigo rounded-full mix-blend-multiply filter blur-3xl opacity-50 z-0"></div>
+        <div class="absolute -bottom-24 -left-24 w-72 h-72 bg-pastel-purple rounded-full mix-blend-multiply filter blur-3xl opacity-50 z-0"></div>
+
+        <div class="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+            <div>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 border border-white text-[10px] font-bold text-slate-500 tracking-widest uppercase mb-3 shadow-sm">
+                    IELTS Chan Truong • Tutor 1
+                </div>
+                <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight text-slate-800 mb-2">Lesson 29: Music, Culture & Mock Test 09</h1>
+                <p class="text-slate-500 font-medium">90-Minute Music Industry, Art & Mock Interview Integration</p>
+            </div>
+            
+            <div class="flex flex-col gap-2">
+                <span class="skill-badge badge-vocab shadow-sm justify-center">Vocab Test (20 Min)</span>
+                <span class="skill-badge badge-mock shadow-sm justify-center">Mock Test 09 (70 Min)</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="space-y-8">
+        
+        <section class="glass-panel rounded-2xl p-6 md:p-8 relative overflow-hidden bg-gradient-to-br from-white/60 to-teal-50/40">
+            <div class="absolute top-0 left-0 w-2 h-full bg-teal-400"></div>
+            
+            <div class="flex items-center justify-between gap-4 mb-5">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-teal-100 flex items-center justify-center text-teal-600 shadow-sm border border-teal-200">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <div>
+                        <h2 class="text-xl font-bold text-slate-800">1. Vocab Test: Movies, Music & Entertainment</h2>
+                        <p class="text-sm text-slate-500">In-class active vocabulary retention evaluation</p>
+                    </div>
+                </div>
+                <span class="skill-badge badge-vocab shadow-sm font-bold">Evaluation Phase</span>
+            </div>
+            
+            <p class="text-sm text-slate-600 mb-4">Administer the formal vocabulary test to evaluate retention of topical lexis covering cinematic features, musical composition, digital distribution, and artistic expression prior to mock interview practice:</p>
+
+            <a href="https://ieltschantruong.github.io/IELTS/lesson_plan/vocab_test/speaking_movies_music_entertainment.html" target="_blank" class="flex items-center justify-between p-4 bg-white/80 border border-teal-200 rounded-xl hover:shadow-md hover:border-teal-400 transition-all group">
+                <div class="flex items-center gap-4">
+                    <div class="bg-teal-50 p-2.5 rounded-lg text-teal-600 group-hover:bg-teal-100 transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                    </div>
+                    <div>
+                        <span class="block text-[15px] font-bold text-slate-800 group-hover:text-teal-700 transition-colors">Movies, Music & Entertainment Vocab Test</span>
+                        <span class="block text-xs text-slate-500 mt-0.5">Formal Lexical Assessment Sheet</span>
+                    </div>
+                </div>
+                <span class="text-xs text-teal-600 font-bold uppercase tracking-wider bg-teal-50 px-3 py-1.5 rounded border border-teal-100 group-hover:bg-teal-100 transition-colors">Open Test &rarr;</span>
+            </a>
+        </section>
+
+        <section class="glass-panel rounded-2xl p-6 md:p-8 relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-2 h-full bg-orange-400"></div>
+            
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-orange-50 flex items-center justify-center text-orange-500 border border-orange-100 shadow-sm">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-slate-800">2. Part 3 Practice: Music & Society</h2>
+                        <p class="text-sm text-slate-500">10 Music & Cultural Identity Blueprints</p>
+                    </div>
+                </div>
+
+                <a href="https://ieltschantruong.github.io/IELTS/learning_resources/speaking/part2_3/movies_music_entertainment.html" target="_blank" class="flex items-center gap-1.5 px-3 py-1.5 bg-orange-50 text-orange-700 text-xs font-bold rounded-lg border border-orange-100/60 hover:bg-orange-100 transition-colors whitespace-nowrap">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                    Topic Resource List
+                </a>
+            </div>
+
+            <!-- Tutoring Guidance Box -->
+            <div class="guidance-box border-orange-400 text-sm text-slate-700 space-y-3 mb-6">
+                <h3 class="text-[13px] font-bold text-orange-800 uppercase tracking-wider flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    Strategic Guidance: Upgrading Band 5.5 to Band 6.5 in Music & Art Topics
+                </h3>
+                <p>When analyzing abstract musical concepts, Band 5.5 students often pause due to a lack of specialized words. Guide the student to utilize clear, natural structures:</p>
+                <ul class="list-disc list-inside space-y-1 ml-1 text-xs text-slate-600">
+                    <li><strong>Spoken Fillers:</strong> Use natural spoken placeholders to prevent silence (*"Well, to be honest, I haven't thought about that deeply, but...", "From a broader perspective..."*).</li>
+                    <li><strong>Part 3 A.R.E.A Framework:</strong> Direct Answer <strong>[A]</strong> &rarr; Reason <strong>[R]</strong> &rarr; Example <strong>[E]</strong> &rarr; Alternative/Conditional <strong>[A]</strong>.</li>
+                    <li><strong>Accessible Lexis:</strong> Focus on practical collocations (*"cultural heritage"*, *"independent artists"*, *"background music"*, *"live performance"*, *"artificial intelligence"*).</li>
+                </ul>
+            </div>
+
+            <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">Click to inspect Band 6.5 A.R.E.A structured model answers:</p>
+
+            <div class="space-y-3">
+                
+                <!-- Q a -->
+                <div class="border border-slate-150 rounded-xl bg-white/80 overflow-hidden shadow-sm hover:border-orange-200 transition-colors">
+                    <button onclick="toggleAccordion(1)" class="w-full text-left px-5 py-4 flex justify-between items-center gap-3">
+                        <span class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                            <span class="text-orange-500 font-bold">a.</span> What role does music play in cultural identity?
+                        </span>
+                        <svg id="arrow-1" class="w-4 h-4 text-slate-400 arrow-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="acc-1" class="accordion-content px-5 pb-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="text-xs text-slate-600 space-y-2">
+                            <p><strong>[A - Answer]</strong> Music plays a vital role in preserving cultural identity and connecting generations to their heritage.</p>
+                            <p><strong>[R - Reason]</strong> Traditional songs and instruments reflect a nation's history, folklore, and shared values in ways that written history cannot.</p>
+                            <p><strong>[E - Example]</strong> For example, folk melodies played during traditional lunar new year festivals remind people of their ancestral roots.</p>
+                            <p><strong>[A - Alternative]</strong> Without traditional music, a country risks losing an important part of its unique cultural personality in a globalized world.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q b -->
+                <div class="border border-slate-150 rounded-xl bg-white/80 overflow-hidden shadow-sm hover:border-orange-200 transition-colors">
+                    <button onclick="toggleAccordion(2)" class="w-full text-left px-5 py-4 flex justify-between items-center gap-3">
+                        <span class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                            <span class="text-orange-500 font-bold">b.</span> How has the internet changed the music industry for independent artists?
+                        </span>
+                        <svg id="arrow-2" class="w-4 h-4 text-slate-400 arrow-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="acc-2" class="accordion-content px-5 pb-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="text-xs text-slate-600 space-y-2">
+                            <p><strong>[A - Answer]</strong> The internet has democratized the music industry by allowing indie musicians to publish their work without major record labels.</p>
+                            <p><strong>[R - Reason]</strong> Streaming platforms and social media enable creators to distribute tracks directly to global listeners at minimal cost.</p>
+                            <p><strong>[E - Example]</strong> For instance, many bedroom pop musicians gain millions of fans on TikTok or Spotify before ever signing a formal contract.</p>
+                            <p><strong>[A - Alternative]</strong> However, because millions of tracks are uploaded daily, standing out from the competition is harder than ever before.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q c -->
+                <div class="border border-slate-150 rounded-xl bg-white/80 overflow-hidden shadow-sm hover:border-orange-200 transition-colors">
+                    <button onclick="toggleAccordion(3)" class="w-full text-left px-5 py-4 flex justify-between items-center gap-3">
+                        <span class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                            <span class="text-orange-500 font-bold">c.</span> Do you think downloading music for free should be illegal?
+                        </span>
+                        <svg id="arrow-3" class="w-4 h-4 text-slate-400 arrow-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="acc-3" class="accordion-content px-5 pb-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="text-xs text-slate-600 space-y-2">
+                            <p><strong>[A - Answer]</strong> Yes, unauthorized downloading of copyrighted music should remain illegal to protect musicians' livelihoods.</p>
+                            <p><strong>[R - Reason]</strong> Unpaid piracy robs songwriters and producers of the royalties they deserve for their hard creative work.</p>
+                            <p><strong>[E - Example]</strong> For example, affordable streaming subscriptions like Apple Music offer cheap access while still compensating artists fairly.</p>
+                            <p><strong>[A - Alternative]</strong> If pirating music was legal, many talented young artists would be forced to abandon music careers due to financial hardship.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q d -->
+                <div class="border border-slate-150 rounded-xl bg-white/80 overflow-hidden shadow-sm hover:border-orange-200 transition-colors">
+                    <button onclick="toggleAccordion(4)" class="w-full text-left px-5 py-4 flex justify-between items-center gap-3">
+                        <span class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                            <span class="text-orange-500 font-bold">d.</span> Why do different generations tend to prefer different genres of music?
+                        </span>
+                        <svg id="arrow-4" class="w-4 h-4 text-slate-400 arrow-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="acc-4" class="accordion-content px-5 pb-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="text-xs text-slate-600 space-y-2">
+                            <p><strong>[A - Answer]</strong> Generational differences in musical taste stem mostly from cultural trends during one's formative teenage years.</p>
+                            <p><strong>[R - Reason]</strong> People form emotional bonds with songs that were popular when they were young, whereas youth embrace current trends.</p>
+                            <p><strong>[E - Example]</strong> For instance, older people often prefer classic rock or ballad acoustic songs, while teenagers favor modern K-pop or electronic hip-hop.</p>
+                            <p><strong>[A - Alternative]</strong> Nevertheless, timeless melodies or classical symphonies can still appeal across all age demographics.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q e -->
+                <div class="border border-slate-150 rounded-xl bg-white/80 overflow-hidden shadow-sm hover:border-orange-200 transition-colors">
+                    <button onclick="toggleAccordion(5)" class="w-full text-left px-5 py-4 flex justify-between items-center gap-3">
+                        <span class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                            <span class="text-orange-500 font-bold">e.</span> How does background music affect our mood in places like restaurants or stores?
+                        </span>
+                        <svg id="arrow-5" class="w-4 h-4 text-slate-400 arrow-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="acc-5" class="accordion-content px-5 pb-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="text-xs text-slate-600 space-y-2">
+                            <p><strong>[A - Answer]</strong> Background music heavily influences customer psychology, influencing how long people stay and how much they spend.</p>
+                            <p><strong>[R - Reason]</strong> Slow, soft music creates a relaxed environment, whereas fast upbeat music energizes shoppers and speeds up movement.</p>
+                            <p><strong>[E - Example]</strong> For example, fine dining restaurants play gentle jazz to encourage patrons to relax and order dessert or drinks.</p>
+                            <p><strong>[A - Alternative]</strong> If a retail store is completely silent, the atmosphere feels awkward and uncomfortable for shoppers.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q f -->
+                <div class="border border-slate-150 rounded-xl bg-white/80 overflow-hidden shadow-sm hover:border-orange-200 transition-colors">
+                    <button onclick="toggleAccordion(6)" class="w-full text-left px-5 py-4 flex justify-between items-center gap-3">
+                        <span class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                            <span class="text-orange-500 font-bold">f.</span> Is musical talent something you are born with, or can it be learned?
+                        </span>
+                        <svg id="arrow-6" class="w-4 h-4 text-slate-400 arrow-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="acc-6" class="accordion-content px-5 pb-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="text-xs text-slate-600 space-y-2">
+                            <p><strong>[A - Answer]</strong> In my opinion, musical skill is a combination of natural aptitude and years of continuous practice.</p>
+                            <p><strong>[R - Reason]</strong> While a natural ear for pitch gives some children a head start, mastering an instrument requires thousands of hours of effort.</p>
+                            <p><strong>[E - Example]</strong> For instance, famous pianists might possess innate talent, but they still spend 6 hours daily practicing technical scales.</p>
+                            <p><strong>[A - Alternative]</strong> Without disciplined practice, even a child born with great musical gift will never become a master musician.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q g -->
+                <div class="border border-slate-150 rounded-xl bg-white/80 overflow-hidden shadow-sm hover:border-orange-200 transition-colors">
+                    <button onclick="toggleAccordion(7)" class="w-full text-left px-5 py-4 flex justify-between items-center gap-3">
+                        <span class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                            <span class="text-orange-500 font-bold">g.</span> Why is live music often considered a better experience than recorded music?
+                        </span>
+                        <svg id="arrow-7" class="w-4 h-4 text-slate-400 arrow-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="acc-7" class="accordion-content px-5 pb-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="text-xs text-slate-600 space-y-2">
+                            <p><strong>[A - Answer]</strong> Live concerts deliver an exhilarating energetic connection between performers and the audience that recordings cannot replicate.</p>
+                            <p><strong>[R - Reason]</strong> The powerful sound systems, visual lighting, and collective crowd excitement turn a concert into an unforgettable event.</p>
+                            <p><strong>[E - Example]</strong> For example, singing along with thousands of fans at a stadium show feels far more special than listening on headphones alone.</p>
+                            <p><strong>[A - Alternative]</strong> However, recorded music remains essential for daily convenience, like listening during work or commuting.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q h -->
+                <div class="border border-slate-150 rounded-xl bg-white/80 overflow-hidden shadow-sm hover:border-orange-200 transition-colors">
+                    <button onclick="toggleAccordion(8)" class="w-full text-left px-5 py-4 flex justify-between items-center gap-3">
+                        <span class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                            <span class="text-orange-500 font-bold">h.</span> How do song lyrics influence the way teenagers think?
+                        </span>
+                        <svg id="arrow-8" class="w-4 h-4 text-slate-400 arrow-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="acc-8" class="accordion-content px-5 pb-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="text-xs text-slate-600 space-y-2">
+                            <p><strong>[A - Answer]</strong> Song lyrics exert a strong influence on teenagers by shaping their emotional perspectives and social attitudes.</p>
+                            <p><strong>[R - Reason]</strong> Adolescents frequently turn to pop or rap music for comfort, adopting the values and slang used by idolized musicians.</p>
+                            <p><strong>[E - Example]</strong> For example, songs promoting mental health awareness can encourage young people to seek help when feeling overwhelmed.</p>
+                            <p><strong>[A - Alternative]</strong> Conversely, lyrics glorifying harmful behaviors can mislead impressionable teens into risky decisions.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q i -->
+                <div class="border border-slate-150 rounded-xl bg-white/80 overflow-hidden shadow-sm hover:border-orange-200 transition-colors">
+                    <button onclick="toggleAccordion(9)" class="w-full text-left px-5 py-4 flex justify-between items-center gap-3">
+                        <span class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                            <span class="text-orange-500 font-bold">i.</span> Should schools place more emphasis on teaching music and the arts?
+                        </span>
+                        <svg id="arrow-9" class="w-4 h-4 text-slate-400 arrow-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="acc-9" class="accordion-content px-5 pb-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="text-xs text-slate-600 space-y-2">
+                            <p><strong>[A - Answer]</strong> Yes, I firmly believe arts and music education deserve equal emphasis alongside STEM subjects in school curricula.</p>
+                            <p><strong>[R - Reason]</strong> Learning an instrument enhances cognitive development, spatial reasoning, and creative problem-solving skills in children.</p>
+                            <p><strong>[E - Example]</strong> For instance, research shows students who learn music often perform better in mathematics due to improved pattern recognition.</p>
+                            <p><strong>[A - Alternative]</strong> If schools only focus on test scores, students may grow up lacking emotional intelligence and creative thinking.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q j -->
+                <div class="border border-slate-150 rounded-xl bg-white/80 overflow-hidden shadow-sm hover:border-orange-200 transition-colors">
+                    <button onclick="toggleAccordion(10)" class="w-full text-left px-5 py-4 flex justify-between items-center gap-3">
+                        <span class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                            <span class="text-orange-500 font-bold">j.</span> Do you think AI will ever be able to compose music as well as humans?
+                        </span>
+                        <svg id="arrow-10" class="w-4 h-4 text-slate-400 arrow-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="acc-10" class="accordion-content px-5 pb-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="text-xs text-slate-600 space-y-2">
+                            <p><strong>[A - Answer]</strong> While AI can imitate complex musical harmonies, it cannot truly replace human emotional depth in composition.</p>
+                            <p><strong>[R - Reason]</strong> Artificial intelligence generates melodies based on statistical algorithms, whereas human songs stem from genuine lived experiences and heartbreak.</p>
+                            <p><strong>[E - Example]</strong> For example, AI can compose background tracks for video games, but iconic emotional anthems require human soul.</p>
+                            <p><strong>[A - Alternative]</strong> Therefore, AI will likely remain a helpful tool for producers rather than a complete substitute for human composers.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="glass-panel rounded-2xl p-6 md:p-8 relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-2 h-full bg-purple-400"></div>
+            
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 rounded-full bg-purple-50 flex items-center justify-center text-purple-600 border border-purple-100 shadow-sm">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold text-slate-800">3. Speaking Mock Test 09</h2>
+                    <p class="text-sm text-slate-500">Full 3-Part Exam Simulation with diagnostic breakdown</p>
+                </div>
+            </div>
+
+            <!-- Guidance Box -->
+            <div class="guidance-box border-purple-400 text-sm text-slate-700 space-y-3 mb-6">
+                <h3 class="text-[13px] font-bold text-purple-800 uppercase tracking-wider flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    Strict Exam Protocol Guidelines
+                </h3>
+                <p>Execute **Speaking Mock Test 09** under official exam conditions. Do not interrupt during student delivery. Take note of exact error patterns across all 4 criteria:</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-slate-600 border-t border-purple-100 pt-3">
+                    <div class="bg-white/80 p-2.5 rounded-lg border border-purple-100">
+                        <strong class="text-purple-900 block mb-1">Fluency & Coherence (FC)</strong>
+                        <span>Monitor hesitation pauses, self-correction frequency, and smooth usage of connectors.</span>
+                    </div>
+                    <div class="bg-white/80 p-2.5 rounded-lg border border-purple-100">
+                        <strong class="text-purple-900 block mb-1">Lexical Resource (LR)</strong>
+                        <span>Check active usage of topic-specific collocations and flexible paraphrasing.</span>
+                    </div>
+                    <div class="bg-white/80 p-2.5 rounded-lg border border-purple-100">
+                        <strong class="text-purple-900 block mb-1">Grammatical Range (GRA)</strong>
+                        <span>Track accuracy in complex sentences, relative clauses, and past narrative tenses.</span>
+                    </div>
+                    <div class="bg-white/80 p-2.5 rounded-lg border border-purple-100">
+                        <strong class="text-purple-900 block mb-1">Pronunciation (PR)</strong>
+                        <span>Assess word stress, sentence intonation, connected speech, and clarity.</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mock Link -->
+            <a href="https://ieltschantruong.github.io/IELTS/learning_resources/speaking/mock_test/speaking_mock_09.html" target="_blank" class="p-4 rounded-xl border border-purple-200 bg-white flex flex-col sm:flex-row items-center justify-between gap-4 transition-all hover:border-purple-400 hover:shadow-md group">
+                <div class="flex items-center gap-4 w-full sm:w-auto">
+                    <div class="w-12 h-12 bg-purple-50 rounded-xl flex items-center justify-center text-purple-600 font-extrabold text-lg group-hover:bg-purple-100 transition-colors shrink-0 border border-purple-100">09</div>
+                    <div>
+                        <p class="font-bold text-slate-800 text-base group-hover:text-purple-600 transition-colors">Speaking Mock Test 09</p>
+                        <p class="text-xs text-slate-500 mt-0.5">Full 3-Part Exam Simulation with diagnostic breakdown</p>
+                    </div>
+                </div>
+                <span class="w-full sm:w-auto text-center sm:text-right text-[11px] font-bold text-purple-600 uppercase tracking-wider bg-purple-50 px-4 py-2.5 rounded-lg border border-purple-100 group-hover:bg-purple-100 transition-colors shrink-0">Open Mock Test 09 &rarr;</span>
+            </a>
+        </section>
+
+        <section class="glass-panel rounded-2xl p-6 md:p-8 relative overflow-hidden bg-gradient-to-br from-white/60 to-blue-50/40">
+            <div class="absolute top-0 left-0 w-2 h-full bg-blue-400"></div>
+            
+            <div class="flex items-center gap-3 mb-5">
+                <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 shadow-sm border border-blue-200">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                </div>
+                <h2 class="text-xl font-bold text-slate-800">4. Homework Assignments</h2>
+            </div>
+            
+            <p class="text-sm text-slate-600 mb-6 font-medium">Review diagnostic feedback from Mock Test 09 and re-record weak responses for submission:</p>
+
+            <div class="bg-white/80 rounded-xl p-5 border border-indigo-100 shadow-sm space-y-4">
+                <div class="flex items-start gap-4">
+                    <div class="p-2.5 bg-orange-50 text-orange-500 rounded-lg shadow-sm shrink-0">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+                    </div>
+                    <div>
+                        <p class="font-bold text-slate-800 text-base leading-snug">Mock Test 09 Audio Self-Correction & Music Topic Practice</p>
+                        <p class="text-xs text-slate-500 mt-1">Re-record and submit oral responses for any Part 2 cue cards or Part 3 questions that scored below Band 6.5 in today's mock test. Review weaknesses identified during feedback.</p>
+                    </div>
+                </div>
+
+                <div class="pt-2 flex flex-col sm:flex-row gap-3">
+                    <a href="https://ieltschantruong.github.io/IELTS/learning_resources/speaking/part2_3/movies_music_entertainment.html" target="_blank" class="flex-1 bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold py-3 px-4 rounded-xl shadow-md transition-all flex items-center justify-center gap-2">
+                        <span>Movies & Music Resource</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                    </a>
+                    <a href="https://ieltschantruong.github.io/IELTS/learning_resources/speaking/mock_test/speaking_mock_09.html" target="_blank" class="flex-1 bg-purple-700 hover:bg-purple-800 text-white text-xs font-bold py-3 px-4 rounded-xl shadow-md transition-all flex items-center justify-center gap-2">
+                        <span>Review Mock Test 09</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</div>
+
+<script>
+    function toggleAccordion(id) {
+        const content = document.getElementById(`acc-${id}`);
+        const arrow = document.getElementById(`arrow-${id}`);
+        
+        if (content.classList.contains('open')) {
+            content.classList.remove('open');
+            arrow.classList.remove('rotated');
+        } else {
+            for (let i = 1; i <= 10; i++) {
+                const otherContent = document.getElementById(`acc-${i}`);
+                const otherArrow = document.getElementById(`arrow-${i}`);
+                if (otherContent) otherContent.classList.remove('open');
+                if (otherArrow) otherArrow.classList.remove('rotated');
+            }
+            
+            content.classList.add('open');
+            arrow.classList.add('rotated');
+        }
+    }
+</script>
+
+</body>
+</html>
