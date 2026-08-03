@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 14 | IELTS Chan Truong</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Plus Jakarta Sans & Cormorant Garamond -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                    },
+                    colors: {
+                        chic: {
+                            50: '#fffbfb',   // Warm ivory
+                            100: '#fef1f2',  // Soft blush pink
+                            200: '#fde2e4',  // Rose water pastel
+                            300: '#f9bec7',  // Soft peony
+                            400: '#f497a9',  // Vintage rose
+                            500: '#e56b8f',  // Dusty rose-gold accent
+                            600: '#be5272',  // Deep raspberry accent
+                            700: '#9d3b56',  // Deep berry wood
+                            800: '#752a3d',  // Royal maroon
+                            900: '#4a1523',  // Dark black cherry
+                        },
+                        sand: {
+                            50: '#faf8f6',   // Champagne cream background
+                            100: '#f5f0eb',  // Warm sand accent
+                            200: '#e8ded4',  // Pale taupe
+                            300: '#d5c4b3',  // Muted oak
+                            900: '#1c1714',  // Rich charcoal-espresso
+                        }
+                    },
+                    boxShadow: {
+                        'chic': '0 10px 40px -15px rgba(229, 107, 143, 0.08)',
+                        'chic-hover': '0 20px 50px -10px rgba(229, 107, 143, 0.15)',
+                        'lux': '0 30px 60px -20px rgba(28, 23, 20, 0.03)'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #faf8f6;
+            color: #1c1714;
+        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #faf8f6; }
+        ::-webkit-scrollbar-thumb { background: #fde2e4; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #f497a9; }
+        
+        .transition-lux {
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+    </style>
+</head>
+<body class="antialiased font-sans">
+
+    <header class="sticky top-0 z-50 bg-white/70 backdrop-blur-xl border-b border-chic-100 shadow-[0_2px_15px_-3px_rgba(229,107,143,0.03)]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Branding -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-chic-600 via-chic-400 to-chic-200 flex items-center justify-center text-white font-bold text-sm shadow-[0_4px_15px_rgba(229,107,143,0.25)]">
+                        <span class="font-serif italic text-base">CT</span>
+                    </div>
+                    <div>
+                        <div class="text-lg tracking-widest font-serif font-bold text-sand-900 uppercase">
+                            IELTS <span class="text-chic-500 font-normal italic lowercase text-xl ml-1 font-serif">Chan Truong</span>
+                        </div>
+                        <div class="text-[9px] tracking-widest uppercase font-semibold text-sand-300">Fluency Accelerator Framework</div>
+                    </div>
+                </div>
+
+                <!-- Navigation Actions -->
+                <div class="flex items-center space-x-4">
+                    <a href="ielts-roadmap.html" class="text-xs font-bold uppercase tracking-wider text-sand-900 hover:text-chic-500 transition-lux flex items-center gap-2">
+                        <i class="fa-solid fa-arrow-left"></i> Back to Roadmap
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        
+        <section class="mb-10">
+            <div class="bg-white rounded-3xl p-8 md:p-12 border border-chic-100 shadow-chic relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-chic-100/40 rounded-full blur-3xl -z-10"></div>
+                
+                <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
+                    <div>
+                        <span class="bg-chic-100 text-chic-700 text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full inline-block mb-4">
+                            Lesson 14 Detailed Plan
+                        </span>
+                        <h1 class="text-4xl md:text-5xl font-serif text-sand-900 leading-tight mb-3">
+                            Decision-Making, Leadership <br><span class="italic font-normal text-chic-500">& Cognitive Technology (Mock 09 & Mock 10)</span>
+                        </h1>
+                        <p class="text-sm text-sand-900/70 max-w-xl leading-relaxed">
+                            Deep-dive into 6 abstract Part 3 discussion prompts focusing on <strong>Decision-Making Dynamics, Consultative Leadership, Data vs Intuition, and Cognitive Technology</strong>, followed by formal evaluation on <strong>Mock Test 10</strong>.
+                        </p>
+                    </div>
+
+                    <!-- Lesson Stat Board -->
+                    <div class="bg-sand-50/70 border border-sand-100 rounded-2xl p-6 lg:w-80 w-full space-y-4 shadow-lux">
+                        <h3 class="text-xs uppercase font-bold text-chic-700 tracking-widest flex items-center gap-2">
+                            <i class="fa-solid fa-clock-rotate-left"></i> Session Details
+                        </h3>
+                        <div class="grid grid-cols-2 gap-4 text-xs">
+                            <div>
+                                <span class="block text-[10px] text-sand-300 uppercase tracking-wider font-bold">Total Duration</span>
+                                <span class="font-semibold text-sand-900">90 Minutes</span>
+                            </div>
+                            <div>
+                                <span class="block text-[10px] text-sand-300 uppercase tracking-wider font-bold">IELTS Focus</span>
+                                <span class="font-semibold text-chic-600 font-serif italic">Part 3 Advanced</span>
+                            </div>
+                            <div>
+                                <span class="block text-[10px] text-sand-300 uppercase tracking-wider font-bold">Primary Drills</span>
+                                <span class="font-semibold text-sand-900">6 Decision Prompts</span>
+                            </div>
+                            <div>
+                                <span class="block text-[10px] text-sand-300 uppercase tracking-wider font-bold">Evaluation</span>
+                                <span class="font-semibold text-chic-600">Mock Test 10</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-10">
+            <div class="bg-gradient-to-r from-chic-900 to-chic-800 text-white rounded-3xl p-6 md:p-8 shadow-chic flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden">
+                <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-chic-700/20 rounded-full blur-2xl"></div>
+                
+                <div class="space-y-1">
+                    <span class="text-chic-300 text-xs font-bold uppercase tracking-widest block">Live Class Tracker</span>
+                    <h3 class="text-lg md:text-xl font-serif">Pacing Control Dashboard</h3>
+                    <p class="text-xs text-white/60">Manage session timing between the Decision-Making Part 3 drills and Mock Test 10 simulation.</p>
+                </div>
+
+                <!-- Timer Counter -->
+                <div class="flex items-center space-x-6">
+                    <div class="text-center">
+                        <span id="timer-display" class="text-4xl md:text-5xl font-mono font-bold tracking-wider block text-chic-100">90:00</span>
+                        <span id="timer-status-msg" class="text-[9px] uppercase tracking-widest text-chic-300 block mt-1">Remaining Time</span>
+                    </div>
+                    
+                    <div class="flex flex-col gap-2">
+                        <button id="btn-timer-toggle" onclick="toggleTimer()" class="bg-chic-500 hover:bg-chic-400 text-white px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-lux flex items-center justify-center gap-1 shadow-md">
+                            <i class="fa-solid fa-play" id="timer-icon"></i> <span id="timer-btn-text">Start</span>
+                        </button>
+                        <button onclick="resetTimer()" class="border border-white/20 hover:bg-white/10 text-white px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-wider transition-lux">
+                            Reset
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-10">
+            <div class="bg-white rounded-3xl p-6 md:p-8 border border-chic-100 shadow-chic">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-chic-100 pb-4 mb-6">
+                    <div>
+                        <span class="text-chic-500 text-xs tracking-widest font-bold uppercase block">Pedagogical Resources & Diagnostic Portals</span>
+                        <h2 class="text-2xl font-serif text-sand-900 mt-1">Syllabus Repositories & Mock Suite</h2>
+                        <p class="text-xs text-sand-900/60 mt-1">Access the topic repositories, Mock Test 09 practice reference, and Mock Test 10 exam suite.</p>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <a href="https://ieltschantruong.github.io/IELTS/learning_resources/speaking/part2_3/movies_music_entertainment.html" target="_blank" class="bg-chic-50 border border-chic-200 text-chic-700 hover:bg-chic-100 text-xs font-bold uppercase tracking-wider py-3 px-4 rounded-full transition-lux flex items-center gap-2 shadow-sm">
+                            <i class="fa-solid fa-film"></i> Movies & Music
+                        </a>
+                        <a href="https://ieltschantruong.github.io/IELTS/learning_resources/speaking/mock_test/speaking_mock_10.html" target="_blank" class="bg-chic-500 hover:bg-chic-600 text-white text-xs font-bold uppercase tracking-wider py-3 px-4 rounded-full transition-lux flex items-center gap-2 shadow-sm">
+                            <i class="fa-solid fa-file-signature"></i> Open Mock Test 10
+                        </a>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="p-5 rounded-2xl bg-sand-50/50 border border-sand-100 space-y-2">
+                        <h4 class="font-serif font-bold text-sand-900 text-base flex items-center gap-2">
+                            <i class="fa-solid fa-scale-balanced text-chic-500"></i> Autonomy vs Consultation
+                        </h4>
+                        <p class="text-xs text-sand-900/70 leading-relaxed">
+                            Analyze individual decision-making versus advisory frameworks using *collaborative consensus*, *solitary autonomy*, and *decision paralysis*.
+                        </p>
+                    </div>
+
+                    <div class="p-5 rounded-2xl bg-sand-50/50 border border-sand-100 space-y-2">
+                        <h4 class="font-serif font-bold text-sand-900 text-base flex items-center gap-2">
+                            <i class="fa-solid fa-user-tie text-chic-500"></i> Executive Governance
+                        </h4>
+                        <p class="text-xs text-sand-900/70 leading-relaxed">
+                            Evaluate corporate and state governance dynamics with high-level lexicons: *consultative leadership*, *systemic destabilization*, and *talent attrition*.
+                        </p>
+                    </div>
+
+                    <div class="p-5 rounded-2xl bg-sand-50/50 border border-sand-100 space-y-2">
+                        <h4 class="font-serif font-bold text-sand-900 text-base flex items-center gap-2">
+                            <i class="fa-solid fa-chart-line text-chic-500"></i> Data vs Intuition
+                        </h4>
+                        <p class="text-xs text-sand-900/70 leading-relaxed">
+                            Debate quantitative analytics versus gut instincts using *data-driven analytics*, *heuristic intuition*, *choice fatigue*, and *information overload*.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-10" id="part3-practice">
+            <div class="bg-white rounded-3xl p-6 md:p-8 border border-chic-100 shadow-chic">
+                <div class="border-b border-chic-100 pb-4 mb-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                    <div>
+                        <span class="text-chic-500 text-xs tracking-widest font-bold uppercase block">Part 3 Interactive Question Deck</span>
+                        <h2 class="text-2xl font-serif text-sand-900 mt-1">6 Part 3 Discussion Prompts (Mock Test 09 Continuation)</h2>
+                        <p class="text-xs text-sand-900/60 mt-1">
+                            Click any question tab below to view its AREA blueprint, target collocations with IPA pronunciations, and Band 7.5+ model native answer.
+                        </p>
+                    </div>
+                    <span class="bg-chic-100 text-chic-700 text-xs font-bold px-3 py-1.5 rounded-full font-mono">
+                        Questions 01 - 06
+                    </span>
+                </div>
+
+                <!-- Theme Category Headers & Buttons -->
+                <div class="mb-6">
+                    <span class="text-[10px] font-bold uppercase text-chic-600 tracking-wider block mb-2">Practice | Decision-Making, Leadership & Technology</span>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2" id="q-tabs-group">
+                        <button onclick="selectP3Question(0)" id="tab-q0" class="q-tab bg-chic-50 border-2 border-chic-200 text-chic-800 text-[11px] font-bold py-2.5 px-2 rounded-xl transition-lux text-center">
+                            Q1: Alone vs Advice
+                        </button>
+                        <button onclick="selectP3Question(1)" id="tab-q1" class="q-tab bg-white border border-sand-200 text-sand-900 text-[11px] font-bold py-2.5 px-2 rounded-xl transition-lux text-center">
+                            Q2: Logic vs Emotion
+                        </button>
+                        <button onclick="selectP3Question(2)" id="tab-q2" class="q-tab bg-white border border-sand-200 text-sand-900 text-[11px] font-bold py-2.5 px-2 rounded-xl transition-lux text-center">
+                            Q3: Consultative Leaders
+                        </button>
+                        <button onclick="selectP3Question(3)" id="tab-q3" class="q-tab bg-white border border-sand-200 text-sand-900 text-[11px] font-bold py-2.5 px-2 rounded-xl transition-lux text-center">
+                            Q4: Poor Leadership
+                        </button>
+                        <button onclick="selectP3Question(4)" id="tab-q4" class="q-tab bg-white border border-sand-200 text-sand-900 text-[11px] font-bold py-2.5 px-2 rounded-xl transition-lux text-center">
+                            Q5: Data vs Intuition
+                        </button>
+                        <button onclick="selectP3Question(5)" id="tab-q5" class="q-tab bg-white border border-sand-200 text-sand-900 text-[11px] font-bold py-2.5 px-2 rounded-xl transition-lux text-center">
+                            Q6: Tech & Decisions
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-sand-50/70 border border-sand-100 rounded-2xl p-6 md:p-8 space-y-6">
+                    <!-- Header -->
+                    <div class="flex items-center justify-between border-b border-chic-100 pb-3">
+                        <span id="p3-q-num" class="bg-chic-100 text-chic-700 text-[10px] uppercase font-bold px-3 py-1 rounded-full">Part 3 Question 1 of 6</span>
+                        <span id="p3-q-theme" class="text-xs text-sand-300 font-serif italic">Theme: Collaborative vs Autonomous Decisions</span>
+                    </div>
+
+                    <!-- Question Prompt -->
+                    <div>
+                        <h3 id="p3-q-title" class="font-serif font-bold text-xl md:text-2xl text-sand-900 leading-snug">
+                            "Is it better to make decisions alone or seek advice from others?"
+                        </h3>
+                    </div>
+
+                    <!-- AREA Method Strategic Blueprint -->
+                    <div class="bg-white border border-chic-100 rounded-2xl p-5 space-y-3 shadow-sm">
+                        <span class="text-[10px] font-bold uppercase text-chic-600 tracking-wider flex items-center gap-2">
+                            <i class="fa-solid fa-sitemap"></i> Structural Strategy (The AREA Framework)
+                        </span>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs" id="p3-area-grid">
+                            <!-- Populated dynamically via JS -->
+                        </div>
+                    </div>
+
+                    <!-- Vocabulary & Native Expressions -->
+                    <div class="space-y-3">
+                        <span class="text-[10px] font-bold uppercase text-sand-300 tracking-wider block">Target Lexicon & Collocations</span>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="p3-vocab-grid">
+                            <!-- Populated dynamically via JS -->
+                        </div>
+                    </div>
+
+                    <!-- Model Native Answer -->
+                    <div class="bg-chic-900 text-white rounded-2xl p-6 space-y-2 relative overflow-hidden shadow-chic">
+                        <div class="absolute -right-10 -bottom-10 w-32 h-32 bg-chic-700/20 rounded-full blur-xl"></div>
+                        <span class="text-chic-300 text-[10px] uppercase font-bold tracking-widest block flex items-center gap-2">
+                            <i class="fa-solid fa-quote-left"></i> Band 7.5+ Model Native Answer
+                        </span>
+                        <p id="p3-model-answer" class="text-xs md:text-sm text-white/90 italic leading-relaxed font-serif">
+                            <!-- Populated dynamically via JS -->
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="mb-10">
+            <div class="bg-white rounded-3xl p-6 md:p-8 border border-chic-100 shadow-chic relative overflow-hidden">
+                <div class="absolute -top-12 -right-12 w-48 h-48 bg-chic-100/30 rounded-full blur-2xl"></div>
+
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-chic-100 pb-4 mb-6">
+                    <div>
+                        <span class="text-chic-500 text-xs tracking-widest font-bold uppercase block">Formal Evaluation</span>
+                        <h2 class="text-2xl font-serif text-sand-900 mt-1">Mock Test 10 Simulation Assessment</h2>
+                        <p class="text-xs text-sand-900/60 mt-1">Conducting full exam simulation to measure speed, lexical agility, and cohesive transition markers.</p>
+                    </div>
+                    <a href="https://ieltschantruong.github.io/IELTS/learning_resources/speaking/mock_test/speaking_mock_10.html" target="_blank" class="bg-chic-500 hover:bg-chic-600 text-white text-xs font-bold uppercase tracking-wider py-3 px-6 rounded-full transition-lux flex items-center gap-2 shadow-sm whitespace-nowrap">
+                        <i class="fa-solid fa-up-right-from-square"></i> Open Test 10 Link
+                    </a>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-sand-50/50 p-5 rounded-2xl border border-sand-100 space-y-2">
+                        <span class="text-chic-600 font-bold text-xs uppercase block tracking-wider"><i class="fa-solid fa-1"></i> Part 1 Warm-up</span>
+                        <p class="text-xs text-sand-900/70 leading-relaxed">
+                            Maintain zero-hesitation tempo. Replace "eto/ano" stalling sounds with natural fillers (*To be frank, As a matter of fact*).
+                        </p>
+                    </div>
+
+                    <div class="bg-sand-50/50 p-5 rounded-2xl border border-sand-100 space-y-2">
+                        <span class="text-chic-600 font-bold text-xs uppercase block tracking-wider"><i class="fa-solid fa-2"></i> Part 2 Monologue</span>
+                        <p class="text-xs text-sand-900/70 leading-relaxed">
+                            Draft 4 key triggers in 60s. Deliver an uninterrupted 2-minute speech using the Past-Present-Future timeline model.
+                        </p>
+                    </div>
+
+                    <div class="bg-sand-50/50 p-5 rounded-2xl border border-sand-100 space-y-2">
+                        <span class="text-chic-600 font-bold text-xs uppercase block tracking-wider"><i class="fa-solid fa-3"></i> Part 3 Discussion</span>
+                        <p class="text-xs text-sand-900/70 leading-relaxed">
+                            Structure abstract answers using AREA. Deploy formal connective transitions (*From a macro perspective, Having considered that*).
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-10">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
+                <!-- Left Column: Lesson Flow -->
+                <div class="lg:col-span-2 space-y-6">
+                    <div class="bg-white rounded-3xl p-6 md:p-8 border border-chic-100 shadow-chic">
+                        <div class="border-b border-chic-100 pb-4 mb-6">
+                            <span class="text-chic-500 text-xs tracking-widest font-bold uppercase block">Pedagogical Execution Plan</span>
+                            <h2 class="text-2xl font-serif text-sand-900 mt-1">Lesson 14 Activity Breakdown</h2>
+                        </div>
+
+                        <div class="space-y-6">
+                            <div class="p-5 rounded-2xl bg-sand-50/50 border border-sand-100 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                                <div class="space-y-1">
+                                    <span class="text-chic-600 text-[10px] uppercase font-bold tracking-wider">00 - 50 Minutes</span>
+                                    <h4 class="font-serif font-bold text-lg text-sand-900">Decision-Making & Leadership Part 3 Drills</h4>
+                                    <p class="text-xs text-sand-900/60 leading-relaxed">
+                                        Drill all 6 prompts on decision-making, logic vs emotion, consultative leadership, and data analytics using AREA structuring.
+                                    </p>
+                                </div>
+                                <span class="bg-chic-100 text-chic-700 text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">50m</span>
+                            </div>
+
+                            <div class="p-5 rounded-2xl bg-sand-50/50 border border-sand-100 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                                <div class="space-y-1">
+                                    <span class="text-chic-600 text-[10px] uppercase font-bold tracking-wider">50 - 75 Minutes</span>
+                                    <h4 class="font-serif font-bold text-lg text-sand-900">Mock Test 10 Formal Evaluation</h4>
+                                    <p class="text-xs text-sand-900/60 leading-relaxed">
+                                        Execute `speaking_mock_10.html` under strict exam timing constraints. Record full session audio for performance tracking.
+                                    </p>
+                                </div>
+                                <span class="bg-chic-100 text-chic-700 text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">25m</span>
+                            </div>
+
+                            <div class="p-5 rounded-2xl bg-sand-50/50 border border-sand-100 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                                <div class="space-y-1">
+                                    <span class="text-chic-600 text-[10px] uppercase font-bold tracking-wider">75 - 90 Minutes</span>
+                                    <h4 class="font-serif font-bold text-lg text-sand-900">Diagnostic Feedback & Homework Handover</h4>
+                                    <p class="text-xs text-sand-900/60 leading-relaxed">
+                                        Review test results against Band 6.5+ descriptors, highlight smooth transitions, and brief self-study tasks.
+                                    </p>
+                                </div>
+                                <span class="bg-chic-100 text-chic-700 text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">15m</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Lesson Summary Stat Card -->
+                <div class="lg:col-span-1 space-y-6">
+                    <div class="bg-white rounded-3xl p-6 border border-chic-100 shadow-chic space-y-4">
+                        <h3 class="font-serif font-bold text-xl text-sand-900 pb-2 border-b border-chic-100 flex items-center gap-2">
+                            <i class="fa-solid fa-graduation-cap text-chic-500"></i> Session Goals
+                        </h3>
+
+                        <ul class="space-y-3 text-xs text-sand-900/70">
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-circle-check text-chic-500 mt-0.5"></i>
+                                <span>Master 6 Part 3 Decision-Making prompts using AREA.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-circle-check text-chic-500 mt-0.5"></i>
+                                <span>Deploy leadership, governance, and data analytics collocations.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-circle-check text-chic-500 mt-0.5"></i>
+                                <span>Demonstrate Band 6.5+ pacing on Mock Test 10.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-circle-check text-chic-500 mt-0.5"></i>
+                                <span>Eradicate cognitive hesitation when discussing complex cognitive topics.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="mb-10">
+            <div class="bg-white rounded-3xl p-8 border border-chic-100 shadow-chic">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6 pb-4 border-b border-chic-100">
+                    <div>
+                        <span class="text-chic-500 text-xs tracking-widest font-bold uppercase block">Self-Study Assignments</span>
+                        <h2 class="text-2xl font-serif text-sand-900 mt-1">Lesson 14 Homework Plan</h2>
+                        <p class="text-xs text-sand-900/60 mt-1">Consolidate decision-making discourse structures and review Mock Test 10 audio.</p>
+                    </div>
+                    <span class="bg-chic-500 text-white text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1.5 whitespace-nowrap shadow-sm">
+                        <i class="fa-solid fa-list-check"></i> Action Required
+                    </span>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-sand-50/50 p-6 rounded-2xl border border-sand-100 space-y-3 hover:border-chic-200 transition-lux">
+                        <span class="bg-chic-100 text-chic-700 text-[9px] uppercase tracking-wider font-bold px-2.5 py-1 rounded-full inline-block">Task 1: Part 3 Audio Submissions</span>
+                        <h4 class="font-serif font-bold text-lg text-sand-900">Record 4 Decision-Making Responses</h4>
+                        <p class="text-xs text-sand-900/70 leading-relaxed">
+                            Pick 4 challenging prompts from today's 6-question deck. Record 60-90s answers using AREA and upload them to your Google Drive tracking folder.
+                        </p>
+                    </div>
+
+                    <div class="bg-sand-50/50 p-6 rounded-2xl border border-sand-100 space-y-3 hover:border-chic-200 transition-lux">
+                        <span class="bg-chic-100 text-chic-700 text-[9px] uppercase tracking-wider font-bold px-2.5 py-1 rounded-full inline-block">Task 2: Mock 10 Audit</span>
+                        <h4 class="font-serif font-bold text-lg text-sand-900">Audit Mock Test 10 Recording</h4>
+                        <p class="text-xs text-sand-900/70 leading-relaxed">
+                            Listen to today's Mock Test 10 recording. Identify hesitation triggers and draft 3 replacement transitional phrases in the active notepad below.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Notepad Workspace -->
+        <section class="mb-10 bg-white p-8 rounded-3xl border border-chic-100 shadow-chic relative">
+            <div class="absolute -top-3 right-8 bg-chic-500 text-white text-[10px] uppercase font-bold tracking-widest px-3 py-1 rounded-full shadow-md">
+                <i class="fa-solid fa-pen-fancy"></i> Active Notepad
+            </div>
+            <h3 class="font-serif font-bold text-xl text-sand-900 mb-2">Lesson 14 Active Notepad</h3>
+            <p class="text-xs text-sand-900/60 mb-4">Draft transition phrases, target collocations, or reflections on Mock Test 10. Notes auto-save in your browser local storage.</p>
+            <textarea id="lesson-notes-14" class="w-full h-36 p-4 bg-sand-50 border border-chic-100 rounded-xl text-xs focus:ring-1 focus:ring-chic-500 focus:outline-none text-sand-900 font-sans" placeholder="Example: 'Decision phrases: 'collaborative consensus', 'empirically grounded analytics', 'mitigate cognitive bias'...'"></textarea>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-sand-900 text-sand-50/40 py-12 border-t border-sand-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+            <div class="text-sm uppercase tracking-widest font-serif font-bold text-sand-50">IELTS <span class="text-chic-400 italic lowercase font-normal text-base font-serif">Chan Truong</span></div>
+            <p class="text-xs max-w-md mx-auto">High-performance English training systematically engineered for global software engineers based in Tokyo.</p>
+            <div class="text-[10px] text-sand-500 pt-4">&copy; 2026 IELTS Chan Truong. Engineered for Academic Success.</div>
+        </div>
+    </footer>
+
+    <script>
+        // 1. Pacing Timer Control
+        let timerSeconds = 90 * 60; // 90 Minutes
+        let timerInterval = null;
+        const timerDisplay = document.getElementById('timer-display');
+        const timerBtnText = document.getElementById('timer-btn-text');
+        const timerIcon = document.getElementById('timer-icon');
+        const timerStatusMsg = document.getElementById('timer-status-msg');
+
+        function updateTimerUI() {
+            let m = Math.floor(timerSeconds / 60);
+            let s = timerSeconds % 60;
+            timerDisplay.textContent = `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+        }
+
+        function toggleTimer() {
+            if (timerInterval) {
+                clearInterval(timerInterval);
+                timerInterval = null;
+                timerBtnText.textContent = "Resume";
+                timerIcon.className = "fa-solid fa-play";
+            } else {
+                timerInterval = setInterval(() => {
+                    if (timerSeconds > 0) {
+                        timerSeconds--;
+                        updateTimerUI();
+                    } else {
+                        clearInterval(timerInterval);
+                        timerInterval = null;
+                        timerDisplay.className = "text-4xl md:text-5xl font-mono font-bold tracking-wider block text-red-500 animate-pulse";
+                        timerStatusMsg.textContent = "CONCLUDED!";
+                        timerStatusMsg.className = "text-[9px] uppercase tracking-widest text-red-500 block mt-1 font-bold animate-pulse";
+                    }
+                }, 1000);
+                timerBtnText.textContent = "Pause";
+                timerIcon.className = "fa-solid fa-pause";
+            }
+        }
+
+        function resetTimer() {
+            clearInterval(timerInterval);
+            timerInterval = null;
+            timerSeconds = 90 * 60;
+            updateTimerUI();
+            timerDisplay.className = "text-4xl md:text-5xl font-mono font-bold tracking-wider block text-chic-100";
+            timerStatusMsg.textContent = "Remaining Time";
+            timerStatusMsg.className = "text-[9px] uppercase tracking-widest text-chic-300 block mt-1";
+            timerBtnText.textContent = "Start";
+            timerIcon.className = "fa-solid fa-play";
+        }
+
+        // 2. Notepad Sync with LocalStorage
+        const notesArea = document.getElementById('lesson-notes-14');
+        if (localStorage.getItem('ielts_lesson14_notes')) {
+            notesArea.value = localStorage.getItem('ielts_lesson14_notes');
+        }
+        notesArea.addEventListener('input', () => {
+            localStorage.setItem('ielts_lesson14_notes', notesArea.value);
+        });
+
+        // 3. 6 Part 3 Questions Databank (Mock Test 09 Remaining Set - Decision-Making & Leadership)
+        const p3Data = [
+            {
+                num: "Part 3 Question 1 of 6",
+                theme: "Theme: Collaborative vs Autonomous Decisions",
+                title: "Is it better to make decisions alone or seek advice from others?",
+                area: {
+                    assertion: "Assertion: Seeking external counsel is generally superior for complex choices, though personal autonomy suits minor decisions.",
+                    reason: "Reason: External perspectives help mitigate individual cognitive bias and expose blind spots.",
+                    example: "Example: In software engineering, peer code reviews prevent architectural flaws that a single developer might overlook.",
+                    alternative: "Alternative: However, excessive reliance on external consensus can lead to decision paralysis and diluted accountability."
+                },
+                vocab: [
+                    { word: "Collaborative consensus", ipa: "/kəˈlæbərətɪv kənˈsensəs/", def: "Reaching agreement among a group through deliberate consultation." },
+                    { word: "Mitigate cognitive bias", ipa: "/ˈmɪtɪɡeɪt ˈkɒɡnətɪv ˈbaɪəs/", def: "Reducing subjective errors or unexamined assumptions in judgment." },
+                    { word: "Decision paralysis", ipa: "/dɪˈsɪʒn pəˈræləsɪs/", def: "Inability to make a choice due to overanalyzing options or conflicting advice." },
+                    { word: "Solitary autonomy", ipa: "/ˈsɒlɪtri ɔːˈtɒnəmi/", def: "Making independent choices without external guidance or interference." }
+                ],
+                model: "In most high-stakes situations, seeking external counsel is far superior to making decisions in solitary isolation. Consulting trusted advisors helps mitigate cognitive bias and exposes blind spots that an individual might overlook. For example, in technical fields, cross-functional consultation prevents critical design flaws. Having said that, for low-stakes personal choices, individual autonomy is preferable to avoid unnecessary decision paralysis."
+            },
+            {
+                num: "Part 3 Question 2 of 6",
+                theme: "Theme: Rationality vs Affective Intuition",
+                title: "Do you usually rely on logic or emotions when making decisions?",
+                area: {
+                    assertion: "Assertion: I strive to prioritize analytical logic, though emotional alignment remains essential.",
+                    reason: "Reason: Rational frameworks evaluate empirical metrics objectively, whereas pure emotion triggers short-sighted choices.",
+                    example: "Example: When evaluating career transitions or financial investments, I construct decision matrices based on quantitative data.",
+                    alternative: "Alternative: However, ignoring emotional resonance completely can produce choices that lack personal fulfillment."
+                },
+                vocab: [
+                    { word: "Analytical rigor", ipa: "/ˌænəˈlɪtɪkl ˈrɪɡə/", def: "Applying strict, logical thinking to evaluate evidence objectively." },
+                    { word: "Empirical metrics", ipa: "/ɪmˈpɪrɪkl ˈmetrɪks/", def: "Measurable data based on verifiable observation rather than emotion." },
+                    { word: "Emotional resonance", ipa: "/ɪˈməʊʃənl ˈrezənəns/", def: "The degree to which a choice aligns with one's core feelings and values." },
+                    { word: "Impulsive inclination", ipa: "/ɪmˈpʌlsɪv ˌɪnklɪˈneɪʃn/", def: "A tendency to act suddenly without deliberate logical reflection." }
+                ],
+                model: "I firmly lean toward analytical rigor when faced with major life decisions. Relying on empirical metrics and logical frameworks ensures that outcomes are evaluated objectively rather than driven by momentary emotional inclination. For instance, when choosing a software architecture or managing personal finances, logical trade-offs are paramount. Nevertheless, emotional resonance remains essential to ensure the choice aligns with long-term personal satisfaction."
+            },
+            {
+                num: "Part 3 Question 3 of 6",
+                theme: "Theme: Consultative Leadership vs Executive Decisiveness",
+                title: "Should leaders always consult other people before making important decisions?",
+                area: {
+                    assertion: "Assertion: Leaders should adopt a consultative approach by default, but retain decisiveness during crises.",
+                    reason: "Reason: Broad stakeholder engagement builds trust and surfaces critical operational insights.",
+                    example: "Example: Executives who consult cross-functional teams before major corporate pivots achieve higher employee buy-in.",
+                    alternative: "Alternative: However, during time-sensitive crises, waiting for unanimous agreement causes catastrophic delays."
+                },
+                vocab: [
+                    { word: "Consultative leadership", ipa: "/kənˈsʌltətɪv ˈliːdəʃɪp/", def: "A management style where leaders actively seek input before making choices." },
+                    { word: "Stakeholder alignment", ipa: "/ˈsteɪkˌhəʊldə əˈlaɪnmənt/", def: "Ensuring all parties involved share a common understanding and vision." },
+                    { word: "Time-sensitive crisis", ipa: "/taɪm ˈsensətɪv ˈkraɪsɪs/", def: "An urgent situation requiring swift action without procedural delay." },
+                    { word: "Executive decisiveness", ipa: "/ɪɡˈzekjətɪv dɪˈsaɪsɪvnəs/", def: "The ability to make firm, rapid choices independently under immense pressure." }
+                ],
+                model: "While consultative leadership is ideal for strategic planning, leaders shouldn't be dogmatically bound to seek approval for every single choice. Engaging team members fosters stakeholder alignment and surfaces valuable frontline feedback. For example, during company-wide restructurings, broad consultation ensures smooth execution. Yet in a time-sensitive crisis, executive decisiveness must override consensus-building to prevent paralysis."
+            },
+            {
+                num: "Part 3 Question 4 of 6",
+                theme: "Theme: Institutional Impact of Flawed Governance",
+                title: "How can poor leadership decisions affect an organization or a country?",
+                area: {
+                    assertion: "Assertion: Flawed leadership decisions exert systemic destabilization on organizational morale and economic survival.",
+                    reason: "Reason: Strategic missteps undermine public trust, misallocate capital, and trigger severe talent attrition.",
+                    example: "Example: Kodak's failure to embrace digital photography eroded its global market standing and led to bankruptcy.",
+                    alternative: "Alternative: Conversely, visionary leadership resilience can transform institutional crisis into opportunity."
+                },
+                vocab: [
+                    { word: "Systemic destabilization", ipa: "/sɪˈstemɪk diːˌsteɪbəlaɪˈzeɪʃn/", def: "Widespread collapse affecting an entire institution or nation." },
+                    { word: "Talent attrition", ipa: "/ˈtælənt əˈtrɪʃn/", def: "The loss of skilled employees due to dissatisfaction or poor management." },
+                    { word: "Misallocation of capital", ipa: "/ˌmɪsæləˈkeɪʃn əv ˈkæpɪtl/", def: "Directing financial resources toward unproductive or failing ventures." },
+                    { word: "Operational erosion", ipa: "/ˌɒpəˈreɪʃənl ɪˈrəʊʒn/", def: "The gradual decline of an organization's efficiency and reputational standing." }
+                ],
+                model: "Sub-optimal decisions at the leadership level can trigger systemic destabilization across an entire enterprise or nation. When executives misallocate capital or fail to anticipate market shifts, it causes rapid operational erosion and severe talent attrition. A clear corporate example is how Kodak's failure to embrace digital photography eroded its global standing, proving that poor leadership choices carry catastrophic economic consequences."
+            },
+            {
+                num: "Part 3 Question 5 of 6",
+                theme: "Theme: Data Analytics vs Heuristic Intuition",
+                title: "To what extent should important decisions be based on data rather than intuition?",
+                area: {
+                    assertion: "Assertion: High-stakes choices should be anchored predominantly in data analytics, with intuition playing a secondary role.",
+                    reason: "Reason: Quantitative metrics eliminate subjective guesswork and reveal hidden operational patterns.",
+                    example: "Example: Modern tech firms rely on A/B testing data rather than executive gut feeling to refine user interfaces.",
+                    alternative: "Alternative: However, relying strictly on historical data can stifle breakthrough innovation where no precedent exists."
+                },
+                vocab: [
+                    { word: "Data-driven analytics", ipa: "/ˈdeɪtə ˈdrɪvn ˌænəˈlɪtɪks/", def: "Making choices guided by statistics, facts, and quantified metrics." },
+                    { word: "Heuristic intuition", ipa: "/hjʊəˈrɪstɪk ˌɪntjuˈɪʃn/", def: "Mental shortcuts or gut feelings developed through accumulated experience." },
+                    { word: "Quantitative validation", ipa: "/ˈkwɒntɪtətɪv ˌvælɪˈdeɪʃn/", def: "Confirming hypotheses using measurable, statistical proof." },
+                    { word: "Blind spot oversight", ipa: "/blaɪnd spɒt ˈəʊvəsaɪt/", def: "Failing to notice crucial factors due to unexamined personal assumptions." }
+                ],
+                model: "Important decisions ought to be grounded primarily in data-driven analytics rather than unverified gut feeling. Quantitative validation provides an objective foundation, eliminating personal biases and blind spot oversights. In product development, for instance, metrics-driven decisions consistently outperform intuitive guesswork. That said, experienced leaders can leverage heuristic intuition to interpret ambiguous data in novel, unprecedented scenarios."
+            },
+            {
+                num: "Part 3 Question 6 of 6",
+                theme: "Theme: Technology & Decision Complexity",
+                title: "Do you think modern technology has made decision-making easier or more difficult?",
+                area: {
+                    assertion: "Assertion: Modern technology presents a double-edged sword: it speeds up analysis but induces information overload.",
+                    reason: "Reason: Algorithmic optimization streamlines research, yet the sheer abundance of options triggers choice fatigue.",
+                    example: "Example: E-commerce platforms offer automated comparison engines, yet thousands of reviews cause shoppers to hesitate longer.",
+                    alternative: "Alternative: Ultimately, technology simplifies choices only when users possess critical filtering skills."
+                },
+                vocab: [
+                    { word: "Information overload", ipa: "/ˌɪnfəˈmeɪʃn ˈəʊvələʊd/", def: "Exposure to an excessive volume of data, impeding clear understanding." },
+                    { word: "Algorithmic optimization", ipa: "/ˌælɡəˈrɪðmɪk ˌɒptɪmaɪˈzeɪʃn/", def: "Utilizing automated software rules to refine choices efficiently." },
+                    { word: "Choice fatigue", ipa: "/tʃɔɪs fəˈtiːɡ/", def: "Mental exhaustion caused by having to evaluate an overwhelming number of options." },
+                    { word: "Critical filtering", ipa: "/ˈkrɪtɪkl ˈfɪltərɪŋ/", def: "The cognitive ability to separate valuable information from background noise." }
+                ],
+                model: "Modern technology has created a distinct paradox in decision-making. On one hand, algorithmic optimization and instant data access have made research exponentially faster. On the other hand, constant exposure to information overload often leads to choice fatigue and anxiety. Therefore, while technology provides superior analytical tools, making decisions requires greater critical filtering than ever before."
+            }
+        ];
+
+        // 4. Question Selector Renderer
+        function selectP3Question(index) {
+            const data = p3Data[index];
+
+            // Update Tab styles
+            const tabs = document.querySelectorAll('.q-tab');
+            tabs.forEach((tab, i) => {
+                if (i === index) {
+                    tab.className = "q-tab bg-chic-50 border-2 border-chic-200 text-chic-800 text-[11px] font-bold py-2.5 px-2 rounded-xl transition-lux text-center shadow-sm";
+                } else {
+                    tab.className = "q-tab bg-white border border-sand-200 text-sand-900 text-[11px] font-bold py-2.5 px-2 rounded-xl transition-lux text-center";
+                }
+            });
+
+            // Update Header Text
+            document.getElementById('p3-q-num').textContent = data.num;
+            document.getElementById('p3-q-theme').textContent = data.theme;
+            document.getElementById('p3-q-title').textContent = `"${data.title}"`;
+
+            // Render AREA Strategy
+            const areaGrid = document.getElementById('p3-area-grid');
+            areaGrid.innerHTML = `
+                <div class="p-3 bg-sand-50 rounded-xl border border-sand-100">
+                    <span class="font-bold text-chic-700 block mb-1">A - Assertion</span>
+                    <p class="text-sand-900/80">${data.area.assertion}</p>
+                </div>
+                <div class="p-3 bg-sand-50 rounded-xl border border-sand-100">
+                    <span class="font-bold text-chic-700 block mb-1">R - Reason</span>
+                    <p class="text-sand-900/80">${data.area.reason}</p>
+                </div>
+                <div class="p-3 bg-sand-50 rounded-xl border border-sand-100">
+                    <span class="font-bold text-chic-700 block mb-1">E - Example</span>
+                    <p class="text-sand-900/80">${data.area.example}</p>
+                </div>
+                <div class="p-3 bg-sand-50 rounded-xl border border-sand-100">
+                    <span class="font-bold text-chic-700 block mb-1">A - Alternative / Contrast</span>
+                    <p class="text-sand-900/80">${data.area.alternative}</p>
+                </div>
+            `;
+
+            // Render Vocab
+            const vocabGrid = document.getElementById('p3-vocab-grid');
+            vocabGrid.innerHTML = '';
+            data.vocab.forEach(v => {
+                const item = document.createElement('div');
+                item.className = 'p-3 bg-white rounded-xl border border-chic-100 flex flex-col gap-1 hover:border-chic-200 transition-lux shadow-sm';
+                item.innerHTML = `
+                    <div class="flex items-center justify-between">
+                        <span class="font-bold text-sand-900 text-xs">${v.word}</span>
+                        <span class="text-[10px] text-chic-600 font-mono italic">${v.ipa}</span>
+                    </div>
+                    <p class="text-[10px] text-sand-900/60 leading-relaxed">${v.def}</p>
+                `;
+                vocabGrid.appendChild(item);
+            });
+
+            // Render Model Answer
+            document.getElementById('p3-model-answer').textContent = `"${data.model}"`;
+        }
+
+        // Initialize question on window load
+        window.onload = function() {
+            selectP3Question(0);
+        }
+    </script>
+</body>
+</html>
