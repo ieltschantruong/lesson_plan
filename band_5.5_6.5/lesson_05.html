@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Chan Truong - Lesson 05</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #fdf2f8;
+            background-image: 
+                radial-gradient(at 0% 0%, #ffe4e6 0px, transparent 50%),
+                radial-gradient(at 100% 0%, #fce7f3 0px, transparent 50%),
+                radial-gradient(at 100% 100%, #fbcfe8 0px, transparent 50%),
+                radial-gradient(at 0% 100%, #fdf2f8 0px, transparent 50%),
+                radial-gradient(at 50% 50%, #fff1f2 0px, transparent 50%);
+            background-attachment: fixed;
+            color: #4c0519; 
+        }
+        
+        .slide { display: none; opacity: 0; transition: opacity 0.5s ease, transform 0.5s ease; transform: translateY(20px); }
+        .slide.active { display: block; opacity: 1; transform: translateY(0); }
+        
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: transparent; } 
+        ::-webkit-scrollbar-thumb { background: rgba(244, 114, 182, 0.4); border-radius: 10px; border: 2px solid transparent; background-clip: padding-box; } 
+        ::-webkit-scrollbar-thumb:hover { background: rgba(225, 29, 72, 0.5); border: 2px solid transparent; background-clip: padding-box; } 
+        
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
+        .hidden-answer { display: none; }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 10px 40px -10px rgba(225, 29, 72, 0.15);
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.45);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: inset 0 2px 4px 0 rgba(255, 255, 255, 0.3), 0 4px 15px -5px rgba(225, 29, 72, 0.05);
+        }
+        .glass-button {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.5));
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 15px -5px rgba(225, 29, 72, 0.15);
+            transition: all 0.3s ease;
+        }
+        .glass-button:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px -5px rgba(225, 29, 72, 0.25);
+        }
+        
+        .hover-lift { transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease; }
+        .hover-lift:hover { transform: translateY(-4px); box-shadow: 0 15px 30px -10px rgba(225, 29, 72, 0.2); }
+
+        select.nav-dropdown {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23881337' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1em;
+            padding-right: 2.5rem;
+        }
+    </style>
+</head>
+<body class="h-screen flex flex-col overflow-hidden">
+
+    <header class="glass-card border-b border-white/60 z-20 shrink-0 relative">
+        <div class="p-4 flex flex-col md:flex-row justify-between items-center gap-4 max-w-7xl mx-auto w-full">
+            <div>
+                <h1 class="text-2xl font-extrabold tracking-tight text-rose-950">IELTS Chan Truong <span class="text-rose-600 font-semibold ml-2 px-3 py-1 bg-white/50 border border-white/60 rounded-full text-base shadow-sm">Class 5.5-6.5</span></h1>
+                <p class="text-sm text-rose-900/70 mt-1.5 flex items-center gap-2 font-medium">
+                    <span class="w-2 h-2 rounded-full bg-pink-400 shadow-[0_0_8px_rgba(244,114,182,0.8)]"></span> Lesson 05: Reading & Listening
+                </p>
+            </div>
+            
+            <div class="flex items-center gap-4 w-full md:w-auto justify-between md:justify-end">
+                <select id="section-nav" onchange="jumpToSection(this.value)" class="nav-dropdown glass-panel text-rose-900 font-bold py-2 px-4 rounded-xl shadow-sm outline-none cursor-pointer border border-white/60 hover:bg-white/60 transition">
+                    <option value="0">1. Lesson Overview</option>
+                    <option value="1">2. Reading: Guide & Vocab</option>
+                    <option value="2">3. Reading: Mock Test SB</option>
+                    <option value="3">4. Listening: Guide & Mock Test SB</option>
+                    <option value="4">5. Listening: Mock Test WB</option>
+                </select>
+
+                <div class="flex items-center gap-3">
+                    <span id="slide-counter" class="font-bold text-rose-900 px-3 py-1.5 glass-panel rounded-full text-sm hidden md:inline-block">1 / 5</span>
+                    <button onclick="prevSlide()" class="glass-button text-rose-800 px-4 py-2 rounded-full font-semibold flex items-center gap-2">
+                        <span>←</span> <span class="hidden sm:inline">Prev</span>
+                    </button>
+                    <button onclick="nextSlide()" class="bg-gradient-to-r from-pink-500 to-rose-400 hover:from-pink-400 hover:to-rose-300 text-white px-5 py-2 rounded-full shadow-lg shadow-pink-500/30 transition-all hover:shadow-pink-500/50 hover:-translate-y-0.5 font-bold flex items-center gap-2">
+                        <span class="hidden sm:inline">Next</span> <span>→</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="h-1 bg-white/40 w-full absolute bottom-0 left-0">
+            <div id="progress-bar" class="h-full bg-gradient-to-r from-pink-400 to-rose-500 transition-all duration-500 ease-out shadow-[0_0_10px_rgba(244,114,182,0.5)]" style="width: 20%;"></div>
+        </div>
+    </header>
+
+    <main class="flex-1 overflow-y-auto p-4 md:p-8 relative">
+        <div class="max-w-7xl mx-auto pb-24">
+
+            <!-- SLIDE 0: Overview -->
+            <div class="slide active" id="slide-0">
+                <div class="text-center py-16">
+                    <div class="inline-block mb-6 px-5 py-2 rounded-full glass-panel text-rose-600 font-bold text-sm tracking-widest uppercase shadow-sm">Lesson Overview</div>
+                    <h2 class="text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-rose-950 to-pink-700 mb-6 tracking-tight drop-shadow-sm">Reading & Listening</h2>
+                    <p class="text-xl text-rose-900/70 mb-16 max-w-2xl mx-auto font-medium leading-relaxed">Today's session covers Reading Unit 2 and Listening Unit 2 from the Complete IELTS curriculum, focusing on specific question type strategies.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto text-left">
+                        <div class="glass-card p-8 rounded-3xl hover-lift relative overflow-hidden group">
+                            <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-purple-400 to-pink-400 opacity-80"></div>
+                            <div class="w-14 h-14 glass-panel rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-sm group-hover:scale-110 transition-transform">📖</div>
+                            <h3 class="text-2xl font-bold mb-4 text-rose-950">Part 1: Reading</h3>
+                            <ul class="text-rose-900/80 space-y-3 font-medium">
+                                <li class="flex items-start gap-3"><span class="text-pink-400 mt-1">✦</span> Strategy: Matching Headings</li>
+                                <li class="flex items-start gap-3"><span class="text-pink-400 mt-1">✦</span> Strategy: Multiple Choice (many answers)</li>
+                                <li class="flex items-start gap-3"><span class="text-pink-400 mt-1">✦</span> Yellow Book (Pg 19-20) Vocab Check</li>
+                                <li class="flex items-start gap-3"><span class="text-pink-400 mt-1">✦</span> Complete IELTS SB | Unit 2 Passage</li>
+                            </ul>
+                        </div>
+                        <div class="glass-card p-8 rounded-3xl hover-lift relative overflow-hidden group">
+                            <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-pink-400 to-rose-400 opacity-80"></div>
+                            <div class="w-14 h-14 glass-panel rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-sm group-hover:scale-110 transition-transform">🎧</div>
+                            <h3 class="text-2xl font-bold mb-4 text-rose-950">Part 2: Listening</h3>
+                            <ul class="text-rose-900/80 space-y-3 font-medium">
+                                <li class="flex items-start gap-3"><span class="text-rose-400 mt-1">✦</span> Strategy: Listening Section 2 Overview</li>
+                                <li class="flex items-start gap-3"><span class="text-rose-400 mt-1">✦</span> Strategy: Multiple Choice (1 answer) & Map</li>
+                                <li class="flex items-start gap-3"><span class="text-rose-400 mt-1">✦</span> Complete IELTS SB | Unit 2</li>
+                                <li class="flex items-start gap-3"><span class="text-rose-400 mt-1">✦</span> Complete IELTS WB | Unit 2</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <button onclick="nextSlide()" class="mt-16 bg-gradient-to-r from-rose-900 to-pink-800 hover:from-rose-800 hover:to-pink-700 text-white px-10 py-4 rounded-full text-lg font-bold shadow-[0_10px_25px_rgba(159,18,57,0.3)] transition-all hover:shadow-[0_15px_35px_rgba(159,18,57,0.4)] hover:-translate-y-1 flex items-center gap-3 mx-auto">
+                        Begin Lesson <span class="text-xl">✨</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- SLIDE 1: Reading Guide & Vocab -->
+            <div class="slide" id="slide-1">
+                <div class="flex items-center gap-4 mb-10">
+                    <span class="w-12 h-12 rounded-2xl glass-panel flex items-center justify-center text-2xl shadow-sm">📝</span>
+                    <div>
+                        <span class="text-pink-600 font-extrabold text-xs tracking-widest uppercase">Reading Section</span>
+                        <h2 class="text-3xl font-extrabold text-rose-950">Strategy Guide & Vocabulary</h2>
+                    </div>
+                </div>
+
+                <!-- Reading Guides -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                    <!-- Guide 1 -->
+                    <div class="glass-card rounded-3xl p-6 md:p-8 border-t-4 border-pink-400 hover-lift">
+                        <h3 class="text-xl font-bold text-rose-950 mb-4 flex items-center gap-2"><span>🎯</span> Strategy: Matching Headings</h3>
+                        <ul class="space-y-3 font-medium text-rose-950/80 text-[0.95rem]">
+                            <li class="flex gap-3"><span class="text-pink-500 font-black">1.</span> Read the headings FIRST to get the main ideas.</li>
+                            <li class="flex gap-3"><span class="text-pink-500 font-black">2.</span> Skim the first and last sentence of each paragraph.</li>
+                            <li class="flex gap-3"><span class="text-pink-500 font-black">3.</span> Look for synonyms, NOT exact words.</li>
+                            <li class="flex gap-3"><span class="text-pink-500 font-black">4.</span> Beware of "distractor" headings that only cover a minor detail in a paragraph.</li>
+                        </ul>
+                    </div>
+                    <!-- Guide 2 -->
+                    <div class="glass-card rounded-3xl p-6 md:p-8 border-t-4 border-rose-400 hover-lift">
+                        <h3 class="text-xl font-bold text-rose-950 mb-4 flex items-center gap-2"><span>✅</span> Strategy: Multiple Choice (Many Answers)</h3>
+                        <ul class="space-y-3 font-medium text-rose-950/80 text-[0.95rem]">
+                            <li class="flex gap-3"><span class="text-rose-500 font-black">1.</span> Highlight keywords in the question stem.</li>
+                            <li class="flex gap-3"><span class="text-rose-500 font-black">2.</span> Scan the passage to locate the relevant section (answers are usually clustered).</li>
+                            <li class="flex gap-3"><span class="text-rose-500 font-black">3.</span> Eliminate clearly wrong options based on the text.</li>
+                            <li class="flex gap-3"><span class="text-rose-500 font-black">4.</span> Cross-reference remaining options with the text carefully.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Exercise 1: Vocabulary Matching -->
+                <div class="glass-card rounded-3xl mb-8 exercise-container overflow-hidden">
+                    <div class="p-8 md:p-10 border-b border-white/60">
+                        <div class="flex items-center justify-between gap-4">
+                            <div>
+                                <h3 class="text-2xl font-bold text-rose-950">Exercise 1: Matching</h3>
+                                <p class="text-sm text-rose-900/60 mt-1">Match the words with the meanings/synonyms (Yellow Book Pg 19).</p>
+                            </div>
+                            <button onclick="toggleAnswers(this)" class="glass-button text-rose-800 font-bold py-2.5 px-5 rounded-xl flex items-center justify-center gap-2 text-sm shadow-sm shrink-0">
+                                ✨ Reveal Answers
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-8 md:p-10 bg-white/25">
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 text-[0.95rem] font-semibold text-rose-950 mb-8">
+                            <!-- Nouns -->
+                            <div class="space-y-3">
+                                <h4 class="font-black text-rose-900 mb-3 uppercase tracking-widest text-sm border-b border-pink-200 pb-1">Nouns</h4>
+                                <div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition">
+                                    <span class="flex items-center gap-2">1 <strong class="text-rose-700">yield</strong> <span class="text-xs font-normal text-rose-900/60">/jiːld/</span> <button onclick="playAudio('yield')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span>
+                                    <span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ C. the total amount of crops</span>
+                                </div>
+                                <div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition">
+                                    <span class="flex items-center gap-2">2 <strong class="text-rose-700">blister</strong> <button onclick="playAudio('blister')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span>
+                                    <span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ D. a swelling on the surface...</span>
+                                </div>
+                                <div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition">
+                                    <span class="flex items-center gap-2">3 <strong class="text-rose-700">trait</strong> <span class="text-xs font-normal text-rose-900/60">/treɪt/</span> <button onclick="playAudio('trait')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span>
+                                    <span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ B. a particular quality...</span>
+                                </div>
+                                <div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition">
+                                    <span class="flex items-center gap-2">4 <strong class="text-rose-700">crop rotation</strong> <span class="text-xs font-normal text-rose-900/60">/roʊˈteɪʃn/</span> <button onclick="playAudio('crop rotation')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span>
+                                    <span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ G. changing the crop...</span>
+                                </div>
+                                <div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition">
+                                    <span class="flex items-center gap-2">5 <strong class="text-rose-700">antibiotic</strong> <span class="text-xs font-normal text-rose-900/60">/ˌæntibaɪˈɑːtɪk/</span> <button onclick="playAudio('antibiotic')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span>
+                                    <span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ H. a substance that can destroy...</span>
+                                </div>
+                                <div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition">
+                                    <span class="flex items-center gap-2">6 <strong class="text-rose-700">GM crop</strong> <button onclick="playAudio('GM crop')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span>
+                                    <span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ A. genetically modified crop</span>
+                                </div>
+                                <div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition">
+                                    <span class="flex items-center gap-2">7 <strong class="text-rose-700">notion</strong> <button onclick="playAudio('notion')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span>
+                                    <span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ F. an idea</span>
+                                </div>
+                                <div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition">
+                                    <span class="flex items-center gap-2">8 <strong class="text-rose-700">additive</strong> <span class="text-xs font-normal text-rose-900/60">/ˈædətɪv/</span> <button onclick="playAudio('additive')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span>
+                                    <span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ E. a substance that is added...</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Options Nouns -->
+                            <div class="glass-panel p-4 rounded-xl text-sm space-y-2.5 font-medium text-rose-950/80 bg-white/20 border border-white/40 self-start">
+                                <p><strong class="text-pink-500 mr-1">A.</strong> genetically modified crop</p>
+                                <p><strong class="text-pink-500 mr-1">B.</strong> a particular quality/ characteristic</p>
+                                <p><strong class="text-pink-500 mr-1">C.</strong> the total amount of crops</p>
+                                <p><strong class="text-pink-500 mr-1">D.</strong> a swelling on the surface of the skin</p>
+                                <p><strong class="text-pink-500 mr-1">E.</strong> a substance that is added in small amounts...</p>
+                                <p><strong class="text-pink-500 mr-1">F.</strong> an idea</p>
+                                <p><strong class="text-pink-500 mr-1">G.</strong> changing the crop that is grown...</p>
+                                <p><strong class="text-pink-500 mr-1">H.</strong> a substance that can destroy or prevent...</p>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 text-[0.95rem] font-semibold text-rose-950">
+                            <!-- Verbs -->
+                            <div class="space-y-3">
+                                <h4 class="font-black text-rose-900 mb-3 uppercase tracking-widest text-sm border-b border-pink-200 pb-1">Verbs</h4>
+                                <div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition">
+                                    <span class="flex items-center gap-2">9 <strong class="text-rose-700">compensate for</strong> <button onclick="playAudio('compensate for')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span>
+                                    <span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ J. make up for something</span>
+                                </div>
+                                <div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition">
+                                    <span class="flex items-center gap-2">10 <strong class="text-rose-700">reject</strong> <button onclick="playAudio('reject')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span>
+                                    <span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ L. refuse to accept</span>
+                                </div>
+                                <div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition">
+                                    <span class="flex items-center gap-2">11 <strong class="text-rose-700">starve</strong> <button onclick="playAudio('starve')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span>
+                                    <span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ K. to suffer because you do not...</span>
+                                </div>
+                                <div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition">
+                                    <span class="flex items-center gap-2">12 <strong class="text-rose-700">regulate</strong> <button onclick="playAudio('regulate')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span>
+                                    <span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ M. to control something...</span>
+                                </div>
+                                <div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition">
+                                    <span class="flex items-center gap-2">13 <strong class="text-rose-700">contradict</strong> <button onclick="playAudio('contradict')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span>
+                                    <span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ I. to be so different from...</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Options Verbs -->
+                            <div class="glass-panel p-4 rounded-xl text-sm space-y-2.5 font-medium text-rose-950/80 bg-white/20 border border-white/40 self-start">
+                                <p><strong class="text-pink-500 mr-1">I.</strong> to be so different from each other that one of them must be wrong</p>
+                                <p><strong class="text-pink-500 mr-1">J.</strong> make up for something</p>
+                                <p><strong class="text-pink-500 mr-1">K.</strong> to suffer because you do not have enough food to eat</p>
+                                <p><strong class="text-pink-500 mr-1">L.</strong> refuse to accept</p>
+                                <p><strong class="text-pink-500 mr-1">M.</strong> to control something by means of rules</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Exercise 2: Gap Fill -->
+                <div class="glass-card rounded-3xl mb-8 exercise-container overflow-hidden">
+                    <div class="p-8 md:p-10 border-b border-white/60">
+                        <div class="flex items-center justify-between gap-4">
+                            <div>
+                                <h3 class="text-2xl font-bold text-rose-950">Exercise 2: Word Fill-In</h3>
+                                <p class="text-sm text-rose-900/60 mt-1">Fill in each blank with one suitable word below (Yellow Book Pg 20).</p>
+                            </div>
+                            <button onclick="toggleAnswers(this)" class="glass-button text-rose-800 font-bold py-2.5 px-5 rounded-xl flex items-center justify-center gap-2 text-sm shadow-sm shrink-0">
+                                ✨ Reveal Answers
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="p-8 md:p-10 bg-white/25 space-y-8">
+                        <!-- Word Bank -->
+                        <div class="glass-panel p-4 rounded-xl flex flex-wrap justify-center gap-6 border-white/60 bg-white/20">
+                            <div class="flex flex-col items-center"><span class="text-pink-600 font-bold">irrelevant</span><button onclick="playAudio('irrelevant')" class="text-xs">🔊</button></div>
+                            <div class="flex flex-col items-center"><span class="text-pink-600 font-bold">artificial</span><span class="text-xs font-normal text-rose-950/60">/ˌɑːrtɪˈfɪʃl/</span><button onclick="playAudio('artificial')" class="text-xs">🔊</button></div>
+                            <div class="flex flex-col items-center"><span class="text-pink-600 font-bold">misleading</span><span class="text-xs font-normal text-rose-950/60">/ˌmɪsˈliːdɪŋ/</span><button onclick="playAudio('misleading')" class="text-xs">🔊</button></div>
+                            <div class="flex flex-col items-center"><span class="text-pink-600 font-bold">conventional</span><span class="text-xs font-normal text-rose-950/60">/kənˈvenʃənl/</span><button onclick="playAudio('conventional')" class="text-xs">🔊</button></div>
+                            <div class="flex flex-col items-center"><span class="text-pink-600 font-bold">obsessed</span><span class="text-xs font-normal text-rose-950/60">/əbˈsest/</span><button onclick="playAudio('obsessed')" class="text-xs">🔊</button></div>
+                        </div>
+
+                        <!-- Sentences -->
+                        <ul class="space-y-5 text-[0.95rem] font-semibold text-rose-950 leading-relaxed">
+                            <li class="flex flex-wrap items-center gap-x-2">
+                                <span>1 I don't like having to do detailed work in</span>
+                                <span class="inline-flex items-center justify-center min-w-[120px] border-b-2 border-dashed border-pink-400 text-rose-600 px-2 h-7"><span class="hidden-answer">artificial</span></span>
+                                <span>light.</span>
+                            </li>
+                            <li class="flex flex-wrap items-center gap-x-2">
+                                <span>2 Many people consider politics</span>
+                                <span class="inline-flex items-center justify-center min-w-[120px] border-b-2 border-dashed border-pink-400 text-rose-600 px-2 h-7"><span class="hidden-answer">irrelevant</span></span>
+                                <span>to their lives.</span>
+                            </li>
+                            <li class="flex flex-wrap items-center gap-x-2">
+                                <span>3 We were raised in a/an</span>
+                                <span class="inline-flex items-center justify-center min-w-[120px] border-b-2 border-dashed border-pink-400 text-rose-600 px-2 h-7"><span class="hidden-answer">conventional</span></span>
+                                <span>, middle-class family. (= following the usual practices of the past)</span>
+                            </li>
+                            <li class="flex flex-wrap items-center gap-x-2">
+                                <span>4 Some of the information was dangerously</span>
+                                <span class="inline-flex items-center justify-center min-w-[120px] border-b-2 border-dashed border-pink-400 text-rose-600 px-2 h-7"><span class="hidden-answer">misleading</span></span>
+                                <span>.</span>
+                            </li>
+                            <li class="flex flex-wrap items-center gap-x-2">
+                                <span>5 He is</span>
+                                <span class="inline-flex items-center justify-center min-w-[120px] border-b-2 border-dashed border-pink-400 text-rose-600 px-2 h-7"><span class="hidden-answer">obsessed</span></span>
+                                <span>with cleanliness. He's always cleaning everything.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- SLIDE 2: Reading Mock Test SB -->
+            <div class="slide" id="slide-2">
+                <div class="flex items-center gap-4 mb-10">
+                    <span class="w-12 h-12 rounded-2xl glass-panel flex items-center justify-center text-2xl shadow-sm">📖</span>
+                    <div>
+                        <span class="text-pink-600 font-extrabold text-xs tracking-widest uppercase">Reading Section</span>
+                        <h2 class="text-3xl font-extrabold text-rose-950">Complete IELTS Student's Book | Unit 2</h2>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-3xl mb-8 exercise-container overflow-hidden">
+                    <div class="p-8 md:p-10 border-b border-white/60">
+                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                            <div>
+                                <h3 class="text-2xl font-bold text-rose-950">Answer Keys</h3>
+                                <p class="text-sm text-rose-900/60 mt-1">Check answers with the class.</p>
+                            </div>
+                            <button onclick="toggleAnswers(this)" class="glass-button text-rose-800 font-bold py-2.5 px-5 rounded-xl flex items-center justify-center gap-2 text-sm shadow-sm shrink-0">
+                                👀 Reveal Answers
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="p-8 md:p-10 bg-white/25">
+                        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm">
+                                <span class="font-black text-pink-400">1</span>
+                                <span class="hidden-answer font-bold text-rose-900">viii</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm">
+                                <span class="font-black text-pink-400">2</span>
+                                <span class="hidden-answer font-bold text-rose-900">v</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm">
+                                <span class="font-black text-pink-400">3</span>
+                                <span class="hidden-answer font-bold text-rose-900">i</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm">
+                                <span class="font-black text-pink-400">4</span>
+                                <span class="hidden-answer font-bold text-rose-900">iii</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm">
+                                <span class="font-black text-pink-400">5</span>
+                                <span class="hidden-answer font-bold text-rose-900">ix</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm">
+                                <span class="font-black text-pink-400">6</span>
+                                <span class="hidden-answer font-bold text-rose-900">vii</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm">
+                                <span class="font-black text-pink-400">7</span>
+                                <span class="hidden-answer font-bold text-rose-900">iv</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm">
+                                <span class="font-black text-pink-400">8</span>
+                                <span class="hidden-answer font-bold text-rose-900">B</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm">
+                                <span class="font-black text-pink-400">9</span>
+                                <span class="hidden-answer font-bold text-rose-900">E</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm">
+                                <span class="font-black text-pink-400">10</span>
+                                <span class="hidden-answer font-bold text-rose-900">B</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm">
+                                <span class="font-black text-pink-400">11</span>
+                                <span class="hidden-answer font-bold text-rose-900">D</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm">
+                                <span class="font-black text-pink-400">12</span>
+                                <span class="hidden-answer font-bold text-rose-900">B</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm">
+                                <span class="font-black text-pink-400">13</span>
+                                <span class="hidden-answer font-bold text-rose-900">E</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-6 flex items-center justify-between">
+                    <h3 class="text-2xl font-bold text-rose-950">Mock Test View</h3>
+                    <a href="https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/passage2_complete_ielts_5.5_6.5_sb_unit2.html" target="_blank" class="inline-flex items-center gap-2 bg-gradient-to-r from-pink-500 to-rose-400 hover:from-pink-400 hover:to-rose-300 text-white font-bold py-2.5 px-6 rounded-full shadow-lg shadow-pink-500/30 transition-all hover:-translate-y-1 text-sm">
+                        Open in New Tab <span>↗</span>
+                    </a>
+                </div>
+                <div class="glass-card rounded-3xl p-2 shadow-lg border-2 border-pink-200/50 overflow-hidden" style="height: 60vh;">
+                    <iframe 
+                        src="https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/passage2_complete_ielts_5.5_6.5_sb_unit2.html" 
+                        class="w-full h-full border-0 rounded-2xl bg-white"
+                        title="Reading Test SB U2">
+                    </iframe>
+                </div>
+            </div>
+
+            <!-- SLIDE 3: Listening Guide & SB Mock Test -->
+            <div class="slide" id="slide-3">
+                <div class="flex items-center gap-4 mb-10">
+                    <span class="w-12 h-12 rounded-2xl glass-panel flex items-center justify-center text-2xl shadow-sm">🎧</span>
+                    <div>
+                        <span class="text-pink-600 font-extrabold text-xs tracking-widest uppercase">Listening Section</span>
+                        <h2 class="text-3xl font-extrabold text-rose-950">Guide & Complete IELTS Student's Book | Unit 2</h2>
+                    </div>
+                </div>
+
+                <!-- Listening Guide -->
+                <div class="glass-card rounded-3xl p-6 md:p-8 mb-8 border-t-4 border-rose-400">
+                    <h3 class="text-xl font-bold text-rose-950 mb-4 flex items-center gap-2"><span>🎯</span> Strategy: Listening Section 2 & Maps</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-[0.95rem]">
+                        <div class="glass-panel p-5 rounded-2xl border border-white/60">
+                            <h4 class="font-black text-rose-900 mb-2 uppercase tracking-widest text-xs">Section 2 Overview</h4>
+                            <ul class="space-y-2 font-medium text-rose-950/80">
+                                <li>• Usually a <strong class="text-rose-700">monologue</strong> (one person speaking).</li>
+                                <li>• Topic is set in an everyday, social context (e.g., a speech about local facilities).</li>
+                            </ul>
+                        </div>
+                        <div class="glass-panel p-5 rounded-2xl border border-white/60">
+                            <h4 class="font-black text-rose-900 mb-2 uppercase tracking-widest text-xs">Multiple Choice (1 Answer) & Maps</h4>
+                            <ul class="space-y-2 font-medium text-rose-950/80">
+                                <li>• <strong class="text-rose-700">Read ahead:</strong> Identify the core difference between options A, B, C.</li>
+                                <li>• <strong class="text-rose-700">Maps:</strong> Find the starting point (e.g., "You are here"). Follow directional language (north, south, next to, opposite).</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-3xl mb-8 exercise-container overflow-hidden">
+                    <div class="p-8 md:p-10 border-b border-white/60">
+                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                            <div>
+                                <h3 class="text-2xl font-bold text-rose-950">Answer Keys</h3>
+                                <p class="text-sm text-rose-900/60 mt-1">Check answers with the class.</p>
+                            </div>
+                            <button onclick="toggleAnswers(this)" class="glass-button text-rose-800 font-bold py-2.5 px-5 rounded-xl flex items-center justify-center gap-2 text-sm shadow-sm shrink-0">
+                                👀 Reveal Answers
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="p-8 md:p-10 bg-white/25">
+                        <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm">
+                                <span class="font-black text-pink-400">1</span>
+                                <span class="hidden-answer font-bold text-rose-900">B</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm">
+                                <span class="font-black text-pink-400">2</span>
+                                <span class="hidden-answer font-bold text-rose-900">C</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm">
+                                <span class="font-black text-pink-400">3</span>
+                                <span class="hidden-answer font-bold text-rose-900">A</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm">
+                                <span class="font-black text-pink-400">4</span>
+                                <span class="hidden-answer font-bold text-rose-900">C</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm">
+                                <span class="font-black text-pink-400">5</span>
+                                <span class="hidden-answer font-bold text-rose-900">C</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm">
+                                <span class="font-black text-pink-400">6</span>
+                                <span class="hidden-answer font-bold text-rose-900">C</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm">
+                                <span class="font-black text-pink-400">7</span>
+                                <span class="hidden-answer font-bold text-rose-900">B</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm">
+                                <span class="font-black text-pink-400">8</span>
+                                <span class="hidden-answer font-bold text-rose-900">H</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm">
+                                <span class="font-black text-pink-400">9</span>
+                                <span class="hidden-answer font-bold text-rose-900">E</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm">
+                                <span class="font-black text-pink-400">10</span>
+                                <span class="hidden-answer font-bold text-rose-900">A</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-6 flex items-center justify-between">
+                    <h3 class="text-2xl font-bold text-rose-950">Mock Test View</h3>
+                    <a href="https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/section2_complete_ielts_5.5_6.5_sb_unit2.html" target="_blank" class="inline-flex items-center gap-2 bg-gradient-to-r from-pink-500 to-rose-400 hover:from-pink-400 hover:to-rose-300 text-white font-bold py-2.5 px-6 rounded-full shadow-lg shadow-pink-500/30 transition-all hover:-translate-y-1 text-sm">
+                        Open in New Tab <span>↗</span>
+                    </a>
+                </div>
+                <div class="glass-card rounded-3xl p-2 shadow-lg border-2 border-pink-200/50 overflow-hidden" style="height: 60vh;">
+                    <iframe 
+                        src="https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/section2_complete_ielts_5.5_6.5_sb_unit2.html" 
+                        class="w-full h-full border-0 rounded-2xl bg-white"
+                        title="Listening Test SB U2">
+                    </iframe>
+                </div>
+            </div>
+
+            <!-- SLIDE 4: Listening Mock Test WB -->
+            <div class="slide" id="slide-4">
+                <div class="flex items-center gap-4 mb-10">
+                    <span class="w-12 h-12 rounded-2xl glass-panel flex items-center justify-center text-2xl shadow-sm">🎧</span>
+                    <div>
+                        <span class="text-pink-600 font-extrabold text-xs tracking-widest uppercase">Listening Section</span>
+                        <h2 class="text-3xl font-extrabold text-rose-950">Complete IELTS Work Book | Unit 2</h2>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-3xl mb-8 exercise-container overflow-hidden">
+                    <div class="p-8 md:p-10 border-b border-white/60">
+                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                            <div>
+                                <h3 class="text-2xl font-bold text-rose-950">Answer Keys</h3>
+                                <p class="text-sm text-rose-900/60 mt-1">Check answers with the class.</p>
+                            </div>
+                            <button onclick="toggleAnswers(this)" class="glass-button text-rose-800 font-bold py-2.5 px-5 rounded-xl flex items-center justify-center gap-2 text-sm shadow-sm shrink-0">
+                                👀 Reveal Answers
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="p-8 md:p-10 bg-white/25">
+                        <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm">
+                                <span class="font-black text-pink-400">1</span>
+                                <span class="hidden-answer font-bold text-rose-900">A</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm">
+                                <span class="font-black text-pink-400">2</span>
+                                <span class="hidden-answer font-bold text-rose-900">B</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm">
+                                <span class="font-black text-pink-400">3</span>
+                                <span class="hidden-answer font-bold text-rose-900">B</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm">
+                                <span class="font-black text-pink-400">4</span>
+                                <span class="hidden-answer font-bold text-rose-900">A</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm">
+                                <span class="font-black text-pink-400">5</span>
+                                <span class="hidden-answer font-bold text-rose-900">C</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm">
+                                <span class="font-black text-pink-400">6</span>
+                                <span class="hidden-answer font-bold text-rose-900">D</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm">
+                                <span class="font-black text-pink-400">7</span>
+                                <span class="hidden-answer font-bold text-rose-900">H</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm">
+                                <span class="font-black text-pink-400">8</span>
+                                <span class="hidden-answer font-bold text-rose-900">F</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm">
+                                <span class="font-black text-pink-400">9</span>
+                                <span class="hidden-answer font-bold text-rose-900">A</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm">
+                                <span class="font-black text-pink-400">10</span>
+                                <span class="hidden-answer font-bold text-rose-900">C</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-6 flex items-center justify-between">
+                    <h3 class="text-2xl font-bold text-rose-950">Mock Test View</h3>
+                    <a href="https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/section2_complete_ielts_5.5_6.5_wb_unit2.html" target="_blank" class="inline-flex items-center gap-2 bg-gradient-to-r from-pink-500 to-rose-400 hover:from-pink-400 hover:to-rose-300 text-white font-bold py-2.5 px-6 rounded-full shadow-lg shadow-pink-500/30 transition-all hover:-translate-y-1 text-sm">
+                        Open in New Tab <span>↗</span>
+                    </a>
+                </div>
+                <div class="glass-card rounded-3xl p-2 shadow-lg border-2 border-pink-200/50 overflow-hidden" style="height: 60vh;">
+                    <iframe 
+                        src="https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/section2_complete_ielts_5.5_6.5_wb_unit2.html" 
+                        class="w-full h-full border-0 rounded-2xl bg-white"
+                        title="Listening Test WB U2">
+                    </iframe>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        let currentSlide = 0;
+        let totalSlides = 0;
+        let slides = [];
+
+        function initSlides() {
+            slides = document.querySelectorAll('.slide');
+            totalSlides = slides.length;
+            updateUI();
+        }
+
+        function updateUI() {
+            slides.forEach((el, index) => {
+                if (index === currentSlide) {
+                    el.classList.add('active');
+                } else {
+                    el.classList.remove('active');
+                }
+            });
+            // Update counter
+            const counter = document.getElementById('slide-counter');
+            if (counter) counter.innerText = `${currentSlide + 1} / ${totalSlides}`;
+            
+            // Update dropdown
+            const navDropdown = document.getElementById('section-nav');
+            if (navDropdown) navDropdown.value = currentSlide;
+
+            // Update Progress Bar
+            const progress = ((currentSlide + 1) / totalSlides) * 100;
+            const progressBar = document.getElementById('progress-bar');
+            if(progressBar) progressBar.style.width = `${progress}%`;
+
+            document.querySelector('main').scrollTop = 0;
+        }
+
+        function jumpToSection(slideIndex) {
+            const index = parseInt(slideIndex);
+            if (!isNaN(index) && index >= 0 && index < totalSlides) {
+                currentSlide = index;
+                updateUI();
+            }
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides - 1) {
+                currentSlide++;
+                updateUI();
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 0) {
+                currentSlide--;
+                updateUI();
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') nextSlide();
+            if (e.key === 'ArrowLeft') prevSlide();
+        });
+
+        function toggleAnswers(button) {
+            const container = button.closest('.exercise-container');
+            if (!container) return;
+            const hiddenElements = container.querySelectorAll('.hidden-answer');
+
+            let isHidden = true;
+            if (hiddenElements.length > 0) {
+                isHidden = hiddenElements[0].style.display === 'none' || hiddenElements[0].style.display === '';
+            }
+
+            hiddenElements.forEach(el => {
+                if (isHidden) {
+                    el.style.display = el.tagName === 'SPAN' ? (el.classList.contains('inline-block') ? 'inline-block' : 'inline') : 'block';
+                } else {
+                    el.style.display = 'none';
+                }
+            });
+
+            if (isHidden) {
+                button.innerHTML = "✨ Hide Answers";
+            } else {
+                button.innerHTML = button.getAttribute('data-default-text') || "✨ Reveal Answers";
+            }
+        }
+
+        function playAudio(word) {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel(); 
+                const utterance = new SpeechSynthesisUtterance(word);
+                utterance.lang = 'en-US';
+                utterance.rate = 0.85; 
+                window.speechSynthesis.speak(utterance);
+            } else {
+                console.warn("Text-to-Speech is not supported in this browser environment.");
+            }
+        }
+
+        // Initialize display
+        document.addEventListener('DOMContentLoaded', initSlides);
+    </script>
+</body>
+</html>
