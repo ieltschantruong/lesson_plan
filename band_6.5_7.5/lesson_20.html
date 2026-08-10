@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Chan Truong | Lesson 20</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            background-color: #f0fdfa; /* soft teal-50 */
+        }
+        .fade-in { animation: fadeIn 0.5s ease-out forwards; }
+        @keyframes fadeIn { 
+            from { opacity: 0; transform: translateY(15px); } 
+            to { opacity: 1; transform: translateY(0); } 
+        }
+        .timer-text { font-variant-numeric: tabular-nums; }
+        
+        /* Elegant Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #ccfbf1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb { background: #14b8a6; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #0f766e; }
+
+        /* Glassmorphism utilities */
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        /* Inline Answer Toggle Utilities */
+        .blank-ans { display: none; }
+        .show-answers .blank-dots { display: none; }
+        .show-answers .blank-ans { display: inline-block; animation: fadeIn 0.3s forwards; }
+    </style>
+</head>
+<body class="h-screen flex flex-col overflow-hidden text-gray-800">
+
+    <header id="app-header" class="text-white p-4 shadow-lg transition-colors duration-700 z-20 relative bg-gradient-to-r from-teal-400 via-emerald-400 to-cyan-500">
+        <div class="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9IiNmZmYiLz48L3N2Zz4=')]"></div>
+        
+        <div class="max-w-7xl mx-auto flex justify-between items-center relative z-10">
+            <div>
+                <div class="flex items-center gap-2 mb-1">
+                    <span class="bg-white/20 text-white text-xs font-bold px-2 py-0.5 rounded uppercase tracking-wider backdrop-blur-sm">Band 6.5 - 7.5</span>
+                    <span class="bg-white/20 text-white text-xs font-bold px-2 py-0.5 rounded uppercase tracking-wider backdrop-blur-sm">Lesson 20</span>
+                </div>
+                <h1 class="text-2xl font-bold tracking-tight drop-shadow-sm flex items-center gap-2">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                    IELTS Chan Truong
+                </h1>
+                <h2 id="slide-title" class="text-sm font-medium mt-1 text-teal-50">Loading session...</h2>
+            </div>
+            
+            <div class="flex items-center space-x-2 sm:space-x-3">
+                <a href="https://online.flipbuilder.com/xtrvf/rzwv/" target="_blank" class="flex items-center space-x-2 text-sm font-semibold bg-white/20 hover:bg-white/30 transition-all px-3 sm:px-4 py-2 rounded-full focus:outline-none backdrop-blur-md shadow-sm border border-white/20 text-white" title="Complete IELTS 6.5-7.5 Ebook">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                    <span class="hidden sm:inline">Ebook</span>
+                </a>
+
+                <div class="relative">
+                    <button id="nav-toggle-btn" class="flex items-center space-x-2 text-sm font-semibold bg-white/20 hover:bg-white/30 transition-all px-3 sm:px-5 py-2 rounded-full focus:outline-none backdrop-blur-md shadow-sm border border-white/20">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                        <span class="hidden sm:inline">Sections</span>
+                    </button>
+                    
+                    <div id="nav-dropdown" class="hidden absolute right-0 mt-3 w-80 bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-teal-100 overflow-hidden z-50 origin-top-right transition-all fade-in">
+                        <div class="p-3 bg-teal-50 border-b border-teal-100">
+                            <p class="text-xs font-bold text-teal-800 uppercase tracking-wider text-center">Lesson Agenda</p>
+                        </div>
+                        <div class="max-h-[60vh] overflow-y-auto p-2" id="nav-menu-list"></div>
+                    </div>
+                </div>
+
+                <div class="hidden sm:flex items-center space-x-2 text-sm font-bold text-teal-900 bg-white px-4 py-2 rounded-full shadow-sm">
+                    <svg class="w-4 h-4 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <span>90 Mins</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto mt-5 bg-black/10 rounded-full h-1.5 overflow-hidden relative z-10">
+            <div id="progress-bar" class="bg-white h-full transition-all duration-700 ease-out shadow-[0_0_10px_rgba(255,255,255,0.8)]" style="width: 0%"></div>
+        </div>
+    </header>
+
+    <main class="flex-grow overflow-y-auto relative p-4 md:p-8">
+        <div id="content-container" class="max-w-6xl mx-auto">
+            <!-- Dynamic Content Injected Here -->
+        </div>
+    </main>
+
+    <footer class="bg-white/80 backdrop-blur-md border-t border-teal-100 p-4 md:px-10 z-10 shadow-[0_-10px_15px_-3px_rgba(0,0,0,0.02)]">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <button id="btn-prev" class="px-6 py-2.5 rounded-xl border border-teal-200 text-teal-600 font-semibold hover:bg-teal-50 hover:border-teal-300 transition-all disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-2">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                Previous
+            </button>
+            
+            <div class="flex items-center gap-2">
+                <div class="w-2 h-2 rounded-full bg-teal-400 animate-pulse"></div>
+                <div id="step-indicator" class="text-sm font-semibold text-teal-800 uppercase tracking-wide">
+                    Section 1 of X
+                </div>
+                <div class="w-2 h-2 rounded-full bg-teal-400 animate-pulse delay-75"></div>
+            </div>
+
+            <button id="btn-next" class="px-6 py-2.5 rounded-xl bg-gradient-to-r from-teal-500 to-cyan-500 text-white font-semibold hover:from-teal-600 hover:to-cyan-600 shadow-md hover:shadow-lg transition-all flex items-center gap-2 transform hover:-translate-y-0.5">
+                Next
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </button>
+        </div>
+    </footer>
+
+<script>
+    // --- TIMER LOGIC ---
+    let timers = {
+        prep1: { interval: null, remaining: 60, isRunning: false },
+        speak1: { interval: null, remaining: 120, isRunning: false },
+        prep2: { interval: null, remaining: 60, isRunning: false },
+        speak2: { interval: null, remaining: 120, isRunning: false }
+    };
+
+    function formatTime(seconds) {
+        const m = Math.floor(seconds / 60).toString().padStart(2, '0');
+        const s = (seconds % 60).toString().padStart(2, '0');
+        return `${m}:${s}`;
+    }
+
+    function updateTimerUI(id, seconds) {
+        const displayEl = document.getElementById(`${id}-timer`);
+        if (displayEl) displayEl.textContent = formatTime(seconds);
+    }
+
+    window.toggleTimer = function(id, defaultTime) {
+        const timer = timers[id];
+        const btn = document.getElementById(`btn-${id}-timer`);
+        
+        if (timer.isRunning) {
+            clearInterval(timer.interval);
+            timer.isRunning = false;
+            if(btn) btn.textContent = 'Resume';
+        } else {
+            if (timer.remaining <= 0) timer.remaining = defaultTime;
+            
+            timer.isRunning = true;
+            if(btn) btn.textContent = 'Pause';
+            
+            timer.interval = setInterval(() => {
+                timer.remaining--;
+                updateTimerUI(id, timer.remaining);
+                
+                if (timer.remaining <= 0) {
+                    clearInterval(timer.interval);
+                    timer.isRunning = false;
+                    if(btn) btn.textContent = 'Time Up!';
+                    try {
+                        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+                        const playBeep = (st) => {
+                            const osc = ctx.createOscillator();
+                            const gain = ctx.createGain();
+                            osc.connect(gain);
+                            gain.connect(ctx.destination);
+                            osc.frequency.setValueAtTime(800, st);
+                            gain.gain.setValueAtTime(0.1, st);
+                            osc.start(st);
+                            gain.gain.exponentialRampToValueAtTime(0.00001, st + 0.3);
+                            osc.stop(st + 0.3);
+                        };
+                        playBeep(ctx.currentTime);
+                        playBeep(ctx.currentTime + 0.4);
+                    } catch(e) {}
+                }
+            }, 1000);
+        }
+    };
+
+    window.resetTimer = function(id, defaultTime) {
+        const timer = timers[id];
+        clearInterval(timer.interval);
+        timer.isRunning = false;
+        timer.remaining = defaultTime;
+        updateTimerUI(id, defaultTime);
+        const btn = document.getElementById(`btn-${id}-timer`);
+        if(btn) btn.textContent = 'Start';
+    };
+
+    function pauseAllTimers() {
+        Object.keys(timers).forEach(key => {
+            if (timers[key].isRunning) {
+                clearInterval(timers[key].interval);
+                timers[key].isRunning = false;
+            }
+        });
+    }
+
+    // --- DATA STRUCTURE ---
+    const sessionData = [
+        {
+            id: 'listening_sb_unit6',
+            type: 'Listening',
+            themeClass: 'bg-gradient-to-r from-teal-400 to-emerald-500',
+            iconColor: 'text-teal-500',
+            bgColor: 'bg-teal-50',
+            title: '1. Listening Unit 6 SB',
+            content: `
+                <div class="fade-in bg-white rounded-3xl shadow-xl border border-teal-50 p-5 md:p-6 flex flex-col" style="height: calc(100vh - 11rem); min-height: 650px;">
+                    <div class="flex items-center gap-4 mb-4 border-b border-gray-100 pb-4 shrink-0">
+                        <div class="w-12 h-12 rounded-2xl bg-teal-100 flex items-center justify-center text-teal-600 flex-shrink-0">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+                        </div>
+                        <div class="flex-grow flex flex-col md:flex-row justify-between md:items-center gap-4">
+                            <div>
+                                <div class="flex items-center gap-3 mb-1 flex-wrap">
+                                    <h3 class="text-xl font-bold text-gray-800">Unit 6 Listening Practice</h3>
+                                    <a href="https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/section4_complete_ielts_6.5_7.5_sb_unit6.html" target="_blank" class="inline-flex items-center gap-1.5 text-teal-600 hover:text-white hover:bg-teal-600 transition-colors px-3 py-1.5 bg-teal-50 rounded-lg shadow-sm border border-teal-200 text-sm font-bold" title="Open in new tab">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                                        Open in New Tab
+                                    </a>
+                                </div>
+                                <p class="text-teal-600 font-medium text-sm">Student's Book - Complete IELTS</p>
+                            </div>
+                            <button onclick="toggleVisibility('ans-sb-6')" class="bg-teal-50 text-teal-700 px-4 py-2 rounded-xl font-bold hover:bg-teal-100 transition-colors text-sm border border-teal-200 flex items-center gap-2 shrink-0 shadow-sm">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                Show Answers
+                            </button>
+                        </div>
+                    </div>
+
+                    <div id="ans-sb-6" class="hidden mb-4 bg-gray-50 border border-teal-100 rounded-xl p-5 shrink-0 shadow-inner transition-all fade-in">
+                        <h4 class="font-bold text-teal-800 mb-3 border-b border-teal-100 pb-2 uppercase tracking-wide text-xs">Answer Key</h4>
+                        <div class="grid grid-cols-2 sm:grid-cols-5 gap-3 text-sm text-gray-700 font-medium">
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-teal-500 font-bold mr-2">1</span> drawings</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-teal-500 font-bold mr-2">2</span> paper</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-teal-500 font-bold mr-2">3</span> hand-painted</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-teal-500 font-bold mr-2">4</span> 6.3 billion</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-teal-500 font-bold mr-2">5</span> (animal) fur</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-teal-500 font-bold mr-2">6</span> digital lighting</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-teal-500 font-bold mr-2">7</span> crowds</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-teal-500 font-bold mr-2">8</span> facial movement</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-teal-500 font-bold mr-2">9</span> video games</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-teal-500 font-bold mr-2">10</span> reality</div>
+                        </div>
+                    </div>
+
+                    <div class="w-full flex-grow rounded-2xl overflow-hidden border border-gray-200 shadow-inner bg-gray-50 relative">
+                        <iframe src="https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/section4_complete_ielts_6.5_7.5_sb_unit6.html" class="absolute inset-0 w-full h-full border-0" title="Listening Practice"></iframe>
+                    </div>
+                </div>
+            `
+        },
+        {
+            id: 'listening_wb_unit6',
+            type: 'Listening',
+            themeClass: 'bg-gradient-to-r from-cyan-400 to-blue-500',
+            iconColor: 'text-cyan-500',
+            bgColor: 'bg-cyan-50',
+            title: '2. Listening Unit 6 WB',
+            content: `
+                <div class="fade-in bg-white rounded-3xl shadow-xl border border-cyan-50 p-5 md:p-6 flex flex-col" style="height: calc(100vh - 11rem); min-height: 650px;">
+                    <div class="flex items-center gap-4 mb-4 border-b border-gray-100 pb-4 shrink-0">
+                        <div class="w-12 h-12 rounded-2xl bg-cyan-100 flex items-center justify-center text-cyan-600 flex-shrink-0">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+                        </div>
+                        <div class="flex-grow flex flex-col md:flex-row justify-between md:items-center gap-4">
+                            <div>
+                                <div class="flex items-center gap-3 mb-1 flex-wrap">
+                                    <h3 class="text-xl font-bold text-gray-800">Unit 6 Listening Practice</h3>
+                                    <a href="https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/section4_complete_ielts_6.5_7.5_wb_unit6.html" target="_blank" class="inline-flex items-center gap-1.5 text-cyan-600 hover:text-white hover:bg-cyan-600 transition-colors px-3 py-1.5 bg-cyan-50 rounded-lg shadow-sm border border-cyan-200 text-sm font-bold" title="Open in new tab">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                                        Open in New Tab
+                                    </a>
+                                </div>
+                                <p class="text-cyan-600 font-medium text-sm">Workbook - Complete IELTS</p>
+                            </div>
+                            <button onclick="toggleVisibility('ans-wb-6')" class="bg-cyan-50 text-cyan-700 px-4 py-2 rounded-xl font-bold hover:bg-cyan-100 transition-colors text-sm border border-cyan-200 flex items-center gap-2 shrink-0 shadow-sm">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                Show Answers
+                            </button>
+                        </div>
+                    </div>
+
+                    <div id="ans-wb-6" class="hidden mb-4 bg-gray-50 border border-cyan-100 rounded-xl p-5 shrink-0 shadow-inner transition-all fade-in">
+                        <h4 class="font-bold text-cyan-800 mb-3 border-b border-cyan-100 pb-2 uppercase tracking-wide text-xs">Answer Key</h4>
+                        <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-3 text-sm text-gray-700 font-medium">
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-cyan-500 font-bold mr-2">1</span> phone line</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-cyan-500 font-bold mr-2">2</span> statements</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm lg:col-span-2"><span class="text-cyan-500 font-bold mr-2">3</span> written instructions</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm lg:col-span-2"><span class="text-cyan-500 font-bold mr-2">4</span> personal computers</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-cyan-500 font-bold mr-2">5</span> (online) thefts</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm lg:col-span-2"><span class="text-cyan-500 font-bold mr-2">6</span> security features</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm lg:col-span-2"><span class="text-cyan-500 font-bold mr-2">7</span> billion dollars</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-cyan-500 font-bold mr-2">8</span> 90 per cent</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm lg:col-span-2"><span class="text-cyan-500 font-bold mr-2">9</span> arrange loans</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm lg:col-span-2"><span class="text-cyan-500 font-bold mr-2">10</span> smart phones</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-cyan-500 font-bold mr-2">11</span> support</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-cyan-500 font-bold mr-2">12</span> regional</div>
+                        </div>
+                    </div>
+
+                    <div class="w-full flex-grow rounded-2xl overflow-hidden border border-gray-200 shadow-inner bg-gray-50 relative">
+                        <iframe src="https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/section4_complete_ielts_6.5_7.5_wb_unit6.html" class="absolute inset-0 w-full h-full border-0" title="Listening Practice"></iframe>
+                    </div>
+                </div>
+            `
+        },
+        {
+            id: 'speaking_unit6',
+            type: 'Speaking',
+            themeClass: 'bg-gradient-to-r from-emerald-400 to-teal-500',
+            iconColor: 'text-emerald-500',
+            bgColor: 'bg-emerald-50',
+            title: '3. Speaking Unit 6 (Pink Book & Practice)',
+            content: `
+                <div class="fade-in space-y-8">
+                    <!-- Vocab Exercises -->
+                    <div class="bg-white rounded-3xl shadow-xl border border-emerald-50 p-8 relative overflow-hidden">
+                        <div class="absolute -top-24 -right-24 w-64 h-64 bg-emerald-100 rounded-full mix-blend-multiply filter blur-2xl opacity-70"></div>
+                        
+                        <div class="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6 border-b border-gray-100 pb-4">
+                            <div class="flex items-center gap-3">
+                                <span class="inline-block py-1 px-3 rounded-full bg-emerald-100 text-emerald-700 font-bold text-xs uppercase tracking-widest">Pink Book</span>
+                                <h3 class="text-2xl font-bold text-gray-800">Unit 6 Vocab (Page 65)</h3>
+                            </div>
+                        </div>
+
+                        <div class="space-y-6">
+                            <!-- Exercise 1 -->
+                            <div id="spk6-ex1-container" class="bg-emerald-50/50 border border-emerald-100 rounded-xl p-6 shadow-sm transition-all duration-300">
+                                <div class="flex justify-between items-center mb-4">
+                                    <h5 class="font-bold text-emerald-800 text-lg">Exercise 1</h5>
+                                    <button id="btn-spk6-ex1" onclick="toggleInlineAnswers('spk6-ex1-container', 'btn-spk6-ex1')" class="text-xs bg-white text-emerald-700 px-3 py-1.5 rounded-lg font-bold border border-emerald-200 hover:bg-emerald-100 transition-colors">Show Answers</button>
+                                </div>
+                                <p class="text-gray-700 text-sm mb-4 font-medium">Fill in each blank with one suitable word from the list below.</p>
+                                
+                                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 mb-6">
+                                    <div class="bg-white border border-emerald-200 p-2.5 rounded-xl shadow-sm flex flex-col justify-center items-center text-center hover:shadow-md transition-shadow">
+                                        <span class="font-bold text-emerald-700 text-sm">haste</span>
+                                        <span class="text-[10px] text-gray-500 font-mono mb-1.5">/heɪst/</span>
+                                        <div class="text-[11px] text-gray-700 border-t border-emerald-50 pt-1.5 w-full leading-tight">
+                                            Sự vội vàng, hấp tấp<br>
+                                            <span class="text-gray-400 italic text-[10px]">Usage: more haste, less speed</span>
+                                        </div>
+                                    </div>
+                                    <div class="bg-white border border-emerald-200 p-2.5 rounded-xl shadow-sm flex flex-col justify-center items-center text-center hover:shadow-md transition-shadow">
+                                        <span class="font-bold text-emerald-700 text-sm">nerves</span>
+                                        <span class="text-[10px] text-gray-500 font-mono mb-1.5">/nɜːvz/</span>
+                                        <div class="text-[11px] text-gray-700 border-t border-emerald-50 pt-1.5 w-full leading-tight">
+                                            Sự lo âu, căng thẳng<br>
+                                            <span class="text-gray-400 italic text-[10px]">Usage: a bundle of nerves</span>
+                                        </div>
+                                    </div>
+                                    <div class="bg-white border border-emerald-200 p-2.5 rounded-xl shadow-sm flex flex-col justify-center items-center text-center hover:shadow-md transition-shadow">
+                                        <span class="font-bold text-emerald-700 text-sm">misleading</span>
+                                        <span class="text-[10px] text-gray-500 font-mono mb-1.5">/ˌmɪsˈliːdɪŋ/</span>
+                                        <div class="text-[11px] text-gray-700 border-t border-emerald-50 pt-1.5 w-full leading-tight">
+                                            Gây hiểu lầm<br>
+                                            <span class="text-gray-400 italic text-[10px]">Usage: misleading info</span>
+                                        </div>
+                                    </div>
+                                    <div class="bg-white border border-emerald-200 p-2.5 rounded-xl shadow-sm flex flex-col justify-center items-center text-center hover:shadow-md transition-shadow">
+                                        <span class="font-bold text-emerald-700 text-sm">turned</span>
+                                        <span class="text-[10px] text-gray-500 font-mono mb-1.5">/tɜːnd/</span>
+                                        <div class="text-[11px] text-gray-700 border-t border-emerald-50 pt-1.5 w-full leading-tight">
+                                            Tìm đến, nhờ cậy<br>
+                                            <span class="text-gray-400 italic text-[10px]">Usage: turn to sb/sth</span>
+                                        </div>
+                                    </div>
+                                    <div class="bg-white border border-emerald-200 p-2.5 rounded-xl shadow-sm flex flex-col justify-center items-center text-center hover:shadow-md transition-shadow">
+                                        <span class="font-bold text-emerald-700 text-sm">clock</span>
+                                        <span class="text-[10px] text-gray-500 font-mono mb-1.5">/klɒk/</span>
+                                        <div class="text-[11px] text-gray-700 border-t border-emerald-50 pt-1.5 w-full leading-tight">
+                                            Đồng hồ<br>
+                                            <span class="text-gray-400 italic text-[10px]">Usage: against the clock</span>
+                                        </div>
+                                    </div>
+                                    <div class="bg-white border border-emerald-200 p-2.5 rounded-xl shadow-sm flex flex-col justify-center items-center text-center hover:shadow-md transition-shadow">
+                                        <span class="font-bold text-emerald-700 text-sm">essence</span>
+                                        <span class="text-[10px] text-gray-500 font-mono mb-1.5">/ˈesns/</span>
+                                        <div class="text-[11px] text-gray-700 border-t border-emerald-50 pt-1.5 w-full leading-tight">
+                                            Yếu tố cốt lõi<br>
+                                            <span class="text-gray-400 italic text-[10px]">Usage: be of the essence</span>
+                                        </div>
+                                    </div>
+                                    <div class="bg-white border border-emerald-200 p-2.5 rounded-xl shadow-sm flex flex-col justify-center items-center text-center hover:shadow-md transition-shadow">
+                                        <span class="font-bold text-emerald-700 text-sm">overloaded</span>
+                                        <span class="text-[10px] text-gray-500 font-mono mb-1.5">/ˌəʊvəˈləʊdɪd/</span>
+                                        <div class="text-[11px] text-gray-700 border-t border-emerald-50 pt-1.5 w-full leading-tight">
+                                            Bị quá tải<br>
+                                            <span class="text-gray-400 italic text-[10px]">Usage: overloaded with</span>
+                                        </div>
+                                    </div>
+                                    <div class="bg-white border border-emerald-200 p-2.5 rounded-xl shadow-sm flex flex-col justify-center items-center text-center hover:shadow-md transition-shadow">
+                                        <span class="font-bold text-emerald-700 text-sm">credible</span>
+                                        <span class="text-[10px] text-gray-500 font-mono mb-1.5">/ˈkredəbl/</span>
+                                        <div class="text-[11px] text-gray-700 border-t border-emerald-50 pt-1.5 w-full leading-tight">
+                                            Đáng tin cậy<br>
+                                            <span class="text-gray-400 italic text-[10px]">Usage: credible sources</span>
+                                        </div>
+                                    </div>
+                                    <div class="bg-white border border-emerald-200 p-2.5 rounded-xl shadow-sm flex flex-col justify-center items-center text-center hover:shadow-md transition-shadow">
+                                        <span class="font-bold text-emerald-700 text-sm">wary</span>
+                                        <span class="text-[10px] text-gray-500 font-mono mb-1.5">/ˈweəri/</span>
+                                        <div class="text-[11px] text-gray-700 border-t border-emerald-50 pt-1.5 w-full leading-tight">
+                                            Cảnh giác, đề phòng<br>
+                                            <span class="text-gray-400 italic text-[10px]">Usage: be wary of</span>
+                                        </div>
+                                    </div>
+                                    <div class="bg-white border border-emerald-200 p-2.5 rounded-xl shadow-sm flex flex-col justify-center items-center text-center hover:shadow-md transition-shadow">
+                                        <span class="font-bold text-emerald-700 text-sm">effect</span>
+                                        <span class="text-[10px] text-gray-500 font-mono mb-1.5">/ɪˈfekt/</span>
+                                        <div class="text-[11px] text-gray-700 border-t border-emerald-50 pt-1.5 w-full leading-tight">
+                                            Hiệu quả, tác dụng<br>
+                                            <span class="text-gray-400 italic text-[10px]">Usage: to no effect</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="space-y-4 text-sm text-gray-700 leading-relaxed font-medium">
+                                    <p>1 My take would be that searching information skills is <span class="text-emerald-700 italic font-bold">of the</span> <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-teal-600 font-bold bg-teal-50 px-2 rounded border border-teal-200 mx-1">essence</span> today.</p>
+                                    <p>2 I looked for ideas on some Facebook groups, but to no <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-teal-600 font-bold bg-teal-50 px-2 rounded border border-teal-200 mx-1">effect</span> , and I was <span class="text-emerald-700 italic font-bold">a bag/bundle of</span> <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-teal-600 font-bold bg-teal-50 px-2 rounded border border-teal-200 mx-1">nerves</span> .</p>
+                                    <p>3 Being <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-teal-600 font-bold bg-teal-50 px-2 rounded border border-teal-200 mx-1">overloaded</span> <span class="text-emerald-700 italic font-bold">with</span> information, I got puzzled and frustrated.</p>
+                                    <p>4 I did <span class="text-emerald-700 italic font-bold">not have the foggiest idea about</span> which piece of information was <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-teal-600 font-bold bg-teal-50 px-2 rounded border border-teal-200 mx-1">credible</span> and which was <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-teal-600 font-bold bg-teal-50 px-2 rounded border border-teal-200 mx-1">misleading</span> .</p>
+                                    <p>5 It is advisable to be <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-teal-600 font-bold bg-teal-50 px-2 rounded border border-teal-200 mx-1">wary</span> <span class="text-emerald-700 italic font-bold">of</span> the information we encounter on the Internet.</p>
+                                    <p>6 I <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-teal-600 font-bold bg-teal-50 px-2 rounded border border-teal-200 mx-1">turned</span> <span class="text-emerald-700 italic font-bold">to</span> Google Scholar which offered access to high-quality articles and reports from reliable sources.</p>
+                                    <p>7 When the deadline was approaching, I decided to <span class="text-emerald-700 italic font-bold">work against the</span> <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-teal-600 font-bold bg-teal-50 px-2 rounded border border-teal-200 mx-1">clock</span> .</p>
+                                    <p>8 The lesson I learned was <span class="text-emerald-700 italic font-bold">more</span> <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-teal-600 font-bold bg-teal-50 px-2 rounded border border-teal-200 mx-1">haste</span> <span class="text-emerald-700 italic font-bold">, less speed</span> (do things too quickly will take you longer in the end)</p>
+                                </div>
+                            </div>
+
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <!-- Exercise 2 -->
+                                <div id="spk6-ex2-container" class="bg-emerald-50/50 border border-emerald-100 rounded-xl p-6 shadow-sm transition-all duration-300">
+                                    <div class="flex justify-between items-center mb-4">
+                                        <h5 class="font-bold text-emerald-800 text-lg">Exercise 2</h5>
+                                        <button id="btn-spk6-ex2" onclick="toggleInlineAnswers('spk6-ex2-container', 'btn-spk6-ex2')" class="text-xs bg-white text-emerald-700 px-3 py-1.5 rounded-lg font-bold border border-emerald-200 hover:bg-emerald-100 transition-colors">Show Answers</button>
+                                    </div>
+                                    <p class="text-gray-700 text-sm mb-4 font-medium">Decide whether the following sentences are correct or incorrect.</p>
+                                    
+                                    <div class="grid grid-cols-2 gap-3 mb-5">
+                                        <div class="bg-white border border-emerald-200 p-2.5 rounded-xl shadow-sm flex flex-col justify-center items-center text-center hover:shadow-md transition-shadow">
+                                            <span class="font-bold text-emerald-700 text-sm">drained</span>
+                                            <span class="text-[10px] text-gray-500 font-mono mb-1.5">/dreɪnd/</span>
+                                            <div class="text-[11px] text-gray-700 border-t border-emerald-50 pt-1.5 w-full leading-tight">
+                                                Kiệt sức<br>
+                                                <span class="text-gray-400 italic text-[10px]">Usage: feel drained</span>
+                                            </div>
+                                        </div>
+                                        <div class="bg-white border border-emerald-200 p-2.5 rounded-xl shadow-sm flex flex-col justify-center items-center text-center hover:shadow-md transition-shadow">
+                                            <span class="font-bold text-emerald-700 text-sm">double check</span>
+                                            <span class="text-[10px] text-gray-500 font-mono mb-1.5">/ˌdʌbl ˈtʃek/</span>
+                                            <div class="text-[11px] text-gray-700 border-t border-emerald-50 pt-1.5 w-full leading-tight">
+                                                Kiểm tra lại lần hai<br>
+                                                <span class="text-gray-400 italic text-[10px]">Usage: double check the facts</span>
+                                            </div>
+                                        </div>
+                                        <div class="bg-white border border-emerald-200 p-2.5 rounded-xl shadow-sm flex flex-col justify-center items-center text-center hover:shadow-md transition-shadow">
+                                            <span class="font-bold text-emerald-700 text-sm">gullible</span>
+                                            <span class="text-[10px] text-gray-500 font-mono mb-1.5">/ˈɡʌləbl/</span>
+                                            <div class="text-[11px] text-gray-700 border-t border-emerald-50 pt-1.5 w-full leading-tight">
+                                                Cả tin, dễ bị lừa<br>
+                                                <span class="text-gray-400 italic text-[10px]">Usage: a gullible person</span>
+                                            </div>
+                                        </div>
+                                        <div class="bg-white border border-emerald-200 p-2.5 rounded-xl shadow-sm flex flex-col justify-center items-center text-center hover:shadow-md transition-shadow">
+                                            <span class="font-bold text-emerald-700 text-sm">censored</span>
+                                            <span class="text-[10px] text-gray-500 font-mono mb-1.5">/ˈsensəd/</span>
+                                            <div class="text-[11px] text-gray-700 border-t border-emerald-50 pt-1.5 w-full leading-tight">
+                                                Bị kiểm duyệt, cắt bỏ<br>
+                                                <span class="text-gray-400 italic text-[10px]">Usage: a censored movie</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="space-y-4 text-sm font-medium text-gray-800">
+                                        <div class="flex justify-between items-start gap-2 border-b border-emerald-100 pb-2">
+                                            <p>1 When you feel <span class="text-emerald-700 italic font-bold">drained</span>, you are energetic.</p>
+                                            <span class="blank-ans text-red-600 font-bold px-2 py-0.5 bg-red-50 rounded border border-red-200 text-[10px]">INCORRECT</span>
+                                        </div>
+                                        <div class="flex justify-between items-start gap-2 border-b border-emerald-100 pb-2">
+                                            <p>2 <span class="text-emerald-700 italic font-bold">Double check</span> means checking for a second time.</p>
+                                            <span class="blank-ans text-teal-600 font-bold px-2 py-0.5 bg-teal-50 rounded border border-teal-200 text-[10px]">&nbsp;&nbsp;CORRECT&nbsp;&nbsp;</span>
+                                        </div>
+                                        <div class="flex justify-between items-start gap-2 border-b border-emerald-100 pb-2">
+                                            <p>3 A <span class="text-emerald-700 italic font-bold">gullible</span> person is naive.</p>
+                                            <span class="blank-ans text-teal-600 font-bold px-2 py-0.5 bg-teal-50 rounded border border-teal-200 text-[10px]">&nbsp;&nbsp;CORRECT&nbsp;&nbsp;</span>
+                                        </div>
+                                        <div class="flex justify-between items-start gap-2">
+                                            <p>4 When a part of a film is <span class="text-emerald-700 italic font-bold">censored</span>, it is removed due to its seeming offensiveness.</p>
+                                            <span class="blank-ans text-teal-600 font-bold px-2 py-0.5 bg-teal-50 rounded border border-teal-200 text-[10px]">&nbsp;&nbsp;CORRECT&nbsp;&nbsp;</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Exercise 3 -->
+                                <div id="spk6-ex3-container" class="bg-emerald-50/50 border border-emerald-100 rounded-xl p-6 shadow-sm transition-all duration-300">
+                                    <div class="flex justify-between items-center mb-4">
+                                        <h5 class="font-bold text-emerald-800 text-lg">Exercise 3</h5>
+                                        <button id="btn-spk6-ex3" onclick="toggleInlineAnswers('spk6-ex3-container', 'btn-spk6-ex3')" class="text-xs bg-white text-emerald-700 px-3 py-1.5 rounded-lg font-bold border border-emerald-200 hover:bg-emerald-100 transition-colors">Show Answers</button>
+                                    </div>
+                                    <p class="text-gray-700 text-sm mb-4 font-medium">Arrange the following ideas into the suitable column.</p>
+                                    
+                                    <div class="text-xs text-gray-700 font-medium mb-4 space-y-1">
+                                        <p>a. an infinite source of information of various disciplines</p>
+                                        <p>b. violent, offensive, or disturbing content is widespread</p>
+                                        <p>c. searching information can be done from the comforts of home with a mouse click</p>
+                                        <p>d. dissemination of misleading information</p>
+                                        <p>e. excessive information overwhelms users</p>
+                                    </div>
+
+                                    <div class="grid grid-cols-2 gap-4 text-sm">
+                                        <div class="bg-white border border-emerald-100 p-3 rounded-lg text-center">
+                                            <p class="font-bold text-emerald-700 mb-2 text-xs uppercase">Merits (Pros)</p>
+                                            <div class="blank-ans text-teal-700 font-bold bg-teal-50 py-1 rounded shadow-inner">
+                                                <p>a, c</p>
+                                            </div>
+                                            <div class="blank-dots text-gray-300">......</div>
+                                        </div>
+                                        <div class="bg-white border border-emerald-100 p-3 rounded-lg text-center">
+                                            <p class="font-bold text-red-700 mb-2 text-xs uppercase">Demerits (Cons)</p>
+                                            <div class="blank-ans text-teal-700 font-bold bg-teal-50 py-1 rounded shadow-inner">
+                                                <p>b, d, e</p>
+                                            </div>
+                                            <div class="blank-dots text-gray-300">......</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Speaking Practice Part 2 -->
+                    <div class="bg-white rounded-3xl shadow-xl border border-cyan-50 p-8">
+                        <div class="flex flex-col md:flex-row justify-between items-center gap-6 mb-8 border-b border-gray-100 pb-6">
+                            <div>
+                                <h3 class="text-2xl font-bold text-gray-800">Part 2: Long Turn</h3>
+                                <p class="text-gray-500 mt-1 font-medium">Manage the candidate's preparation and speaking time.</p>
+                            </div>
+                            
+                            <div class="flex gap-4 w-full md:w-auto">
+                                <div class="bg-teal-50 rounded-2xl p-4 border border-teal-100 text-center flex-1 md:w-36 shadow-sm">
+                                    <h4 class="text-teal-600 font-bold uppercase text-[10px] tracking-wider mb-2">Prep Time (1 Min)</h4>
+                                    <div class="text-3xl font-black text-teal-700 timer-text mb-3 drop-shadow-sm" id="prep1-timer">01:00</div>
+                                    <button onclick="toggleTimer('prep1', 60)" id="btn-prep1-timer" class="w-full bg-teal-200 text-teal-800 py-1.5 rounded-xl font-bold hover:bg-teal-300 transition-colors text-sm">Start</button>
+                                </div>
+                                <div class="bg-cyan-50 rounded-2xl p-4 border border-cyan-100 text-center flex-1 md:w-36 shadow-sm">
+                                    <h4 class="text-cyan-600 font-bold uppercase text-[10px] tracking-wider mb-2">Speaking (2 Mins)</h4>
+                                    <div class="text-3xl font-black text-cyan-600 timer-text mb-3 drop-shadow-sm" id="speak1-timer">02:00</div>
+                                    <button onclick="toggleTimer('speak1', 120)" id="btn-speak1-timer" class="w-full bg-gradient-to-r from-teal-500 to-cyan-500 text-white py-1.5 rounded-xl font-bold hover:opacity-90 transition-opacity text-sm shadow-sm">Start</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid lg:grid-cols-2 gap-8 mb-8">
+                            <!-- Topic 1 -->
+                            <div class="bg-slate-900 border-l-4 border-teal-500 p-6 rounded-r-2xl shadow-sm text-slate-100 flex flex-col">
+                                <div class="flex-grow">
+                                    <p class="text-teal-400 font-bold uppercase tracking-wider text-xs mb-2">Topic 1</p>
+                                    <p class="text-xl font-bold text-white mb-4">Describe a time you looked for information on the Internet.</p>
+                                    <p class="text-slate-300 mb-2 font-medium text-sm">You should say:</p>
+                                    <ul class="text-slate-300 space-y-1.5 list-disc list-inside font-medium ml-2 text-sm">
+                                        <li>When you did that</li>
+                                        <li>What information you searched</li>
+                                        <li>How you felt about it</li>
+                                    </ul>
+                                </div>
+                                <div class="mt-6 pt-5 border-t border-slate-700">
+                                    <button onclick="toggleVisibility('p2-t1-sample')" class="text-xs font-bold text-slate-900 bg-teal-200 hover:bg-teal-300 px-4 py-2 rounded-lg transition-colors shadow-sm w-full sm:w-auto">Show Sample Response</button>
+                                    <div id="p2-t1-sample" class="hidden mt-4 bg-slate-800 p-5 rounded-xl border border-slate-700 shadow-inner">
+                                        <p class="text-sm text-slate-200 italic leading-relaxed">"I’d like to talk about a time I urgently needed to look up information for a university assignment. It was about two weeks ago, and my deadline was fast approaching, so I was definitely <strong>working against the clock</strong>. I was looking for credible academic papers regarding the impact of modern <strong>consumerism</strong> on the environment.<br><br>Initially, I searched on regular Google, but I was immediately <strong>overloaded with information</strong>. It was a chaotic mix of blogs, opinion pieces, and unverified data. I didn’t have the foggiest idea about which sources were genuinely <strong>credible</strong> and which were <strong>misleading</strong>. I was a bundle of nerves because I couldn't afford to include inaccurate data in my thesis.<br><br>Eventually, I realized I needed to be more strategic, so I <strong>turned to</strong> Google Scholar. This was a game-changer. It filtered out the noise and provided me with high-quality, peer-reviewed articles. Although the initial search was frustrating and made me feel completely drained, I ultimately felt a huge sense of relief when I found the exact data I needed. It taught me that while the internet is an infinite source of information, knowing *how* to search is <strong>of the essence</strong>."</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Topic 2 -->
+                            <div class="bg-slate-900 border-l-4 border-cyan-500 p-6 rounded-r-2xl shadow-sm text-slate-100 flex flex-col">
+                                <div class="flex-grow">
+                                    <p class="text-cyan-400 font-bold uppercase tracking-wider text-xs mb-2">Topic 2</p>
+                                    <p class="text-xl font-bold text-white mb-4">Describe information that was incorrect that you got.</p>
+                                    <p class="text-slate-300 mb-2 font-medium text-sm">You should say:</p>
+                                    <ul class="text-slate-300 space-y-1.5 list-disc list-inside font-medium ml-2 text-sm">
+                                        <li>Where you got the information</li>
+                                        <li>What it was about</li>
+                                        <li>And explain how you felt about it</li>
+                                    </ul>
+                                </div>
+                                <div class="mt-6 pt-5 border-t border-slate-700">
+                                    <button onclick="toggleVisibility('p2-t2-sample')" class="text-xs font-bold text-slate-900 bg-cyan-200 hover:bg-cyan-300 px-4 py-2 rounded-lg transition-colors shadow-sm w-full sm:w-auto">Show Sample Response</button>
+                                    <div id="p2-t2-sample" class="hidden mt-4 bg-slate-800 p-5 rounded-xl border border-slate-700 shadow-inner">
+                                        <p class="text-sm text-slate-200 italic leading-relaxed">"I'm going to tell you about a time I received some completely incorrect information regarding a flight schedule. Last summer, I was planning a trip to Da Nang with my family. I had booked the tickets online through a third-party travel agency website, which I usually avoid, but they were offering a supposedly huge discount.<br><br>The information I received via email stated that our flight was scheduled to depart at 2:00 PM. On the day of departure, we arrived at the airport two hours early, only to discover that the flight had actually left at 10:00 AM. The itinerary sent by the agency was entirely <strong>misleading</strong>.<br><br>I felt absolutely furious and incredibly stressed. We were stranded at the airport with our luggage, and I felt like such a <strong>gullible</strong> person for trusting an unverified website just to save a few bucks. I immediately contacted their customer service, but they were unhelpful. We eventually had to buy new, expensive tickets for the next available flight. It was a hard lesson to always <strong>double-check</strong> vital information directly with the official airline, and it made me extremely <strong>wary</strong> of online bargains."</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Speaking Practice Part 3 -->
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6 border-b border-gray-100 pb-4 mt-10">Part 3: Discussion Questions</h3>
+                        
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="bg-gray-50 rounded-xl p-5 border border-gray-200 shadow-sm">
+                                <div class="flex justify-between items-start gap-2 mb-3">
+                                    <p class="font-bold text-gray-800 text-[15px]"><span class="text-teal-600 mr-2">1.</span> What are the differences between getting information from libraries and from newspapers?</p>
+                                </div>
+                                <button onclick="toggleVisibility('p3-q1')" class="text-[10px] font-bold text-teal-600 bg-teal-100 hover:bg-teal-200 px-3 py-1.5 rounded transition-colors mb-2">Show Sample</button>
+                                <div id="p3-q1" class="hidden mt-2 pt-2 border-t border-gray-200">
+                                    <p class="text-sm text-gray-600 italic leading-relaxed">"The primary difference lies in the depth and recency of the information. Newspapers provide daily updates on current events, politics, and local happenings; they are designed for quick consumption. Conversely, libraries are archives of comprehensive, in-depth knowledge spanning centuries. You go to a newspaper to find out what happened yesterday, but you go to a library to conduct deep research on a subject."</p>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gray-50 rounded-xl p-5 border border-gray-200 shadow-sm">
+                                <div class="flex justify-between items-start gap-2 mb-3">
+                                    <p class="font-bold text-gray-800 text-[15px]"><span class="text-teal-600 mr-2">2.</span> In what ways can people get information these days?</p>
+                                </div>
+                                <button onclick="toggleVisibility('p3-q2')" class="text-[10px] font-bold text-teal-600 bg-teal-100 hover:bg-teal-200 px-3 py-1.5 rounded transition-colors mb-2">Show Sample</button>
+                                <div id="p3-q2" class="hidden mt-2 pt-2 border-t border-gray-200">
+                                    <p class="text-sm text-gray-600 italic leading-relaxed">"Today, the avenues for gathering information are virtually limitless. The most prevalent method is, of course, the internet via smartphones and computers—using search engines, social media platforms, or dedicated news apps. However, traditional media like television broadcasts, radio, and print newspapers still play a significant role, particularly for older generations."</p>
+                                </div>
+                            </div>
+
+                            <div class="bg-gray-50 rounded-xl p-5 border border-gray-200 shadow-sm md:col-span-2">
+                                <div class="flex justify-between items-start gap-2 mb-3">
+                                    <p class="font-bold text-gray-800 text-[15px]"><span class="text-teal-600 mr-2">3.</span> What are the advantages and disadvantages of getting information on the Internet?</p>
+                                </div>
+                                <button onclick="toggleVisibility('p3-q3')" class="text-[10px] font-bold text-teal-600 bg-teal-100 hover:bg-teal-200 px-3 py-1.5 rounded transition-colors mb-2">Show Sample</button>
+                                <div id="p3-q3" class="hidden mt-2 pt-2 border-t border-gray-200">
+                                    <p class="text-sm text-gray-600 italic leading-relaxed">"The main advantage is undoubtedly convenience; users can access an infinite source of information across various disciplines from the comfort of their homes with just a mouse click. It's incredibly fast and mostly free. However, the demerits are significant. The sheer volume of data can be overwhelming, and more alarmingly, the internet is rife with the dissemination of misleading information and fake news. Therefore, users must possess strong critical thinking skills to verify the credibility of their sources."</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            `
+        }
+    ];
+
+    let currentIndex = 0;
+
+    const headerEl = document.getElementById('app-header');
+    const titleEl = document.getElementById('slide-title');
+    const containerEl = document.getElementById('content-container');
+    const prevBtn = document.getElementById('btn-prev');
+    const nextBtn = document.getElementById('btn-next');
+    const indicatorEl = document.getElementById('step-indicator');
+    const progressBarEl = document.getElementById('progress-bar');
+    const navDropdown = document.getElementById('nav-dropdown');
+    const navMenuList = document.getElementById('nav-menu-list');
+
+    window.addEventListener('DOMContentLoaded', () => {
+        populateNavMenu();
+        
+        document.getElementById('nav-toggle-btn').addEventListener('click', (e) => {
+            e.stopPropagation();
+            navDropdown.classList.toggle('hidden');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!navDropdown.contains(e.target) && !document.getElementById('nav-toggle-btn').contains(e.target)) {
+                navDropdown.classList.add('hidden');
+            }
+        });
+
+        if(prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                if (currentIndex > 0) renderSlide(--currentIndex);
+            });
+        }
+
+        if(nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                if (currentIndex < sessionData.length - 1) {
+                    renderSlide(++currentIndex);
+                } else {
+                    alert("Lesson 20 Completed! Excellent work today.");
+                }
+            });
+        }
+
+        renderSlide(0);
+    });
+
+    function populateNavMenu() {
+        if(!navMenuList) return;
+        navMenuList.innerHTML = sessionData.map((data, index) => `
+            <button onclick="goToSlide(${index})" class="nav-item-btn w-full text-left p-3 mb-1 rounded-xl hover:bg-white transition-all flex items-center gap-3 border border-transparent shadow-sm">
+                <div class="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 text-sm font-bold text-white shadow-sm ${data.themeClass || ''}">
+                    ${index + 1}
+                </div>
+                <div>
+                    <div class="text-sm font-bold text-gray-800 leading-tight">${data.title ? data.title.substring(3) : 'Section ' + (index + 1)}</div>
+                    <div class="text-[10px] font-bold uppercase tracking-wider ${data.iconColor || ''}">${data.type || 'Lesson'}</div>
+                </div>
+            </button>
+        `).join('');
+    }
+
+    window.goToSlide = function(index) {
+        currentIndex = index;
+        renderSlide(currentIndex);
+        if(navDropdown) navDropdown.classList.add('hidden');
+    };
+
+    function renderSlide(index) {
+        if (typeof pauseAllTimers === 'function') pauseAllTimers();
+        const data = sessionData[index];
+        if(!headerEl || !titleEl || !containerEl) return;
+        
+        headerEl.className = `text-white p-4 shadow-lg transition-colors duration-700 z-20 relative ${data.themeClass}`;
+        titleEl.textContent = data.title;
+        
+        const progressPercent = ((index + 1) / sessionData.length) * 100;
+        if(progressBarEl) progressBarEl.style.width = `${progressPercent}%`;
+        if(indicatorEl) indicatorEl.textContent = `Section ${index + 1} of ${sessionData.length}`;
+
+        document.querySelectorAll('.nav-item-btn').forEach((btn, i) => {
+            if (i === index) {
+                btn.classList.add('bg-white', 'border-teal-200', 'shadow-md');
+                btn.classList.remove('border-transparent', 'shadow-sm');
+            } else {
+                btn.classList.remove('bg-white', 'border-teal-200', 'shadow-md');
+                btn.classList.add('border-transparent', 'shadow-sm');
+            }
+        });
+
+        containerEl.innerHTML = ''; 
+        setTimeout(() => {
+            containerEl.innerHTML = data.content;
+            
+            if(data.id === 'speaking_unit6') {
+                updateTimerUI('prep1', timers.prep1.remaining);
+                updateTimerUI('speak1', timers.speak1.remaining);
+            }
+        }, 10);
+
+        if(prevBtn) prevBtn.disabled = index === 0;
+        if(nextBtn) nextBtn.innerHTML = index === sessionData.length - 1 ? 
+            'Finish Lesson <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>' : 
+            'Next Section <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>';
+    }
+
+    window.toggleInlineAnswers = function(containerId, btnId) {
+        const container = document.getElementById(containerId);
+        const btn = document.getElementById(btnId);
+        if(container) {
+            container.classList.toggle('show-answers');
+            if(container.classList.contains('show-answers')) {
+                container.classList.add('bg-emerald-50/30', 'border-emerald-200');
+            } else {
+                container.classList.remove('bg-emerald-50/30', 'border-emerald-200');
+            }
+            if(btn) {
+                btn.textContent = container.classList.contains('show-answers') ? 'Hide Answers' : 'Show Answers';
+                btn.classList.toggle('bg-white');
+                btn.classList.toggle('bg-emerald-100');
+                btn.classList.toggle('text-gray-700');
+                btn.classList.toggle('text-emerald-800');
+                btn.classList.toggle('border-gray-300');
+                btn.classList.toggle('border-emerald-300');
+            }
+        }
+    }
+
+    window.toggleVisibility = function(id) {
+        const el = document.getElementById(id);
+        if(el) {
+            if(el.classList.contains('hidden')){
+                el.classList.remove('hidden');
+                el.classList.add('fade-in');
+                setTimeout(() => { el.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }, 50);
+            } else {
+                el.classList.add('hidden');
+                el.classList.remove('fade-in');
+            }
+        }
+    };
+</script>
+</body>
+</html>
