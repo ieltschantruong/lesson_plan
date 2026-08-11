@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Chan Truong - Lesson 08</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* GLASSMORPHIC MODERN CHIC THEME */
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #fdf2f8;
+            background-image: 
+                radial-gradient(at 0% 0%, #ffe4e6 0px, transparent 50%),
+                radial-gradient(at 100% 0%, #fce7f3 0px, transparent 50%),
+                radial-gradient(at 100% 100%, #fbcfe8 0px, transparent 50%),
+                radial-gradient(at 0% 100%, #fdf2f8 0px, transparent 50%),
+                radial-gradient(at 50% 50%, #fff1f2 0px, transparent 50%);
+            background-attachment: fixed;
+            color: #4c0519; 
+        }
+        
+        .slide { display: none; opacity: 0; transition: opacity 0.5s ease, transform 0.5s ease; transform: translateY(20px); }
+        .slide.active { display: block; opacity: 1; transform: translateY(0); }
+        
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: transparent; } 
+        ::-webkit-scrollbar-thumb { background: rgba(244, 114, 182, 0.4); border-radius: 10px; border: 2px solid transparent; background-clip: padding-box; } 
+        ::-webkit-scrollbar-thumb:hover { background: rgba(225, 29, 72, 0.5); border: 2px solid transparent; background-clip: padding-box; } 
+        
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
+        .hidden-answer { display: none; }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 10px 40px -10px rgba(225, 29, 72, 0.15);
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.45);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: inset 0 2px 4px 0 rgba(255, 255, 255, 0.3), 0 4px 15px -5px rgba(225, 29, 72, 0.05);
+        }
+        .glass-button {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.5));
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 15px -5px rgba(225, 29, 72, 0.15);
+            transition: all 0.3s ease;
+        }
+        .glass-button:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px -5px rgba(225, 29, 72, 0.25);
+        }
+        
+        .hover-lift { transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease; }
+        .hover-lift:hover { transform: translateY(-4px); box-shadow: 0 15px 30px -10px rgba(225, 29, 72, 0.2); }
+
+        select.nav-dropdown {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23881337' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1em;
+            padding-right: 2.5rem;
+        }
+    </style>
+</head>
+<body class="h-screen flex flex-col overflow-hidden">
+
+    <header class="glass-card border-b border-white/60 z-20 shrink-0 relative">
+        <div class="p-4 flex justify-between items-center max-w-7xl mx-auto w-full">
+            <div>
+                <h1 class="text-2xl font-extrabold tracking-tight text-rose-950">IELTS Chan Truong <span class="text-rose-600 font-semibold ml-2 px-3 py-1 bg-white/50 border border-white/60 rounded-full text-base shadow-sm">Class 5.5-6.5</span></h1>
+                <p class="text-sm text-rose-900/70 mt-1.5 flex items-center gap-2 font-medium">
+                    <span class="w-2 h-2 rounded-full bg-pink-400 shadow-[0_0_8px_rgba(244,114,182,0.8)]"></span> Lesson 08: Listening & Speaking
+                </p>
+            </div>
+            
+            <div class="flex items-center gap-4 w-full md:w-auto justify-between md:justify-end">
+                <select id="section-nav" onchange="jumpToSection(this.value)" class="nav-dropdown glass-panel text-rose-900 font-bold py-2 px-4 rounded-xl shadow-sm outline-none cursor-pointer border border-white/60 hover:bg-white/60 transition">
+                    <option value="0">1. Lesson Overview</option>
+                    <option value="1">2. Listening: Strategy Guide</option>
+                    <option value="2">3. Listening: Mock Test (Unit 3)</option>
+                    <option value="3">4. Speaking: Vocab (Colors)</option>
+                    <option value="4">5. Speaking: Practice (Colors)</option>
+                    <option value="5">6. Speaking: Vocab (Music)</option>
+                    <option value="6">7. Speaking: Practice (Music)</option>
+                    <option value="7">8. Speaking: Part 2 (Favorite Song)</option>
+                </select>
+
+                <div class="flex gap-3">
+                    <span id="slide-counter" class="font-bold text-rose-900 px-3 py-1.5 glass-panel rounded-full text-sm hidden md:inline-block">1 / 8</span>
+                    <button onclick="prevSlide()" class="glass-button text-rose-800 px-3 py-1.5 rounded-full font-semibold flex items-center gap-1.5 text-sm">
+                        <span>←</span> <span class="hidden sm:inline">Prev</span>
+                    </button>
+                    <button onclick="nextSlide()" class="bg-gradient-to-r from-pink-500 to-rose-400 hover:from-pink-400 hover:to-rose-300 text-white px-4 py-1.5 rounded-full shadow-lg shadow-pink-500/30 transition-all hover:shadow-pink-500/50 hover:-translate-y-0.5 font-bold flex items-center gap-1.5 text-sm">
+                        <span class="hidden sm:inline">Next</span> <span>→</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="h-1 bg-white/40 w-full absolute bottom-0 left-0">
+            <div id="progress-bar" class="h-full bg-gradient-to-r from-pink-400 to-rose-500 transition-all duration-500 ease-out shadow-[0_0_10px_rgba(244,114,182,0.5)]" style="width: 12.5%;"></div>
+        </div>
+    </header>
+
+    <main class="flex-1 overflow-y-auto p-4 md:p-8 relative">
+        <div class="max-w-7xl mx-auto pb-24">
+
+            <!-- SLIDE 0: Overview -->
+            <div class="slide active">
+                <div class="text-center py-16">
+                    <div class="inline-block mb-6 px-5 py-2 rounded-full glass-panel text-rose-600 font-bold text-sm tracking-widest uppercase shadow-sm">Lesson Overview</div>
+                    <h2 class="text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-rose-950 to-pink-700 mb-6 tracking-tight drop-shadow-sm">Listening & Speaking</h2>
+                    <p class="text-xl text-rose-900/70 mb-16 max-w-2xl mx-auto font-medium leading-relaxed">Today's session covers Listening Unit 3 (Section 3 strategies) and Speaking Part 1 & 2 focusing on Colors and Music.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto text-left">
+                        <div class="glass-card p-8 rounded-3xl hover-lift relative overflow-hidden group">
+                            <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-purple-400 to-pink-400 opacity-80"></div>
+                            <div class="w-14 h-14 glass-panel rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-sm group-hover:scale-110 transition-transform">🎧</div>
+                            <h3 class="text-2xl font-bold mb-4 text-rose-950">Part 1: Listening</h3>
+                            <ul class="text-rose-900/80 space-y-3 font-medium">
+                                <li class="flex items-start gap-3"><span class="text-pink-400 mt-1">✦</span> Strategy: Section 3 Overview</li>
+                                <li class="flex items-start gap-3"><span class="text-pink-400 mt-1">✦</span> Question Types: MC (Many Answers) & Matching</li>
+                                <li class="flex items-start gap-3"><span class="text-pink-400 mt-1">✦</span> Practice: Complete IELTS SB | Unit 3</li>
+                            </ul>
+                        </div>
+                        <div class="glass-card p-8 rounded-3xl hover-lift relative overflow-hidden group">
+                            <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-pink-400 to-rose-400 opacity-80"></div>
+                            <div class="w-14 h-14 glass-panel rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-sm group-hover:scale-110 transition-transform">🗣️</div>
+                            <h3 class="text-2xl font-bold mb-4 text-rose-950">Part 2: Speaking</h3>
+                            <ul class="text-rose-900/80 space-y-3 font-medium">
+                                <li class="flex items-start gap-3"><span class="text-rose-400 mt-1">✦</span> Vocab: Colors & Music (Pg 32-34)</li>
+                                <li class="flex items-start gap-3"><span class="text-rose-400 mt-1">✦</span> Part 1 Practice: Colors & Music</li>
+                                <li class="flex items-start gap-3"><span class="text-rose-400 mt-1">✦</span> Part 2 Practice: Describe your favorite song</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <button onclick="nextSlide()" class="mt-16 bg-gradient-to-r from-rose-900 to-pink-800 hover:from-rose-800 hover:to-pink-700 text-white px-10 py-4 rounded-full text-lg font-bold shadow-[0_10px_25px_rgba(159,18,57,0.3)] transition-all hover:shadow-[0_15px_35px_rgba(159,18,57,0.4)] hover:-translate-y-1 flex items-center gap-3 mx-auto">
+                        Begin Lesson <span class="text-xl">✨</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- SLIDE 1: Listening Strategy Guide -->
+            <div class="slide">
+                <div class="flex items-center gap-4 mb-10">
+                    <span class="w-12 h-12 rounded-2xl glass-panel flex items-center justify-center text-2xl shadow-sm">🎧</span>
+                    <div>
+                        <span class="text-pink-600 font-extrabold text-xs tracking-widest uppercase">Listening Section</span>
+                        <h2 class="text-3xl font-extrabold text-rose-950">Section 3 Strategy Guide</h2>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8 items-stretch">
+                    <!-- Section 3 Overview -->
+                    <div class="glass-card rounded-3xl p-6 md:p-8 border-t-4 border-pink-400 hover-lift h-full flex flex-col">
+                        <h3 class="text-xl font-bold text-rose-950 mb-4 flex items-center gap-2"><span>👥</span> Section 3: Format & Overview</h3>
+                        <ul class="space-y-3 font-medium text-rose-950/80 text-[0.95rem] flex-1 overflow-y-auto pr-2">
+                            <li class="flex items-start gap-3"><span class="text-pink-500 font-black shrink-0">1.</span> <span class="flex-1"><strong>Context:</strong> Educational or academic training situation (e.g., a university tutor discussing an assignment with students).</span></li>
+                            <li class="flex items-start gap-3"><span class="text-pink-500 font-black shrink-0">2.</span> <span class="flex-1"><strong>Speakers:</strong> Up to 4 people interacting. Identifying who is speaking and what their opinion is is critical.</span></li>
+                            <li class="flex items-start gap-3"><span class="text-pink-500 font-black shrink-0">3.</span> <span class="flex-1"><strong>Pace & Difficulty:</strong> The speed is generally faster, and the vocabulary is more academic and complex than Sections 1 and 2.</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Question Types Strategies -->
+                    <div class="glass-card rounded-3xl p-6 md:p-8 border-t-4 border-rose-400 hover-lift h-full flex flex-col">
+                        <h3 class="text-xl font-bold text-rose-950 mb-4 flex items-center gap-2"><span>💡</span> Question Types Strategies</h3>
+                        <ul class="space-y-3 font-medium text-rose-950/80 text-[0.95rem] flex-1 overflow-y-auto pr-2">
+                            <li class="flex items-start gap-3"><span class="text-rose-500 font-black shrink-0">A.</span> <span class="flex-1"><strong>Multiple Choice (Many Answers):</strong> E.g., "Choose TWO letters A-E". Don't just listen for keywords; speakers will mention <em>all</em> options to distract you. Listen for <strong>agreement</strong> or <strong>final decisions</strong> between speakers.</span></li>
+                            <li class="flex items-start gap-3"><span class="text-rose-500 font-black shrink-0">B.</span> <span class="flex-1"><strong>Matching Features:</strong> You have a list of items and a list of options. The questions follow the order of the recording. Options do not. Use prep time to predict synonyms for the options.</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 2: Listening Mock Test -->
+            <div class="slide">
+                <div class="flex items-center gap-4 mb-10">
+                    <span class="w-12 h-12 rounded-2xl glass-panel flex items-center justify-center text-2xl shadow-sm">🎧</span>
+                    <div>
+                        <span class="text-pink-600 font-extrabold text-xs tracking-widest uppercase">Listening Section</span>
+                        <h2 class="text-3xl font-extrabold text-rose-950">Complete IELTS SB | Unit 3 - Section 3</h2>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-3xl mb-8 exercise-container overflow-hidden">
+                    <div class="p-8 md:p-10 border-b border-white/60">
+                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                            <div>
+                                <h3 class="text-2xl font-bold text-rose-950">Answer Keys</h3>
+                                <p class="text-sm text-rose-900/60 mt-1">Check answers with the class after completing the mock test.</p>
+                            </div>
+                            <button onclick="toggleAnswers(this)" class="glass-button text-rose-800 font-bold py-2.5 px-5 rounded-xl flex items-center justify-center gap-2 text-sm shadow-sm shrink-0">
+                                👀 Reveal Answers
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="p-8 md:p-10 bg-white/25">
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm">
+                                <span class="font-black text-pink-400">1-2</span>
+                                <span class="hidden-answer font-bold text-rose-900">A, D</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm">
+                                <span class="font-black text-pink-400">3-4</span>
+                                <span class="hidden-answer font-bold text-rose-900">B, E</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm">
+                                <span class="font-black text-pink-400">5</span>
+                                <span class="hidden-answer font-bold text-rose-900">D</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm">
+                                <span class="font-black text-pink-400">6</span>
+                                <span class="hidden-answer font-bold text-rose-900">F</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm">
+                                <span class="font-black text-pink-400">7</span>
+                                <span class="hidden-answer font-bold text-rose-900">E</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm">
+                                <span class="font-black text-pink-400">8</span>
+                                <span class="hidden-answer font-bold text-rose-900">C</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm col-span-2 md:col-span-2">
+                                <span class="font-black text-pink-400">9</span>
+                                <span class="hidden-answer font-bold text-rose-900 text-sm">mobile phones</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm col-span-2 md:col-span-2">
+                                <span class="font-black text-pink-400">10</span>
+                                <span class="hidden-answer font-bold text-rose-900 text-sm">digital recorders</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-6 flex items-center justify-between">
+                    <h3 class="text-2xl font-bold text-rose-950">Mock Test View</h3>
+                    <a href="https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/section3_complete_ielts_5.5_6.5_sb_unit3.html" target="_blank" class="inline-flex items-center gap-2 bg-gradient-to-r from-pink-500 to-rose-400 hover:from-pink-400 hover:to-rose-300 text-white font-bold py-2.5 px-6 rounded-full shadow-lg shadow-pink-500/30 transition-all hover:-translate-y-1 text-sm">
+                        Open in New Tab <span>↗</span>
+                    </a>
+                </div>
+                <div class="glass-card rounded-3xl p-2 shadow-lg border-2 border-pink-200/50 overflow-hidden" style="height: 60vh;">
+                    <iframe 
+                        src="https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/section3_complete_ielts_5.5_6.5_sb_unit3.html" 
+                        class="w-full h-full border-0 rounded-2xl bg-white"
+                        title="Listening Test SB U3 S3">
+                    </iframe>
+                </div>
+            </div>
+
+            <!-- SLIDE 3: Speaking Vocab - Colors -->
+            <div class="slide">
+                <div class="flex items-center gap-4 mb-10">
+                    <span class="w-12 h-12 rounded-2xl glass-panel flex items-center justify-center text-2xl shadow-sm">🎨</span>
+                    <div>
+                        <span class="text-rose-500 font-extrabold text-xs tracking-widest uppercase">Speaking Part 1</span>
+                        <h2 class="text-3xl font-extrabold text-rose-950">Colors Vocabulary (Yellow Book Pg 32)</h2>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Exercise 6 -->
+                    <div class="glass-card rounded-3xl p-6 exercise-container relative h-full">
+                        <div class="flex items-center justify-between mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold text-rose-950">Exercise 6: Definitions & Images</h3>
+                                <p class="text-sm text-rose-900/60 mt-1">Match the words with pictures/definitions.</p>
+                            </div>
+                            <button onclick="toggleAnswers(this)" class="glass-button text-rose-800 font-bold py-1.5 px-4 rounded-xl text-sm shadow-sm shrink-0">
+                                ✨ Reveal Answers
+                            </button>
+                        </div>
+                        
+                        <div class="space-y-3 text-[0.9rem] font-semibold text-rose-950 mb-6">
+                            <div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2 rounded-lg hover:bg-white/60 transition">
+                                <span class="flex items-center gap-1.5">1 <strong class="text-rose-700">vivid</strong> <span class="text-xs font-normal text-rose-900/60">(chói lọi, sặc sỡ)</span> <button onclick="playAudio('vivid')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span>
+                                <span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ E (🎨 Bright paint palette)</span>
+                            </div>
+                            <div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2 rounded-lg hover:bg-white/60 transition">
+                                <span class="flex items-center gap-1.5">2 <strong class="text-rose-700">creamy</strong> <span class="text-xs font-normal text-rose-900/60">(màu kem mịn)</span> <button onclick="playAudio('creamy')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span>
+                                <span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ C (🟨 Cream/beige square)</span>
+                            </div>
+                            <div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2 rounded-lg hover:bg-white/60 transition">
+                                <span class="flex items-center gap-1.5">3 <strong class="text-rose-700">matching</strong> <span class="text-xs font-normal text-rose-900/60">(đồng điệu, hợp nhau)</span> <button onclick="playAudio('matching')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span>
+                                <span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ D (Definition: same color, style)</span>
+                            </div>
+                            <div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2 rounded-lg hover:bg-white/60 transition">
+                                <span class="flex items-center gap-1.5">4 <strong class="text-rose-700">pastel</strong> <span class="text-xs font-normal text-rose-900/60">(màu nhạt, phấn màu)</span> <span class="font-normal text-rose-950/60 text-xs">/pæˈstel/</span> <button onclick="playAudio('pastel')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span>
+                                <span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ A (🌸 Pink/purple geometry)</span>
+                            </div>
+                            <div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2 rounded-lg hover:bg-white/60 transition">
+                                <span class="flex items-center gap-1.5">5 <strong class="text-rose-700">greenish</strong> <span class="text-xs font-normal text-rose-900/60">(hơi xanh lá)</span> <button onclick="playAudio('greenish')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span>
+                                <span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ B (🟢 Green watercolor circle)</span>
+                            </div>
+                            <div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2 rounded-lg hover:bg-white/60 transition">
+                                <span class="flex items-center gap-1.5">6 <strong class="text-rose-700">neutral</strong> <span class="text-xs font-normal text-rose-900/60">(trung tính)</span> <span class="font-normal text-rose-950/60 text-xs">/ˈnuːtrəl/</span> <button onclick="playAudio('neutral')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span>
+                                <span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ H (🏺 White/grey vases)</span>
+                            </div>
+                            <div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2 rounded-lg hover:bg-white/60 transition">
+                                <span class="flex items-center gap-1.5">7 <strong class="text-rose-700">somber</strong> <span class="text-xs font-normal text-rose-900/60">(u ám, sẫm màu)</span> <span class="font-normal text-rose-950/60 text-xs">/ˈsɑːmbər/</span> <button onclick="playAudio('somber')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span>
+                                <span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ F (Definition: dark in color)</span>
+                            </div>
+                            <div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2 rounded-lg hover:bg-white/60 transition">
+                                <span class="flex items-center gap-1.5">8 <strong class="text-rose-700">fluorescent</strong> <span class="text-xs font-normal text-rose-900/60">(huỳnh quang, chói)</span> <span class="font-normal text-rose-950/60 text-xs">/fləˈresnt/</span> <button onclick="playAudio('fluorescent')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span>
+                                <span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ G (🦺 Yellow safety vest)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Exercise 7 -->
+                    <div class="glass-card rounded-3xl p-6 exercise-container relative h-full">
+                        <div class="flex items-center justify-between mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold text-rose-950">Exercise 7: Color Feelings</h3>
+                                <p class="text-sm text-rose-900/60 mt-1">Match the colors and the feelings they convey.</p>
+                            </div>
+                            <button onclick="toggleAnswers(this)" class="glass-button text-rose-800 font-bold py-1.5 px-4 rounded-xl text-sm shadow-sm shrink-0">
+                                ✨ Reveal Answers
+                            </button>
+                        </div>
+                        
+                        <!-- Options Pool -->
+                        <div class="glass-panel p-3 rounded-xl text-[0.85rem] space-y-1.5 mb-4 font-medium text-rose-950/80 bg-white/20 border border-white/40">
+                            <div class="flex items-start gap-1"><strong class="text-pink-500 shrink-0">A.</strong> <div>calmness, and tranquility <button onclick="playAudio('calmness, and tranquility')" class="text-pink-500 hover:text-pink-700 text-xs mx-1">🔊</button> <span class="text-xs font-normal text-rose-900/70 block sm:inline">(sự bình tĩnh và yên bình)</span></div></div>
+                            <div class="flex items-start gap-1"><strong class="text-pink-500 shrink-0">B.</strong> <div>simplicity, purity, and innocence <button onclick="playAudio('simplicity, purity, and innocence')" class="text-pink-500 hover:text-pink-700 text-xs mx-1">🔊</button> <span class="text-xs font-normal text-rose-900/70 block sm:inline">(sự giản dị, tinh khiết và ngây thơ)</span></div></div>
+                            <div class="flex items-start gap-1"><strong class="text-pink-500 shrink-0">C.</strong> <div>royalty, majesty, and nobility <button onclick="playAudio('royalty, majesty, and nobility')" class="text-pink-500 hover:text-pink-700 text-xs mx-1">🔊</button> <span class="text-xs font-normal text-rose-900/70 block sm:inline">(hoàng gia, oai vệ và quý phái)</span></div></div>
+                            <div class="flex items-start gap-1"><strong class="text-pink-500 shrink-0">D.</strong> <div>happiness, wellbeing, passion <button onclick="playAudio('happiness, wellbeing, passion')" class="text-pink-500 hover:text-pink-700 text-xs mx-1">🔊</button> <span class="text-xs font-normal text-rose-900/70 block sm:inline">(hạnh phúc, an khang, đam mê)</span></div></div>
+                            <div class="flex items-start gap-1"><strong class="text-pink-500 shrink-0">E.</strong> <div>growth, vitality, and renewal <button onclick="playAudio('growth, vitality, and renewal')" class="text-pink-500 hover:text-pink-700 text-xs mx-1">🔊</button> <span class="text-xs font-normal text-rose-900/70 block sm:inline">(sự phát triển, sức sống và đổi mới)</span></div></div>
+                            <div class="flex items-start gap-1"><strong class="text-pink-500 shrink-0">F.</strong> <div>power, luxury, and mystery <button onclick="playAudio('power, luxury, and mystery')" class="text-pink-500 hover:text-pink-700 text-xs mx-1">🔊</button> <span class="text-xs font-normal text-rose-900/70 block sm:inline">(quyền lực, xa xỉ và bí ẩn)</span></div></div>
+                            <div class="flex items-start gap-1"><strong class="text-pink-500 shrink-0">G.</strong> <div>femininity, romance, and youthfulness <button onclick="playAudio('femininity, romance, and youthfulness')" class="text-pink-500 hover:text-pink-700 text-xs mx-1">🔊</button> <span class="text-xs font-normal text-rose-900/70 block sm:inline">(sự nữ tính, lãng mạn và trẻ trung)</span></div></div>
+                            <div class="flex items-start gap-1"><strong class="text-pink-500 shrink-0">H.</strong> <div>cheerfulness, joy, and energy <button onclick="playAudio('cheerfulness, joy, and energy')" class="text-pink-500 hover:text-pink-700 text-xs mx-1">🔊</button> <span class="text-xs font-normal text-rose-900/70 block sm:inline">(sự hân hoan, niềm vui và năng lượng)</span></div></div>
+                        </div>
+
+                        <div class="space-y-2.5 text-[0.9rem] font-semibold text-rose-950 overflow-y-auto">
+                            <div class="flex justify-between items-center bg-white/40 p-2 rounded-lg hover:bg-white/60 transition gap-2">
+                                <span class="flex flex-wrap items-center gap-1.5">1 ❤️ <strong class="text-rose-700">red</strong> <span class="text-xs font-normal text-rose-950/60">/red/</span> <span class="text-xs font-normal text-rose-900/60">(đỏ)</span> <button onclick="playAudio('red')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span>
+                                <span class="hidden-answer text-rose-600 font-bold bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-xs shrink-0">→ D. happiness, passion</span>
+                            </div>
+                            <div class="flex justify-between items-center bg-white/40 p-2 rounded-lg hover:bg-white/60 transition gap-2">
+                                <span class="flex flex-wrap items-center gap-1.5">2 🌸 <strong class="text-rose-700">pink</strong> <span class="text-xs font-normal text-rose-950/60">/pɪŋk/</span> <span class="text-xs font-normal text-rose-900/60">(hồng)</span> <button onclick="playAudio('pink')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span>
+                                <span class="hidden-answer text-rose-600 font-bold bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-xs shrink-0">→ G. femininity, romance</span>
+                            </div>
+                            <div class="flex justify-between items-center bg-white/40 p-2 rounded-lg hover:bg-white/60 transition gap-2">
+                                <span class="flex flex-wrap items-center gap-1.5">3 ⭐ <strong class="text-rose-700">yellow</strong> <span class="text-xs font-normal text-rose-950/60">/ˈjeloʊ/</span> <span class="text-xs font-normal text-rose-900/60">(vàng)</span> <button onclick="playAudio('yellow')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span>
+                                <span class="hidden-answer text-rose-600 font-bold bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-xs shrink-0">→ H. cheerfulness, joy</span>
+                            </div>
+                            <div class="flex justify-between items-center bg-white/40 p-2 rounded-lg hover:bg-white/60 transition gap-2">
+                                <span class="flex flex-wrap items-center gap-1.5">4 💧 <strong class="text-rose-700">blue</strong> <span class="text-xs font-normal text-rose-950/60">/bluː/</span> <span class="text-xs font-normal text-rose-900/60">(xanh dương)</span> <button onclick="playAudio('blue')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span>
+                                <span class="hidden-answer text-rose-600 font-bold bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-xs shrink-0">→ A. calmness, tranquility</span>
+                            </div>
+                            <div class="flex justify-between items-center bg-white/40 p-2 rounded-lg hover:bg-white/60 transition gap-2">
+                                <span class="flex flex-wrap items-center gap-1.5">5 🍃 <strong class="text-rose-700">green</strong> <span class="text-xs font-normal text-rose-950/60">/ɡriːn/</span> <span class="text-xs font-normal text-rose-900/60">(xanh lá)</span> <button onclick="playAudio('green')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span>
+                                <span class="hidden-answer text-rose-600 font-bold bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-xs shrink-0">→ E. growth, vitality</span>
+                            </div>
+                            <div class="flex justify-between items-center bg-white/40 p-2 rounded-lg hover:bg-white/60 transition gap-2">
+                                <span class="flex flex-wrap items-center gap-1.5">6 🔮 <strong class="text-rose-700">purple</strong> <span class="text-xs font-normal text-rose-950/60">/ˈpɜːrpl/</span> <span class="text-xs font-normal text-rose-900/60">(tím)</span> <button onclick="playAudio('purple')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span>
+                                <span class="hidden-answer text-rose-600 font-bold bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-xs shrink-0">→ C. royalty, majesty</span>
+                            </div>
+                            <div class="flex justify-between items-center bg-white/40 p-2 rounded-lg hover:bg-white/60 transition gap-2">
+                                <span class="flex flex-wrap items-center gap-1.5">7 ☁️ <strong class="text-rose-700">white</strong> <span class="text-xs font-normal text-rose-950/60">/waɪt/</span> <span class="text-xs font-normal text-rose-900/60">(trắng)</span> <button onclick="playAudio('white')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span>
+                                <span class="hidden-answer text-rose-600 font-bold bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-xs shrink-0">→ B. simplicity, purity</span>
+                            </div>
+                            <div class="flex justify-between items-center bg-white/40 p-2 rounded-lg hover:bg-white/60 transition gap-2">
+                                <span class="flex flex-wrap items-center gap-1.5">8 🐈‍⬛ <strong class="text-rose-700">black</strong> <span class="text-xs font-normal text-rose-950/60">/blæk/</span> <span class="text-xs font-normal text-rose-900/60">(đen)</span> <button onclick="playAudio('black')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span>
+                                <span class="hidden-answer text-rose-600 font-bold bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-xs shrink-0">→ F. power, luxury, mystery</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 4: Speaking Practice - Colors -->
+            <div class="slide">
+                <div class="flex items-center gap-4 mb-8">
+                    <span class="w-12 h-12 rounded-2xl glass-panel flex items-center justify-center text-2xl shadow-sm">🗣️</span>
+                    <div>
+                        <span class="text-rose-500 font-extrabold text-xs tracking-widest uppercase">Speaking Part 1</span>
+                        <h2 class="text-3xl font-extrabold text-rose-950">Colors (Practice)</h2>
+                    </div>
+                </div>
+
+                <div class="glass-card p-10 md:p-12 rounded-3xl mb-10 relative overflow-hidden border-t-4 border-rose-400">
+                    <h3 class="text-2xl font-bold text-rose-950 mb-6 uppercase tracking-widest">COLORS</h3>
+                    
+                    <ol class="list-decimal pl-6 space-y-4 text-xl text-rose-950 font-semibold mb-10">
+                        <li>What is your favorite color?</li>
+                        <li>Do you like dark colors?</li>
+                        <li>Do you usually wear clothes in your favorite color?</li>
+                        <li>Are there any colors you dislike?</li>
+                    </ol>
+
+                    <details class="group bg-white/40 border border-white/70 rounded-2xl relative z-10 overflow-hidden transition-all duration-300 shadow-sm hover:shadow-md">
+                        <summary class="cursor-pointer font-bold text-rose-900 p-6 flex items-center justify-between outline-none hover:bg-white/60 transition">
+                            <span class="text-xl flex items-center gap-3">💡 <span>View Sample Answers</span></span>
+                            <span class="group-open:rotate-180 transition-transform text-pink-400 text-xl">▼</span>
+                        </summary>
+                        <div class="p-8 border-t border-white/60 text-rose-900/90 space-y-6 text-lg bg-white/20 backdrop-blur-md">
+                            <div class="border-l-4 border-pink-400 pl-5 bg-white/40 p-4 rounded-r-xl">
+                                <p class="text-rose-950 font-bold mb-2 text-xl">1. What is your favorite color?</p>
+                                <p class="font-medium">I'm incredibly fond of deep blue. It always gives me a sense of <strong>calmness and tranquility</strong>. I also enjoy soft <strong>pastel</strong> pinks because they convey a feeling of <strong>simplicity and youthfulness</strong>.</p>
+                            </div>
+                            <div class="border-l-4 border-pink-400 pl-5 bg-white/40 p-4 rounded-r-xl">
+                                <p class="text-rose-950 font-bold mb-2 text-xl">2. Do you like dark colors?</p>
+                                <p class="font-medium">Yes, I actually do. I find that <strong>somber</strong> colors, especially black and dark <strong>greenish</strong> hues, convey a strong sense of <strong>power and mystery</strong>, making them perfect for formal attire.</p>
+                            </div>
+                            <div class="border-l-4 border-pink-400 pl-5 bg-white/40 p-4 rounded-r-xl">
+                                <p class="text-rose-950 font-bold mb-2 text-xl">3. Do you usually wear clothes in your favorite color?</p>
+                                <p class="font-medium">Absolutely. I frequently wear <strong>matching</strong> outfits with <strong>vivid</strong> blue accessories. Since blue conveys such positive energy, wearing it instantly boosts my mood for the day.</p>
+                            </div>
+                            <div class="border-l-4 border-pink-400 pl-5 bg-white/40 p-4 rounded-r-xl">
+                                <p class="text-rose-950 font-bold mb-2 text-xl">4. Are there any colors you dislike?</p>
+                                <p class="font-medium">I tend to avoid <strong>fluorescent</strong> colors, like neon yellow or bright orange. Even though they show <strong>vitality</strong>, they are too harsh on the eyes and don't really suit my personal style.</p>
+                            </div>
+                        </div>
+                    </details>
+                </div>
+
+                <!-- Teacher Control Card: Pair Work -->
+                <div class="glass-card rounded-3xl overflow-hidden flex flex-col md:flex-row items-center justify-between p-8 shadow-lg">
+                    <div class="flex items-center gap-6 mb-6 md:mb-0">
+                        <div class="w-16 h-16 bg-gradient-to-br from-pink-400 to-rose-400 text-white rounded-2xl flex items-center justify-center text-3xl shadow-md border border-pink-300">👥</div>
+                        <div>
+                            <h4 class="font-extrabold text-rose-950 text-2xl">Pair Work Practice</h4>
+                            <p class="text-rose-900/70 mt-1 font-medium text-lg">Discuss the questions using new vocabulary.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-5 glass-panel py-4 px-8 rounded-2xl shadow-inner">
+                        <span id="timer-sp-colors" class="text-4xl font-mono text-rose-950 font-black tracking-tight w-28 text-center drop-shadow-sm">03:00</span>
+                        <button onclick="startTimer(3, 'timer-sp-colors')" class="bg-gradient-to-r from-rose-500 to-pink-500 hover:from-rose-400 hover:to-pink-400 text-white font-bold py-3.5 px-8 rounded-xl transition-all hover:shadow-[0_8px_20px_rgba(225,29,72,0.4)] flex items-center gap-2 shadow-md">
+                            <span class="text-xl">▶</span> Start
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 5: Speaking Vocab - Music -->
+            <div class="slide">
+                <div class="flex items-center gap-4 mb-10">
+                    <span class="w-12 h-12 rounded-2xl glass-panel flex items-center justify-center text-2xl shadow-sm">🎵</span>
+                    <div>
+                        <span class="text-rose-500 font-extrabold text-xs tracking-widest uppercase">Speaking Part 1</span>
+                        <h2 class="text-3xl font-extrabold text-rose-950">Music Vocabulary (Yellow Book Pg 33-34)</h2>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Exercise 8 -->
+                    <div class="glass-card rounded-3xl p-6 exercise-container relative h-full">
+                        <div class="flex items-center justify-between mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold text-rose-950">Exercise 8: Meanings</h3>
+                                <p class="text-sm text-rose-900/60 mt-1">Choose the sentence with the same meaning.</p>
+                            </div>
+                            <button onclick="toggleAnswersMC(this)" class="glass-button text-rose-800 font-bold py-1.5 px-4 rounded-xl text-sm shadow-sm shrink-0">
+                                ✨ Reveal Answers
+                            </button>
+                        </div>
+                        
+                        <div class="space-y-4 text-[0.9rem] font-semibold text-rose-950 mb-6 overflow-y-auto pr-2">
+                            <div class="bg-white/40 p-3 rounded-lg border border-white/50">
+                                <p class="mb-2"><span class="font-black text-pink-400 mr-1">1</span> I've <strong class="text-rose-700">taken up</strong> <span class="text-xs font-normal text-rose-900/60">(bắt đầu chơi/sở thích)</span> the piano.</p>
+                                <div class="space-y-1 pl-4 text-rose-900/80 font-medium">
+                                    <p>A. I've given up playing the piano.</p>
+                                    <p class="relative">
+                                        <span class="answer-mask">B. I've started to play the piano.</span>
+                                        <span class="hidden-answer bg-pink-200 px-2 py-0.5 rounded font-bold text-rose-900">B. I've started to play the piano.</span>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="bg-white/40 p-3 rounded-lg border border-white/50">
+                                <p class="mb-2"><span class="font-black text-pink-400 mr-1">2</span> My sister is a <strong class="text-rose-700">tone-deaf</strong> <span class="text-xs font-normal text-rose-900/60">(mù âm nhạc)</span> person.</p>
+                                <div class="space-y-1 pl-4 text-rose-900/80 font-medium">
+                                    <p>A. She has a high-pitched singing voice.</p>
+                                    <p class="relative">
+                                        <span class="answer-mask">B. She is unable to hear the difference between musical notes.</span>
+                                        <span class="hidden-answer bg-pink-200 px-2 py-0.5 rounded font-bold text-rose-900">B. She is unable to hear the difference between notes.</span>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="bg-white/40 p-3 rounded-lg border border-white/50">
+                                <p class="mb-2"><span class="font-black text-pink-400 mr-1">3</span> My brother has <strong class="text-rose-700">a diverse taste in music</strong> <span class="text-xs font-normal text-rose-900/60">(gu âm nhạc đa dạng)</span>.</p>
+                                <div class="space-y-1 pl-4 text-rose-900/80 font-medium">
+                                    <p class="relative">
+                                        <span class="answer-mask">A. He is intrigued by songs of different genres.</span>
+                                        <span class="hidden-answer bg-pink-200 px-2 py-0.5 rounded font-bold text-rose-900">A. He is intrigued by songs of different genres.</span>
+                                    </p>
+                                    <p>B. He is into nonsensical songs.</p>
+                                </div>
+                            </div>
+                            <div class="bg-white/40 p-3 rounded-lg border border-white/50">
+                                <p class="mb-2"><span class="font-black text-pink-400 mr-1">4</span> Despacito is a <strong class="text-rose-700">massive hit</strong> <span class="text-xs font-normal text-rose-900/60">(bản hit lớn/thành công)</span>.</p>
+                                <div class="space-y-1 pl-4 text-rose-900/80 font-medium">
+                                    <p class="relative">
+                                        <span class="answer-mask">A. It is a successful song.</span>
+                                        <span class="hidden-answer bg-pink-200 px-2 py-0.5 rounded font-bold text-rose-900">A. It is a successful song.</span>
+                                    </p>
+                                    <p>B. It is an unsuccessful song.</p>
+                                </div>
+                            </div>
+                            <div class="bg-white/40 p-3 rounded-lg border border-white/50">
+                                <p class="mb-2"><span class="font-black text-pink-400 mr-1">5</span> Ha Anh Tuan possesses <strong class="text-rose-700">a sweet singing voice</strong> <span class="text-xs font-normal text-rose-900/60">(giọng hát ngọt ngào)</span>.</p>
+                                <div class="space-y-1 pl-4 text-rose-900/80 font-medium">
+                                    <p class="relative">
+                                        <span class="answer-mask">A. He sings really well.</span>
+                                        <span class="hidden-answer bg-pink-200 px-2 py-0.5 rounded font-bold text-rose-900">A. He sings really well.</span>
+                                    </p>
+                                    <p>B. He sings so terribly.</p>
+                                </div>
+                            </div>
+                            <div class="bg-white/40 p-3 rounded-lg border border-white/50">
+                                <p class="mb-2"><span class="font-black text-pink-400 mr-1">6</span> 'DDU-DU DDU-DU' has <strong class="text-rose-700">a catchy tune</strong> <span class="text-xs font-normal text-rose-900/60">(giai điệu bắt tai)</span>.</p>
+                                <div class="space-y-1 pl-4 text-rose-900/80 font-medium">
+                                    <p>A. The melody is difficult to remember.</p>
+                                    <p class="relative">
+                                        <span class="answer-mask">B. The melody is easy to remember.</span>
+                                        <span class="hidden-answer bg-pink-200 px-2 py-0.5 rounded font-bold text-rose-900">B. The melody is easy to remember.</span>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="bg-white/40 p-3 rounded-lg border border-white/50">
+                                <p class="mb-2"><span class="font-black text-pink-400 mr-1">7</span> Classical music can create <strong class="text-rose-700">a soothing ambience</strong> <span class="text-xs font-normal text-rose-900/60">(không gian êm dịu)</span>.</p>
+                                <div class="space-y-1 pl-4 text-rose-900/80 font-medium">
+                                    <p>A. Classical music makes people anxious.</p>
+                                    <p class="relative">
+                                        <span class="answer-mask">B. Classical music makes people relaxed.</span>
+                                        <span class="hidden-answer bg-pink-200 px-2 py-0.5 rounded font-bold text-rose-900">B. Classical music makes people relaxed.</span>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="bg-white/40 p-3 rounded-lg border border-white/50">
+                                <p class="mb-2"><span class="font-black text-pink-400 mr-1">8</span> Music should be a <strong class="text-rose-700">compulsory</strong> <span class="text-xs font-normal text-rose-900/60">(bắt buộc)</span> subject in any schools' <strong class="text-rose-700">curriculum</strong> <span class="text-xs font-normal text-rose-900/60">(chương trình học)</span>.</p>
+                                <div class="space-y-1 pl-4 text-rose-900/80 font-medium">
+                                    <p class="relative">
+                                        <span class="answer-mask">A. Every student should learn music.</span>
+                                        <span class="hidden-answer bg-pink-200 px-2 py-0.5 rounded font-bold text-rose-900">A. Every student should learn music.</span>
+                                    </p>
+                                    <p>B. Music should be an optional subject.</p>
+                                </div>
+                            </div>
+                            <div class="bg-white/40 p-3 rounded-lg border border-white/50">
+                                <p class="mb-2"><span class="font-black text-pink-400 mr-1">9</span> Learning how to play a musical instrument helps <strong class="text-rose-700">coordinate</strong> <span class="text-xs font-normal text-rose-900/60">(phối hợp)</span> different parts of the body.</p>
+                                <div class="space-y-1 pl-4 text-rose-900/80 font-medium">
+                                    <p class="relative">
+                                        <span class="answer-mask">A. ...makes different parts of the body work well together.</span>
+                                        <span class="hidden-answer bg-pink-200 px-2 py-0.5 rounded font-bold text-rose-900">A. ...makes parts work well together.</span>
+                                    </p>
+                                    <p>B. ...makes different parts of the body become independent.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Exercise 9 -->
+                    <div class="glass-card rounded-3xl p-6 exercise-container relative h-full">
+                        <div class="flex items-center justify-between mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold text-rose-950">Exercise 9: Word Fill-In</h3>
+                                <p class="text-sm text-rose-900/60 mt-1">Fill in each blank with one suitable word.</p>
+                            </div>
+                            <button onclick="toggleAnswers(this)" class="glass-button text-rose-800 font-bold py-1.5 px-4 rounded-xl text-sm shadow-sm shrink-0">
+                                ✨ Reveal Answers
+                            </button>
+                        </div>
+                        
+                        <!-- Word Bank with Pronunciation -->
+                        <div class="glass-panel p-4 rounded-xl flex flex-wrap justify-center gap-4 mb-6 border border-white/60 bg-white/20">
+                            <div class="flex items-center gap-1.5"><button onclick="playAudio('elixir')" class="text-xs">🔊</button><div class="flex flex-col items-center"><span class="text-pink-600 font-bold">elixir</span><span class="text-[0.65rem] font-normal text-rose-950/60">/ɪˈlɪksər/</span><span class="text-[0.65rem] font-medium text-rose-900/70">(thần dược)</span></div></div>
+                            <div class="flex items-center gap-1.5"><button onclick="playAudio('rendition')" class="text-xs">🔊</button><div class="flex flex-col items-center"><span class="text-pink-600 font-bold">rendition</span><span class="text-[0.65rem] font-normal text-rose-950/60">/renˈdɪʃn/</span><span class="text-[0.65rem] font-medium text-rose-900/70">(màn trình diễn)</span></div></div>
+                            <div class="flex items-center gap-1.5"><button onclick="playAudio('engraved')" class="text-xs">🔊</button><div class="flex flex-col items-center"><span class="text-pink-600 font-bold">engraved</span><span class="text-[0.65rem] font-normal text-rose-950/60">/ɪnˈɡreɪvd/</span><span class="text-[0.65rem] font-medium text-rose-900/70">(khắc sâu)</span></div></div>
+                            <div class="flex items-center gap-1.5"><button onclick="playAudio('recollection')" class="text-xs">🔊</button><div class="flex flex-col items-center"><span class="text-pink-600 font-bold">recollection</span><span class="text-[0.65rem] font-normal text-rose-950/60">/ˌrekəˈlekʃn/</span><span class="text-[0.65rem] font-medium text-rose-900/70">(hồi ức)</span></div></div>
+                            <div class="flex items-center gap-1.5"><button onclick="playAudio('torch')" class="text-xs">🔊</button><div class="flex flex-col items-center"><span class="text-pink-600 font-bold">torch</span><span class="text-[0.65rem] font-normal text-rose-950/60">/tɔːrtʃ/</span><span class="text-[0.65rem] font-medium text-rose-900/70">(bản tình ca buồn)</span></div></div>
+                            <div class="flex items-center gap-1.5"><button onclick="playAudio('recall')" class="text-xs">🔊</button><div class="flex flex-col items-center"><span class="text-pink-600 font-bold">recall</span><span class="text-[0.65rem] font-normal text-rose-950/60">/rɪˈkɔːl/</span><span class="text-[0.65rem] font-medium text-rose-900/70">(nhớ lại)</span></div></div>
+                        </div>
+
+                        <ul class="space-y-6 text-[0.95rem] font-semibold text-rose-950 leading-relaxed">
+                            <li class="flex flex-wrap items-center gap-x-2">
+                                <span>1. Mr. Siro is renowned for his</span>
+                                <span class="inline-flex items-center justify-center min-w-[120px] border-b-2 border-dashed border-pink-400 text-rose-600 px-2 h-7"><span class="hidden-answer inline-block">torch</span></span>
+                                <span>songs.</span>
+                            </li>
+                            <li class="flex flex-wrap items-center gap-x-2">
+                                <span>2. The lighting was poor, to the best of my</span>
+                                <span class="inline-flex items-center justify-center min-w-[120px] border-b-2 border-dashed border-pink-400 text-rose-600 px-2 h-7"><span class="hidden-answer inline-block">recollection</span></span>.
+                            </li>
+                            <li class="flex flex-wrap items-center gap-x-2">
+                                <span>3. The date of the accident remains</span>
+                                <span class="inline-flex items-center justify-center min-w-[120px] border-b-2 border-dashed border-pink-400 text-rose-600 px-2 h-7"><span class="hidden-answer inline-block">engraved</span></span>
+                                <span>in my mind.</span>
+                            </li>
+                            <li class="flex flex-wrap items-center gap-x-2">
+                                <span>4. The band gave a live</span>
+                                <span class="inline-flex items-center justify-center min-w-[120px] border-b-2 border-dashed border-pink-400 text-rose-600 px-2 h-7"><span class="hidden-answer inline-block">rendition</span></span>
+                                <span>of their latest single.</span>
+                            </li>
+                            <li class="flex flex-wrap items-center gap-x-2">
+                                <span>5. Perhaps the music is my</span>
+                                <span class="inline-flex items-center justify-center min-w-[120px] border-b-2 border-dashed border-pink-400 text-rose-600 px-2 h-7"><span class="hidden-answer inline-block">elixir</span></span>.
+                            </li>
+                            <li class="flex flex-wrap items-center gap-x-2">
+                                <span>6. I</span>
+                                <span class="inline-flex items-center justify-center min-w-[120px] border-b-2 border-dashed border-pink-400 text-rose-600 px-2 h-7"><span class="hidden-answer inline-block">recall</span></span>
+                                <span>the first time I heard her sing some years back.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 6: Speaking Practice - Music -->
+            <div class="slide">
+                <div class="flex items-center gap-4 mb-8">
+                    <span class="w-12 h-12 rounded-2xl glass-panel flex items-center justify-center text-2xl shadow-sm">🗣️</span>
+                    <div>
+                        <span class="text-rose-500 font-extrabold text-xs tracking-widest uppercase">Speaking Part 1</span>
+                        <h2 class="text-3xl font-extrabold text-rose-950">Music (Practice)</h2>
+                    </div>
+                </div>
+
+                <div class="glass-card p-10 md:p-12 rounded-3xl mb-10 relative overflow-hidden border-t-4 border-rose-400">
+                    <h3 class="text-2xl font-bold text-rose-950 mb-6 uppercase tracking-widest">MUSIC</h3>
+                    
+                    <ol class="list-decimal pl-6 space-y-4 text-xl text-rose-950 font-semibold mb-10">
+                        <li>Do you like listening to music?</li>
+                        <li>When do you listen to music?</li>
+                        <li>Can you play any musical instruments?</li>
+                        <li>Did you have any music classes in school?</li>
+                        <li>Do you think it is necessary for children to have music classes?</li>
+                    </ol>
+
+                    <details class="group bg-white/40 border border-white/70 rounded-2xl relative z-10 overflow-hidden transition-all duration-300 shadow-sm hover:shadow-md">
+                        <summary class="cursor-pointer font-bold text-rose-900 p-6 flex items-center justify-between outline-none hover:bg-white/60 transition">
+                            <span class="text-xl flex items-center gap-3">💡 <span>View Sample Answers</span></span>
+                            <span class="group-open:rotate-180 transition-transform text-pink-400 text-xl">▼</span>
+                        </summary>
+                        <div class="p-8 border-t border-white/60 text-rose-900/90 space-y-6 text-lg bg-white/20 backdrop-blur-md">
+                            <div class="border-l-4 border-pink-400 pl-5 bg-white/40 p-4 rounded-r-xl">
+                                <p class="text-rose-950 font-bold mb-2 text-xl">1. Do you like listening to music?</p>
+                                <p class="font-medium">Yes, absolutely. Music is my <strong>elixir</strong>. I have a <strong>diverse taste in music</strong>, ranging from classical to modern pop. It really helps me relax and creates a <strong>soothing ambience</strong> after a long day.</p>
+                            </div>
+                            <div class="border-l-4 border-pink-400 pl-5 bg-white/40 p-4 rounded-r-xl">
+                                <p class="text-rose-950 font-bold mb-2 text-xl">2. When do you listen to music?</p>
+                                <p class="font-medium">I listen to music almost constantly—while commuting, studying, or even cooking. Whenever I hear a <strong>massive hit</strong> with a <strong>catchy tune</strong>, it completely energizes me.</p>
+                            </div>
+                            <div class="border-l-4 border-pink-400 pl-5 bg-white/40 p-4 rounded-r-xl">
+                                <p class="text-rose-950 font-bold mb-2 text-xl">3. Can you play any musical instruments?</p>
+                                <p class="font-medium">Unfortunately, no. I am completely <strong>tone-deaf</strong>. I once tried to <strong>take up</strong> the guitar, but my <strong>rendition</strong> of even simple songs was terrible, so I gave it up.</p>
+                            </div>
+                            <div class="border-l-4 border-pink-400 pl-5 bg-white/40 p-4 rounded-r-xl">
+                                <p class="text-rose-950 font-bold mb-2 text-xl">4. Did you have any music classes in school?</p>
+                                <p class="font-medium">Yes, I did. Music was a <strong>compulsory</strong> subject in our primary school <strong>curriculum</strong>. I vividly <strong>recall</strong> learning basic notes and singing in a choir.</p>
+                            </div>
+                            <div class="border-l-4 border-pink-400 pl-5 bg-white/40 p-4 rounded-r-xl">
+                                <p class="text-rose-950 font-bold mb-2 text-xl">5. Do you think it is necessary for children to have music classes?</p>
+                                <p class="font-medium">I believe it is crucial. Learning an instrument helps children <strong>coordinate</strong> different parts of their body and improves their memory. Plus, discovering someone with a <strong>sweet singing voice</strong> at a young age is wonderful.</p>
+                            </div>
+                        </div>
+                    </details>
+                </div>
+
+                <!-- Teacher Control Card: Pair Work -->
+                <div class="glass-card rounded-3xl overflow-hidden flex flex-col md:flex-row items-center justify-between p-8 shadow-lg">
+                    <div class="flex items-center gap-6 mb-6 md:mb-0">
+                        <div class="w-16 h-16 bg-gradient-to-br from-pink-400 to-rose-400 text-white rounded-2xl flex items-center justify-center text-3xl shadow-md border border-pink-300">👥</div>
+                        <div>
+                            <h4 class="font-extrabold text-rose-950 text-2xl">Pair Work Practice</h4>
+                            <p class="text-rose-900/70 mt-1 font-medium text-lg">Discuss the questions using new vocabulary.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-5 glass-panel py-4 px-8 rounded-2xl shadow-inner">
+                        <span id="timer-sp-music" class="text-4xl font-mono text-rose-950 font-black tracking-tight w-28 text-center drop-shadow-sm">03:00</span>
+                        <button onclick="startTimer(3, 'timer-sp-music')" class="bg-gradient-to-r from-rose-500 to-pink-500 hover:from-rose-400 hover:to-pink-400 text-white font-bold py-3.5 px-8 rounded-xl transition-all hover:shadow-[0_8px_20px_rgba(225,29,72,0.4)] flex items-center gap-2 shadow-md">
+                            <span class="text-xl">▶</span> Start
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 7: Speaking Part 2 - Favorite Song -->
+            <div class="slide">
+                <div class="flex items-center gap-4 mb-10">
+                    <span class="w-12 h-12 rounded-2xl glass-panel flex items-center justify-center text-2xl shadow-sm">🎙️</span>
+                    <div>
+                        <span class="text-fuchsia-600 font-extrabold text-xs tracking-widest uppercase">Speaking Part 2</span>
+                        <h2 class="text-3xl font-extrabold text-rose-950">Topic: Favorite Song (Cue Card)</h2>
+                    </div>
+                </div>
+
+                <div class="glass-card p-10 md:p-12 rounded-3xl mb-10 relative overflow-hidden border-t-4 border-fuchsia-400">
+                    <div class="absolute -right-4 -bottom-4 text-9xl opacity-20 transform -rotate-12">🎧</div>
+
+                    <div class="flex items-center gap-5 mb-10 border-b border-white/60 pb-6">
+                        <div class="w-14 h-14 bg-white/60 rounded-2xl flex items-center justify-center text-3xl shadow-sm border border-white/80">📝</div>
+                        <h3 class="text-3xl font-extrabold text-rose-950 tracking-tight">IELTS Cue Card</h3>
+                    </div>
+                    
+                    <h4 class="text-2xl font-black text-rose-900 mb-6 uppercase tracking-wide">Describe your favorite song.</h4>
+                    <p class="text-xl mb-4 italic text-rose-900/70 font-medium">You should say:</p>
+                    
+                    <ul class="list-disc pl-8 space-y-4 text-2xl text-rose-950 font-semibold relative z-10 mb-12">
+                        <li>What this song is about</li>
+                        <li>When you listened to this song for the first time</li>
+                        <li>How often you listen to this song</li>
+                        <li>And explain why you think it is your favorite song.</li>
+                    </ul>
+
+                    <!-- Collapsible Sample Answer -->
+                    <details class="group bg-white/40 border border-white/70 rounded-2xl relative z-10 overflow-hidden transition-all duration-300 shadow-sm hover:shadow-md">
+                        <summary class="cursor-pointer font-bold text-rose-900 p-6 flex items-center justify-between outline-none hover:bg-white/60 transition">
+                            <span class="text-xl flex items-center gap-3">💡 <span>View Band 6.5+ Sample Answer</span></span>
+                            <span class="group-open:rotate-180 transition-transform text-fuchsia-400 text-xl">▼</span>
+                        </summary>
+                        <div class="p-8 border-t border-white/60 text-rose-900/90 text-lg bg-white/20 backdrop-blur-md leading-relaxed italic font-medium">
+                            "I would like to talk about a song that holds a very special place in my heart: 'Perfect' by Ed Sheeran. It's a beautiful, romantic ballad about young love and finding a partner you want to spend the rest of your life with. It is undeniably a <strong>massive hit</strong> globally.<br><br>
+                            
+                            To the best of my <strong>recollection</strong>, I first heard this song a few years ago during a friend's wedding. They chose it for their first dance. The moment the music started, the <strong>soothing ambience</strong> and Ed Sheeran's exceptionally <strong>sweet singing voice</strong> created a memory that remains <strong>engraved</strong> in my mind.<br><br>
+                            
+                            I listen to this song quite frequently, especially when I am commuting to work or when I need to relax after a stressful day. It acts as my personal <strong>elixir</strong>, instantly calming my nerves.<br><br>
+                            
+                            There are several reasons why this is my absolute favorite song. Firstly, it has a wonderfully <strong>catchy tune</strong> that is easy to hum along to, even though I am totally <strong>tone-deaf</strong>. Secondly, the lyrics are profound and deeply moving. Every time I hear a live <strong>rendition</strong> of it, I <strong>recall</strong> the warmth and joy of my friend's wedding day. It’s a timeless piece of music that never fails to lift my spirits."
+                        </div>
+                    </details>
+                </div>
+
+                <!-- Teacher Control Card: P2 Timers -->
+                <div class="flex flex-col md:flex-row justify-center gap-8">
+                    <div class="glass-card rounded-3xl p-8 flex flex-col items-center justify-center shadow-lg w-full md:w-1/2 border-t-4 border-rose-400 hover-lift">
+                        <h4 class="font-extrabold text-rose-950 text-2xl mb-2 flex items-center gap-2"><span>📝</span> Prep Time</h4>
+                        <p class="text-rose-900/70 mb-6 font-medium">1 minute preparation</p>
+                        
+                        <div class="glass-panel py-4 w-full rounded-2xl shadow-inner border border-white/80 text-center mb-6">
+                            <span id="timer-prep" class="text-5xl font-mono text-rose-950 font-black tracking-tight drop-shadow-sm">01:00</span>
+                        </div>
+                        <button onclick="startTimer(1, 'timer-prep')" class="w-full bg-gradient-to-r from-rose-500 to-rose-400 hover:from-rose-400 hover:to-rose-300 text-white font-bold py-4 rounded-xl transition-all shadow-md flex items-center justify-center gap-2">
+                            <span class="text-xl">▶</span> Start 1 Min
+                        </button>
+                    </div>
+
+                    <div class="glass-card rounded-3xl p-8 flex flex-col items-center justify-center shadow-lg w-full md:w-1/2 border-t-4 border-fuchsia-400 hover-lift">
+                        <h4 class="font-extrabold text-rose-950 text-2xl mb-2 flex items-center gap-2"><span>🎙️</span> Speaking Time</h4>
+                        <p class="text-rose-900/70 mb-6 font-medium">2 minutes speaking</p>
+                        
+                        <div class="glass-panel py-4 w-full rounded-2xl shadow-inner border border-white/80 text-center mb-6">
+                            <span id="timer-speak" class="text-5xl font-mono text-rose-950 font-black tracking-tight drop-shadow-sm">02:00</span>
+                        </div>
+                        <button onclick="startTimer(2, 'timer-speak')" class="w-full bg-gradient-to-r from-fuchsia-500 to-fuchsia-400 hover:from-fuchsia-400 hover:to-fuchsia-300 text-white font-bold py-4 rounded-xl transition-all shadow-md flex items-center justify-center gap-2">
+                            <span class="text-xl">▶</span> Start 2 Mins
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        // -- Navigation & Progress Logic --
+        let currentSlide = 0;
+        let totalSlides = 0;
+        let slides = [];
+
+        function initSlides() {
+            slides = document.querySelectorAll('.slide');
+            totalSlides = slides.length;
+            updateUI();
+        }
+
+        function updateUI() {
+            slides.forEach((el, index) => {
+                if (index === currentSlide) {
+                    el.classList.add('active');
+                } else {
+                    el.classList.remove('active');
+                }
+            });
+            
+            const counter = document.getElementById('slide-counter');
+            if (counter) counter.innerText = `${currentSlide + 1} / ${totalSlides}`;
+            
+            const navDropdown = document.getElementById('section-nav');
+            if (navDropdown) navDropdown.value = currentSlide;
+
+            const progress = ((currentSlide + 1) / totalSlides) * 100;
+            const progressBar = document.getElementById('progress-bar');
+            if(progressBar) progressBar.style.width = `${progress}%`;
+
+            document.querySelector('main').scrollTop = 0;
+        }
+
+        function jumpToSection(slideIndex) {
+            const index = parseInt(slideIndex);
+            if (!isNaN(index) && index >= 0 && index < totalSlides) {
+                currentSlide = index;
+                updateUI();
+            }
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides - 1) {
+                currentSlide++;
+                updateUI();
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 0) {
+                currentSlide--;
+                updateUI();
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') nextSlide();
+            if (e.key === 'ArrowLeft') prevSlide();
+        });
+
+        // -- Toggle Answers Logic --
+        function toggleAnswers(button) {
+            const container = button.closest('.exercise-container');
+            if (!container) return;
+            const hiddenElements = container.querySelectorAll('.hidden-answer');
+
+            let isHidden = true;
+            if (hiddenElements.length > 0) {
+                isHidden = hiddenElements[0].style.display === 'none' || hiddenElements[0].style.display === '';
+            }
+
+            hiddenElements.forEach(el => {
+                if (isHidden) {
+                    el.style.display = el.tagName === 'SPAN' ? 'inline-block' : 'block';
+                } else {
+                    el.style.display = 'none';
+                }
+            });
+
+            if (isHidden) {
+                button.innerHTML = "✨ Hide Answers";
+            } else {
+                button.innerHTML = button.getAttribute('data-default-text') || "✨ Reveal Answers";
+            }
+        }
+
+        // Special toggle for multiple choice to swap between masked and unmasked
+        function toggleAnswersMC(button) {
+            const container = button.closest('.exercise-container');
+            if (!container) return;
+            const hiddenElements = Array.from(container.querySelectorAll('.hidden-answer'));
+            const maskElements = Array.from(container.querySelectorAll('.answer-mask'));
+            
+            let isHidden = true;
+            if(hiddenElements.length > 0) {
+                isHidden = hiddenElements[0].style.display === 'none' || hiddenElements[0].style.display === '';
+            }
+
+            hiddenElements.forEach(el => el.style.display = isHidden ? 'inline-block' : 'none');
+            maskElements.forEach(el => el.style.display = isHidden ? 'none' : 'inline-block');
+
+            button.innerHTML = isHidden ? "✨ Hide Answers" : "✨ Reveal Answers";
+        }
+
+        // Initialize display states for MC on load
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelectorAll('.answer-mask').forEach(el => el.style.display = 'inline-block');
+        });
+
+        // -- Pronunciation TTS Engine --
+        function playAudio(word) {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel(); 
+                const utterance = new SpeechSynthesisUtterance(word);
+                utterance.lang = 'en-US';
+                utterance.rate = 0.85; 
+                window.speechSynthesis.speak(utterance);
+            } else {
+                console.warn("Text-to-Speech is not supported in this browser environment.");
+            }
+        }
+
+        // -- Timer Logic --
+        let intervals = {};
+
+        function startTimer(minutes, elementId) {
+            const display = document.getElementById(elementId);
+            let time = minutes * 60;
+            
+            if (intervals[elementId]) {
+                clearInterval(intervals[elementId]);
+            }
+
+            updateTimerDisplay(time, display);
+            display.classList.remove('text-rose-600');
+            display.classList.add('text-rose-950');
+
+            intervals[elementId] = setInterval(() => {
+                time--;
+                updateTimerDisplay(time, display);
+
+                if (time <= 0) {
+                    clearInterval(intervals[elementId]);
+                    display.classList.add('text-rose-600');
+                    display.classList.remove('text-rose-950');
+                    try {
+                        let audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                        let oscillator = audioCtx.createOscillator();
+                        oscillator.type = 'sine';
+                        oscillator.frequency.setValueAtTime(440, audioCtx.currentTime);
+                        oscillator.connect(audioCtx.destination);
+                        oscillator.start();
+                        oscillator.stop(audioCtx.currentTime + 0.5);
+                    } catch(e) {}
+                }
+            }, 1000);
+        }
+
+        function updateTimerDisplay(totalSeconds, element) {
+            const m = Math.floor(totalSeconds / 60).toString().padStart(2, '0');
+            const s = (totalSeconds % 60).toString().padStart(2, '0');
+            element.innerText = `${m}:${s}`;
+        }
+        
+        // Initialize
+        initSlides();
+    </script>
+</body>
+</html>
