@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Chan Truong - Lesson 04</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #fdf2f8;
+            background-image: 
+                radial-gradient(at 0% 0%, #ffe4e6 0px, transparent 50%),
+                radial-gradient(at 100% 0%, #fce7f3 0px, transparent 50%),
+                radial-gradient(at 100% 100%, #fbcfe8 0px, transparent 50%),
+                radial-gradient(at 0% 100%, #fdf2f8 0px, transparent 50%),
+                radial-gradient(at 50% 50%, #fff1f2 0px, transparent 50%);
+            background-attachment: fixed;
+            color: #4c0519; 
+        }
+        
+        .slide { display: none; opacity: 0; transition: opacity 0.5s ease, transform 0.5s ease; transform: translateY(20px); }
+        .slide.active { display: block; opacity: 1; transform: translateY(0); }
+        
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: transparent; } 
+        ::-webkit-scrollbar-thumb { background: rgba(244, 114, 182, 0.4); border-radius: 10px; border: 2px solid transparent; background-clip: padding-box; } 
+        ::-webkit-scrollbar-thumb:hover { background: rgba(225, 29, 72, 0.5); border: 2px solid transparent; background-clip: padding-box; } 
+        
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
+        .hidden-answer { display: none; }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 10px 40px -10px rgba(225, 29, 72, 0.15);
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.45);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: inset 0 2px 4px 0 rgba(255, 255, 255, 0.3), 0 4px 15px -5px rgba(225, 29, 72, 0.05);
+        }
+        .glass-button {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.5));
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 15px -5px rgba(225, 29, 72, 0.15);
+            transition: all 0.3s ease;
+        }
+        .glass-button:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px -5px rgba(225, 29, 72, 0.25);
+        }
+        
+        .hover-lift { transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease; }
+        .hover-lift:hover { transform: translateY(-4px); box-shadow: 0 15px 30px -10px rgba(225, 29, 72, 0.2); }
+
+        select.nav-dropdown {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23881337' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1em;
+            padding-right: 2.5rem;
+        }
+    </style>
+</head>
+<body class="h-screen flex flex-col overflow-hidden">
+
+    <!-- Header / Navigation -->
+    <header class="glass-card border-b border-white/60 z-20 shrink-0 relative">
+        <div class="p-4 flex flex-col md:flex-row justify-between items-center gap-4 max-w-7xl mx-auto w-full">
+            <div>
+                <h1 class="text-2xl font-extrabold tracking-tight text-rose-950">IELTS Chan Truong <span class="text-rose-600 font-semibold ml-2 px-3 py-1 bg-white/50 border border-white/60 rounded-full text-base shadow-sm">Class 5.5-6.5</span></h1>
+                <p class="text-sm text-rose-900/70 mt-1.5 flex items-center gap-2 font-medium">
+                    <span class="w-2 h-2 rounded-full bg-pink-400 shadow-[0_0_8px_rgba(244,114,182,0.8)]"></span> Lesson 04: Reading & Speaking
+                </p>
+            </div>
+            
+            <div class="flex items-center gap-4 w-full md:w-auto justify-between md:justify-end">
+                <select id="section-nav" onchange="jumpToSection(this.value)" class="nav-dropdown glass-panel text-rose-900 font-bold py-2 px-4 rounded-xl shadow-sm outline-none cursor-pointer border border-white/60 hover:bg-white/60 transition">
+                    <option value="0">1. Lesson Overview</option>
+                    <option value="1">2. Reading: Strategy Guide</option>
+                    <option value="2">3. Reading: Vocabulary</option>
+                    <option value="3">4. Reading: Mock Test</option>
+                    <option value="4">5. Speaking: Vocab (Accommodation)</option>
+                    <option value="5">6. Speaking: Practice (Accommodation)</option>
+                    <option value="6">7. Speaking: Vocab (Countryside & City)</option>
+                    <option value="7">8. Speaking: Practice (Countryside & City)</option>
+                </select>
+
+                <div class="flex items-center gap-3">
+                    <span id="slide-counter" class="font-bold text-rose-900 px-3 py-1.5 glass-panel rounded-full text-sm hidden md:inline-block">1 / 8</span>
+                    <button onclick="prevSlide()" class="glass-button text-rose-800 px-4 py-2 rounded-full font-semibold flex items-center gap-2">
+                        <span>←</span> <span class="hidden sm:inline">Prev</span>
+                    </button>
+                    <button onclick="nextSlide()" class="bg-gradient-to-r from-pink-500 to-rose-400 hover:from-pink-400 hover:to-rose-300 text-white px-5 py-2 rounded-full shadow-lg shadow-pink-500/30 transition-all hover:shadow-pink-500/50 hover:-translate-y-0.5 font-bold flex items-center gap-2">
+                        <span class="hidden sm:inline">Next</span> <span>→</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="h-1 bg-white/40 w-full absolute bottom-0 left-0">
+            <div id="progress-bar" class="h-full bg-gradient-to-r from-pink-400 to-rose-500 transition-all duration-500 ease-out shadow-[0_0_10px_rgba(244,114,182,0.5)]" style="width: 16.66%;"></div>
+        </div>
+    </header>
+
+    <main class="flex-1 overflow-y-auto p-4 md:p-8 relative">
+        <div class="max-w-7xl mx-auto pb-24">
+
+            <!-- SLIDE 0: Overview -->
+            <div class="slide active">
+                <div class="text-center py-16">
+                    <div class="inline-block mb-6 px-5 py-2 rounded-full glass-panel text-rose-600 font-bold text-sm tracking-widest uppercase shadow-sm">Lesson Overview</div>
+                    <h2 class="text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-rose-950 to-pink-700 mb-6 tracking-tight drop-shadow-sm">Reading & Speaking</h2>
+                    <p class="text-xl text-rose-900/70 mb-16 max-w-2xl mx-auto font-medium leading-relaxed">Today's session covers Reading Unit 1 (WB) and Speaking Part 1 & 2 focusing on Accommodation, Countryside and Cities.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto text-left">
+                        <div class="glass-card p-8 rounded-3xl hover-lift relative overflow-hidden group">
+                            <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-purple-400 to-pink-400 opacity-80"></div>
+                            <div class="w-14 h-14 glass-panel rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-sm group-hover:scale-110 transition-transform">📖</div>
+                            <h3 class="text-2xl font-bold mb-4 text-rose-950">Part 1: Reading</h3>
+                            <ul class="text-rose-900/80 space-y-3 font-medium">
+                                <li class="flex items-start gap-3"><span class="text-pink-400 mt-1">✦</span> Strategy: T/F/NG & Gap-Fill Techniques</li>
+                                <li class="flex items-start gap-3"><span class="text-pink-400 mt-1">✦</span> Vocab Exercises: Yellow Book (Pg 11-12)</li>
+                                <li class="flex items-start gap-3"><span class="text-pink-400 mt-1">✦</span> Practice: Complete IELTS WB | Unit 1</li>
+                            </ul>
+                        </div>
+                        <div class="glass-card p-8 rounded-3xl hover-lift relative overflow-hidden group">
+                            <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-pink-400 to-rose-400 opacity-80"></div>
+                            <div class="w-14 h-14 glass-panel rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-sm group-hover:scale-110 transition-transform">🗣️</div>
+                            <h3 class="text-2xl font-bold mb-4 text-rose-950">Part 2: Speaking</h3>
+                            <ul class="text-rose-900/80 space-y-3 font-medium">
+                                <li class="flex items-start gap-3"><span class="text-rose-400 mt-1">✦</span> Vocab Check: Yellow Book (Pg 15-18)</li>
+                                <li class="flex items-start gap-3"><span class="text-rose-400 mt-1">✦</span> Part 2 Practice: Accommodation</li>
+                                <li class="flex items-start gap-3"><span class="text-rose-400 mt-1">✦</span> Part 1 Practice: Countryside & Cities</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <button onclick="nextSlide()" class="mt-16 bg-gradient-to-r from-rose-900 to-pink-800 hover:from-rose-800 hover:to-pink-700 text-white px-10 py-4 rounded-full text-lg font-bold shadow-[0_10px_25px_rgba(159,18,57,0.3)] transition-all hover:shadow-[0_15px_35px_rgba(159,18,57,0.4)] hover:-translate-y-1 flex items-center gap-3 mx-auto">
+                        Begin Lesson <span class="text-xl">✨</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- SLIDE 1: Reading Strategy Guide -->
+            <div class="slide">
+                <div class="flex items-center gap-4 mb-10">
+                    <span class="w-12 h-12 rounded-2xl glass-panel flex items-center justify-center text-2xl shadow-sm">📝</span>
+                    <div>
+                        <span class="text-pink-600 font-extrabold text-xs tracking-widest uppercase">Reading Section</span>
+                        <h2 class="text-3xl font-extrabold text-rose-950">Question Type Strategies</h2>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                    <!-- T/F/NG Strategy -->
+                    <div class="glass-card rounded-3xl p-6 md:p-8 border-t-4 border-pink-400 hover-lift h-full flex flex-col">
+                        <h3 class="text-xl font-bold text-rose-950 mb-4 flex items-center gap-2"><span>🎯</span> Strategy: True / False / Not Given</h3>
+                        <ul class="space-y-3 font-medium text-rose-950/80 text-[0.95rem] flex-1 overflow-y-auto pr-2">
+                            <li class="flex items-start gap-3"><span class="text-pink-500 font-black shrink-0">1.</span> <span class="flex-1"><strong>TRUE:</strong> The statement completely agrees with the information in the passage. Look for <em>synonyms</em> and matching meanings, not exact words.</span></li>
+                            <li class="flex items-start gap-3"><span class="text-pink-500 font-black shrink-0">2.</span> <span class="flex-1"><strong>FALSE:</strong> The statement directly <em>contradicts</em> or is the opposite of the facts in the passage.</span></li>
+                            <li class="flex items-start gap-3"><span class="text-pink-500 font-black shrink-0">3.</span> <span class="flex-1"><strong>NOT GIVEN:</strong> There is no information on this, or it's impossible to confirm based <em>only</em> on the text. Don't assume or use outside knowledge.</span></li>
+                            <li class="flex items-start gap-3"><span class="text-pink-500 font-black shrink-0">4.</span> <span class="flex-1"><strong>Keywords Alert:</strong> Pay strict attention to qualifying words (e.g., <em>some, all, mainly, often, never, always</em>), as they completely change the meaning.</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Fill-in-the-blank Strategy -->
+                    <div class="glass-card rounded-3xl p-6 md:p-8 border-t-4 border-rose-400 hover-lift h-full flex flex-col">
+                        <h3 class="text-xl font-bold text-rose-950 mb-4 flex items-center gap-2"><span>✍️</span> Strategy: Fill-in-the-Blanks</h3>
+                        <ul class="space-y-3 font-medium text-rose-950/80 text-[0.95rem] flex-1 overflow-y-auto pr-2">
+                            <li class="flex items-start gap-3"><span class="text-rose-500 font-black shrink-0">1.</span> <span class="flex-1"><strong>Check Instructions:</strong> Strictly follow the word limit (e.g., "NO MORE THAN TWO WORDS"). Hyphenated words count as one.</span></li>
+                            <li class="flex items-start gap-3"><span class="text-rose-500 font-black shrink-0">2.</span> <span class="flex-1"><strong>Predict Grammar:</strong> Guess the required part of speech (noun, verb, adjective) before scanning. The completed sentence must be grammatically correct.</span></li>
+                            <li class="flex items-start gap-3"><span class="text-rose-500 font-black shrink-0">3.</span> <span class="flex-1"><strong>Scan for Keywords:</strong> Locate the section using unique names, numbers, or terms from the question that cannot be paraphrased.</span></li>
+                            <li class="flex items-start gap-3"><span class="text-rose-500 font-black shrink-0">4.</span> <span class="flex-1"><strong>Computer-Based Tip:</strong> Double-click the target word in the passage and use <kbd class="bg-white/80 px-1 rounded shadow-sm border border-rose-200 text-xs font-mono">Ctrl+C</kbd> / <kbd class="bg-white/80 px-1 rounded shadow-sm border border-rose-200 text-xs font-mono">Ctrl+V</kbd> to copy-paste it into the blank. This prevents silly spelling errors.</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 2: Reading Vocabulary -->
+            <div class="slide">
+                <div class="flex items-center gap-4 mb-10">
+                    <span class="w-12 h-12 rounded-2xl glass-panel flex items-center justify-center text-2xl shadow-sm">📝</span>
+                    <div>
+                        <span class="text-pink-600 font-extrabold text-xs tracking-widest uppercase">Reading Section</span>
+                        <h2 class="text-3xl font-extrabold text-rose-950">Vocabulary (Yellow Book Pg 11-12)</h2>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Exercise 1: Matching -->
+                    <div class="glass-card rounded-3xl p-6 exercise-container relative h-full">
+                        <div class="flex items-center justify-between mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold text-rose-950">Exercise 1: Matching</h3>
+                                <p class="text-sm text-rose-900/60 mt-1">Match words with their definitions/synonyms.</p>
+                            </div>
+                            <button onclick="toggleAnswers(this)" class="glass-button text-rose-800 font-bold py-1.5 px-4 rounded-xl text-sm shadow-sm shrink-0">
+                                ✨ Reveal Answers
+                            </button>
+                        </div>
+                        
+                        <div class="space-y-3 text-[0.95rem] font-semibold text-rose-950 mb-6">
+                            <div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition">
+                                <span class="flex items-center gap-2">1 <strong class="text-rose-700">expatriate</strong> (n) <span class="text-xs font-normal text-rose-900/60">/ˌeksˈpætriət/</span> <span class="text-xs font-medium text-rose-800 ml-1">(người sống ở nước ngoài)</span> <button onclick="playAudio('expatriate')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span>
+                                <span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ C. a person who does not live in their own country</span>
+                            </div>
+                            <div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition">
+                                <span class="flex items-center gap-2">2 <strong class="text-rose-700">immigrant</strong> (n) <span class="text-xs font-medium text-rose-800 ml-1">(người nhập cư)</span> <button onclick="playAudio('immigrant')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span>
+                                <span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ E. a person who has come to live permanently in a country...</span>
+                            </div>
+                            <div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition">
+                                <span class="flex items-center gap-2">3 <strong class="text-rose-700">soldier</strong> (n) <span class="text-xs font-normal text-rose-900/60">/ˈsoʊldʒər/</span> <span class="text-xs font-medium text-rose-800 ml-1">(người lính)</span> <button onclick="playAudio('soldier')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span>
+                                <span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ D. a person who is a member of an army</span>
+                            </div>
+                            <div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition">
+                                <span class="flex items-center gap-2">4 <strong class="text-rose-700">refugee</strong> (n) <span class="text-xs font-normal text-rose-900/60">/ˌrefjuˈdʒiː/</span> <span class="text-xs font-medium text-rose-800 ml-1">(người tị nạn)</span> <button onclick="playAudio('refugee')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span>
+                                <span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ B. a person forced to leave their country...</span>
+                            </div>
+                            <div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition">
+                                <span class="flex items-center gap-2">5 <strong class="text-rose-700">adopter</strong> (n) <span class="text-xs font-medium text-rose-800 ml-1">(người nhận nuôi)</span> <button onclick="playAudio('adopter')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span>
+                                <span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ A. a person who adopts a child</span>
+                            </div>
+                            <div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition">
+                                <span class="flex items-center gap-2">6 <strong class="text-rose-700">overseas</strong> (adj/adv) <span class="text-xs font-medium text-rose-800 ml-1">(ở nước ngoài)</span> <button onclick="playAudio('overseas')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span>
+                                <span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ I. abroad /əˈbrɔːd/</span>
+                            </div>
+                            <div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition">
+                                <span class="flex items-center gap-2">7 <strong class="text-rose-700">communal</strong> (adj) <span class="text-xs font-normal text-rose-900/60">/kəˈmjuːnl/</span> <span class="text-xs font-medium text-rose-800 ml-1">(công cộng, chung)</span> <button onclick="playAudio('communal')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span>
+                                <span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ H. shared</span>
+                            </div>
+                            <div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition">
+                                <span class="flex items-center gap-2">8 <strong class="text-rose-700">exponential</strong> (adj) <span class="text-xs font-normal text-rose-900/60">/ˌekspəˈnenʃl/</span> <span class="text-xs font-medium text-rose-800 ml-1">(tăng theo cấp số nhân)</span> <button onclick="playAudio('exponential')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span>
+                                <span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ F. becoming faster and faster</span>
+                            </div>
+                            <div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition">
+                                <span class="flex items-center gap-2">9 <strong class="text-rose-700">relevant</strong> (adj) <span class="text-xs font-medium text-rose-800 ml-1">(có liên quan)</span> <button onclick="playAudio('relevant')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span>
+                                <span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ G. correct or suitable for a particular purpose</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Exercise 2: Fill in the blanks -->
+                    <div class="flex flex-col gap-6 h-full">
+                        <div class="glass-card rounded-3xl p-6 exercise-container relative h-full">
+                            <div class="flex items-center justify-between mb-4">
+                                <div>
+                                    <h3 class="text-xl font-bold text-rose-950">Exercise 2: Word Fill-In</h3>
+                                    <p class="text-sm text-rose-900/60 mt-1">Fill in the blanks with suitable words.</p>
+                                </div>
+                                <button onclick="toggleAnswers(this)" class="glass-button text-rose-800 font-bold py-1.5 px-4 rounded-xl text-sm shadow-sm shrink-0">
+                                    ✨ Reveal Answers
+                                </button>
+                            </div>
+                            
+                            <!-- Word Bank 1 -->
+                            <div class="glass-panel p-4 rounded-xl flex flex-wrap justify-center gap-6 mb-6 border-white/60 bg-white/20">
+                                <div class="flex flex-col items-center"><span class="text-pink-600 font-bold">recognize</span><span class="text-[0.65rem] font-medium text-rose-900/70">(nhận ra)</span><button onclick="playAudio('recognize')" class="text-xs">🔊</button></div>
+                                <div class="flex flex-col items-center"><span class="text-pink-600 font-bold">overlook</span><span class="text-[0.65rem] font-medium text-rose-900/70">(bỏ qua)</span><button onclick="playAudio('overlook')" class="text-xs">🔊</button></div>
+                                <div class="flex flex-col items-center"><span class="text-pink-600 font-bold">orient</span><span class="text-[0.65rem] font-medium text-rose-900/70">(định hướng)</span><span class="text-xs font-normal text-rose-950/60">/ˈɔːrient/</span><button onclick="playAudio('orient')" class="text-xs">🔊</button></div>
+                                <div class="flex flex-col items-center"><span class="text-pink-600 font-bold">offer</span><span class="text-[0.65rem] font-medium text-rose-900/70">(cung cấp)</span><span class="text-xs font-normal text-rose-950/60">/ˈɔːfər/</span><button onclick="playAudio('offer')" class="text-xs">🔊</button></div>
+                            </div>
+
+                            <ul class="space-y-4 text-[0.95rem] font-semibold text-rose-950 leading-relaxed mb-6">
+                                <li class="flex flex-wrap items-center gap-x-2">
+                                    <span>1. I</span>
+                                    <span class="inline-flex items-center justify-center min-w-[100px] border-b-2 border-dashed border-pink-400 text-rose-600 px-2 h-7"><span class="hidden-answer">recognized</span></span>
+                                    <span>him as soon as he came in the room because of his red hair.</span>
+                                </li>
+                                <li class="flex flex-wrap items-center gap-x-2">
+                                    <span>2. Our students are</span>
+                                    <span class="inline-flex items-center justify-center min-w-[100px] border-b-2 border-dashed border-pink-400 text-rose-600 px-2 h-7"><span class="hidden-answer">oriented</span></span>
+                                    <span>towards science subjects.</span>
+                                </li>
+                                <li class="flex flex-wrap items-center gap-x-2">
+                                    <span>3. They claim to</span>
+                                    <span class="inline-flex items-center justify-center min-w-[100px] border-b-2 border-dashed border-pink-400 text-rose-600 px-2 h-7"><span class="hidden-answer">offer</span></span>
+                                    <span>a more comprehensive service than other companies.</span>
+                                </li>
+                                <li class="flex flex-wrap items-center gap-x-2">
+                                    <span>4. In my hurry to finish the exam I had</span>
+                                    <span class="inline-flex items-center justify-center min-w-[100px] border-b-2 border-dashed border-pink-400 text-rose-600 px-2 h-7"><span class="hidden-answer">overlooked</span></span>
+                                    <span>part of one of the questions. He's so friendly people are prepared to</span>
+                                    <span class="inline-flex items-center justify-center min-w-[100px] border-b-2 border-dashed border-pink-400 text-rose-600 px-2 h-7"><span class="hidden-answer">overlook</span></span>
+                                    <span>his faults.</span>
+                                </li>
+                            </ul>
+
+                            <!-- Word Bank 2 -->
+                            <div class="glass-panel p-4 rounded-xl flex flex-wrap justify-center gap-6 mb-6 border-white/60 bg-white/20">
+                                <div class="flex flex-col items-center"><span class="text-pink-600 font-bold">phenomenon</span><span class="text-[0.65rem] font-medium text-rose-900/70">(hiện tượng)</span><span class="text-[0.65rem] font-normal text-rose-950/60">/fəˈnɑːmɪnən/</span></div>
+                                <div class="flex flex-col items-center"><span class="text-pink-600 font-bold">mobility</span><span class="text-[0.65rem] font-medium text-rose-900/70">(sự di chuyển)</span><span class="text-[0.65rem] font-normal text-rose-950/60">/moʊˈbɪləti/</span></div>
+                                <div class="flex flex-col items-center"><span class="text-pink-600 font-bold">clash</span><span class="text-[0.65rem] font-medium text-rose-900/70">(sự xung đột)</span></div>
+                                <div class="flex flex-col items-center"><span class="text-pink-600 font-bold">box</span><span class="text-[0.65rem] font-medium text-rose-900/70">(khuôn khổ)</span></div>
+                                <div class="flex flex-col items-center"><span class="text-pink-600 font-bold">deal</span><span class="text-[0.65rem] font-medium text-rose-900/70">(lượng)</span></div>
+                            </div>
+
+                            <ul class="space-y-4 text-[0.95rem] font-semibold text-rose-950 leading-relaxed">
+                                <li class="flex flex-wrap items-center gap-x-2">
+                                    <span>5. Simply put, the conflict comes down to a</span>
+                                    <span class="inline-flex items-center justify-center min-w-[100px] border-b-2 border-dashed border-pink-400 text-rose-600 px-2 h-7"><span class="hidden-answer">clash</span></span>
+                                    <span>of cultures.</span>
+                                </li>
+                                <li class="flex flex-wrap items-center gap-x-2">
+                                    <span>6. Globalization is a</span>
+                                    <span class="inline-flex items-center justify-center min-w-[100px] border-b-2 border-dashed border-pink-400 text-rose-600 px-2 h-7"><span class="hidden-answer">phenomenon</span></span>
+                                    <span>of the 21st century.</span>
+                                </li>
+                                <li class="flex flex-wrap items-center gap-x-2">
+                                    <span>7. She spends a good</span>
+                                    <span class="inline-flex items-center justify-center min-w-[100px] border-b-2 border-dashed border-pink-400 text-rose-600 px-2 h-7"><span class="hidden-answer">deal</span></span>
+                                    <span>of her time in China.</span>
+                                </li>
+                                <li class="flex flex-wrap items-center gap-x-2">
+                                    <span>8. Thinking outside the</span>
+                                    <span class="inline-flex items-center justify-center min-w-[100px] border-b-2 border-dashed border-pink-400 text-rose-600 px-2 h-7"><span class="hidden-answer">box</span></span>
+                                    <span>could be enough to put a business ahead of its competitors.</span>
+                                </li>
+                                <li class="flex flex-wrap items-center gap-x-2">
+                                    <span>9. She has limited</span>
+                                    <span class="inline-flex items-center justify-center min-w-[100px] border-b-2 border-dashed border-pink-400 text-rose-600 px-2 h-7"><span class="hidden-answer">mobility</span></span>
+                                    <span>in her arms. She cannot move them easily.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 3: Reading Mock Test -->
+            <div class="slide">
+                <div class="flex items-center gap-4 mb-10">
+                    <span class="w-12 h-12 rounded-2xl glass-panel flex items-center justify-center text-2xl shadow-sm">📖</span>
+                    <div>
+                        <span class="text-pink-600 font-extrabold text-xs tracking-widest uppercase">Reading Section</span>
+                        <h2 class="text-3xl font-extrabold text-rose-950">Complete IELTS Work Book | Unit 1</h2>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-3xl mb-8 exercise-container overflow-hidden">
+                    <div class="p-8 md:p-10 border-b border-white/60">
+                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                            <div>
+                                <h3 class="text-2xl font-bold text-rose-950">Answer Keys</h3>
+                                <p class="text-sm text-rose-900/60 mt-1">Check answers with the class after completing the mock test.</p>
+                            </div>
+                            <button onclick="toggleAnswers(this)" class="glass-button text-rose-800 font-bold py-2.5 px-5 rounded-xl flex items-center justify-center gap-2 text-sm shadow-sm shrink-0">
+                                👀 Reveal Answers
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="p-8 md:p-10 bg-white/25">
+                        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm">
+                                <span class="font-black text-pink-400">1</span>
+                                <span class="hidden-answer font-bold text-rose-900">T</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm">
+                                <span class="font-black text-pink-400">2</span>
+                                <span class="hidden-answer font-bold text-rose-900">NG</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm">
+                                <span class="font-black text-pink-400">3</span>
+                                <span class="hidden-answer font-bold text-rose-900">F</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm">
+                                <span class="font-black text-pink-400">4</span>
+                                <span class="hidden-answer font-bold text-rose-900">F</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm">
+                                <span class="font-black text-pink-400">5</span>
+                                <span class="hidden-answer font-bold text-rose-900">NG</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm">
+                                <span class="font-black text-pink-400">6</span>
+                                <span class="hidden-answer font-bold text-rose-900">T</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm col-span-2 md:col-span-1">
+                                <span class="font-black text-pink-400">7</span>
+                                <span class="hidden-answer font-bold text-rose-900 text-sm">see life</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm col-span-2 md:col-span-1">
+                                <span class="font-black text-pink-400">8</span>
+                                <span class="hidden-answer font-bold text-rose-900 text-sm">fear</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm col-span-2 md:col-span-1">
+                                <span class="font-black text-pink-400">9</span>
+                                <span class="hidden-answer font-bold text-rose-900 text-sm text-right">(a) cultural clash</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm col-span-2 md:col-span-1">
+                                <span class="font-black text-pink-400">10</span>
+                                <span class="hidden-answer font-bold text-rose-900 text-sm">mobility</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm col-span-2 md:col-span-2">
+                                <span class="font-black text-pink-400">11</span>
+                                <span class="hidden-answer font-bold text-rose-900 text-sm">cross-cultural kids/CCKS</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm col-span-2 md:col-span-2">
+                                <span class="font-black text-pink-400">12</span>
+                                <span class="hidden-answer font-bold text-rose-900 text-sm text-right">diversity and identity</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm col-span-2 md:col-span-1">
+                                <span class="font-black text-pink-400">13</span>
+                                <span class="hidden-answer font-bold text-rose-900 text-sm text-right">shared experience</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-6 flex items-center justify-between">
+                    <h3 class="text-2xl font-bold text-rose-950">Mock Test View</h3>
+                    <a href="https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/passage1_complete_ielts_5.5_6.5_wb_unit1.html" target="_blank" class="inline-flex items-center gap-2 bg-gradient-to-r from-pink-500 to-rose-400 hover:from-pink-400 hover:to-rose-300 text-white font-bold py-2.5 px-6 rounded-full shadow-lg shadow-pink-500/30 transition-all hover:-translate-y-1 text-sm">
+                        Open in New Tab <span>↗</span>
+                    </a>
+                </div>
+                <div class="glass-card rounded-3xl p-2 shadow-lg border-2 border-pink-200/50 overflow-hidden" style="height: 60vh;">
+                    <iframe 
+                        src="https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/passage1_complete_ielts_5.5_6.5_wb_unit1.html" 
+                        class="w-full h-full border-0 rounded-2xl bg-white"
+                        title="Reading Test WB U1">
+                    </iframe>
+                </div>
+            </div>
+
+            <!-- SLIDE 4: Speaking Vocab - Accommodation -->
+            <div class="slide">
+                <div class="flex items-center gap-4 mb-10">
+                    <span class="w-12 h-12 rounded-2xl glass-panel flex items-center justify-center text-2xl shadow-sm">🏠</span>
+                    <div>
+                        <span class="text-rose-500 font-extrabold text-xs tracking-widest uppercase">Speaking Part 1 & 2</span>
+                        <h2 class="text-3xl font-extrabold text-rose-950">Accommodation Vocab (Yellow Book Pg 15)</h2>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Exercise 4: Visual Matching -->
+                    <div class="glass-card rounded-3xl p-6 exercise-container relative h-full">
+                        <div class="flex items-center justify-between mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold text-rose-950">Exercise 4: Visual Matching</h3>
+                                <p class="text-sm text-rose-900/60 mt-1">Match the words with their visual representations.</p>
+                            </div>
+                            <button onclick="toggleAnswers(this)" class="glass-button text-rose-800 font-bold py-1.5 px-4 rounded-xl text-sm shadow-sm shrink-0">
+                                ✨ Reveal Answers
+                            </button>
+                        </div>
+                        
+                        <div class="grid grid-cols-2 gap-3 text-[0.9rem] font-semibold text-rose-950 mb-6">
+                            <div class="flex flex-col bg-white/40 p-3 rounded-lg hover:bg-white/60 transition gap-2 text-center">
+                                <span class="text-4xl mb-1">🏢</span>
+                                <span class="text-rose-900/70 text-xs">Luxurious top-floor apartment</span>
+                                <span class="hidden-answer text-rose-800 font-black bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">penthouse (n) <span class="font-normal text-xs text-rose-900/70 ml-1">(căn hộ áp mái)</span></span>
+                            </div>
+                            <div class="flex flex-col bg-white/40 p-3 rounded-lg hover:bg-white/60 transition gap-2 text-center">
+                                <span class="text-4xl mb-1">🛏️</span>
+                                <span class="text-rose-900/70 text-xs">One-room rented apartment</span>
+                                <span class="hidden-answer text-rose-800 font-black bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">a bedsit (n) <span class="font-normal text-xs text-rose-900/70 ml-1">(phòng trọ 1 phòng)</span></span>
+                            </div>
+                            <div class="flex flex-col bg-white/40 p-3 rounded-lg hover:bg-white/60 transition gap-2 text-center">
+                                <span class="text-4xl mb-1">🪴</span>
+                                <span class="text-rose-900/70 text-xs">Outdoor railing with flowers</span>
+                                <span class="hidden-answer text-rose-800 font-black bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">balcony (n) <span class="font-normal text-xs text-rose-900/70 ml-1">(ban công)</span></span>
+                            </div>
+                            <div class="flex flex-col bg-white/40 p-3 rounded-lg hover:bg-white/60 transition gap-2 text-center">
+                                <span class="text-4xl mb-1">🏠</span>
+                                <span class="text-rose-900/70 text-xs">House with only one level</span>
+                                <span class="hidden-answer text-rose-800 font-black bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">a single-storey house <span class="font-normal text-xs text-rose-900/70 ml-1">(nhà 1 tầng)</span></span>
+                            </div>
+                            <div class="flex flex-col bg-white/40 p-3 rounded-lg hover:bg-white/60 transition gap-2 text-center">
+                                <span class="text-4xl mb-1">🛋️</span>
+                                <span class="text-rose-900/70 text-xs">No dividing walls between rooms</span>
+                                <span class="hidden-answer text-rose-800 font-black bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">open-plan (a) <span class="font-normal text-xs text-rose-900/70 ml-1">(không gian mở)</span></span>
+                            </div>
+                            <div class="flex flex-col bg-white/40 p-3 rounded-lg hover:bg-white/60 transition gap-2 text-center">
+                                <span class="text-4xl mb-1">📏</span>
+                                <span class="text-rose-900/70 text-xs">Having a lot of space</span>
+                                <span class="hidden-answer text-rose-800 font-black bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">spacious (a) <span class="font-normal text-xs text-rose-900/70 ml-1">(rộng rãi)</span></span>
+                            </div>
+                            <div class="flex flex-col bg-white/40 p-3 rounded-lg hover:bg-white/60 transition gap-2 text-center">
+                                <span class="text-4xl mb-1">🥳</span>
+                                <span class="text-rose-900/70 text-xs">Party for a new home</span>
+                                <span class="hidden-answer text-rose-800 font-black bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">a house-warming party <span class="font-normal text-xs text-rose-900/70 ml-1">(tiệc tân gia)</span></span>
+                            </div>
+                            <div class="flex flex-col bg-white/40 p-3 rounded-lg hover:bg-white/60 transition gap-2 text-center">
+                                <span class="text-4xl mb-1">☕</span>
+                                <span class="text-rose-900/70 text-xs">Warm, comfortable & relaxing</span>
+                                <span class="hidden-answer text-rose-800 font-black bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">cozy (a) <span class="font-normal text-xs text-rose-900/70 ml-1">(ấm cúng)</span></span>
+                            </div>
+                            <div class="flex flex-col bg-white/40 p-3 rounded-lg hover:bg-white/60 transition gap-2 text-center">
+                                <span class="text-4xl mb-1">🧹</span>
+                                <span class="text-rose-900/70 text-xs">Thorough cleaning of a house</span>
+                                <span class="hidden-answer text-rose-800 font-black bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">spring-clean (v) <span class="font-normal text-xs text-rose-900/70 ml-1">(tổng vệ sinh)</span></span>
+                            </div>
+                            <div class="flex flex-col bg-white/40 p-3 rounded-lg hover:bg-white/60 transition gap-2 text-center">
+                                <span class="text-4xl mb-1">🪟</span>
+                                <span class="text-rose-900/70 text-xs">Lots of fresh air & breeze</span>
+                                <span class="hidden-answer text-rose-800 font-black bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">airy (a) <span class="font-normal text-xs text-rose-900/70 ml-1">(thoáng đãng)</span></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Exercise 5: Meanings -->
+                    <div class="glass-card rounded-3xl p-6 exercise-container relative h-full flex flex-col">
+                        <div class="flex items-center justify-between mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold text-rose-950">Exercise 5: Meanings</h3>
+                                <p class="text-sm text-rose-900/60 mt-1">Match the words with the meanings.</p>
+                            </div>
+                            <button onclick="toggleAnswers(this)" class="glass-button text-rose-800 font-bold py-1.5 px-4 rounded-xl text-sm shadow-sm shrink-0">
+                                ✨ Reveal Answers
+                            </button>
+                        </div>
+                        
+                        <!-- Options Pool -->
+                        <div class="glass-panel p-4 rounded-xl text-[0.85rem] space-y-2 mb-6 font-medium text-rose-950/80 bg-white/20 border border-white/40">
+                            <p><strong class="text-pink-500">A.</strong> an ancient Chinese belief that the way a house is built or objects are arranged affects success, health, and happiness</p>
+                            <p><strong class="text-pink-500">B.</strong> an art style emphasizing extreme simplicity</p>
+                            <p><strong class="text-pink-500">C.</strong> the decoration style of a room or building</p>
+                            <p><strong class="text-pink-500">D.</strong> an area suitable for living in</p>
+                            <p><strong class="text-pink-500">E.</strong> costs of buying houses</p>
+                        </div>
+
+                        <div class="space-y-3 text-[0.95rem] font-semibold text-rose-950 flex-1 overflow-y-auto">
+                            <div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-3 rounded-lg hover:bg-white/60 transition">
+                                <span class="flex items-center gap-2">1 <strong class="text-rose-700">residential area</strong> <span class="text-xs font-medium text-rose-800 ml-1">(khu dân cư)</span> <button onclick="playAudio('residential area')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span>
+                                <span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ D. an area suitable for living in</span>
+                            </div>
+                            <div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-3 rounded-lg hover:bg-white/60 transition">
+                                <span class="flex items-center gap-2">2 <strong class="text-rose-700">Feng Shui</strong> <span class="text-xs font-normal text-rose-900/60">/ˌfeŋ ˈʃuːi/</span> <span class="text-xs font-medium text-rose-800 ml-1">(phong thủy)</span> <button onclick="playAudio('Feng Shui')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span>
+                                <span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ A. ancient Chinese belief...</span>
+                            </div>
+                            <div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-3 rounded-lg hover:bg-white/60 transition">
+                                <span class="flex items-center gap-2">3 <strong class="text-rose-700">minimalism</strong> <span class="text-xs font-medium text-rose-800 ml-1">(chủ nghĩa tối giản)</span> <button onclick="playAudio('minimalism')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span>
+                                <span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ B. art style emphasizing extreme simplicity</span>
+                            </div>
+                            <div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-3 rounded-lg hover:bg-white/60 transition">
+                                <span class="flex items-center gap-2">4 <strong class="text-rose-700">real estate prices</strong> <span class="text-xs font-normal text-rose-900/60">/ɪˈsteɪt/</span> <span class="text-xs font-medium text-rose-800 ml-1">(giá bất động sản)</span> <button onclick="playAudio('real estate prices')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span>
+                                <span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ E. costs of buying houses</span>
+                            </div>
+                            <div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-3 rounded-lg hover:bg-white/60 transition">
+                                <span class="flex items-center gap-2">5 <strong class="text-rose-700">decor</strong> <span class="text-xs font-normal text-rose-900/60">/deɪˈkɔːr/</span> <span class="text-xs font-medium text-rose-800 ml-1">(cách trang trí)</span> <button onclick="playAudio('decor')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span>
+                                <span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ C. the decoration style...</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 5: Speaking Practice - Accommodation -->
+            <div class="slide">
+                <div class="flex items-center gap-4 mb-10">
+                    <span class="w-12 h-12 rounded-2xl glass-panel flex items-center justify-center text-2xl shadow-sm">🗣️</span>
+                    <div>
+                        <span class="text-rose-500 font-extrabold text-xs tracking-widest uppercase">Speaking</span>
+                        <h2 class="text-3xl font-extrabold text-rose-950">Practice: Accommodation</h2>
+                    </div>
+                </div>
+
+                <!-- Part 1 Practice -->
+                <div class="glass-card p-8 md:p-10 rounded-3xl mb-8 relative overflow-hidden border-t-4 border-rose-400">
+                    <h3 class="text-2xl font-bold text-rose-950 mb-6 uppercase tracking-widest flex items-center gap-2"><span>💬</span> Part 1</h3>
+                    
+                    <ol class="list-decimal pl-6 space-y-3 text-lg text-rose-950 font-semibold mb-8">
+                        <li>What kind of housing/accommodation do you live in?</li>
+                        <li>Who do you live with?</li>
+                        <li>Do you plan to live there for a long time?</li>
+                        <li>Do you prefer living in a house or a flat?</li>
+                        <li>What part of your home do you like the most?</li>
+                    </ol>
+
+                    <details class="group bg-white/40 border border-white/70 rounded-2xl relative z-10 overflow-hidden transition-all duration-300 shadow-sm hover:shadow-md">
+                        <summary class="cursor-pointer font-bold text-rose-900 p-5 flex items-center justify-between outline-none hover:bg-white/60 transition">
+                            <span class="text-lg flex items-center gap-3">💡 <span>View P1 Sample Answers</span></span>
+                            <span class="group-open:rotate-180 transition-transform text-pink-400 text-xl">▼</span>
+                        </summary>
+                        <div class="p-6 border-t border-white/60 text-rose-900/90 space-y-5 text-[0.95rem] bg-white/20 backdrop-blur-md">
+                            <div class="border-l-4 border-pink-400 pl-4 bg-white/40 p-3 rounded-r-xl">
+                                <p class="text-rose-950 font-bold mb-1">1. What kind of housing/accommodation do you live in?</p>
+                                <p class="font-medium">Currently, I live in a <strong>spacious</strong>, <strong>single-storey house</strong> located in a quiet <strong>residential area</strong>.</p>
+                            </div>
+                            <div class="border-l-4 border-pink-400 pl-4 bg-white/40 p-3 rounded-r-xl">
+                                <p class="text-rose-950 font-bold mb-1">2. Who do you live with?</p>
+                                <p class="font-medium">I live with my nuclear family, including my parents and my younger brother. We actually just threw a <strong>house-warming party</strong> last month!</p>
+                            </div>
+                            <div class="border-l-4 border-pink-400 pl-4 bg-white/40 p-3 rounded-r-xl">
+                                <p class="text-rose-950 font-bold mb-1">3. Do you plan to live there for a long time?</p>
+                                <p class="font-medium">Yes, I do. The <strong>decor</strong> perfectly suits my taste for <strong>minimalism</strong>, and honestly, with current <strong>real estate prices</strong> being so high, moving isn't practical.</p>
+                            </div>
+                            <div class="border-l-4 border-pink-400 pl-4 bg-white/40 p-3 rounded-r-xl">
+                                <p class="text-rose-950 font-bold mb-1">4. Do you prefer living in a house or a flat?</p>
+                                <p class="font-medium">I definitely prefer a house. Flats can feel a bit like a cramped <strong>bedsit</strong>, whereas a house gives you more freedom and privacy.</p>
+                            </div>
+                            <div class="border-l-4 border-pink-400 pl-4 bg-white/40 p-3 rounded-r-xl">
+                                <p class="text-rose-950 font-bold mb-1">5. What part of your home do you like the most?</p>
+                                <p class="font-medium">I absolutely love our <strong>balcony</strong>. It’s incredibly <strong>airy</strong> and a very <strong>cozy</strong> spot to unwind with a cup of coffee.</p>
+                            </div>
+                        </div>
+                    </details>
+                </div>
+
+                <!-- Part 2 Overview Guide -->
+                <div class="glass-card p-8 md:p-10 rounded-3xl mb-8 relative overflow-hidden border-t-4 border-fuchsia-500">
+                    <h3 class="text-2xl font-bold text-rose-950 mb-6 uppercase tracking-widest flex items-center gap-2"><span>💡</span> IELTS Speaking Part 2 Guide</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="glass-panel p-5 rounded-2xl border border-white/60">
+                            <h4 class="font-black text-rose-900 mb-2 uppercase tracking-widest text-sm">Format & Timing</h4>
+                            <ul class="space-y-2 font-medium text-rose-950/80 text-[0.95rem]">
+                                <li>• <strong class="text-rose-700">The Task:</strong> You will be given a cue card with a specific topic and prompts to follow.</li>
+                                <li>• <strong class="text-rose-700">Prep Time (1 Min):</strong> You have exactly 1 minute to read the card and write down notes.</li>
+                                <li>• <strong class="text-rose-700">Speaking (2 Mins):</strong> Speak continuously for up to 2 minutes until the examiner stops you.</li>
+                            </ul>
+                        </div>
+                        <div class="glass-panel p-5 rounded-2xl border border-white/60">
+                            <h4 class="font-black text-rose-900 mb-2 uppercase tracking-widest text-sm">How to Handle</h4>
+                            <ul class="space-y-2 font-medium text-rose-950/80 text-[0.95rem]">
+                                <li>• <strong class="text-rose-700">Smart Notes:</strong> Write keywords (verbs/nouns/adjectives) instead of full sentences to save time.</li>
+                                <li>• <strong class="text-rose-700">Structure:</strong> Use the prompts as a roadmap (Intro, Body details, Conclusion).</li>
+                                <li>• <strong class="text-rose-700">Fluency First:</strong> If you forget a detail, keep speaking! Fluency and pronunciation are more important than perfectly following the card.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Part 2 Practice (Cue Card) -->
+                <div class="glass-card p-8 md:p-10 rounded-3xl mb-8 relative overflow-hidden border-t-4 border-fuchsia-400">
+                    <div class="flex items-center justify-between mb-6">
+                        <h3 class="text-2xl font-bold text-rose-950 uppercase tracking-widest flex items-center gap-2"><span>🎙️</span> Part 2 Cue Card</h3>
+                        <div class="bg-fuchsia-100 text-fuchsia-800 text-xs font-bold px-3 py-1 rounded border border-fuchsia-200">1 Min Prep | 2 Mins Speak</div>
+                    </div>
+                    
+                    <h4 class="text-xl font-black text-rose-900 mb-4 uppercase tracking-wide">Describe your dream home.</h4>
+                    <p class="text-[0.95rem] mb-3 italic text-rose-900/70 font-medium">You should say:</p>
+                    
+                    <ul class="list-disc pl-6 space-y-2 text-[0.95rem] text-rose-950 font-semibold relative z-10 mb-8">
+                        <li>Where the house would be</li>
+                        <li>What the house would include</li>
+                        <li>How it would look</li>
+                        <li>And explain why you would like to live in this house</li>
+                    </ul>
+
+                    <div class="glass-panel p-5 rounded-2xl mb-8 border border-white/60">
+                        <h5 class="font-bold text-rose-900 mb-3 text-sm uppercase">Recommended Sentence Starters:</h5>
+                        <ul class="space-y-2 text-sm font-medium text-rose-950/80">
+                            <li><span class="text-pink-500 font-black mr-2">a.</span> When it comes to a house I would like to live in, I guess I would opt for...</li>
+                            <li><span class="text-pink-500 font-black mr-2">b.</span> I would kick off by saying something about the house's location...</li>
+                            <li><span class="text-pink-500 font-black mr-2">c.</span> Regarding what my dream house would include, I would say that...</li>
+                            <li><span class="text-pink-500 font-black mr-2">d.</span> As a final point, I'd like to mention the reasons why I would like to live in such a house...</li>
+                        </ul>
+                    </div>
+
+                    <details class="group bg-white/40 border border-white/70 rounded-2xl relative z-10 overflow-hidden transition-all duration-300 shadow-sm hover:shadow-md">
+                        <summary class="cursor-pointer font-bold text-rose-900 p-5 flex items-center justify-between outline-none hover:bg-white/60 transition">
+                            <span class="text-lg flex items-center gap-3">💡 <span>View P2 Sample Answer</span></span>
+                            <span class="group-open:rotate-180 transition-transform text-fuchsia-400 text-xl">▼</span>
+                        </summary>
+                        <div class="p-6 border-t border-white/60 text-rose-900/90 text-[0.95rem] bg-white/20 backdrop-blur-md leading-relaxed italic font-medium">
+                            "<strong>When it comes to a house I would like to live in, I guess I would opt for</strong> a luxurious <strong>penthouse</strong>.<br><br>
+                            
+                            <strong>I would kick off by saying something about the house's location.</strong> It would ideally be situated right in the center of a bustling city, far above the typical noisy <strong>residential area</strong>.<br><br>
+                            
+                            <strong>Regarding what my dream house would include, I would say that</strong> it must feature an <strong>open-plan</strong> layout. I love the concept of <strong>minimalism</strong>, so the <strong>decor</strong> would be very simple, clean, and <strong>airy</strong>, strictly following the principles of <strong>Feng Shui</strong> to ensure good energy flow.<br><br>
+                            
+                            <strong>As a final point, I'd like to mention the reasons why I would like to live in such a house.</strong> Primarily, I despise feeling cramped in a tiny <strong>bedsit</strong>. A <strong>spacious</strong> penthouse would allow me to host amazing <strong>house-warming parties</strong>, and the massive windows would offer a truly <strong>cozy</strong> atmosphere while looking at the city lights."
+                        </div>
+                    </details>
+                </div>
+
+                <!-- Timers -->
+                <div class="flex flex-col md:flex-row justify-center gap-6">
+                    <div class="glass-card rounded-3xl p-6 flex flex-col items-center justify-center shadow-sm w-full md:w-1/2 border-t-4 border-rose-300">
+                        <h4 class="font-extrabold text-rose-950 text-xl mb-4 flex items-center gap-2"><span>📝</span> Prep (1 Min)</h4>
+                        <div class="glass-panel py-3 w-full rounded-xl shadow-inner border border-white/80 text-center mb-4">
+                            <span id="timer-p2-prep" class="text-4xl font-mono text-rose-950 font-black tracking-tight">01:00</span>
+                        </div>
+                        <button onclick="startTimer(1, 'timer-p2-prep')" class="w-full bg-gradient-to-r from-rose-500 to-rose-400 hover:from-rose-400 hover:to-rose-300 text-white font-bold py-3 rounded-xl transition-all shadow-md text-sm">
+                            Start Prep
+                        </button>
+                    </div>
+
+                    <div class="glass-card rounded-3xl p-6 flex flex-col items-center justify-center shadow-sm w-full md:w-1/2 border-t-4 border-fuchsia-300">
+                        <h4 class="font-extrabold text-rose-950 text-xl mb-4 flex items-center gap-2"><span>🎙️</span> Speak (2 Mins)</h4>
+                        <div class="glass-panel py-3 w-full rounded-xl shadow-inner border border-white/80 text-center mb-4">
+                            <span id="timer-p2-speak" class="text-4xl font-mono text-rose-950 font-black tracking-tight">02:00</span>
+                        </div>
+                        <button onclick="startTimer(2, 'timer-p2-speak')" class="w-full bg-gradient-to-r from-fuchsia-500 to-fuchsia-400 hover:from-fuchsia-400 hover:to-fuchsia-300 text-white font-bold py-3 rounded-xl transition-all shadow-md text-sm">
+                            Start Speaking
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 6: Speaking Vocab - Countryside & City -->
+            <div class="slide">
+                <div class="flex items-center gap-4 mb-10">
+                    <span class="w-12 h-12 rounded-2xl glass-panel flex items-center justify-center text-2xl shadow-sm">🏙️</span>
+                    <div>
+                        <span class="text-rose-500 font-extrabold text-xs tracking-widest uppercase">Speaking Part 1</span>
+                        <h2 class="text-3xl font-extrabold text-rose-950">Countryside & Cities Vocab (Pg 16-17)</h2>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Exercise 6 & 7 -->
+                    <div class="flex flex-col gap-8 h-full">
+                        <div class="glass-card rounded-3xl p-6 exercise-container relative">
+                            <div class="flex items-center justify-between mb-4">
+                                <div>
+                                    <h3 class="text-xl font-bold text-rose-950">Exercise 6: Visual Matching</h3>
+                                </div>
+                                <button onclick="toggleAnswers(this)" class="glass-button text-rose-800 font-bold py-1.5 px-4 rounded-xl text-sm shadow-sm shrink-0">
+                                    ✨ Reveal Answers
+                                </button>
+                            </div>
+                            
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-[0.9rem] font-semibold text-rose-950 mb-2">
+                                <div class="flex flex-col bg-white/40 p-3 rounded-lg hover:bg-white/60 transition gap-2 text-center">
+                                    <span class="text-4xl mb-1">🚜</span>
+                                    <span class="text-rose-900/70 text-xs">Farm & Windmill</span>
+                                    <span class="hidden-answer text-rose-800 font-black bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">rural area (n) <span class="font-normal text-xs text-rose-900/70 ml-1">(vùng nông thôn)</span></span>
+                                </div>
+                                <div class="flex flex-col bg-white/40 p-3 rounded-lg hover:bg-white/60 transition gap-2 text-center">
+                                    <span class="text-4xl mb-1">🏢</span>
+                                    <span class="text-rose-900/70 text-xs">City Buildings</span>
+                                    <span class="hidden-answer text-rose-800 font-black bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">urban area (n) <span class="font-normal text-xs text-rose-900/70 ml-1">(khu đô thị)</span></span>
+                                </div>
+                                <div class="flex flex-col bg-white/40 p-3 rounded-lg hover:bg-white/60 transition gap-2 text-center">
+                                    <span class="text-4xl mb-1">🚗</span>
+                                    <span class="text-rose-900/70 text-xs">Heavy Traffic Jam</span>
+                                    <span class="hidden-answer text-rose-800 font-black bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">gridlock (n) <span class="font-normal text-xs text-rose-900/70 ml-1">(tắc đường)</span></span>
+                                </div>
+                                <div class="flex flex-col bg-white/40 p-3 rounded-lg hover:bg-white/60 transition gap-2 text-center">
+                                    <span class="text-4xl mb-1">🏚️</span>
+                                    <span class="text-rose-900/70 text-xs">Poor Crowded Houses</span>
+                                    <span class="hidden-answer text-rose-800 font-black bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">slum (n) <span class="font-normal text-xs text-rose-900/70 ml-1">(khu ổ chuột)</span></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="glass-card rounded-3xl p-6 exercise-container relative flex-1">
+                            <div class="flex items-center justify-between mb-4">
+                                <div>
+                                    <h3 class="text-xl font-bold text-rose-950">Exercise 7: Meanings</h3>
+                                </div>
+                                <button onclick="toggleAnswers(this)" class="glass-button text-rose-800 font-bold py-1.5 px-4 rounded-xl text-sm shadow-sm shrink-0">
+                                    ✨ Reveal Answers
+                                </button>
+                            </div>
+                            
+                            <div class="glass-panel p-3 rounded-xl text-[0.85rem] space-y-1.5 mb-5 font-medium text-rose-950/80 bg-white/20 border border-white/40">
+                                <p><strong class="text-pink-500">A.</strong> a person who lives in a town or city</p>
+                                <p><strong class="text-pink-500">B.</strong> the quality of living</p>
+                                <p><strong class="text-pink-500">C.</strong> a large, important city</p>
+                                <p><strong class="text-pink-500">D.</strong> ruthless, competitive struggle for success</p>
+                            </div>
+
+                            <div class="space-y-3 text-[0.95rem] font-semibold text-rose-950">
+                                <div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition">
+                                    <span class="flex items-center gap-2">1 <strong class="text-rose-700">the standard of living</strong> <span class="text-xs font-medium text-rose-800 ml-1">(mức sống)</span></span>
+                                    <span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ B. the quality of living</span>
+                                </div>
+                                <div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition">
+                                    <span class="flex items-center gap-2">2 <strong class="text-rose-700">the rat race</strong> <span class="text-xs font-medium text-rose-800 ml-1">(cuộc sống xô bồ)</span></span>
+                                    <span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ D. ruthless, competitive struggle...</span>
+                                </div>
+                                <div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition">
+                                    <span class="flex items-center gap-2">3 <strong class="text-rose-700">metropolis</strong> <span class="text-xs font-normal text-rose-900/60">/məˈtrɑːpəlɪs/</span> <span class="text-xs font-medium text-rose-800 ml-1">(siêu đô thị)</span> <button onclick="playAudio('metropolis')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span>
+                                    <span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ C. a large, important city</span>
+                                </div>
+                                <div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition">
+                                    <span class="flex items-center gap-2">4 <strong class="text-rose-700">urbanite</strong> <span class="text-xs font-normal text-rose-900/60">/ˈɜːrbənaɪt/</span> <span class="text-xs font-medium text-rose-800 ml-1">(người thành thị)</span> <button onclick="playAudio('urbanite')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span>
+                                    <span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ A. a person who lives in a city</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Exercise 8: Gap Fill -->
+                    <div class="glass-card rounded-3xl p-6 exercise-container relative h-full flex flex-col">
+                        <div class="flex items-center justify-between mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold text-rose-950">Exercise 8: Word Fill-In</h3>
+                                <p class="text-sm text-rose-900/60 mt-1">Fill in each blank with one suitable word.</p>
+                            </div>
+                            <button onclick="toggleAnswers(this)" class="glass-button text-rose-800 font-bold py-1.5 px-4 rounded-xl text-sm shadow-sm shrink-0">
+                                ✨ Reveal Answers
+                            </button>
+                        </div>
+                        
+                        <!-- Word Bank with Pronunciation -->
+                        <div class="glass-panel p-4 rounded-xl flex flex-wrap justify-center gap-4 mb-6 border border-white/60 bg-white/20">
+                            <div class="flex items-center gap-1"><button onclick="playAudio('cunning')" class="text-xs">🔊</button><div class="flex flex-col items-center"><span class="text-pink-600 font-bold text-sm">cunning</span><span class="text-[0.65rem] font-medium text-rose-900/70">(xảo quyệt)</span><span class="text-[0.65rem] font-normal text-rose-950/60">/ˈkʌnɪŋ/</span></div></div>
+                            <div class="flex items-center gap-1"><button onclick="playAudio('laid-back')" class="text-xs">🔊</button><div class="flex flex-col items-center"><span class="text-pink-600 font-bold text-sm">laid-back</span><span class="text-[0.65rem] font-medium text-rose-900/70">(thư thái)</span><span class="text-[0.65rem] font-normal text-rose-950/60">/ˌleɪd ˈbæk/</span></div></div>
+                            <div class="flex items-center gap-1"><button onclick="playAudio('sincere')" class="text-xs">🔊</button><div class="flex flex-col items-center"><span class="text-pink-600 font-bold text-sm">sincere</span><span class="text-[0.65rem] font-medium text-rose-900/70">(chân thành)</span><span class="text-[0.65rem] font-normal text-rose-950/60">/sɪnˈsɪr/</span></div></div>
+                            <div class="flex items-center gap-1"><button onclick="playAudio('pretentious')" class="text-xs">🔊</button><div class="flex flex-col items-center"><span class="text-pink-600 font-bold text-sm">pretentious</span><span class="text-[0.65rem] font-medium text-rose-900/70">(tự phụ)</span><span class="text-[0.65rem] font-normal text-rose-950/60">/prɪˈtenʃəs/</span></div></div>
+                            <div class="flex items-center gap-1"><button onclick="playAudio('nosy')" class="text-xs">🔊</button><div class="flex flex-col items-center"><span class="text-pink-600 font-bold text-sm">nosy</span><span class="text-[0.65rem] font-medium text-rose-900/70">(tọc mạch)</span></div></div>
+                            <div class="flex items-center gap-1"><button onclick="playAudio('diligent')" class="text-xs">🔊</button><div class="flex flex-col items-center"><span class="text-pink-600 font-bold text-sm">diligent</span><span class="text-[0.65rem] font-medium text-rose-900/70">(siêng năng)</span><span class="text-[0.65rem] font-normal text-rose-950/60">/ˈdɪlɪdʒənt/</span></div></div>
+                            <div class="flex items-center gap-1"><button onclick="playAudio('materialistic')" class="text-xs">🔊</button><div class="flex flex-col items-center"><span class="text-pink-600 font-bold text-sm">materialistic</span><span class="text-[0.65rem] font-medium text-rose-900/70">(thực dụng)</span><span class="text-[0.65rem] font-normal text-rose-950/60">/məˌtɪriəˈlɪstɪk/</span></div></div>
+                        </div>
+
+                        <ul class="space-y-4 text-[0.95rem] font-semibold text-rose-950 leading-relaxed overflow-y-auto pr-2">
+                            <li class="flex flex-wrap items-center gap-x-2">
+                                <span>1. A</span>
+                                <span class="inline-flex items-center justify-center min-w-[100px] border-b-2 border-dashed border-pink-400 text-rose-600 px-2 h-7"><span class="hidden-answer">cunning</span></span>
+                                <span>man is clever at tricking other people to get what he wants.</span>
+                            </li>
+                            <li class="flex flex-wrap items-center gap-x-2">
+                                <span>2. My sister-in-law is</span>
+                                <span class="inline-flex items-center justify-center min-w-[100px] border-b-2 border-dashed border-pink-400 text-rose-600 px-2 h-7"><span class="hidden-answer">diligent</span></span>,
+                                <span>always showing care and effort in her work.</span>
+                            </li>
+                            <li class="flex flex-wrap items-center gap-x-2">
+                                <span>3. My next-door neighbor is</span>
+                                <span class="inline-flex items-center justify-center min-w-[100px] border-b-2 border-dashed border-pink-400 text-rose-600 px-2 h-7"><span class="hidden-answer">nosy</span></span>.
+                                <span>She is too interested in things not related to her.</span>
+                            </li>
+                            <li class="flex flex-wrap items-center gap-x-2">
+                                <span>4. My ex-girlfriend is</span>
+                                <span class="inline-flex items-center justify-center min-w-[100px] border-b-2 border-dashed border-pink-400 text-rose-600 px-2 h-7"><span class="hidden-answer">pretentious</span></span>.
+                                <span>She always tries to be something that she is not, in order to impress other people.</span>
+                            </li>
+                            <li class="flex flex-wrap items-center gap-x-2">
+                                <span>5. Children today are so</span>
+                                <span class="inline-flex items-center justify-center min-w-[100px] border-b-2 border-dashed border-pink-400 text-rose-600 px-2 h-7"><span class="hidden-answer">materialistic</span></span>.
+                                <span>They care more about money and possessions than anything else.</span>
+                            </li>
+                            <li class="flex flex-wrap items-center gap-x-2">
+                                <span>6. My aunt is</span>
+                                <span class="inline-flex items-center justify-center min-w-[100px] border-b-2 border-dashed border-pink-400 text-rose-600 px-2 h-7"><span class="hidden-answer">sincere</span></span>,
+                                <span>saying only what she really thinks or feels.</span>
+                            </li>
+                            <li class="flex flex-wrap items-center gap-x-2">
+                                <span>7. My grandmother is</span>
+                                <span class="inline-flex items-center justify-center min-w-[100px] border-b-2 border-dashed border-pink-400 text-rose-600 px-2 h-7"><span class="hidden-answer">laid-back</span></span>,
+                                <span>seeming not to worry about anything.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 7: Speaking Practice - Countryside & City -->
+            <div class="slide">
+                <div class="flex items-center gap-4 mb-10">
+                    <span class="w-12 h-12 rounded-2xl glass-panel flex items-center justify-center text-2xl shadow-sm">🗣️</span>
+                    <div>
+                        <span class="text-rose-500 font-extrabold text-xs tracking-widest uppercase">Speaking Part 1</span>
+                        <h2 class="text-3xl font-extrabold text-rose-950">Practice: Countryside & City</h2>
+                    </div>
+                </div>
+
+                <div class="glass-card p-10 md:p-12 rounded-3xl mb-10 relative overflow-hidden border-t-4 border-rose-400">
+                    <h3 class="text-2xl font-bold text-rose-950 mb-6 uppercase tracking-widest flex items-center gap-2"><span>💬</span> Part 1 Questions</h3>
+                    
+                    <ol class="list-decimal pl-6 space-y-4 text-lg text-rose-950 font-semibold mb-8">
+                        <li>Would you like to live in the countryside in the future?</li>
+                        <li>What do people living in the countryside like to do?</li>
+                        <li>What are the benefits of living in rural areas?</li>
+                        <li>What's the difference between living in the city and living in the countryside?</li>
+                    </ol>
+
+                    <details class="group bg-white/40 border border-white/70 rounded-2xl relative z-10 overflow-hidden transition-all duration-300 shadow-sm hover:shadow-md">
+                        <summary class="cursor-pointer font-bold text-rose-900 p-5 flex items-center justify-between outline-none hover:bg-white/60 transition">
+                            <span class="text-lg flex items-center gap-3">💡 <span>View Sample Answers</span></span>
+                            <span class="group-open:rotate-180 transition-transform text-pink-400 text-xl">▼</span>
+                        </summary>
+                        <div class="p-6 border-t border-white/60 text-rose-900/90 space-y-5 text-[0.95rem] bg-white/20 backdrop-blur-md">
+                            <div class="border-l-4 border-pink-400 pl-4 bg-white/40 p-3 rounded-r-xl">
+                                <p class="text-rose-950 font-bold mb-1">1. Would you like to live in the countryside in the future?</p>
+                                <p class="font-medium">Yes, definitely. When I retire, I would love to move to a peaceful <strong>rural area</strong> to escape the stressful <strong>rat race</strong> of the city.</p>
+                            </div>
+                            <div class="border-l-4 border-pink-400 pl-4 bg-white/40 p-3 rounded-r-xl">
+                                <p class="text-rose-950 font-bold mb-1">2. What do people living in the countryside like to do?</p>
+                                <p class="font-medium">They usually enjoy a very <strong>laid-back</strong> lifestyle. They like gardening, farming, and spending time outdoors rather than being obsessed with <strong>materialistic</strong> things.</p>
+                            </div>
+                            <div class="border-l-4 border-pink-400 pl-4 bg-white/40 p-3 rounded-r-xl">
+                                <p class="text-rose-950 font-bold mb-1">3. What are the benefits of living in rural areas?</p>
+                                <p class="font-medium">The main benefit is the higher <strong>standard of living</strong> in terms of mental health. The air is fresh, and the neighbors are usually very <strong>sincere</strong> and helpful, unlike in cities where people can sometimes be <strong>pretentious</strong>.</p>
+                            </div>
+                            <div class="border-l-4 border-pink-400 pl-4 bg-white/40 p-3 rounded-r-xl">
+                                <p class="text-rose-950 font-bold mb-1">4. What's the difference between living in the city and living in the countryside?</p>
+                                <p class="font-medium">The biggest difference is the pace of life. A <strong>metropolis</strong> is often plagued by horrible <strong>gridlock</strong> and noise. An <strong>urbanite</strong> is usually very <strong>diligent</strong> but stressed, whereas country life is much slower and relaxed.</p>
+                            </div>
+                        </div>
+                    </details>
+                </div>
+
+                <!-- Teacher Control Card: Pair Work -->
+                <div class="glass-card rounded-3xl overflow-hidden flex flex-col md:flex-row items-center justify-between p-8 shadow-lg">
+                    <div class="flex items-center gap-6 mb-6 md:mb-0">
+                        <div class="w-16 h-16 bg-gradient-to-br from-pink-400 to-rose-400 text-white rounded-2xl flex items-center justify-center text-3xl shadow-md border border-pink-300">👥</div>
+                        <div>
+                            <h4 class="font-extrabold text-rose-950 text-2xl">Pair Work Practice</h4>
+                            <p class="text-rose-900/70 mt-1 font-medium text-lg">Discuss the questions using new vocabulary.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-5 glass-panel py-4 px-8 rounded-2xl shadow-inner">
+                        <span id="timer-sp-country" class="text-4xl font-mono text-rose-950 font-black tracking-tight w-28 text-center drop-shadow-sm">03:00</span>
+                        <button onclick="startTimer(3, 'timer-sp-country')" class="bg-gradient-to-r from-rose-500 to-pink-500 hover:from-rose-400 hover:to-pink-400 text-white font-bold py-3.5 px-8 rounded-xl transition-all hover:shadow-[0_8px_20px_rgba(225,29,72,0.4)] flex items-center gap-2 shadow-md">
+                            <span class="text-xl">▶</span> Start
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        // -- Navigation & Progress Logic --
+        let currentSlide = 0;
+        let totalSlides = 0;
+        let slides = [];
+
+        function initSlides() {
+            slides = document.querySelectorAll('.slide');
+            totalSlides = slides.length;
+            updateUI();
+        }
+
+        function updateUI() {
+            slides.forEach((el, index) => {
+                if (index === currentSlide) {
+                    el.classList.add('active');
+                } else {
+                    el.classList.remove('active');
+                }
+            });
+            // Update counter
+            const counter = document.getElementById('slide-counter');
+            if (counter) counter.innerText = `${currentSlide + 1} / ${totalSlides}`;
+            
+            // Update dropdown
+            const navDropdown = document.getElementById('section-nav');
+            if (navDropdown) navDropdown.value = currentSlide;
+
+            // Update Progress Bar
+            const progress = ((currentSlide + 1) / totalSlides) * 100;
+            const progressBar = document.getElementById('progress-bar');
+            if(progressBar) progressBar.style.width = `${progress}%`;
+
+            document.querySelector('main').scrollTop = 0;
+        }
+
+        function jumpToSection(slideIndex) {
+            const index = parseInt(slideIndex);
+            if (!isNaN(index) && index >= 0 && index < totalSlides) {
+                currentSlide = index;
+                updateUI();
+            }
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides - 1) {
+                currentSlide++;
+                updateUI();
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 0) {
+                currentSlide--;
+                updateUI();
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') nextSlide();
+            if (e.key === 'ArrowLeft') prevSlide();
+        });
+
+        // -- Toggle Answers Logic --
+        function toggleAnswers(button) {
+            const container = button.closest('.exercise-container');
+            if (!container) return;
+            const hiddenElements = container.querySelectorAll('.hidden-answer');
+
+            let isHidden = true;
+            if (hiddenElements.length > 0) {
+                isHidden = hiddenElements[0].style.display === 'none' || hiddenElements[0].style.display === '';
+            }
+
+            hiddenElements.forEach(el => {
+                if (isHidden) {
+                    el.style.display = el.tagName === 'SPAN' ? (el.classList.contains('inline-block') ? 'inline-block' : 'inline') : 'block';
+                } else {
+                    el.style.display = 'none';
+                }
+            });
+
+            if (isHidden) {
+                button.innerHTML = "✨ Hide Answers";
+            } else {
+                button.innerHTML = button.getAttribute('data-default-text') || "👀 Reveal Answers";
+            }
+        }
+
+        // -- Pronunciation TTS Engine --
+        function playAudio(word) {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel(); 
+                const utterance = new SpeechSynthesisUtterance(word);
+                utterance.lang = 'en-US';
+                utterance.rate = 0.85; 
+                window.speechSynthesis.speak(utterance);
+            } else {
+                console.warn("Text-to-Speech is not supported in this browser environment.");
+            }
+        }
+
+        // -- Timer Logic --
+        let intervals = {};
+
+        function startTimer(minutes, elementId) {
+            const display = document.getElementById(elementId);
+            let time = minutes * 60;
+            
+            if (intervals[elementId]) {
+                clearInterval(intervals[elementId]);
+            }
+
+            updateTimerDisplay(time, display);
+            display.classList.remove('text-rose-600');
+            display.classList.add('text-rose-950');
+
+            intervals[elementId] = setInterval(() => {
+                time--;
+                updateTimerDisplay(time, display);
+
+                if (time <= 0) {
+                    clearInterval(intervals[elementId]);
+                    display.classList.add('text-rose-600');
+                    display.classList.remove('text-rose-950');
+                    try {
+                        let audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                        let oscillator = audioCtx.createOscillator();
+                        oscillator.type = 'sine';
+                        oscillator.frequency.setValueAtTime(440, audioCtx.currentTime);
+                        oscillator.connect(audioCtx.destination);
+                        oscillator.start();
+                        oscillator.stop(audioCtx.currentTime + 0.5);
+                    } catch(e) {}
+                }
+            }, 1000);
+        }
+
+        function updateTimerDisplay(totalSeconds, element) {
+            const m = Math.floor(totalSeconds / 60).toString().padStart(2, '0');
+            const s = (totalSeconds % 60).toString().padStart(2, '0');
+            element.innerText = `${m}:${s}`;
+        }
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', initSlides);
+    </script>
+</body>
+</html>
