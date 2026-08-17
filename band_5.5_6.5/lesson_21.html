@@ -84,14 +84,25 @@
                     <span class="w-2 h-2 rounded-full bg-pink-400 shadow-[0_0_8px_rgba(244,114,182,0.8)]"></span> Lesson 21: Reading & Speaking
                 </p>
             </div>
-            <div class="flex items-center gap-4">
-                <span id="slide-counter" class="font-bold text-rose-900 px-4 py-1.5 glass-panel rounded-full">1 / 8</span>
-                <div class="flex gap-3">
-                    <button onclick="prevSlide()" class="glass-button text-rose-800 px-5 py-2.5 rounded-full font-semibold flex items-center gap-2">
-                        <span>←</span> Prev
+            <div class="flex items-center gap-4 w-full md:w-auto justify-between md:justify-end">
+                <select id="section-nav" onchange="jumpToSection(this.value)" class="nav-dropdown glass-panel text-rose-900 font-bold py-2 px-4 rounded-xl shadow-sm outline-none cursor-pointer border border-white/60 hover:bg-white/60 transition">
+                    <option value="0">1. Lesson Overview</option>
+                    <option value="1">2. Reading: SB Unit 7</option>
+                    <option value="2">3. Reading: Vocabulary</option>
+                    <option value="3">4. Speaking: Family Vocab</option>
+                    <option value="4">5. Speaking: Family Practice</option>
+                    <option value="5">6. Speaking: Teachers Vocab</option>
+                    <option value="6">7. Speaking: Teachers Practice</option>
+                    <option value="7">8. Assessment: Vocab Test</option>
+                </select>
+
+                <div class="flex items-center gap-3">
+                    <span id="slide-counter" class="font-bold text-rose-900 px-3 py-1.5 glass-panel rounded-full text-sm hidden md:inline-block">1 / 8</span>
+                    <button onclick="prevSlide()" class="glass-button text-rose-800 px-3 py-1.5 rounded-full font-semibold flex items-center gap-1.5 text-sm">
+                        <span>←</span> <span class="hidden sm:inline">Prev</span>
                     </button>
-                    <button onclick="nextSlide()" class="bg-gradient-to-r from-pink-500 to-rose-400 hover:from-pink-400 hover:to-rose-300 text-white px-6 py-2.5 rounded-full shadow-lg shadow-pink-500/30 transition-all hover:shadow-pink-500/50 hover:-translate-y-0.5 font-bold flex items-center gap-2">
-                        Next <span>→</span>
+                    <button onclick="nextSlide()" class="bg-gradient-to-r from-pink-500 to-rose-400 hover:from-pink-400 hover:to-rose-300 text-white px-4 py-1.5 rounded-full shadow-lg shadow-pink-500/30 transition-all hover:shadow-pink-500/50 hover:-translate-y-0.5 font-bold flex items-center gap-1.5 text-sm">
+                        <span class="hidden sm:inline">Next</span> <span>→</span>
                     </button>
                 </div>
             </div>
@@ -197,14 +208,14 @@
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-10 text-lg font-medium">
                             <div class="space-y-3">
-                                <div class="flex justify-between items-center p-3.5 rounded-xl hover:bg-white/40 transition"><span><strong>1.</strong> <span class="text-pink-600 font-bold">attempt</span> to do something</span> <span class="hidden-answer text-rose-600 font-black bg-white/60 px-3 py-1 rounded-lg shadow-sm border border-white/50">→ D</span></div>
-                                <div class="flex justify-between items-center p-3.5 rounded-xl hover:bg-white/40 transition"><span><strong>2.</strong> <span class="text-pink-600 font-bold">display</span></span> <span class="hidden-answer text-rose-600 font-black bg-white/60 px-3 py-1 rounded-lg shadow-sm border border-white/50">→ E</span></div>
-                                <div class="flex justify-between items-center p-3.5 rounded-xl hover:bg-white/40 transition"><span><strong>3.</strong> <span class="text-pink-600 font-bold">emerge</span></span> <span class="hidden-answer text-rose-600 font-black bg-white/60 px-3 py-1 rounded-lg shadow-sm border border-white/50">→ A</span></div>
-                                <div class="flex justify-between items-center p-3.5 rounded-xl hover:bg-white/40 transition"><span><strong>4.</strong> <span class="text-pink-600 font-bold">devise</span></span> <span class="hidden-answer text-rose-600 font-black bg-white/60 px-3 py-1 rounded-lg shadow-sm border border-white/50">→ B</span></div>
-                                <div class="flex justify-between items-center p-3.5 rounded-xl hover:bg-white/40 transition"><span><strong>5.</strong> <span class="text-pink-600 font-bold">detect</span></span> <span class="hidden-answer text-rose-600 font-black bg-white/60 px-3 py-1 rounded-lg shadow-sm border border-white/50">→ C</span></div>
-                                <div class="flex justify-between items-center p-3.5 rounded-xl hover:bg-white/40 transition"><span><strong>6.</strong> <span class="text-pink-600 font-bold">haunt</span></span> <span class="hidden-answer text-rose-600 font-black bg-white/60 px-3 py-1 rounded-lg shadow-sm border border-white/50">→ F</span></div>
-                                <div class="flex justify-between items-center p-3.5 rounded-xl hover:bg-white/40 transition"><span><strong>7.</strong> <span class="text-pink-600 font-bold">confess</span></span> <span class="hidden-answer text-rose-600 font-black bg-white/60 px-3 py-1 rounded-lg shadow-sm border border-white/50">→ G</span></div>
-                                <div class="flex justify-between items-center p-3.5 rounded-xl hover:bg-white/40 transition"><span><strong>8.</strong> <span class="text-pink-600 font-bold">deceive</span></span> <span class="hidden-answer text-rose-600 font-black bg-white/60 px-3 py-1 rounded-lg shadow-sm border border-white/50">→ H</span></div>
+                                <div class="flex justify-between items-center p-3.5 rounded-xl hover:bg-white/40 transition"><span><strong>1.</strong> <span class="text-pink-600 font-bold">attempt</span> to do something <span class="text-xs font-normal text-rose-900/60 ml-1">(cố gắng làm gì)</span></span> <span class="hidden-answer text-rose-600 font-black bg-white/60 px-3 py-1 rounded-lg shadow-sm border border-white/50">→ D</span></div>
+                                <div class="flex justify-between items-center p-3.5 rounded-xl hover:bg-white/40 transition"><span><strong>2.</strong> <span class="text-pink-600 font-bold">display</span> <span class="text-xs font-normal text-rose-900/60 ml-1">(thể hiện, trưng bày)</span></span> <span class="hidden-answer text-rose-600 font-black bg-white/60 px-3 py-1 rounded-lg shadow-sm border border-white/50">→ E</span></div>
+                                <div class="flex justify-between items-center p-3.5 rounded-xl hover:bg-white/40 transition"><span><strong>3.</strong> <span class="text-pink-600 font-bold">emerge</span> <span class="text-xs font-normal text-rose-900/60 ml-1">(xuất hiện, nổi lên)</span></span> <span class="hidden-answer text-rose-600 font-black bg-white/60 px-3 py-1 rounded-lg shadow-sm border border-white/50">→ A</span></div>
+                                <div class="flex justify-between items-center p-3.5 rounded-xl hover:bg-white/40 transition"><span><strong>4.</strong> <span class="text-pink-600 font-bold">devise</span> <span class="text-xs font-normal text-rose-900/60 ml-1">(phát minh, nghĩ ra)</span></span> <span class="hidden-answer text-rose-600 font-black bg-white/60 px-3 py-1 rounded-lg shadow-sm border border-white/50">→ B</span></div>
+                                <div class="flex justify-between items-center p-3.5 rounded-xl hover:bg-white/40 transition"><span><strong>5.</strong> <span class="text-pink-600 font-bold">detect</span> <span class="text-xs font-normal text-rose-900/60 ml-1">(phát hiện, dò ra)</span></span> <span class="hidden-answer text-rose-600 font-black bg-white/60 px-3 py-1 rounded-lg shadow-sm border border-white/50">→ C</span></div>
+                                <div class="flex justify-between items-center p-3.5 rounded-xl hover:bg-white/40 transition"><span><strong>6.</strong> <span class="text-pink-600 font-bold">haunt</span> <span class="text-xs font-normal text-rose-900/60 ml-1">(ám ảnh, gây rắc rối)</span></span> <span class="hidden-answer text-rose-600 font-black bg-white/60 px-3 py-1 rounded-lg shadow-sm border border-white/50">→ F</span></div>
+                                <div class="flex justify-between items-center p-3.5 rounded-xl hover:bg-white/40 transition"><span><strong>7.</strong> <span class="text-pink-600 font-bold">confess</span> <span class="text-xs font-normal text-rose-900/60 ml-1">(thú nhận)</span></span> <span class="hidden-answer text-rose-600 font-black bg-white/60 px-3 py-1 rounded-lg shadow-sm border border-white/50">→ G</span></div>
+                                <div class="flex justify-between items-center p-3.5 rounded-xl hover:bg-white/40 transition"><span><strong>8.</strong> <span class="text-pink-600 font-bold">deceive</span> <span class="text-xs font-normal text-rose-900/60 ml-1">(lừa dối)</span></span> <span class="hidden-answer text-rose-600 font-black bg-white/60 px-3 py-1 rounded-lg shadow-sm border border-white/50">→ H</span></div>
                             </div>
                             <div class="glass-panel p-8 rounded-2xl space-y-4 text-rose-950/80">
                                 <p><span class="font-extrabold text-pink-400 mr-3 text-xl">A.</span> appear</p>
@@ -236,10 +247,10 @@
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-10 text-lg items-center font-medium">
                             <div class="space-y-4">
-                                <div class="flex justify-between items-center p-5 glass-panel rounded-2xl"><span><strong>1.</strong> <span class="text-pink-600 font-bold">rip</span> paper</span> <span class="hidden-answer text-rose-600 font-black bg-white border border-white/80 px-4 py-1.5 rounded-xl shadow-sm">→ B</span></div>
-                                <div class="flex justify-between items-center p-5 glass-panel rounded-2xl"><span><strong>2.</strong> <span class="text-pink-600 font-bold">toss</span> a coin</span> <span class="hidden-answer text-rose-600 font-black bg-white border border-white/80 px-4 py-1.5 rounded-xl shadow-sm">→ A</span></div>
-                                <div class="flex justify-between items-center p-5 glass-panel rounded-2xl"><span><strong>3.</strong> <span class="text-pink-600 font-bold">peek</span> at something</span> <span class="hidden-answer text-rose-600 font-black bg-white border border-white/80 px-4 py-1.5 rounded-xl shadow-sm">→ C</span></div>
-                                <div class="flex justify-between items-center p-5 glass-panel rounded-2xl"><span><strong>4.</strong> <span class="text-pink-600 font-bold">avert</span> eyes</span> <span class="hidden-answer text-rose-600 font-black bg-white border border-white/80 px-4 py-1.5 rounded-xl shadow-sm">→ D</span></div>
+                                <div class="flex justify-between items-center p-5 glass-panel rounded-2xl"><span><strong>1.</strong> <span class="text-pink-600 font-bold">rip</span> paper <span class="text-xs font-normal text-rose-900/60 ml-1">(xé giấy)</span></span> <span class="hidden-answer text-rose-600 font-black bg-white border border-white/80 px-4 py-1.5 rounded-xl shadow-sm">→ B</span></div>
+                                <div class="flex justify-between items-center p-5 glass-panel rounded-2xl"><span><strong>2.</strong> <span class="text-pink-600 font-bold">toss</span> a coin <span class="text-xs font-normal text-rose-900/60 ml-1">(tung đồng xu)</span></span> <span class="hidden-answer text-rose-600 font-black bg-white border border-white/80 px-4 py-1.5 rounded-xl shadow-sm">→ A</span></div>
+                                <div class="flex justify-between items-center p-5 glass-panel rounded-2xl"><span><strong>3.</strong> <span class="text-pink-600 font-bold">peek</span> at something <span class="text-xs font-normal text-rose-900/60 ml-1">(liếc nhìn, nhìn trộm)</span></span> <span class="hidden-answer text-rose-600 font-black bg-white border border-white/80 px-4 py-1.5 rounded-xl shadow-sm">→ C</span></div>
+                                <div class="flex justify-between items-center p-5 glass-panel rounded-2xl"><span><strong>4.</strong> <span class="text-pink-600 font-bold">avert</span> eyes <span class="text-xs font-normal text-rose-900/60 ml-1">(ngoảnh đi, đánh mắt đi)</span></span> <span class="hidden-answer text-rose-600 font-black bg-white border border-white/80 px-4 py-1.5 rounded-xl shadow-sm">→ D</span></div>
                             </div>
                             <div class="grid grid-cols-2 gap-5">
                                 <div class="bg-white/60 p-6 rounded-2xl border border-white/80 text-center flex flex-col justify-center shadow-sm relative transition hover:bg-white/80">
@@ -278,7 +289,7 @@
                         <p class="text-lg mb-8 text-rose-900/80 font-medium">Fill in each blank with one suitable word from the list below.</p>
 
                         <div class="glass-panel rounded-2xl p-6 flex flex-wrap justify-center gap-x-8 gap-y-4 text-pink-600 font-extrabold mb-10 text-xl border-white/80 shadow-sm">
-                            <span>deceit</span> <span>incident</span> <span>profound</span> <span>consistent</span> <span>intentional</span> <span>compelling</span> <span>entire</span>
+                            <span class="flex flex-col items-center">deceit <span class="text-xs font-normal text-rose-950/60">(sự lừa dối)</span></span> <span class="flex flex-col items-center">incident <span class="text-xs font-normal text-rose-950/60">(sự cố, việc xảy ra)</span></span> <span class="flex flex-col items-center">profound <span class="text-xs font-normal text-rose-950/60">(sâu sắc)</span></span> <span class="flex flex-col items-center">consistent <span class="text-xs font-normal text-rose-950/60">(nhất quán)</span></span> <span class="flex flex-col items-center">intentional <span class="text-xs font-normal text-rose-950/60">(cố ý)</span></span> <span class="flex flex-col items-center">compelling <span class="text-xs font-normal text-rose-950/60">(thuyết phục)</span></span> <span class="flex flex-col items-center">entire <span class="text-xs font-normal text-rose-950/60">(toàn bộ)</span></span>
                         </div>
 
                         <ul class="space-y-7 text-lg text-rose-950 font-medium leading-relaxed">
@@ -341,11 +352,11 @@
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-10 text-lg font-medium">
                             <div class="space-y-3">
-                                <div class="flex justify-between items-center p-3.5 rounded-xl hover:bg-white/40 transition"><span><strong>1.</strong> If you <strong class="text-rose-600 font-extrabold">quarrel</strong> with your parents</span> <span class="hidden-answer text-rose-600 font-black bg-white/60 px-3 py-1 rounded-lg shadow-sm border border-white/50">→ C</span></div>
-                                <div class="flex justify-between items-center p-3.5 rounded-xl hover:bg-white/40 transition"><span><strong>2.</strong> If you <strong class="text-rose-600 font-extrabold">take after</strong> your mother</span> <span class="hidden-answer text-rose-600 font-black bg-white/60 px-3 py-1 rounded-lg shadow-sm border border-white/50">→ D</span></div>
-                                <div class="flex justify-between items-center p-3.5 rounded-xl hover:bg-white/40 transition"><span><strong>3.</strong> If a sense of humor <strong class="text-rose-600 font-extrabold">runs in your family</strong></span> <span class="hidden-answer text-rose-600 font-black bg-white/60 px-3 py-1 rounded-lg shadow-sm border border-white/50">→ A</span></div>
-                                <div class="flex justify-between items-center p-3.5 rounded-xl hover:bg-white/40 transition"><span><strong>4.</strong> If you <strong class="text-rose-600 font-extrabold">inherit</strong> your father's optimism</span> <span class="hidden-answer text-rose-600 font-black bg-white/60 px-3 py-1 rounded-lg shadow-sm border border-white/50">→ E</span></div>
-                                <div class="flex justify-between items-center p-3.5 rounded-xl hover:bg-white/40 transition"><span><strong>5.</strong> If your sister and you are <strong class="text-rose-600 font-extrabold">on the same wavelength</strong></span> <span class="hidden-answer text-rose-600 font-black bg-white/60 px-3 py-1 rounded-lg shadow-sm border border-white/50">→ B</span></div>
+                                <div class="flex justify-between items-center p-3.5 rounded-xl hover:bg-white/40 transition"><span><strong>1.</strong> If you <strong class="text-rose-600 font-extrabold">quarrel</strong> with your parents <span class="text-xs font-normal text-rose-900/60 ml-1">(cãi vã)</span></span> <span class="hidden-answer text-rose-600 font-black bg-white/60 px-3 py-1 rounded-lg shadow-sm border border-white/50">→ C</span></div>
+                                <div class="flex justify-between items-center p-3.5 rounded-xl hover:bg-white/40 transition"><span><strong>2.</strong> If you <strong class="text-rose-600 font-extrabold">take after</strong> your mother <span class="text-xs font-normal text-rose-900/60 ml-1">(trông giống, giống tính)</span></span> <span class="hidden-answer text-rose-600 font-black bg-white/60 px-3 py-1 rounded-lg shadow-sm border border-white/50">→ D</span></div>
+                                <div class="flex justify-between items-center p-3.5 rounded-xl hover:bg-white/40 transition"><span><strong>3.</strong> If a sense of humor <strong class="text-rose-600 font-extrabold">runs in your family</strong> <span class="text-xs font-normal text-rose-900/60 ml-1">(là đặc điểm chung của gđ)</span></span> <span class="hidden-answer text-rose-600 font-black bg-white/60 px-3 py-1 rounded-lg shadow-sm border border-white/50">→ A</span></div>
+                                <div class="flex justify-between items-center p-3.5 rounded-xl hover:bg-white/40 transition"><span><strong>4.</strong> If you <strong class="text-rose-600 font-extrabold">inherit</strong> your father's optimism <span class="text-xs font-normal text-rose-900/60 ml-1">(thừa hưởng)</span></span> <span class="hidden-answer text-rose-600 font-black bg-white/60 px-3 py-1 rounded-lg shadow-sm border border-white/50">→ E</span></div>
+                                <div class="flex justify-between items-center p-3.5 rounded-xl hover:bg-white/40 transition"><span><strong>5.</strong> If your sister and you are <strong class="text-rose-600 font-extrabold">on the same wavelength</strong> <span class="text-xs font-normal text-rose-900/60 ml-1">(cùng chung suy nghĩ/tần số)</span></span> <span class="hidden-answer text-rose-600 font-black bg-white/60 px-3 py-1 rounded-lg shadow-sm border border-white/50">→ B</span></div>
                             </div>
                             <div class="glass-panel p-8 rounded-2xl space-y-5 text-rose-950/80">
                                 <p><span class="font-extrabold text-pink-400 mr-3 text-xl">A.</span> all members are humorous.</p>
@@ -373,7 +384,7 @@
                         <p class="text-lg mb-8 text-rose-900/80 font-medium">Fill in each blank with one suitable word from the list below.</p>
 
                         <div class="glass-panel rounded-2xl p-6 flex flex-wrap justify-center gap-x-8 gap-y-4 text-rose-500 font-extrabold mb-10 text-xl border-white/80 shadow-sm">
-                            <span>trait</span> <span>upbringing</span> <span>reunion</span> <span>gathering</span> <span>treatment</span>
+                            <span class="flex flex-col items-center">trait <span class="text-xs font-normal text-rose-950/60">(đặc điểm)</span></span> <span class="flex flex-col items-center">upbringing <span class="text-xs font-normal text-rose-950/60">(sự nuôi dưỡng)</span></span> <span class="flex flex-col items-center">reunion <span class="text-xs font-normal text-rose-950/60">(sự họp mặt)</span></span> <span class="flex flex-col items-center">gathering <span class="text-xs font-normal text-rose-950/60">(sự tụ tập)</span></span> <span class="flex flex-col items-center">treatment <span class="text-xs font-normal text-rose-950/60">(sự đối xử)</span></span>
                         </div>
 
                         <ul class="space-y-7 text-lg text-rose-950 font-medium leading-relaxed">
@@ -510,62 +521,62 @@
                                 </thead>
                                 <tbody class="text-rose-950 font-medium divide-y divide-white/40">
                                     <tr class="hover:bg-white/50 transition">
-                                        <td class="py-4 px-6"><span class="font-black text-pink-400 mr-3">1</span> A <strong class="text-rose-700 font-extrabold">methodical</strong> person is unorganized. <span class="text-rose-900/50 font-normal text-base ml-1">/məˈθɑːdɪkl/</span></td>
+                                        <td class="py-4 px-6"><span class="font-black text-pink-400 mr-3">1</span> A <strong class="text-rose-700 font-extrabold">methodical</strong> person is unorganized. <span class="text-rose-900/50 font-normal text-base ml-1">/məˈθɑːdɪkl/</span> <span class="text-xs font-normal text-rose-900/60 block mt-1">(người có phương pháp, ngăn nắp)</span></td>
                                         <td class="text-center py-4 border-l border-white/40"></td>
                                         <td class="text-center py-4 border-l border-white/40 bg-rose-100/50"><span class="hidden-answer"><span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-rose-200 text-rose-700 font-bold text-xl shadow-sm border border-rose-300">✘</span></span></td>
                                     </tr>
                                     <tr class="hover:bg-white/50 transition">
-                                        <td class="py-4 px-6"><span class="font-black text-pink-400 mr-3">2</span> A <strong class="text-rose-700 font-extrabold">conscientious</strong> person is dedicated. <span class="text-rose-900/50 font-normal text-base ml-1">/ˌkɑːnʃiˈenʃəs/</span></td>
+                                        <td class="py-4 px-6"><span class="font-black text-pink-400 mr-3">2</span> A <strong class="text-rose-700 font-extrabold">conscientious</strong> person is dedicated. <span class="text-rose-900/50 font-normal text-base ml-1">/ˌkɑːnʃiˈenʃəs/</span> <span class="text-xs font-normal text-rose-900/60 block mt-1">(người tận tâm, chu đáo)</span></td>
                                         <td class="text-center py-4 border-l border-white/40 bg-teal-50/50"><span class="hidden-answer"><span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-teal-100 text-teal-700 font-bold text-xl shadow-sm border border-teal-200">✔</span></span></td>
                                         <td class="text-center py-4 border-l border-white/40"></td>
                                     </tr>
                                     <tr class="hover:bg-white/50 transition">
-                                        <td class="py-4 px-6"><span class="font-black text-pink-400 mr-3">3</span> A <strong class="text-rose-700 font-extrabold">diligent</strong> person is lazy.</td>
+                                        <td class="py-4 px-6"><span class="font-black text-pink-400 mr-3">3</span> A <strong class="text-rose-700 font-extrabold">diligent</strong> person is lazy. <span class="text-xs font-normal text-rose-900/60 block mt-1">(người siêng năng, cần mẫn)</span></td>
                                         <td class="text-center py-4 border-l border-white/40"></td>
                                         <td class="text-center py-4 border-l border-white/40 bg-rose-100/50"><span class="hidden-answer"><span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-rose-200 text-rose-700 font-bold text-xl shadow-sm border border-rose-300">✘</span></span></td>
                                     </tr>
                                     <tr class="hover:bg-white/50 transition">
-                                        <td class="py-4 px-6"><span class="font-black text-pink-400 mr-3">4</span> A <strong class="text-rose-700 font-extrabold">supportive</strong> person is helpful.</td>
+                                        <td class="py-4 px-6"><span class="font-black text-pink-400 mr-3">4</span> A <strong class="text-rose-700 font-extrabold">supportive</strong> person is helpful. <span class="text-xs font-normal text-rose-900/60 block mt-1">(người hay giúp đỡ, ủng hộ)</span></td>
                                         <td class="text-center py-4 border-l border-white/40 bg-teal-50/50"><span class="hidden-answer"><span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-teal-100 text-teal-700 font-bold text-xl shadow-sm border border-teal-200">✔</span></span></td>
                                         <td class="text-center py-4 border-l border-white/40"></td>
                                     </tr>
                                     <tr class="hover:bg-white/50 transition">
-                                        <td class="py-4 px-6"><span class="font-black text-pink-400 mr-3">5</span> An <strong class="text-rose-700 font-extrabold">approachable</strong> person is unfriendly.</td>
+                                        <td class="py-4 px-6"><span class="font-black text-pink-400 mr-3">5</span> An <strong class="text-rose-700 font-extrabold">approachable</strong> person is unfriendly. <span class="text-xs font-normal text-rose-900/60 block mt-1">(người dễ gần)</span></td>
                                         <td class="text-center py-4 border-l border-white/40"></td>
                                         <td class="text-center py-4 border-l border-white/40 bg-rose-100/50"><span class="hidden-answer"><span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-rose-200 text-rose-700 font-bold text-xl shadow-sm border border-rose-300">✘</span></span></td>
                                     </tr>
                                     <tr class="hover:bg-white/50 transition">
-                                        <td class="py-4 px-6"><span class="font-black text-pink-400 mr-3">6</span> A <strong class="text-rose-700 font-extrabold">tactful</strong> person is careless with his words.</td>
+                                        <td class="py-4 px-6"><span class="font-black text-pink-400 mr-3">6</span> A <strong class="text-rose-700 font-extrabold">tactful</strong> person is careless with his words. <span class="text-xs font-normal text-rose-900/60 block mt-1">(người khéo léo, tế nhị)</span></td>
                                         <td class="text-center py-4 border-l border-white/40"></td>
                                         <td class="text-center py-4 border-l border-white/40 bg-rose-100/50"><span class="hidden-answer"><span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-rose-200 text-rose-700 font-bold text-xl shadow-sm border border-rose-300">✘</span></span></td>
                                     </tr>
                                     <tr class="hover:bg-white/50 transition">
-                                        <td class="py-4 px-6"><span class="font-black text-pink-400 mr-3">7</span> If someone is <strong class="text-rose-700 font-extrabold">in his late twenties</strong>, he is 20-23 years old.</td>
+                                        <td class="py-4 px-6"><span class="font-black text-pink-400 mr-3">7</span> If someone is <strong class="text-rose-700 font-extrabold">in his late twenties</strong>, he is 20-23 years old. <span class="text-xs font-normal text-rose-900/60 block mt-1">(ở độ tuổi cuối 20 (27-29))</span></td>
                                         <td class="text-center py-4 border-l border-white/40"></td>
                                         <td class="text-center py-4 border-l border-white/40 bg-rose-100/50"><span class="hidden-answer"><span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-rose-200 text-rose-700 font-bold text-xl shadow-sm border border-rose-300">✘</span></span></td>
                                     </tr>
                                     <tr class="hover:bg-white/50 transition">
-                                        <td class="py-4 px-6"><span class="font-black text-pink-400 mr-3">8</span> An <strong class="text-rose-700 font-extrabold">interactive</strong> lesson allows information to be exchanged.</td>
+                                        <td class="py-4 px-6"><span class="font-black text-pink-400 mr-3">8</span> An <strong class="text-rose-700 font-extrabold">interactive</strong> lesson allows information to be exchanged. <span class="text-xs font-normal text-rose-900/60 block mt-1">(bài học có tính tương tác)</span></td>
                                         <td class="text-center py-4 border-l border-white/40 bg-teal-50/50"><span class="hidden-answer"><span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-teal-100 text-teal-700 font-bold text-xl shadow-sm border border-teal-200">✔</span></span></td>
                                         <td class="text-center py-4 border-l border-white/40"></td>
                                     </tr>
                                     <tr class="hover:bg-white/50 transition">
-                                        <td class="py-4 px-6"><span class="font-black text-pink-400 mr-3">9</span> A <strong class="text-rose-700 font-extrabold">student-centered</strong> lesson focuses on the teacher.</td>
+                                        <td class="py-4 px-6"><span class="font-black text-pink-400 mr-3">9</span> A <strong class="text-rose-700 font-extrabold">student-centered</strong> lesson focuses on the teacher. <span class="text-xs font-normal text-rose-900/60 block mt-1">(bài học lấy học sinh làm trung tâm)</span></td>
                                         <td class="text-center py-4 border-l border-white/40"></td>
                                         <td class="text-center py-4 border-l border-white/40 bg-rose-100/50"><span class="hidden-answer"><span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-rose-200 text-rose-700 font-bold text-xl shadow-sm border border-rose-300">✘</span></span></td>
                                     </tr>
                                     <tr class="hover:bg-white/50 transition">
-                                        <td class="py-4 px-6"><span class="font-black text-pink-400 mr-3">10</span> To <strong class="text-rose-700 font-extrabold">arouse students' interest</strong> is to stimulate them to be active.</td>
+                                        <td class="py-4 px-6"><span class="font-black text-pink-400 mr-3">10</span> To <strong class="text-rose-700 font-extrabold">arouse students' interest</strong> is to stimulate them to be active. <span class="text-xs font-normal text-rose-900/60 block mt-1">(khơi dậy sự hứng thú của hs)</span></td>
                                         <td class="text-center py-4 border-l border-white/40 bg-teal-50/50"><span class="hidden-answer"><span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-teal-100 text-teal-700 font-bold text-xl shadow-sm border border-teal-200">✔</span></span></td>
                                         <td class="text-center py-4 border-l border-white/40"></td>
                                     </tr>
                                     <tr class="hover:bg-white/50 transition">
-                                        <td class="py-4 px-6"><span class="font-black text-pink-400 mr-3">11</span> <strong class="text-rose-700 font-extrabold">Being on good terms</strong> means having a good relationship.</td>
+                                        <td class="py-4 px-6"><span class="font-black text-pink-400 mr-3">11</span> <strong class="text-rose-700 font-extrabold">Being on good terms</strong> means having a good relationship. <span class="text-xs font-normal text-rose-900/60 block mt-1">(có mối quan hệ tốt)</span></td>
                                         <td class="text-center py-4 border-l border-white/40 bg-teal-50/50"><span class="hidden-answer"><span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-teal-100 text-teal-700 font-bold text-xl shadow-sm border border-teal-200">✔</span></span></td>
                                         <td class="text-center py-4 border-l border-white/40"></td>
                                     </tr>
                                     <tr class="hover:bg-white/50 transition">
-                                        <td class="py-4 px-6"><span class="font-black text-pink-400 mr-3">12</span> A <strong class="text-rose-700 font-extrabold">role model</strong> is admired.</td>
+                                        <td class="py-4 px-6"><span class="font-black text-pink-400 mr-3">12</span> A <strong class="text-rose-700 font-extrabold">role model</strong> is admired. <span class="text-xs font-normal text-rose-900/60 block mt-1">(tấm gương, hình mẫu)</span></td>
                                         <td class="text-center py-4 border-l border-white/40 bg-teal-50/50"><span class="hidden-answer"><span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-teal-100 text-teal-700 font-bold text-xl shadow-sm border border-teal-200">✔</span></span></td>
                                         <td class="text-center py-4 border-l border-white/40"></td>
                                     </tr>
@@ -693,11 +704,24 @@
             document.getElementById(`slide-${currentSlide}`).classList.add('active');
             // Update counter
             document.getElementById('slide-counter').innerText = `${currentSlide + 1} / ${totalSlides}`;
+            
+            // Update dropdown
+            const navDropdown = document.getElementById('section-nav');
+            if (navDropdown) navDropdown.value = currentSlide;
+
             // Update Progress Bar
             const progress = ((currentSlide + 1) / totalSlides) * 100;
             document.getElementById('progress-bar').style.width = `${progress}%`;
             // Scroll to top
             document.querySelector('main').scrollTop = 0;
+        }
+
+        function jumpToSection(slideIndex) {
+            const index = parseInt(slideIndex);
+            if (!isNaN(index) && index >= 0 && index < totalSlides) {
+                currentSlide = index;
+                updateUI();
+            }
         }
 
         function nextSlide() {
