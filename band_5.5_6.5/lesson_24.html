@@ -64,27 +64,46 @@
         
         .hover-lift { transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease; }
         .hover-lift:hover { transform: translateY(-4px); box-shadow: 0 15px 30px -10px rgba(225, 29, 72, 0.2); }
+
+        select.nav-dropdown {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23881337' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1em;
+            padding-right: 2.5rem;
+        }
     </style>
 </head>
 <body class="h-screen flex flex-col overflow-hidden">
 
     <!-- Header / Navigation (Frosted Glass) -->
     <header class="glass-card border-b border-white/60 z-20 shrink-0 relative">
-        <div class="p-4 flex justify-between items-center max-w-7xl mx-auto w-full">
+        <div class="p-4 flex flex-col md:flex-row justify-between items-center gap-4 max-w-7xl mx-auto w-full">
             <div>
                 <h1 class="text-2xl font-extrabold tracking-tight text-rose-950">IELTS Chan Truong <span class="text-rose-600 font-semibold ml-2 px-3 py-1 bg-white/50 border border-white/60 rounded-full text-base shadow-sm">Class 5.5-6.5</span></h1>
                 <p class="text-sm text-rose-900/70 mt-1.5 flex items-center gap-2 font-medium">
                     <span class="w-2 h-2 rounded-full bg-pink-400 shadow-[0_0_8px_rgba(244,114,182,0.8)]"></span> Lesson 24: Reading & Speaking
                 </p>
             </div>
-            <div class="flex items-center gap-4">
-                <span id="slide-counter" class="font-bold text-rose-900 px-4 py-1.5 glass-panel rounded-full">1 / 6</span>
-                <div class="flex gap-3">
-                    <button onclick="prevSlide()" class="glass-button text-rose-800 px-5 py-2.5 rounded-full font-semibold flex items-center gap-2">
-                        <span>←</span> Prev
+            
+            <div class="flex items-center gap-4 w-full md:w-auto justify-between md:justify-end">
+                <select id="section-nav" onchange="jumpToSection(this.value)" class="nav-dropdown glass-panel text-rose-900 font-bold py-2 px-4 rounded-xl shadow-sm outline-none cursor-pointer border border-white/60 hover:bg-white/60 transition">
+                    <option value="0">1. Lesson Overview</option>
+                    <option value="1">2. Reading: SB Unit 8</option>
+                    <option value="2">3. Reading: Vocab Exercises</option>
+                    <option value="3">4. Speaking: Vocab & Pronunciation</option>
+                    <option value="4">5. Speaking: Topic Practice</option>
+                    <option value="5">6. Speaking: Cue Card</option>
+                </select>
+
+                <div class="flex items-center gap-3">
+                    <span id="slide-counter" class="font-bold text-rose-900 px-3 py-1.5 glass-panel rounded-full text-sm hidden md:inline-block">1 / 6</span>
+                    <button onclick="prevSlide()" class="glass-button text-rose-800 px-3 py-1.5 rounded-full font-semibold flex items-center gap-1.5 text-sm">
+                        <span>←</span> <span class="hidden sm:inline">Prev</span>
                     </button>
-                    <button onclick="nextSlide()" class="bg-gradient-to-r from-pink-500 to-rose-400 hover:from-pink-400 hover:to-rose-300 text-white px-6 py-2.5 rounded-full shadow-lg shadow-pink-500/30 transition-all hover:shadow-pink-500/50 hover:-translate-y-0.5 font-bold flex items-center gap-2">
-                        Next <span>→</span>
+                    <button onclick="nextSlide()" class="bg-gradient-to-r from-pink-500 to-rose-400 hover:from-pink-400 hover:to-rose-300 text-white px-4 py-1.5 rounded-full shadow-lg shadow-pink-500/30 transition-all hover:shadow-pink-500/50 hover:-translate-y-0.5 font-bold flex items-center gap-1.5 text-sm">
+                        <span class="hidden sm:inline">Next</span> <span>→</span>
                     </button>
                 </div>
             </div>
@@ -187,31 +206,31 @@
                                 <h4 class="text-lg font-black text-rose-900 border-b border-pink-200 pb-1 uppercase tracking-wider">Verbs</h4>
                                 <ol class="space-y-4 text-base font-semibold text-rose-950">
                                     <li class="flex items-center justify-between">
-                                        <span>1. <span class="text-rose-700">cultivate</span> <span class="text-xs text-rose-900/60 ml-1">/'kʌltɪveɪt/</span></span>
+                                        <span>1. <span class="text-rose-700">cultivate</span> <span class="text-xs text-rose-900/60 ml-1">/'kʌltɪveɪt/</span> <span class="text-xs font-normal text-rose-900/60 ml-1">(trau dồi, tu dưỡng)</span></span>
                                         <span class="w-24 border-b-2 border-dashed border-pink-400 text-center font-bold text-rose-600 h-6">
                                             <span class="hidden-answer">C (develop)</span>
                                         </span>
                                     </li>
                                     <li class="flex items-center justify-between">
-                                        <span>2. <span class="text-rose-700">grace</span> <span class="text-xs text-rose-900/60 ml-1">/greɪs/</span></span>
+                                        <span>2. <span class="text-rose-700">grace</span> <span class="text-xs text-rose-900/60 ml-1">/greɪs/</span> <span class="text-xs font-normal text-rose-900/60 ml-1">(làm đẹp thêm)</span></span>
                                         <span class="w-24 border-b-2 border-dashed border-pink-400 text-center font-bold text-rose-600 h-6">
                                             <span class="hidden-answer">E (attract)</span>
                                         </span>
                                     </li>
                                     <li class="flex items-center justify-between">
-                                        <span>3. <span class="text-rose-700">glisten</span> <span class="text-xs text-rose-900/60 ml-1">/'glɪsn/</span></span>
+                                        <span>3. <span class="text-rose-700">glisten</span> <span class="text-xs text-rose-900/60 ml-1">/'glɪsn/</span> <span class="text-xs font-normal text-rose-900/60 ml-1">(lấp lánh)</span></span>
                                         <span class="w-24 border-b-2 border-dashed border-pink-400 text-center font-bold text-rose-600 h-6">
                                             <span class="hidden-answer">A (shine)</span>
                                         </span>
                                     </li>
                                     <li class="flex items-center justify-between">
-                                        <span>4. <span class="text-rose-700">stitch</span> <span class="text-xs text-rose-900/60 ml-1">/stɪtʃ/</span></span>
+                                        <span>4. <span class="text-rose-700">stitch</span> <span class="text-xs text-rose-900/60 ml-1">/stɪtʃ/</span> <span class="text-xs font-normal text-rose-900/60 ml-1">(khâu, may)</span></span>
                                         <span class="w-24 border-b-2 border-dashed border-pink-400 text-center font-bold text-rose-600 h-6">
                                             <span class="hidden-answer">B (sew)</span>
                                         </span>
                                     </li>
                                     <li class="flex items-center justify-between">
-                                        <span>5. <span class="text-rose-700">launch</span></span>
+                                        <span>5. <span class="text-rose-700">launch</span> <span class="text-xs font-normal text-rose-900/60 ml-1">(ra mắt, khởi đầu)</span></span>
                                         <span class="w-24 border-b-2 border-dashed border-pink-400 text-center font-bold text-rose-600 h-6">
                                             <span class="hidden-answer">D (start)</span>
                                         </span>
@@ -221,37 +240,37 @@
                                 <h4 class="text-lg font-black text-rose-900 border-b border-pink-200 pb-1 mt-6 uppercase tracking-wider">Adjectives</h4>
                                 <ol class="space-y-4 text-base font-semibold text-rose-950">
                                     <li class="flex items-center justify-between">
-                                        <span>6. <span class="text-rose-700">collective</span> <span class="text-xs text-rose-900/60 ml-1">/kə'lektɪv/</span></span>
+                                        <span>6. <span class="text-rose-700">collective</span> <span class="text-xs text-rose-900/60 ml-1">/kə'lektɪv/</span> <span class="text-xs font-normal text-rose-900/60 ml-1">(tập thể, chung)</span></span>
                                         <span class="w-24 border-b-2 border-dashed border-pink-400 text-center font-bold text-rose-600 h-6">
                                             <span class="hidden-answer">G (shared)</span>
                                         </span>
                                     </li>
                                     <li class="flex items-center justify-between">
-                                        <span>7. <span class="text-rose-700">extravagant</span> <span class="text-xs text-rose-900/60 ml-1">/ɪk'strævəgənt/</span></span>
+                                        <span>7. <span class="text-rose-700">extravagant</span> <span class="text-xs text-rose-900/60 ml-1">/ɪk'strævəgənt/</span> <span class="text-xs font-normal text-rose-900/60 ml-1">(phung phí, xa hoa)</span></span>
                                         <span class="w-24 border-b-2 border-dashed border-pink-400 text-center font-bold text-rose-600 h-6">
                                             <span class="hidden-answer">I (costly)</span>
                                         </span>
                                     </li>
                                     <li class="flex items-center justify-between">
-                                        <span>8. <span class="text-rose-700">stretchy</span> <span class="text-xs text-rose-900/60 ml-1">/'stretʃi/</span></span>
+                                        <span>8. <span class="text-rose-700">stretchy</span> <span class="text-xs text-rose-900/60 ml-1">/'stretʃi/</span> <span class="text-xs font-normal text-rose-900/60 ml-1">(co giãn)</span></span>
                                         <span class="w-24 border-b-2 border-dashed border-pink-400 text-center font-bold text-rose-600 h-6">
                                             <span class="hidden-answer">J (elastic)</span>
                                         </span>
                                     </li>
                                     <li class="flex items-center justify-between">
-                                        <span>9. <span class="text-rose-700">ruthless</span> <span class="text-xs text-rose-900/60 ml-1">/'ruːθləs/</span></span>
+                                        <span>9. <span class="text-rose-700">ruthless</span> <span class="text-xs text-rose-900/60 ml-1">/'ruːθləs/</span> <span class="text-xs font-normal text-rose-900/60 ml-1">(tàn nhẫn)</span></span>
                                         <span class="w-24 border-b-2 border-dashed border-pink-400 text-center font-bold text-rose-600 h-6">
                                             <span class="hidden-answer">F (cruel)</span>
                                         </span>
                                     </li>
                                     <li class="flex items-center justify-between">
-                                        <span>10. <span class="text-rose-700">intricate</span> <span class="text-xs text-rose-900/60 ml-1">/'ɪntrɪkət/</span></span>
+                                        <span>10. <span class="text-rose-700">intricate</span> <span class="text-xs text-rose-900/60 ml-1">/'ɪntrɪkət/</span> <span class="text-xs font-normal text-rose-900/60 ml-1">(tinh xảo, phức tạp)</span></span>
                                         <span class="w-24 border-b-2 border-dashed border-pink-400 text-center font-bold text-rose-600 h-6">
                                             <span class="hidden-answer">H (elaborate)</span>
                                         </span>
                                     </li>
                                     <li class="flex items-center justify-between">
-                                        <span>11. <span class="text-rose-700">daring</span></span>
+                                        <span>11. <span class="text-rose-700">daring</span> <span class="text-xs font-normal text-rose-900/60 ml-1">(táo bạo)</span></span>
                                         <span class="w-24 border-b-2 border-dashed border-pink-400 text-center font-bold text-rose-600 h-6">
                                             <span class="hidden-answer">K (brave)</span>
                                         </span>
@@ -298,7 +317,7 @@
                             <div class="space-y-4">
                                 <ol class="space-y-4 text-base font-semibold text-rose-950">
                                     <li class="flex items-center justify-between">
-                                        <span>1. The <span class="text-rose-700">masses</span> are...</span>
+                                        <span>1. The <span class="text-rose-700">masses</span> <span class="text-xs font-normal text-rose-900/60 ml-1">(quần chúng)</span> are...</span>
                                         <span class="w-32 border-b-2 border-dashed border-pink-400 text-center font-bold text-rose-600 h-6">
                                             <span class="hidden-answer">→ D (ordinary)</span>
                                         </span>
@@ -316,13 +335,13 @@
                                         </span>
                                     </li>
                                     <li class="flex items-center justify-between">
-                                        <span>4. If a performance <span class="text-rose-700">draws a gasp</span>...</span>
+                                        <span>4. If a performance <span class="text-rose-700">draws a gasp</span> <span class="text-xs font-normal text-rose-900/60 ml-1">(gây kinh ngạc)</span>...</span>
                                         <span class="w-32 border-b-2 border-dashed border-pink-400 text-center font-bold text-rose-600 h-6">
                                             <span class="hidden-answer">→ C (impressed)</span>
                                         </span>
                                     </li>
                                     <li class="flex items-center justify-between">
-                                        <span>5. There is a <span class="text-rose-700">glint of</span> amusement...</span>
+                                        <span>5. There is a <span class="text-rose-700">glint of</span> <span class="text-xs font-normal text-rose-900/60 ml-1">(tia sáng, ánh lên)</span> amusement...</span>
                                         <span class="w-32 border-b-2 border-dashed border-pink-400 text-center font-bold text-rose-600 h-6">
                                             <span class="hidden-answer">→ E (in eyes)</span>
                                         </span>
@@ -332,8 +351,8 @@
 
                             <!-- Right: Options Pool -->
                             <div class="glass-panel p-6 rounded-2xl text-sm space-y-3 font-semibold text-rose-950/80">
-                                <p><span class="text-rose-600 font-black mr-2">A.</span> I'm <span class="text-rose-700">no exception</span>.</p>
-                                <p><span class="text-rose-600 font-black mr-2">B.</span> <span class="text-rose-700">in the limelight/spotlight</span>.</p>
+                                <p><span class="text-rose-600 font-black mr-2">A.</span> I'm <span class="text-rose-700">no exception</span> <span class="text-xs font-normal text-rose-900/60 ml-1">(không ngoại lệ)</span>.</p>
+                                <p><span class="text-rose-600 font-black mr-2">B.</span> <span class="text-rose-700">in the limelight/spotlight</span> <span class="text-xs font-normal text-rose-900/60 ml-1">(tâm điểm sự chú ý)</span>.</p>
                                 <p><span class="text-rose-600 font-black mr-2">C.</span> you're impressed.</p>
                                 <p><span class="text-rose-600 font-black mr-2">D.</span> the ordinary people.</p>
                                 <p><span class="text-rose-600 font-black mr-2">E.</span> in her eyes.</p>
@@ -359,11 +378,11 @@
                     <div class="p-8 md:p-10 bg-white/25">
                         <!-- Word List -->
                         <div class="glass-panel p-4 rounded-2xl flex flex-wrap justify-center gap-4 mb-8 border-white/60 bg-white/20">
-                            <span class="text-rose-800 font-bold px-3 py-1 bg-white/40 rounded-xl">stain</span>
-                            <span class="text-rose-800 font-bold px-3 py-1 bg-white/40 rounded-xl">masterpiece</span>
-                            <span class="text-rose-800 font-bold px-3 py-1 bg-white/40 rounded-xl">garment</span>
-                            <span class="text-rose-800 font-bold px-3 py-1 bg-white/40 rounded-xl">wear</span>
-                            <span class="text-rose-800 font-bold px-3 py-1 bg-white/40 rounded-xl">workmanship</span>
+                            <span class="flex flex-col items-center"><span class="text-rose-800 font-bold px-3 py-1 bg-white/40 rounded-xl">stain</span><span class="text-[0.65rem] font-medium text-rose-900/70 mt-1">(vết bẩn)</span></span>
+                            <span class="flex flex-col items-center"><span class="text-rose-800 font-bold px-3 py-1 bg-white/40 rounded-xl">masterpiece</span><span class="text-[0.65rem] font-medium text-rose-900/70 mt-1">(kiệt tác)</span></span>
+                            <span class="flex flex-col items-center"><span class="text-rose-800 font-bold px-3 py-1 bg-white/40 rounded-xl">garment</span><span class="text-[0.65rem] font-medium text-rose-900/70 mt-1">(trang phục)</span></span>
+                            <span class="flex flex-col items-center"><span class="text-rose-800 font-bold px-3 py-1 bg-white/40 rounded-xl">wear</span><span class="text-[0.65rem] font-medium text-rose-900/70 mt-1">(sự hao mòn)</span></span>
+                            <span class="flex flex-col items-center"><span class="text-rose-800 font-bold px-3 py-1 bg-white/40 rounded-xl">workmanship</span><span class="text-[0.65rem] font-medium text-rose-900/70 mt-1">(tay nghề)</span></span>
                         </div>
 
                         <!-- Blank Sentences -->
@@ -435,37 +454,37 @@
                         <div class="glass-panel rounded-2xl p-6 mt-8 border-white/60 bg-white/20">
                             <h4 class="text-sm font-bold text-rose-950 uppercase tracking-widest mb-4">Vocabulary Pronunciation Guide (Click 🔊 to hear pronunciation)</h4>
                             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm font-medium">
-                                <div class="flex items-center gap-2 bg-white/40 p-2.5 rounded-xl">
-                                    <button onclick="playAudio('high heels')" class="w-8 h-8 rounded-lg bg-pink-500/10 hover:bg-pink-500/20 text-pink-600 flex items-center justify-center transition">🔊</button>
-                                    <div><p class="font-bold text-rose-950">high heels</p><p class="text-xs text-rose-900/60">/ˌhaɪ ˈhiːlz/</p></div>
+                                <div class="flex items-center gap-2 bg-white/40 p-2.5 rounded-xl hover:bg-white/60 transition">
+                                    <button onclick="playAudio('high heels')" class="w-8 h-8 rounded-lg bg-pink-500/10 hover:bg-pink-500/20 text-pink-600 flex items-center justify-center transition shrink-0">🔊</button>
+                                    <div><p class="font-bold text-rose-950">high heels</p><p class="text-xs text-rose-900/60">/ˌhaɪ ˈhiːlz/ <span class="italic text-rose-900/70 block">(giày cao gót)</span></p></div>
                                 </div>
-                                <div class="flex items-center gap-2 bg-white/40 p-2.5 rounded-xl">
-                                    <button onclick="playAudio('sandals')" class="w-8 h-8 rounded-lg bg-pink-500/10 hover:bg-pink-500/20 text-pink-600 flex items-center justify-center transition">🔊</button>
-                                    <div><p class="font-bold text-rose-950">sandals</p><p class="text-xs text-rose-900/60">/ˈsændlz/</p></div>
+                                <div class="flex items-center gap-2 bg-white/40 p-2.5 rounded-xl hover:bg-white/60 transition">
+                                    <button onclick="playAudio('sandals')" class="w-8 h-8 rounded-lg bg-pink-500/10 hover:bg-pink-500/20 text-pink-600 flex items-center justify-center transition shrink-0">🔊</button>
+                                    <div><p class="font-bold text-rose-950">sandals</p><p class="text-xs text-rose-900/60">/ˈsændlz/ <span class="italic text-rose-900/70 block">(xăng đan)</span></p></div>
                                 </div>
-                                <div class="flex items-center gap-2 bg-white/40 p-2.5 rounded-xl">
-                                    <button onclick="playAudio('sneakers')" class="w-8 h-8 rounded-lg bg-pink-500/10 hover:bg-pink-500/20 text-pink-600 flex items-center justify-center transition">🔊</button>
-                                    <div><p class="font-bold text-rose-950">sneakers</p><p class="text-xs text-rose-900/60">/ˈsniːkərz/</p></div>
+                                <div class="flex items-center gap-2 bg-white/40 p-2.5 rounded-xl hover:bg-white/60 transition">
+                                    <button onclick="playAudio('sneakers')" class="w-8 h-8 rounded-lg bg-pink-500/10 hover:bg-pink-500/20 text-pink-600 flex items-center justify-center transition shrink-0">🔊</button>
+                                    <div><p class="font-bold text-rose-950">sneakers</p><p class="text-xs text-rose-900/60">/ˈsniːkərz/ <span class="italic text-rose-900/70 block">(giày thể thao)</span></p></div>
                                 </div>
-                                <div class="flex items-center gap-2 bg-white/40 p-2.5 rounded-xl">
-                                    <button onclick="playAudio('flats')" class="w-8 h-8 rounded-lg bg-pink-500/10 hover:bg-pink-500/20 text-pink-600 flex items-center justify-center transition">🔊</button>
-                                    <div><p class="font-bold text-rose-950">flats</p><p class="text-xs text-rose-900/60">/flæts/</p></div>
+                                <div class="flex items-center gap-2 bg-white/40 p-2.5 rounded-xl hover:bg-white/60 transition">
+                                    <button onclick="playAudio('flats')" class="w-8 h-8 rounded-lg bg-pink-500/10 hover:bg-pink-500/20 text-pink-600 flex items-center justify-center transition shrink-0">🔊</button>
+                                    <div><p class="font-bold text-rose-950">flats</p><p class="text-xs text-rose-900/60">/flæts/ <span class="italic text-rose-900/70 block">(giày bệt)</span></p></div>
                                 </div>
-                                <div class="flex items-center gap-2 bg-white/40 p-2.5 rounded-xl">
-                                    <button onclick="playAudio('boots')" class="w-8 h-8 rounded-lg bg-pink-500/10 hover:bg-pink-500/20 text-pink-600 flex items-center justify-center transition">🔊</button>
-                                    <div><p class="font-bold text-rose-950">boots</p><p class="text-xs text-rose-900/60">/buːts/</p></div>
+                                <div class="flex items-center gap-2 bg-white/40 p-2.5 rounded-xl hover:bg-white/60 transition">
+                                    <button onclick="playAudio('boots')" class="w-8 h-8 rounded-lg bg-pink-500/10 hover:bg-pink-500/20 text-pink-600 flex items-center justify-center transition shrink-0">🔊</button>
+                                    <div><p class="font-bold text-rose-950">boots</p><p class="text-xs text-rose-900/60">/buːts/ <span class="italic text-rose-900/70 block">(bốt)</span></p></div>
                                 </div>
-                                <div class="flex items-center gap-2 bg-white/40 p-2.5 rounded-xl">
-                                    <button onclick="playAudio('flip flops')" class="w-8 h-8 rounded-lg bg-pink-500/10 hover:bg-pink-500/20 text-pink-600 flex items-center justify-center transition">🔊</button>
-                                    <div><p class="font-bold text-rose-950">flip flops</p><p class="text-xs text-rose-900/60">/ˈflɪp flɒps/</p></div>
+                                <div class="flex items-center gap-2 bg-white/40 p-2.5 rounded-xl hover:bg-white/60 transition">
+                                    <button onclick="playAudio('flip flops')" class="w-8 h-8 rounded-lg bg-pink-500/10 hover:bg-pink-500/20 text-pink-600 flex items-center justify-center transition shrink-0">🔊</button>
+                                    <div><p class="font-bold text-rose-950">flip flops</p><p class="text-xs text-rose-900/60">/ˈflɪp flɒps/ <span class="italic text-rose-900/70 block">(dép xỏ ngón)</span></p></div>
                                 </div>
-                                <div class="flex items-center gap-2 bg-white/40 p-2.5 rounded-xl">
-                                    <button onclick="playAudio('slip-ons')" class="w-8 h-8 rounded-lg bg-pink-500/10 hover:bg-pink-500/20 text-pink-600 flex items-center justify-center transition">🔊</button>
-                                    <div><p class="font-bold text-rose-950">slip-ons</p><p class="text-xs text-rose-900/60">/ˈslɪp ɒnz/</p></div>
+                                <div class="flex items-center gap-2 bg-white/40 p-2.5 rounded-xl hover:bg-white/60 transition">
+                                    <button onclick="playAudio('slip-ons')" class="w-8 h-8 rounded-lg bg-pink-500/10 hover:bg-pink-500/20 text-pink-600 flex items-center justify-center transition shrink-0">🔊</button>
+                                    <div><p class="font-bold text-rose-950">slip-ons</p><p class="text-xs text-rose-900/60">/ˈslɪp ɒnz/ <span class="italic text-rose-900/70 block">(giày lười)</span></p></div>
                                 </div>
-                                <div class="flex items-center gap-2 bg-white/40 p-2.5 rounded-xl">
-                                    <button onclick="playAudio('analogue watch')" class="w-8 h-8 rounded-lg bg-pink-500/10 hover:bg-pink-500/20 text-pink-600 flex items-center justify-center transition">🔊</button>
-                                    <div><p class="font-bold text-rose-950">analogue watch</p><p class="text-xs text-rose-900/60">/ˈænəlɒɡ wɒtʃ/</p></div>
+                                <div class="flex items-center gap-2 bg-white/40 p-2.5 rounded-xl hover:bg-white/60 transition">
+                                    <button onclick="playAudio('analogue watch')" class="w-8 h-8 rounded-lg bg-pink-500/10 hover:bg-pink-500/20 text-pink-600 flex items-center justify-center transition shrink-0">🔊</button>
+                                    <div><p class="font-bold text-rose-950">analogue watch</p><p class="text-xs text-rose-900/60">/ˈænəlɒɡ wɒtʃ/ <span class="italic text-rose-900/70 block">(đồng hồ kim)</span></p></div>
                                 </div>
                             </div>
                         </div>
@@ -654,29 +673,29 @@
 
                         <!-- Word Bank with Pronunciation -->
                         <div class="glass-panel rounded-2xl p-4 flex flex-wrap justify-center gap-4 mt-8 border-white/60 bg-white/20">
-                            <div class="flex items-center gap-2 bg-white/40 px-3 py-1.5 rounded-xl text-sm font-bold text-pink-600">
-                                <button onclick="playAudio('all-purpose')" class="text-xs">🔊</button>
-                                <span>all-purpose <span class="font-normal text-xs text-rose-950/60">/ˌɔːl ˈpɜːpəs/</span></span>
+                            <div class="flex items-center gap-2 bg-white/40 px-3 py-1.5 rounded-xl text-sm font-bold text-pink-600 hover:bg-white/60 transition">
+                                <button onclick="playAudio('all-purpose')" class="text-xs shrink-0">🔊</button>
+                                <span>all-purpose <span class="font-normal text-xs text-rose-950/60 ml-1">/ˌɔːl ˈpɜːpəs/</span> <span class="font-medium text-xs text-rose-900/70 block">(đa dụng)</span></span>
                             </div>
-                            <div class="flex items-center gap-2 bg-white/40 px-3 py-1.5 rounded-xl text-sm font-bold text-pink-600">
-                                <button onclick="playAudio('resistant')" class="text-xs">🔊</button>
-                                <span>resistant <span class="font-normal text-xs text-rose-950/60">/rɪˈzɪstənt/</span></span>
+                            <div class="flex items-center gap-2 bg-white/40 px-3 py-1.5 rounded-xl text-sm font-bold text-pink-600 hover:bg-white/60 transition">
+                                <button onclick="playAudio('resistant')" class="text-xs shrink-0">🔊</button>
+                                <span>resistant <span class="font-normal text-xs text-rose-950/60 ml-1">/rɪˈzɪstənt/</span> <span class="font-medium text-xs text-rose-900/70 block">(chống chịu)</span></span>
                             </div>
-                            <div class="flex items-center gap-2 bg-white/40 px-3 py-1.5 rounded-xl text-sm font-bold text-pink-600">
-                                <button onclick="playAudio('chic')" class="text-xs">🔊</button>
-                                <span>chic <span class="font-normal text-xs text-rose-950/60">/ʃiːk/</span></span>
+                            <div class="flex items-center gap-2 bg-white/40 px-3 py-1.5 rounded-xl text-sm font-bold text-pink-600 hover:bg-white/60 transition">
+                                <button onclick="playAudio('chic')" class="text-xs shrink-0">🔊</button>
+                                <span>chic <span class="font-normal text-xs text-rose-950/60 ml-1">/ʃiːk/</span> <span class="font-medium text-xs text-rose-900/70 block">(sang trọng)</span></span>
                             </div>
-                            <div class="flex items-center gap-2 bg-white/40 px-3 py-1.5 rounded-xl text-sm font-bold text-pink-600">
-                                <button onclick="playAudio('slave')" class="text-xs">🔊</button>
-                                <span>slave <span class="font-normal text-xs text-rose-950/60">/sleɪv/</span></span>
+                            <div class="flex items-center gap-2 bg-white/40 px-3 py-1.5 rounded-xl text-sm font-bold text-pink-600 hover:bg-white/60 transition">
+                                <button onclick="playAudio('slave')" class="text-xs shrink-0">🔊</button>
+                                <span>slave <span class="font-normal text-xs text-rose-950/60 ml-1">/sleɪv/</span> <span class="font-medium text-xs text-rose-900/70 block">(nô lệ)</span></span>
                             </div>
-                            <div class="flex items-center gap-2 bg-white/40 px-3 py-1.5 rounded-xl text-sm font-bold text-pink-600">
-                                <button onclick="playAudio('outfit')" class="text-xs">🔊</button>
-                                <span>outfit <span class="font-normal text-xs text-rose-950/60">/ˈaʊtfɪt/</span></span>
+                            <div class="flex items-center gap-2 bg-white/40 px-3 py-1.5 rounded-xl text-sm font-bold text-pink-600 hover:bg-white/60 transition">
+                                <button onclick="playAudio('outfit')" class="text-xs shrink-0">🔊</button>
+                                <span>outfit <span class="font-normal text-xs text-rose-950/60 ml-1">/ˈaʊtfɪt/</span> <span class="font-medium text-xs text-rose-900/70 block">(trang phục)</span></span>
                             </div>
-                            <div class="flex items-center gap-2 bg-white/40 px-3 py-1.5 rounded-xl text-sm font-bold text-pink-600">
-                                <button onclick="playAudio('flattering')" class="text-xs">🔊</button>
-                                <span>flattering <span class="font-normal text-xs text-rose-950/60">/ˈflætərɪŋ/</span></span>
+                            <div class="flex items-center gap-2 bg-white/40 px-3 py-1.5 rounded-xl text-sm font-bold text-pink-600 hover:bg-white/60 transition">
+                                <button onclick="playAudio('flattering')" class="text-xs shrink-0">🔊</button>
+                                <span>flattering <span class="font-normal text-xs text-rose-950/60 ml-1">/ˈflætərɪŋ/</span> <span class="font-medium text-xs text-rose-900/70 block">(tôn dáng)</span></span>
                             </div>
                         </div>
                     </div>
@@ -883,48 +902,48 @@
                 </div>
             </div>
 
-            <!-- SLIDE 6: Speaking P2 | Cue Card -->
+            <!-- SLIDE 6: Speaking P2 | Famous Person - Cue Card -->
             <div class="slide" id="slide-5">
                 <div class="flex items-center gap-4 mb-10">
                     <span class="w-12 h-12 rounded-2xl glass-panel flex items-center justify-center text-2xl shadow-sm">🎙️</span>
                     <div>
                         <span class="text-fuchsia-600 font-extrabold text-xs tracking-widest uppercase">Speaking Part 2</span>
-                        <h2 class="text-3xl font-extrabold text-rose-950">Topic: Special Occasion Clothing (Cue Card)</h2>
+                        <h2 class="text-3xl font-extrabold text-rose-950">Topic: A Needed Purchase (Cue Card)</h2>
                     </div>
                 </div>
 
                 <div class="glass-card p-10 md:p-12 rounded-3xl mb-10 relative overflow-hidden border-t-4 border-fuchsia-400">
-                    <div class="absolute -right-4 -bottom-4 text-9xl opacity-20 transform -rotate-12">👔</div>
+                    <div class="absolute -right-4 -bottom-4 text-9xl opacity-20 transform -rotate-12">🛍️</div>
 
                     <div class="flex items-center gap-5 mb-10 border-b border-white/60 pb-6">
                         <div class="w-14 h-14 bg-white/60 rounded-2xl flex items-center justify-center text-3xl shadow-sm border border-white/80">📝</div>
                         <h3 class="text-3xl font-extrabold text-rose-950 tracking-tight">IELTS Cue Card</h3>
                     </div>
                     
-                    <h4 class="text-2xl font-black text-rose-900 mb-6 uppercase tracking-wide">Describe a piece of clothes that you wear on a special occasion.</h4>
+                    <h4 class="text-2xl font-black text-rose-900 mb-6 uppercase tracking-wide">Describe a time when you bought something you really needed.</h4>
                     <p class="text-xl mb-4 italic text-rose-900/70 font-medium">You should say:</p>
                     
                     <ul class="list-disc pl-8 space-y-4 text-2xl text-rose-950 font-semibold relative z-10 mb-12">
-                        <li>What it is</li>
+                        <li>What you bought</li>
                         <li>When you bought it</li>
-                        <li>How often you wear it</li>
-                        <li>And explain why you like it.</li>
+                        <li>How you bought it</li>
+                        <li>And explain why you needed it.</li>
                     </ul>
 
                     <!-- Collapsible Sample Answer -->
                     <details class="group bg-white/40 border border-white/70 rounded-2xl relative z-10 overflow-hidden transition-all duration-300 shadow-sm hover:shadow-md">
                         <summary class="cursor-pointer font-bold text-rose-900 p-6 flex items-center justify-between outline-none hover:bg-white/60 transition">
-                            <span class="text-xl flex items-center gap-3">💡 <span>View Band 6.0+ Sample Answer</span></span>
+                            <span class="text-xl flex items-center gap-3">💡 <span>View Band 6.5+ Sample Answer</span></span>
                             <span class="group-open:rotate-180 transition-transform text-fuchsia-400 text-xl">▼</span>
                         </summary>
                         <div class="p-8 border-t border-white/60 text-rose-900/90 text-lg bg-white/20 backdrop-blur-md leading-relaxed italic font-medium">
-                            "I'd like to talk about a custom-tailored suit that I reserve specifically for formal events.<br><br>
+                            "I still <strong>recall</strong> vividly the time I saved up to buy a new laptop during my freshman year. I was fully <strong>occupied with</strong> my assignments when my old computer suddenly <strong>crashed</strong> completely. At that time, I was practically <strong>broke</strong> and didn't have much <strong>pocket money</strong> left.<br><br>
                             
-                            I purchased it about two years ago, right before my university graduation ceremony. Instead of buying something off the rack, I went to an experienced tailor in my city because I wanted an outfit that fit me perfectly. It’s a deep navy blue suit made from a lightweight, breathable fabric.<br><br>
+                            I desperately needed a replacement, so I went to a tech store. There, I was completely <strong>struck by</strong> a high-end laptop. It had a gorgeous display and <strong>blazing-fast</strong> performance. However, it <strong>cost a fortune</strong>, and I knew that if I wasn't careful with my finances, I could easily <strong>get into debt</strong>.<br><br>
                             
-                            Since it's highly formal, I don't wear it very often. I usually only take it out of my closet for major events, like weddings, job interviews, or important banquets. I’d say I wear it maybe three or four times a year at most.<br><br>
+                            Because my parents always taught me to <strong>spend money wisely</strong> and <strong>save money for a rainy day</strong>, I decided to rely on my own <strong>money management skills</strong> rather than asking them for a handout. I stopped <strong>squandering</strong> my cash on <strong>exorbitant</strong> things like milk tea or eating out. Instead, I put every spare coin and note into <strong>a piggy bank</strong> on my desk.<br><br>
                             
-                            There are a few reasons why I absolutely love this suit. Firstly, the dark blue color makes it incredibly elegant and versatile; it pairs well with almost any shirt or tie. Secondly, because it was custom-made for my measurements, it flatters my body shape and is much more comfortable than standard store-bought clothes. Whenever I put it on, I instantly feel a surge of confidence and professionalism. It never fails to make a good impression on special occasions."
+                            After six months of strict saving, I finally had enough. <strong>In retrospect</strong>, it was a <strong>crucial</strong> experience for me, as it not only gave me the laptop I needed but also taught me the true value of financial discipline."
                         </div>
                     </details>
                 </div>
@@ -972,11 +991,24 @@
             document.getElementById(`slide-${currentSlide}`).classList.add('active');
             // Update counter
             document.getElementById('slide-counter').innerText = `${currentSlide + 1} / ${totalSlides}`;
+            
+            // Update dropdown
+            const navDropdown = document.getElementById('section-nav');
+            if (navDropdown) navDropdown.value = currentSlide;
+
             // Update Progress Bar
             const progress = ((currentSlide + 1) / totalSlides) * 100;
             document.getElementById('progress-bar').style.width = `${progress}%`;
             // Scroll to top
             document.querySelector('main').scrollTop = 0;
+        }
+
+        function jumpToSection(slideIndex) {
+            const index = parseInt(slideIndex);
+            if (!isNaN(index) && index >= 0 && index < totalSlides) {
+                currentSlide = index;
+                updateUI();
+            }
         }
 
         function nextSlide() {
