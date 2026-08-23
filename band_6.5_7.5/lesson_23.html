@@ -115,7 +115,7 @@
         </div>
     </footer>
 
-<script>
+    <script>
     // --- TIMER LOGIC ---
     let timers = {
         prep1: { interval: null, remaining: 60, isRunning: false },
@@ -200,12 +200,193 @@
     // --- DATA STRUCTURE ---
     const sessionData = [
         {
+            id: 'reading_wb_unit7',
+            type: 'Reading',
+            themeClass: 'bg-gradient-to-r from-blue-400 to-indigo-500',
+            iconColor: 'text-blue-500',
+            bgColor: 'bg-blue-50',
+            title: '1. Reading Unit 7 WB',
+            content: `
+                <div class="fade-in bg-white rounded-3xl shadow-xl border border-blue-50 p-5 md:p-6 flex flex-col">
+                    <div class="flex flex-col gap-4 mb-4 border-b border-gray-100 pb-4 shrink-0">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-2xl bg-blue-100 flex items-center justify-center text-blue-500 flex-shrink-0">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                            </div>
+                            <div class="flex-grow flex flex-col md:flex-row justify-between md:items-center gap-2">
+                                <div>
+                                    <div class="flex items-center gap-3 mb-1 flex-wrap">
+                                        <h3 class="text-xl font-bold text-gray-800">Reading Practice</h3>
+                                        <a href="https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/passage2_complete_ielts_6.5_7.5_wb_unit7.html" target="_blank" class="inline-flex items-center gap-1.5 text-blue-600 hover:text-white hover:bg-blue-600 transition-colors px-3 py-1.5 bg-blue-50 rounded-lg shadow-sm border border-blue-200 text-sm font-bold" title="Open in new tab">
+                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                                            Open in New Tab
+                                        </a>
+                                    </div>
+                                    <p class="text-blue-600 font-medium text-sm">Unit 7 WB | Complete IELTS</p>
+                                </div>
+                                <div class="flex items-center gap-2 self-start md:self-auto shrink-0">
+                                    <button onclick="toggleVisibility('vocab-read-unit7-wb')" class="bg-gray-100 text-gray-700 px-4 py-2.5 rounded-xl font-bold hover:bg-gray-200 transition-colors shadow-sm flex items-center gap-2 whitespace-nowrap text-sm">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                                        Vocab Exercises
+                                    </button>
+                                    <button onclick="toggleVisibility('keys-read-unit7-wb')" class="bg-blue-50 text-blue-700 border border-blue-200 px-4 py-2.5 rounded-xl font-bold hover:bg-blue-100 transition-colors shadow-sm flex items-center gap-2 whitespace-nowrap text-sm">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                                        Keys
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Vocab Exercises -->
+                        <div id="vocab-read-unit7-wb" class="hidden mb-4 bg-blue-50 border border-blue-200 rounded-2xl p-5 shadow-sm transition-all fade-in">
+                            <h4 class="font-bold text-blue-800 mb-4 border-b border-blue-100 pb-2 flex items-center gap-2">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                                Reading Vocab (Workbook Pages 73-75)
+                            </h4>
+                            
+                            <div class="space-y-6 max-h-[500px] overflow-y-auto pr-2">
+                                <!-- Read WB Ex 1 -->
+                                <div id="read-wb-ex1-container" class="bg-white border border-blue-100 rounded-xl p-5 shadow-sm transition-all duration-300">
+                                    <div class="flex justify-between items-center mb-4">
+                                        <h5 class="font-bold text-blue-800 text-lg">Exercise 1</h5>
+                                        <button id="btn-read-wb-ex1" onclick="toggleInlineAnswers('read-wb-ex1-container', 'btn-read-wb-ex1')" class="text-xs bg-blue-50 text-blue-700 px-3 py-1.5 rounded-lg font-bold border border-blue-200 hover:bg-blue-100 transition-colors">Show Answers</button>
+                                    </div>
+                                    <p class="text-gray-700 text-sm mb-4 font-medium">Match the words with the pictures.</p>
+                                    
+                                    <div class="grid md:grid-cols-2 gap-8 text-sm">
+                                        <div class="space-y-3 font-medium text-gray-800">
+                                            <p>1 <span class="text-blue-700 font-bold">microorganism</span> <span class="text-[10px] text-gray-500 font-mono font-normal">/ˌmaɪ.kroʊˈɔːr.ɡən.ɪ.zəm/ (vi sinh vật)</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ C</span></p>
+                                            <p>2 <span class="text-blue-700 font-bold">curve</span> <span class="text-[10px] text-gray-500 font-mono font-normal">/kɜːrv/ (đường cong)</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ I</span></p>
+                                            <p>3 <span class="text-blue-700 font-bold">mussel</span> <span class="text-[10px] text-gray-500 font-mono font-normal">/ˈmʌs.əl/ (con trai biển)</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ A</span></p>
+                                            <p>4 <span class="text-blue-700 font-bold">sea urchin</span> <span class="text-[10px] text-gray-500 font-mono font-normal">/ˈsiː ˌɜːr.tʃɪn/ (nhím biển)</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ G</span></p>
+                                            <p>5 <span class="text-blue-700 font-bold">reef</span> <span class="text-[10px] text-gray-500 font-mono font-normal">/riːf/ (rạn san hô)</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ F</span></p>
+                                            <p>6 <span class="text-blue-700 font-bold">starfish</span> <span class="text-[10px] text-gray-500 font-mono font-normal">/ˈstɑːr.fɪʃ/ (sao biển)</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ D</span></p>
+                                            <p>7 <span class="text-blue-700 font-bold">sea otter</span> <span class="text-[10px] text-gray-500 font-mono font-normal">/ˈsiː ˌɑː.t̬ɚ/ (rái cá biển)</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ H</span></p>
+                                            <p>8 <span class="text-blue-700 font-bold">rat</span> <span class="text-[10px] text-gray-500 font-mono font-normal">/ræt/ (con chuột)</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ B</span></p>
+                                            <p>9 <span class="text-blue-700 font-bold">dodo</span> <span class="text-[10px] text-gray-500 font-mono font-normal">/ˈdoʊ.doʊ/ (chim dodo đã tuyệt chủng)</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ E</span></p>
+                                        </div>
+                                        <div class="space-y-3 text-gray-600 font-medium text-xs">
+                                            <p><span class="font-bold text-gray-800">A.</span> [Picture: An open mussel shell]</p>
+                                            <p><span class="font-bold text-gray-800">B.</span> [Picture: A rat eating cheese]</p>
+                                            <p><span class="font-bold text-gray-800">C.</span> [Picture: A petri dish with bacteria]</p>
+                                            <p><span class="font-bold text-gray-800">D.</span> [Picture: A yellow starfish]</p>
+                                            <p><span class="font-bold text-gray-800">E.</span> [Picture: A grey dodo bird]</p>
+                                            <p><span class="font-bold text-gray-800">F.</span> [Picture: A colorful coral reef]</p>
+                                            <p><span class="font-bold text-gray-800">G.</span> [Picture: A pink spiky sea urchin]</p>
+                                            <p><span class="font-bold text-gray-800">H.</span> [Picture: An otter playing with a hoop]</p>
+                                            <p><span class="font-bold text-gray-800">I.</span> [Picture: A curved road]</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Read WB Ex 2 -->
+                                <div id="read-wb-ex2-container" class="bg-white border border-blue-100 rounded-xl p-5 shadow-sm transition-all duration-300">
+                                    <div class="flex justify-between items-center mb-4">
+                                        <h5 class="font-bold text-blue-800 text-lg">Exercise 2</h5>
+                                        <button id="btn-read-wb-ex2" onclick="toggleInlineAnswers('read-wb-ex2-container', 'btn-read-wb-ex2')" class="text-xs bg-blue-50 text-blue-700 px-3 py-1.5 rounded-lg font-bold border border-blue-200 hover:bg-blue-100 transition-colors">Show Answers</button>
+                                    </div>
+                                    <p class="text-gray-700 text-sm mb-4 font-medium">Choose the correct answer to each of the following questions.</p>
+                                    
+                                    <div class="grid md:grid-cols-2 gap-6 text-sm">
+                                        <div class="space-y-4">
+                                            <div>
+                                                <p class="font-bold text-gray-800 mb-1">1 <span class="text-blue-700">Marine</span> animals live ............. <span class="text-[10px] text-gray-500 font-mono font-normal">/məˈriːn/ (thuộc về biển)</span></p>
+                                                <div class="pl-4 space-y-1 text-gray-600">
+                                                    <p class="flex items-center">a. on land</p>
+                                                    <p class="flex items-center">b. in the sea <span class="blank-ans text-emerald-600 font-bold ml-2">✓</span></p>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <p class="font-bold text-gray-800 mb-1">2 Bamboo trees are ............. plants.</p>
+                                                <div class="pl-4 space-y-1 text-gray-600">
+                                                    <p class="flex items-center">a. <span class="text-blue-700 font-semibold mr-1">terrestrial</span> <span class="text-[10px] text-gray-500 font-mono font-normal">/təˈres.tri.əl/ (trên cạn)</span> <span class="blank-ans text-emerald-600 font-bold ml-2">✓</span></p>
+                                                    <p class="flex items-center">b. <span class="text-blue-700 font-semibold mr-1">extraterrestrial</span> <span class="text-[10px] text-gray-500 font-mono font-normal">/ˌek.strə.təˈres.tri.əl/ (ngoài hành tinh)</span></p>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <p class="font-bold text-gray-800 mb-1">3 <span class="text-blue-700">Carnivores</span> eat ............. <span class="text-[10px] text-gray-500 font-mono font-normal">/ˈkɑːr.nɪ.vɔːrz/ (động vật ăn thịt)</span></p>
+                                                <div class="pl-4 space-y-1 text-gray-600">
+                                                    <p class="flex items-center">a. meat <span class="blank-ans text-emerald-600 font-bold ml-2">✓</span></p>
+                                                    <p class="flex items-center">b. plants</p>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <p class="font-bold text-gray-800 mb-1">4 <span class="text-blue-700">Herbivores</span> only eat ............. <span class="text-[10px] text-gray-500 font-mono font-normal">/ˈhɜːr.bɪ.vɔːrz/ (động vật ăn cỏ)</span></p>
+                                                <div class="pl-4 space-y-1 text-gray-600">
+                                                    <p class="flex items-center">a. animals</p>
+                                                    <p class="flex items-center">b. plants <span class="blank-ans text-emerald-600 font-bold ml-2">✓</span></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="space-y-4">
+                                            <div>
+                                                <p class="font-bold text-gray-800 mb-1">5 The book reminds me of the <span class="text-blue-700">demise</span> of dinosaurs. <span class="text-[10px] text-gray-500 font-mono font-normal">/dɪˈmaɪz/ (sự tuyệt chủng/cái chết)</span></p>
+                                                <div class="pl-4 space-y-1 text-gray-600">
+                                                    <p class="flex items-center">a. It makes me think about the survival of dinosaurs.</p>
+                                                    <p class="flex items-center">b. It makes me think about the death of dinosaurs. <span class="blank-ans text-emerald-600 font-bold ml-2">✓</span></p>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <p class="font-bold text-gray-800 mb-1">6 My parents never <span class="text-blue-700">intervene</span> in my personal problems. <span class="text-[10px] text-gray-500 font-mono font-normal">/ˌɪn.t̬ɚˈviːn/ (can thiệp)</span></p>
+                                                <div class="pl-4 space-y-1 text-gray-600">
+                                                    <p class="flex items-center">a. They do not care about me.</p>
+                                                    <p class="flex items-center">b. They do not get involved in my problems. <span class="blank-ans text-emerald-600 font-bold ml-2">✓</span></p>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <p class="font-bold text-gray-800 mb-1">7 My hometown has been <span class="text-blue-700">ravaged</span> by pollution. <span class="text-[10px] text-gray-500 font-mono font-normal">/ˈræv.ɪdʒd/ (bị tàn phá)</span></p>
+                                                <div class="pl-4 space-y-1 text-gray-600">
+                                                    <p class="flex items-center">a. It has been damaged badly. <span class="blank-ans text-emerald-600 font-bold ml-2">✓</span></p>
+                                                    <p class="flex items-center">b. It has thrived despite pollution.</p>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <p class="font-bold text-gray-800 mb-1">8 Mekong is a <span class="text-blue-700">majestic</span> river. <span class="text-[10px] text-gray-500 font-mono font-normal">/məˈdʒes.tɪk/ (hùng vĩ, tráng lệ)</span></p>
+                                                <div class="pl-4 space-y-1 text-gray-600">
+                                                    <p class="flex items-center">a. It is huge. <span class="blank-ans text-emerald-600 font-bold ml-2">✓</span></p>
+                                                    <p class="flex items-center">b. It is tiny.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Answer Keys -->
+                        <div id="keys-read-unit7-wb" class="hidden bg-gray-50 rounded-2xl p-5 border border-gray-200 shadow-inner mt-2 mb-4 transition-all fade-in">
+                            <h4 class="font-bold text-blue-800 mb-3 uppercase text-xs tracking-wider">Reading Answer Key</h4>
+                            <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 gap-3 text-sm">
+                                <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-gray-400 font-bold mr-2">1</span> iv</div>
+                                <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-gray-400 font-bold mr-2">2</span> ix</div>
+                                <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-gray-400 font-bold mr-2">3</span> vii</div>
+                                <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-gray-400 font-bold mr-2">4</span> ii</div>
+                                <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-gray-400 font-bold mr-2">5</span> i</div>
+                                <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-gray-400 font-bold mr-2">6</span> x</div>
+                                <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-gray-400 font-bold mr-2">7</span> v</div>
+                                <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm lg:col-span-2"><span class="text-gray-400 font-bold mr-2">8</span> food production / many food products</div>
+                                <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm lg:col-span-2"><span class="text-gray-400 font-bold mr-2">9</span> strength and stability</div>
+                                <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm lg:col-span-2"><span class="text-gray-400 font-bold mr-2">10</span> dramatic decline</div>
+                                <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm lg:col-span-2"><span class="text-gray-400 font-bold mr-2">11</span> sea otter populations</div>
+                                <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm lg:col-span-2"><span class="text-gray-400 font-bold mr-2">12-13</span> A, C</div>
+                            </div>
+                        </div>
+
+                        <!-- Full Height Iframe -->
+                        <div class="w-full rounded-2xl overflow-hidden border border-gray-200 shadow-inner bg-gray-50 relative h-[800px]">
+                            <iframe src="https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/passage2_complete_ielts_6.5_7.5_wb_unit7.html" class="absolute inset-0 w-full h-full border-0" title="Reading Practice"></iframe>
+                        </div>
+                    </div>
+                </div>
+            `
+        },
+        {
             id: 'speaking_unit7_1',
             type: 'Speaking',
             themeClass: 'bg-gradient-to-r from-emerald-400 to-teal-500',
             iconColor: 'text-emerald-500',
             bgColor: 'bg-emerald-50',
-            title: '1. Unit 7 Vocab & Practice (p.75-76)',
+            title: '2. Unit 7 Vocab & Practice (p.75-76)',
             content: `
                 <div class="fade-in space-y-8">
                     <!-- Vocab Exercises -->
@@ -228,8 +409,47 @@
                                 </div>
                                 <p class="text-gray-700 text-sm mb-4 font-medium">Fill in each blank with one suitable word from the list below.</p>
                                 
-                                <div class="flex flex-wrap gap-x-6 gap-y-2 justify-center mb-6 bg-white border border-emerald-200 p-4 rounded-lg font-bold text-emerald-700 text-sm shadow-sm">
-                                    <span>programs</span> <span>environmentalist</span> <span>waste</span> <span>habitats</span> <span>generations</span> <span>polluted</span> <span>conscious</span> <span>consumerism</span>
+                                <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
+                                    <div class="bg-white border border-emerald-200 p-2.5 rounded-xl shadow-sm flex flex-col justify-center items-center text-center">
+                                        <span class="font-bold text-emerald-700 text-sm">programs</span>
+                                        <span class="text-[10px] text-gray-500 font-mono mb-1">/ˈproʊɡræmz/</span>
+                                        <div class="text-[11px] text-gray-700 border-t border-emerald-50 pt-1 w-full leading-tight">chương trình</div>
+                                    </div>
+                                    <div class="bg-white border border-emerald-200 p-2.5 rounded-xl shadow-sm flex flex-col justify-center items-center text-center">
+                                        <span class="font-bold text-emerald-700 text-sm">environmentalist</span>
+                                        <span class="text-[10px] text-gray-500 font-mono mb-1">/ɪnˌvaɪrənˈmentəlɪst/</span>
+                                        <div class="text-[11px] text-gray-700 border-t border-emerald-50 pt-1 w-full leading-tight">nhà bảo vệ môi trường</div>
+                                    </div>
+                                    <div class="bg-white border border-emerald-200 p-2.5 rounded-xl shadow-sm flex flex-col justify-center items-center text-center">
+                                        <span class="font-bold text-emerald-700 text-sm">waste</span>
+                                        <span class="text-[10px] text-gray-500 font-mono mb-1">/weɪst/</span>
+                                        <div class="text-[11px] text-gray-700 border-t border-emerald-50 pt-1 w-full leading-tight">rác thải</div>
+                                    </div>
+                                    <div class="bg-white border border-emerald-200 p-2.5 rounded-xl shadow-sm flex flex-col justify-center items-center text-center">
+                                        <span class="font-bold text-emerald-700 text-sm">habitats</span>
+                                        <span class="text-[10px] text-gray-500 font-mono mb-1">/ˈhæbɪtæts/</span>
+                                        <div class="text-[11px] text-gray-700 border-t border-emerald-50 pt-1 w-full leading-tight">môi trường sống</div>
+                                    </div>
+                                    <div class="bg-white border border-emerald-200 p-2.5 rounded-xl shadow-sm flex flex-col justify-center items-center text-center">
+                                        <span class="font-bold text-emerald-700 text-sm">generations</span>
+                                        <span class="text-[10px] text-gray-500 font-mono mb-1">/ˌdʒenəˈreɪʃnz/</span>
+                                        <div class="text-[11px] text-gray-700 border-t border-emerald-50 pt-1 w-full leading-tight">thế hệ</div>
+                                    </div>
+                                    <div class="bg-white border border-emerald-200 p-2.5 rounded-xl shadow-sm flex flex-col justify-center items-center text-center">
+                                        <span class="font-bold text-emerald-700 text-sm">polluted</span>
+                                        <span class="text-[10px] text-gray-500 font-mono mb-1">/pəˈluːtɪd/</span>
+                                        <div class="text-[11px] text-gray-700 border-t border-emerald-50 pt-1 w-full leading-tight">bị ô nhiễm</div>
+                                    </div>
+                                    <div class="bg-white border border-emerald-200 p-2.5 rounded-xl shadow-sm flex flex-col justify-center items-center text-center">
+                                        <span class="font-bold text-emerald-700 text-sm">conscious</span>
+                                        <span class="text-[10px] text-gray-500 font-mono mb-1">/ˈkɑːnʃəs/</span>
+                                        <div class="text-[11px] text-gray-700 border-t border-emerald-50 pt-1 w-full leading-tight">có ý thức</div>
+                                    </div>
+                                    <div class="bg-white border border-emerald-200 p-2.5 rounded-xl shadow-sm flex flex-col justify-center items-center text-center">
+                                        <span class="font-bold text-emerald-700 text-sm">consumerism</span>
+                                        <span class="text-[10px] text-gray-500 font-mono mb-1">/kənˈsuːmərɪzəm/</span>
+                                        <div class="text-[11px] text-gray-700 border-t border-emerald-50 pt-1 w-full leading-tight">chủ nghĩa tiêu dùng</div>
+                                    </div>
                                 </div>
 
                                 <div class="space-y-4 text-sm text-gray-700 leading-relaxed font-medium">
@@ -253,11 +473,11 @@
                                 
                                 <div class="grid md:grid-cols-2 gap-8 text-sm">
                                     <div class="space-y-4 font-medium text-gray-800">
-                                        <p>1 avoid <span class="text-emerald-700 italic font-bold">disposable</span> products <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ E</span></p>
-                                        <p>2 <span class="text-emerald-700 italic font-bold">enhance</span> public <span class="text-emerald-700 italic font-bold">awareness</span> of something <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ D</span></p>
-                                        <p>3 <span class="text-emerald-700 italic font-bold">pursue</span> a green lifestyle <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ C</span></p>
-                                        <p>4 use <span class="text-emerald-700 italic font-bold">public transit</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ B</span></p>
-                                        <p>5 use <span class="text-emerald-700 italic font-bold">unleaded</span> petrol <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ A</span></p>
+                                        <p>1 avoid <span class="text-emerald-700 italic font-bold">disposable</span> <span class="text-[10px] text-gray-500 font-mono font-normal">/dɪˈspoʊzəbl/ (dùng một lần)</span> products <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ E</span></p>
+                                        <p>2 <span class="text-emerald-700 italic font-bold">enhance</span> <span class="text-[10px] text-gray-500 font-mono font-normal">/ɪnˈhæns/ (nâng cao)</span> public <span class="text-emerald-700 italic font-bold">awareness</span> <span class="text-[10px] text-gray-500 font-mono font-normal">/əˈwernəs/ (nhận thức)</span> of something <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ D</span></p>
+                                        <p>3 <span class="text-emerald-700 italic font-bold">pursue</span> <span class="text-[10px] text-gray-500 font-mono font-normal">/pərˈsuː/ (theo đuổi)</span> a green lifestyle <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ C</span></p>
+                                        <p>4 use <span class="text-emerald-700 italic font-bold">public transit</span> <span class="text-[10px] text-gray-500 font-mono font-normal">/ˌpʌblɪk ˈtrænzɪt/ (phương tiện công cộng)</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ B</span></p>
+                                        <p>5 use <span class="text-emerald-700 italic font-bold">unleaded</span> <span class="text-[10px] text-gray-500 font-mono font-normal">/ʌnˈledɪd/ (không chì)</span> petrol <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ A</span></p>
                                     </div>
                                     <div class="space-y-4 text-gray-600 font-medium">
                                         <p><span class="font-bold text-gray-800">A.</span> use energy less harmful to the environment</p>
@@ -277,8 +497,32 @@
                                 </div>
                                 <p class="text-gray-700 text-sm mb-4 font-medium">Fill in each blank with one suitable word from the list below.</p>
                                 
-                                <div class="flex flex-wrap gap-x-6 gap-y-2 justify-center mb-6 bg-white border border-emerald-200 p-4 rounded-lg font-bold text-emerald-700 text-sm shadow-sm">
-                                    <span>living</span> <span>organisms</span> <span>deforestation</span> <span>yields</span> <span>zones</span>
+                                <div class="grid grid-cols-2 md:grid-cols-5 gap-3 mb-6">
+                                    <div class="bg-white border border-emerald-200 p-2.5 rounded-xl shadow-sm flex flex-col justify-center items-center text-center">
+                                        <span class="font-bold text-emerald-700 text-sm">living</span>
+                                        <span class="text-[10px] text-gray-500 font-mono mb-1">/ˈlɪvɪŋ/</span>
+                                        <div class="text-[11px] text-gray-700 border-t border-emerald-50 pt-1 w-full leading-tight">sinh sống</div>
+                                    </div>
+                                    <div class="bg-white border border-emerald-200 p-2.5 rounded-xl shadow-sm flex flex-col justify-center items-center text-center">
+                                        <span class="font-bold text-emerald-700 text-sm">organisms</span>
+                                        <span class="text-[10px] text-gray-500 font-mono mb-1">/ˈɔːrɡənɪzəmz/</span>
+                                        <div class="text-[11px] text-gray-700 border-t border-emerald-50 pt-1 w-full leading-tight">sinh vật</div>
+                                    </div>
+                                    <div class="bg-white border border-emerald-200 p-2.5 rounded-xl shadow-sm flex flex-col justify-center items-center text-center">
+                                        <span class="font-bold text-emerald-700 text-sm">deforestation</span>
+                                        <span class="text-[10px] text-gray-500 font-mono mb-1">/diːˌfɔːrɪˈsteɪʃn/</span>
+                                        <div class="text-[11px] text-gray-700 border-t border-emerald-50 pt-1 w-full leading-tight">nạn phá rừng</div>
+                                    </div>
+                                    <div class="bg-white border border-emerald-200 p-2.5 rounded-xl shadow-sm flex flex-col justify-center items-center text-center">
+                                        <span class="font-bold text-emerald-700 text-sm">yields</span>
+                                        <span class="text-[10px] text-gray-500 font-mono mb-1">/jiːldz/</span>
+                                        <div class="text-[11px] text-gray-700 border-t border-emerald-50 pt-1 w-full leading-tight">sản lượng</div>
+                                    </div>
+                                    <div class="bg-white border border-emerald-200 p-2.5 rounded-xl shadow-sm flex flex-col justify-center items-center text-center">
+                                        <span class="font-bold text-emerald-700 text-sm">zones</span>
+                                        <span class="text-[10px] text-gray-500 font-mono mb-1">/zoʊnz/</span>
+                                        <div class="text-[11px] text-gray-700 border-t border-emerald-50 pt-1 w-full leading-tight">khu vực</div>
+                                    </div>
                                 </div>
 
                                 <p class="text-sm text-gray-700 leading-relaxed font-medium">
@@ -294,8 +538,32 @@
                                 </div>
                                 <p class="text-gray-700 text-sm mb-4 font-medium">Fill in each blank with one suitable word from the list below.</p>
                                 
-                                <div class="flex flex-wrap gap-x-6 gap-y-2 justify-center mb-6 bg-white border border-emerald-200 p-4 rounded-lg font-bold text-emerald-700 text-sm shadow-sm">
-                                    <span>security</span> <span>biodiversity</span> <span>thumb</span> <span>ecosystems</span> <span>profitable</span>
+                                <div class="grid grid-cols-2 md:grid-cols-5 gap-3 mb-6">
+                                    <div class="bg-white border border-emerald-200 p-2.5 rounded-xl shadow-sm flex flex-col justify-center items-center text-center">
+                                        <span class="font-bold text-emerald-700 text-sm">security</span>
+                                        <span class="text-[10px] text-gray-500 font-mono mb-1">/sɪˈkjʊrəti/</span>
+                                        <div class="text-[11px] text-gray-700 border-t border-emerald-50 pt-1 w-full leading-tight">an ninh</div>
+                                    </div>
+                                    <div class="bg-white border border-emerald-200 p-2.5 rounded-xl shadow-sm flex flex-col justify-center items-center text-center">
+                                        <span class="font-bold text-emerald-700 text-sm">biodiversity</span>
+                                        <span class="text-[10px] text-gray-500 font-mono mb-1">/ˌbaɪoʊdaɪˈvɜːrsəti/</span>
+                                        <div class="text-[11px] text-gray-700 border-t border-emerald-50 pt-1 w-full leading-tight">đa dạng sinh học</div>
+                                    </div>
+                                    <div class="bg-white border border-emerald-200 p-2.5 rounded-xl shadow-sm flex flex-col justify-center items-center text-center">
+                                        <span class="font-bold text-emerald-700 text-sm">thumb</span>
+                                        <span class="text-[10px] text-gray-500 font-mono mb-1">/θʌm/</span>
+                                        <div class="text-[11px] text-gray-700 border-t border-emerald-50 pt-1 w-full leading-tight">ngón tay cái</div>
+                                    </div>
+                                    <div class="bg-white border border-emerald-200 p-2.5 rounded-xl shadow-sm flex flex-col justify-center items-center text-center">
+                                        <span class="font-bold text-emerald-700 text-sm">ecosystems</span>
+                                        <span class="text-[10px] text-gray-500 font-mono mb-1">/ˈiːkoʊsɪstəmz/</span>
+                                        <div class="text-[11px] text-gray-700 border-t border-emerald-50 pt-1 w-full leading-tight">hệ sinh thái</div>
+                                    </div>
+                                    <div class="bg-white border border-emerald-200 p-2.5 rounded-xl shadow-sm flex flex-col justify-center items-center text-center">
+                                        <span class="font-bold text-emerald-700 text-sm">profitable</span>
+                                        <span class="text-[10px] text-gray-500 font-mono mb-1">/ˈprɑːfɪtəbl/</span>
+                                        <div class="text-[11px] text-gray-700 border-t border-emerald-50 pt-1 w-full leading-tight">có lợi nhuận</div>
+                                    </div>
                                 </div>
 
                                 <div class="space-y-4 text-sm text-gray-700 leading-relaxed font-medium">
@@ -449,7 +717,7 @@
             themeClass: 'bg-gradient-to-r from-teal-400 to-cyan-500',
             iconColor: 'text-teal-500',
             bgColor: 'bg-teal-50',
-            title: '2. Unit 7 Vocab & Practice (p.77-78)',
+            title: '3. Unit 7 Vocab & Practice (p.77-78)',
             content: `
                 <div class="fade-in space-y-8">
                     <!-- Vocab Exercises -->
@@ -482,98 +750,98 @@
                                 <!-- Questions -->
                                 <div class="grid md:grid-cols-2 gap-x-8 gap-y-6 text-sm">
                                     <div>
-                                        <p class="font-bold text-gray-800 mb-2">1 <span class="text-teal-700">metropolis</span> (n)</p>
+                                        <p class="font-bold text-gray-800 mb-2">1 <span class="text-teal-700">metropolis</span> (n) <span class="text-[10px] text-gray-500 font-mono font-normal">/məˈtrɑːpəlɪs/ - đô thị lớn</span></p>
                                         <div class="pl-4 space-y-1 text-gray-600">
                                             <p class="flex items-start"><span class="mr-2">a.</span> <span>big city <span class="blank-ans text-emerald-600 font-bold ml-1">✓</span></span></p>
                                             <p class="flex items-start"><span class="mr-2">b.</span> <span>small city</span></p>
                                         </div>
                                     </div>
                                     <div>
-                                        <p class="font-bold text-gray-800 mb-2">2 <span class="text-teal-700">set foot in</span> (v)</p>
+                                        <p class="font-bold text-gray-800 mb-2">2 <span class="text-teal-700">set foot in</span> (v) <span class="text-[10px] text-gray-500 font-mono font-normal">/set fʊt ɪn/ - đặt chân đến</span></p>
                                         <div class="pl-4 space-y-1 text-gray-600">
                                             <p class="flex items-start"><span class="mr-2">a.</span> <span>visit <span class="blank-ans text-emerald-600 font-bold ml-1">✓</span></span></p>
                                             <p class="flex items-start"><span class="mr-2">b.</span> <span>leave</span></p>
                                         </div>
                                     </div>
                                     <div>
-                                        <p class="font-bold text-gray-800 mb-2">3 <span class="text-teal-700">be under the impression</span></p>
+                                        <p class="font-bold text-gray-800 mb-2">3 <span class="text-teal-700">be under the impression</span> <span class="text-[10px] text-gray-500 font-mono font-normal">/bi ˈʌndər ði ɪmˈpreʃn/ - có ấn tượng/tin rằng</span></p>
                                         <div class="pl-4 space-y-1 text-gray-600">
                                             <p class="flex items-start"><span class="mr-2">a.</span> <span>believe (usually right)</span></p>
                                             <p class="flex items-start"><span class="mr-2">b.</span> <span>believe (usually wrongly) <span class="blank-ans text-emerald-600 font-bold ml-1">✓</span></span></p>
                                         </div>
                                     </div>
                                     <div>
-                                        <p class="font-bold text-gray-800 mb-2">4 <span class="text-teal-700">tourist hotspot</span> (n)</p>
+                                        <p class="font-bold text-gray-800 mb-2">4 <span class="text-teal-700">tourist hotspot</span> (n) <span class="text-[10px] text-gray-500 font-mono font-normal">/ˈtʊrɪst ˈhɑːtspɑːt/ - điểm nóng du lịch</span></p>
                                         <div class="pl-4 space-y-1 text-gray-600">
                                             <p class="flex items-start"><span class="mr-2">a.</span> <span>renowned destination <span class="blank-ans text-emerald-600 font-bold ml-1">✓</span></span></p>
                                             <p class="flex items-start"><span class="mr-2">b.</span> <span>unknown destination</span></p>
                                         </div>
                                     </div>
                                     <div>
-                                        <p class="font-bold text-gray-800 mb-2">5 <span class="text-teal-700">megacity</span> (n)</p>
+                                        <p class="font-bold text-gray-800 mb-2">5 <span class="text-teal-700">megacity</span> (n) <span class="text-[10px] text-gray-500 font-mono font-normal">/ˈmeɡəsɪti/ - siêu đô thị</span></p>
                                         <div class="pl-4 space-y-1 text-gray-600">
                                             <p class="flex items-start"><span class="mr-2">a.</span> <span>very large city (over 10 million people) <span class="blank-ans text-emerald-600 font-bold ml-1">✓</span></span></p>
                                             <p class="flex items-start"><span class="mr-2">b.</span> <span>medium-sized city</span></p>
                                         </div>
                                     </div>
                                     <div>
-                                        <p class="font-bold text-gray-800 mb-2">6 <span class="text-teal-700">be bereft of</span></p>
+                                        <p class="font-bold text-gray-800 mb-2">6 <span class="text-teal-700">be bereft of</span> <span class="text-[10px] text-gray-500 font-mono font-normal">/bi bɪˈreft əv/ - thiếu thốn</span></p>
                                         <div class="pl-4 space-y-1 text-gray-600">
                                             <p class="flex items-start"><span class="mr-2">a.</span> <span>lack <span class="blank-ans text-emerald-600 font-bold ml-1">✓</span></span></p>
                                             <p class="flex items-start"><span class="mr-2">b.</span> <span>have a lot of</span></p>
                                         </div>
                                     </div>
                                     <div>
-                                        <p class="font-bold text-gray-800 mb-2">7 <span class="text-teal-700">concrete jungle</span> (n)</p>
+                                        <p class="font-bold text-gray-800 mb-2">7 <span class="text-teal-700">concrete jungle</span> (n) <span class="text-[10px] text-gray-500 font-mono font-normal">/ˈkɑːnkriːt ˈdʒʌŋɡl/ - khu rừng bê tông</span></p>
                                         <div class="pl-4 space-y-1 text-gray-600">
                                             <p class="flex items-start"><span class="mr-2">a.</span> <span>green city</span></p>
                                             <p class="flex items-start"><span class="mr-2">b.</span> <span>unpleasant place <span class="blank-ans text-emerald-600 font-bold ml-1">✓</span></span></p>
                                         </div>
                                     </div>
                                     <div>
-                                        <p class="font-bold text-gray-800 mb-2">8 <span class="text-teal-700">exacerbate</span> (v)</p>
+                                        <p class="font-bold text-gray-800 mb-2">8 <span class="text-teal-700">exacerbate</span> (v) <span class="text-[10px] text-gray-500 font-mono font-normal">/ɪɡˈzæsərbeɪt/ - làm trầm trọng thêm</span></p>
                                         <div class="pl-4 space-y-1 text-gray-600">
                                             <p class="flex items-start"><span class="mr-2">a.</span> <span>make something better</span></p>
                                             <p class="flex items-start"><span class="mr-2">b.</span> <span>make something worse <span class="blank-ans text-emerald-600 font-bold ml-1">✓</span></span></p>
                                         </div>
                                     </div>
                                     <div>
-                                        <p class="font-bold text-gray-800 mb-2">9 <span class="text-teal-700">for the sake of</span></p>
+                                        <p class="font-bold text-gray-800 mb-2">9 <span class="text-teal-700">for the sake of</span> <span class="text-[10px] text-gray-500 font-mono font-normal">/fɔːr ðə seɪk əv/ - vì lợi ích của</span></p>
                                         <div class="pl-4 space-y-1 text-gray-600">
                                             <p class="flex items-start"><span class="mr-2">a.</span> <span>for worse</span></p>
                                             <p class="flex items-start"><span class="mr-2">b.</span> <span>for the benefit of <span class="blank-ans text-emerald-600 font-bold ml-1">✓</span></span></p>
                                         </div>
                                     </div>
                                     <div>
-                                        <p class="font-bold text-gray-800 mb-2">10 <span class="text-teal-700">oppressive</span> (a)</p>
+                                        <p class="font-bold text-gray-800 mb-2">10 <span class="text-teal-700">oppressive</span> (a) <span class="text-[10px] text-gray-500 font-mono font-normal">/əˈpresɪv/ - ngột ngạt</span></p>
                                         <div class="pl-4 space-y-1 text-gray-600">
                                             <p class="flex items-start"><span class="mr-2">a.</span> <span>clement with slight wind</span></p>
                                             <p class="flex items-start"><span class="mr-2">b.</span> <span>extremely hot, not enough fresh air <span class="blank-ans text-emerald-600 font-bold ml-1">✓</span></span></p>
                                         </div>
                                     </div>
                                     <div class="md:col-span-2 lg:col-span-1">
-                                        <p class="font-bold text-gray-800 mb-2">11 <span class="text-teal-700">let alone</span></p>
+                                        <p class="font-bold text-gray-800 mb-2">11 <span class="text-teal-700">let alone</span> <span class="text-[10px] text-gray-500 font-mono font-normal">/let əˈloʊn/ - chưa kể đến</span></p>
                                         <div class="pl-4 space-y-2 text-gray-600">
                                             <p class="flex items-start"><span class="mr-2">a.</span> <span>used to emphasize that because the first thing is impossible, the next thing is also impossible <span class="blank-ans text-emerald-600 font-bold ml-1">✓</span></span></p>
                                             <p class="flex items-start"><span class="mr-2">b.</span> <span>used to emphasize that although the first thing is impossible, the next thing is still possible</span></p>
                                         </div>
                                     </div>
                                     <div>
-                                        <p class="font-bold text-gray-800 mb-2">12 <span class="text-teal-700">come to a realization</span></p>
+                                        <p class="font-bold text-gray-800 mb-2">12 <span class="text-teal-700">come to a realization</span> <span class="text-[10px] text-gray-500 font-mono font-normal">/kʌm tu ə ˌriːələˈzeɪʃn/ - nhận ra</span></p>
                                         <div class="pl-4 space-y-1 text-gray-600">
                                             <p class="flex items-start"><span class="mr-2">a.</span> <span>realize <span class="blank-ans text-emerald-600 font-bold ml-1">✓</span></span></p>
                                             <p class="flex items-start"><span class="mr-2">b.</span> <span>shock</span></p>
                                         </div>
                                     </div>
                                     <div>
-                                        <p class="font-bold text-gray-800 mb-2">13 <span class="text-teal-700">laze around</span> (v)</p>
+                                        <p class="font-bold text-gray-800 mb-2">13 <span class="text-teal-700">laze around</span> (v) <span class="text-[10px] text-gray-500 font-mono font-normal">/leɪz əˈraʊnd/ - lười biếng/thư giãn</span></p>
                                         <div class="pl-4 space-y-1 text-gray-600">
                                             <p class="flex items-start"><span class="mr-2">a.</span> <span>relax <span class="blank-ans text-emerald-600 font-bold ml-1">✓</span></span></p>
                                             <p class="flex items-start"><span class="mr-2">b.</span> <span>work hard</span></p>
                                         </div>
                                     </div>
                                     <div>
-                                        <p class="font-bold text-gray-800 mb-2">14 <span class="text-teal-700">meticulous</span> (a)</p>
+                                        <p class="font-bold text-gray-800 mb-2">14 <span class="text-teal-700">meticulous</span> (a) <span class="text-[10px] text-gray-500 font-mono font-normal">/məˈtɪkjələs/ - tỉ mỉ</span></p>
                                         <div class="pl-4 space-y-1 text-gray-600">
                                             <p class="flex items-start"><span class="mr-2">a.</span> <span>careless</span></p>
                                             <p class="flex items-start"><span class="mr-2">b.</span> <span>thorough <span class="blank-ans text-emerald-600 font-bold ml-1">✓</span></span></p>
@@ -632,7 +900,7 @@
             themeClass: 'bg-gradient-to-r from-cyan-500 to-blue-500',
             iconColor: 'text-cyan-500',
             bgColor: 'bg-cyan-50',
-            title: '3. Extra Speaking Practice',
+            title: '4. Extra Speaking Practice',
             content: `
                 <div class="fade-in bg-white rounded-3xl shadow-xl border border-cyan-50 p-8 md:p-10 relative">
                     <div class="absolute -top-24 -right-24 w-64 h-64 bg-cyan-100 rounded-full mix-blend-multiply filter blur-2xl opacity-70 pointer-events-none"></div>
@@ -656,27 +924,27 @@
                                 {
                                     q: "1. What modern technological devices are most common in your country?",
                                     ideas: ["Smartphones (communication, banking, entertainment)", "Laptops (work, study)", "Smartwatches (health tracking)", "Tablets (online learning)", "Smart home devices (convenience)"],
-                                    vocab: ["indispensable", "multifunctional", "wearable technology", "smart appliances", "integrated into daily life", "digital ecosystem"]
+                                    vocab: ["indispensable (không thể thiếu)", "multifunctional (đa chức năng)", "wearable technology (công nghệ đeo được)", "smart appliances (thiết bị thông minh)", "integrated into daily life (tích hợp vào cs hàng ngày)", "digital ecosystem (hệ sinh thái kỹ thuật số)"]
                                 },
                                 {
                                     q: "2. Do you think modern technology is useful?",
                                     ideas: ["Boosts productivity", "Improves communication", "Makes education more accessible", "Advances healthcare", "Saves time and effort", "Should be used responsibly"],
-                                    vocab: ["streamline daily tasks", "enhance efficiency", "revolutionise communication", "facilitate remote work", "improve accessibility"]
+                                    vocab: ["streamline daily tasks (hợp lý hóa tác vụ)", "enhance efficiency (nâng cao hiệu quả)", "revolutionise communication (cách mạng hóa giao tiếp)", "facilitate remote work (tạo điều kiện làm việc từ xa)", "improve accessibility (cải thiện khả năng tiếp cận)"]
                                 },
                                 {
                                     q: "3. Do you think people rely too much on technology?",
                                     ideas: ["Dependence on GPS and smartphones", "AI reduces critical thinking", "Less face-to-face interaction", "Convenience can lead to laziness", "Technology should complement, not replace, human skills"],
-                                    vocab: ["overly dependent", "digital dependency", "critical thinking", "convenience comes at a cost", "complement rather than replace", "overreliance"]
+                                    vocab: ["overly dependent (quá phụ thuộc)", "digital dependency (phụ thuộc kỹ thuật số)", "critical thinking (tư duy phản biện)", "convenience comes at a cost (sự tiện lợi đi kèm cái giá của nó)", "complement rather than replace (bổ sung thay vì thay thế)", "overreliance (sự quá phụ thuộc)"]
                                 },
                                 {
                                     q: "4. Do you think men and women view technological devices differently?",
                                     ideas: ["Less about gender, more about interests", "Profession influences preferences", "Younger generations have similar attitudes", "Traditional stereotypes are fading"],
-                                    vocab: ["gender stereotypes", "digital literacy", "tech-savvy", "occupational needs", "personal preferences", "increasingly blurred"]
+                                    vocab: ["gender stereotypes (định kiến giới)", "digital literacy (hiểu biết kỹ thuật số)", "tech-savvy (am hiểu công nghệ)", "occupational needs (nhu cầu nghề nghiệp)", "personal preferences (sở thích cá nhân)", "increasingly blurred (ngày càng mờ nhạt)"]
                                 },
                                 {
                                     q: "5. Why do people spend so much money buying the latest devices?",
                                     ideas: ["Better performance", "Social status", "Marketing and influencers", "Fear of missing out (FOMO)", "Work requirements"],
-                                    vocab: ["cutting-edge technology", "status symbol", "consumerism", "peer pressure", "upgrade cycle", "fear of missing out (FOMO)"]
+                                    vocab: ["cutting-edge technology (công nghệ tiên tiến)", "status symbol (biểu tượng địa vị)", "consumerism (chủ nghĩa tiêu dùng)", "peer pressure (áp lực đồng trang lứa)", "upgrade cycle (chu kỳ nâng cấp)", "fear of missing out - FOMO (sợ bị bỏ lỡ)"]
                                 }
                             ].map((item, idx) => `
                                 <div class="bg-gray-50 border border-gray-200 rounded-xl p-5 shadow-sm flex flex-col">
@@ -692,7 +960,7 @@
                                         <div class="mt-auto">
                                             <p class="text-[10px] font-bold text-emerald-600 uppercase tracking-wider mb-1.5">Advanced Vocabulary</p>
                                             <div class="flex flex-wrap gap-1.5">
-                                                ${item.vocab.map(v => `<span class="bg-white border border-emerald-100 text-emerald-700 px-2 py-1 rounded text-xs font-medium">${v}</span>`).join('')}
+                                                ${item.vocab.map(v => `<span class="bg-white border border-emerald-100 text-emerald-700 px-2 py-1 rounded text-[11px] font-medium leading-tight">${v}</span>`).join('')}
                                             </div>
                                         </div>
                                     </div>
@@ -715,42 +983,42 @@
                                 {
                                     q: "1. Do you believe everything you read in the newspapers?",
                                     ideas: ["Different newspapers have different biases", "Human errors occur", "Cross-check information", "Trust reputable sources"],
-                                    vocab: ["media bias", "fact-check", "verify information", "reputable source", "objective reporting", "sensational headlines"]
+                                    vocab: ["media bias (thành kiến truyền thông)", "fact-check (kiểm chứng thông tin)", "verify information (xác minh thông tin)", "reputable source (nguồn uy tín)", "objective reporting (báo cáo khách quan)", "sensational headlines (tiêu đề giật gân)"]
                                 },
                                 {
                                     q: "2. How do most people get their news in your country?",
                                     ideas: ["Social media", "News apps", "Online newspapers", "TV for older generations"],
-                                    vocab: ["digital platforms", "real-time updates", "online news outlets", "instant access", "traditional media", "personalised news feed"]
+                                    vocab: ["digital platforms (nền tảng kỹ thuật số)", "real-time updates (cập nhật thời gian thực)", "online news outlets (kênh tin tức trực tuyến)", "instant access (truy cập tức thì)", "traditional media (truyền thông truyền thống)", "personalised news feed (bảng tin cá nhân hóa)"]
                                 },
                                 {
                                     q: "3. How do you think people will get their news in the future?",
                                     ideas: ["AI-curated news", "Voice assistants", "Smart devices", "Short-form videos", "More personalised content"],
-                                    vocab: ["AI-driven recommendations", "algorithm-based content", "personalised news feed", "digital literacy", "immersive media"]
+                                    vocab: ["AI-driven recommendations (đề xuất bằng AI)", "algorithm-based content (nội dung dựa trên thuật toán)", "personalised news feed (bảng tin cá nhân hóa)", "digital literacy (hiểu biết kỹ thuật số)", "immersive media (truyền thông nhập vai)"]
                                 },
                                 {
                                     q: "4. How has TV changed our lives?",
                                     ideas: ["Easier access to information", "Better entertainment", "Greater cultural awareness", "More sedentary lifestyle", "Less family interaction"],
-                                    vocab: ["broaden people's horizons", "raise public awareness", "sedentary lifestyle", "cultural exposure", "mass communication", "household entertainment"]
+                                    vocab: ["broaden people's horizons (mở rộng tầm nhìn)", "raise public awareness (nâng cao nhận thức cộng đồng)", "sedentary lifestyle (lối sống ít vận động)", "cultural exposure (tiếp xúc văn hóa)", "mass communication (giao tiếp đại chúng)", "household entertainment (giải trí gia đình)"]
                                 },
                                 {
                                     q: "5. Do you think TV influences the way we think?",
                                     ideas: ["Shapes public opinion", "Influences purchasing decisions", "Promotes social values", "Depends on viewers' critical thinking"],
-                                    vocab: ["shape public opinion", "influence consumer behaviour", "sway people's opinions", "cultural norms", "media influence", "think critically"]
+                                    vocab: ["shape public opinion (định hình dư luận)", "influence consumer behaviour (ảnh hưởng hành vi người tiêu dùng)", "sway people's opinions (làm thay đổi ý kiến)", "cultural norms (chuẩn mực văn hóa)", "media influence (ảnh hưởng truyền thông)", "think critically (tư duy phản biện)"]
                                 },
                                 {
                                     q: "6. Should children be allowed to watch a lot of TV?",
                                     ideas: ["Educational programmes are beneficial", "Excessive viewing affects health", "Reduces physical activity", "Parents should set limits"],
-                                    vocab: ["excessive screen time", "parental supervision", "educational content", "cognitive development", "healthy balance", "attention span"]
+                                    vocab: ["excessive screen time (thời gian sử dụng màn hình quá nhiều)", "parental supervision (sự giám sát của cha mẹ)", "educational content (nội dung giáo dục)", "cognitive development (phát triển nhận thức)", "healthy balance (cân bằng lành mạnh)", "attention span (khoảng thời gian chú ý)"]
                                 },
                                 {
                                     q: "7. Are all people on TV famous?",
                                     ideas: ["Experts", "Journalists", "Contestants", "Ordinary people", "Some become famous after appearing on TV"],
-                                    vocab: ["public figures", "media personalities", "subject-matter experts", "gain public recognition", "media exposure", "household names"]
+                                    vocab: ["public figures (người của công chúng)", "media personalities (nhân vật truyền thông)", "subject-matter experts (chuyên gia lĩnh vực)", "gain public recognition (được công chúng công nhận)", "media exposure (sự xuất hiện trên truyền thông)", "household names (những cái tên quen thuộc)"]
                                 },
                                 {
                                     q: "8. Do you think famous people have a responsibility to act as role models?",
                                     ideas: ["Young people imitate celebrities", "They should promote positive values", "Parents remain the biggest influence", "Celebrities are not perfect"],
-                                    vocab: ["role model", "set a positive example", "social responsibility", "influence impressionable audiences", "moral obligation", "positive influence"]
+                                    vocab: ["role model (hình mẫu)", "set a positive example (nêu gương tích cực)", "social responsibility (trách nhiệm xã hội)", "influence impressionable audiences (ảnh hưởng đến khán giả dễ bị ảnh hưởng)", "moral obligation (nghĩa vụ đạo đức)", "positive influence (ảnh hưởng tích cực)"]
                                 }
                             ].map((item, idx) => `
                                 <div class="bg-gray-50 border border-gray-200 rounded-xl p-5 shadow-sm flex flex-col">
@@ -766,7 +1034,7 @@
                                         <div class="mt-auto">
                                             <p class="text-[10px] font-bold text-emerald-600 uppercase tracking-wider mb-1.5">Advanced Vocabulary</p>
                                             <div class="flex flex-wrap gap-1.5">
-                                                ${item.vocab.map(v => `<span class="bg-white border border-emerald-100 text-emerald-700 px-2 py-1 rounded text-xs font-medium">${v}</span>`).join('')}
+                                                ${item.vocab.map(v => `<span class="bg-white border border-emerald-100 text-emerald-700 px-2 py-1 rounded text-[11px] font-medium leading-tight">${v}</span>`).join('')}
                                             </div>
                                         </div>
                                     </div>

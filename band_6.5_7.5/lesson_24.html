@@ -9,20 +9,20 @@
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
         body { 
             font-family: 'Poppins', sans-serif; 
-            background-color: #fdf4ff; /* fuchsia-50 */
+            background-color: #f8fafc; /* slate-50 */
         }
-        .fade-in { animation: fadeIn 0.4s ease-out forwards; }
+        .fade-in { animation: fadeIn 0.5s ease-out forwards; }
         @keyframes fadeIn { 
-            from { opacity: 0; transform: translateY(10px); } 
+            from { opacity: 0; transform: translateY(15px); } 
             to { opacity: 1; transform: translateY(0); } 
         }
         .timer-text { font-variant-numeric: tabular-nums; }
         
         /* Elegant Custom Scrollbar */
         ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #fdf4ff; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb { background: #d946ef; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #c026d3; }
+        ::-webkit-scrollbar-track { background: #e2e8f0; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb { background: #64748b; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #475569; }
 
         /* Glassmorphism utilities */
         .glass {
@@ -40,8 +40,7 @@
 </head>
 <body class="h-screen flex flex-col overflow-hidden text-gray-800">
 
-    <!-- Elegant Header -->
-    <header id="app-header" class="text-white p-4 shadow-lg transition-colors duration-700 z-20 relative bg-gradient-to-r from-fuchsia-500 via-purple-500 to-indigo-500">
+    <header id="app-header" class="text-white p-4 shadow-lg transition-colors duration-700 z-20 relative bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600">
         <div class="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9IiNmZmYiLz48L3N2Zz4=')]"></div>
         
         <div class="max-w-7xl mx-auto flex justify-between items-center relative z-10">
@@ -54,7 +53,7 @@
                     <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
                     IELTS Chan Truong
                 </h1>
-                <h2 id="slide-title" class="text-sm font-medium mt-1 text-fuchsia-50">Loading session...</h2>
+                <h2 id="slide-title" class="text-sm font-medium mt-1 text-blue-50">Loading session...</h2>
             </div>
             
             <div class="flex items-center space-x-2 sm:space-x-3">
@@ -69,16 +68,16 @@
                         <span class="hidden sm:inline">Sections</span>
                     </button>
                     
-                    <div id="nav-dropdown" class="hidden absolute right-0 mt-3 w-80 bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-fuchsia-100 overflow-hidden z-50 origin-top-right transition-all fade-in">
-                        <div class="p-3 bg-fuchsia-50 border-b border-fuchsia-100">
-                            <p class="text-xs font-bold text-fuchsia-800 uppercase tracking-wider text-center">Lesson Agenda</p>
+                    <div id="nav-dropdown" class="hidden absolute right-0 mt-3 w-80 bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-indigo-100 overflow-hidden z-50 origin-top-right transition-all fade-in">
+                        <div class="p-3 bg-indigo-50 border-b border-indigo-100">
+                            <p class="text-xs font-bold text-indigo-800 uppercase tracking-wider text-center">Lesson Agenda</p>
                         </div>
                         <div class="max-h-[60vh] overflow-y-auto p-2" id="nav-menu-list"></div>
                     </div>
                 </div>
 
-                <div class="hidden sm:flex items-center space-x-2 text-sm font-bold text-fuchsia-900 bg-white px-4 py-2 rounded-full shadow-sm">
-                    <svg class="w-4 h-4 text-fuchsia-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <div class="hidden sm:flex items-center space-x-2 text-sm font-bold text-indigo-900 bg-white px-4 py-2 rounded-full shadow-sm">
+                    <svg class="w-4 h-4 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                     <span>90 Mins</span>
                 </div>
             </div>
@@ -93,22 +92,22 @@
         <div id="content-container" class="max-w-6xl mx-auto"></div>
     </main>
 
-    <footer class="bg-white/80 backdrop-blur-md border-t border-fuchsia-100 p-4 md:px-10 z-10 shadow-[0_-10px_15px_-3px_rgba(0,0,0,0.02)]">
+    <footer class="bg-white/80 backdrop-blur-md border-t border-indigo-100 p-4 md:px-10 z-10 shadow-[0_-10px_15px_-3px_rgba(0,0,0,0.02)]">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <button id="btn-prev" class="px-6 py-2.5 rounded-xl border border-fuchsia-200 text-fuchsia-600 font-semibold hover:bg-fuchsia-50 hover:border-fuchsia-300 transition-all disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-2">
+            <button id="btn-prev" class="px-6 py-2.5 rounded-xl border border-indigo-200 text-indigo-600 font-semibold hover:bg-indigo-50 hover:border-indigo-300 transition-all disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-2">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
                 Previous
             </button>
             
             <div class="flex items-center gap-2">
-                <div class="w-2 h-2 rounded-full bg-fuchsia-400 animate-pulse"></div>
-                <div id="step-indicator" class="text-sm font-semibold text-fuchsia-800 uppercase tracking-wide">
+                <div class="w-2 h-2 rounded-full bg-indigo-400 animate-pulse"></div>
+                <div id="step-indicator" class="text-sm font-semibold text-indigo-800 uppercase tracking-wide">
                     Section 1 of X
                 </div>
-                <div class="w-2 h-2 rounded-full bg-fuchsia-400 animate-pulse delay-75"></div>
+                <div class="w-2 h-2 rounded-full bg-indigo-400 animate-pulse delay-75"></div>
             </div>
 
-            <button id="btn-next" class="px-6 py-2.5 rounded-xl bg-gradient-to-r from-fuchsia-500 to-purple-500 text-white font-semibold hover:from-fuchsia-600 hover:to-purple-600 shadow-md hover:shadow-lg transition-all flex items-center gap-2 transform hover:-translate-y-0.5">
+            <button id="btn-next" class="px-6 py-2.5 rounded-xl bg-gradient-to-r from-blue-500 to-indigo-500 text-white font-semibold hover:from-blue-600 hover:to-indigo-600 shadow-md hover:shadow-lg transition-all flex items-center gap-2 transform hover:-translate-y-0.5">
                 Next
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
             </button>
@@ -118,7 +117,10 @@
 <script>
     // --- TIMER LOGIC ---
     let timers = {
-        test: { interval: null, remaining: 840, isRunning: false } // 14 mins
+        prep1: { interval: null, remaining: 60, isRunning: false },
+        speak1: { interval: null, remaining: 120, isRunning: false },
+        prep2: { interval: null, remaining: 60, isRunning: false },
+        speak2: { interval: null, remaining: 120, isRunning: false }
     };
 
     function formatTime(seconds) {
@@ -182,7 +184,7 @@
         timer.remaining = defaultTime;
         updateTimerUI(id, defaultTime);
         const btn = document.getElementById(`btn-${id}-timer`);
-        if(btn) btn.textContent = 'Start Test';
+        if(btn) btn.textContent = 'Start';
     }
 
     function pauseAllTimers() {
@@ -197,319 +199,401 @@
     // --- DATA STRUCTURE ---
     const sessionData = [
         {
-            id: 'vocab_test',
-            type: 'Test',
-            themeClass: 'bg-gradient-to-r from-pink-500 to-rose-500',
-            iconColor: 'text-pink-500',
-            bgColor: 'bg-pink-50',
-            title: '1. Vocab Test Unit 5-6',
-            content: `
-                <div class="fade-in bg-white rounded-3xl shadow-xl border border-pink-50 p-8 md:p-12 overflow-hidden relative">
-                    <div class="absolute -top-24 -right-24 w-64 h-64 bg-pink-100 rounded-full mix-blend-multiply filter blur-2xl opacity-70"></div>
-                    
-                    <div class="relative z-10 flex flex-col md:flex-row gap-10 items-center justify-between">
-                        <div class="flex-1 text-center md:text-left">
-                            <span class="inline-block py-1 px-3 rounded-full bg-pink-100 text-pink-700 font-bold text-xs uppercase tracking-widest mb-4">Assessment</span>
-                            <h3 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4 leading-tight">Vocabulary Test<br><span class="text-pink-500">Units 5 & 6</span></h3>
-                            <p class="text-gray-500 mb-8 text-lg">Administer the vocabulary test for Units 5 and 6. Ensure students follow the rules and complete it within the time limit.</p>
-                            
-                            <div class="bg-pink-50 border border-pink-100 rounded-2xl p-6 text-left max-w-md mx-auto md:mx-0">
-                                <h4 class="font-bold text-pink-800 mb-3 flex items-center gap-2">
-                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
-                                    Test Rules
-                                </h4>
-                                <ul class="space-y-2 text-pink-900 font-medium">
-                                    <li class="flex items-center gap-2">✓ Strict 14-minute time limit.</li>
-                                    <li class="flex items-center gap-2">✓ No phones or dictionaries allowed.</li>
-                                    <li class="flex items-center gap-2">✓ Focus on accurate spelling and word forms.</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <!-- Timer Widget -->
-                        <div class="w-full md:w-96 glass rounded-3xl p-8 border border-pink-100 shadow-sm text-center relative overflow-hidden group hover:shadow-md transition-shadow">
-                            <div class="absolute inset-0 bg-gradient-to-b from-pink-50/50 to-transparent"></div>
-                            <div class="relative z-10">
-                                <h4 class="text-pink-400 font-bold uppercase tracking-widest text-sm mb-4">Time Remaining</h4>
-                                <div class="text-7xl font-black text-pink-600 tracking-tighter timer-text mb-8 drop-shadow-sm" id="test-timer">14:00</div>
-                                
-                                <div class="flex gap-3 w-full">
-                                    <button onclick="toggleTimer('test', 840)" id="btn-test-timer" class="flex-1 bg-gradient-to-r from-pink-500 to-rose-500 text-white py-4 rounded-xl font-bold text-lg hover:from-pink-600 hover:to-rose-600 shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5">Start Test</button>
-                                    <button onclick="resetTimer('test', 840)" class="px-5 bg-white border border-pink-200 text-pink-500 rounded-xl hover:bg-pink-50 hover:text-pink-600 transition-colors shadow-sm">
-                                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `
-        },
-        {
-            id: 'reading_unit7_sb',
-            type: 'Reading',
-            themeClass: 'bg-gradient-to-r from-fuchsia-500 to-purple-500',
-            iconColor: 'text-fuchsia-500',
-            bgColor: 'bg-fuchsia-50',
-            title: '2. Reading Unit 7 SB',
-            content: `
-                <div class="fade-in bg-white rounded-3xl shadow-xl border border-fuchsia-50 p-5 md:p-6 flex flex-col">
-                    <div class="flex flex-col gap-4 mb-4 border-b border-gray-100 pb-4 shrink-0">
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-2xl bg-fuchsia-100 flex items-center justify-center text-fuchsia-600 flex-shrink-0">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-                            </div>
-                            <div class="flex-grow flex flex-col md:flex-row justify-between md:items-center gap-2">
-                                <div>
-                                    <div class="flex items-center gap-3 mb-1 flex-wrap">
-                                        <h3 class="text-xl font-bold text-gray-800">Reading Practice</h3>
-                                        <a href="https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/passage2_complete_ielts_6.5_7.5_sb_unit7.html" target="_blank" class="inline-flex items-center gap-1.5 text-fuchsia-600 hover:text-white hover:bg-fuchsia-600 transition-colors px-3 py-1.5 bg-fuchsia-50 rounded-lg shadow-sm border border-fuchsia-200 text-sm font-bold" title="Open in new tab">
-                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-                                            Open in New Tab
-                                        </a>
-                                    </div>
-                                    <p class="text-fuchsia-600 font-medium text-sm">Unit 7 SB | Complete IELTS</p>
-                                </div>
-                                <div class="flex items-center gap-2 self-start md:self-auto shrink-0">
-                                    <button onclick="toggleVisibility('vocab-read-unit7')" class="bg-gray-100 text-gray-700 px-4 py-2.5 rounded-xl font-bold hover:bg-gray-200 transition-colors shadow-sm flex items-center gap-2 whitespace-nowrap text-sm">
-                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-                                        Vocab Exercises
-                                    </button>
-                                    <button onclick="toggleVisibility('keys-read-unit7')" class="bg-fuchsia-50 text-fuchsia-700 border border-fuchsia-200 px-4 py-2.5 rounded-xl font-bold hover:bg-fuchsia-100 transition-colors shadow-sm flex items-center gap-2 whitespace-nowrap text-sm">
-                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
-                                        Keys
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Vocab Exercises (Streamlined) -->
-                        <div id="vocab-read-unit7" class="hidden mb-4 bg-fuchsia-50 border border-fuchsia-200 rounded-2xl p-5 shadow-sm transition-all fade-in">
-                            <div class="flex justify-between items-center mb-4 border-b border-fuchsia-200 pb-2">
-                                <h4 class="font-bold text-fuchsia-800 flex items-center gap-2">
-                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-                                    Vocab Exercises Check (Pink Book pages 70-73)
-                                </h4>
-                                <button id="btn-read-vocab-all" onclick="toggleInlineAnswers('read-vocab-container', 'btn-read-vocab-all')" class="text-xs font-bold text-fuchsia-700 bg-white border border-fuchsia-300 hover:bg-fuchsia-100 px-3 py-1.5 rounded-lg transition-colors shadow-sm">
-                                    Toggle All Answers
-                                </button>
-                            </div>
-                            
-                            <div id="read-vocab-container" class="max-h-[400px] overflow-y-auto pr-2 space-y-6">
-                                <!-- Exercise 1 -->
-                                <div class="bg-white p-5 rounded-xl border border-fuchsia-100 shadow-sm text-sm">
-                                    <h5 class="font-bold text-fuchsia-700 text-lg mb-3">Exercise 1</h5>
-                                    <p class="text-gray-600 font-medium mb-4">Match the words with the pictures/definitions.</p>
-                                    
-                                    <div class="grid md:grid-cols-2 gap-x-8 gap-y-4 text-gray-800 font-medium">
-                                        <p>1 <span class="text-fuchsia-600 font-bold mx-1">fly</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ C. [Picture: Green/blue fly]</span></p>
-                                        <p>2 <span class="text-fuchsia-600 font-bold mx-1">beetle</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ F. [Picture: Green beetle]</span></p>
-                                        <p>3 <span class="text-fuchsia-600 font-bold mx-1">gecko</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ E. [Picture: Green lizard]</span></p>
-                                        <p>4 <span class="text-fuchsia-600 font-bold mx-1">lemur</span> <span class="text-gray-400 font-normal">/ˈliːmər/</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ G. [Picture: Lemur]</span></p>
-                                        <p>5 <span class="text-fuchsia-600 font-bold mx-1">opossum</span> <span class="text-gray-400 font-normal">/əˈpɒsəm/</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ A. [Picture: Possum on branch]</span></p>
-                                        <p>6 <span class="text-fuchsia-600 font-bold mx-1">hummingbird</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ L. [Picture: Green bird]</span></p>
-                                        <p>7 <span class="text-fuchsia-600 font-bold mx-1">wasp</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ M. [Picture: Yellow/black wasp]</span></p>
-                                        <p>8 <span class="text-fuchsia-600 font-bold mx-1">butterfly</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ D. [Picture: Green butterfly]</span></p>
-                                        <p>9 <span class="text-fuchsia-600 font-bold mx-1">moth</span> <span class="text-gray-400 font-normal">/mɒθ/</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ H. [Picture: Pinkish moth]</span></p>
-                                        <p>10 <span class="text-fuchsia-600 font-bold mx-1">parasite</span> <span class="text-gray-400 font-normal">/ˈpærəsaɪt/</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ K. [Picture: Ticks under glass]</span></p>
-                                        <p>11 <span class="text-fuchsia-600 font-bold mx-1">straggler</span> <span class="text-gray-400 font-normal">/ˈstræɡlər/</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ N. a person or an animal that is among the last/slowest...</span></p>
-                                        <p>12 <span class="text-fuchsia-600 font-bold mx-1">flax</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ B. [Picture: Plant with blue flowers]</span></p>
-                                        <p>13 <span class="text-fuchsia-600 font-bold mx-1">hedgerow</span> <span class="text-gray-400 font-normal">/ˈhedʒrəʊ/</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ I. [Picture: Hedge maze]</span></p>
-                                        <p>14 <span class="text-fuchsia-600 font-bold mx-1">hive</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ J. [Picture: Yellow beehive]</span></p>
-                                    </div>
-                                </div>
-
-                                <!-- Exercise 2 -->
-                                <div class="bg-white p-5 rounded-xl border border-fuchsia-100 shadow-sm text-sm">
-                                    <h5 class="font-bold text-fuchsia-700 text-lg mb-3">Exercise 2</h5>
-                                    <p class="text-gray-600 font-medium mb-4">Fill in each blank with one suitable word from the lists below.</p>
-                                    
-                                    <div class="space-y-6">
-                                        <!-- Group 1 -->
-                                        <div>
-                                            <div class="flex flex-wrap gap-x-6 gap-y-2 justify-center mb-4 bg-fuchsia-50 border border-fuchsia-200 p-3 rounded-lg font-bold text-fuchsia-700">
-                                                <span>menace</span> <span>culprit</span> <span>colony</span> <span>enigma</span> <span>monocrops</span>
-                                            </div>
-                                            <div class="space-y-3 text-gray-700 font-medium pl-2">
-                                                <p>1. <span class="blank-dots text-gray-400">........................</span><span class="blank-ans text-emerald-600 font-bold underline px-1">monocrops</span> bring food crisis.</p>
-                                                <p>2. Even after years he still remains a/an <span class="blank-dots text-gray-400">........................</span><span class="blank-ans text-emerald-600 font-bold underline px-1">enigma</span> to me.</p>
-                                                <p>3. The main <span class="blank-dots text-gray-400">........................</span><span class="blank-ans text-emerald-600 font-bold underline px-1">culprit</span> in the current crisis seems to be modern farming techniques.</p>
-                                                <p>4. Drunk drivers are a <span class="blank-dots text-gray-400">........................</span><span class="blank-ans text-emerald-600 font-bold underline px-1">menace</span> to everyone.</p>
-                                                <p>5. An ant <span class="blank-dots text-gray-400">........................</span><span class="blank-ans text-emerald-600 font-bold underline px-1">colony</span> is the basic unit around which ants organize their lifecycle.</p>
-                                            </div>
-                                        </div>
-
-                                        <!-- Group 2 -->
-                                        <div>
-                                            <div class="flex flex-wrap gap-x-6 gap-y-2 justify-center mb-4 bg-fuchsia-50 border border-fuchsia-200 p-3 rounded-lg font-bold text-fuchsia-700">
-                                                <span>infestation</span> <span>immunity</span> <span>blow</span> <span>surrogate</span> <span>flora</span>
-                                            </div>
-                                            <div class="space-y-3 text-gray-700 font-medium pl-2">
-                                                <p>6. Losing his job came as a terrible <span class="blank-dots text-gray-400">........................</span><span class="blank-ans text-emerald-600 font-bold underline px-1">blow</span> to him.</p>
-                                                <p>7. The desert <span class="blank-dots text-gray-400">........................</span><span class="blank-ans text-emerald-600 font-bold underline px-1">flora</span> give way to oak woodlands.</p>
-                                                <p>8. Scientists are checking for both insect and fungal <span class="blank-dots text-gray-400">........................</span><span class="blank-ans text-emerald-600 font-bold underline px-1">infestation</span> .</p>
-                                                <p>9. The vaccine provides longer <span class="blank-dots text-gray-400">........................</span><span class="blank-ans text-emerald-600 font-bold underline px-1">immunity</span> against flu.</p>
-                                                <p>10. For some people, reading travel books is a <span class="blank-dots text-gray-400">........................</span><span class="blank-ans text-emerald-600 font-bold underline px-1">surrogate</span> for actual travel.</p>
-                                            </div>
-                                        </div>
-
-                                        <!-- Group 3 -->
-                                        <div>
-                                            <div class="flex flex-wrap gap-x-6 gap-y-2 justify-center mb-4 bg-fuchsia-50 border border-fuchsia-200 p-3 rounded-lg font-bold text-fuchsia-700">
-                                                <span>ease</span> <span>astonishing</span> <span>tricky</span> <span>picky</span> <span>slather</span> <span>bolster</span>
-                                            </div>
-                                            <div class="space-y-3 text-gray-700 font-medium pl-2">
-                                                <p>11. She's very <span class="blank-dots text-gray-400">........................</span><span class="blank-ans text-emerald-600 font-bold underline px-1">picky</span> about her clothes.</p>
-                                                <p>12. There was a creamy onion sauce <span class="blank-dots text-gray-400">........................</span><span class="blank-ans text-emerald-600 font-bold underline px-1">slathered</span> over the potatoes.</p>
-                                                <p>13. Falling interest rates may help to <span class="blank-dots text-gray-400">........................</span><span class="blank-ans text-emerald-600 font-bold underline px-1">bolster</span> up the economy.</p>
-                                                <p>14. This should help <span class="blank-dots text-gray-400">........................</span><span class="blank-ans text-emerald-600 font-bold underline px-1">ease</span> the pain.</p>
-                                                <p>15. She ran 100m in a/an <span class="blank-dots text-gray-400">........................</span><span class="blank-ans text-emerald-600 font-bold underline px-1">astonishing</span> 10.6 seconds.</p>
-                                                <p>16. Getting it to fit exactly is a/an <span class="blank-dots text-gray-400">........................</span><span class="blank-ans text-emerald-600 font-bold underline px-1">tricky</span> business.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Answer Keys -->
-                        <div id="keys-read-unit7" class="hidden bg-gray-50 rounded-2xl p-5 border border-gray-200 shadow-inner mt-2 mb-4">
-                            <h4 class="font-bold text-fuchsia-800 mb-3 uppercase text-xs tracking-wider">Reading Answer Key</h4>
-                            <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 gap-3 text-sm">
-                                <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-gray-400 font-bold mr-2">1</span> v</div>
-                                <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-gray-400 font-bold mr-2">2</span> vii</div>
-                                <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-gray-400 font-bold mr-2">3</span> vi</div>
-                                <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-gray-400 font-bold mr-2">4</span> x</div>
-                                <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-gray-400 font-bold mr-2">5</span> i</div>
-                                <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-gray-400 font-bold mr-2">6</span> iii</div>
-                                <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-gray-400 font-bold mr-2">7</span> ix</div>
-                                <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm lg:col-span-2"><span class="text-gray-400 font-bold mr-2">8</span> flies and beetles</div>
-                                <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm lg:col-span-2"><span class="text-gray-400 font-bold mr-2">9</span> (furry) coats</div>
-                                <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm lg:col-span-2"><span class="text-gray-400 font-bold mr-2">10</span> (longer) distances</div>
-                                <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm lg:col-span-2"><span class="text-gray-400 font-bold mr-2">11</span> worker bees</div>
-                                <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-gray-400 font-bold mr-2">12</span> C</div>
-                                <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-gray-400 font-bold mr-2">13</span> E</div>
-                            </div>
-                        </div>
-
-                        <!-- Full Height Iframe -->
-                        <div class="w-full rounded-2xl overflow-hidden border border-gray-200 shadow-inner bg-gray-50 relative h-[800px]">
-                            <iframe src="https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/passage2_complete_ielts_6.5_7.5_sb_unit7.html" class="absolute inset-0 w-full h-full border-0" title="Reading Practice"></iframe>
-                        </div>
-                    </div>
-                </div>
-            `
-        },
-        {
-            id: 'listening_sb_unit7',
+            id: 'listening_sb_u8',
             type: 'Listening',
-            themeClass: 'bg-gradient-to-r from-violet-500 to-indigo-500',
-            iconColor: 'text-violet-500',
-            bgColor: 'bg-violet-50',
-            title: '3. Listening Unit 7 SB',
-            content: `
-                <div class="fade-in bg-white rounded-3xl shadow-xl border border-violet-50 p-5 md:p-6 flex flex-col">
-                    <div class="flex flex-col gap-4 mb-4 border-b border-gray-100 pb-4 shrink-0">
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-2xl bg-violet-100 flex items-center justify-center text-violet-500 flex-shrink-0">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
-                            </div>
-                            <div class="flex-grow flex flex-col md:flex-row justify-between md:items-center gap-2">
-                                <div>
-                                    <div class="flex items-center gap-3 mb-1 flex-wrap">
-                                        <h3 class="text-xl font-bold text-gray-800">Listening Practice</h3>
-                                        <a href="https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/section3_complete_ielts_6.5_7.5_sb_unit7.html" target="_blank" class="inline-flex items-center gap-1.5 text-violet-600 hover:text-white hover:bg-violet-600 transition-colors px-3 py-1.5 bg-violet-50 rounded-lg shadow-sm border border-violet-200 text-sm font-bold" title="Open in new tab">
-                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-                                            Open in New Tab
-                                        </a>
-                                    </div>
-                                    <p class="text-violet-600 font-medium text-sm">Unit 7 SB | Complete IELTS</p>
-                                </div>
-                                <button onclick="toggleVisibility('keys-list-unit7-sb')" class="bg-gray-100 text-gray-700 px-5 py-2.5 rounded-xl font-bold hover:bg-gray-200 transition-colors shadow-sm flex items-center gap-2 whitespace-nowrap self-start md:self-auto">
-                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                                    Show Answers
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- Answer Keys -->
-                        <div id="keys-list-unit7-sb" class="hidden bg-gray-50 rounded-2xl p-5 border border-gray-200 shadow-inner mt-2 mb-4">
-                            <h4 class="font-bold text-violet-800 mb-3 uppercase text-xs tracking-wider">Listening Answer Key</h4>
-                            <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 gap-3 text-sm">
-                                <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-gray-400 font-bold mr-2">1</span> C</div>
-                                <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-gray-400 font-bold mr-2">2</span> F</div>
-                                <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-gray-400 font-bold mr-2">3</span> A</div>
-                                <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm lg:col-span-2"><span class="text-gray-400 font-bold mr-2">4</span> hesitation/ hesitating/ waiting</div>
-                                <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-gray-400 font-bold mr-2">5</span> patience</div>
-                                <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-gray-400 font-bold mr-2">6</span> landscape</div>
-                                <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm lg:col-span-2"><span class="text-gray-400 font-bold mr-2">7</span> (a/the) reflection(s)</div>
-                                <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-gray-400 font-bold mr-2">8</span> (neck) pain</div>
-                                <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-gray-400 font-bold mr-2">9</span> designers</div>
-                                <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-gray-400 font-bold mr-2">10</span> conservation</div>
-                            </div>
-                        </div>
-
-                        <!-- Full Height Iframe -->
-                        <div class="w-full rounded-2xl overflow-hidden border border-gray-200 shadow-inner bg-gray-50 relative h-[800px]">
-                            <iframe src="https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/section3_complete_ielts_6.5_7.5_sb_unit7.html" class="absolute inset-0 w-full h-full border-0" title="Listening Practice"></iframe>
-                        </div>
-                    </div>
-                </div>
-            `
-        },
-        {
-            id: 'listening_unit7_wb',
-            type: 'Listening',
-            themeClass: 'bg-gradient-to-r from-blue-500 to-cyan-500',
+            themeClass: 'bg-gradient-to-r from-blue-600 to-indigo-600',
             iconColor: 'text-blue-500',
-            bgColor: 'bg-blue-50',
-            title: '4. Listening Unit 7 WB',
+            title: '1. Listening: Unit 8 SB',
             content: `
-                <div class="fade-in bg-white rounded-3xl shadow-xl border border-blue-50 p-5 md:p-6 flex flex-col">
-                    <div class="flex flex-col gap-4 mb-4 border-b border-gray-100 pb-4 shrink-0">
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-2xl bg-blue-100 flex items-center justify-center text-blue-500 flex-shrink-0">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
-                            </div>
-                            <div class="flex-grow flex flex-col md:flex-row justify-between md:items-center gap-2">
-                                <div>
-                                    <div class="flex items-center gap-3 mb-1 flex-wrap">
-                                        <h3 class="text-xl font-bold text-gray-800">Listening Practice</h3>
-                                        <a href="https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/section3_complete_ielts_6.5_7.5_wb_unit7.html" target="_blank" class="inline-flex items-center gap-1.5 text-blue-600 hover:text-white hover:bg-blue-600 transition-colors px-3 py-1.5 bg-blue-50 rounded-lg shadow-sm border border-blue-200 text-sm font-bold" title="Open in new tab">
-                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-                                            Open in New Tab
-                                        </a>
-                                    </div>
-                                    <p class="text-blue-600 font-medium text-sm">Unit 7 WB | Complete IELTS</p>
+                <div class="fade-in bg-white rounded-3xl shadow-xl border border-blue-50 p-5 md:p-6 flex flex-col" style="height: calc(100vh - 11rem); min-height: 650px;">
+                    <div class="flex items-center gap-4 mb-4 border-b border-gray-100 pb-4 shrink-0">
+                        <div class="w-12 h-12 rounded-2xl bg-blue-100 flex items-center justify-center text-blue-600 flex-shrink-0">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+                        </div>
+                        <div class="flex-grow flex flex-col md:flex-row justify-between md:items-center gap-4">
+                            <div>
+                                <div class="flex items-center gap-3 mb-1 flex-wrap">
+                                    <h3 class="text-xl font-bold text-gray-800">Listening Practice</h3>
+                                    <a href="https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/section4_complete_ielts_6.5_7.5_sb_unit8.html" target="_blank" class="inline-flex items-center gap-1.5 text-blue-600 hover:text-white hover:bg-blue-600 transition-colors px-3 py-1.5 bg-blue-50 rounded-lg shadow-sm border border-blue-200 text-sm font-bold" title="Open in new tab">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                                        Open in New Tab
+                                    </a>
                                 </div>
-                                <button onclick="toggleVisibility('keys-list-unit7-wb')" class="bg-gray-100 text-gray-700 px-5 py-2.5 rounded-xl font-bold hover:bg-gray-200 transition-colors shadow-sm flex items-center gap-2 whitespace-nowrap self-start md:self-auto">
-                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                                    Show Answers
-                                </button>
+                                <p class="text-blue-600 font-medium text-sm">Unit 8 SB | Complete IELTS</p>
+                            </div>
+                            <button onclick="toggleVisibility('ans-sb-u8')" class="bg-blue-50 text-blue-700 px-4 py-2 rounded-xl font-bold hover:bg-blue-100 transition-colors text-sm border border-blue-200 flex items-center gap-2 shrink-0 shadow-sm">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                Show Answers
+                            </button>
+                        </div>
+                    </div>
+
+                    <div id="ans-sb-u8" class="hidden mb-4 bg-gray-50 border border-blue-100 rounded-xl p-5 shrink-0 shadow-inner transition-all fade-in">
+                        <h4 class="font-bold text-blue-800 mb-3 border-b border-blue-100 pb-2 uppercase tracking-wide text-xs">Answer Key</h4>
+                        <div class="grid grid-cols-2 sm:grid-cols-5 gap-3 text-sm text-gray-700 font-medium">
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-blue-500 font-bold mr-2">1</span> scientific revolution</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-blue-500 font-bold mr-2">2</span> (the) Earth/earth</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-blue-500 font-bold mr-2">3</span> moon/Moon photo(graph)</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-blue-500 font-bold mr-2">4</span> research data</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-blue-500 font-bold mr-2">5</span> solar eclipse</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-blue-500 font-bold mr-2">6</span> brightness</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-blue-500 font-bold mr-2">7</span> accurate measurement(s)</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-blue-500 font-bold mr-2">8</span> exploding star</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-blue-500 font-bold mr-2">9</span> evolution</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-blue-500 font-bold mr-2">10</span> long(-)term</div>
+                        </div>
+                    </div>
+
+                    <div class="w-full flex-grow rounded-2xl overflow-hidden border border-gray-200 shadow-inner bg-gray-50 relative">
+                        <iframe src="https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/section4_complete_ielts_6.5_7.5_sb_unit8.html" class="absolute inset-0 w-full h-full border-0" title="Listening Practice"></iframe>
+                    </div>
+                </div>
+            `
+        },
+        {
+            id: 'speaking_u8_1',
+            type: 'Speaking',
+            themeClass: 'bg-gradient-to-r from-indigo-500 to-purple-600',
+            iconColor: 'text-indigo-500',
+            title: '2. Speaking Unit 8 | #1',
+            content: `
+                <div class="fade-in space-y-8">
+                    <!-- Vocab Placeholder -->
+                    <div class="bg-indigo-50 border-l-4 border-indigo-500 p-6 rounded-r-xl shadow-sm">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="inline-block py-1 px-3 rounded-full bg-indigo-100 text-indigo-700 font-bold text-xs uppercase tracking-widest">Pink Book</span>
+                            <h3 class="text-xl font-bold text-indigo-900">Vocab Exercises (Pages 85-86)</h3>
+                        </div>
+                        
+                        <div class="mt-4 space-y-6">
+                            <!-- Exercise 1 -->
+                            <div id="spk-1-ex1-container" class="bg-white border border-indigo-100 rounded-xl p-5 shadow-sm transition-all duration-300">
+                                <div class="flex justify-between items-center mb-4">
+                                    <h5 class="font-bold text-indigo-700 text-md">Exercise 1</h5>
+                                    <button id="btn-spk-1-ex1" onclick="toggleInlineAnswers('spk-1-ex1-container', 'btn-spk-1-ex1')" class="text-xs bg-indigo-50 text-indigo-700 px-3 py-1.5 rounded-lg font-bold hover:bg-indigo-100 transition-colors border border-indigo-200">Show Answers</button>
+                                </div>
+                                <p class="text-gray-600 text-sm mb-4 font-medium">Fill in each blank with one suitable word from the list below.</p>
+                                
+                                <div class="flex flex-wrap gap-x-6 gap-y-2 justify-center mb-6 bg-indigo-50/50 border border-indigo-100 p-4 rounded-lg font-bold text-indigo-600 text-sm shadow-inner">
+                                    <div class="text-center">unknown</div>
+                                    <div class="text-center">thrilling</div>
+                                    <div class="text-center">extra-terrestrial</div>
+                                    <div class="text-center">risky</div>
+                                    <div class="text-center">long-term</div>
+                                </div>
+
+                                <div class="space-y-3 text-sm text-gray-700 leading-relaxed font-medium">
+                                    <p>1 Curiosity drives people to explore what remains <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 mx-1">unknown <span class="text-gray-500 font-normal ml-1">/ˌʌnˈnoʊn/ (chưa biết, chưa được khám phá)</span></span> to them.</p>
+                                    <p>2 Life as an astronaut can be a/an <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 mx-1">risky <span class="text-gray-500 font-normal ml-1">/ˈrɪski/ (rủi ro, mạo hiểm)</span></span> business with numerous possible dangers.</p>
+                                    <p>3 There are <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 mx-1">long-term <span class="text-gray-500 font-normal ml-1">/ˌlɔːŋ ˈtɜːrm/ (dài hạn)</span></span> effects of space exploration, which will be shown in the future.</p>
+                                    <p>4 Searching for <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 mx-1">extra-terrestrial <span class="text-gray-500 font-normal ml-1">/ˌekstrətəˈrestriəl/ (ngoài trái đất)</span></span> life attracts more and more attention.</p>
+                                    <p>5 Traveling to the space is a/an <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 mx-1">thrilling <span class="text-gray-500 font-normal ml-1">/ˈθrɪlɪŋ/ (hồi hộp, ly kỳ)</span></span> experience. I'm sure you will be excited.</p>
+                                </div>
+                            </div>
+
+                            <!-- Exercise 2 -->
+                            <div id="spk-1-ex2-container" class="bg-white border border-indigo-100 rounded-xl p-5 shadow-sm transition-all duration-300">
+                                <div class="flex justify-between items-center mb-4">
+                                    <h5 class="font-bold text-indigo-700 text-md">Exercise 2</h5>
+                                    <button id="btn-spk-1-ex2" onclick="toggleInlineAnswers('spk-1-ex2-container', 'btn-spk-1-ex2')" class="text-xs bg-indigo-50 text-indigo-700 px-3 py-1.5 rounded-lg font-bold hover:bg-indigo-100 transition-colors border border-indigo-200">Show Answers</button>
+                                </div>
+                                <p class="text-gray-600 text-sm mb-4 font-medium">Match the phrases with the meanings.</p>
+                                
+                                <div class="grid md:grid-cols-2 gap-6 text-sm">
+                                    <div class="space-y-3">
+                                        <p><span class="font-bold text-gray-800">1</span> have great <span class="text-indigo-600 font-semibold">eyesight</span> <span class="text-gray-500 font-normal text-[10px]">/ˈaɪsaɪt/ (thị lực)</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ E</span></p>
+                                        <p><span class="font-bold text-gray-800">2</span> handle <span class="text-indigo-600 font-semibold">adversity</span> well <span class="text-gray-500 font-normal text-[10px]">/ədˈvɜːrsəti/ (nghịch cảnh)</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ C</span></p>
+                                        <p><span class="font-bold text-gray-800">3</span> have a strong sense of <span class="text-indigo-600 font-semibold">accountability</span> <span class="text-gray-500 font-normal text-[10px]">/əˌkaʊntəˈbɪləti/ (trách nhiệm)</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ A</span></p>
+                                        <p><span class="font-bold text-gray-800">4</span> demonstrate remarkable <span class="text-indigo-600 font-semibold">resilience</span> <span class="text-gray-500 font-normal text-[10px]">/rɪˈzɪliəns/ (khả năng phục hồi, kiên cường)</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ B</span></p>
+                                        <p><span class="font-bold text-gray-800">5</span> possess a high level of <span class="text-indigo-600 font-semibold">vitality</span> and <span class="text-indigo-600 font-semibold">fitness</span> <span class="text-gray-500 font-normal text-[10px]">/vaɪˈtæləti/ (sức sống, sinh khí)</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ D</span></p>
+                                    </div>
+                                    <div class="space-y-3 text-gray-600 font-medium">
+                                        <p><span class="font-bold text-gray-800">A.</span> be responsible</p>
+                                        <p><span class="font-bold text-gray-800">B.</span> be able to feel better quickly after something unpleasant</p>
+                                        <p><span class="font-bold text-gray-800">C.</span> work well under unfavorable conditions</p>
+                                        <p><span class="font-bold text-gray-800">D.</span> be fit and healthy</p>
+                                        <p><span class="font-bold text-gray-800">E.</span> be able to see well</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Exercise 3 -->
+                            <div id="spk-1-ex3-container" class="bg-white border border-indigo-100 rounded-xl p-5 shadow-sm transition-all duration-300">
+                                <div class="flex justify-between items-center mb-4">
+                                    <h5 class="font-bold text-indigo-700 text-md">Exercise 3</h5>
+                                    <button id="btn-spk-1-ex3" onclick="toggleInlineAnswers('spk-1-ex3-container', 'btn-spk-1-ex3')" class="text-xs bg-indigo-50 text-indigo-700 px-3 py-1.5 rounded-lg font-bold hover:bg-indigo-100 transition-colors border border-indigo-200">Show Answers</button>
+                                </div>
+                                <p class="text-gray-600 text-sm mb-4 font-medium">Match the phrases to form complete sentences.</p>
+                                
+                                <div class="grid md:grid-cols-2 gap-6 text-sm">
+                                    <div class="space-y-3">
+                                        <p class="font-bold text-indigo-400 uppercase text-xs tracking-wider mb-2">Column A</p>
+                                        <p><span class="font-bold text-gray-800">1</span> There is a growing number of <span class="text-indigo-600 font-semibold italic">advocates</span> <span class="text-gray-500 font-normal text-[10px]">/ˈædvəkəts/ (người ủng hộ)</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ B. of space science</span></p>
+                                        <p><span class="font-bold text-gray-800">2</span> Some people are <span class="text-indigo-600 font-semibold italic">cynical</span> <span class="text-gray-500 font-normal text-[10px]">/ˈsɪnɪkl/ (hoài nghi, yếm thế)</span> about <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ D. the Earth's habitability in the distant future.</span></p>
+                                        <p><span class="font-bold text-gray-800">3</span> Recently private companies have <span class="text-indigo-600 font-semibold italic">taken on</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ A. larger and more active roles.</span></p>
+                                        <p><span class="font-bold text-gray-800">4</span> Investment in space science can <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ E. be of great benefit to a country.</span></p>
+                                        <p><span class="font-bold text-gray-800">5</span> <span class="text-indigo-600 font-semibold italic">Opponents</span> of space science may claim that <span class="text-indigo-600 font-semibold italic">the public purse</span> should cater for <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ C. humanitarian/urgent needs rather than something far-fetched.</span></p>
+                                    </div>
+                                    <div class="space-y-3 text-gray-600 font-medium">
+                                        <p class="font-bold text-indigo-400 uppercase text-xs tracking-wider mb-2">Column B</p>
+                                        <p><span class="font-bold text-gray-800">A.</span> larger and more active roles.</p>
+                                        <p><span class="font-bold text-gray-800">B.</span> of space science</p>
+                                        <p><span class="font-bold text-gray-800">C.</span> <span class="text-indigo-600 font-semibold italic">humanitarian</span> /hjuːˌmænɪˈteriən/urgent needs rather than something far-fetched.</p>
+                                        <p><span class="font-bold text-gray-800">D.</span> the Earth's <span class="text-indigo-600 font-semibold italic">habitability</span> in the distant future.</p>
+                                        <p><span class="font-bold text-gray-800">E.</span> be <span class="text-indigo-600 font-semibold italic">of great benefit</span> to a country.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Speaking Practice Part 2 -->
+                    <div class="bg-white rounded-3xl shadow-xl border border-indigo-50 p-8">
+                        <div class="flex flex-col md:flex-row justify-between items-center gap-6 mb-8 border-b border-gray-100 pb-6">
+                            <div>
+                                <h3 class="text-2xl font-bold text-gray-800">Part 2: Long Turn</h3>
+                                <p class="text-gray-500 mt-1 font-medium">Manage the candidate's preparation and speaking time.</p>
+                            </div>
+                            
+                            <div class="flex gap-4 w-full md:w-auto">
+                                <div class="bg-indigo-50 rounded-2xl p-4 border border-indigo-100 text-center flex-1 md:w-36 shadow-sm">
+                                    <h4 class="text-indigo-600 font-bold uppercase text-[10px] tracking-wider mb-2">Prep Time (1 Min)</h4>
+                                    <div class="text-3xl font-black text-indigo-700 timer-text mb-3 drop-shadow-sm" id="prep1-timer">01:00</div>
+                                    <button onclick="toggleTimer('prep1', 60)" id="btn-prep1-timer" class="w-full bg-indigo-200 text-indigo-800 py-1.5 rounded-xl font-bold hover:bg-indigo-300 transition-colors text-sm">Start</button>
+                                </div>
+                                <div class="bg-purple-50 rounded-2xl p-4 border border-purple-100 text-center flex-1 md:w-36 shadow-sm">
+                                    <h4 class="text-purple-600 font-bold uppercase text-[10px] tracking-wider mb-2">Speaking (2 Mins)</h4>
+                                    <div class="text-3xl font-black text-purple-600 timer-text mb-3 drop-shadow-sm" id="speak1-timer">02:00</div>
+                                    <button onclick="toggleTimer('speak1', 120)" id="btn-speak1-timer" class="w-full bg-gradient-to-r from-purple-500 to-indigo-500 text-white py-1.5 rounded-xl font-bold hover:opacity-90 transition-opacity text-sm shadow-sm">Start</button>
+                                </div>
                             </div>
                         </div>
 
-                        <!-- Answer Keys -->
-                        <div id="keys-list-unit7-wb" class="hidden bg-gray-50 rounded-2xl p-5 border border-gray-200 shadow-inner mt-2 mb-4">
-                            <h4 class="font-bold text-blue-800 mb-3 uppercase text-xs tracking-wider">Listening Answer Key</h4>
-                            <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 gap-3 text-sm">
-                                <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm lg:col-span-2"><span class="text-gray-400 font-bold mr-2">1</span> optical quality</div>
-                                <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-gray-400 font-bold mr-2">2</span> hunter</div>
-                                <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm lg:col-span-2"><span class="text-gray-400 font-bold mr-2">3</span> Camouflage yourself</div>
-                                <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm lg:col-span-2"><span class="text-gray-400 font-bold mr-2">4</span> approximate size</div>
-                                <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm lg:col-span-2"><span class="text-gray-400 font-bold mr-2">5</span> feeding/ eating habits</div>
-                                <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-gray-400 font-bold mr-2">6</span> E</div>
-                                <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-gray-400 font-bold mr-2">7</span> C</div>
-                                <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-gray-400 font-bold mr-2">8</span> B</div>
-                                <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-gray-400 font-bold mr-2">9</span> company</div>
-                                <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-gray-400 font-bold mr-2">10</span> sandwiches</div>
+                        <div class="bg-slate-900 border-l-4 border-indigo-500 p-6 rounded-r-2xl shadow-sm text-slate-100">
+                            <p class="text-indigo-400 font-bold uppercase tracking-wider text-xs mb-2">Candidate Task Card</p>
+                            <p class="text-xl font-bold text-white mb-4">Describe a story about space (real or fictitious) that you have read about or seen in a film or on TV</p>
+                            <p class="text-slate-300 mb-2 font-medium">You should say:</p>
+                            <ul class="text-slate-300 space-y-2 list-disc list-inside font-medium ml-2">
+                                <li>When you read about or saw the story</li>
+                                <li>What happened in the story</li>
+                                <li>Whether the story has any significance today</li>
+                                <li>And explain how you felt about this story</li>
+                            </ul>
+                            <div class="mt-6 pt-5 border-t border-slate-700">
+                                <button onclick="toggleVisibility('p2-1-sample')" class="text-xs font-bold text-slate-900 bg-indigo-200 hover:bg-indigo-300 px-4 py-2 rounded-lg transition-colors shadow-sm">Show Sample Response</button>
+                                <div id="p2-1-sample" class="hidden mt-4 bg-slate-800 p-5 rounded-xl border border-slate-700 shadow-inner">
+                                    <p class="text-sm text-slate-200 italic leading-relaxed">"I’d like to talk about the sci-fi movie 'The Martian,' which I watched a few years ago. It’s a fictitious yet incredibly realistic story about an astronaut named Mark Watney, who is mistakenly presumed dead and left behind on Mars by his crew. <br><br>The story revolves around his struggle for survival on a barren planet. With limited supplies, he uses his knowledge of botany to grow potatoes inside the habitat and figures out a way to communicate with NASA to orchestrate a rescue mission. <br><br>I believe the story has massive significance today because it perfectly illustrates human resilience and the incredible potential of scientific problem-solving. As we are currently trying to send humans to Mars in real life, it serves as both a cautionary tale and an inspiration. <br><br>When I watched it, I felt a rollercoaster of emotions. I was anxious during his setbacks but immensely uplifted by his unwavering optimism. It left me in absolute awe of human ingenuity and the vast, untamed nature of outer space."</p>
+                                </div>
                             </div>
                         </div>
 
-                        <!-- Full Height Iframe -->
-                        <div class="w-full rounded-2xl overflow-hidden border border-gray-200 shadow-inner bg-gray-50 relative h-[800px]">
-                            <iframe src="https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/section3_complete_ielts_6.5_7.5_wb_unit7.html" class="absolute inset-0 w-full h-full border-0" title="Listening Practice"></iframe>
+                        <!-- Speaking Practice Part 3 -->
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6 border-b border-gray-100 pb-4 mt-10">Part 3: Discussion Questions</h3>
+                        
+                        <h4 class="text-lg font-bold text-indigo-700 mb-4 uppercase tracking-wider text-sm">Attitudes towards space travel</h4>
+                        <div class="grid md:grid-cols-2 gap-4 mb-8">
+                            <div class="bg-gray-50 rounded-xl p-5 border border-gray-200 shadow-sm">
+                                <div class="flex justify-between items-start gap-2 mb-3">
+                                    <p class="font-bold text-gray-800 text-[15px]"><span class="text-indigo-600 mr-2">1.</span> What do you think fascinates humans about outer space?</p>
+                                </div>
+                                <button onclick="toggleVisibility('p3-1-q1')" class="text-[10px] font-bold text-indigo-600 bg-indigo-100 hover:bg-indigo-200 px-3 py-1.5 rounded transition-colors mb-2">Show Sample</button>
+                                <div id="p3-1-q1" class="hidden mt-2 pt-2 border-t border-gray-200">
+                                    <p class="text-sm text-gray-600 italic leading-relaxed">"I believe it's the sheer mystery and the endless possibilities. Human beings are inherently curious creatures, and space is the ultimate frontier. The possibility of discovering extraterrestrial life, or simply understanding how the universe originated, appeals to our desire to know our place in the cosmos."</p>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gray-50 rounded-xl p-5 border border-gray-200 shadow-sm">
+                                <div class="flex justify-between items-start gap-2 mb-3">
+                                    <p class="font-bold text-gray-800 text-[15px]"><span class="text-indigo-600 mr-2">2.</span> To what extent do you think governments will continue to fund projects in search of life on other planets?</p>
+                                </div>
+                                <button onclick="toggleVisibility('p3-1-q2')" class="text-[10px] font-bold text-indigo-600 bg-indigo-100 hover:bg-indigo-200 px-3 py-1.5 rounded transition-colors mb-2">Show Sample</button>
+                                <div id="p3-1-q2" class="hidden mt-2 pt-2 border-t border-gray-200">
+                                    <p class="text-sm text-gray-600 italic leading-relaxed">"While finding extraterrestrial life is captivating, I think government funding might actually decrease as private companies like SpaceX take the lead. Governments have pressing earthly issues like climate change to fund. However, they will likely continue to partially subsidize it because the technological advancements gained from space research often benefit society as a whole."</p>
+                                </div>
+                            </div>
                         </div>
+
+                        <h4 class="text-lg font-bold text-indigo-700 mb-4 uppercase tracking-wider text-sm">People and space</h4>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="bg-gray-50 rounded-xl p-5 border border-gray-200 shadow-sm">
+                                <div class="flex justify-between items-start gap-2 mb-3">
+                                    <p class="font-bold text-gray-800 text-[15px]"><span class="text-indigo-600 mr-2">1.</span> What qualities do you think you need in order to be selected for a space mission?</p>
+                                </div>
+                                <button onclick="toggleVisibility('p3-1-q3')" class="text-[10px] font-bold text-indigo-600 bg-indigo-100 hover:bg-indigo-200 px-3 py-1.5 rounded transition-colors mb-2">Show Sample</button>
+                                <div id="p3-1-q3" class="hidden mt-2 pt-2 border-t border-gray-200">
+                                    <p class="text-sm text-gray-600 italic leading-relaxed">"First and foremost, exceptional physical fitness and psychological resilience are mandatory to survive the extreme conditions and isolation. Furthermore, astronauts must possess acute problem-solving skills and a strong background in science or engineering, allowing them to troubleshoot life-threatening issues instantly."</p>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gray-50 rounded-xl p-5 border border-gray-200 shadow-sm">
+                                <div class="flex justify-between items-start gap-2 mb-3">
+                                    <p class="font-bold text-gray-800 text-[15px]"><span class="text-indigo-600 mr-2">2.</span> To what extent is it better to use robots rather than humans to explore space?</p>
+                                </div>
+                                <button onclick="toggleVisibility('p3-1-q4')" class="text-[10px] font-bold text-indigo-600 bg-indigo-100 hover:bg-indigo-200 px-3 py-1.5 rounded transition-colors mb-2">Show Sample</button>
+                                <div id="p3-1-q4" class="hidden mt-2 pt-2 border-t border-gray-200">
+                                    <p class="text-sm text-gray-600 italic leading-relaxed">"Robots are substantially better for initial explorations. They eliminate the risk of losing human life, and they don't require oxygen, food, or a return trip, making missions drastically cheaper and longer-lasting. That said, human intuition and adaptability cannot be fully replaced when complex, unexpected decisions are required."</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            `
+        },
+        {
+            id: 'speaking_u8_2',
+            type: 'Speaking',
+            themeClass: 'bg-gradient-to-r from-purple-500 to-fuchsia-600',
+            iconColor: 'text-purple-500',
+            title: '3. Speaking Unit 8 | #2',
+            content: `
+                <div class="fade-in space-y-8">
+                    <!-- Vocab Placeholder -->
+                    <div class="bg-purple-50 border-l-4 border-purple-500 p-6 rounded-r-xl shadow-sm">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="inline-block py-1 px-3 rounded-full bg-purple-100 text-purple-700 font-bold text-xs uppercase tracking-widest">Pink Book</span>
+                            <h3 class="text-xl font-bold text-purple-900">Vocab Exercises (Page 87)</h3>
+                        </div>
+                        
+                        <div class="mt-4 space-y-6">
+                            <!-- Exercise 4 -->
+                            <div id="spk-2-ex4-container" class="bg-white border border-purple-100 rounded-xl p-5 shadow-sm transition-all duration-300">
+                                <div class="flex justify-between items-center mb-4">
+                                    <h5 class="font-bold text-purple-700 text-md">Exercise 4</h5>
+                                    <button id="btn-spk-2-ex4" onclick="toggleInlineAnswers('spk-2-ex4-container', 'btn-spk-2-ex4')" class="text-xs bg-purple-50 text-purple-700 px-3 py-1.5 rounded-lg font-bold hover:bg-purple-100 transition-colors border border-purple-200">Show Answers</button>
+                                </div>
+                                <p class="text-gray-600 text-sm mb-4 font-medium">Fill in each blank with one suitable word from the list below</p>
+                                
+                                <div class="flex flex-wrap gap-x-6 gap-y-2 justify-center mb-6 bg-purple-50/50 border border-purple-100 p-4 rounded-lg font-bold text-purple-600 text-sm shadow-inner">
+                                    <div class="text-center">remark(s)</div>
+                                    <div class="text-center">mundane</div>
+                                    <div class="text-center">idle</div>
+                                    <div class="text-center">meteor</div>
+                                    <div class="text-center">magnificence</div>
+                                    <div class="text-center">glum</div>
+                                    <div class="text-center">steam</div>
+                                    <div class="text-center">relish</div>
+                                </div>
+
+                                <div class="space-y-3 text-sm text-gray-700 leading-relaxed font-medium">
+                                    <p>I'm going to talk about an occasion when I gazed at a stunning night sky. So, regarding my disposition, people give me frequent (1) <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 mx-1">remark(s) <span class="text-gray-500 font-normal ml-1">/rɪˈmɑːrks/ (nhận xét, bình luận)</span></span> that I'm kind of a dreamy type of person, so naturally I (2) <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 mx-1">relish <span class="text-gray-500 font-normal ml-1">/ˈrelɪʃ/ (thưởng thức, thích thú)</span></span> doing some sort of romantic things like looking at the sky.</p>
+                                    <p>If my memory serves me right, it was a couple of years ago when I was struggling with my (3) <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 mx-1">mundane <span class="text-gray-500 font-normal ml-1">/mʌnˈdeɪn/ (nhàm chán, vô vị)</span></span> and monotonous part-time job. I was like always in a negative frame of mind and feeling (4) <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 mx-1">glum <span class="text-gray-500 font-normal ml-1">/ɡlʌm/ (buồn bã, ủ rũ)</span></span> all the time. <span class="font-semibold text-purple-600 italic">Coincidentally</span>, there was a prediction about the emergence of (5) <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 mx-1">meteor <span class="text-gray-500 font-normal ml-1">/ˈmiːtiər/ (sao băng, thiên thạch)</span></span> in the media and you know, that is actually a rare phenomenon in my country. So, <span class="font-semibold text-purple-600 italic">on the spur of the moment</span>, I decided that my boyfriend had to go see that with me. Anyway, <span class="font-semibold text-purple-600 italic">to make a long story short</span>, we ended up being on the beach, you know, feeling the breeze, beholding the (6) <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 mx-1">magnificence <span class="text-gray-500 font-normal ml-1">/mæɡˈnɪfɪsns/ (vẻ tráng lệ, lộng lẫy)</span></span> of the starry sky, and guess what, the shooting star did not appear, to our disappointment.</p>
+                                    <p>Finally, <span class="font-semibold text-purple-600 italic">regarding</span> some of my thoughts and emotions about this, there I could feel all my distress washed away, and that (7) <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 mx-1">idle <span class="text-gray-500 font-normal ml-1">/ˈaɪdl/ (nhàn rỗi)</span></span> moment gave me a respite to seriously contemplate. I think that really helped, and I reckon sometimes we should remind ourselves to reconnect to nature, which can blow off some (8) <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 mx-1">steam <span class="text-gray-500 font-normal ml-1">/stiːm/ (blow off steam: xả hơi, giải tỏa căng thẳng)</span></span> .</p>
+                                </div>
+                            </div>
+
+                            <!-- Exercise 5 -->
+                            <div id="spk-2-ex5-container" class="bg-white border border-purple-100 rounded-xl p-5 shadow-sm transition-all duration-300">
+                                <div class="flex justify-between items-center mb-4">
+                                    <h5 class="font-bold text-purple-700 text-md">Exercise 5</h5>
+                                    <button id="btn-spk-2-ex5" onclick="toggleInlineAnswers('spk-2-ex5-container', 'btn-spk-2-ex5')" class="text-xs bg-purple-50 text-purple-700 px-3 py-1.5 rounded-lg font-bold hover:bg-purple-100 transition-colors border border-purple-200">Show Answers</button>
+                                </div>
+                                <p class="text-gray-600 text-sm mb-4 font-medium">Decide whether the following definitions are correct or incorrect</p>
+                                
+                                <div class="space-y-3 text-sm text-gray-700 leading-relaxed font-medium">
+                                    <div class="flex flex-col md:flex-row justify-between md:items-center gap-2 border-b border-gray-50 pb-2">
+                                        <p><span class="font-bold text-gray-800">1</span> <span class="font-bold text-purple-600 italic">If my memory serves me well</span> means I do not remember correctly.</p>
+                                        <div class="w-32 shrink-0 font-bold text-center"><span class="blank-dots text-gray-300">...................</span><span class="blank-ans text-rose-600 bg-rose-50 px-3 py-1 rounded-lg border border-rose-200 shadow-sm">INCORRECT</span></div>
+                                    </div>
+                                    <div class="flex flex-col md:flex-row justify-between md:items-center gap-2 border-b border-gray-50 pb-2">
+                                        <p><span class="font-bold text-gray-800">2</span> <span class="font-bold text-purple-600 italic">Coincidentally</span> means happening by chance.</p>
+                                        <div class="w-32 shrink-0 font-bold text-center"><span class="blank-dots text-gray-300">...................</span><span class="blank-ans text-emerald-600 bg-emerald-50 px-3 py-1 rounded-lg border border-emerald-200 shadow-sm">&nbsp;&nbsp;CORRECT&nbsp;&nbsp;</span></div>
+                                    </div>
+                                    <div class="flex flex-col md:flex-row justify-between md:items-center gap-2 border-b border-gray-50 pb-2">
+                                        <p><span class="font-bold text-gray-800">3</span> <span class="font-bold text-purple-600 italic">On the spur of the moment</span> means suddenly.</p>
+                                        <div class="w-32 shrink-0 font-bold text-center"><span class="blank-dots text-gray-300">...................</span><span class="blank-ans text-emerald-600 bg-emerald-50 px-3 py-1 rounded-lg border border-emerald-200 shadow-sm">&nbsp;&nbsp;CORRECT&nbsp;&nbsp;</span></div>
+                                    </div>
+                                    <div class="flex flex-col md:flex-row justify-between md:items-center gap-2 border-b border-gray-50 pb-2">
+                                        <p><span class="font-bold text-gray-800">4</span> <span class="font-bold text-purple-600 italic">To make a long story short</span> is used when you give all the details.</p>
+                                        <div class="w-32 shrink-0 font-bold text-center"><span class="blank-dots text-gray-300">...................</span><span class="blank-ans text-rose-600 bg-rose-50 px-3 py-1 rounded-lg border border-rose-200 shadow-sm">INCORRECT</span></div>
+                                    </div>
+                                    <div class="flex flex-col md:flex-row justify-between md:items-center gap-2">
+                                        <p><span class="font-bold text-gray-800">5</span> <span class="font-bold text-purple-600 italic">Regarding something</span> means relating to something.</p>
+                                        <div class="w-32 shrink-0 font-bold text-center"><span class="blank-dots text-gray-300">...................</span><span class="blank-ans text-emerald-600 bg-emerald-50 px-3 py-1 rounded-lg border border-emerald-200 shadow-sm">&nbsp;&nbsp;CORRECT&nbsp;&nbsp;</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-3xl shadow-xl border border-purple-50 p-8">
+                        
+                        <!-- Speaking Practice Part 1 -->
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6 border-b border-gray-100 pb-4">Part 1: The Sky</h3>
+                        <div class="grid md:grid-cols-2 gap-4 mb-10">
+                            <div class="bg-gray-50 rounded-xl p-5 border border-gray-200 shadow-sm">
+                                <p class="font-bold text-gray-800 text-[15px] mb-3"><span class="text-purple-600 mr-2">1.</span> How often do you look at the sky?</p>
+                                <button onclick="toggleVisibility('p1-2-q1')" class="text-[10px] font-bold text-purple-600 bg-purple-100 hover:bg-purple-200 px-3 py-1.5 rounded transition-colors mb-2">Show Sample</button>
+                                <div id="p1-2-q1" class="hidden mt-2 pt-2 border-t border-gray-200">
+                                    <p class="text-sm text-gray-600 italic leading-relaxed">"I'd say I look up at the sky almost every day. Whenever I feel overwhelmed with work, glancing out the window at the clouds or the sunset acts as a great stress reliever and helps clear my mind."</p>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gray-50 rounded-xl p-5 border border-gray-200 shadow-sm">
+                                <p class="font-bold text-gray-800 text-[15px] mb-3"><span class="text-purple-600 mr-2">2.</span> Do you prefer the sky in the morning or the sky at night?</p>
+                                <button onclick="toggleVisibility('p1-2-q2')" class="text-[10px] font-bold text-purple-600 bg-purple-100 hover:bg-purple-200 px-3 py-1.5 rounded transition-colors mb-2">Show Sample</button>
+                                <div id="p1-2-q2" class="hidden mt-2 pt-2 border-t border-gray-200">
+                                    <p class="text-sm text-gray-600 italic leading-relaxed">"I strongly prefer the night sky. There is something profoundly peaceful and mysterious about looking at the moon and attempting to spot constellations. It makes me feel tranquil after a chaotic day."</p>
+                                </div>
+                            </div>
+
+                            <div class="bg-gray-50 rounded-xl p-5 border border-gray-200 shadow-sm">
+                                <p class="font-bold text-gray-800 text-[15px] mb-3"><span class="text-purple-600 mr-2">3.</span> Can you see the moon and stars at night where you live?</p>
+                                <button onclick="toggleVisibility('p1-2-q3')" class="text-[10px] font-bold text-purple-600 bg-purple-100 hover:bg-purple-200 px-3 py-1.5 rounded transition-colors mb-2">Show Sample</button>
+                                <div id="p1-2-q3" class="hidden mt-2 pt-2 border-t border-gray-200">
+                                    <p class="text-sm text-gray-600 italic leading-relaxed">"I can always see the moon clearly, but unfortunately, spotting stars is quite rare. Because I live in the heart of a bustling metropolis, the heavy light pollution masks most of the stars."</p>
+                                </div>
+                            </div>
+
+                            <div class="bg-gray-50 rounded-xl p-5 border border-gray-200 shadow-sm">
+                                <p class="font-bold text-gray-800 text-[15px] mb-3"><span class="text-purple-600 mr-2">4.</span> Is there a good place to look at the sky where you live?</p>
+                                <button onclick="toggleVisibility('p1-2-q4')" class="text-[10px] font-bold text-purple-600 bg-purple-100 hover:bg-purple-200 px-3 py-1.5 rounded transition-colors mb-2">Show Sample</button>
+                                <div id="p1-2-q4" class="hidden mt-2 pt-2 border-t border-gray-200">
+                                    <p class="text-sm text-gray-600 italic leading-relaxed">"Yes, there are a few high-rise rooftop cafes in my city that offer an unobstructed view of the horizon. Alternatively, if I want to gaze at the stars, I have to drive to the outskirts of the city where it's much darker."</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Speaking Practice Part 2 -->
+                        <div class="flex flex-col md:flex-row justify-between items-center gap-6 mb-8 border-b border-gray-100 pb-6 mt-10">
+                            <div>
+                                <h3 class="text-2xl font-bold text-gray-800">Part 2: Long Turn</h3>
+                                <p class="text-gray-500 mt-1 font-medium">Manage the candidate's preparation and speaking time.</p>
+                            </div>
+                            
+                            <div class="flex gap-4 w-full md:w-auto">
+                                <div class="bg-purple-50 rounded-2xl p-4 border border-purple-100 text-center flex-1 md:w-36 shadow-sm">
+                                    <h4 class="text-purple-600 font-bold uppercase text-[10px] tracking-wider mb-2">Prep Time (1 Min)</h4>
+                                    <div class="text-3xl font-black text-purple-700 timer-text mb-3 drop-shadow-sm" id="prep2-timer">01:00</div>
+                                    <button onclick="toggleTimer('prep2', 60)" id="btn-prep2-timer" class="w-full bg-purple-200 text-purple-800 py-1.5 rounded-xl font-bold hover:bg-purple-300 transition-colors text-sm">Start</button>
+                                </div>
+                                <div class="bg-fuchsia-50 rounded-2xl p-4 border border-fuchsia-100 text-center flex-1 md:w-36 shadow-sm">
+                                    <h4 class="text-fuchsia-600 font-bold uppercase text-[10px] tracking-wider mb-2">Speaking (2 Mins)</h4>
+                                    <div class="text-3xl font-black text-fuchsia-600 timer-text mb-3 drop-shadow-sm" id="speak2-timer">02:00</div>
+                                    <button onclick="toggleTimer('speak2', 120)" id="btn-speak2-timer" class="w-full bg-gradient-to-r from-fuchsia-500 to-purple-500 text-white py-1.5 rounded-xl font-bold hover:opacity-90 transition-opacity text-sm shadow-sm">Start</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-900 border-l-4 border-fuchsia-500 p-6 rounded-r-2xl shadow-sm text-slate-100">
+                            <p class="text-fuchsia-400 font-bold uppercase tracking-wider text-xs mb-2">Candidate Task Card</p>
+                            <p class="text-xl font-bold text-white mb-4">Describe a (recent) time when you looked at the sky (either day or night)</p>
+                            <p class="text-slate-300 mb-2 font-medium">You should say:</p>
+                            <ul class="text-slate-300 space-y-2 list-disc list-inside font-medium ml-2">
+                                <li>What you were doing</li>
+                                <li>When you looked at the sky</li>
+                                <li>Who you were with</li>
+                                <li>What you saw</li>
+                                <li>And explain how you felt when you looked at the sky</li>
+                            </ul>
+                            <div class="mt-6 pt-5 border-t border-slate-700">
+                                <button onclick="toggleVisibility('p2-2-sample')" class="text-xs font-bold text-slate-900 bg-fuchsia-200 hover:bg-fuchsia-300 px-4 py-2 rounded-lg transition-colors shadow-sm">Show Sample Response</button>
+                                <div id="p2-2-sample" class="hidden mt-4 bg-slate-800 p-5 rounded-xl border border-slate-700 shadow-inner">
+                                    <p class="text-sm text-slate-200 italic leading-relaxed">"I'd like to share an unforgettable experience I had last summer when I went on a camping trip to a remote mountainous area. It was late August, and the primary purpose of the trip was to escape the suffocating heat and noise of the city.<br><br>Late one night, around midnight, I was sitting outside my tent with a few of my closest friends. We had just finished a barbecue and were simply chatting and enjoying the crisp mountain air. Because we were far away from any urban light pollution, the sky was pitch black and extraordinarily clear.<br><br>When I looked up, I was completely mesmerized. I saw thousands of stars glittering like scattered diamonds. For the first time in my life, I could faintly see the hazy, glowing band of the Milky Way stretching across the sky. We even managed to spot a couple of shooting stars, which prompted us to quickly make wishes.<br><br>Looking at that vast, starry canopy made me feel incredibly tiny, yet deeply connected to the universe. It was a humbling experience that put all my daily worries into perspective. The sheer beauty of the cosmos gave me an overwhelming sense of peace and tranquility that I still recall fondly today."</p>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             `
@@ -583,7 +667,7 @@
     };
 
     function renderSlide(index) {
-        if (typeof pauseAllTimers === 'function') pauseAllTimers();
+        pauseAllTimers();
         const data = sessionData[index];
         if(!headerEl || !titleEl || !containerEl) return;
         
@@ -596,10 +680,10 @@
 
         document.querySelectorAll('.nav-item-btn').forEach((btn, i) => {
             if (i === index) {
-                btn.classList.add('bg-white', 'border-gray-200', 'shadow-md');
+                btn.classList.add('bg-white', 'border-indigo-200', 'shadow-md');
                 btn.classList.remove('border-transparent', 'shadow-sm');
             } else {
-                btn.classList.remove('bg-white', 'border-gray-200', 'shadow-md');
+                btn.classList.remove('bg-white', 'border-indigo-200', 'shadow-md');
                 btn.classList.add('border-transparent', 'shadow-sm');
             }
         });
@@ -607,8 +691,15 @@
         containerEl.innerHTML = ''; 
         setTimeout(() => {
             containerEl.innerHTML = data.content;
-            if(data.id === 'vocab_test') {
-                updateTimerUI('test', timers.test.remaining);
+            
+            // Restore timers visually if returning to slide
+            if(data.id === 'speaking_u8_1') {
+                updateTimerUI('prep1', timers.prep1.remaining);
+                updateTimerUI('speak1', timers.speak1.remaining);
+            }
+            if(data.id === 'speaking_u8_2') {
+                updateTimerUI('prep2', timers.prep2.remaining);
+                updateTimerUI('speak2', timers.speak2.remaining);
             }
         }, 10);
 
@@ -623,13 +714,24 @@
         const btn = document.getElementById(btnId);
         if(container) {
             container.classList.toggle('show-answers');
+            
+            // Highlight the container slightly when answers are shown
+            if(container.classList.contains('show-answers')) {
+                container.classList.add('shadow-md', 'border-emerald-300');
+                container.classList.remove('shadow-sm', 'border-emerald-100');
+            } else {
+                container.classList.remove('shadow-md', 'border-emerald-300');
+                container.classList.add('shadow-sm', 'border-emerald-100');
+            }
+
+            // Update button text and style
             if(btn) {
-                btn.textContent = container.classList.contains('show-answers') ? 'Hide Answers' : 'Toggle All Answers';
+                btn.textContent = container.classList.contains('show-answers') ? 'Hide Answers' : 'Show Answers';
                 btn.classList.toggle('bg-white');
-                btn.classList.toggle('bg-fuchsia-100');
+                btn.classList.toggle('bg-emerald-100');
             }
         }
-    }
+    };
 
     window.toggleVisibility = function(id) {
         const el = document.getElementById(id);
