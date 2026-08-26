@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Chan Truong - Lesson 18</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* 
+          GLASSMORPHIC MODERN CHIC THEME 
+        */
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #fdf2f8;
+            background-image: 
+                radial-gradient(at 0% 0%, #ffe4e6 0px, transparent 50%),
+                radial-gradient(at 100% 0%, #fce7f3 0px, transparent 50%),
+                radial-gradient(at 100% 100%, #fbcfe8 0px, transparent 50%),
+                radial-gradient(at 0% 100%, #fdf2f8 0px, transparent 50%),
+                radial-gradient(at 50% 50%, #fff1f2 0px, transparent 50%);
+            background-attachment: fixed;
+            color: #4c0519; 
+        }
+        
+        .slide { display: none; opacity: 0; transition: opacity 0.5s ease, transform 0.5s ease; transform: translateY(20px); }
+        .slide.active { display: block; opacity: 1; transform: translateY(0); }
+        
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: transparent; } 
+        ::-webkit-scrollbar-thumb { background: rgba(244, 114, 182, 0.4); border-radius: 10px; border: 2px solid transparent; background-clip: padding-box; } 
+        ::-webkit-scrollbar-thumb:hover { background: rgba(225, 29, 72, 0.5); border: 2px solid transparent; background-clip: padding-box; } 
+        
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
+        .hidden-answer { display: none; }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 10px 40px -10px rgba(225, 29, 72, 0.15);
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.45);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: inset 0 2px 4px 0 rgba(255, 255, 255, 0.3), 0 4px 15px -5px rgba(225, 29, 72, 0.05);
+        }
+        .glass-button {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.5));
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 15px -5px rgba(225, 29, 72, 0.15);
+            transition: all 0.3s ease;
+        }
+        .glass-button:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px -5px rgba(225, 29, 72, 0.25);
+        }
+        
+        .hover-lift { transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease; }
+        .hover-lift:hover { transform: translateY(-4px); box-shadow: 0 15px 30px -10px rgba(225, 29, 72, 0.2); }
+
+        select.nav-dropdown {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23881337' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1em;
+            padding-right: 2.5rem;
+        }
+    </style>
+</head>
+<body class="h-screen flex flex-col overflow-hidden">
+
+    <header class="glass-card border-b border-white/60 z-20 shrink-0 relative">
+        <div class="p-4 flex flex-col md:flex-row justify-between items-center gap-4 max-w-7xl mx-auto w-full">
+            <div>
+                <h1 class="text-2xl font-extrabold tracking-tight text-rose-950">IELTS Chan Truong <span class="text-rose-600 font-semibold ml-2 px-3 py-1 bg-white/50 border border-white/60 rounded-full text-base shadow-sm">Class 5.5-6.5</span></h1>
+                <p class="text-sm text-rose-900/70 mt-1.5 flex items-center gap-2 font-medium">
+                    <span class="w-2 h-2 rounded-full bg-pink-400 shadow-[0_0_8px_rgba(244,114,182,0.8)]"></span> Lesson 18: Listening & Speaking
+                </p>
+            </div>
+            
+            <div class="flex items-center gap-4 w-full md:w-auto justify-between md:justify-end">
+                <select id="section-nav" onchange="jumpToSection(this.value)" class="nav-dropdown glass-panel text-rose-900 font-bold py-2 px-4 rounded-xl shadow-sm outline-none cursor-pointer border border-white/60 hover:bg-white/60 transition">
+                    <option value="0">1. Lesson Overview</option>
+                    <option value="1">2. Listening: SB Unit 5</option>
+                    <option value="2">3. Listening: WB Unit 5</option>
+                    <option value="3">4. Speaking: Animals Vocab</option>
+                    <option value="4">5. Speaking: Animals Practice</option>
+                </select>
+
+                <div class="flex items-center gap-3">
+                    <span id="slide-counter" class="font-bold text-rose-900 px-3 py-1.5 glass-panel rounded-full text-sm hidden md:inline-block">1 / 5</span>
+                    <button onclick="prevSlide()" class="glass-button text-rose-800 px-4 py-2 rounded-full font-semibold flex items-center gap-2">
+                        <span>←</span> <span class="hidden sm:inline">Prev</span>
+                    </button>
+                    <button onclick="nextSlide()" class="bg-gradient-to-r from-pink-500 to-rose-400 hover:from-pink-400 hover:to-rose-300 text-white px-5 py-2 rounded-full shadow-lg shadow-pink-500/30 transition-all hover:shadow-pink-500/50 hover:-translate-y-0.5 font-bold flex items-center gap-2">
+                        <span class="hidden sm:inline">Next</span> <span>→</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Progress Bar -->
+        <div class="h-1 bg-white/40 w-full absolute bottom-0 left-0">
+            <div id="progress-bar" class="h-full bg-gradient-to-r from-pink-400 to-rose-500 transition-all duration-500 ease-out shadow-[0_0_10px_rgba(244,114,182,0.5)]" style="width: 20%;"></div>
+        </div>
+    </header>
+
+    <main class="flex-1 overflow-y-auto p-4 md:p-8 relative">
+        <div class="max-w-7xl mx-auto pb-24">
+
+            <!-- SLIDE 0: Overview -->
+            <div class="slide active" id="slide-0">
+                <div class="text-center py-16">
+                    <div class="inline-block mb-6 px-5 py-2 rounded-full glass-panel text-rose-600 font-bold text-sm tracking-widest uppercase shadow-sm">Lesson Overview</div>
+                    <h2 class="text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-rose-950 to-pink-700 mb-6 tracking-tight drop-shadow-sm">Listening & Speaking</h2>
+                    <p class="text-xl text-rose-900/70 mb-16 max-w-2xl mx-auto font-medium leading-relaxed">Today's session covers Listening Unit 5 and Speaking Part 1 & 2 focusing on Animals.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto text-left">
+                        <div class="glass-card p-8 rounded-3xl hover-lift relative overflow-hidden group">
+                            <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-purple-400 to-pink-400 opacity-80"></div>
+                            <div class="w-14 h-14 glass-panel rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-sm group-hover:scale-110 transition-transform">🎧</div>
+                            <h3 class="text-2xl font-bold mb-4 text-rose-950">Part 1: Listening</h3>
+                            <ul class="text-rose-900/80 space-y-3 font-medium">
+                                <li class="flex items-start gap-3"><span class="text-pink-400 mt-1">✦</span> Complete IELTS SB | Unit 5 - Section 1</li>
+                                <li class="flex items-start gap-3"><span class="text-pink-400 mt-1">✦</span> Complete IELTS WB | Unit 5 - Section 1</li>
+                            </ul>
+                        </div>
+                        <div class="glass-card p-8 rounded-3xl hover-lift relative overflow-hidden group">
+                            <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-pink-400 to-rose-400 opacity-80"></div>
+                            <div class="w-14 h-14 glass-panel rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-sm group-hover:scale-110 transition-transform">🗣️</div>
+                            <h3 class="text-2xl font-bold mb-4 text-rose-950">Part 2: Speaking</h3>
+                            <ul class="text-rose-900/80 space-y-3 font-medium">
+                                <li class="flex items-start gap-3"><span class="text-rose-400 mt-1">✦</span> Pink Book Vocab (Pg 47-49): Animals</li>
+                                <li class="flex items-start gap-3"><span class="text-rose-400 mt-1">✦</span> Part 1 Practice & Discussion</li>
+                                <li class="flex items-start gap-3"><span class="text-rose-400 mt-1">✦</span> Part 2 Cue Card: A Wild Animal</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <button onclick="nextSlide()" class="mt-16 bg-gradient-to-r from-rose-900 to-pink-800 hover:from-rose-800 hover:to-pink-700 text-white px-10 py-4 rounded-full text-lg font-bold shadow-[0_10px_25px_rgba(159,18,57,0.3)] transition-all hover:shadow-[0_15px_35px_rgba(159,18,57,0.4)] hover:-translate-y-1 flex items-center gap-3 mx-auto">
+                        Begin Lesson <span class="text-xl">✨</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- SLIDE 1: Listening Mock Test SB -->
+            <div class="slide" id="slide-1">
+                <div class="flex items-center gap-4 mb-10">
+                    <span class="w-12 h-12 rounded-2xl glass-panel flex items-center justify-center text-2xl shadow-sm">🎧</span>
+                    <div>
+                        <span class="text-pink-600 font-extrabold text-xs tracking-widest uppercase">Listening Section 1</span>
+                        <h2 class="text-3xl font-extrabold text-rose-950">Complete IELTS Student's Book | Unit 5</h2>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-3xl mb-8 exercise-container overflow-hidden">
+                    <div class="p-8 md:p-10 border-b border-white/60">
+                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                            <div>
+                                <h3 class="text-2xl font-bold text-rose-950">Answer Keys</h3>
+                                <p class="text-sm text-rose-900/60 mt-1">Check the answers with the class after completing the test.</p>
+                            </div>
+                            <button onclick="toggleAnswers(this)" class="glass-button text-rose-800 font-bold py-2.5 px-5 rounded-xl flex items-center justify-center gap-2 text-sm shadow-sm shrink-0">
+                                👀 Reveal Answers
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="p-8 md:p-10 bg-white/25">
+                        <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm">
+                                <span class="font-black text-pink-400">1</span>
+                                <span class="hidden-answer font-bold text-rose-900 text-sm">two / 2 weeks</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm">
+                                <span class="font-black text-pink-400">2</span>
+                                <span class="hidden-answer font-bold text-rose-900">1,750</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm">
+                                <span class="font-black text-pink-400">3</span>
+                                <span class="hidden-answer font-bold text-rose-900 text-sm">discount</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm">
+                                <span class="font-black text-pink-400">4</span>
+                                <span class="hidden-answer font-bold text-rose-900 text-sm">(travel) insurance</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm">
+                                <span class="font-black text-pink-400">5</span>
+                                <span class="hidden-answer font-bold text-rose-900 text-sm">vegetarian meals</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm">
+                                <span class="font-black text-pink-400">6</span>
+                                <span class="hidden-answer font-bold text-rose-900">visa</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm">
+                                <span class="font-black text-pink-400">7</span>
+                                <span class="hidden-answer font-bold text-rose-900">tree</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm">
+                                <span class="font-black text-pink-400">8</span>
+                                <span class="hidden-answer font-bold text-rose-900 text-sm">(local) family</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm">
+                                <span class="font-black text-pink-400">9</span>
+                                <span class="hidden-answer font-bold text-rose-900">school</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm">
+                                <span class="font-black text-pink-400">10</span>
+                                <span class="hidden-answer font-bold text-rose-900">cars</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-6 flex items-center justify-between">
+                    <h3 class="text-2xl font-bold text-rose-950">Mock Test View</h3>
+                    <a href="https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/section1_complete_ielts_5.5_6.5_sb_unit5.html" target="_blank" class="inline-flex items-center gap-2 bg-gradient-to-r from-pink-500 to-rose-400 hover:from-pink-400 hover:to-rose-300 text-white font-bold py-2.5 px-6 rounded-full shadow-lg shadow-pink-500/30 transition-all hover:-translate-y-1 text-sm">
+                        Open in New Tab <span>↗</span>
+                    </a>
+                </div>
+                <div class="glass-card rounded-3xl p-2 shadow-lg border-2 border-pink-200/50 overflow-hidden" style="height: 60vh;">
+                    <iframe 
+                        src="https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/section1_complete_ielts_5.5_6.5_sb_unit5.html" 
+                        class="w-full h-full border-0 rounded-2xl bg-white"
+                        title="Listening Test SB U5">
+                    </iframe>
+                </div>
+            </div>
+
+            <!-- SLIDE 2: Listening Mock Test WB -->
+            <div class="slide" id="slide-2">
+                <div class="flex items-center gap-4 mb-10">
+                    <span class="w-12 h-12 rounded-2xl glass-panel flex items-center justify-center text-2xl shadow-sm">🎧</span>
+                    <div>
+                        <span class="text-pink-600 font-extrabold text-xs tracking-widest uppercase">Listening Section 1</span>
+                        <h2 class="text-3xl font-extrabold text-rose-950">Complete IELTS Work Book | Unit 5</h2>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-3xl mb-8 exercise-container overflow-hidden">
+                    <div class="p-8 md:p-10 border-b border-white/60">
+                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                            <div>
+                                <h3 class="text-2xl font-bold text-rose-950">Answer Keys</h3>
+                                <p class="text-sm text-rose-900/60 mt-1">Check answers with the class after completing the test.</p>
+                            </div>
+                            <button onclick="toggleAnswers(this)" class="glass-button text-rose-800 font-bold py-2.5 px-5 rounded-xl flex items-center justify-center gap-2 text-sm shadow-sm shrink-0">
+                                👀 Reveal Answers
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="p-8 md:p-10 bg-white/25">
+                        <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm">
+                                <span class="font-black text-pink-400">1</span>
+                                <span class="hidden-answer font-bold text-rose-900">130,000</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm">
+                                <span class="font-black text-pink-400">2</span>
+                                <span class="hidden-answer font-bold text-rose-900">diving</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm">
+                                <span class="font-black text-pink-400">3</span>
+                                <span class="hidden-answer font-bold text-rose-900">litter</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm">
+                                <span class="font-black text-pink-400">4</span>
+                                <span class="hidden-answer font-bold text-rose-900">cyclists</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm">
+                                <span class="font-black text-pink-400">5</span>
+                                <span class="hidden-answer font-bold text-rose-900">City Farms</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm">
+                                <span class="font-black text-pink-400">6</span>
+                                <span class="hidden-answer font-bold text-rose-900">paid staff</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm">
+                                <span class="font-black text-pink-400">7</span>
+                                <span class="hidden-answer font-bold text-rose-900">species</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm">
+                                <span class="font-black text-pink-400">8</span>
+                                <span class="hidden-answer font-bold text-rose-900">groups</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm">
+                                <span class="font-black text-pink-400">9</span>
+                                <span class="hidden-answer font-bold text-rose-900">Action</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm">
+                                <span class="font-black text-pink-400">10</span>
+                                <span class="hidden-answer font-bold text-rose-900">fences</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-6 flex items-center justify-between">
+                    <h3 class="text-2xl font-bold text-rose-950">Mock Test View</h3>
+                    <a href="https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/section1_complete_ielts_5.5_6.5_wb_unit5.html" target="_blank" class="inline-flex items-center gap-2 bg-gradient-to-r from-pink-500 to-rose-400 hover:from-pink-400 hover:to-rose-300 text-white font-bold py-2.5 px-6 rounded-full shadow-lg shadow-pink-500/30 transition-all hover:-translate-y-1 text-sm">
+                        Open in New Tab <span>↗</span>
+                    </a>
+                </div>
+                <div class="glass-card rounded-3xl p-2 shadow-lg border-2 border-pink-200/50 overflow-hidden" style="height: 60vh;">
+                    <iframe 
+                        src="https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/section1_complete_ielts_5.5_6.5_wb_unit5.html" 
+                        class="w-full h-full border-0 rounded-2xl bg-white"
+                        title="Listening Test WB U5">
+                    </iframe>
+                </div>
+            </div>
+
+            <!-- SLIDE 3: Speaking Vocab -->
+            <div class="slide" id="slide-3">
+                <div class="flex items-center gap-4 mb-10">
+                    <span class="w-12 h-12 rounded-2xl glass-panel flex items-center justify-center text-2xl shadow-sm">🐾</span>
+                    <div>
+                        <span class="text-rose-500 font-extrabold text-xs tracking-widest uppercase">Speaking Part 1 & 2</span>
+                        <h2 class="text-3xl font-extrabold text-rose-950">Animals Vocabulary (Pg 47-49)</h2>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Exercise 5 & 6 -->
+                    <div class="flex flex-col gap-6 h-full">
+                        <!-- Exercise 5 -->
+                        <div class="glass-card rounded-3xl p-6 exercise-container relative">
+                            <div class="flex items-center justify-between mb-4">
+                                <div>
+                                    <h3 class="text-xl font-bold text-rose-950">Exercise 5: Body Parts</h3>
+                                </div>
+                                <button onclick="toggleAnswers(this)" class="glass-button text-rose-800 font-bold py-1.5 px-4 rounded-xl text-sm shadow-sm shrink-0">
+                                    ✨ Reveal Answers
+                                </button>
+                            </div>
+                            
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-[0.95rem] font-semibold text-rose-950 mb-2">
+                                <div class="flex flex-col bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition gap-1">
+                                    <span class="flex items-center gap-2">1 <strong class="text-rose-700">claw</strong> (n) <span class="text-xs font-normal text-rose-900/60">/klɔː/</span> <button onclick="playAudio('claw')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span>
+                                    <span class="text-[0.7rem] text-rose-900/70 italic">(móng vuốt)</span>
+                                    <span class="hidden-answer text-rose-600 font-black bg-white/80 px-2 py-0.5 rounded border border-pink-200 w-max">→ C</span>
+                                </div>
+                                <div class="flex flex-col bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition gap-1">
+                                    <span class="flex items-center gap-2">2 <strong class="text-rose-700">paw</strong> (n) <span class="text-xs font-normal text-rose-900/60">/pɔː/</span> <button onclick="playAudio('paw')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span>
+                                    <span class="text-[0.7rem] text-rose-900/70 italic">(chân có móng)</span>
+                                    <span class="hidden-answer text-rose-600 font-black bg-white/80 px-2 py-0.5 rounded border border-pink-200 w-max">→ B</span>
+                                </div>
+                                <div class="flex flex-col bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition gap-1">
+                                    <span class="flex items-center gap-2">3 <strong class="text-rose-700">feather</strong> (n) <span class="text-xs font-normal text-rose-900/60">/ˈfeðər/</span> <button onclick="playAudio('feather')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span>
+                                    <span class="text-[0.7rem] text-rose-900/70 italic">(lông vũ)</span>
+                                    <span class="hidden-answer text-rose-600 font-black bg-white/80 px-2 py-0.5 rounded border border-pink-200 w-max">→ I</span>
+                                </div>
+                                <div class="flex flex-col bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition gap-1">
+                                    <span class="flex items-center gap-2">4 <strong class="text-rose-700">fur</strong> (n) <span class="text-xs font-normal text-rose-900/60">/fɜːr/</span> <button onclick="playAudio('fur')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span>
+                                    <span class="text-[0.7rem] text-rose-900/70 italic">(lông thú)</span>
+                                    <span class="hidden-answer text-rose-600 font-black bg-white/80 px-2 py-0.5 rounded border border-pink-200 w-max">→ F</span>
+                                </div>
+                                <div class="flex flex-col bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition gap-1">
+                                    <span class="flex items-center gap-2">5 <strong class="text-rose-700">beak</strong> (n) <span class="text-xs font-normal text-rose-900/60">/biːk/</span> <button onclick="playAudio('beak')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span>
+                                    <span class="text-[0.7rem] text-rose-900/70 italic">(mỏ chim)</span>
+                                    <span class="hidden-answer text-rose-600 font-black bg-white/80 px-2 py-0.5 rounded border border-pink-200 w-max">→ H</span>
+                                </div>
+                                <div class="flex flex-col bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition gap-1">
+                                    <span class="flex items-center gap-2">6 <strong class="text-rose-700">horn</strong> (n) <span class="text-xs font-normal text-rose-900/60">/hɔːrn/</span> <button onclick="playAudio('horn')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span>
+                                    <span class="text-[0.7rem] text-rose-900/70 italic">(sừng)</span>
+                                    <span class="hidden-answer text-rose-600 font-black bg-white/80 px-2 py-0.5 rounded border border-pink-200 w-max">→ G</span>
+                                </div>
+                                <div class="flex flex-col bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition gap-1">
+                                    <span class="flex items-center gap-2">7 <strong class="text-rose-700">tail</strong> (n) <span class="text-xs font-normal text-rose-900/60">/teɪl/</span> <button onclick="playAudio('tail')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span>
+                                    <span class="text-[0.7rem] text-rose-900/70 italic">(đuôi)</span>
+                                    <span class="hidden-answer text-rose-600 font-black bg-white/80 px-2 py-0.5 rounded border border-pink-200 w-max">→ D</span>
+                                </div>
+                                <div class="flex flex-col bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition gap-1">
+                                    <span class="flex items-center gap-2">8 <strong class="text-rose-700">animal lover</strong> (n) <button onclick="playAudio('animal lover')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span>
+                                    <span class="text-[0.7rem] text-rose-900/70 italic">(người yêu động vật)</span>
+                                    <span class="hidden-answer text-rose-600 font-black bg-white/80 px-2 py-0.5 rounded border border-pink-200 w-max">→ E</span>
+                                </div>
+                                <div class="flex flex-col bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition gap-1 sm:col-span-2">
+                                    <span class="flex items-center gap-2">9 <strong class="text-rose-700">companion animal</strong> (n) <span class="text-xs font-normal text-rose-900/60">/kəmˈpæniən/</span> <button onclick="playAudio('companion animal')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span>
+                                    <span class="text-[0.7rem] text-rose-900/70 italic">(thú cưng/vật nuôi)</span>
+                                    <span class="hidden-answer text-rose-600 font-black bg-white/80 px-2 py-0.5 rounded border border-pink-200 w-max">→ A</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Exercise 6 -->
+                        <div class="glass-card rounded-3xl p-6 exercise-container relative flex-1">
+                            <div class="flex items-center justify-between mb-4">
+                                <div>
+                                    <h3 class="text-xl font-bold text-rose-950">Exercise 6: Animal Classes</h3>
+                                </div>
+                                <button onclick="toggleAnswers(this)" class="glass-button text-rose-800 font-bold py-1.5 px-4 rounded-xl text-sm shadow-sm shrink-0">
+                                    ✨ Reveal
+                                </button>
+                            </div>
+                            
+                            <div class="glass-panel p-3 rounded-xl text-[0.85rem] space-y-2 mb-5 font-medium text-rose-950/80 bg-white/20 border border-white/40">
+                                <p><strong class="text-pink-500">A.</strong> frogs, toads, newts <span class="text-[0.7rem] font-normal text-rose-900/60 block sm:inline">/frɑːɡz, toʊdz, nuːts/</span> <span class="text-[0.7rem] font-medium text-rose-900/70 italic block sm:inline">(ếch, cóc, sa giông)</span></p>
+                                <p><strong class="text-pink-500">B.</strong> tuna, salmon, perch <span class="text-[0.7rem] font-normal text-rose-900/60 block sm:inline">/ˈtuːnə, ˈsæmən, pɜːrtʃ/</span> <span class="text-[0.7rem] font-medium text-rose-900/70 italic block sm:inline">(cá ngừ, cá hồi, cá rô)</span></p>
+                                <p><strong class="text-pink-500">C.</strong> dogs, dolphins, horses <span class="text-[0.7rem] font-normal text-rose-900/60 block sm:inline">/dɔːɡz, ˈdɑːlfɪnz, ˈhɔːrsɪz/</span> <span class="text-[0.7rem] font-medium text-rose-900/70 italic block sm:inline">(chó, cá heo, ngựa)</span></p>
+                                <p><strong class="text-pink-500">D.</strong> sparrows, pigeons, goldfinches <span class="text-[0.7rem] font-normal text-rose-900/60 block sm:inline">/ˈspæroʊz, ˈpɪdʒɪnz, ˈɡoʊldfɪntʃɪz/</span> <span class="text-[0.7rem] font-medium text-rose-900/70 italic block sm:inline">(chim sẻ, chim bồ câu, chim sẻ cánh vàng)</span></p>
+                                <p><strong class="text-pink-500">E.</strong> snakes, lizards, crocodiles, alligators, turtles <span class="text-[0.7rem] font-normal text-rose-900/60 block lg:inline">/sneɪks, ˈlɪzərdz, ˈkrɑːkədaɪlz, ˈælɪɡeɪtərz, ˈtɜːrtlz/</span> <span class="text-[0.7rem] font-medium text-rose-900/70 italic block lg:inline">(rắn, thằn lằn, cá sấu, cá sấu Mỹ, rùa)</span></p>
+                                <p><strong class="text-pink-500">F.</strong> insects, spiders, crabs <span class="text-[0.7rem] font-normal text-rose-900/60 block sm:inline">/ˈɪnsekts, ˈspaɪdərz, kræbz/</span> <span class="text-[0.7rem] font-medium text-rose-900/70 italic block sm:inline">(côn trùng, nhện, cua)</span></p>
+                            </div>
+
+                            <div class="space-y-3 text-[0.95rem] font-semibold text-rose-950">
+                                <div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition">
+                                    <div class="flex flex-col gap-1">
+                                        <span class="flex items-center gap-2">1 <strong class="text-rose-700">arthropods</strong> <span class="text-xs font-normal text-rose-900/60">/ˈɑːrθrəpɑːdz/</span> <button onclick="playAudio('arthropods')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span>
+                                        <span class="text-[0.7rem] text-rose-900/70 italic">(động vật chân đốt)</span>
+                                    </div>
+                                    <span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ F. insects, spiders, crabs</span>
+                                </div>
+                                <div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition">
+                                    <div class="flex flex-col gap-1">
+                                        <span class="flex items-center gap-2">2 <strong class="text-rose-700">mammals</strong> <span class="text-xs font-normal text-rose-900/60">/ˈmæmlz/</span> <button onclick="playAudio('mammals')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span>
+                                        <span class="text-[0.7rem] text-rose-900/70 italic">(động vật có vú)</span>
+                                    </div>
+                                    <span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ C. dogs, dolphins, horses</span>
+                                </div>
+                                <div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition">
+                                    <div class="flex flex-col gap-1">
+                                        <span class="flex items-center gap-2">3 <strong class="text-rose-700">amphibians</strong> <span class="text-xs font-normal text-rose-900/60">/æmˈfɪbiənz/</span> <button onclick="playAudio('amphibians')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span>
+                                        <span class="text-[0.7rem] text-rose-900/70 italic">(động vật lưỡng cư)</span>
+                                    </div>
+                                    <span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ A. frogs, toads, newts</span>
+                                </div>
+                                <div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition">
+                                    <div class="flex flex-col gap-1">
+                                        <span class="flex items-center gap-2">4 <strong class="text-rose-700">reptiles</strong> <span class="text-xs font-normal text-rose-900/60">/ˈreptaɪlz/</span> <button onclick="playAudio('reptiles')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span>
+                                        <span class="text-[0.7rem] text-rose-900/70 italic">(động vật bò sát)</span>
+                                    </div>
+                                    <span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ E. snakes, lizards, crocodiles...</span>
+                                </div>
+                                <div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition">
+                                    <div class="flex flex-col gap-1">
+                                        <span class="flex items-center gap-2">5 <strong class="text-rose-700">fish</strong> <button onclick="playAudio('fish')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span>
+                                        <span class="text-[0.7rem] text-rose-900/70 italic">(cá)</span>
+                                    </div>
+                                    <span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ B. tuna, salmon, perch</span>
+                                </div>
+                                <div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition">
+                                    <div class="flex flex-col gap-1">
+                                        <span class="flex items-center gap-2">6 <strong class="text-rose-700">birds</strong> <button onclick="playAudio('birds')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span>
+                                        <span class="text-[0.7rem] text-rose-900/70 italic">(chim chóc)</span>
+                                    </div>
+                                    <span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ D. sparrows, pigeons...</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Exercise 7 & Questions -->
+                    <div class="flex flex-col gap-6 h-full">
+                        <!-- Exercise 7: Gap Fill -->
+                        <div class="glass-card rounded-3xl p-6 exercise-container relative flex-col">
+                            <div class="flex items-center justify-between mb-4">
+                                <div>
+                                    <h3 class="text-xl font-bold text-rose-950">Exercise 7: Gap Fill</h3>
+                                </div>
+                                <button onclick="toggleAnswers(this)" class="glass-button text-rose-800 font-bold py-1.5 px-4 rounded-xl text-sm shadow-sm shrink-0">
+                                    ✨ Reveal Answers
+                                </button>
+                            </div>
+                            
+                            <!-- Word Bank -->
+                            <div class="glass-panel p-4 rounded-xl flex flex-wrap justify-center gap-4 mb-6 border border-white/60 bg-white/20">
+                                <div class="flex items-center gap-1"><button onclick="playAudio('adorable')" class="text-xs">🔊</button><div class="flex flex-col items-center"><span class="text-pink-600 font-bold text-sm">adorable</span><span class="text-[0.65rem] font-normal text-rose-950/60">/əˈdɔːrəbl/</span><span class="text-[0.65rem] font-medium text-rose-900/70 italic">(đáng yêu)</span></div></div>
+                                <div class="flex items-center gap-1"><button onclick="playAudio('affectionate')" class="text-xs">🔊</button><div class="flex flex-col items-center"><span class="text-pink-600 font-bold text-sm">affectionate</span><span class="text-[0.65rem] font-normal text-rose-950/60">/əˈfekʃənət/</span><span class="text-[0.65rem] font-medium text-rose-900/70 italic">(tình cảm)</span></div></div>
+                                <div class="flex items-center gap-1"><button onclick="playAudio('domestic')" class="text-xs">🔊</button><div class="flex flex-col items-center"><span class="text-pink-600 font-bold text-sm">domestic</span><span class="text-[0.65rem] font-normal text-rose-950/60">/dəˈmestɪk/</span><span class="text-[0.65rem] font-medium text-rose-900/70 italic">(thuần hóa/trong nhà)</span></div></div>
+                                <div class="flex items-center gap-1"><button onclick="playAudio('omnivore')" class="text-xs">🔊</button><div class="flex flex-col items-center"><span class="text-pink-600 font-bold text-sm">omnivore</span><span class="text-[0.65rem] font-normal text-rose-950/60">/ˈɑːmnɪvɔːr/</span><span class="text-[0.65rem] font-medium text-rose-900/70 italic">(đV ăn tạp)</span></div></div>
+                                <div class="flex items-center gap-1"><button onclick="playAudio('carnivore')" class="text-xs">🔊</button><div class="flex flex-col items-center"><span class="text-pink-600 font-bold text-sm">carnivore</span><span class="text-[0.65rem] font-normal text-rose-950/60">/ˈkɑːrnɪvɔːr/</span><span class="text-[0.65rem] font-medium text-rose-900/70 italic">(đV ăn thịt)</span></div></div>
+                                <div class="flex items-center gap-1"><button onclick="playAudio('herbivore')" class="text-xs">🔊</button><div class="flex flex-col items-center"><span class="text-pink-600 font-bold text-sm">herbivore</span><span class="text-[0.65rem] font-normal text-rose-950/60">/ˈhɜːrbɪvɔːr/</span><span class="text-[0.65rem] font-medium text-rose-900/70 italic">(đV ăn cỏ)</span></div></div>
+                            </div>
+
+                            <ul class="space-y-4 text-[0.95rem] font-semibold text-rose-950 leading-relaxed overflow-y-auto pr-2">
+                                <li class="flex flex-wrap items-center gap-x-2">
+                                    <span>1 Pommie is such a/an</span>
+                                    <span class="inline-flex items-center justify-center min-w-[100px] border-b-2 border-dashed border-pink-400 text-rose-600 px-2 h-7"><span class="hidden-answer">affectionate</span></span>
+                                    <span>dog. She always shows her love by wagging her tail.</span>
+                                </li>
+                                <li class="flex flex-wrap items-center gap-x-2">
+                                    <span>2 Cows and sheep are</span>
+                                    <span class="inline-flex items-center justify-center min-w-[100px] border-b-2 border-dashed border-pink-400 text-rose-600 px-2 h-7"><span class="hidden-answer">herbivores</span></span>.
+                                </li>
+                                <li class="flex flex-wrap items-center gap-x-2">
+                                    <span>3 As a/an</span>
+                                    <span class="inline-flex items-center justify-center min-w-[100px] border-b-2 border-dashed border-pink-400 text-rose-600 px-2 h-7"><span class="hidden-answer">omnivore</span></span>,
+                                    <span>the hamster will eat most things, including both plants and meat.</span>
+                                </li>
+                                <li class="flex flex-wrap items-center gap-x-2">
+                                    <span>4 Lions and tigers are</span>
+                                    <span class="inline-flex items-center justify-center min-w-[100px] border-b-2 border-dashed border-pink-400 text-rose-600 px-2 h-7"><span class="hidden-answer">carnivores</span></span>.
+                                </li>
+                                <li class="flex flex-wrap items-center gap-x-2">
+                                    <span>5 Some of the wolves had interbred with</span>
+                                    <span class="inline-flex items-center justify-center min-w-[100px] border-b-2 border-dashed border-pink-400 text-rose-600 px-2 h-7"><span class="hidden-answer">domestic</span></span>
+                                    <span>dogs.</span>
+                                </li>
+                                <li class="flex flex-wrap items-center gap-x-2">
+                                    <span>6 He came in with a/an</span>
+                                    <span class="inline-flex items-center justify-center min-w-[100px] border-b-2 border-dashed border-pink-400 text-rose-600 px-2 h-7"><span class="hidden-answer">adorable</span></span>
+                                    <span>puppy.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 4: Speaking Practice -->
+            <div class="slide" id="slide-4">
+                <div class="flex items-center gap-4 mb-8">
+                    <span class="w-12 h-12 rounded-2xl glass-panel flex items-center justify-center text-2xl shadow-sm">🗣️</span>
+                    <div>
+                        <span class="text-rose-500 font-extrabold text-xs tracking-widest uppercase">Speaking Practice</span>
+                        <h2 class="text-3xl font-extrabold text-rose-950">Topic: Animals</h2>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                    <!-- Part 1 Questions -->
+                    <div class="glass-card p-8 rounded-3xl flex flex-col h-full border-t-4 border-rose-400">
+                        <h3 class="text-2xl font-bold text-rose-950 mb-6 uppercase tracking-widest flex items-center gap-2"><span>💬</span> Part 1</h3>
+                        
+                        <ol class="list-decimal pl-6 space-y-4 text-[1.05rem] text-rose-950 font-semibold mb-6 flex-1">
+                            <li>Do you like animals?</li>
+                            <li>What's your favorite animal/ Why?</li>
+                            <li>Are people in your country fond of animals?</li>
+                            <li>Do many people in your country keep a pet?</li>
+                            <li>Do children like animals?</li>
+                            <li>Did you have any pets when you were a child?</li>
+                        </ol>
+
+                        <details class="group bg-white/40 border border-white/70 rounded-2xl relative z-10 overflow-hidden transition-all duration-300 shadow-sm hover:shadow-md mt-auto">
+                            <summary class="cursor-pointer font-bold text-rose-900 p-5 flex items-center justify-between outline-none hover:bg-white/60 transition">
+                                <span class="text-[1.05rem] flex items-center gap-3">💡 <span>View P1 Sample Answers</span></span>
+                                <span class="group-open:rotate-180 transition-transform text-pink-400 text-xl">▼</span>
+                            </summary>
+                            <div class="p-6 border-t border-white/60 text-rose-900/90 space-y-5 text-[0.95rem] bg-white/20 backdrop-blur-md h-64 overflow-y-auto">
+                                <div class="border-l-4 border-pink-400 pl-4 bg-white/40 p-3 rounded-r-xl">
+                                    <p class="text-rose-950 font-bold mb-1">1. Do you like animals?</p>
+                                    <p class="font-medium">Yes, absolutely. I'm a huge <strong>animal lover</strong>. I find them incredibly <strong>adorable</strong> and fascinating to watch.</p>
+                                </div>
+                                <div class="border-l-4 border-pink-400 pl-4 bg-white/40 p-3 rounded-r-xl">
+                                    <p class="text-rose-950 font-bold mb-1">2. What's your favorite animal/ Why?</p>
+                                    <p class="font-medium">My favorite animal is the dog. They are wonderfully <strong>affectionate companion animals</strong> that always show loyalty to their owners.</p>
+                                </div>
+                                <div class="border-l-4 border-pink-400 pl-4 bg-white/40 p-3 rounded-r-xl">
+                                    <p class="text-rose-950 font-bold mb-1">3. Are people in your country fond of animals?</p>
+                                    <p class="font-medium">Yes, I believe so. Many people here treat <strong>domestic</strong> animals like dogs and cats as members of their own families.</p>
+                                </div>
+                                <div class="border-l-4 border-pink-400 pl-4 bg-white/40 p-3 rounded-r-xl">
+                                    <p class="text-rose-950 font-bold mb-1">4. Do many people in your country keep a pet?</p>
+                                    <p class="font-medium">Yes, keeping a pet is very common. Most households have at least one small <strong>mammal</strong> to keep them company.</p>
+                                </div>
+                                <div class="border-l-4 border-pink-400 pl-4 bg-white/40 p-3 rounded-r-xl">
+                                    <p class="text-rose-950 font-bold mb-1">5. Do children like animals?</p>
+                                    <p class="font-medium">Children generally love animals. They are naturally drawn to pets with soft <strong>fur</strong> and enjoy visiting zoos to see various <strong>reptiles</strong> and <strong>birds</strong>.</p>
+                                </div>
+                                <div class="border-l-4 border-pink-400 pl-4 bg-white/40 p-3 rounded-r-xl">
+                                    <p class="text-rose-950 font-bold mb-1">6. Did you have any pets when you were a child?</p>
+                                    <p class="font-medium">Yes, I had a puppy when I was young. He was so <strong>adorable</strong> and playful, and taking care of him taught me a lot of responsibility.</p>
+                                </div>
+                            </div>
+                        </details>
+                    </div>
+
+                    <!-- Part 2 Cue Card -->
+                    <div class="glass-card p-8 rounded-3xl relative overflow-hidden border-t-4 border-fuchsia-400 flex flex-col h-full">
+                        <div class="flex items-center justify-between mb-6">
+                            <h3 class="text-2xl font-bold text-rose-950 uppercase tracking-widest flex items-center gap-2"><span>🎙️</span> Part 2 Cue Card</h3>
+                            <div class="bg-fuchsia-100 text-fuchsia-800 text-xs font-bold px-3 py-1 rounded border border-fuchsia-200">1 Min Prep | 2 Mins Speak</div>
+                        </div>
+                        
+                        <h4 class="text-xl font-black text-rose-900 mb-4 uppercase tracking-wide">Describe an interesting wild animal.</h4>
+                        <p class="text-[0.95rem] mb-3 italic text-rose-900/70 font-medium">You should say:</p>
+                        
+                        <ul class="list-disc pl-6 space-y-2 text-[0.95rem] text-rose-950 font-semibold relative z-10 mb-8 flex-1">
+                            <li>What it looks like</li>
+                            <li>When you saw/ knew about it for the first time</li>
+                            <li>Where it lives</li>
+                            <li>And explain why it is interesting</li>
+                        </ul>
+
+                        <details class="group bg-white/40 border border-white/70 rounded-2xl relative z-10 overflow-hidden transition-all duration-300 shadow-sm hover:shadow-md mt-auto">
+                            <summary class="cursor-pointer font-bold text-rose-900 p-5 flex items-center justify-between outline-none hover:bg-white/60 transition">
+                                <span class="text-[1.05rem] flex items-center gap-3">💡 <span>View P2 Sample Answer</span></span>
+                                <span class="group-open:rotate-180 transition-transform text-fuchsia-400 text-xl">▼</span>
+                            </summary>
+                            <div class="p-6 border-t border-white/60 text-rose-900/90 text-[0.95rem] bg-white/20 backdrop-blur-md leading-relaxed italic font-medium h-64 overflow-y-auto">
+                                "I'd like to talk about the Giant Panda, which is a fascinating wild <strong>mammal</strong> native to China.<br><br>
+                                It has a very distinct appearance with its thick black and white <strong>fur</strong>, round ears, and black patches around its eyes, making it look incredibly <strong>adorable</strong>. Despite their cuddly look, they have strong <strong>claws</strong> and <strong>paws</strong> to help them climb.<br><br>
+                                I first knew about them from a wildlife documentary when I was a child, and I was instantly captivated.<br><br>
+                                They primarily live in the cool, wet bamboo forests of central China, high up in the mountains.<br><br>
+                                What makes them so interesting is their diet. Even though they biologically belong to the <strong>carnivore</strong> order and have the digestive system for meat, they act almost entirely as <strong>herbivores</strong>, surviving mostly on bamboo. Their playful, seemingly <strong>affectionate</strong> nature makes them a globally recognized symbol of wildlife conservation."
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
+                <!-- Teacher Control Card: Pair Work Timers -->
+                <div class="glass-card rounded-3xl overflow-hidden flex flex-col md:flex-row items-center justify-between p-6 shadow-lg gap-4">
+                    <div class="flex items-center gap-4">
+                        <div class="w-14 h-14 bg-gradient-to-br from-pink-400 to-rose-400 text-white rounded-xl flex items-center justify-center text-3xl shadow-md border border-pink-300">👥</div>
+                        <div>
+                            <h4 class="font-extrabold text-rose-950 text-xl">Pair Work Timers</h4>
+                            <p class="text-rose-900/70 text-sm font-medium">Use for Part 1 discussion or Part 2 practice.</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap items-center justify-center gap-4">
+                        <div class="flex items-center gap-3 glass-panel py-2 px-4 rounded-xl">
+                            <span id="timer-p1" class="text-2xl font-mono text-rose-950 font-black tracking-tight w-16 text-center">03:00</span>
+                            <button onclick="startTimer(3, 'timer-p1')" class="bg-rose-500 hover:bg-rose-600 text-white font-bold py-2 px-4 rounded-lg shadow-sm text-sm">P1 (3m)</button>
+                        </div>
+                        <div class="flex items-center gap-3 glass-panel py-2 px-4 rounded-xl">
+                            <span id="timer-p2-prep" class="text-2xl font-mono text-fuchsia-950 font-black tracking-tight w-16 text-center">01:00</span>
+                            <button onclick="startTimer(1, 'timer-p2-prep')" class="bg-fuchsia-400 hover:bg-fuchsia-500 text-white font-bold py-2 px-4 rounded-lg shadow-sm text-sm">Prep (1m)</button>
+                        </div>
+                        <div class="flex items-center gap-3 glass-panel py-2 px-4 rounded-xl">
+                            <span id="timer-p2-speak" class="text-2xl font-mono text-fuchsia-950 font-black tracking-tight w-16 text-center">02:00</span>
+                            <button onclick="startTimer(2, 'timer-p2-speak')" class="bg-fuchsia-600 hover:bg-fuchsia-700 text-white font-bold py-2 px-4 rounded-lg shadow-sm text-sm">Speak (2m)</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        // -- Navigation & Progress Logic --
+        let currentSlide = 0;
+        let totalSlides = 0;
+        let slides = [];
+
+        function initSlides() {
+            slides = document.querySelectorAll('.slide');
+            totalSlides = slides.length;
+            updateUI();
+        }
+
+        function updateUI() {
+            slides.forEach((el, index) => {
+                if (index === currentSlide) {
+                    el.classList.add('active');
+                } else {
+                    el.classList.remove('active');
+                }
+            });
+            // Update counter
+            const counter = document.getElementById('slide-counter');
+            if (counter) counter.innerText = `${currentSlide + 1} / ${totalSlides}`;
+            
+            // Update dropdown
+            const navDropdown = document.getElementById('section-nav');
+            if (navDropdown) navDropdown.value = currentSlide;
+
+            // Update Progress Bar
+            const progress = ((currentSlide + 1) / totalSlides) * 100;
+            const progressBar = document.getElementById('progress-bar');
+            if(progressBar) progressBar.style.width = `${progress}%`;
+
+            document.querySelector('main').scrollTop = 0;
+        }
+
+        function jumpToSection(slideIndex) {
+            const index = parseInt(slideIndex);
+            if (!isNaN(index) && index >= 0 && index < totalSlides) {
+                currentSlide = index;
+                updateUI();
+            }
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides - 1) {
+                currentSlide++;
+                updateUI();
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 0) {
+                currentSlide--;
+                updateUI();
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') nextSlide();
+            if (e.key === 'ArrowLeft') prevSlide();
+        });
+
+        // -- Toggle Answers Logic --
+        function toggleAnswers(button) {
+            const container = button.closest('.exercise-container');
+            if (!container) return;
+            const hiddenElements = container.querySelectorAll('.hidden-answer');
+
+            let isHidden = true;
+            if (hiddenElements.length > 0) {
+                isHidden = hiddenElements[0].style.display === 'none' || hiddenElements[0].style.display === '';
+            }
+
+            hiddenElements.forEach(el => {
+                if (isHidden) {
+                    el.style.display = el.tagName === 'SPAN' ? (el.classList.contains('inline-block') ? 'inline-block' : 'inline') : 'block';
+                } else {
+                    el.style.display = 'none';
+                }
+            });
+
+            if (isHidden) {
+                button.innerHTML = "✨ Hide Answers";
+            } else {
+                button.innerHTML = button.getAttribute('data-default-text') || "✨ Reveal Answers";
+            }
+        }
+
+        // -- Audio Playback Logic --
+        function playAudio(word) {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel(); 
+                const utterance = new SpeechSynthesisUtterance(word);
+                utterance.lang = 'en-US';
+                utterance.rate = 0.85; 
+                window.speechSynthesis.speak(utterance);
+            } else {
+                console.warn("Text-to-Speech is not supported in this browser environment.");
+            }
+        }
+
+        // -- Timer Logic --
+        let intervals = {};
+
+        function startTimer(minutes, elementId) {
+            const display = document.getElementById(elementId);
+            let time = minutes * 60;
+            
+            if (intervals[elementId]) {
+                clearInterval(intervals[elementId]);
+            }
+
+            updateTimerDisplay(time, display);
+            display.classList.remove('text-rose-600');
+            display.classList.add('text-rose-950');
+
+            intervals[elementId] = setInterval(() => {
+                time--;
+                updateTimerDisplay(time, display);
+
+                if (time <= 0) {
+                    clearInterval(intervals[elementId]);
+                    display.classList.add('text-rose-600');
+                    display.classList.remove('text-rose-950');
+                    // Play a soft beep sound
+                    try {
+                        let audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                        let oscillator = audioCtx.createOscillator();
+                        oscillator.type = 'sine';
+                        oscillator.frequency.setValueAtTime(440, audioCtx.currentTime);
+                        oscillator.connect(audioCtx.destination);
+                        oscillator.start();
+                        oscillator.stop(audioCtx.currentTime + 0.5);
+                    } catch(e) {}
+                }
+            }, 1000);
+        }
+
+        function updateTimerDisplay(totalSeconds, element) {
+            const m = Math.floor(totalSeconds / 60).toString().padStart(2, '0');
+            const s = (totalSeconds % 60).toString().padStart(2, '0');
+            element.innerText = `${m}:${s}`;
+        }
+        
+        // Initialize first render
+        document.addEventListener('DOMContentLoaded', initSlides);
+    </script>
+</body>
+</html>
