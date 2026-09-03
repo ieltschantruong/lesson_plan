@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Chan Truong | Lesson 19</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            background-color: #f0f9ff; /* slate-50 / blue-50 base */
+        }
+        .fade-in { animation: fadeIn 0.4s ease-out forwards; }
+        @keyframes fadeIn { 
+            from { opacity: 0; transform: translateY(10px); } 
+            to { opacity: 1; transform: translateY(0); } 
+        }
+        .timer-text { font-variant-numeric: tabular-nums; }
+        
+        /* Elegant Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #e0f2fe; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb { background: #0ea5e9; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #0284c7; }
+
+        /* Glassmorphism utilities */
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        /* Inline Answer Toggle Utilities */
+        .blank-ans { display: none; }
+        .show-answers .blank-dots { display: none; }
+        .show-answers .blank-ans { display: inline-block; animation: fadeIn 0.3s forwards; }
+    </style>
+</head>
+<body class="h-screen flex flex-col overflow-hidden text-gray-800">
+
+    <!-- Elegant Header -->
+    <header id="app-header" class="text-white p-4 shadow-lg transition-colors duration-700 z-20 relative bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-500">
+        <div class="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9IiNmZmYiLz48L3N2Zz4=')]"></div>
+        
+        <div class="max-w-7xl mx-auto flex justify-between items-center relative z-10">
+            <div>
+                <div class="flex items-center gap-2 mb-1">
+                    <span class="bg-white/20 text-white text-xs font-bold px-2 py-0.5 rounded uppercase tracking-wider backdrop-blur-sm">Band 6.5 - 7.5</span>
+                    <span class="bg-white/20 text-white text-xs font-bold px-2 py-0.5 rounded uppercase tracking-wider backdrop-blur-sm">Lesson 19</span>
+                </div>
+                <h1 class="text-2xl font-bold tracking-tight drop-shadow-sm flex items-center gap-2">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                    IELTS Chan Truong
+                </h1>
+                <h2 id="slide-title" class="text-sm font-medium mt-1 text-cyan-50">Loading session...</h2>
+            </div>
+            
+            <div class="flex items-center space-x-2 sm:space-x-3">
+                <a href="https://online.flipbuilder.com/xtrvf/rzwv/" target="_blank" class="flex items-center space-x-2 text-sm font-semibold bg-white/20 hover:bg-white/30 transition-all px-3 sm:px-4 py-2 rounded-full focus:outline-none backdrop-blur-md shadow-sm border border-white/20 text-white" title="Complete IELTS 6.5-7.5 Ebook">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                    <span class="hidden sm:inline">Ebook</span>
+                </a>
+
+                <div class="relative">
+                    <button id="nav-toggle-btn" class="flex items-center space-x-2 text-sm font-semibold bg-white/20 hover:bg-white/30 transition-all px-3 sm:px-5 py-2 rounded-full focus:outline-none backdrop-blur-md shadow-sm border border-white/20">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                        <span class="hidden sm:inline">Sections</span>
+                    </button>
+                    
+                    <div id="nav-dropdown" class="hidden absolute right-0 mt-3 w-80 bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-cyan-100 overflow-hidden z-50 origin-top-right transition-all fade-in">
+                        <div class="p-3 bg-cyan-50 border-b border-cyan-100">
+                            <p class="text-xs font-bold text-cyan-800 uppercase tracking-wider text-center">Lesson Agenda</p>
+                        </div>
+                        <div class="max-h-[60vh] overflow-y-auto p-2" id="nav-menu-list"></div>
+                    </div>
+                </div>
+
+                <div class="hidden sm:flex items-center space-x-2 text-sm font-bold text-cyan-900 bg-white px-4 py-2 rounded-full shadow-sm">
+                    <svg class="w-4 h-4 text-cyan-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <span>90 Mins</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto mt-5 bg-black/10 rounded-full h-1.5 overflow-hidden relative z-10">
+            <div id="progress-bar" class="bg-white h-full transition-all duration-700 ease-out shadow-[0_0_10px_rgba(255,255,255,0.8)]" style="width: 0%"></div>
+        </div>
+    </header>
+
+    <main class="flex-grow overflow-y-auto relative p-4 md:p-8">
+        <div id="content-container" class="max-w-6xl mx-auto"></div>
+    </main>
+
+    <footer class="bg-white/80 backdrop-blur-md border-t border-cyan-100 p-4 md:px-10 z-10 shadow-[0_-10px_15px_-3px_rgba(0,0,0,0.02)]">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <button id="btn-prev" class="px-6 py-2.5 rounded-xl border border-cyan-200 text-cyan-600 font-semibold hover:bg-cyan-50 hover:border-cyan-300 transition-all disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-2">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                Previous
+            </button>
+            
+            <div class="flex items-center gap-2">
+                <div class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></div>
+                <div id="step-indicator" class="text-sm font-semibold text-cyan-800 uppercase tracking-wide">
+                    Section 1 of X
+                </div>
+                <div class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse delay-75"></div>
+            </div>
+
+            <button id="btn-next" class="px-6 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-semibold hover:from-cyan-600 hover:to-blue-600 shadow-md hover:shadow-lg transition-all flex items-center gap-2 transform hover:-translate-y-0.5">
+                Next
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </button>
+        </div>
+    </footer>
+
+<script>
+    // --- TIMER LOGIC ---
+    let timers = {
+        prep1: { interval: null, remaining: 60, isRunning: false },
+        speak1: { interval: null, remaining: 120, isRunning: false },
+        prep2: { interval: null, remaining: 60, isRunning: false },
+        speak2: { interval: null, remaining: 120, isRunning: false }
+    };
+
+    function formatTime(seconds) {
+        const m = Math.floor(seconds / 60).toString().padStart(2, '0');
+        const s = (seconds % 60).toString().padStart(2, '0');
+        return `${m}:${s}`;
+    }
+
+    function updateTimerUI(id, seconds) {
+        const displayEl = document.getElementById(`${id}-timer`);
+        if (displayEl) displayEl.textContent = formatTime(seconds);
+    }
+
+    window.toggleTimer = function(id, defaultTime) {
+        const timer = timers[id];
+        const btn = document.getElementById(`btn-${id}-timer`);
+        
+        if (timer.isRunning) {
+            clearInterval(timer.interval);
+            timer.isRunning = false;
+            if(btn) btn.textContent = 'Resume';
+        } else {
+            if (timer.remaining <= 0) timer.remaining = defaultTime;
+            
+            timer.isRunning = true;
+            if(btn) btn.textContent = 'Pause';
+            
+            timer.interval = setInterval(() => {
+                timer.remaining--;
+                updateTimerUI(id, timer.remaining);
+                
+                if (timer.remaining <= 0) {
+                    clearInterval(timer.interval);
+                    timer.isRunning = false;
+                    if(btn) btn.textContent = 'Time Up!';
+                    try {
+                        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+                        const playBeep = (st) => {
+                            const osc = ctx.createOscillator();
+                            const gain = ctx.createGain();
+                            osc.connect(gain);
+                            gain.connect(ctx.destination);
+                            osc.frequency.setValueAtTime(800, st);
+                            gain.gain.setValueAtTime(0.1, st);
+                            osc.start(st);
+                            gain.gain.exponentialRampToValueAtTime(0.00001, st + 0.3);
+                            osc.stop(st + 0.3);
+                        };
+                        playBeep(ctx.currentTime);
+                        playBeep(ctx.currentTime + 0.4);
+                    } catch(e) {}
+                }
+            }, 1000);
+        }
+    };
+
+    window.resetTimer = function(id, defaultTime) {
+        const timer = timers[id];
+        clearInterval(timer.interval);
+        timer.isRunning = false;
+        timer.remaining = defaultTime;
+        updateTimerUI(id, defaultTime);
+        const btn = document.getElementById(`btn-${id}-timer`);
+        if(btn) btn.textContent = 'Start';
+    };
+
+    function pauseAllTimers() {
+        Object.keys(timers).forEach(key => {
+            if (timers[key].isRunning) {
+                clearInterval(timers[key].interval);
+                timers[key].isRunning = false;
+            }
+        });
+    }
+
+    // --- DATA STRUCTURE ---
+    const sessionData = [
+        {
+            id: 'reading_wb_u5',
+            type: 'Reading',
+            themeClass: 'bg-gradient-to-r from-cyan-400 to-blue-500',
+            iconColor: 'text-cyan-500',
+            title: '1. Reading Unit 5 WB',
+            content: `
+                <div class="fade-in bg-white rounded-3xl shadow-xl border border-cyan-50 p-5 md:p-6 flex flex-col" style="height: calc(100vh - 11rem); min-height: 650px;">
+                    <div class="flex items-center gap-4 mb-4 border-b border-gray-100 pb-4 shrink-0">
+                        <div class="w-12 h-12 rounded-2xl bg-cyan-100 flex items-center justify-center text-cyan-600 flex-shrink-0">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                        </div>
+                        <div class="flex-grow flex flex-col md:flex-row justify-between md:items-center gap-4">
+                            <div>
+                                <div class="flex items-center gap-3 mb-1 flex-wrap">
+                                    <h3 class="text-xl font-bold text-gray-800">Reading Practice</h3>
+                                    <a href="https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/passage2_complete_ielts_6.5_7.5_wb_unit5.html" target="_blank" class="inline-flex items-center gap-1.5 text-cyan-600 hover:text-white hover:bg-cyan-600 transition-colors px-3 py-1.5 bg-cyan-50 hover:bg-cyan-500 rounded-lg shadow-sm border border-cyan-200 text-sm font-bold" title="Open in new tab">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                                        Open in New Tab
+                                    </a>
+                                </div>
+                                <p class="text-cyan-600 font-medium text-sm">Unit 5 WB | Complete IELTS</p>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <button onclick="toggleVisibility('vocab-wb-u5')" class="bg-gray-50 text-gray-700 px-4 py-2 rounded-xl font-bold hover:bg-gray-200 transition-colors text-sm border border-gray-200 flex items-center gap-2 shrink-0 shadow-sm">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                                    Vocab Exercises
+                                </button>
+                                <button onclick="toggleVisibility('ans-wb-u5')" class="bg-cyan-50 text-cyan-700 px-4 py-2 rounded-xl font-bold hover:bg-cyan-100 transition-colors text-sm border border-cyan-200 flex items-center gap-2 shrink-0 shadow-sm">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                                    Show Answers
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Answer Key Panel -->
+                    <div id="ans-wb-u5" class="hidden mb-4 bg-gray-50 border border-cyan-100 rounded-xl p-5 shrink-0 shadow-inner transition-all fade-in">
+                        <h4 class="font-bold text-cyan-800 mb-3 border-b border-cyan-100 pb-2 uppercase tracking-wide text-xs">Reading Answer Key</h4>
+                        <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3 text-sm text-gray-700 font-medium">
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-cyan-500 font-bold mr-2">1</span> F</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-cyan-500 font-bold mr-2">2</span> G</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-cyan-500 font-bold mr-2">3</span> A</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-cyan-500 font-bold mr-2">4</span> D</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-cyan-500 font-bold mr-2">5</span> B</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm lg:col-span-2"><span class="text-cyan-500 font-bold mr-2">6</span> very small brain</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-cyan-500 font-bold mr-2">7</span> big toes</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm lg:col-span-2"><span class="text-cyan-500 font-bold mr-2">8</span> 30/thirty years</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm lg:col-span-2"><span class="text-cyan-500 font-bold mr-2">9</span> its large size</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-cyan-500 font-bold mr-2">10</span> B</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-cyan-500 font-bold mr-2">11</span> D</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-cyan-500 font-bold mr-2">12</span> C</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-100 shadow-sm"><span class="text-cyan-500 font-bold mr-2">13</span> A</div>
+                        </div>
+                    </div>
+
+                    <!-- Vocab Exercises Panel -->
+                    <div id="vocab-wb-u5" class="hidden mb-4 bg-cyan-50 border border-cyan-200 rounded-2xl p-5 shadow-sm transition-all fade-in">
+                        <div class="flex justify-between items-center mb-4 border-b border-cyan-200 pb-2">
+                            <h4 class="font-bold text-cyan-800 flex items-center gap-2">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                                Vocab Exercises Check (Pink Book P53-54)
+                            </h4>
+                            <button id="btn-read-vocab-all" onclick="toggleInlineAnswers('read-vocab-container', 'btn-read-vocab-all')" class="text-xs font-bold text-cyan-700 bg-white border border-cyan-300 hover:bg-cyan-100 px-3 py-1.5 rounded-lg transition-colors shadow-sm">
+                                Toggle All Answers
+                            </button>
+                        </div>
+                        
+                        <div id="read-vocab-container" class="max-h-[450px] overflow-y-auto pr-2 space-y-6">
+                            
+                            <!-- Exercise 1 -->
+                            <div class="bg-white p-5 rounded-xl border border-cyan-100 shadow-sm text-sm">
+                                <h5 class="font-bold text-cyan-700 text-lg mb-3">Exercise 1</h5>
+                                <p class="text-gray-600 font-medium mb-4">Match the words with the pictures.</p>
+                                
+                                <div class="grid md:grid-cols-2 gap-x-8 gap-y-4 text-gray-800 font-medium">
+                                    <p>1 <span class="text-cyan-600 font-bold mx-1">rib</span> <span class="text-gray-400 font-normal">/rɪb/</span> <span class="text-[11px] text-gray-500 font-normal ml-1">(xương sườn)</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ F. [Picture: Ribcage]</span></p>
+                                    <p>2 <span class="text-cyan-600 font-bold mx-1">patella</span> <span class="text-gray-400 font-normal">/pəˈtelə/</span> <span class="text-[11px] text-gray-500 font-normal ml-1">(xương bánh chè)</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ D. [Picture: Knee joint]</span></p>
+                                    <p>3 <span class="text-cyan-600 font-bold mx-1">shoulder blade</span> <span class="text-gray-400 font-normal">/ˈʃoʊldər bleɪd/</span> <span class="text-[11px] text-gray-500 font-normal ml-1">(xương bả vai)</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ E. [Picture: Scapula]</span></p>
+                                    <p>4 <span class="text-cyan-600 font-bold mx-1">limb</span> <span class="text-gray-400 font-normal">/lɪm/</span> <span class="text-[11px] text-gray-500 font-normal ml-1">(chi, chân tay)</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ A. [Picture: Arm & Leg]</span></p>
+                                    <p>5 <span class="text-cyan-600 font-bold mx-1">knuckle</span> <span class="text-gray-400 font-normal">/ˈnʌkl/</span> <span class="text-[11px] text-gray-500 font-normal ml-1">(khớp ngón tay)</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ B. [Picture: Fist]</span></p>
+                                    <p>6 <span class="text-cyan-600 font-bold mx-1">upright stance</span> <span class="text-gray-400 font-normal">/ˈʌpraɪt stæns/</span> <span class="text-[11px] text-gray-500 font-normal ml-1">(tư thế đứng thẳng)</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ G. [Picture: Standing man]</span></p>
+                                    <p>7 <span class="text-cyan-600 font-bold mx-1">specimen</span> <span class="text-gray-400 font-normal">/ˈspesɪmən/</span> <span class="text-[11px] text-gray-500 font-normal ml-1">(mẫu vật)</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ J. [Picture: Test tube with bugs]</span></p>
+                                    <p>8 <span class="text-cyan-600 font-bold mx-1">chimpanzee</span> <span class="text-gray-400 font-normal">/ˌtʃɪmpænˈziː/</span> <span class="text-[11px] text-gray-500 font-normal ml-1">(tinh tinh)</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ C. [Picture: Chimp]</span></p>
+                                    <p>9 <span class="text-cyan-600 font-bold mx-1">excavation</span> <span class="text-gray-400 font-normal">/ˌekskəˈveɪʃn/</span> <span class="text-[11px] text-gray-500 font-normal ml-1">(sự khai quật)</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ H. [Picture: Digger/Excavator]</span></p>
+                                    <p>10 <span class="text-cyan-600 font-bold mx-1">locomotion</span> <span class="text-gray-400 font-normal">/ˌloʊkəˈmoʊʃn/</span> <span class="text-[11px] text-gray-500 font-normal ml-1">(sự vận động)</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ I. [Picture: Walking cycle]</span></p>
+                                </div>
+                            </div>
+
+                            <!-- Exercise 2 -->
+                            <div class="bg-white p-5 rounded-xl border border-cyan-100 shadow-sm text-sm">
+                                <h5 class="font-bold text-cyan-700 text-lg mb-3">Exercise 2</h5>
+                                <p class="text-gray-600 font-medium mb-4">Choose the sentences with the same meaning as the given ones.</p>
+                                
+                                <div class="grid md:grid-cols-2 gap-6 text-gray-800 font-medium">
+                                    <div class="space-y-4">
+                                        <div>
+                                            <p class="mb-1"><span class="font-bold">1</span> Humans are <span class="text-cyan-600 font-bold">bipedal</span>. <span class="text-gray-400 font-normal">/ˌbaɪˈpedl/</span> <span class="text-[11px] text-gray-500 font-normal ml-1">(đi bằng hai chân)</span></p>
+                                            <p class="ml-4 flex items-center">a. Humans can walk using only two legs. <span class="blank-ans text-emerald-600 font-bold ml-2">✓</span></p>
+                                            <p class="ml-4">b. Humans have two hands.</p>
+                                        </div>
+                                        <div>
+                                            <p class="mb-1"><span class="font-bold">2</span> Albert Einstein is a <span class="text-cyan-600 font-bold">prominent</span> scientist. <span class="text-[11px] text-gray-500 font-normal ml-1">(nổi bật, xuất chúng)</span></p>
+                                            <p class="ml-4 flex items-center">a. He is well known. <span class="blank-ans text-emerald-600 font-bold ml-2">✓</span></p>
+                                            <p class="ml-4">b. He is notorious.</p>
+                                        </div>
+                                        <div>
+                                            <p class="mb-1"><span class="font-bold">3</span> She's <span class="text-cyan-600 font-bold">proficient</span> in several languages. <span class="text-gray-400 font-normal">/prəˈfɪʃnt/</span> <span class="text-[11px] text-gray-500 font-normal ml-1">(thành thạo)</span></p>
+                                            <p class="ml-4 flex items-center">a. She can speak several languages well. <span class="blank-ans text-emerald-600 font-bold ml-2">✓</span></p>
+                                            <p class="ml-4">b. She is not fluent in foreign languages.</p>
+                                        </div>
+                                    </div>
+                                    <div class="space-y-4">
+                                        <div>
+                                            <p class="mb-1"><span class="font-bold">4</span> Conan is a <span class="text-cyan-600 font-bold">compelling</span> series. <span class="text-[11px] text-gray-500 font-normal ml-1">(hấp dẫn, thuyết phục)</span></p>
+                                            <p class="ml-4 flex items-center">a. It is an interesting series. <span class="blank-ans text-emerald-600 font-bold ml-2">✓</span></p>
+                                            <p class="ml-4">b. It is a tedious series.</p>
+                                        </div>
+                                        <div>
+                                            <p class="mb-1"><span class="font-bold">5</span> I prefer a <span class="text-cyan-600 font-bold">permanent</span> job. <span class="text-[11px] text-gray-500 font-normal ml-1">(lâu dài)</span></p>
+                                            <p class="ml-4 flex items-center">a. I don't want to change my job. <span class="blank-ans text-emerald-600 font-bold ml-2">✓</span></p>
+                                            <p class="ml-4">b. I'm a job-hopper.</p>
+                                        </div>
+                                        <div>
+                                            <p class="mb-1"><span class="font-bold">6</span> I love the Italian <span class="text-cyan-600 font-bold">schools</span> of painting. <span class="text-[11px] text-gray-500 font-normal ml-1">(trường phái)</span></p>
+                                            <p class="ml-4 flex items-center">a. I'm into painting by Italian artists. <span class="blank-ans text-emerald-600 font-bold ml-2">✓</span></p>
+                                            <p class="ml-4">b. I love studying in Italian schools</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="w-full flex-grow rounded-2xl overflow-hidden border border-gray-200 shadow-inner bg-gray-50 relative">
+                        <iframe src="https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/passage2_complete_ielts_6.5_7.5_wb_unit5.html" class="absolute inset-0 w-full h-full border-0" title="Reading Practice"></iframe>
+                    </div>
+                </div>
+            `
+        }
+    ];
+
+    let currentIndex = 0;
+
+    const headerEl = document.getElementById('app-header');
+    const titleEl = document.getElementById('slide-title');
+    const containerEl = document.getElementById('content-container');
+    const prevBtn = document.getElementById('btn-prev');
+    const nextBtn = document.getElementById('btn-next');
+    const indicatorEl = document.getElementById('step-indicator');
+    const progressBarEl = document.getElementById('progress-bar');
+    const navDropdown = document.getElementById('nav-dropdown');
+    const navMenuList = document.getElementById('nav-menu-list');
+
+    window.addEventListener('DOMContentLoaded', () => {
+        populateNavMenu();
+        
+        document.getElementById('nav-toggle-btn').addEventListener('click', (e) => {
+            e.stopPropagation();
+            navDropdown.classList.toggle('hidden');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!navDropdown.contains(e.target) && !document.getElementById('nav-toggle-btn').contains(e.target)) {
+                navDropdown.classList.add('hidden');
+            }
+        });
+
+        if(prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                if (currentIndex > 0) renderSlide(--currentIndex);
+            });
+        }
+
+        if(nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                if (currentIndex < sessionData.length - 1) {
+                    renderSlide(++currentIndex);
+                } else {
+                    alert("Lesson 19 Completed! Excellent work today.");
+                }
+            });
+        }
+
+        renderSlide(0);
+    });
+
+    function populateNavMenu() {
+        if(!navMenuList) return;
+        navMenuList.innerHTML = sessionData.map((data, index) => `
+            <button onclick="goToSlide(${index})" class="nav-item-btn w-full text-left p-3 mb-1 rounded-xl hover:bg-white transition-all flex items-center gap-3 border border-transparent shadow-sm">
+                <div class="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 text-sm font-bold text-white shadow-sm ${data.themeClass || ''}">
+                    ${index + 1}
+                </div>
+                <div>
+                    <div class="text-sm font-bold text-gray-800 leading-tight">${data.title ? data.title.substring(3) : 'Section ' + (index + 1)}</div>
+                    <div class="text-[10px] font-bold uppercase tracking-wider ${data.iconColor || ''}">${data.type || 'Lesson'}</div>
+                </div>
+            </button>
+        `).join('');
+    }
+
+    window.goToSlide = function(index) {
+        currentIndex = index;
+        renderSlide(currentIndex);
+        if(navDropdown) navDropdown.classList.add('hidden');
+    };
+
+    function renderSlide(index) {
+        pauseAllTimers();
+        const data = sessionData[index];
+        if(!headerEl || !titleEl || !containerEl) return;
+        
+        headerEl.className = `text-white p-4 shadow-lg transition-colors duration-700 z-20 relative ${data.themeClass}`;
+        titleEl.textContent = data.title;
+        
+        const progressPercent = ((index + 1) / sessionData.length) * 100;
+        if(progressBarEl) progressBarEl.style.width = `${progressPercent}%`;
+        if(indicatorEl) indicatorEl.textContent = `Section ${index + 1} of ${sessionData.length}`;
+
+        document.querySelectorAll('.nav-item-btn').forEach((btn, i) => {
+            if (i === index) {
+                btn.classList.add('bg-white', 'border-cyan-200', 'shadow-md');
+                btn.classList.remove('border-transparent', 'shadow-sm');
+            } else {
+                btn.classList.remove('bg-white', 'border-cyan-200', 'shadow-md');
+                btn.classList.add('border-transparent', 'shadow-sm');
+            }
+        });
+
+        containerEl.innerHTML = ''; 
+        setTimeout(() => {
+            containerEl.innerHTML = data.content;
+            
+            // Restore timers visually if returning to slide
+            if(data.id === 'speaking_u8_1') {
+                updateTimerUI('prep1', timers.prep1.remaining);
+                updateTimerUI('speak1', timers.speak1.remaining);
+            }
+            if(data.id === 'speaking_u8_2') {
+                updateTimerUI('prep2', timers.prep2.remaining);
+                updateTimerUI('speak2', timers.speak2.remaining);
+            }
+        }, 10);
+
+        if(prevBtn) prevBtn.disabled = index === 0;
+        if(nextBtn) nextBtn.innerHTML = index === sessionData.length - 1 ? 
+            'Finish Lesson <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>' : 
+            'Next Section <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>';
+    }
+
+    window.toggleInlineAnswers = function(containerId, btnId) {
+        const container = document.getElementById(containerId);
+        const btn = document.getElementById(btnId);
+        if(container) {
+            container.classList.toggle('show-answers');
+            
+            // Highlight the container slightly when answers are shown
+            if(container.classList.contains('show-answers')) {
+                container.classList.add('shadow-md', 'border-emerald-300');
+                container.classList.remove('shadow-sm', 'border-cyan-100');
+            } else {
+                container.classList.remove('shadow-md', 'border-emerald-300');
+                container.classList.add('shadow-sm', 'border-cyan-100');
+            }
+
+            // Update button text and style
+            if(btn) {
+                btn.textContent = container.classList.contains('show-answers') ? 'Hide Answers' : 'Toggle All Answers';
+                btn.classList.toggle('bg-white');
+                btn.classList.toggle('bg-emerald-100');
+            }
+        }
+    };
+
+    window.toggleVisibility = function(id) {
+        const el = document.getElementById(id);
+        if(el) {
+            if(el.classList.contains('hidden')){
+                el.classList.remove('hidden');
+                el.classList.add('fade-in');
+                setTimeout(() => { el.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }, 50);
+            } else {
+                el.classList.add('hidden');
+                el.classList.remove('fade-in');
+            }
+        }
+    };
+</script>
+</body>
+</html>
