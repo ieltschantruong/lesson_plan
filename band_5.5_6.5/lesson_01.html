@@ -467,6 +467,99 @@
                             </p>
                         </div>
                     </div>
+                    <!-- Exercises 2 & 3: Matching -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="glass-card rounded-3xl p-6 exercise-container relative h-full">
+                            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-4 border-b border-pink-200 pb-2">
+                                <div>
+                                    <h3 class="text-xl font-bold text-rose-950 flex items-center gap-2">Exercise 2 <span class="text-3xl drop-shadow-sm ml-2">❤️</span></h3>
+                                    <p class="text-sm text-rose-900/60 mt-1">Match the beginnings and endings.</p>
+                                </div>
+                                <button onclick="toggleAnswers(this)" class="glass-button text-rose-800 font-bold py-1.5 px-4 rounded-xl text-sm shadow-sm shrink-0">
+                                    ✨ Reveal
+                                </button>
+                            </div>
+                            
+                            <div class="space-y-3 text-[0.95rem] font-semibold text-rose-950">
+                                <div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition">
+                                    <span class="flex items-center gap-2">1 I'm <strong class="text-orange-600">hooked</strong> <span class="text-[0.65rem] font-normal text-rose-900/60">/hʊkt/</span> <span class="text-[0.65rem] font-medium text-rose-900/70 italic block sm:inline">(say mê)</span> <button onclick="playAudio('hooked')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span>
+                                    <span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ C. on photography.</span>
+                                </div>
+                                <div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition">
+                                    <span class="flex items-center gap-2">2 My boy friend is <strong class="text-orange-600">into</strong> <span class="text-[0.65rem] font-medium text-rose-900/70 italic block sm:inline">(thích)</span> <button onclick="playAudio('into')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span>
+                                    <span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ A. cooking.</span>
+                                </div>
+                                <div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition">
+                                    <span class="flex items-center gap-2">3 My friends <strong class="text-orange-600">derive</strong> a lot of enjoyment <span class="text-[0.65rem] font-normal text-rose-900/60">/dɪˈraɪv/</span> <span class="text-[0.65rem] font-medium text-rose-900/70 italic block sm:inline">(nhận được)</span> <button onclick="playAudio('derive')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span>
+                                    <span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ B. from going shopping.</span>
+                                </div>
+                                <div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition">
+                                    <span class="flex items-center gap-2">4 My brother is very <strong class="text-orange-600">fond</strong> <span class="text-[0.65rem] font-normal text-rose-900/60">/fɑːnd/</span> <span class="text-[0.65rem] font-medium text-rose-900/70 italic block sm:inline">(yêu thích)</span> <button onclick="playAudio('fond')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span>
+                                    <span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ F. of singing.</span>
+                                </div>
+                                <div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition">
+                                    <span class="flex items-center gap-2">5 My roommate seems totally <strong class="text-orange-600">engrossed</strong> <span class="text-[0.65rem] font-normal text-rose-900/60">/ɪnˈɡroʊst/</span> <span class="text-[0.65rem] font-medium text-rose-900/70 italic block sm:inline">(mải mê)</span> <button onclick="playAudio('engrossed')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span>
+                                    <span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ D. in his book.</span>
+                                </div>
+                                <div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition">
+                                    <span class="flex items-center gap-2">6. My grandparents <strong class="text-orange-600">have a thing</strong> <span class="text-[0.65rem] font-medium text-rose-900/70 italic block sm:inline">(rất thích)</span> <button onclick="playAudio('have a thing')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span>
+                                    <span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ E. for gardening.</span>
+                                </div>
+                            </div>
+                            
+                            <div class="glass-panel p-4 mt-6 rounded-xl text-sm space-y-2 font-medium text-rose-950/80 bg-white/20 border border-white/40">
+                                <p><strong class="text-pink-500 mr-1">A.</strong> into cooking.</p>
+                                <p><strong class="text-pink-500 mr-1">B.</strong> from going shopping.</p>
+                                <p><strong class="text-pink-500 mr-1">C.</strong> on photography.</p>
+                                <p><strong class="text-pink-500 mr-1">D.</strong> in his book.</p>
+                                <p><strong class="text-pink-500 mr-1">E.</strong> for gardening.</p>
+                                <p><strong class="text-pink-500 mr-1">F.</strong> of singing.</p>
+                            </div>
+                        </div>
+
+                        <div class="glass-card rounded-3xl p-6 exercise-container relative h-full">
+                            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-4 border-b border-pink-200 pb-2">
+                                <div>
+                                    <h3 class="text-xl font-bold text-rose-950 flex items-center gap-2">Exercise 3 <span class="text-3xl drop-shadow-sm ml-2">😡</span></h3>
+                                    <p class="text-sm text-rose-900/60 mt-1">Match the beginnings and endings.</p>
+                                </div>
+                                <button onclick="toggleAnswers(this)" class="glass-button text-rose-800 font-bold py-1.5 px-4 rounded-xl text-sm shadow-sm shrink-0">
+                                    ✨ Reveal
+                                </button>
+                            </div>
+                            
+                            <div class="space-y-3 text-[0.95rem] font-semibold text-rose-950">
+                                <div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition">
+                                    <span class="flex items-center gap-2">1 I have <strong class="text-orange-600">no time</strong> <span class="text-[0.65rem] font-medium text-rose-900/70 italic block sm:inline">(không rảnh/không thích)</span> <button onclick="playAudio('have no time')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span>
+                                    <span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ B. for latecomers.</span>
+                                </div>
+                                <div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition">
+                                    <span class="flex items-center gap-2">2 Doing laundry is</span>
+                                    <span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ A. my boy friend's <strong class="text-orange-600">pet peeve</strong> <span class="text-[0.65rem] font-normal text-rose-900/60">/pet piːv/</span> <span class="text-[0.65rem] font-medium text-rose-900/70 italic block sm:inline">(điều ghét nhất)</span> <button onclick="playAudio('pet peeve')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span>
+                                </div>
+                                <div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition">
+                                    <span class="flex items-center gap-2">3 Mothers often <strong class="text-orange-600">hate the sight</strong> <span class="text-[0.65rem] font-medium text-rose-900/70 italic block sm:inline">(ghét phải nhìn thấy)</span> <button onclick="playAudio('hate the sight')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span>
+                                    <span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ C. of messy desks.</span>
+                                </div>
+                                <div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition">
+                                    <span class="flex items-center gap-2">4 My deskmate is <strong class="text-orange-600">averse</strong> <span class="text-[0.65rem] font-normal text-rose-900/60">/əˈvɜːrs/</span> <span class="text-[0.65rem] font-medium text-rose-900/70 italic block sm:inline">(ác cảm/không thích)</span> <button onclick="playAudio('averse')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span>
+                                    <span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ E. to cooking.</span>
+                                </div>
+                                <div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition">
+                                    <span class="flex items-center gap-2">5 My brother <strong class="text-orange-600">can't stand</strong> <span class="text-[0.65rem] font-medium text-rose-900/70 italic block sm:inline">(không thể chịu nổi)</span> <button onclick="playAudio('cannot stand')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span>
+                                    <span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ D. advertisements.</span>
+                                </div>
+                            </div>
+
+                            <div class="glass-panel p-4 mt-6 rounded-xl text-sm space-y-2 font-medium text-rose-950/80 bg-white/20 border border-white/40">
+                                <p><strong class="text-pink-500 mr-1">A.</strong> my boy friend's <strong class="text-orange-600">pet peeve</strong>.</p>
+                                <p><strong class="text-pink-500 mr-1">B.</strong> for latecomers.</p>
+                                <p><strong class="text-pink-500 mr-1">C.</strong> of messy desks.</p>
+                                <p><strong class="text-pink-500 mr-1">D.</strong> advertisements.</p>
+                                <p><strong class="text-pink-500 mr-1">E.</strong> to cooking.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
