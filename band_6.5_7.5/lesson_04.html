@@ -35,7 +35,6 @@
 </head>
 <body class="h-screen flex flex-col overflow-hidden text-gray-800">
 
-    <!-- Elegant Header -->
     <header id="app-header" class="text-white p-4 shadow-lg transition-colors duration-700 z-20 relative bg-gradient-to-r from-rose-400 via-pink-400 to-fuchsia-400">
         <div class="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9IiNmZmYiLz48L3N2Zz4=')]"></div>
         
@@ -69,7 +68,7 @@
 
                 <div class="hidden sm:flex items-center space-x-2 text-sm font-bold text-rose-900 bg-white px-4 py-2 rounded-full shadow-sm">
                     <svg class="w-4 h-4 text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    <span>90 Mins</span>
+                    <span>120 Mins</span>
                 </div>
             </div>
         </div>
@@ -106,7 +105,6 @@
     </footer>
 
 <script>
-    // --- TIMER LOGIC ---
     let timers = {
         prep: { interval: null, remaining: 60, isRunning: false },
         speak: { interval: null, remaining: 120, isRunning: false }
@@ -188,12 +186,431 @@
     // --- DATA STRUCTURE ---
     const sessionData = [
         {
+            id: 'skills_vocab',
+            type: 'Speaking',
+            themeClass: 'bg-gradient-to-r from-amber-400 to-orange-500',
+            iconColor: 'text-amber-500',
+            bgColor: 'bg-amber-50',
+            title: '1. Skills Vocab Exercises',
+            content: `
+                <div class="fade-in bg-white rounded-3xl shadow-xl border border-amber-50 p-8 md:p-12 relative">
+                    <div class="flex items-center gap-3 mb-6 border-b border-gray-100 pb-4">
+                        <span class="inline-block py-1 px-3 rounded-full bg-amber-100 text-amber-700 font-bold text-xs uppercase tracking-widest">New Theme</span>
+                        <h3 class="text-3xl font-bold text-gray-800">Skills Vocabulary Exercises</h3>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        
+                        <!-- Exercise 1 -->
+                        <div class="bg-gray-50 rounded-2xl p-6 border border-gray-200">
+                            <h4 class="font-bold text-gray-800 text-lg mb-2">Exercise 1: Brainstorming</h4>
+                            <p class="text-gray-600 text-sm font-medium mb-3">Make a list of the skills that you think are useful in today's society.</p>
+                            <div class="bg-white border border-amber-100 rounded-xl p-4 shadow-inner min-h-[80px] flex items-center justify-center">
+                                <p class="text-gray-400 text-sm italic">e.g. Coding, Time Management, Adaptability...</p>
+                            </div>
+                        </div>
+
+                        <!-- Exercise 2 -->
+                        <div id="ex-skills-2" class="bg-gray-50 rounded-2xl p-6 border border-gray-200">
+                            <div class="flex justify-between items-start gap-4 mb-4">
+                                <h4 class="font-bold text-gray-800 text-lg">Exercise 2: Match the skills with the suitable definitions.</h4>
+                                <button id="btn-ex-skills-2" onclick="toggleInlineAnswers('ex-skills-2', 'btn-ex-skills-2')" class="text-xs font-bold text-amber-600 bg-amber-100 hover:bg-amber-200 px-4 py-2 rounded-lg transition-colors whitespace-nowrap shadow-sm">Show Answers</button>
+                            </div>
+                            
+                            <div class="flex flex-wrap gap-3 justify-center mb-6">
+                                <div class="relative flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-amber-100 shadow-sm min-w-[130px] text-center">
+                                    <div class="ans-inline hidden absolute -top-2 -right-2 bg-emerald-500 text-white font-bold w-6 h-6 rounded-full flex items-center justify-center text-xs shadow-md z-10">A</div>
+                                    <span class="text-amber-700 font-bold text-sm">Critical thinking</span>
+                                    <span class="text-gray-500 text-[11px] font-normal">/ˈkrɪtɪkəl ˈθɪŋkɪŋ/</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">Tư duy phản biện</span>
+                                </div>
+                                <div class="relative flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-amber-100 shadow-sm min-w-[130px] text-center">
+                                    <div class="ans-inline hidden absolute -top-2 -right-2 bg-emerald-500 text-white font-bold w-6 h-6 rounded-full flex items-center justify-center text-xs shadow-md z-10">C</div>
+                                    <span class="text-amber-700 font-bold text-sm">Communication</span>
+                                    <span class="text-gray-500 text-[11px] font-normal">/kəˌmjuːnɪˈkeɪʃən/</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">Giao tiếp</span>
+                                </div>
+                                <div class="relative flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-amber-100 shadow-sm min-w-[130px] text-center">
+                                    <div class="ans-inline hidden absolute -top-2 -right-2 bg-emerald-500 text-white font-bold w-6 h-6 rounded-full flex items-center justify-center text-xs shadow-md z-10">G</div>
+                                    <span class="text-amber-700 font-bold text-sm">Collaboration</span>
+                                    <span class="text-gray-500 text-[11px] font-normal">/kəˌlæbəˈreɪʃən/</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">Sự hợp tác</span>
+                                </div>
+                                <div class="relative flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-amber-100 shadow-sm min-w-[130px] text-center">
+                                    <div class="ans-inline hidden absolute -top-2 -right-2 bg-emerald-500 text-white font-bold w-6 h-6 rounded-full flex items-center justify-center text-xs shadow-md z-10">B</div>
+                                    <span class="text-amber-700 font-bold text-sm">Self-management</span>
+                                    <span class="text-gray-500 text-[11px] font-normal">/self-ˈmænɪdʒmənt/</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">Tự quản lý</span>
+                                </div>
+                                <div class="relative flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-amber-100 shadow-sm min-w-[130px] text-center">
+                                    <div class="ans-inline hidden absolute -top-2 -right-2 bg-emerald-500 text-white font-bold w-6 h-6 rounded-full flex items-center justify-center text-xs shadow-md z-10">E</div>
+                                    <span class="text-amber-700 font-bold text-sm">Social responsibility</span>
+                                    <span class="text-gray-500 text-[11px] font-normal">/rɪˌspɒnsɪˈbɪlɪti/</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">Trách nhiệm XH</span>
+                                </div>
+                                <div class="relative flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-amber-100 shadow-sm min-w-[130px] text-center">
+                                    <div class="ans-inline hidden absolute -top-2 -right-2 bg-emerald-500 text-white font-bold w-6 h-6 rounded-full flex items-center justify-center text-xs shadow-md z-10">F</div>
+                                    <span class="text-amber-700 font-bold text-sm">Leadership</span>
+                                    <span class="text-gray-500 text-[11px] font-normal">/ˈliːdəʃɪp/</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">Khả năng lãnh đạo</span>
+                                </div>
+                                <div class="relative flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-amber-100 shadow-sm min-w-[130px] text-center">
+                                    <div class="ans-inline hidden absolute -top-2 -right-2 bg-emerald-500 text-white font-bold w-6 h-6 rounded-full flex items-center justify-center text-xs shadow-md z-10">D</div>
+                                    <span class="text-amber-700 font-bold text-sm">Creative thinking</span>
+                                    <span class="text-gray-500 text-[11px] font-normal">/kriˈeɪtɪv ˈθɪŋkɪŋ/</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">Tư duy sáng tạo</span>
+                                </div>
+                            </div>
+
+                            <div class="space-y-3 text-sm text-gray-700 font-medium">
+                                <p><span class="font-bold text-amber-600 mr-2">A.</span> the ability to think clearly and rationally</p>
+                                <p><span class="font-bold text-amber-600 mr-2">B.</span> the ability to manage one's emotions, behavior, effort, and environment in the pursuit of goals</p>
+                                <p><span class="font-bold text-amber-600 mr-2">C.</span> the ability to receive and convey information effectively</p>
+                                <p><span class="font-bold text-amber-600 mr-2">D.</span> the ability to produce novel and useful ideas</p>
+                                <p><span class="font-bold text-amber-600 mr-2">E.</span> responsibility to behave ethically towards social, cultural, civic, and environmental issues</p>
+                                <p><span class="font-bold text-amber-600 mr-2">F.</span> the ability to organize other people to reach shared goals</p>
+                                <p><span class="font-bold text-amber-600 mr-2">G.</span> the ability to work effectively with others</p>
+                            </div>
+                        </div>
+
+                        <!-- Exercise 3 -->
+                        <div id="ex-skills-3" class="bg-gray-50 rounded-2xl p-6 border border-gray-200">
+                            <div class="flex justify-between items-start gap-4 mb-4">
+                                <h4 class="font-bold text-gray-800 text-lg">Exercise 3: Match words to form meaningful phrases.</h4>
+                                <button id="btn-ex-skills-3" onclick="toggleInlineAnswers('ex-skills-3', 'btn-ex-skills-3')" class="text-xs font-bold text-amber-600 bg-amber-100 hover:bg-amber-200 px-4 py-2 rounded-lg transition-colors whitespace-nowrap shadow-sm">Show Answers</button>
+                            </div>
+                            
+                            <div class="flex flex-wrap gap-3 justify-center mb-6">
+                                <div class="relative flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-amber-100 shadow-sm min-w-[100px] text-center">
+                                    <div class="ans-inline hidden absolute -top-2 -right-2 bg-emerald-500 text-white font-bold w-6 h-6 rounded-full flex items-center justify-center text-xs shadow-md z-10">B</div>
+                                    <span class="text-amber-700 font-bold text-sm">1. sharpen</span>
+                                    <span class="text-gray-500 text-[11px] font-normal">/ˈʃɑːpən/</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">trau dồi</span>
+                                </div>
+                                <div class="relative flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-amber-100 shadow-sm min-w-[100px] text-center">
+                                    <div class="ans-inline hidden absolute -top-2 -right-2 bg-emerald-500 text-white font-bold w-6 h-6 rounded-full flex items-center justify-center text-xs shadow-md z-10">D</div>
+                                    <span class="text-amber-700 font-bold text-sm">2. learn</span>
+                                    <span class="text-gray-500 text-[11px] font-normal">/lɜːn/</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">học hỏi</span>
+                                </div>
+                                <div class="relative flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-amber-100 shadow-sm min-w-[100px] text-center">
+                                    <div class="ans-inline hidden absolute -top-2 -right-2 bg-emerald-500 text-white font-bold w-6 h-6 rounded-full flex items-center justify-center text-xs shadow-md z-10">A</div>
+                                    <span class="text-amber-700 font-bold text-sm">3. achieve</span>
+                                    <span class="text-gray-500 text-[11px] font-normal">/əˈtʃiːv/</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">đạt được</span>
+                                </div>
+                                <div class="relative flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-amber-100 shadow-sm min-w-[100px] text-center">
+                                    <div class="ans-inline hidden absolute -top-2 -right-2 bg-emerald-500 text-white font-bold w-6 h-6 rounded-full flex items-center justify-center text-xs shadow-md z-10">F</div>
+                                    <span class="text-amber-700 font-bold text-sm">4. optimize</span>
+                                    <span class="text-gray-500 text-[11px] font-normal">/ˈɒptɪmaɪz/</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">tối ưu hóa</span>
+                                </div>
+                                <div class="relative flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-amber-100 shadow-sm min-w-[100px] text-center">
+                                    <div class="ans-inline hidden absolute -top-2 -right-2 bg-emerald-500 text-white font-bold w-6 h-6 rounded-full flex items-center justify-center text-xs shadow-md z-10">C</div>
+                                    <span class="text-amber-700 font-bold text-sm">5. reconcile</span>
+                                    <span class="text-gray-500 text-[11px] font-normal">/ˈrekənsaɪl/</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">dung hòa</span>
+                                </div>
+                                <div class="relative flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-amber-100 shadow-sm min-w-[100px] text-center">
+                                    <div class="ans-inline hidden absolute -top-2 -right-2 bg-emerald-500 text-white font-bold w-6 h-6 rounded-full flex items-center justify-center text-xs shadow-md z-10">E</div>
+                                    <span class="text-amber-700 font-bold text-sm">6. manage</span>
+                                    <span class="text-gray-500 text-[11px] font-normal">/ˈmænɪdʒ/</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">quản lý</span>
+                                </div>
+                            </div>
+
+                            <div class="bg-amber-50 p-4 rounded-xl border border-amber-100 text-sm text-gray-800 font-medium space-y-2 max-w-sm mx-auto">
+                                <p class="text-xs uppercase tracking-widest font-black text-amber-700 mb-3 border-b border-amber-200 pb-2">Column B</p>
+                                <p><span class="font-bold mr-2 text-amber-600">A.</span> shared goals</p>
+                                <p><span class="font-bold mr-2 text-amber-600">B.</span> skills</p>
+                                <p><span class="font-bold mr-2 text-amber-600">C.</span> differences</p>
+                                <p><span class="font-bold mr-2 text-amber-600">D.</span> how to cooperate / collaborate</p>
+                                <p><span class="font-bold mr-2 text-amber-600">E.</span> personal finance <span class="text-gray-500 font-normal">/faɪˈnæns/</span></p>
+                                <p><span class="font-bold mr-2 text-amber-600">F.</span> productivity</p>
+                            </div>
+                        </div>
+
+                        <!-- Exercise 4 -->
+                        <div id="ex-skills-4" class="bg-gray-50 rounded-2xl p-6 border border-gray-200">
+                            <div class="flex justify-between items-start gap-4 mb-4">
+                                <h4 class="font-bold text-gray-800 text-lg">Exercise 4: Match the phrases with the meaning.</h4>
+                                <button id="btn-ex-skills-4" onclick="toggleInlineAnswers('ex-skills-4', 'btn-ex-skills-4')" class="text-xs font-bold text-amber-600 bg-amber-100 hover:bg-amber-200 px-4 py-2 rounded-lg transition-colors whitespace-nowrap shadow-sm">Show Answers</button>
+                            </div>
+                            
+                            <div class="flex flex-wrap gap-3 justify-center mb-6">
+                                <div class="relative flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-amber-100 shadow-sm min-w-[140px] text-center">
+                                    <div class="ans-inline hidden absolute -top-2 -right-2 bg-emerald-500 text-white font-bold w-6 h-6 rounded-full flex items-center justify-center text-xs shadow-md z-10">B</div>
+                                    <span class="text-amber-700 font-bold text-sm">take a crash course</span>
+                                    <span class="text-gray-500 text-[11px] font-normal">/kræʃ kɔːs/</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">học khóa cấp tốc</span>
+                                </div>
+                                <div class="relative flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-amber-100 shadow-sm min-w-[140px] text-center">
+                                    <div class="ans-inline hidden absolute -top-2 -right-2 bg-emerald-500 text-white font-bold w-6 h-6 rounded-full flex items-center justify-center text-xs shadow-md z-10">D</div>
+                                    <span class="text-amber-700 font-bold text-sm">learn by doing</span>
+                                    <span class="text-gray-500 text-[11px] font-normal">/lɜːn baɪ ˈduːɪŋ/</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">học qua thực hành</span>
+                                </div>
+                                <div class="relative flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-amber-100 shadow-sm min-w-[140px] text-center">
+                                    <div class="ans-inline hidden absolute -top-2 -right-2 bg-emerald-500 text-white font-bold w-6 h-6 rounded-full flex items-center justify-center text-xs shadow-md z-10">A</div>
+                                    <span class="text-amber-700 font-bold text-sm">find a mentor</span>
+                                    <span class="text-gray-500 text-[11px] font-normal">/faɪnd ə ˈmentɔː/</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">tìm người hướng dẫn</span>
+                                </div>
+                                <div class="relative flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-amber-100 shadow-sm min-w-[140px] text-center">
+                                    <div class="ans-inline hidden absolute -top-2 -right-2 bg-emerald-500 text-white font-bold w-6 h-6 rounded-full flex items-center justify-center text-xs shadow-md z-10">F</div>
+                                    <span class="text-amber-700 font-bold text-sm">have a schedule</span>
+                                    <span class="text-gray-500 text-[11px] font-normal">/hæv ə ˈʃedjuːl/</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">có lịch trình</span>
+                                </div>
+                                <div class="relative flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-amber-100 shadow-sm min-w-[140px] text-center">
+                                    <div class="ans-inline hidden absolute -top-2 -right-2 bg-emerald-500 text-white font-bold w-6 h-6 rounded-full flex items-center justify-center text-xs shadow-md z-10">C</div>
+                                    <span class="text-amber-700 font-bold text-sm">vary your training subtly</span>
+                                    <span class="text-gray-500 text-[11px] font-normal">/ˈsʌtli/</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">thay đổi bài tập nhẹ</span>
+                                </div>
+                                <div class="relative flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-amber-100 shadow-sm min-w-[140px] text-center">
+                                    <div class="ans-inline hidden absolute -top-2 -right-2 bg-emerald-500 text-white font-bold w-6 h-6 rounded-full flex items-center justify-center text-xs shadow-md z-10">E</div>
+                                    <span class="text-amber-700 font-bold text-sm">monitor your growth</span>
+                                    <span class="text-gray-500 text-[11px] font-normal">/ˈmɒnɪtə jɔː ɡrəʊθ/</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">theo dõi tiến trình</span>
+                                </div>
+                                <div class="relative flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-amber-100 shadow-sm min-w-[140px] text-center">
+                                    <div class="ans-inline hidden absolute -top-2 -right-2 bg-emerald-500 text-white font-bold w-6 h-6 rounded-full flex items-center justify-center text-xs shadow-md z-10">G</div>
+                                    <span class="text-amber-700 font-bold text-sm text-center">surround yourself with<br>like-minded friends</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">kết bạn cùng chí hướng</span>
+                                </div>
+                            </div>
+
+                            <div class="space-y-3 text-sm text-gray-700 font-medium">
+                                <p><span class="font-bold text-amber-600 mr-2">A.</span> learn from an experienced person</p>
+                                <p><span class="font-bold text-amber-600 mr-2">B.</span> join a short course in which you work hard to achieve quick results</p>
+                                <p><span class="font-bold text-amber-600 mr-2">C.</span> change the way you practice slightly</p>
+                                <p><span class="font-bold text-amber-600 mr-2">D.</span> perform the tasks you're trying to learn</p>
+                                <p><span class="font-bold text-amber-600 mr-2">E.</span> keep track of your progress</p>
+                                <p><span class="font-bold text-amber-600 mr-2">F.</span> do something consistently at the same time every day</p>
+                                <p><span class="font-bold text-amber-600 mr-2">G.</span> spend time with people having similar interests</p>
+                            </div>
+                        </div>
+
+                        <!-- Exercise 5 -->
+                        <div id="ex-skills-5" class="bg-gray-50 rounded-2xl p-6 border border-gray-200">
+                            <div class="flex justify-between items-start gap-4 mb-4">
+                                <h4 class="font-bold text-gray-800 text-lg">Exercise 5: Fill in each blank with one suitable word.</h4>
+                                <button id="btn-ex-skills-5" onclick="toggleInlineAnswers('ex-skills-5', 'btn-ex-skills-5')" class="text-xs font-bold text-amber-600 bg-amber-100 hover:bg-amber-200 px-4 py-2 rounded-lg transition-colors whitespace-nowrap shadow-sm">Show Answers</button>
+                            </div>
+                            
+                            <div class="flex flex-wrap gap-3 justify-center mb-6">
+                                <div class="flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-amber-100 shadow-sm min-w-[90px] text-center">
+                                    <span class="text-amber-700 font-bold text-sm">struggle</span>
+                                    <span class="text-gray-500 text-[11px] font-normal">/ˈstrʌɡəl/</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">chật vật</span>
+                                </div>
+                                <div class="flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-amber-100 shadow-sm min-w-[90px] text-center">
+                                    <span class="text-amber-700 font-bold text-sm">refuse</span>
+                                    <span class="text-gray-500 text-[11px] font-normal">/rɪˈfjuːz/</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">từ chối</span>
+                                </div>
+                                <div class="flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-amber-100 shadow-sm min-w-[90px] text-center">
+                                    <span class="text-amber-700 font-bold text-sm">perfect</span>
+                                    <span class="text-gray-500 text-[11px] font-normal">/pəˈfekt/</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">hoàn thiện</span>
+                                </div>
+                                <div class="flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-amber-100 shadow-sm min-w-[90px] text-center">
+                                    <span class="text-amber-700 font-bold text-sm">self-esteem</span>
+                                    <span class="text-gray-500 text-[11px] font-normal">/ˌself ɪˈstiːm/</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">lòng tự trọng</span>
+                                </div>
+                                <div class="flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-amber-100 shadow-sm min-w-[90px] text-center">
+                                    <span class="text-amber-700 font-bold text-sm">concept</span>
+                                    <span class="text-gray-500 text-[11px] font-normal">/ˈkɒnsept/</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">khái niệm</span>
+                                </div>
+                                <div class="flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-amber-100 shadow-sm min-w-[90px] text-center">
+                                    <span class="text-amber-700 font-bold text-sm">incentive</span>
+                                    <span class="text-gray-500 text-[11px] font-normal">/ɪnˈsentɪv/</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">động lực</span>
+                                </div>
+                                <div class="flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-amber-100 shadow-sm min-w-[90px] text-center">
+                                    <span class="text-amber-700 font-bold text-sm">strides</span>
+                                    <span class="text-gray-500 text-[11px] font-normal">/straɪdz/</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">bước tiến</span>
+                                </div>
+                                <div class="flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-amber-100 shadow-sm min-w-[90px] text-center">
+                                    <span class="text-amber-700 font-bold text-sm">persevering</span>
+                                    <span class="text-gray-500 text-[11px] font-normal">/ˌpɜːsɪˈvɪərɪŋ/</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">kiên trì</span>
+                                </div>
+                                <div class="flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-amber-100 shadow-sm min-w-[90px] text-center">
+                                    <span class="text-amber-700 font-bold text-sm">content</span>
+                                    <span class="text-gray-500 text-[11px] font-normal">/kənˈtent/</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">hài lòng</span>
+                                </div>
+                                <div class="flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-amber-100 shadow-sm min-w-[90px] text-center">
+                                    <span class="text-amber-700 font-bold text-sm">absorb</span>
+                                    <span class="text-gray-500 text-[11px] font-normal">/əbˈzɔːb/</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">hấp thụ, miệt mài</span>
+                                </div>
+                            </div>
+
+                            <div class="space-y-3 text-gray-700 text-sm font-medium leading-loose">
+                                <p>1. Some <span class="blank-inline text-gray-400">........................</span><span class="ans-inline hidden text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded font-bold">refuse</span> to learn a new <span class="blank-inline text-gray-400">........................</span><span class="ans-inline hidden text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded font-bold">concept</span></p>
+                                <p>2. It takes blood, sweat, and tears to <span class="blank-inline text-gray-400">........................</span><span class="ans-inline hidden text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded font-bold">perfect</span> a new skill.</p>
+                                <p>3. Some <span class="blank-inline text-gray-400">........................</span><span class="ans-inline hidden text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded font-bold">struggle</span> to acquire new skills because they are <span class="blank-inline text-gray-400">........................</span><span class="ans-inline hidden text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded font-bold">content</span> with their current life.</p>
+                                <p>4. Some have low <span class="blank-inline text-gray-400">........................</span><span class="ans-inline hidden text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded font-bold">self-esteem</span>, so they think they are cynical about their chances of success.</p>
+                                <p>5. You need to be <span class="blank-inline text-gray-400">........................</span><span class="ans-inline hidden text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded font-bold">persevering</span> if you wish to improve yourself.</p>
+                                <p>6. Most people said that income was their main <span class="blank-inline text-gray-400">........................</span><span class="ans-inline hidden text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded font-bold">incentive</span> for working.</p>
+                                <p>7. <span class="blank-inline text-gray-400">........................</span><span class="ans-inline hidden text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded font-bold">Absorb</span> yourself in the language and you will make great <span class="blank-inline text-gray-400">........................</span><span class="ans-inline hidden text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded font-bold">strides</span></p>
+                            </div>
+                        </div>
+
+                        <!-- Exercise 6 -->
+                        <div id="ex-skills-6" class="bg-gray-50 rounded-2xl p-6 border border-gray-200">
+                            <div class="flex justify-between items-start gap-4 mb-4">
+                                <h4 class="font-bold text-gray-800 text-lg">Exercise 6: Fill in each blank with the suitable form.</h4>
+                                <button id="btn-ex-skills-6" onclick="toggleInlineAnswers('ex-skills-6', 'btn-ex-skills-6')" class="text-xs font-bold text-amber-600 bg-amber-100 hover:bg-amber-200 px-4 py-2 rounded-lg transition-colors whitespace-nowrap shadow-sm">Show Answers</button>
+                            </div>
+                            
+                            <div class="text-sm text-gray-700 font-medium leading-[2.5] bg-white p-6 rounded-xl shadow-inner border border-amber-50">
+                                There are a host of merits associated with learning something new. First and foremost, learning new skills is essential to career (1) <span class="font-bold text-amber-600">(ADVANCE)</span> <span class="blank-inline text-gray-300 mx-1 border-b border-gray-300 w-16 inline-block"></span><span class="ans-inline hidden text-emerald-700 font-bold px-2 py-0.5 bg-emerald-100 rounded mx-1">advancement</span> because it diversifies your job options and helps you develop new techniques to keep up with the fast-(2) <span class="font-bold text-amber-600">(CHANGE)</span> <span class="blank-inline text-gray-300 mx-1 border-b border-gray-300 w-16 inline-block"></span><span class="ans-inline hidden text-emerald-700 font-bold px-2 py-0.5 bg-emerald-100 rounded mx-1">changing</span> world. In addition, learning keeps your mind (3) <span class="font-bold text-amber-600">(ENGAGE)</span> <span class="blank-inline text-gray-300 mx-1 border-b border-gray-300 w-16 inline-block"></span><span class="ans-inline hidden text-emerald-700 font-bold px-2 py-0.5 bg-emerald-100 rounded mx-1">engaged</span> and body active. It helps you gain new experiences, trains your brain to handle a wide range of challenges and keeps your (4) <span class="font-bold text-amber-600">(NEURON)</span> <span class="blank-inline text-gray-300 mx-1 border-b border-gray-300 w-16 inline-block"></span><span class="ans-inline hidden text-emerald-700 font-bold px-2 py-0.5 bg-emerald-100 rounded mx-1">neural</span> pathways active. On top of that, acquiring new skills can be (5) <span class="font-bold text-amber-600">(THERAPY)</span> <span class="blank-inline text-gray-300 mx-1 border-b border-gray-300 w-16 inline-block"></span><span class="ans-inline hidden text-emerald-700 font-bold px-2 py-0.5 bg-emerald-100 rounded mx-1">therapeutic</span> for a troubled mind because this process is fascinating and (6) <span class="font-bold text-amber-600">(REWARD)</span> <span class="blank-inline text-gray-300 mx-1 border-b border-gray-300 w-16 inline-block"></span><span class="ans-inline hidden text-emerald-700 font-bold px-2 py-0.5 bg-emerald-100 rounded mx-1">rewarding</span> . Discovering your unknown potentials can boost your (7) <span class="font-bold text-amber-600">(SELF-ASSURED)</span> <span class="blank-inline text-gray-300 mx-1 border-b border-gray-300 w-16 inline-block"></span><span class="ans-inline hidden text-emerald-700 font-bold px-2 py-0.5 bg-emerald-100 rounded mx-1">self-assurance</span> and nurture a growth mindset.
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            `
+        },
+        {
+            id: 'skills_practice',
+            type: 'Speaking',
+            themeClass: 'bg-gradient-to-r from-blue-500 to-indigo-600',
+            iconColor: 'text-blue-500',
+            bgColor: 'bg-blue-50',
+            title: '2. Skills Speaking Practice',
+            content: `
+                <div class="fade-in">
+                    <div class="bg-white rounded-3xl shadow-lg border border-blue-100 p-6 mb-8 flex flex-col md:flex-row justify-between items-center gap-6">
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-800">Part 2: Long Turn</h3>
+                            <p class="text-gray-500 mt-1 font-medium">Manage the candidate's preparation and speaking time.</p>
+                        </div>
+                        
+                        <div class="flex gap-4 w-full md:w-auto">
+                            <div class="bg-blue-50 rounded-2xl p-4 border border-blue-100 text-center flex-1 md:w-40 shadow-sm">
+                                <h4 class="text-blue-500 font-bold uppercase text-[10px] tracking-wider mb-2">Prep Time (1 Min)</h4>
+                                <div class="text-4xl font-black text-blue-700 timer-text mb-3 drop-shadow-sm" id="prep-timer">01:00</div>
+                                <button onclick="toggleTimer('prep', 60)" id="btn-prep-timer" class="w-full bg-blue-200 text-blue-800 py-2 rounded-xl font-bold hover:bg-blue-300 transition-colors text-sm">Start</button>
+                            </div>
+                            <div class="bg-indigo-50 rounded-2xl p-4 border border-indigo-100 text-center flex-1 md:w-40 shadow-sm">
+                                <h4 class="text-indigo-600 font-bold uppercase text-[10px] tracking-wider mb-2">Speaking (2 Mins)</h4>
+                                <div class="text-4xl font-black text-indigo-600 timer-text mb-3 drop-shadow-sm" id="speak-timer">02:00</div>
+                                <button onclick="toggleTimer('speak', 120)" id="btn-speak-timer" class="w-full bg-gradient-to-r from-indigo-500 to-blue-500 text-white py-2 rounded-xl font-bold hover:opacity-90 transition-opacity text-sm shadow-sm">Start</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-3xl shadow-xl border border-blue-50 p-8 mb-8">
+                        <div class="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-2xl mb-8 shadow-sm">
+                            <p class="text-blue-800 font-bold uppercase tracking-wider text-xs mb-2">Candidate Task Card</p>
+                            <p class="text-xl font-bold text-gray-800 mb-4">Describe new difficult skills you would like to learn</p>
+                            <ul class="text-gray-700 space-y-2 list-disc list-inside font-medium ml-2">
+                                <li>What it is</li>
+                                <li>Where you can learn it</li>
+                                <li>How you will learn it and how long it will take to learn this skill</li>
+                                <li>Why you would like to learn it</li>
+                            </ul>
+                            
+                            <div class="mt-6 pt-5 border-t border-blue-200 text-sm text-gray-700 space-y-3 italic">
+                                <p><span class="font-bold text-blue-700 not-italic mr-1">a.</span> When it comes to new challenging skills I would like to acquire, I guess my choice is going to be ...</p>
+                                <p><span class="font-bold text-blue-700 not-italic mr-1">b.</span> I would kick off by saying something about where I can learn this skill.</p>
+                                <p><span class="font-bold text-blue-700 not-italic mr-1">c.</span> Regarding how I will learn it and how long it will take to master this skill, I suppose that ...</p>
+                                <p><span class="font-bold text-blue-700 not-italic mr-1">d.</span> As a final point, I'd like to mention why I would like to learn this skill ...</p>
+                            </div>
+                        </div>
+                        
+                        <button onclick="toggleVisibility('p2-skills-sample')" class="w-full text-left py-3 px-5 bg-gray-50 rounded-xl text-sm font-bold text-gray-700 hover:bg-gray-100 transition-colors flex justify-between items-center mb-4 border border-gray-200">
+                            Show Band 6.5-7.5 Sample Response
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        
+                        <div id="p2-skills-sample" class="hidden bg-white border border-emerald-100 rounded-2xl p-6 shadow-sm">
+                            <h4 class="font-bold text-emerald-600 flex items-center gap-2 mb-4">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                High-Scoring Sample
+                            </h4>
+                            <div class="text-gray-700 text-sm leading-relaxed space-y-3 italic">
+                                <p>"When it comes to new challenging skills I would like to acquire, I guess my choice is going to be professional graphic design. It's incredibly relevant in today's <span class="font-bold text-blue-600">fast-changing</span> digital world."</p>
+                                <p>"I would kick off by saying something about where I can learn this skill. Initially, I plan to <span class="font-bold text-blue-600">take a crash course</span> online to get the basics down. After that, I hope to <span class="font-bold text-blue-600">find a mentor</span> who is already established in the industry so I can <span class="font-bold text-blue-600">learn by doing</span> through hands-on projects."</p>
+                                <p>"Regarding how I will learn it and how long it will take, I suppose that I will need to have a strict schedule and <span class="font-bold text-blue-600">absorb myself</span> in the software tools for at least a year. I also want to <span class="font-bold text-blue-600">surround myself with like-minded friends</span> to stay motivated and <span class="font-bold text-blue-600">monitor my growth</span>."</p>
+                                <p>"As a final point, I'd like to mention why I would like to learn this skill. Beyond the obvious career <span class="font-bold text-blue-600">advancement</span>, I find creative processes to be incredibly <span class="font-bold text-blue-600">therapeutic</span> and deeply <span class="font-bold text-blue-600">rewarding</span>. Mastering it would definitely give me a huge sense of <span class="font-bold text-blue-600">self-assurance</span>."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-3xl shadow-xl border border-indigo-50 p-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6 border-b border-gray-100 pb-4">Part 3: Two-way Discussion</h3>
+                        
+                        <div class="space-y-5">
+                            <div class="bg-gray-50 rounded-2xl p-5 border border-gray-200">
+                                <div class="flex justify-between items-start gap-4 mb-3">
+                                    <p class="font-bold text-gray-800 text-lg">1. Why are some people unwilling to learn new skills?</p>
+                                    <button onclick="toggleVisibility('p3-skills-1')" class="text-xs font-bold text-emerald-600 bg-emerald-100 hover:bg-emerald-200 px-4 py-2 rounded-lg transition-colors whitespace-nowrap shadow-sm">Sample</button>
+                                </div>
+                                <div id="p3-skills-1" class="hidden bg-white border-l-4 border-emerald-400 p-4 rounded-r-lg shadow-sm mt-3">
+                                    <p class="text-gray-700 italic text-sm leading-relaxed">"I believe many people simply <span class="font-semibold text-indigo-600">refuse</span> to learn because they are completely <span class="font-semibold text-indigo-600">content</span> with their current comfort zones. Additionally, older individuals might <span class="font-semibold text-indigo-600">struggle</span> to grasp new <span class="font-semibold text-indigo-600">concepts</span>, leading to a fear of failure that stops them from trying."</p>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gray-50 rounded-2xl p-5 border border-gray-200">
+                                <div class="flex justify-between items-start gap-4 mb-3">
+                                    <p class="font-bold text-gray-800 text-lg">2. Why would people spend a lot of time learning new skills?</p>
+                                    <button onclick="toggleVisibility('p3-skills-2')" class="text-xs font-bold text-emerald-600 bg-emerald-100 hover:bg-emerald-200 px-4 py-2 rounded-lg transition-colors whitespace-nowrap shadow-sm">Sample</button>
+                                </div>
+                                <div id="p3-skills-2" class="hidden bg-white border-l-4 border-emerald-400 p-4 rounded-r-lg shadow-sm mt-3">
+                                    <p class="text-gray-700 italic text-sm leading-relaxed">"The primary <span class="font-semibold text-indigo-600">incentive</span> is usually career <span class="font-semibold text-indigo-600">advancement</span>. People want to <span class="font-semibold text-indigo-600">optimize their productivity</span> and stand out in the job market. Moreover, dedicating time to <span class="font-semibold text-indigo-600">perfect</span> a skill can be deeply <span class="font-semibold text-indigo-600">rewarding</span> on a personal level."</p>
+                                </div>
+                            </div>
+
+                            <div class="bg-gray-50 rounded-2xl p-5 border border-gray-200">
+                                <div class="flex justify-between items-start gap-4 mb-3">
+                                    <p class="font-bold text-gray-800 text-lg">3. Do people feel happy after learning new skills?</p>
+                                    <button onclick="toggleVisibility('p3-skills-3')" class="text-xs font-bold text-emerald-600 bg-emerald-100 hover:bg-emerald-200 px-4 py-2 rounded-lg transition-colors whitespace-nowrap shadow-sm">Sample</button>
+                                </div>
+                                <div id="p3-skills-3" class="hidden bg-white border-l-4 border-emerald-400 p-4 rounded-r-lg shadow-sm mt-3">
+                                    <p class="text-gray-700 italic text-sm leading-relaxed">"Absolutely. When someone has been <span class="font-semibold text-indigo-600">persevering</span> through challenges and finally makes great <span class="font-semibold text-indigo-600">strides</span>, it provides a massive boost to their <span class="font-semibold text-indigo-600">self-esteem</span> and overall sense of happiness."</p>
+                                </div>
+                            </div>
+
+                            <div class="bg-gray-50 rounded-2xl p-5 border border-gray-200">
+                                <div class="flex justify-between items-start gap-4 mb-3">
+                                    <p class="font-bold text-gray-800 text-lg">4. Do you think it takes a long time to learn a language?</p>
+                                    <button onclick="toggleVisibility('p3-skills-4')" class="text-xs font-bold text-emerald-600 bg-emerald-100 hover:bg-emerald-200 px-4 py-2 rounded-lg transition-colors whitespace-nowrap shadow-sm">Sample</button>
+                                </div>
+                                <div id="p3-skills-4" class="hidden bg-white border-l-4 border-emerald-400 p-4 rounded-r-lg shadow-sm mt-3">
+                                    <p class="text-gray-700 italic text-sm leading-relaxed">"Yes, building the new <span class="font-semibold text-indigo-600">neural</span> pathways required for fluency takes years. However, if you <span class="font-semibold text-indigo-600">absorb</span> yourself completely in the culture and <span class="font-semibold text-indigo-600">surround yourself with like-minded friends</span> who practice with you, the process can be significantly accelerated."</p>
+                                </div>
+                            </div>
+
+                            <div class="bg-gray-50 rounded-2xl p-5 border border-gray-200">
+                                <div class="flex justify-between items-start gap-4 mb-3">
+                                    <p class="font-bold text-gray-800 text-lg">5. What skills may take a long time to learn?</p>
+                                    <button onclick="toggleVisibility('p3-skills-5')" class="text-xs font-bold text-emerald-600 bg-emerald-100 hover:bg-emerald-200 px-4 py-2 rounded-lg transition-colors whitespace-nowrap shadow-sm">Sample</button>
+                                </div>
+                                <div id="p3-skills-5" class="hidden bg-white border-l-4 border-emerald-400 p-4 rounded-r-lg shadow-sm mt-3">
+                                    <p class="text-gray-700 italic text-sm leading-relaxed">"Soft skills, such as advanced <span class="font-semibold text-indigo-600">leadership</span> or <span class="font-semibold text-indigo-600">critical thinking</span>, usually take decades to master. It takes a lifetime of experience to know how to effectively <span class="font-semibold text-indigo-600">reconcile differences</span> in a team and <span class="font-semibold text-indigo-600">manage</span> complex projects under pressure."</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `
+        },
+        {
             id: 'speaking_vocab',
             type: 'Speaking',
             themeClass: 'bg-gradient-to-r from-rose-400 to-pink-500',
             iconColor: 'text-rose-500',
             bgColor: 'bg-rose-50',
-            title: '1. Unit 1 Vocab Exercises',
+            title: '3. Unit 1 Vocab Exercises',
             content: `
                 <div class="fade-in bg-white rounded-3xl shadow-xl border border-rose-50 p-8 md:p-12 relative">
                     <div class="flex items-center gap-3 mb-6 border-b border-gray-100 pb-4">
@@ -327,7 +744,7 @@
             themeClass: 'bg-gradient-to-r from-pink-500 to-fuchsia-500',
             iconColor: 'text-pink-500',
             bgColor: 'bg-pink-50',
-            title: '2. Unit 1 Speaking Practice',
+            title: '4. Unit 1 Speaking Practice',
             content: `
                 <div class="fade-in">
                     <!-- Global Timer UI for Part 2 -->
@@ -447,7 +864,7 @@
             themeClass: 'bg-gradient-to-r from-red-500 to-rose-500',
             iconColor: 'text-red-500',
             bgColor: 'bg-red-50',
-            title: '3. Guide to IELTS - Test 2 Sec 1',
+            title: '5. Guide to IELTS - Test 2 Sec 1',
             content: `
                 <div class="fade-in bg-white rounded-3xl shadow-xl border border-red-50 p-5 md:p-6 flex flex-col" style="height: calc(100vh - 11rem); min-height: 600px;">
                     <div class="flex flex-col gap-4 mb-4 border-b border-gray-100 pb-4 shrink-0">
@@ -503,7 +920,7 @@
             themeClass: 'bg-gradient-to-r from-rose-500 to-red-400',
             iconColor: 'text-rose-500',
             bgColor: 'bg-rose-50',
-            title: '4. Guide to IELTS - Test 2 Sec 2',
+            title: '6. Guide to IELTS - Test 2 Sec 2',
             content: `
                 <div class="fade-in bg-white rounded-3xl shadow-xl border border-rose-50 p-5 md:p-6 flex flex-col" style="height: calc(100vh - 11rem); min-height: 600px;">
                     <div class="flex flex-col gap-4 mb-4 border-b border-gray-100 pb-4 shrink-0">
@@ -598,6 +1015,26 @@
         }
     });
 
+    function showCompletionMessage() {
+        const overlay = document.createElement('div');
+        overlay.id = "completion-overlay";
+        overlay.className = 'fixed inset-0 bg-gray-900/40 backdrop-blur-sm z-50 flex items-center justify-center fade-in';
+        
+        const toast = document.createElement('div');
+        toast.className = 'bg-white text-gray-800 p-8 rounded-3xl shadow-2xl flex flex-col items-center gap-4 text-center max-w-sm border border-gray-100 transform transition-all';
+        toast.innerHTML = `
+            <div class="w-20 h-20 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-500 mb-2 shadow-inner">
+                <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+            </div>
+            <h2 class="text-2xl font-black text-gray-800">Lesson Completed!</h2>
+            <p class="font-medium text-gray-500">Great job on finishing Lesson 04. You can review the sections from the menu.</p>
+            <button onclick="document.getElementById('completion-overlay').remove()" class="mt-4 w-full px-6 py-3 bg-gray-100 text-gray-700 font-bold rounded-xl hover:bg-gray-200 transition-colors shadow-sm">Close</button>
+        `;
+        
+        overlay.appendChild(toast);
+        document.body.appendChild(overlay);
+    }
+
     function renderSlide(index) {
         if (typeof pauseAllTimers === 'function') pauseAllTimers();
         const data = sessionData[index];
@@ -622,7 +1059,7 @@
         containerEl.innerHTML = ''; 
         setTimeout(() => {
             containerEl.innerHTML = data.content;
-            if(data.id === 'speaking_practice') {
+            if(data.id === 'speaking_practice' || data.id === 'skills_practice') {
                 updateTimerUI('prep', timers.prep.remaining);
                 updateTimerUI('speak', timers.speak.remaining);
             }
@@ -642,7 +1079,7 @@
         if (currentIndex < sessionData.length - 1) {
             renderSlide(++currentIndex);
         } else {
-            alert("Lesson 04 Completed! Great job.");
+            showCompletionMessage();
         }
     });
 
@@ -656,6 +1093,38 @@
                 el.classList.add('hidden');
                 el.classList.remove('fade-in');
             }
+        }
+    };
+
+    window.toggleInlineAnswers = function(containerId, btnId) {
+        const container = document.getElementById(containerId);
+        const btn = document.getElementById(btnId);
+        if(!container) return;
+        
+        const ansEls = container.querySelectorAll('.ans-inline');
+        const blankEls = container.querySelectorAll('.blank-inline');
+        
+        let isShowing = false;
+        
+        ansEls.forEach(el => {
+            if (el.classList.contains('hidden')) {
+                el.classList.remove('hidden');
+                el.classList.add('fade-in');
+                isShowing = true;
+            } else {
+                el.classList.add('hidden');
+                el.classList.remove('fade-in');
+                isShowing = false;
+            }
+        });
+        
+        blankEls.forEach(el => {
+            if (isShowing) el.classList.add('hidden');
+            else el.classList.remove('hidden');
+        });
+        
+        if(btn) {
+            btn.textContent = isShowing ? 'Hide Answers' : 'Show Answers';
         }
     };
 
