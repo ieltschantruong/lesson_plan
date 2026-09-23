@@ -620,116 +620,189 @@
                     
                     <div class="space-y-6">
                         <!-- Exercise 7 -->
-                        <div class="bg-gray-50 rounded-2xl p-6 border border-gray-200">
+                        <div id="ex-unit-7" class="bg-gray-50 rounded-2xl p-6 border border-gray-200">
                             <div class="flex justify-between items-start gap-4 mb-4">
                                 <h4 class="font-bold text-gray-800 text-lg">Exercise 7: Arrange the adjectives into the suitable column.</h4>
-                                <button onclick="toggleVisibility('ans-ex7')" class="text-xs font-bold text-rose-600 bg-rose-100 hover:bg-rose-200 px-4 py-2 rounded-lg transition-colors whitespace-nowrap shadow-sm">Show Answers</button>
+                                <button id="btn-ex-unit-7" onclick="toggleInlineAnswers('ex-unit-7', 'btn-ex-unit-7')" class="text-xs font-bold text-rose-600 bg-rose-100 hover:bg-rose-200 px-4 py-2 rounded-lg transition-colors whitespace-nowrap shadow-sm">Show Answers</button>
                             </div>
                             
-                            <div class="flex flex-wrap gap-x-4 gap-y-2 justify-center mb-6 text-sm font-semibold text-rose-700 bg-white p-4 rounded-xl border border-rose-100 shadow-sm">
-                                <span>spacious</span> • <span>selective</span> • <span>like-minded</span> • <span>conscientious</span> • <span>interactive</span> • <span>student-centered</span> • <span>witty</span> • <span>prestigious</span> • <span>sagacious</span> • <span>diligent</span> • <span>impartial</span> • <span>elite</span> • <span>broad-minded</span> • <span>comprehensive</span>
-                            </div>
-
-                            <div id="ans-ex7" class="hidden mt-4 bg-white p-5 rounded-xl border-l-4 border-emerald-400 shadow-sm">
-                                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
-                                    <div>
-                                        <span class="font-bold border-b-2 border-emerald-100 pb-2 mb-3 block text-gray-800 uppercase tracking-wider text-xs">Teachers</span>
-                                        <p class="text-emerald-700 font-medium leading-relaxed">conscientious, witty, sagacious, diligent, impartial</p>
-                                    </div>
-                                    <div>
-                                        <span class="font-bold border-b-2 border-emerald-100 pb-2 mb-3 block text-gray-800 uppercase tracking-wider text-xs">Friends</span>
-                                        <p class="text-emerald-700 font-medium leading-relaxed">like-minded, witty, broad-minded, conscientious</p>
-                                    </div>
-                                    <div>
-                                        <span class="font-bold border-b-2 border-emerald-100 pb-2 mb-3 block text-gray-800 uppercase tracking-wider text-xs">School/Class</span>
-                                        <p class="text-emerald-700 font-medium leading-relaxed">spacious, selective, student-centered, prestigious, interactive, elite, comprehensive</p>
-                                    </div>
+                            <div class="flex flex-wrap gap-3 justify-center mb-6">
+                                <div class="relative flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-rose-100 shadow-sm min-w-[120px] text-center mt-3">
+                                    <div class="ans-inline hidden absolute -top-3 right-auto bg-emerald-500 text-white font-bold px-2 py-0.5 rounded text-[9px] shadow-md z-10 uppercase tracking-wider">School</div>
+                                    <span class="text-rose-700 font-bold text-sm">spacious</span>
+                                    <span class="text-gray-500 text-[11px] font-normal">/ˈspeɪʃəs/</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">rộng rãi</span>
+                                </div>
+                                <div class="relative flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-rose-100 shadow-sm min-w-[120px] text-center mt-3">
+                                    <div class="ans-inline hidden absolute -top-3 right-auto bg-emerald-500 text-white font-bold px-2 py-0.5 rounded text-[9px] shadow-md z-10 uppercase tracking-wider">School</div>
+                                    <span class="text-rose-700 font-bold text-sm">selective</span>
+                                    <span class="text-gray-500 text-[11px] font-normal">/sɪˈlektɪv/</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">có chọn lọc</span>
+                                </div>
+                                <div class="relative flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-rose-100 shadow-sm min-w-[120px] text-center mt-3">
+                                    <div class="ans-inline hidden absolute -top-3 right-auto bg-emerald-500 text-white font-bold px-2 py-0.5 rounded text-[9px] shadow-md z-10 uppercase tracking-wider">Friends</div>
+                                    <span class="text-rose-700 font-bold text-sm">like-minded</span>
+                                    <span class="text-gray-500 text-[11px] font-normal">/ˌlaɪkˈmaɪndɪd/</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">cùng chí hướng</span>
+                                </div>
+                                <div class="relative flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-rose-100 shadow-sm min-w-[120px] text-center mt-3">
+                                    <div class="ans-inline hidden absolute -top-3 right-auto bg-emerald-500 text-white font-bold px-2 py-0.5 rounded text-[9px] shadow-md z-10 uppercase tracking-wider">Teachers, Friends</div>
+                                    <span class="text-rose-700 font-bold text-sm">conscientious</span>
+                                    <span class="text-gray-500 text-[11px] font-normal">/ˌkɒnʃiˈenʃəs/</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">tận tâm</span>
+                                </div>
+                                <div class="relative flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-rose-100 shadow-sm min-w-[120px] text-center mt-3">
+                                    <div class="ans-inline hidden absolute -top-3 right-auto bg-emerald-500 text-white font-bold px-2 py-0.5 rounded text-[9px] shadow-md z-10 uppercase tracking-wider">School</div>
+                                    <span class="text-rose-700 font-bold text-sm">interactive</span>
+                                    <span class="text-gray-500 text-[11px] font-normal">/ˌɪntərˈæktɪv/</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">tương tác</span>
+                                </div>
+                                <div class="relative flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-rose-100 shadow-sm min-w-[120px] text-center mt-3">
+                                    <div class="ans-inline hidden absolute -top-3 right-auto bg-emerald-500 text-white font-bold px-2 py-0.5 rounded text-[9px] shadow-md z-10 uppercase tracking-wider">School</div>
+                                    <span class="text-rose-700 font-bold text-sm text-center">student-centered</span>
+                                    <span class="text-gray-500 text-[11px] font-normal">/ˌstjuːdəntˈsentəd/</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">lấy HS làm trung tâm</span>
+                                </div>
+                                <div class="relative flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-rose-100 shadow-sm min-w-[120px] text-center mt-3">
+                                    <div class="ans-inline hidden absolute -top-3 right-auto bg-emerald-500 text-white font-bold px-2 py-0.5 rounded text-[9px] shadow-md z-10 uppercase tracking-wider">Teachers, Friends</div>
+                                    <span class="text-rose-700 font-bold text-sm">witty</span>
+                                    <span class="text-gray-500 text-[11px] font-normal">/ˈwɪti/</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">hóm hỉnh</span>
+                                </div>
+                                <div class="relative flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-rose-100 shadow-sm min-w-[120px] text-center mt-3">
+                                    <div class="ans-inline hidden absolute -top-3 right-auto bg-emerald-500 text-white font-bold px-2 py-0.5 rounded text-[9px] shadow-md z-10 uppercase tracking-wider">School</div>
+                                    <span class="text-rose-700 font-bold text-sm">prestigious</span>
+                                    <span class="text-gray-500 text-[11px] font-normal">/presˈtɪdʒəs/</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">uy tín, danh giá</span>
+                                </div>
+                                <div class="relative flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-rose-100 shadow-sm min-w-[120px] text-center mt-3">
+                                    <div class="ans-inline hidden absolute -top-3 right-auto bg-emerald-500 text-white font-bold px-2 py-0.5 rounded text-[9px] shadow-md z-10 uppercase tracking-wider">Teachers</div>
+                                    <span class="text-rose-700 font-bold text-sm">sagacious</span>
+                                    <span class="text-gray-500 text-[11px] font-normal">/səˈɡeɪʃəs/</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">minh mẫn</span>
+                                </div>
+                                <div class="relative flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-rose-100 shadow-sm min-w-[120px] text-center mt-3">
+                                    <div class="ans-inline hidden absolute -top-3 right-auto bg-emerald-500 text-white font-bold px-2 py-0.5 rounded text-[9px] shadow-md z-10 uppercase tracking-wider">Teachers</div>
+                                    <span class="text-rose-700 font-bold text-sm">diligent</span>
+                                    <span class="text-gray-500 text-[11px] font-normal">/ˈdɪlɪdʒənt/</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">siêng năng</span>
+                                </div>
+                                <div class="relative flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-rose-100 shadow-sm min-w-[120px] text-center mt-3">
+                                    <div class="ans-inline hidden absolute -top-3 right-auto bg-emerald-500 text-white font-bold px-2 py-0.5 rounded text-[9px] shadow-md z-10 uppercase tracking-wider">Teachers</div>
+                                    <span class="text-rose-700 font-bold text-sm">impartial</span>
+                                    <span class="text-gray-500 text-[11px] font-normal">/ɪmˈpɑːʃəl/</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">công bằng</span>
+                                </div>
+                                <div class="relative flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-rose-100 shadow-sm min-w-[120px] text-center mt-3">
+                                    <div class="ans-inline hidden absolute -top-3 right-auto bg-emerald-500 text-white font-bold px-2 py-0.5 rounded text-[9px] shadow-md z-10 uppercase tracking-wider">School</div>
+                                    <span class="text-rose-700 font-bold text-sm">elite</span>
+                                    <span class="text-gray-500 text-[11px] font-normal">/ɪˈliːt/</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">ưu tú</span>
+                                </div>
+                                <div class="relative flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-rose-100 shadow-sm min-w-[120px] text-center mt-3">
+                                    <div class="ans-inline hidden absolute -top-3 right-auto bg-emerald-500 text-white font-bold px-2 py-0.5 rounded text-[9px] shadow-md z-10 uppercase tracking-wider">Friends</div>
+                                    <span class="text-rose-700 font-bold text-sm">broad-minded</span>
+                                    <span class="text-gray-500 text-[11px] font-normal">/ˌbrɔːdˈmaɪndɪd/</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">cởi mở</span>
+                                </div>
+                                <div class="relative flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-rose-100 shadow-sm min-w-[120px] text-center mt-3">
+                                    <div class="ans-inline hidden absolute -top-3 right-auto bg-emerald-500 text-white font-bold px-2 py-0.5 rounded text-[9px] shadow-md z-10 uppercase tracking-wider">School</div>
+                                    <span class="text-rose-700 font-bold text-sm">comprehensive</span>
+                                    <span class="text-gray-500 text-[11px] font-normal">/ˌkɒmprɪˈhensɪv/</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">toàn diện</span>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Exercise 8 -->
-                        <div class="bg-gray-50 rounded-2xl p-6 border border-gray-200">
+                        <div id="ex-unit-8" class="bg-gray-50 rounded-2xl p-6 border border-gray-200">
                             <div class="flex justify-between items-start gap-4 mb-4">
                                 <h4 class="font-bold text-gray-800 text-lg">Exercise 8: Fill in each blank with one suitable word.</h4>
-                                <button onclick="toggleVisibility('ans-ex8')" class="text-xs font-bold text-rose-600 bg-rose-100 hover:bg-rose-200 px-4 py-2 rounded-lg transition-colors whitespace-nowrap shadow-sm">Show Answers</button>
+                                <button id="btn-ex-unit-8" onclick="toggleInlineAnswers('ex-unit-8', 'btn-ex-unit-8')" class="text-xs font-bold text-rose-600 bg-rose-100 hover:bg-rose-200 px-4 py-2 rounded-lg transition-colors whitespace-nowrap shadow-sm">Show Answers</button>
                             </div>
                             
-                            <div class="flex flex-wrap gap-x-6 gap-y-2 justify-center mb-6 text-sm font-semibold text-rose-700 bg-white p-4 rounded-xl border border-rose-100 shadow-sm">
-                                <span>colors</span> • <span>morale</span> <span class="text-gray-400 text-xs font-normal">/mə'ræl/</span> • <span>recollection</span> • <span>accountability</span> • <span>endeavor</span> <span class="text-gray-400 text-xs font-normal">/ɪn'devər/</span> • <span>attainment</span>
-                            </div>
-
-                            <div class="space-y-3 text-gray-700 text-sm font-medium">
-                                <p>1. Citizens must demand <span class="text-gray-400">........................</span> from their leaders.</p>
-                                <p>2. So they took it and passed with flying <span class="text-gray-400">........................</span></p>
-                                <p>3. It's a school with high levels of academic <span class="text-gray-400">........................</span></p>
-                                <p>4. Another win would be good for the team's <span class="text-gray-400">........................</span></p>
-                                <p>5. You must make a/an <span class="text-gray-400">........................</span> to work harder.</p>
-                                <p>6. To the best of my <span class="text-gray-400">........................</span>, he did not make any contributions.</p>
-                            </div>
-
-                            <div id="ans-ex8" class="hidden mt-5 bg-white p-4 rounded-xl border-l-4 border-emerald-400 shadow-sm">
-                                <p class="font-bold text-emerald-700 mb-2 text-xs uppercase tracking-wider">Answer Key</p>
-                                <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 text-emerald-700 font-bold text-sm">
-                                    <p>1. accountability</p>
-                                    <p>2. colors</p>
-                                    <p>3. attainment</p>
-                                    <p>4. morale</p>
-                                    <p>5. endeavor</p>
-                                    <p>6. recollection</p>
+                            <div class="flex flex-wrap gap-3 justify-center mb-6">
+                                <div class="flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-rose-100 shadow-sm min-w-[110px] text-center">
+                                    <span class="text-rose-700 font-bold text-sm">colors</span>
+                                    <span class="text-gray-500 text-[11px] font-normal">/ˈkʌləz/</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">điểm cao</span>
                                 </div>
+                                <div class="flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-rose-100 shadow-sm min-w-[110px] text-center">
+                                    <span class="text-rose-700 font-bold text-sm">morale</span>
+                                    <span class="text-gray-500 text-[11px] font-normal">/məˈrɑːl/</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">tinh thần</span>
+                                </div>
+                                <div class="flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-rose-100 shadow-sm min-w-[110px] text-center">
+                                    <span class="text-rose-700 font-bold text-sm">recollection</span>
+                                    <span class="text-gray-500 text-[11px] font-normal">/ˌrekəˈlekʃən/</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">ký ức</span>
+                                </div>
+                                <div class="flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-rose-100 shadow-sm min-w-[110px] text-center">
+                                    <span class="text-rose-700 font-bold text-sm">accountability</span>
+                                    <span class="text-gray-500 text-[11px] font-normal">/əˌkaʊntəˈbɪlɪti/</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">trách nhiệm</span>
+                                </div>
+                                <div class="flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-rose-100 shadow-sm min-w-[110px] text-center">
+                                    <span class="text-rose-700 font-bold text-sm">endeavor</span>
+                                    <span class="text-gray-500 text-[11px] font-normal">/ɪnˈdevə/</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">nỗ lực</span>
+                                </div>
+                                <div class="flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-rose-100 shadow-sm min-w-[110px] text-center">
+                                    <span class="text-rose-700 font-bold text-sm">attainment</span>
+                                    <span class="text-gray-500 text-[11px] font-normal">/əˈteɪnmənt/</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">thành tựu</span>
+                                </div>
+                            </div>
+
+                            <div class="space-y-3 text-gray-700 text-sm font-medium leading-loose">
+                                <p>1. Citizens must demand <span class="blank-inline text-gray-400">........................</span><span class="ans-inline hidden text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded font-bold">accountability</span> from their leaders.</p>
+                                <p>2. So they took it and passed with flying <span class="blank-inline text-gray-400">........................</span><span class="ans-inline hidden text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded font-bold">colors</span></p>
+                                <p>3. It's a school with high levels of academic <span class="blank-inline text-gray-400">........................</span><span class="ans-inline hidden text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded font-bold">attainment</span></p>
+                                <p>4. Another win would be good for the team's <span class="blank-inline text-gray-400">........................</span><span class="ans-inline hidden text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded font-bold">morale</span></p>
+                                <p>5. You must make a/an <span class="blank-inline text-gray-400">........................</span><span class="ans-inline hidden text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded font-bold">endeavor</span> to work harder.</p>
+                                <p>6. To the best of my <span class="blank-inline text-gray-400">........................</span><span class="ans-inline hidden text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded font-bold">recollection</span>, he did not make any contributions.</p>
                             </div>
                         </div>
 
                         <!-- Exercise 9 -->
-                        <div class="bg-gray-50 rounded-2xl p-6 border border-gray-200">
+                        <div id="ex-unit-9" class="bg-gray-50 rounded-2xl p-6 border border-gray-200">
                             <div class="flex justify-between items-start gap-4 mb-4">
                                 <h4 class="font-bold text-gray-800 text-lg">Exercise 9: Choose the option with the same meaning.</h4>
-                                <button onclick="toggleVisibility('ans-ex9')" class="text-xs font-bold text-rose-600 bg-rose-100 hover:bg-rose-200 px-4 py-2 rounded-lg transition-colors whitespace-nowrap shadow-sm">Show Answers</button>
+                                <button id="btn-ex-unit-9" onclick="toggleInlineAnswers('ex-unit-9', 'btn-ex-unit-9')" class="text-xs font-bold text-rose-600 bg-rose-100 hover:bg-rose-200 px-4 py-2 rounded-lg transition-colors whitespace-nowrap shadow-sm">Show Answers</button>
                             </div>
                             
                             <div class="space-y-6 text-sm text-gray-700">
                                 <div>
-                                    <p class="font-bold mb-2">1. It's very easy to <span class="text-rose-600">fall behind</span> with your studies if you miss even just a few classes.</p>
-                                    <div class="ml-4 space-y-1">
+                                    <p class="font-bold mb-2 leading-loose">1. It's very easy to <span class="text-rose-600 font-black">fall behind</span> <span class="text-gray-500 text-[11px] font-normal mx-1">/fɔːl bɪˈhaɪnd/</span><span class="text-rose-700 text-[11px] font-medium border border-rose-200 bg-rose-50 px-1.5 py-0.5 rounded shadow-sm">tụt lại phía sau</span> with your studies if you miss even just a few classes.</p>
+                                    <div class="ml-4 space-y-1 font-medium">
                                         <p>A. stay close behind other students</p>
-                                        <p>B. find yourself far behind other students</p>
+                                        <p>B. find yourself far behind other students <span class="ans-inline hidden text-emerald-600 font-bold ml-2">✓ Correct</span></p>
                                         <p>C. get ahead of other students</p>
                                     </div>
                                 </div>
                                 <div>
-                                    <p class="font-bold mb-2">2. She seemed to just <span class="text-rose-600">breeze through</span> the exams. Everyone else was in such a panic and almost had nervous breakdowns.</p>
-                                    <div class="ml-4 space-y-1">
-                                        <p>A. do them calmly and efficiently</p>
+                                    <p class="font-bold mb-2 leading-loose">2. She seemed to just <span class="text-rose-600 font-black">breeze through</span> <span class="text-gray-500 text-[11px] font-normal mx-1">/briːz θruː/</span><span class="text-rose-700 text-[11px] font-medium border border-rose-200 bg-rose-50 px-1.5 py-0.5 rounded shadow-sm">vượt qua dễ dàng</span> the exams. Everyone else was in such a panic and almost had nervous breakdowns.</p>
+                                    <div class="ml-4 space-y-1 font-medium">
+                                        <p>A. do them calmly and efficiently <span class="ans-inline hidden text-emerald-600 font-bold ml-2">✓ Correct</span></p>
                                         <p>B. not take them seriously</p>
                                         <p>C. cheat in them</p>
                                     </div>
                                 </div>
                                 <div>
-                                    <p class="font-bold mb-2">3. I just can't seem to <span class="text-rose-600">get the hang of</span> English prepositions. Just when I think I've learnt them I make new mistakes.</p>
-                                    <div class="ml-4 space-y-1">
+                                    <p class="font-bold mb-2 leading-loose">3. I just can't seem to <span class="text-rose-600 font-black">get the hang of</span> <span class="text-gray-500 text-[11px] font-normal mx-1">/ɡet ðə hæŋ əv/</span><span class="text-rose-700 text-[11px] font-medium border border-rose-200 bg-rose-50 px-1.5 py-0.5 rounded shadow-sm">nắm bắt được</span> English prepositions. Just when I think I've learnt them I make new mistakes.</p>
+                                    <div class="ml-4 space-y-1 font-medium">
                                         <p>A. enjoy</p>
                                         <p>B. memorise</p>
-                                        <p>C. understand</p>
+                                        <p>C. understand <span class="ans-inline hidden text-emerald-600 font-bold ml-2">✓ Correct</span></p>
                                     </div>
                                 </div>
                                 <div>
-                                    <p class="font-bold mb-2">4. When I sat down and looked at the exam paper my mind just <span class="text-rose-600">went blank</span>. Everyone else seemed to be writing away quite happily.</p>
-                                    <div class="ml-4 space-y-1">
+                                    <p class="font-bold mb-2 leading-loose">4. When I sat down and looked at the exam paper my mind just <span class="text-rose-600 font-black">went blank</span> <span class="text-gray-500 text-[11px] font-normal mx-1">/went blæŋk/</span><span class="text-rose-700 text-[11px] font-medium border border-rose-200 bg-rose-50 px-1.5 py-0.5 rounded shadow-sm">trống rỗng</span>. Everyone else seemed to be writing away quite happily.</p>
+                                    <div class="ml-4 space-y-1 font-medium">
                                         <p>A. became confused</p>
                                         <p>B. became very focused</p>
-                                        <p>C. became empty</p>
+                                        <p>C. became empty <span class="ans-inline hidden text-emerald-600 font-bold ml-2">✓ Correct</span></p>
                                     </div>
-                                </div>
-                            </div>
-
-                            <div id="ans-ex9" class="hidden mt-5 bg-white p-4 rounded-xl border-l-4 border-emerald-400 shadow-sm">
-                                <p class="font-bold text-emerald-700 mb-2 text-xs uppercase tracking-wider">Answer Key</p>
-                                <div class="flex gap-6 text-emerald-700 font-bold text-sm">
-                                    <p>1. B</p>
-                                    <p>2. A</p>
-                                    <p>3. C</p>
-                                    <p>4. C</p>
                                 </div>
                             </div>
                         </div>
