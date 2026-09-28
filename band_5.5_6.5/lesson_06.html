@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Chan Truong - Lesson 06</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #fdf2f8;
+            background-image: 
+                radial-gradient(at 0% 0%, #ffe4e6 0px, transparent 50%),
+                radial-gradient(at 100% 0%, #fce7f3 0px, transparent 50%),
+                radial-gradient(at 100% 100%, #fbcfe8 0px, transparent 50%),
+                radial-gradient(at 0% 100%, #fdf2f8 0px, transparent 50%),
+                radial-gradient(at 50% 50%, #fff1f2 0px, transparent 50%);
+            background-attachment: fixed;
+            color: #4c0519; /* rose-950 */
+        }
+        
+        .slide { display: none; opacity: 0; transition: opacity 0.5s ease, transform 0.5s ease; transform: translateY(20px); }
+        .slide.active { display: block; opacity: 1; transform: translateY(0); }
+        
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: transparent; } 
+        ::-webkit-scrollbar-thumb { background: rgba(244, 114, 182, 0.4); border-radius: 10px; border: 2px solid transparent; background-clip: padding-box; } 
+        ::-webkit-scrollbar-thumb:hover { background: rgba(225, 29, 72, 0.5); border: 2px solid transparent; background-clip: padding-box; } 
+        
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
+        .hidden-answer { display: none; }
+        .inline-answer { display: none; }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 10px 40px -10px rgba(225, 29, 72, 0.15);
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.45);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: inset 0 2px 4px 0 rgba(255, 255, 255, 0.3), 0 4px 15px -5px rgba(225, 29, 72, 0.05);
+        }
+        .glass-button {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.5));
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 15px -5px rgba(225, 29, 72, 0.15);
+            transition: all 0.3s ease;
+        }
+        .glass-button:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px -5px rgba(225, 29, 72, 0.25);
+        }
+        
+        .hover-lift { transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease; }
+        .hover-lift:hover { transform: translateY(-4px); box-shadow: 0 15px 30px -10px rgba(225, 29, 72, 0.2); }
+
+        select.nav-dropdown {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23881337' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1em;
+            padding-right: 2.5rem;
+        }
+    </style>
+</head>
+<body class="h-screen flex flex-col overflow-hidden">
+
+    <header class="glass-card border-b border-white/60 z-20 shrink-0 relative">
+        <div class="p-4 flex flex-col md:flex-row justify-between items-center gap-4 max-w-7xl mx-auto w-full">
+            <div>
+                <h1 class="text-2xl font-extrabold tracking-tight text-rose-950">IELTS Chan Truong <span class="text-rose-600 font-semibold ml-2 px-3 py-1 bg-white/50 border border-white/60 rounded-full text-base shadow-sm">Class 5.5-6.5</span></h1>
+                <p class="text-sm text-rose-900/70 mt-1.5 flex items-center gap-2 font-medium">
+                    <span class="w-2 h-2 rounded-full bg-pink-400 shadow-[0_0_8px_rgba(244,114,182,0.8)]"></span> Lesson 06: Reading & Speaking
+                </p>
+            </div>
+            
+            <div class="flex items-center gap-4 w-full md:w-auto justify-between md:justify-end">
+                <select id="section-nav" onchange="jumpToSection(this.value)" class="nav-dropdown glass-panel text-rose-900 font-bold py-2 px-4 rounded-xl shadow-sm outline-none cursor-pointer border border-white/60 hover:bg-white/60 transition">
+                    <option value="0">1. Lesson Overview</option>
+                    <option value="1">2. Reading: Vocabulary</option>
+                    <option value="2">3. Reading: Mock Test WB U2</option>
+                    <option value="3">4. Speaking: Vocabulary</option>
+                    <option value="4">5. Speaking: Practice</option>
+                </select>
+
+                <div class="flex items-center gap-3">
+                    <span id="slide-counter" class="font-bold text-rose-900 px-3 py-1.5 glass-panel rounded-full text-sm hidden md:inline-block">1 / 5</span>
+                    <button onclick="prevSlide()" class="glass-button text-rose-800 px-4 py-2 rounded-full font-semibold flex items-center gap-2">
+                        <span>←</span> <span class="hidden sm:inline">Prev</span>
+                    </button>
+                    <button onclick="nextSlide()" class="bg-gradient-to-r from-pink-500 to-rose-400 hover:from-pink-400 hover:to-rose-300 text-white px-5 py-2 rounded-full shadow-lg shadow-pink-500/30 transition-all hover:shadow-pink-500/50 hover:-translate-y-0.5 font-bold flex items-center gap-2">
+                        <span class="hidden sm:inline">Next</span> <span>→</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="h-1 bg-white/40 w-full absolute bottom-0 left-0">
+            <div id="progress-bar" class="h-full bg-gradient-to-r from-pink-400 to-rose-500 transition-all duration-500 ease-out shadow-[0_0_10px_rgba(244,114,182,0.5)]" style="width: 20%;"></div>
+        </div>
+    </header>
+
+    <main class="flex-1 overflow-y-auto p-4 md:p-8 relative">
+        <div class="max-w-7xl mx-auto pb-24">
+
+            <!-- SLIDE 0: Overview -->
+            <div class="slide active" id="slide-0">
+                <div class="text-center py-16">
+                    <div class="inline-block mb-6 px-5 py-2 rounded-full glass-panel text-rose-600 font-bold text-sm tracking-widest uppercase shadow-sm">Lesson Overview</div>
+                    <h2 class="text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-rose-950 to-pink-700 mb-6 tracking-tight drop-shadow-sm">Reading & Speaking</h2>
+                    <p class="text-xl text-rose-900/70 mb-16 max-w-2xl mx-auto font-medium leading-relaxed">Today's session covers Reading Unit 2 from the Complete IELTS Workbook and Speaking Part 1 & 2 focusing on Cooking, Water, and Food.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto text-left">
+                        <div class="glass-card p-8 rounded-3xl hover-lift relative overflow-hidden group">
+                            <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-purple-400 to-pink-400 opacity-80"></div>
+                            <div class="w-14 h-14 glass-panel rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-sm group-hover:scale-110 transition-transform">📖</div>
+                            <h3 class="text-2xl font-bold mb-4 text-rose-950">Part 1: Reading</h3>
+                            <ul class="text-rose-900/80 space-y-3 font-medium">
+                                <li class="flex items-start gap-3"><span class="text-pink-400 mt-1">✦</span> Workbook Vocabulary Exercises</li>
+                                <li class="flex items-start gap-3"><span class="text-pink-400 mt-1">✦</span> Complete IELTS WB | Unit 2 Passage</li>
+                            </ul>
+                        </div>
+                        <div class="glass-card p-8 rounded-3xl hover-lift relative overflow-hidden group">
+                            <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-pink-400 to-rose-400 opacity-80"></div>
+                            <div class="w-14 h-14 glass-panel rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-sm group-hover:scale-110 transition-transform">🗣️</div>
+                            <h3 class="text-2xl font-bold mb-4 text-rose-950">Part 2: Speaking</h3>
+                            <ul class="text-rose-900/80 space-y-3 font-medium">
+                                <li class="flex items-start gap-3"><span class="text-rose-400 mt-1">✦</span> Topic: Cooking & Food</li>
+                                <li class="flex items-start gap-3"><span class="text-rose-400 mt-1">✦</span> Topic: Water</li>
+                                <li class="flex items-start gap-3"><span class="text-rose-400 mt-1">✦</span> Yellow Book Vocabulary (Pg 24-26)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <button onclick="nextSlide()" class="mt-16 bg-gradient-to-r from-rose-900 to-pink-800 hover:from-rose-800 hover:to-pink-700 text-white px-10 py-4 rounded-full text-lg font-bold shadow-[0_10px_25px_rgba(159,18,57,0.3)] transition-all hover:shadow-[0_15px_35px_rgba(159,18,57,0.4)] hover:-translate-y-1 flex items-center gap-3 mx-auto">
+                        Begin Lesson <span class="text-xl">✨</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- SLIDE 1: Reading Vocabulary -->
+            <div class="slide" id="slide-1">
+                <div class="flex items-center gap-4 mb-10">
+                    <span class="w-12 h-12 rounded-2xl glass-panel flex items-center justify-center text-2xl shadow-sm">📝</span>
+                    <div>
+                        <span class="text-pink-600 font-extrabold text-xs tracking-widest uppercase">Reading Section</span>
+                        <h2 class="text-3xl font-extrabold text-rose-950">Workbook Vocabulary Exercises (Unit 2)</h2>
+                    </div>
+                </div>
+
+                <div class="space-y-8">
+                    <!-- Exercise 1: Matching Phrases -->
+                    <div class="glass-card rounded-3xl p-6 md:p-8 exercise-container relative">
+                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
+                            <div>
+                                <h3 class="text-2xl font-bold text-rose-950">Exercise 1: Phrase Matching</h3>
+                                <p class="text-sm text-rose-900/60 mt-1">Match the phrases (1-5) with their correct meanings (A-E).</p>
+                            </div>
+                            <button onclick="toggleAnswers(this)" class="glass-button text-rose-800 font-bold py-2 px-5 rounded-xl text-sm shadow-sm shrink-0">
+                                ✨ Reveal Answers
+                            </button>
+                        </div>
+
+                        <div class="grid grid-cols-1 lg:grid-cols-[1.3fr_1fr] gap-8">
+                            <!-- Phrases List -->
+                            <div class="space-y-3.5 text-[0.95rem] font-semibold text-rose-950">
+                                <div class="flex flex-col gap-1 bg-white/40 p-3 rounded-xl hover:bg-white/60 transition">
+                                    <div class="flex items-center gap-2">
+                                        <span>1 <strong class="text-rose-700">a closed book</strong> to somebody</span>
+                                        <span class="inline-answer text-rose-800 font-bold bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-xs ml-2">→ D</span>
+                                    </div>
+                                    <div class="flex items-center gap-2 pl-4">
+                                        <span class="text-xs font-normal text-rose-900/60">/ə kloʊzd bʊk/</span>
+                                        <button onclick="playAudio('a closed book to somebody')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button>
+                                        <span class="text-xs font-normal text-rose-900/70 italic">(điều hoàn toàn xa lạ/không biết gì)</span>
+                                    </div>
+                                </div>
+
+                                <div class="flex flex-col gap-1 bg-white/40 p-3 rounded-xl hover:bg-white/60 transition">
+                                    <div class="flex items-center gap-2">
+                                        <span>2 <strong class="text-rose-700">come up with</strong> something</span>
+                                        <span class="inline-answer text-rose-800 font-bold bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-xs ml-2">→ B</span>
+                                    </div>
+                                    <div class="flex items-center gap-2 pl-4">
+                                        <span class="text-xs font-normal text-rose-900/60">/kʌm ʌp wɪð/</span>
+                                        <button onclick="playAudio('come up with something')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button>
+                                        <span class="text-xs font-normal text-rose-900/70 italic">(nghĩ ra, nảy ra ý tưởng/câu trả lời)</span>
+                                    </div>
+                                </div>
+
+                                <div class="flex flex-col gap-1 bg-white/40 p-3 rounded-xl hover:bg-white/60 transition">
+                                    <div class="flex items-center gap-2">
+                                        <span>3 <strong class="text-rose-700">come into play</strong></span>
+                                        <span class="inline-answer text-rose-800 font-bold bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-xs ml-2">→ A</span>
+                                    </div>
+                                    <div class="flex items-center gap-2 pl-4">
+                                        <span class="text-xs font-normal text-rose-900/60">/kʌm ˈɪntu pleɪ/</span>
+                                        <button onclick="playAudio('come into play')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button>
+                                        <span class="text-xs font-normal text-rose-900/70 italic">(phát huy tác dụng/bắt đầu ảnh hưởng)</span>
+                                    </div>
+                                </div>
+
+                                <div class="flex flex-col gap-1 bg-white/40 p-3 rounded-xl hover:bg-white/60 transition">
+                                    <div class="flex items-center gap-2">
+                                        <span>4 <strong class="text-rose-700">pay homage to</strong> somebody</span>
+                                        <span class="inline-answer text-rose-800 font-bold bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-xs ml-2">→ E</span>
+                                    </div>
+                                    <div class="flex items-center gap-2 pl-4">
+                                        <span class="text-xs font-normal text-rose-900/60">/peɪ ˈhɑːmɪdʒ tuː/</span>
+                                        <button onclick="playAudio('pay homage to somebody')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button>
+                                        <span class="text-xs font-normal text-rose-900/70 italic">(bày tỏ lòng kính trọng/tôn kính)</span>
+                                    </div>
+                                </div>
+
+                                <div class="flex flex-col gap-1 bg-white/40 p-3 rounded-xl hover:bg-white/60 transition">
+                                    <div class="flex items-center gap-2">
+                                        <span>5 <strong class="text-rose-700">take</strong> something <strong class="text-rose-700">into account</strong></span>
+                                        <span class="inline-answer text-rose-800 font-bold bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-xs ml-2">→ C</span>
+                                    </div>
+                                    <div class="flex items-center gap-2 pl-4">
+                                        <span class="text-xs font-normal text-rose-900/60">/teɪk ˈɪntu əˈkaʊnt/</span>
+                                        <button onclick="playAudio('take something into account')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button>
+                                        <span class="text-xs font-normal text-rose-900/70 italic">(cân nhắc, tính đến điều gì)</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Meanings Box -->
+                            <div class="glass-panel p-5 rounded-2xl text-sm space-y-3 font-medium text-rose-950/80 bg-white/20 border border-white/40 self-start">
+                                <p><strong class="text-pink-500 font-black">A.</strong> have a use or an effect in a particular situation <span class="text-xs text-rose-900/60 italic block mt-0.5">(có tác dụng hoặc ảnh hưởng trong một tình huống cụ thể)</span></p>
+                                <p><strong class="text-pink-500 font-black">B.</strong> find or produce an answer <span class="text-xs text-rose-900/60 italic block mt-0.5">(tìm ra hoặc đưa ra câu trả lời/giải pháp)</span></p>
+                                <p><strong class="text-pink-500 font-black">C.</strong> consider something <span class="text-xs text-rose-900/60 italic block mt-0.5">(cân nhắc, xem xét điều gì)</span></p>
+                                <p><strong class="text-pink-500 font-black">D.</strong> a subject or person that you know nothing about <span class="text-xs text-rose-900/60 italic block mt-0.5">(một chủ đề hoặc người mà bạn hoàn toàn không biết gì về họ)</span></p>
+                                <p><strong class="text-pink-500 font-black">E.</strong> show respect for somebody <span class="text-xs text-rose-900/60 italic block mt-0.5">(thể hiện sự tôn trọng hoặc kính kính đối với ai đó)</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Exercise 2: Fill in the blanks -->
+                    <div class="glass-card rounded-3xl p-6 md:p-8 exercise-container relative">
+                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
+                            <div>
+                                <h3 class="text-2xl font-bold text-rose-950">Exercise 2: Word Fill-In</h3>
+                                <p class="text-sm text-rose-900/60 mt-1">Fill the blanks with suitable words from the word banks below.</p>
+                            </div>
+                            <button onclick="toggleAnswers(this)" class="glass-button text-rose-800 font-bold py-2 px-5 rounded-xl text-sm shadow-sm shrink-0">
+                                ✨ Reveal Answers
+                            </button>
+                        </div>
+
+                        <!-- Sub-part 1: Questions 1 - 5 (Adjectives) -->
+                        <div class="mb-10">
+                            <h4 class="font-black text-rose-900 mb-3 uppercase tracking-widest text-xs border-b border-pink-200 pb-1.5 flex items-center gap-2">
+                                <span>🏷️</span> Part A: Questions 1 – 5
+                            </h4>
+                            <!-- Word Bank 1 -->
+                            <div class="glass-panel p-4 rounded-2xl flex flex-wrap justify-center gap-6 mb-6 border-white/60 bg-white/20">
+                                <div class="flex flex-col items-center">
+                                    <span class="text-pink-600 font-bold text-base">cautious</span>
+                                    <span class="text-xs font-normal text-rose-950/60">/ˈkɔːʃəs/</span>
+                                    <span class="text-[0.7rem] italic text-rose-900/70">(thận trọng, cẩn trọng)</span>
+                                    <button onclick="playAudio('cautious')" class="text-xs mt-0.5">🔊</button>
+                                </div>
+                                <div class="flex flex-col items-center">
+                                    <span class="text-pink-600 font-bold text-base">mushy</span>
+                                    <span class="text-xs font-normal text-rose-950/60">/ˈmʌʃi/</span>
+                                    <span class="text-[0.7rem] italic text-rose-900/70">(mềm nhũn, nhão)</span>
+                                    <button onclick="playAudio('mushy')" class="text-xs mt-0.5">🔊</button>
+                                </div>
+                                <div class="flex flex-col items-center">
+                                    <span class="text-pink-600 font-bold text-base">precise</span>
+                                    <span class="text-xs font-normal text-rose-950/60">/prɪˈsaɪs/</span>
+                                    <span class="text-[0.7rem] italic text-rose-900/70">(chính xác, rõ ràng)</span>
+                                    <button onclick="playAudio('precise')" class="text-xs mt-0.5">🔊</button>
+                                </div>
+                                <div class="flex flex-col items-center">
+                                    <span class="text-pink-600 font-bold text-base">optimum</span>
+                                    <span class="text-xs font-normal text-rose-950/60">/ˈɑːptɪməm/</span>
+                                    <span class="text-[0.7rem] italic text-rose-900/70">(tối ưu, lý tưởng nhất)</span>
+                                    <button onclick="playAudio('optimum')" class="text-xs mt-0.5">🔊</button>
+                                </div>
+                                <div class="flex flex-col items-center">
+                                    <span class="text-pink-600 font-bold text-base">impoverished</span>
+                                    <span class="text-xs font-normal text-rose-950/60">/ɪmˈpɑːvərɪʃt/</span>
+                                    <span class="text-[0.7rem] italic text-rose-900/70">(nghèo nàn, cơ cực)</span>
+                                    <button onclick="playAudio('impoverished')" class="text-xs mt-0.5">🔊</button>
+                                </div>
+                            </div>
+
+                            <ul class="space-y-4 text-[0.95rem] font-semibold text-rose-950 leading-relaxed">
+                                <li class="flex flex-wrap items-center gap-x-2 bg-white/30 p-2.5 rounded-xl">
+                                    <span>1 Cook until the fruit is soft but not</span>
+                                    <span class="inline-flex items-center justify-center min-w-[120px] border-b-2 border-dashed border-pink-400 text-rose-600 px-2 h-7 font-bold">
+                                        <span class="hidden-answer">mushy</span>
+                                    </span>.
+                                </li>
+                                <li class="flex flex-wrap items-center gap-x-2 bg-white/30 p-2.5 rounded-xl">
+                                    <span>2 Can you give a more</span>
+                                    <span class="inline-flex items-center justify-center min-w-[120px] border-b-2 border-dashed border-pink-400 text-rose-600 px-2 h-7 font-bold">
+                                        <span class="hidden-answer">precise</span>
+                                    </span>
+                                    <span>definition of the word?</span>
+                                </li>
+                                <li class="flex flex-wrap items-center gap-x-2 bg-white/30 p-2.5 rounded-xl">
+                                    <span>3 He used to be a/an</span>
+                                    <span class="inline-flex items-center justify-center min-w-[140px] border-b-2 border-dashed border-pink-400 text-rose-600 px-2 h-7 font-bold">
+                                        <span class="hidden-answer">impoverished</span>
+                                    </span>
+                                    <span>young actor before becoming rich and famous.</span>
+                                </li>
+                                <li class="flex flex-wrap items-center gap-x-2 bg-white/30 p-2.5 rounded-xl">
+                                    <span>4 Our school provides the</span>
+                                    <span class="inline-flex items-center justify-center min-w-[120px] border-b-2 border-dashed border-pink-400 text-rose-600 px-2 h-7 font-bold">
+                                        <span class="hidden-answer">optimum</span>
+                                    </span>
+                                    <span>conditions for effective learning.</span>
+                                </li>
+                                <li class="flex flex-wrap items-center gap-x-2 bg-white/30 p-2.5 rounded-xl">
+                                    <span>5 They've taken a very</span>
+                                    <span class="inline-flex items-center justify-center min-w-[120px] border-b-2 border-dashed border-pink-400 text-rose-600 px-2 h-7 font-bold">
+                                        <span class="hidden-answer">cautious</span>
+                                    </span>
+                                    <span>approach, avoiding making mistakes.</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Sub-part 2: Questions 6 - 10 (Nouns) -->
+                        <div class="mb-10">
+                            <h4 class="font-black text-rose-900 mb-3 uppercase tracking-widest text-xs border-b border-pink-200 pb-1.5 flex items-center gap-2">
+                                <span>🏷️</span> Part B: Questions 6 – 10
+                            </h4>
+                            <!-- Word Bank 2 -->
+                            <div class="glass-panel p-4 rounded-2xl flex flex-wrap justify-center gap-6 mb-6 border-white/60 bg-white/20">
+                                <div class="flex flex-col items-center">
+                                    <span class="text-pink-600 font-bold text-base">saliva</span>
+                                    <span class="text-xs font-normal text-rose-950/60">/səˈlaɪvə/</span>
+                                    <span class="text-[0.7rem] italic text-rose-900/70">(nước bọt/nước miếng)</span>
+                                    <button onclick="playAudio('saliva')" class="text-xs mt-0.5">🔊</button>
+                                </div>
+                                <div class="flex flex-col items-center">
+                                    <span class="text-pink-600 font-bold text-base">spoilage</span>
+                                    <span class="text-xs font-normal text-rose-950/60">/ˈspɔɪlɪdʒ/</span>
+                                    <span class="text-[0.7rem] italic text-rose-900/70">(sự ôi thiu, hư hỏng thực phẩm)</span>
+                                    <button onclick="playAudio('spoilage')" class="text-xs mt-0.5">🔊</button>
+                                </div>
+                                <div class="flex flex-col items-center">
+                                    <span class="text-pink-600 font-bold text-base">photosynthesis</span>
+                                    <span class="text-xs font-normal text-rose-950/60">/ˌfoʊtoʊˈsɪnθəsɪs/</span>
+                                    <span class="text-[0.7rem] italic text-rose-900/70">(quá trình quang hợp)</span>
+                                    <button onclick="playAudio('photosynthesis')" class="text-xs mt-0.5">🔊</button>
+                                </div>
+                                <div class="flex flex-col items-center">
+                                    <span class="text-pink-600 font-bold text-base">membrane</span>
+                                    <span class="text-xs font-normal text-rose-950/60">/ˈmɛmbreɪn/</span>
+                                    <span class="text-[0.7rem] italic text-rose-900/70">(màng sinh học, màng tế bào)</span>
+                                    <button onclick="playAudio('membrane')" class="text-xs mt-0.5">🔊</button>
+                                </div>
+                                <div class="flex flex-col items-center">
+                                    <span class="text-pink-600 font-bold text-base">foodstuffs</span>
+                                    <span class="text-xs font-normal text-rose-950/60">/ˈfuːdstʌfs/</span>
+                                    <span class="text-[0.7rem] italic text-rose-900/70">(nguyên liệu/thực phẩm)</span>
+                                    <button onclick="playAudio('foodstuffs')" class="text-xs mt-0.5">🔊</button>
+                                </div>
+                            </div>
+
+                            <ul class="space-y-4 text-[0.95rem] font-semibold text-rose-950 leading-relaxed">
+                                <li class="flex flex-wrap items-center gap-x-2 bg-white/30 p-2.5 rounded-xl">
+                                    <span>6 I wipe the</span>
+                                    <span class="inline-flex items-center justify-center min-w-[120px] border-b-2 border-dashed border-pink-400 text-rose-600 px-2 h-7 font-bold">
+                                        <span class="hidden-answer">saliva</span>
+                                    </span>
+                                    <span>off my mouth.</span>
+                                </li>
+                                <li class="flex flex-wrap items-center gap-x-2 bg-white/30 p-2.5 rounded-xl">
+                                    <span>7</span>
+                                    <span class="inline-flex items-center justify-center min-w-[150px] border-b-2 border-dashed border-pink-400 text-rose-600 px-2 h-7 font-bold">
+                                        <span class="hidden-answer">Photosynthesis</span>
+                                    </span>
+                                    <span>helps plants generate energy.</span>
+                                </li>
+                                <li class="flex flex-wrap items-center gap-x-2 bg-white/30 p-2.5 rounded-xl">
+                                    <span>8 The virus passes through the cell</span>
+                                    <span class="inline-flex items-center justify-center min-w-[120px] border-b-2 border-dashed border-pink-400 text-rose-600 px-2 h-7 font-bold">
+                                        <span class="hidden-answer">membrane</span>
+                                    </span>.
+                                </li>
+                                <li class="flex flex-wrap items-center gap-x-2 bg-white/30 p-2.5 rounded-xl">
+                                    <span>9 They lack basic</span>
+                                    <span class="inline-flex items-center justify-center min-w-[120px] border-b-2 border-dashed border-pink-400 text-rose-600 px-2 h-7 font-bold">
+                                        <span class="hidden-answer">foodstuffs</span>
+                                    </span>,
+                                    <span>such as bread and milk.</span>
+                                </li>
+                                <li class="flex flex-wrap items-center gap-x-2 bg-white/30 p-2.5 rounded-xl">
+                                    <span>10 Keeping food in the fridge reduces food</span>
+                                    <span class="inline-flex items-center justify-center min-w-[120px] border-b-2 border-dashed border-pink-400 text-rose-600 px-2 h-7 font-bold">
+                                        <span class="hidden-answer">spoilage</span>
+                                    </span>
+                                    <span>and waste.</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Sub-part 3: Questions 11 - 16 (Verbs) -->
+                        <div>
+                            <h4 class="font-black text-rose-900 mb-3 uppercase tracking-widest text-xs border-b border-pink-200 pb-1.5 flex items-center gap-2">
+                                <span>🏷️</span> Part C: Questions 11 – 16
+                            </h4>
+                            <!-- Word Bank 3 -->
+                            <div class="glass-panel p-4 rounded-2xl flex flex-wrap justify-center gap-6 mb-6 border-white/60 bg-white/20">
+                                <div class="flex flex-col items-center">
+                                    <span class="text-pink-600 font-bold text-base">determine</span>
+                                    <span class="text-xs font-normal text-rose-950/60">/dɪˈtɜːrmɪn/</span>
+                                    <span class="text-[0.7rem] italic text-rose-900/70">(quyết định, xác định)</span>
+                                    <button onclick="playAudio('determine')" class="text-xs mt-0.5">🔊</button>
+                                </div>
+                                <div class="flex flex-col items-center">
+                                    <span class="text-pink-600 font-bold text-base">manufacture</span>
+                                    <span class="text-xs font-normal text-rose-950/60">/ˌmænjuˈfæktʃər/</span>
+                                    <span class="text-[0.7rem] italic text-rose-900/70">(sản xuất, chế tạo)</span>
+                                    <button onclick="playAudio('manufacture')" class="text-xs mt-0.5">🔊</button>
+                                </div>
+                                <div class="flex flex-col items-center">
+                                    <span class="text-pink-600 font-bold text-base">contaminate</span>
+                                    <span class="text-xs font-normal text-rose-950/60">/kənˈtæmɪneɪt/</span>
+                                    <span class="text-[0.7rem] italic text-rose-900/70">(làm ô nhiễm, nhiễm độc)</span>
+                                    <button onclick="playAudio('contaminate')" class="text-xs mt-0.5">🔊</button>
+                                </div>
+                                <div class="flex flex-col items-center">
+                                    <span class="text-pink-600 font-bold text-base">evolve</span>
+                                    <span class="text-xs font-normal text-rose-950/60">/ɪˈvɑːlv/</span>
+                                    <span class="text-[0.7rem] italic text-rose-900/70">(tiến hóa, phát triển dần)</span>
+                                    <button onclick="playAudio('evolve')" class="text-xs mt-0.5">🔊</button>
+                                </div>
+                                <div class="flex flex-col items-center">
+                                    <span class="text-pink-600 font-bold text-base">decay</span>
+                                    <span class="text-xs font-normal text-rose-950/60">/dɪˈkeɪ/</span>
+                                    <span class="text-[0.7rem] italic text-rose-900/70">(phân rã, sâu răng, mục rỗng)</span>
+                                    <button onclick="playAudio('decay')" class="text-xs mt-0.5">🔊</button>
+                                </div>
+                                <div class="flex flex-col items-center">
+                                    <span class="text-pink-600 font-bold text-base">release</span>
+                                    <span class="text-xs font-normal text-rose-950/60">/rɪˈliːs/</span>
+                                    <span class="text-[0.7rem] italic text-rose-900/70">(thải ra, phóng thích)</span>
+                                    <button onclick="playAudio('release')" class="text-xs mt-0.5">🔊</button>
+                                </div>
+                            </div>
+
+                            <ul class="space-y-4 text-[0.95rem] font-semibold text-rose-950 leading-relaxed">
+                                <li class="flex flex-wrap items-center gap-x-2 bg-white/30 p-2.5 rounded-xl">
+                                    <span>11 Sugar makes your teeth</span>
+                                    <span class="inline-flex items-center justify-center min-w-[120px] border-b-2 border-dashed border-pink-400 text-rose-600 px-2 h-7 font-bold">
+                                        <span class="hidden-answer">decay</span>
+                                    </span>.
+                                </li>
+                                <li class="flex flex-wrap items-center gap-x-2 bg-white/30 p-2.5 rounded-xl">
+                                    <span>12 Their companies</span>
+                                    <span class="inline-flex items-center justify-center min-w-[120px] border-b-2 border-dashed border-pink-400 text-rose-600 px-2 h-7 font-bold">
+                                        <span class="hidden-answer">evolved</span>
+                                    </span>
+                                    <span>into giants.</span>
+                                </li>
+                                <li class="flex flex-wrap items-center gap-x-2 bg-white/30 p-2.5 rounded-xl">
+                                    <span>13 This river was</span>
+                                    <span class="inline-flex items-center justify-center min-w-[140px] border-b-2 border-dashed border-pink-400 text-rose-600 px-2 h-7 font-bold">
+                                        <span class="hidden-answer">contaminated</span>
+                                    </span>
+                                    <span>by pollution.</span>
+                                </li>
+                                <li class="flex flex-wrap items-center gap-x-2 bg-white/30 p-2.5 rounded-xl">
+                                    <span>14 They</span>
+                                    <span class="inline-flex items-center justify-center min-w-[120px] border-b-2 border-dashed border-pink-400 text-rose-600 px-2 h-7 font-bold">
+                                        <span class="hidden-answer">determined</span>
+                                    </span>
+                                    <span>to start early.</span>
+                                </li>
+                                <li class="flex flex-wrap items-center gap-x-2 bg-white/30 p-2.5 rounded-xl">
+                                    <span>15 Their factories</span>
+                                    <span class="inline-flex items-center justify-center min-w-[120px] border-b-2 border-dashed border-pink-400 text-rose-600 px-2 h-7 font-bold">
+                                        <span class="hidden-answer">release</span>
+                                    </span>
+                                    <span>a quantity of toxic waste into the sea.</span>
+                                </li>
+                                <li class="flex flex-wrap items-center gap-x-2 bg-white/30 p-2.5 rounded-xl">
+                                    <span>16 Their companies</span>
+                                    <span class="inline-flex items-center justify-center min-w-[140px] border-b-2 border-dashed border-pink-400 text-rose-600 px-2 h-7 font-bold">
+                                        <span class="hidden-answer">manufacture</span>
+                                    </span>
+                                    <span>the equipment used to make contact lenses.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 2: Reading Mock Test WB -->
+            <div class="slide" id="slide-2">
+                <div class="flex items-center gap-4 mb-10">
+                    <span class="w-12 h-12 rounded-2xl glass-panel flex items-center justify-center text-2xl shadow-sm">📖</span>
+                    <div>
+                        <span class="text-pink-600 font-extrabold text-xs tracking-widest uppercase">Reading Section</span>
+                        <h2 class="text-3xl font-extrabold text-rose-950">Complete IELTS Work Book | Unit 2</h2>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-3xl mb-8 exercise-container overflow-hidden">
+                    <div class="p-8 md:p-10 border-b border-white/60">
+                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                            <div>
+                                <h3 class="text-2xl font-bold text-rose-950">Answer Keys</h3>
+                                <p class="text-sm text-rose-900/60 mt-1">Check answers with the class before reviewing the passage.</p>
+                            </div>
+                            <button onclick="toggleAnswers(this)" class="glass-button text-rose-800 font-bold py-2.5 px-5 rounded-xl flex items-center justify-center gap-2 text-sm shadow-sm shrink-0">
+                                👀 Reveal Answers
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="p-8 md:p-10 bg-white/25">
+                        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                            <!-- Answer Keys Grid -->
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm">
+                                <span class="font-black text-pink-400">1</span>
+                                <span class="hidden-answer font-bold text-rose-900">vi</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm">
+                                <span class="font-black text-pink-400">2</span>
+                                <span class="hidden-answer font-bold text-rose-900">iv</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm">
+                                <span class="font-black text-pink-400">3</span>
+                                <span class="hidden-answer font-bold text-rose-900">ix</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm">
+                                <span class="font-black text-pink-400">4</span>
+                                <span class="hidden-answer font-bold text-rose-900">i</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm">
+                                <span class="font-black text-pink-400">5</span>
+                                <span class="hidden-answer font-bold text-rose-900">viii</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm">
+                                <span class="font-black text-pink-400">6</span>
+                                <span class="hidden-answer font-bold text-rose-900">v</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm">
+                                <span class="font-black text-pink-400">7</span>
+                                <span class="hidden-answer font-bold text-rose-900">ii</span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm col-span-2">
+                                <span class="font-black text-pink-400">8-9</span>
+                                <span class="hidden-answer font-bold text-rose-900 text-sm">A, E <span class="text-xs font-normal italic text-rose-900/60 ml-1">(in any order)</span></span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm col-span-2">
+                                <span class="font-black text-pink-400">10-11</span>
+                                <span class="hidden-answer font-bold text-rose-900 text-sm">B, E <span class="text-xs font-normal italic text-rose-900/60 ml-1">(in any order)</span></span>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl flex justify-between items-center shadow-sm col-span-2">
+                                <span class="font-black text-pink-400">12-13</span>
+                                <span class="hidden-answer font-bold text-rose-900 text-sm">C, E <span class="text-xs font-normal italic text-rose-900/60 ml-1">(in any order)</span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-6 flex items-center justify-between">
+                    <h3 class="text-2xl font-bold text-rose-950">Mock Test View</h3>
+                    <a href="https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/passage2_complete_ielts_5.5_6.5_wb_unit2.html" target="_blank" class="inline-flex items-center gap-2 bg-gradient-to-r from-pink-500 to-rose-400 hover:from-pink-400 hover:to-rose-300 text-white font-bold py-2.5 px-6 rounded-full shadow-lg shadow-pink-500/30 transition-all hover:-translate-y-1 text-sm">
+                        Open in New Tab <span>↗</span>
+                    </a>
+                </div>
+                <div class="glass-card rounded-3xl p-2 shadow-lg border-2 border-pink-200/50 overflow-hidden" style="height: 60vh;">
+                    <iframe 
+                        src="https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/passage2_complete_ielts_5.5_6.5_wb_unit2.html" 
+                        class="w-full h-full border-0 rounded-2xl bg-white"
+                        title="Reading Test WB U2">
+                    </iframe>
+                </div>
+            </div>
+
+            <!-- SLIDE 3: Speaking Vocabulary -->
+            <div class="slide" id="slide-3">
+                <div class="flex items-center gap-4 mb-10">
+                    <span class="w-12 h-12 rounded-2xl glass-panel flex items-center justify-center text-2xl shadow-sm">🗣️</span>
+                    <div>
+                        <span class="text-pink-600 font-extrabold text-xs tracking-widest uppercase">Speaking Section</span>
+                        <h2 class="text-3xl font-extrabold text-rose-950">Cooking - Water - Food (Yellow Book Pg 24-26)</h2>
+                    </div>
+                </div>
+
+                <div class="space-y-8">
+                    <!-- Exercise 4: Phrase Matching -->
+                    <div class="glass-card rounded-3xl p-6 md:p-8 exercise-container relative">
+                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
+                            <div>
+                                <h3 class="text-2xl font-bold text-rose-950">Exercise 4</h3>
+                                <p class="text-sm text-rose-900/60 mt-1">Match the phrases to complete the sentences.</p>
+                            </div>
+                            <button onclick="toggleAnswers(this)" class="glass-button text-rose-800 font-bold py-2 px-5 rounded-xl text-sm shadow-sm shrink-0">
+                                ✨ Reveal Answers
+                            </button>
+                        </div>
+
+                        <div class="grid grid-cols-1 lg:grid-cols-[1.3fr_1fr] gap-8">
+                            <!-- Phrases List -->
+                            <div class="space-y-3.5 text-[0.95rem] font-semibold text-rose-950">
+                                <div class="flex flex-col gap-1 bg-white/40 p-3 rounded-xl hover:bg-white/60 transition">
+                                    <div class="flex flex-wrap items-center gap-x-2 gap-y-1">
+                                        <span>1 Judy is a bit of a <strong class="text-emerald-500">fussy eater</strong>.</span>
+                                        <span class="inline-answer text-emerald-800 font-semibold bg-emerald-50/80 px-2.5 py-0.5 rounded border border-emerald-200 text-sm">→ C. She only eats what she likes.</span>
+                                    </div>
+                                    <div class="flex items-center gap-2 pl-4">
+                                        <span class="text-xs font-normal text-rose-900/60">/ˈfʌsi ˈiːtər/</span>
+                                        <button onclick="playAudio('fussy eater')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button>
+                                        <span class="text-xs font-normal text-rose-900/70 italic">(người kén ăn)</span>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col gap-1 bg-white/40 p-3 rounded-xl hover:bg-white/60 transition">
+                                    <div class="flex flex-wrap items-center gap-x-2 gap-y-1">
+                                        <span>2 My roommate is <strong class="text-emerald-500">calorie-conscious</strong>.</span>
+                                        <span class="inline-answer text-emerald-800 font-semibold bg-emerald-50/80 px-2.5 py-0.5 rounded border border-emerald-200 text-sm">→ H. She is careful about calorie intake.</span>
+                                    </div>
+                                    <div class="flex items-center gap-2 pl-4">
+                                        <span class="text-xs font-normal text-rose-900/60">/ˈkæləri-ˈkɑːnʃəs/</span>
+                                        <button onclick="playAudio('calorie-conscious')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button>
+                                        <span class="text-xs font-normal text-rose-900/70 italic">(quan tâm đến lượng calo)</span>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col gap-1 bg-white/40 p-3 rounded-xl hover:bg-white/60 transition">
+                                    <div class="flex flex-wrap items-center gap-x-2 gap-y-1">
+                                        <span>3 My boyfriend <strong class="text-emerald-500">craves</strong> (for) fried chicken.</span>
+                                        <span class="inline-answer text-emerald-800 font-semibold bg-emerald-50/80 px-2.5 py-0.5 rounded border border-emerald-200 text-sm">→ E. He has a strong desire for it.</span>
+                                    </div>
+                                    <div class="flex items-center gap-2 pl-4">
+                                        <span class="text-xs font-normal text-rose-900/60">/kreɪvz/</span>
+                                        <button onclick="playAudio('craves')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button>
+                                        <span class="text-xs font-normal text-rose-900/70 italic">(thèm khát, khao khát)</span>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col gap-1 bg-white/40 p-3 rounded-xl hover:bg-white/60 transition">
+                                    <div class="flex flex-wrap items-center gap-x-2 gap-y-1">
+                                        <span>4 My neighbor is trying to enhance <strong class="text-emerald-500">culinary skills</strong>.</span>
+                                        <span class="inline-answer text-emerald-800 font-semibold bg-emerald-50/80 px-2.5 py-0.5 rounded border border-emerald-200 text-sm">→ I. She aims to cook better food.</span>
+                                    </div>
+                                    <div class="flex items-center gap-2 pl-4">
+                                        <span class="text-xs font-normal text-rose-900/60">/ˈkʌlɪneri skɪlz/</span>
+                                        <button onclick="playAudio('culinary skills')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button>
+                                        <span class="text-xs font-normal text-rose-900/70 italic">(kỹ năng nấu nướng)</span>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col gap-1 bg-white/40 p-3 rounded-xl hover:bg-white/60 transition">
+                                    <div class="flex flex-wrap items-center gap-x-2 gap-y-1">
+                                        <span>5 I <strong class="text-emerald-500">have a sweet tooth</strong>.</span>
+                                        <span class="inline-answer text-emerald-800 font-semibold bg-emerald-50/80 px-2.5 py-0.5 rounded border border-emerald-200 text-sm">→ D. I love cakes and candies.</span>
+                                    </div>
+                                    <div class="flex items-center gap-2 pl-4">
+                                        <span class="text-xs font-normal text-rose-900/60">/hæv ə swiːt tuːθ/</span>
+                                        <button onclick="playAudio('have a sweet tooth')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button>
+                                        <span class="text-xs font-normal text-rose-900/70 italic">(thích ăn đồ ngọt)</span>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col gap-1 bg-white/40 p-3 rounded-xl hover:bg-white/60 transition">
+                                    <div class="flex flex-wrap items-center gap-x-2 gap-y-1">
+                                        <span>6 My boss never buys <strong class="text-emerald-500">takeaways</strong>.</span>
+                                        <span class="inline-answer text-emerald-800 font-semibold bg-emerald-50/80 px-2.5 py-0.5 rounded border border-emerald-200 text-sm">→ G. He never buys fast food.</span>
+                                    </div>
+                                    <div class="flex items-center gap-2 pl-4">
+                                        <span class="text-xs font-normal text-rose-900/60">/ˈteɪkəweɪz/</span>
+                                        <button onclick="playAudio('takeaways')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button>
+                                        <span class="text-xs font-normal text-rose-900/70 italic">(đồ ăn mang về)</span>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col gap-1 bg-white/40 p-3 rounded-xl hover:bg-white/60 transition">
+                                    <div class="flex flex-wrap items-center gap-x-2 gap-y-1">
+                                        <span>7 My deskmate often enjoys <strong class="text-emerald-500">nibbles</strong>.</span>
+                                        <span class="inline-answer text-emerald-800 font-semibold bg-emerald-50/80 px-2.5 py-0.5 rounded border border-emerald-200 text-sm">→ A. She eats nuts or crisps before a meal.</span>
+                                    </div>
+                                    <div class="flex items-center gap-2 pl-4">
+                                        <span class="text-xs font-normal text-rose-900/60">/ˈnɪbəlz/</span>
+                                        <button onclick="playAudio('nibbles')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button>
+                                        <span class="text-xs font-normal text-rose-900/70 italic">(đồ ăn vặt, nhấm nháp)</span>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col gap-1 bg-white/40 p-3 rounded-xl hover:bg-white/60 transition">
+                                    <div class="flex flex-wrap items-center gap-x-2 gap-y-1">
+                                        <span>8 When we're in a hurry, we <strong class="text-emerald-500">grab a bite</strong> to eat.</span>
+                                        <span class="inline-answer text-emerald-800 font-semibold bg-emerald-50/80 px-2.5 py-0.5 rounded border border-emerald-200 text-sm">→ B. We have a quick meal.</span>
+                                    </div>
+                                    <div class="flex items-center gap-2 pl-4">
+                                        <span class="text-xs font-normal text-rose-900/60">/ɡræb ə baɪt/</span>
+                                        <button onclick="playAudio('grab a bite')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button>
+                                        <span class="text-xs font-normal text-rose-900/70 italic">(ăn lót dạ, ăn nhanh)</span>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col gap-1 bg-white/40 p-3 rounded-xl hover:bg-white/60 transition">
+                                    <div class="flex flex-wrap items-center gap-x-2 gap-y-1">
+                                        <span>9 My husband is <strong class="text-emerald-500">teetotal</strong>.</span>
+                                        <span class="inline-answer text-emerald-800 font-semibold bg-emerald-50/80 px-2.5 py-0.5 rounded border border-emerald-200 text-sm">→ F. He never drinks alcohol.</span>
+                                    </div>
+                                    <div class="flex items-center gap-2 pl-4">
+                                        <span class="text-xs font-normal text-rose-900/60">/tiːˈtoʊtəl/</span>
+                                        <button onclick="playAudio('teetotal')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button>
+                                        <span class="text-xs font-normal text-rose-900/70 italic">(không uống rượu bia)</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Meanings Box -->
+                            <div class="glass-panel p-5 rounded-2xl text-sm space-y-3 font-medium text-rose-950/80 bg-white/20 border border-white/40 self-start">
+                                <p><strong class="text-pink-500 font-black">A.</strong> She eats nuts or crisps before a meal.</p>
+                                <p><strong class="text-pink-500 font-black">B.</strong> We have a quick meal.</p>
+                                <p><strong class="text-pink-500 font-black">C.</strong> She only eats what she likes.</p>
+                                <p><strong class="text-pink-500 font-black">D.</strong> I love cakes and candies.</p>
+                                <p><strong class="text-pink-500 font-black">E.</strong> He has a strong desire for it.</p>
+                                <p><strong class="text-pink-500 font-black">F.</strong> He never drinks alcohol.</p>
+                                <p><strong class="text-pink-500 font-black">G.</strong> He never buys fast food.</p>
+                                <p><strong class="text-pink-500 font-black">H.</strong> She is careful about calorie intake.</p>
+                                <p><strong class="text-pink-500 font-black">I.</strong> She aims to cook better food.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Exercise 5: Picture/Definition Matching -->
+                    <div class="glass-card rounded-3xl p-6 md:p-8 exercise-container relative">
+                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
+                            <div>
+                                <h3 class="text-2xl font-bold text-rose-950">Exercise 5</h3>
+                                <p class="text-sm text-rose-900/60 mt-1">Match the words with their pictures/definitions.</p>
+                            </div>
+                            <button onclick="toggleAnswers(this)" class="glass-button text-rose-800 font-bold py-2 px-5 rounded-xl text-sm shadow-sm shrink-0">
+                                ✨ Reveal Answers
+                            </button>
+                        </div>
+
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                            <!-- Words List -->
+                            <div class="space-y-4 text-[0.95rem] font-semibold text-rose-950">
+                                <div class="flex flex-col gap-1 bg-white/40 p-3 rounded-xl">
+                                    <div class="flex flex-wrap items-center gap-x-2 gap-y-1">
+                                        <span>1 <strong class="text-emerald-500">spicy</strong> (a)</span>
+                                        <span class="inline-answer text-emerald-800 font-semibold bg-emerald-50/80 px-2.5 py-0.5 rounded border border-emerald-200 text-sm">→ D. 🌶️🔥 (Spicy chili)</span>
+                                    </div>
+                                    <div class="flex items-center gap-2 pl-4">
+                                        <span class="text-xs font-normal text-rose-900/60">/ˈspaɪsi/</span>
+                                        <button onclick="playAudio('spicy')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button>
+                                        <span class="text-xs font-normal text-rose-900/70 italic">(cay)</span>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col gap-1 bg-white/40 p-3 rounded-xl">
+                                    <div class="flex flex-wrap items-center gap-x-2 gap-y-1">
+                                        <span>2 <strong class="text-emerald-500">sour</strong> (a)</span>
+                                        <span class="inline-answer text-emerald-800 font-semibold bg-emerald-50/80 px-2.5 py-0.5 rounded border border-emerald-200 text-sm">→ C. 🍋😖 (Sour lemon)</span>
+                                    </div>
+                                    <div class="flex items-center gap-2 pl-4">
+                                        <span class="text-xs font-normal text-rose-900/60">/ˈsaʊər/</span>
+                                        <button onclick="playAudio('sour')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button>
+                                        <span class="text-xs font-normal text-rose-900/70 italic">(chua)</span>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col gap-1 bg-white/40 p-3 rounded-xl">
+                                    <div class="flex flex-wrap items-center gap-x-2 gap-y-1">
+                                        <span>3 <strong class="text-emerald-500">sweet</strong> (a)</span>
+                                        <span class="inline-answer text-emerald-800 font-semibold bg-emerald-50/80 px-2.5 py-0.5 rounded border border-emerald-200 text-sm">→ H. 🍩🍭🍬 (Donut & Sweets)</span>
+                                    </div>
+                                    <div class="flex items-center gap-2 pl-4">
+                                        <span class="text-xs font-normal text-rose-900/60">/swiːt/</span>
+                                        <button onclick="playAudio('sweet')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button>
+                                        <span class="text-xs font-normal text-rose-900/70 italic">(ngọt)</span>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col gap-1 bg-white/40 p-3 rounded-xl">
+                                    <div class="flex flex-wrap items-center gap-x-2 gap-y-1">
+                                        <span>4 <strong class="text-emerald-500">salty</strong> (a)</span>
+                                        <span class="inline-answer text-emerald-800 font-semibold bg-emerald-50/80 px-2.5 py-0.5 rounded border border-emerald-200 text-sm">→ F. 🧂 (Salt shaker)</span>
+                                    </div>
+                                    <div class="flex items-center gap-2 pl-4">
+                                        <span class="text-xs font-normal text-rose-900/60">/ˈsɔːlti/</span>
+                                        <button onclick="playAudio('salty')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button>
+                                        <span class="text-xs font-normal text-rose-900/70 italic">(mặn)</span>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col gap-1 bg-white/40 p-3 rounded-xl">
+                                    <div class="flex flex-wrap items-center gap-x-2 gap-y-1">
+                                        <span>5 <strong class="text-emerald-500">bitter</strong> (a)</span>
+                                        <span class="inline-answer text-emerald-800 font-semibold bg-emerald-50/80 px-2.5 py-0.5 rounded border border-emerald-200 text-sm">→ A. 🥒😠 (Bitter melon)</span>
+                                    </div>
+                                    <div class="flex items-center gap-2 pl-4">
+                                        <span class="text-xs font-normal text-rose-900/60">/ˈbɪtər/</span>
+                                        <button onclick="playAudio('bitter')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button>
+                                        <span class="text-xs font-normal text-rose-900/70 italic">(đắng)</span>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col gap-1 bg-white/40 p-3 rounded-xl">
+                                    <div class="flex flex-wrap items-center gap-x-2 gap-y-1">
+                                        <span>6 <strong class="text-emerald-500">bland</strong> (a)</span>
+                                        <span class="inline-answer text-emerald-800 font-semibold bg-emerald-50/80 px-2.5 py-0.5 rounded border border-emerald-200 text-sm">→ I. not having a strong or interesting taste</span>
+                                    </div>
+                                    <div class="flex items-center gap-2 pl-4">
+                                        <span class="text-xs font-normal text-rose-900/60">/blænd/</span>
+                                        <button onclick="playAudio('bland')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button>
+                                        <span class="text-xs font-normal text-rose-900/70 italic">(nhạt nhẽo, vô vị)</span>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col gap-1 bg-white/40 p-3 rounded-xl">
+                                    <div class="flex flex-wrap items-center gap-x-2 gap-y-1">
+                                        <span>7 <strong class="text-emerald-500">flavorful</strong> (a)</span>
+                                        <span class="inline-answer text-emerald-800 font-semibold bg-emerald-50/80 px-2.5 py-0.5 rounded border border-emerald-200 text-sm">→ B. having a lot of flavor</span>
+                                    </div>
+                                    <div class="flex items-center gap-2 pl-4">
+                                        <span class="text-xs font-normal text-rose-900/60">/ˈfleɪvərfʊl/</span>
+                                        <button onclick="playAudio('flavorful')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button>
+                                        <span class="text-xs font-normal text-rose-900/70 italic">(đậm đà, thơm ngon)</span>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col gap-1 bg-white/40 p-3 rounded-xl">
+                                    <div class="flex flex-wrap items-center gap-x-2 gap-y-1">
+                                        <span>8 <strong class="text-emerald-500">wholesome</strong> (a)</span>
+                                        <span class="inline-answer text-emerald-800 font-semibold bg-emerald-50/80 px-2.5 py-0.5 rounded border border-emerald-200 text-sm">→ E. good for your health</span>
+                                    </div>
+                                    <div class="flex items-center gap-2 pl-4">
+                                        <span class="text-xs font-normal text-rose-900/60">/ˈhoʊlsəm/</span>
+                                        <button onclick="playAudio('wholesome')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button>
+                                        <span class="text-xs font-normal text-rose-900/70 italic">(lành mạnh, tốt cho sức khỏe)</span>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col gap-1 bg-white/40 p-3 rounded-xl">
+                                    <div class="flex flex-wrap items-center gap-x-2 gap-y-1">
+                                        <span>9 <strong class="text-emerald-500">greasy</strong> (a)</span>
+                                        <span class="inline-answer text-emerald-800 font-semibold bg-emerald-50/80 px-2.5 py-0.5 rounded border border-emerald-200 text-sm">→ G. 🧀🧈 (Cheese & Butter)</span>
+                                    </div>
+                                    <div class="flex items-center gap-2 pl-4">
+                                        <span class="text-xs font-normal text-rose-900/60">/ˈɡriːsi/</span>
+                                        <button onclick="playAudio('greasy')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button>
+                                        <span class="text-xs font-normal text-rose-900/70 italic">(nhiều dầu mỡ)</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Definitions/Pictures List -->
+                            <div class="glass-panel p-5 rounded-2xl space-y-4 text-sm font-medium text-rose-950/80 bg-white/20 border border-white/40 self-start">
+                                <div class="flex items-center gap-3">
+                                    <strong class="text-pink-500 font-black text-lg">A.</strong> 
+                                    <span class="text-2xl">🥒😠</span> <span class="italic text-rose-900/60">(Bitter melon)</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <strong class="text-pink-500 font-black text-lg">B.</strong> 
+                                    <span>having a lot of flavor</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <strong class="text-pink-500 font-black text-lg">C.</strong> 
+                                    <span class="text-2xl">🍋😖</span> <span class="italic text-rose-900/60">(Sour lemon)</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <strong class="text-pink-500 font-black text-lg">D.</strong> 
+                                    <span class="text-2xl">🌶️🔥</span> <span class="italic text-rose-900/60">(Spicy chili)</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <strong class="text-pink-500 font-black text-lg">E.</strong> 
+                                    <span>good for your health</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <strong class="text-pink-500 font-black text-lg">F.</strong> 
+                                    <span class="text-2xl">🧂</span> <span class="italic text-rose-900/60">(Salt shaker)</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <strong class="text-pink-500 font-black text-lg">G.</strong> 
+                                    <span class="text-2xl">🧀🧈</span> <span class="italic text-rose-900/60">(Cheese & Butter)</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <strong class="text-pink-500 font-black text-lg">H.</strong> 
+                                    <span class="text-2xl">🍩🍭🍬</span> <span class="italic text-rose-900/60">(Donut & Sweets)</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <strong class="text-pink-500 font-black text-lg">I.</strong> 
+                                    <span>not having a strong or interesting taste</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                     <!-- Exercise 6: Guessing Meanings -->
+                     <div class="glass-card rounded-3xl p-6 md:p-8 exercise-container relative">
+                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
+                            <div>
+                                <h3 class="text-2xl font-bold text-rose-950">Exercise 6</h3>
+                                <p class="text-sm text-rose-900/60 mt-1">Read the paragraph below and try to guess the meanings of the bolded words/phrases.</p>
+                            </div>
+                            <button onclick="toggleAnswers(this)" class="glass-button text-rose-800 font-bold py-2 px-5 rounded-xl text-sm shadow-sm shrink-0">
+                                ✨ Reveal Answers
+                            </button>
+                        </div>
+
+                        <div class="glass-panel p-6 rounded-2xl mb-8 bg-white/40 border-emerald-200 border-2">
+                            <p class="text-lg leading-relaxed text-rose-950 font-medium">
+                                I think it's <strong class="text-emerald-500">essential</strong> to drink <strong class="text-emerald-500">sufficient</strong> water for the body to function efficiently. In contrast, <strong class="text-emerald-600">dehydration</strong> decreases <strong class="text-emerald-500">alertness</strong> and concentration. That's why we will feel <strong class="text-emerald-500">lethargic</strong> and <strong class="text-emerald-500">fatigued</strong> when we're thirsty. What's more, water can help to <strong class="text-emerald-500">detoxify</strong> the body and promote healthy skin. So I <strong class="text-emerald-500">have a habit of</strong> drinking water every hour.
+                            </p>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4">
+                            <div class="flex flex-col border-b border-pink-200/50 pb-2">
+                                <div class="flex items-center justify-between">
+                                    <span class="font-semibold text-rose-950">1 essential (a)</span>
+                                    <span class="inline-answer text-rose-800 font-medium italic">thiết yếu, cần thiết</span>
+                                </div>
+                                <div class="flex items-center gap-2 mt-1">
+                                    <span class="text-xs font-normal text-rose-900/60">/ɪˈsenʃəl/</span>
+                                    <button onclick="playAudio('essential')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button>
+                                </div>
+                            </div>
+                            <div class="flex flex-col border-b border-pink-200/50 pb-2">
+                                <div class="flex items-center justify-between">
+                                    <span class="font-semibold text-rose-950">2 sufficient (a)</span>
+                                    <span class="inline-answer text-rose-800 font-medium italic">đủ</span>
+                                </div>
+                                <div class="flex items-center gap-2 mt-1">
+                                    <span class="text-xs font-normal text-rose-900/60">/səˈfɪʃənt/</span>
+                                    <button onclick="playAudio('sufficient')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button>
+                                </div>
+                            </div>
+                            <div class="flex flex-col border-b border-pink-200/50 pb-2">
+                                <div class="flex items-center justify-between">
+                                    <span class="font-semibold text-rose-950">3 dehydration (n)</span>
+                                    <span class="inline-answer text-rose-800 font-medium italic">sự mất nước</span>
+                                </div>
+                                <div class="flex items-center gap-2 mt-1">
+                                    <span class="text-xs font-normal text-rose-900/60">/ˌdiːhaɪˈdreɪʃən/</span>
+                                    <button onclick="playAudio('dehydration')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button>
+                                </div>
+                            </div>
+                            <div class="flex flex-col border-b border-pink-200/50 pb-2">
+                                <div class="flex items-center justify-between">
+                                    <span class="font-semibold text-rose-950">4 alertness (n)</span>
+                                    <span class="inline-answer text-rose-800 font-medium italic">sự tỉnh táo</span>
+                                </div>
+                                <div class="flex items-center gap-2 mt-1">
+                                    <span class="text-xs font-normal text-rose-900/60">/əˈlɜːrtnəs/</span>
+                                    <button onclick="playAudio('alertness')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button>
+                                </div>
+                            </div>
+                            <div class="flex flex-col border-b border-pink-200/50 pb-2">
+                                <div class="flex items-center justify-between">
+                                    <span class="font-semibold text-rose-950">5 lethargic (a)</span>
+                                    <span class="inline-answer text-rose-800 font-medium italic">lờ đờ, uể oải</span>
+                                </div>
+                                <div class="flex items-center gap-2 mt-1">
+                                    <span class="text-xs font-normal text-rose-900/60">/ləˈθɑːrdʒɪk/</span>
+                                    <button onclick="playAudio('lethargic')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button>
+                                </div>
+                            </div>
+                            <div class="flex flex-col border-b border-pink-200/50 pb-2">
+                                <div class="flex items-center justify-between">
+                                    <span class="font-semibold text-rose-950">6 fatigued (a)</span>
+                                    <span class="inline-answer text-rose-800 font-medium italic">mệt mỏi</span>
+                                </div>
+                                <div class="flex items-center gap-2 mt-1">
+                                    <span class="text-xs font-normal text-rose-900/60">/fəˈtiːɡd/</span>
+                                    <button onclick="playAudio('fatigued')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button>
+                                </div>
+                            </div>
+                            <div class="flex flex-col border-b border-pink-200/50 pb-2">
+                                <div class="flex items-center justify-between">
+                                    <span class="font-semibold text-rose-950">7 detoxify (v)</span>
+                                    <span class="inline-answer text-rose-800 font-medium italic">giải độc</span>
+                                </div>
+                                <div class="flex items-center gap-2 mt-1">
+                                    <span class="text-xs font-normal text-rose-900/60">/diːˈtɑːksɪfaɪ/</span>
+                                    <button onclick="playAudio('detoxify')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button>
+                                </div>
+                            </div>
+                            <div class="flex flex-col border-b border-pink-200/50 pb-2">
+                                <div class="flex items-center justify-between">
+                                    <span class="font-semibold text-rose-950">8 have a habit of doing something</span>
+                                    <span class="inline-answer text-rose-800 font-medium italic">có thói quen làm gì</span>
+                                </div>
+                                <div class="flex items-center gap-2 mt-1">
+                                    <span class="text-xs font-normal text-rose-900/60">/hæv ə ˈhæbɪt ʌv/</span>
+                                    <button onclick="playAudio('have a habit of doing something')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 4: Speaking Practice (Placeholder) -->
+            <div class="slide" id="slide-4">
+                <div class="flex items-center gap-4 mb-10">
+                    <span class="w-12 h-12 rounded-2xl glass-panel flex items-center justify-center text-2xl shadow-sm">🗣️</span>
+                    <div>
+                        <span class="text-pink-600 font-extrabold text-xs tracking-widest uppercase">Speaking Section</span>
+                        <h2 class="text-3xl font-extrabold text-rose-950">Topic Practice</h2>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-3xl p-16 text-center border-dashed border-2 border-pink-300 relative overflow-hidden">
+                    <div class="w-24 h-24 glass-panel rounded-full flex items-center justify-center mx-auto mb-6 shadow-inner">
+                        <span class="text-5xl drop-shadow-md">⚙️</span>
+                    </div>
+                    <h3 class="text-2xl font-extrabold text-rose-950 mb-3">Speaking Practice Module</h3>
+                    <p class="text-rose-900/70 text-lg font-medium">Speaking questions and sample answers will be appended here soon.</p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        let currentSlide = 0;
+        let totalSlides = 0;
+        let slides = [];
+
+        function initSlides() {
+            slides = document.querySelectorAll('.slide');
+            totalSlides = slides.length;
+            updateUI();
+        }
+
+        function updateUI() {
+            slides.forEach((el, index) => {
+                if (index === currentSlide) {
+                    el.classList.add('active');
+                } else {
+                    el.classList.remove('active');
+                }
+            });
+            // Update counter
+            const counter = document.getElementById('slide-counter');
+            if (counter) counter.innerText = `${currentSlide + 1} / ${totalSlides}`;
+            
+            // Update dropdown
+            const navDropdown = document.getElementById('section-nav');
+            if (navDropdown) navDropdown.value = currentSlide;
+
+            // Update Progress Bar
+            const progress = ((currentSlide + 1) / totalSlides) * 100;
+            const progressBar = document.getElementById('progress-bar');
+            if(progressBar) progressBar.style.width = `${progress}%`;
+
+            document.querySelector('main').scrollTop = 0;
+        }
+
+        function jumpToSection(slideIndex) {
+            const index = parseInt(slideIndex);
+            if (!isNaN(index) && index >= 0 && index < totalSlides) {
+                currentSlide = index;
+                updateUI();
+            }
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides - 1) {
+                currentSlide++;
+                updateUI();
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 0) {
+                currentSlide--;
+                updateUI();
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') nextSlide();
+            if (e.key === 'ArrowLeft') prevSlide();
+        });
+
+        function toggleAnswers(button) {
+            const container = button.closest('.exercise-container');
+            if (!container) return;
+            
+            // Toggle block-level hidden answers (like in fill-in-the-blanks)
+            const hiddenElements = container.querySelectorAll('.hidden-answer');
+            let isHiddenBlock = true;
+            if (hiddenElements.length > 0) {
+                isHiddenBlock = hiddenElements[0].style.display === 'none' || hiddenElements[0].style.display === '';
+            }
+            hiddenElements.forEach(el => {
+                if (isHiddenBlock) {
+                    el.style.display = el.tagName === 'SPAN' ? (el.classList.contains('inline-block') ? 'inline-block' : 'inline') : 'block';
+                } else {
+                    el.style.display = 'none';
+                }
+            });
+
+            // Toggle inline hidden answers (like in matching exercises)
+            const inlineElements = container.querySelectorAll('.inline-answer');
+            let isHiddenInline = true;
+            if (inlineElements.length > 0) {
+                 isHiddenInline = inlineElements[0].style.display === 'none' || inlineElements[0].style.display === '';
+            }
+            inlineElements.forEach(el => {
+                 el.style.display = isHiddenInline ? 'inline-block' : 'none';
+            });
+
+            // Determine overall state to update button text
+            const overallHidden = (hiddenElements.length > 0 && isHiddenBlock) || (inlineElements.length > 0 && isHiddenInline);
+
+            if (overallHidden) {
+                button.innerHTML = "✨ Hide Answers";
+            } else {
+                button.innerHTML = button.getAttribute('data-default-text') || "👀 Reveal Answers";
+            }
+        }
+
+        function playAudio(word) {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel(); 
+                const utterance = new SpeechSynthesisUtterance(word);
+                utterance.lang = 'en-US';
+                utterance.rate = 0.85; 
+                window.speechSynthesis.speak(utterance);
+            } else {
+                console.warn("Text-to-Speech is not supported in this browser environment.");
+            }
+        }
+
+        // Initialize display
+        document.addEventListener('DOMContentLoaded', initSlides);
+    </script>
+</body>
+</html>
