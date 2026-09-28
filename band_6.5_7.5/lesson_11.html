@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Chan Truong | Lesson 11</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            background-color: #fff7ed; /* orange-50 */
+        }
+        .fade-in { animation: fadeIn 0.5s ease-out forwards; }
+        @keyframes fadeIn { 
+            from { opacity: 0; transform: translateY(15px); } 
+            to { opacity: 1; transform: translateY(0); } 
+        }
+        .timer-text { font-variant-numeric: tabular-nums; }
+        
+        /* Elegant Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #ffedd5; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb { background: #f97316; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #ea580c; }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+    </style>
+</head>
+<body class="h-screen flex flex-col overflow-hidden text-gray-800">
+
+    <header id="app-header" class="text-white p-4 shadow-lg transition-colors duration-700 z-20 relative bg-gradient-to-r from-orange-400 via-amber-500 to-yellow-500">
+        <div class="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9IiNmZmYiLz48L3N2Zz4=')]"></div>
+        
+        <div class="max-w-7xl mx-auto flex justify-between items-center relative z-10">
+            <div>
+                <div class="flex items-center gap-2 mb-1">
+                    <span class="bg-white/20 text-white text-xs font-bold px-2 py-0.5 rounded uppercase tracking-wider backdrop-blur-sm">Band 6.5 - 7.5</span>
+                    <span class="bg-white/20 text-white text-xs font-bold px-2 py-0.5 rounded uppercase tracking-wider backdrop-blur-sm">Lesson 11</span>
+                </div>
+                <h1 class="text-2xl font-bold tracking-tight drop-shadow-sm flex items-center gap-2">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                    IELTS Chan Truong
+                </h1>
+                <h2 id="slide-title" class="text-sm font-medium mt-1 text-orange-50">Loading session...</h2>
+            </div>
+            
+            <div class="flex items-center space-x-2 sm:space-x-3">
+                <div class="relative">
+                    <button id="nav-toggle-btn" class="flex items-center space-x-2 text-sm font-semibold bg-white/20 hover:bg-white/30 transition-all px-3 sm:px-5 py-2 rounded-full focus:outline-none backdrop-blur-md shadow-sm border border-white/20">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                        <span class="hidden sm:inline">Sections</span>
+                    </button>
+                    
+                    <div id="nav-dropdown" class="hidden absolute right-0 mt-3 w-80 bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-orange-100 overflow-hidden z-50 origin-top-right transition-all fade-in">
+                        <div class="p-3 bg-orange-50 border-b border-orange-100">
+                            <p class="text-xs font-bold text-orange-800 uppercase tracking-wider text-center">Lesson Agenda</p>
+                        </div>
+                        <div class="max-h-[60vh] overflow-y-auto p-2" id="nav-menu-list"></div>
+                    </div>
+                </div>
+
+                <div class="hidden sm:flex items-center space-x-2 text-sm font-bold text-orange-900 bg-white px-4 py-2 rounded-full shadow-sm">
+                    <svg class="w-4 h-4 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <span>90 Mins</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto mt-5 bg-black/10 rounded-full h-1.5 overflow-hidden relative z-10">
+            <div id="progress-bar" class="bg-white h-full transition-all duration-700 ease-out shadow-[0_0_10px_rgba(255,255,255,0.8)]" style="width: 0%"></div>
+        </div>
+    </header>
+
+    <main class="flex-grow overflow-y-auto relative p-4 md:p-8">
+        <div id="content-container" class="max-w-6xl mx-auto"></div>
+    </main>
+
+    <footer class="bg-white/80 backdrop-blur-md border-t border-orange-100 p-4 md:px-10 z-10 shadow-[0_-10px_15px_-3px_rgba(0,0,0,0.02)]">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <button id="btn-prev" class="px-6 py-2.5 rounded-xl border border-orange-200 text-orange-600 font-semibold hover:bg-orange-50 hover:border-orange-300 transition-all disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-2">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                Previous
+            </button>
+            
+            <div class="flex items-center gap-2">
+                <div class="w-2 h-2 rounded-full bg-orange-400 animate-pulse"></div>
+                <div id="step-indicator" class="text-sm font-semibold text-orange-800 uppercase tracking-wide">
+                    Section 1 of X
+                </div>
+                <div class="w-2 h-2 rounded-full bg-orange-400 animate-pulse delay-75"></div>
+            </div>
+
+            <button id="btn-next" class="px-6 py-2.5 rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 text-white font-semibold hover:from-orange-600 hover:to-amber-600 shadow-md hover:shadow-lg transition-all flex items-center gap-2 transform hover:-translate-y-0.5">
+                Next
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </button>
+        </div>
+    </footer>
+
+<script>
+    let timers = {
+        prep: { interval: null, remaining: 60, isRunning: false },
+        speak: { interval: null, remaining: 120, isRunning: false },
+        prep2: { interval: null, remaining: 60, isRunning: false },
+        speak2: { interval: null, remaining: 120, isRunning: false }
+    };
+
+    function formatTime(seconds) {
+        const m = Math.floor(seconds / 60).toString().padStart(2, '0');
+        const s = (seconds % 60).toString().padStart(2, '0');
+        return `${m}:${s}`;
+    }
+
+    function updateTimerUI(id, seconds) {
+        const displayEl = document.getElementById(`${id}-timer`);
+        if (displayEl) displayEl.textContent = formatTime(seconds);
+    }
+
+    function toggleTimer(id, defaultTime) {
+        const timer = timers[id];
+        const btn = document.getElementById(`btn-${id}-timer`);
+        
+        if (timer.isRunning) {
+            clearInterval(timer.interval);
+            timer.isRunning = false;
+            if(btn) btn.textContent = 'Resume';
+        } else {
+            if (timer.remaining <= 0) timer.remaining = defaultTime;
+            
+            timer.isRunning = true;
+            if(btn) btn.textContent = 'Pause';
+            
+            timer.interval = setInterval(() => {
+                timer.remaining--;
+                updateTimerUI(id, timer.remaining);
+                
+                if (timer.remaining <= 0) {
+                    clearInterval(timer.interval);
+                    timer.isRunning = false;
+                    if(btn) btn.textContent = 'Time Up!';
+                    try {
+                        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+                        const playBeep = (st) => {
+                            const osc = ctx.createOscillator();
+                            const gain = ctx.createGain();
+                            osc.connect(gain);
+                            gain.connect(ctx.destination);
+                            osc.frequency.setValueAtTime(800, st);
+                            gain.gain.setValueAtTime(0.1, st);
+                            osc.start(st);
+                            gain.gain.exponentialRampToValueAtTime(0.00001, st + 0.3);
+                            osc.stop(st + 0.3);
+                        };
+                        playBeep(ctx.currentTime);
+                        playBeep(ctx.currentTime + 0.4);
+                    } catch(e) {}
+                }
+            }, 1000);
+        }
+    }
+
+    function pauseAllTimers() {
+        Object.keys(timers).forEach(key => {
+            if (timers[key].isRunning) {
+                clearInterval(timers[key].interval);
+                timers[key].isRunning = false;
+            }
+        });
+    }
+
+    const sessionData = [
+        {
+            id: 'vocab_unit3',
+            type: 'Speaking',
+            themeClass: 'bg-gradient-to-r from-orange-400 to-amber-500',
+            iconColor: 'text-orange-500',
+            bgColor: 'bg-orange-50',
+            title: '1. Unit 3 Vocab Exercises',
+            content: `
+                <div class="fade-in bg-white rounded-3xl shadow-xl border border-orange-50 p-8 md:p-12 relative">
+                    <div class="flex items-center gap-3 mb-6 border-b border-gray-100 pb-4">
+                        <span class="inline-block py-1 px-3 rounded-full bg-orange-100 text-orange-700 font-bold text-xs uppercase tracking-widest">Pink Book</span>
+                        <h3 class="text-3xl font-bold text-gray-800">Unit 3: Health & Sports</h3>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        
+                        <!-- Exercise 1 -->
+                        <div id="ex-unit3-1" class="bg-gray-50 rounded-2xl p-6 border border-gray-200">
+                            <div class="flex justify-between items-start gap-4 mb-4">
+                                <h4 class="font-bold text-gray-800 text-lg">Exercise 1: Match the words to form collocations.</h4>
+                                <button id="btn-ex-unit3-1" onclick="toggleInlineAnswers('ex-unit3-1', 'btn-ex-unit3-1')" class="text-xs font-bold text-orange-600 bg-orange-100 hover:bg-orange-200 px-4 py-2 rounded-lg transition-colors whitespace-nowrap shadow-sm">Show Answers</button>
+                            </div>
+                            
+                            <div class="flex flex-wrap gap-3 justify-center mb-6">
+                                <div class="flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-orange-100 shadow-sm min-w-[130px] text-center">
+                                    <span class="text-orange-700 font-bold text-sm">be prescribed</span>
+                                    <span class="text-gray-500 text-[11px] font-normal">/bi prɪˈskraɪbd/</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">được kê đơn</span>
+                                </div>
+                                <div class="flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-orange-100 shadow-sm min-w-[130px] text-center">
+                                    <span class="text-orange-700 font-bold text-sm">come down</span>
+                                    <span class="text-gray-500 text-[11px] font-normal">/kʌm daʊn/</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">mắc bệnh</span>
+                                </div>
+                                <div class="flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-orange-100 shadow-sm min-w-[130px] text-center">
+                                    <span class="text-orange-700 font-bold text-sm">fall ill</span>
+                                    <span class="text-gray-500 text-[11px] font-normal">/fɔːl ɪl/</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">bị ốm</span>
+                                </div>
+                                <div class="flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-orange-100 shadow-sm min-w-[130px] text-center">
+                                    <span class="text-orange-700 font-bold text-sm">side effects</span>
+                                    <span class="text-gray-500 text-[11px] font-normal">/saɪd ɪˈfekts/</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">tác dụng phụ</span>
+                                </div>
+                                <div class="flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-orange-100 shadow-sm min-w-[130px] text-center">
+                                    <span class="text-orange-700 font-bold text-sm">be diagnosed with</span>
+                                    <span class="text-gray-500 text-[11px] font-normal">/bi ˈdaɪəɡnəʊzd wɪð/</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">bị chẩn đoán mắc</span>
+                                </div>
+                                <div class="flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-orange-100 shadow-sm min-w-[130px] text-center">
+                                    <span class="text-orange-700 font-bold text-sm">antibiotics</span>
+                                    <span class="text-gray-500 text-[11px] font-normal">/ˌæntibaɪˈɒtɪks/</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">thuốc kháng sinh</span>
+                                </div>
+                                <div class="flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-orange-100 shadow-sm min-w-[130px] text-center">
+                                    <span class="text-orange-700 font-bold text-sm">splitting headache</span>
+                                    <span class="text-gray-500 text-[11px] font-normal">/ˈsplɪtɪŋ ˈhed.eɪk/</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">nhức đầu búa bổ</span>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm font-medium text-gray-700 mt-4">
+                                <div class="space-y-3">
+                                    <p>1. be prescribed <span class="blank-inline text-gray-400 border-b border-gray-300 w-12 inline-block"></span><span class="ans-inline hidden bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded font-bold">E. antibiotics</span></p>
+                                    <p>2. come down <span class="blank-inline text-gray-400 border-b border-gray-300 w-12 inline-block"></span><span class="ans-inline hidden bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded font-bold">C. with a flu</span></p>
+                                    <p>3. have <span class="blank-inline text-gray-400 border-b border-gray-300 w-12 inline-block"></span><span class="ans-inline hidden bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded font-bold">D / F / G (a headache/throat/nose)</span></p>
+                                    <p>4. side <span class="blank-inline text-gray-400 border-b border-gray-300 w-12 inline-block"></span><span class="ans-inline hidden bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded font-bold">B. effects</span></p>
+                                    <p>5. fall <span class="blank-inline text-gray-400 border-b border-gray-300 w-12 inline-block"></span><span class="ans-inline hidden bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded font-bold">A. ill</span></p>
+                                    <p>6. be diagnosed with <span class="blank-inline text-gray-400 border-b border-gray-300 w-12 inline-block"></span><span class="ans-inline hidden bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded font-bold">H. asthma</span></p>
+                                </div>
+                                <div class="space-y-3 bg-orange-50 p-4 rounded-xl border border-orange-100">
+                                    <p><span class="font-bold text-orange-700 mr-2">A.</span> ill</p>
+                                    <p><span class="font-bold text-orange-700 mr-2">B.</span> effects</p>
+                                    <p><span class="font-bold text-orange-700 mr-2">C.</span> with a flu</p>
+                                    <p><span class="font-bold text-orange-700 mr-2">D.</span> a splitting headache</p>
+                                    <p><span class="font-bold text-orange-700 mr-2">E.</span> antibiotics</p>
+                                    <p><span class="font-bold text-orange-700 mr-2">F.</span> a sore throat</p>
+                                    <p><span class="font-bold text-orange-700 mr-2">G.</span> a runny nose</p>
+                                    <p><span class="font-bold text-orange-700 mr-2">H.</span> asthma <span class="text-gray-500 font-normal">/ˈæzmə/</span></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Exercise 2 -->
+                        <div id="ex-unit3-2" class="bg-gray-50 rounded-2xl p-6 border border-gray-200">
+                            <div class="flex justify-between items-start gap-4 mb-4">
+                                <h4 class="font-bold text-gray-800 text-lg">Exercise 2: Fill in the blanks with suitable words.</h4>
+                                <button id="btn-ex-unit3-2" onclick="toggleInlineAnswers('ex-unit3-2', 'btn-ex-unit3-2')" class="text-xs font-bold text-orange-600 bg-orange-100 hover:bg-orange-200 px-4 py-2 rounded-lg transition-colors whitespace-nowrap shadow-sm">Show Answers</button>
+                            </div>
+                            
+                            <div class="flex flex-wrap gap-3 justify-center mb-6">
+                                <div class="flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-orange-100 shadow-sm min-w-[110px] text-center">
+                                    <span class="text-orange-700 font-bold text-sm">swallow</span>
+                                    <span class="text-gray-500 text-[11px] font-normal">/ˈswɒləʊ/</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">nuốt</span>
+                                </div>
+                                <div class="flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-orange-100 shadow-sm min-w-[110px] text-center">
+                                    <span class="text-orange-700 font-bold text-sm">phobia</span>
+                                    <span class="text-gray-500 text-[11px] font-normal">/ˈfəʊbiə/</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">hội chứng sợ</span>
+                                </div>
+                                <div class="flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-orange-100 shadow-sm min-w-[110px] text-center">
+                                    <span class="text-orange-700 font-bold text-sm">choking</span>
+                                    <span class="text-gray-500 text-[11px] font-normal">/ˈtʃəʊkɪŋ/</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">sự nghẹt thở</span>
+                                </div>
+                                <div class="flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-orange-100 shadow-sm min-w-[110px] text-center">
+                                    <span class="text-orange-700 font-bold text-sm">stem</span>
+                                    <span class="text-gray-500 text-[11px] font-normal">/stem/</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">bắt nguồn (từ)</span>
+                                </div>
+                                <div class="flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-orange-100 shadow-sm min-w-[110px] text-center">
+                                    <span class="text-orange-700 font-bold text-sm">prevalent</span>
+                                    <span class="text-gray-500 text-[11px] font-normal">/ˈprevələnt/</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">phổ biến</span>
+                                </div>
+                            </div>
+
+                            <div class="space-y-3 text-gray-700 text-sm font-medium leading-loose">
+                                <p>Medication (1) <span class="blank-inline text-gray-400 border-b border-gray-300 w-24 inline-block"></span><span class="ans-inline hidden text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded font-bold">phobia</span> is something (2) <span class="blank-inline text-gray-400 border-b border-gray-300 w-24 inline-block"></span><span class="ans-inline hidden text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded font-bold">prevalent</span>, particularly among people with anxiety disorders. Some find it difficult to (3) <span class="blank-inline text-gray-400 border-b border-gray-300 w-24 inline-block"></span><span class="ans-inline hidden text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded font-bold">swallow</span> pills while others fear (4) <span class="blank-inline text-gray-400 border-b border-gray-300 w-24 inline-block"></span><span class="ans-inline hidden text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded font-bold">choking</span>. This problem can (5) <span class="blank-inline text-gray-400 border-b border-gray-300 w-24 inline-block"></span><span class="ans-inline hidden text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded font-bold">stem</span> from a lack of knowledge about medication or prior unpleasant experiences of taking medicine.</p>
+                            </div>
+                        </div>
+
+                        <!-- Exercise 3 -->
+                        <div id="ex-unit3-3" class="bg-gray-50 rounded-2xl p-6 border border-gray-200">
+                            <div class="flex justify-between items-start gap-4 mb-4">
+                                <h4 class="font-bold text-gray-800 text-lg">Exercise 3: Decide whether the sentences are Correct or Incorrect.</h4>
+                                <button id="btn-ex-unit3-3" onclick="toggleInlineAnswers('ex-unit3-3', 'btn-ex-unit3-3')" class="text-xs font-bold text-orange-600 bg-orange-100 hover:bg-orange-200 px-4 py-2 rounded-lg transition-colors whitespace-nowrap shadow-sm">Show Answers</button>
+                            </div>
+
+                            <div class="flex flex-wrap gap-3 justify-center mb-6">
+                                <div class="flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-orange-100 shadow-sm min-w-[130px] text-center">
+                                    <span class="text-orange-700 font-bold text-sm">on the mend</span>
+                                    <span class="text-gray-500 text-[11px] font-normal">/ɒn ðə mend/</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">đang bình phục</span>
+                                </div>
+                                <div class="flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-orange-100 shadow-sm min-w-[130px] text-center">
+                                    <span class="text-orange-700 font-bold text-sm">under the weather</span>
+                                    <span class="text-gray-500 text-[11px] font-normal">/ˌʌndə ðə ˈweðə/</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">không khỏe</span>
+                                </div>
+                                <div class="flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-orange-100 shadow-sm min-w-[130px] text-center">
+                                    <span class="text-orange-700 font-bold text-sm">full of beans</span>
+                                    <span class="text-gray-500 text-[11px] font-normal">/fʊl əv biːnz/</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">tràn đầy năng lượng</span>
+                                </div>
+                                <div class="flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-orange-100 shadow-sm min-w-[130px] text-center">
+                                    <span class="text-orange-700 font-bold text-sm">agile/nimble</span>
+                                    <span class="text-gray-500 text-[11px] font-normal">/ˈædʒaɪl/ /ˈnɪmbəl/</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">nhanh nhẹn</span>
+                                </div>
+                                <div class="flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-orange-100 shadow-sm min-w-[130px] text-center">
+                                    <span class="text-orange-700 font-bold text-sm">stamina</span>
+                                    <span class="text-gray-500 text-[11px] font-normal">/ˈstæmɪnə/</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">sức bền</span>
+                                </div>
+                            </div>
+                            
+                            <div class="space-y-4 text-sm text-gray-700">
+                                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2 border-b border-gray-200 pb-3">
+                                    <p class="font-medium">1. If you're <span class="font-bold text-orange-600 italic">on the mend</span>, you're recovering from an illness.</p>
+                                    <span class="ans-inline hidden bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full font-bold text-xs uppercase tracking-wider">Correct</span>
+                                </div>
+                                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2 border-b border-gray-200 pb-3">
+                                    <p class="font-medium">2. Feel a bit <span class="font-bold text-orange-600 italic">under the weather</span> means feeling very well.</p>
+                                    <span class="ans-inline hidden bg-red-100 text-red-700 px-3 py-1 rounded-full font-bold text-xs uppercase tracking-wider">Incorrect</span>
+                                </div>
+                                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2 border-b border-gray-200 pb-3">
+                                    <p class="font-medium">3. If you're <span class="font-bold text-orange-600 italic">full of beans</span>, you are lethargic.</p>
+                                    <span class="ans-inline hidden bg-red-100 text-red-700 px-3 py-1 rounded-full font-bold text-xs uppercase tracking-wider">Incorrect</span>
+                                </div>
+                                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2 border-b border-gray-200 pb-3">
+                                    <p class="font-medium">4. Be <span class="font-bold text-orange-600 italic">agile/nimble</span> means being quick.</p>
+                                    <span class="ans-inline hidden bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full font-bold text-xs uppercase tracking-wider">Correct</span>
+                                </div>
+                                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2 border-b border-gray-200 pb-3">
+                                    <p class="font-medium">5. <span class="font-bold text-orange-600 italic">Stamina</span> means the strength to do something difficult.</p>
+                                    <span class="ans-inline hidden bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full font-bold text-xs uppercase tracking-wider">Correct</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Exercise 4 -->
+                        <div id="ex-unit3-4" class="bg-gray-50 rounded-2xl p-6 border border-gray-200">
+                            <div class="flex justify-between items-start gap-4 mb-4">
+                                <h4 class="font-bold text-gray-800 text-lg">Exercise 4: Fill in each blank with one suitable word.</h4>
+                                <button id="btn-ex-unit3-4" onclick="toggleInlineAnswers('ex-unit3-4', 'btn-ex-unit3-4')" class="text-xs font-bold text-orange-600 bg-orange-100 hover:bg-orange-200 px-4 py-2 rounded-lg transition-colors whitespace-nowrap shadow-sm">Show Answers</button>
+                            </div>
+                            
+                            <div class="flex flex-wrap gap-3 justify-center mb-6">
+                                <div class="flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-orange-100 shadow-sm min-w-[110px] text-center">
+                                    <span class="text-orange-700 font-bold text-sm">trustworthy</span>
+                                    <span class="text-gray-500 text-[11px] font-normal">/ˈtrʌstˌwɜːði/</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">đáng tin cậy</span>
+                                </div>
+                                <div class="flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-orange-100 shadow-sm min-w-[110px] text-center">
+                                    <span class="text-orange-700 font-bold text-sm">vitality</span>
+                                    <span class="text-gray-500 text-[11px] font-normal">/vaɪˈtæləti/</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">sức sống</span>
+                                </div>
+                                <div class="flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-orange-100 shadow-sm min-w-[110px] text-center">
+                                    <span class="text-orange-700 font-bold text-sm">malignant</span>
+                                    <span class="text-gray-500 text-[11px] font-normal">/məˈlɪɡnənt/</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">ác tính</span>
+                                </div>
+                                <div class="flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-orange-100 shadow-sm min-w-[110px] text-center">
+                                    <span class="text-orange-700 font-bold text-sm">inoculated</span>
+                                    <span class="text-gray-500 text-[11px] font-normal">/ɪˈnɒkjʊleɪtɪd/</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">được tiêm chủng</span>
+                                </div>
+                                <div class="flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-orange-100 shadow-sm min-w-[110px] text-center">
+                                    <span class="text-orange-700 font-bold text-sm">enlightening</span>
+                                    <span class="text-gray-500 text-[11px] font-normal">/ɪnˈlaɪtənɪŋ/</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">làm sáng tỏ</span>
+                                </div>
+                                <div class="flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-orange-100 shadow-sm min-w-[110px] text-center">
+                                    <span class="text-orange-700 font-bold text-sm">susceptible</span>
+                                    <span class="text-gray-500 text-[11px] font-normal">/səˈseptəbl/</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">dễ bị ảnh hưởng</span>
+                                </div>
+                                <div class="flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-orange-100 shadow-sm min-w-[110px] text-center">
+                                    <span class="text-orange-700 font-bold text-sm">distress</span>
+                                    <span class="text-gray-500 text-[11px] font-normal">/dɪˈstres/</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">sự đau buồn</span>
+                                </div>
+                                <div class="flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-orange-100 shadow-sm min-w-[110px] text-center">
+                                    <span class="text-orange-700 font-bold text-sm">longevity</span>
+                                    <span class="text-gray-500 text-[11px] font-normal">/lɒnˈdʒevəti/</span>
+                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">tuổi thọ</span>
+                                </div>
+                            </div>
+
+                            <div class="space-y-4 text-gray-700 text-sm font-medium leading-loose">
+                                <p>1. According to the packet, these vitamin pills will restore lost <span class="blank-inline text-gray-400 border-b border-gray-300 w-24 inline-block"></span><span class="ans-inline hidden text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded font-bold">vitality</span>.</p>
+                                <p>2. He attributed his <span class="blank-inline text-gray-400 border-b border-gray-300 w-24 inline-block"></span><span class="ans-inline hidden text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded font-bold">longevity</span> to exercise and a healthy diet.</p>
+                                <p>3. The treatment has shown the potential to repress tumor invasion and <span class="blank-inline text-gray-400 border-b border-gray-300 w-24 inline-block"></span><span class="ans-inline hidden text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded font-bold">malignant</span> progression.</p>
+                                <p>4. My children have been <span class="blank-inline text-gray-400 border-b border-gray-300 w-24 inline-block"></span><span class="ans-inline hidden text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded font-bold">inoculated</span> against polio.</p>
+                                <p>5. The health-related insights in this magazine are always <span class="blank-inline text-gray-400 border-b border-gray-300 w-24 inline-block"></span><span class="ans-inline hidden text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded font-bold">enlightening</span>, and unfailingly fascinating.</p>
+                                <p>6. There is seemingly a worrying majority of people who are gullible enough to be <span class="blank-inline text-gray-400 border-b border-gray-300 w-24 inline-block"></span><span class="ans-inline hidden text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded font-bold">susceptible</span> to misinformation, or fake news in particular. Finding <span class="blank-inline text-gray-400 border-b border-gray-300 w-24 inline-block"></span><span class="ans-inline hidden text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded font-bold">trustworthy</span> sources on the Internet is the issue that must be emphasized.</p>
+                                <p>7. We should all seek appropriate remedies for our expected psychological <span class="blank-inline text-gray-400 border-b border-gray-300 w-24 inline-block"></span><span class="ans-inline hidden text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded font-bold">distress</span>, mood swings and irritability due to the rat race.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            `
+        },
+        {
+            id: 'speaking_practice_u3',
+            type: 'Speaking',
+            themeClass: 'bg-gradient-to-r from-teal-400 to-emerald-500',
+            iconColor: 'text-teal-500',
+            bgColor: 'bg-teal-50',
+            title: '2. Unit 3 Speaking Practice',
+            content: `
+                <div class="fade-in">
+                    
+                    <!-- Part 2 Section 1 -->
+                    <div class="bg-white rounded-3xl shadow-xl border border-teal-50 p-8 mb-8">
+                        <div class="flex justify-between items-center mb-6 border-b border-gray-100 pb-4">
+                            <h3 class="text-2xl font-bold text-gray-800">Part 2: Long Turn (Topic 1)</h3>
+                            <div class="flex gap-2">
+                                <button onclick="toggleTimer('prep', 60)" id="btn-prep-timer" class="px-4 py-2 bg-teal-100 text-teal-700 rounded-lg text-sm font-bold hover:bg-teal-200 transition">Prep: <span id="prep-timer" class="timer-text">01:00</span></button>
+                                <button onclick="toggleTimer('speak', 120)" id="btn-speak-timer" class="px-4 py-2 bg-emerald-500 text-white rounded-lg text-sm font-bold hover:bg-emerald-600 transition">Speak: <span id="speak-timer" class="timer-text">02:00</span></button>
+                            </div>
+                        </div>
+
+                        <div class="bg-teal-50 border-l-4 border-teal-500 p-6 rounded-r-2xl mb-8 shadow-sm flex items-start gap-4">
+                            <div class="text-4xl">🏃</div>
+                            <div>
+                                <p class="text-teal-800 font-bold uppercase tracking-wider text-xs mb-2">Candidate Task Card</p>
+                                <p class="text-xl font-bold text-gray-800 mb-4">Describe a place popular for playing sports</p>
+                                <p class="text-gray-700 font-medium mb-2">You should say:</p>
+                                <ul class="text-gray-700 space-y-2 list-disc list-inside font-medium ml-2">
+                                    <li>Where it is</li>
+                                    <li>When you go there</li>
+                                    <li>What you do there</li>
+                                    <li>And explain how you feel about this place</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <button onclick="toggleVisibility('p2-sample-1')" class="w-full text-left py-3 px-5 bg-gray-50 rounded-xl text-sm font-bold text-gray-700 hover:bg-gray-100 transition-colors flex justify-between items-center mb-4 border border-gray-200">
+                            Show Sample Response
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        
+                        <div id="p2-sample-1" class="hidden bg-white border border-teal-100 rounded-2xl p-6 shadow-sm">
+                            <h4 class="font-bold text-teal-600 flex items-center gap-2 mb-4">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                High-Scoring Sample
+                            </h4>
+                            <div class="text-gray-700 text-sm leading-relaxed space-y-3 italic">
+                                <p>"I'd like to describe a local community sports complex that is incredibly <span class="font-bold text-teal-600">prevalent</span> in my neighborhood. It's located right in the city center, surrounded by greenery."</p>
+                                <p>"I usually go there early in the mornings on weekends. I find that exercising early helps me restore my <span class="font-bold text-teal-600">vitality</span> for the week ahead. When I'm there, I mostly jog on the running track or join pick-up basketball games. It requires a lot of <span class="font-bold text-teal-600">stamina</span> and keeps me quite <span class="font-bold text-teal-600">agile</span>."</p>
+                                <p>"I feel extremely positive about this place. Whenever I've been feeling <span class="font-bold text-teal-600">under the weather</span> from too much screen time, a quick session there puts me right <span class="font-bold text-teal-600">on the mend</span>. Leaving the complex, I always feel <span class="font-bold text-teal-600">full of beans</span>. It's a fantastic environment that genuinely helps relieve psychological <span class="font-bold text-teal-600">distress</span>."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Part 2 Section 2 -->
+                    <div class="bg-white rounded-3xl shadow-xl border border-emerald-50 p-8 mb-8">
+                         <div class="flex justify-between items-center mb-6 border-b border-gray-100 pb-4">
+                            <h3 class="text-2xl font-bold text-gray-800">Part 2: Long Turn (Topic 2)</h3>
+                            <div class="flex gap-2">
+                                <button onclick="toggleTimer('prep2', 60)" id="btn-prep2-timer" class="px-4 py-2 bg-emerald-100 text-emerald-700 rounded-lg text-sm font-bold hover:bg-emerald-200 transition">Prep: <span id="prep2-timer" class="timer-text">01:00</span></button>
+                                <button onclick="toggleTimer('speak2', 120)" id="btn-speak2-timer" class="px-4 py-2 bg-teal-500 text-white rounded-lg text-sm font-bold hover:bg-teal-600 transition">Speak: <span id="speak2-timer" class="timer-text">02:00</span></button>
+                            </div>
+                        </div>
+
+                        <div class="bg-emerald-50 border-l-4 border-emerald-500 p-6 rounded-r-2xl mb-8 shadow-sm flex items-start gap-4">
+                            <div class="text-4xl">🧘</div>
+                            <div>
+                                <p class="text-emerald-800 font-bold uppercase tracking-wider text-xs mb-2">Candidate Task Card</p>
+                                <p class="text-xl font-bold text-gray-800 mb-4">Describe something you do that is important for keeping fit and staying healthy</p>
+                                <p class="text-gray-700 font-medium mb-2">You should say:</p>
+                                <ul class="text-gray-700 space-y-2 list-disc list-inside font-medium ml-2">
+                                    <li>What you do</li>
+                                    <li>How often you do it</li>
+                                    <li>Where you do it</li>
+                                    <li>How you think this activity helps you stay healthy</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <button onclick="toggleVisibility('p2-sample-2')" class="w-full text-left py-3 px-5 bg-gray-50 rounded-xl text-sm font-bold text-gray-700 hover:bg-gray-100 transition-colors flex justify-between items-center mb-4 border border-gray-200">
+                            Show Sample Response
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        
+                        <div id="p2-sample-2" class="hidden bg-white border border-teal-100 rounded-2xl p-6 shadow-sm">
+                            <h4 class="font-bold text-teal-600 flex items-center gap-2 mb-4">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                High-Scoring Sample
+                            </h4>
+                            <div class="text-gray-700 text-sm leading-relaxed space-y-3 italic">
+                                <p>"An activity I regularly engage in to stay healthy is practicing yoga and mindful meditation. I try to do this almost every day, typically for about 45 minutes in the evening right in my living room."</p>
+                                <p>"I started this routine because I used to suffer from a <span class="font-bold text-emerald-600">splitting headache</span> frequently due to work stress, and I didn't want to constantly rely on <span class="font-bold text-emerald-600">antibiotics</span> or painkillers which might have adverse <span class="font-bold text-emerald-600">side effects</span>."</p>
+                                <p>"This practice is vital for my health because it effectively mitigates daily <span class="font-bold text-emerald-600">distress</span>. Since starting, my <span class="font-bold text-emerald-600">stamina</span> and flexibility have drastically improved. More importantly, it keeps my immune system strong, so I rarely <span class="font-bold text-emerald-600">come down with a flu</span> anymore. Overall, it provides me with a great sense of <span class="font-bold text-emerald-600">vitality</span> and balance."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Part 3 -->
+                    <div class="bg-white rounded-3xl shadow-xl border border-teal-50 p-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6 border-b border-gray-100 pb-4">Part 3: Two-way Discussion</h3>
+                        
+                        <div class="space-y-5">
+                            <div class="bg-gray-50 rounded-2xl p-5 border border-gray-200">
+                                <div class="flex justify-between items-start gap-4 mb-3">
+                                    <p class="font-bold text-gray-800 text-lg">1. Do young people like to do sports?</p>
+                                    <button onclick="toggleVisibility('p3-u3-1')" class="text-xs font-bold text-teal-600 bg-teal-100 hover:bg-teal-200 px-4 py-2 rounded-lg transition-colors whitespace-nowrap shadow-sm">Sample</button>
+                                </div>
+                                <div id="p3-u3-1" class="hidden bg-white border-l-4 border-teal-400 p-4 rounded-r-lg shadow-sm mt-3">
+                                    <div class="space-y-2">
+                                        <p class="text-gray-700 italic text-sm leading-relaxed"><span class="text-xs font-bold text-teal-600 uppercase tracking-wider not-italic mr-1 bg-teal-50 px-1 py-0.5 rounded border border-teal-100">[Direct Answer]</span> "I'd say the attitude toward sports among youth is quite divided."</p>
+                                        <p class="text-gray-700 italic text-sm leading-relaxed"><span class="text-xs font-bold text-teal-600 uppercase tracking-wider not-italic mr-1 bg-teal-50 px-1 py-0.5 rounded border border-teal-100">[Detail 1]</span> On one hand, many young people are incredibly active, hitting the gym to build <span class="font-semibold text-teal-600">stamina</span> and stay <span class="font-semibold text-teal-600">agile</span>.</p>
+                                        <p class="text-gray-700 italic text-sm leading-relaxed"><span class="text-xs font-bold text-teal-600 uppercase tracking-wider not-italic mr-1 bg-teal-50 px-1 py-0.5 rounded border border-teal-100">[Contrast]</span> However, a <span class="font-semibold text-teal-600">prevalent</span> issue today is excessive screen time. A significant portion of the youth prefers sedentary hobbies like gaming, making them highly <span class="font-semibold text-teal-600">susceptible</span> to early health problems."</p>
+                                        <p class="text-gray-700 italic text-sm leading-relaxed"><span class="text-xs font-bold text-teal-600 uppercase tracking-wider not-italic mr-1 bg-teal-50 px-1 py-0.5 rounded border border-teal-100">[Conclusion]</span> Ultimately, it heavily depends on their individual lifestyle choices and upbringing."</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gray-50 rounded-2xl p-5 border border-gray-200">
+                                <div class="flex justify-between items-start gap-4 mb-3">
+                                    <p class="font-bold text-gray-800 text-lg">2. What are the benefits of sports for children?</p>
+                                    <button onclick="toggleVisibility('p3-u3-2')" class="text-xs font-bold text-teal-600 bg-teal-100 hover:bg-teal-200 px-4 py-2 rounded-lg transition-colors whitespace-nowrap shadow-sm">Sample</button>
+                                </div>
+                                <div id="p3-u3-2" class="hidden bg-white border-l-4 border-teal-400 p-4 rounded-r-lg shadow-sm mt-3">
+                                    <div class="space-y-2">
+                                        <p class="text-gray-700 italic text-sm leading-relaxed"><span class="text-xs font-bold text-teal-600 uppercase tracking-wider not-italic mr-1 bg-teal-50 px-1 py-0.5 rounded border border-teal-100">[Direct Answer]</span> "Sports offer immense physical and psychological perks for children."</p>
+                                        <p class="text-gray-700 italic text-sm leading-relaxed"><span class="text-xs font-bold text-teal-600 uppercase tracking-wider not-italic mr-1 bg-teal-50 px-1 py-0.5 rounded border border-teal-100">[Physical]</span> Physically, keeping active ensures they don't easily <span class="font-semibold text-teal-600">fall ill</span>, and if they do, their strong immune system helps them get <span class="font-semibold text-teal-600">on the mend</span> quickly, boosting their overall <span class="font-semibold text-teal-600">vitality</span>.</p>
+                                        <p class="text-gray-700 italic text-sm leading-relaxed"><span class="text-xs font-bold text-teal-600 uppercase tracking-wider not-italic mr-1 bg-teal-50 px-1 py-0.5 rounded border border-teal-100">[Mental]</span> Mentally, team sports teach collaboration and act as a great outlet to reduce academic <span class="font-semibold text-teal-600">distress</span>."</p>
+                                        <p class="text-gray-700 italic text-sm leading-relaxed"><span class="text-xs font-bold text-teal-600 uppercase tracking-wider not-italic mr-1 bg-teal-50 px-1 py-0.5 rounded border border-teal-100">[Conclusion]</span> In short, regular sports participation is crucial for their holistic development."</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-gray-50 rounded-2xl p-5 border border-gray-200">
+                                <div class="flex justify-between items-start gap-4 mb-3">
+                                    <p class="font-bold text-gray-800 text-lg">3. What can governments do to improve people's health?</p>
+                                    <button onclick="toggleVisibility('p3-u3-3')" class="text-xs font-bold text-teal-600 bg-teal-100 hover:bg-teal-200 px-4 py-2 rounded-lg transition-colors whitespace-nowrap shadow-sm">Sample</button>
+                                </div>
+                                <div id="p3-u3-3" class="hidden bg-white border-l-4 border-teal-400 p-4 rounded-r-lg shadow-sm mt-3">
+                                    <div class="space-y-2">
+                                        <p class="text-gray-700 italic text-sm leading-relaxed"><span class="text-xs font-bold text-teal-600 uppercase tracking-wider not-italic mr-1 bg-teal-50 px-1 py-0.5 rounded border border-teal-100">[Direct Answer]</span> "Governments should tackle this through both policy and infrastructure."</p>
+                                        <p class="text-gray-700 italic text-sm leading-relaxed"><span class="text-xs font-bold text-teal-600 uppercase tracking-wider not-italic mr-1 bg-teal-50 px-1 py-0.5 rounded border border-teal-100">[Policy]</span> Firstly, they must fund public campaigns to ensure all citizens are properly <span class="font-semibold text-teal-600">inoculated</span> against common diseases and provide <span class="font-semibold text-teal-600">enlightening</span> nutrition education.</p>
+                                        <p class="text-gray-700 italic text-sm leading-relaxed"><span class="text-xs font-bold text-teal-600 uppercase tracking-wider not-italic mr-1 bg-teal-50 px-1 py-0.5 rounded border border-teal-100">[Infrastructure]</span> Secondly, building more free, accessible parks encourages exercise, preventing citizens from constantly feeling <span class="font-semibold text-teal-600">under the weather</span> due to inactive lifestyles."</p>
+                                        <p class="text-gray-700 italic text-sm leading-relaxed"><span class="text-xs font-bold text-teal-600 uppercase tracking-wider not-italic mr-1 bg-teal-50 px-1 py-0.5 rounded border border-teal-100">[Conclusion]</span> Through these combined efforts, the state can significantly raise the overall health standards."</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-gray-50 rounded-2xl p-5 border border-gray-200">
+                                <div class="flex justify-between items-start gap-4 mb-3">
+                                    <p class="font-bold text-gray-800 text-lg">4. What activities can school organize for children to keep fit?</p>
+                                    <button onclick="toggleVisibility('p3-u3-4')" class="text-xs font-bold text-teal-600 bg-teal-100 hover:bg-teal-200 px-4 py-2 rounded-lg transition-colors whitespace-nowrap shadow-sm">Sample</button>
+                                </div>
+                                <div id="p3-u3-4" class="hidden bg-white border-l-4 border-teal-400 p-4 rounded-r-lg shadow-sm mt-3">
+                                    <div class="space-y-2">
+                                        <p class="text-gray-700 italic text-sm leading-relaxed"><span class="text-xs font-bold text-teal-600 uppercase tracking-wider not-italic mr-1 bg-teal-50 px-1 py-0.5 rounded border border-teal-100">[Direct Answer]</span> "Schools can organize a variety of engaging physical programs beyond standard PE classes."</p>
+                                        <p class="text-gray-700 italic text-sm leading-relaxed"><span class="text-xs font-bold text-teal-600 uppercase tracking-wider not-italic mr-1 bg-teal-50 px-1 py-0.5 rounded border border-teal-100">[Detail]</span> For example, they could host monthly mini-marathons, obstacle courses, or intramural sports leagues.</p>
+                                        <p class="text-gray-700 italic text-sm leading-relaxed"><span class="text-xs font-bold text-teal-600 uppercase tracking-wider not-italic mr-1 bg-teal-50 px-1 py-0.5 rounded border border-teal-100">[Reason]</span> These activities build physical <span class="font-semibold text-teal-600">stamina</span> in a fun way, ensuring kids remain <span class="font-semibold text-teal-600">full of beans</span> rather than seeing exercise as a chore."</p>
+                                        <p class="text-gray-700 italic text-sm leading-relaxed"><span class="text-xs font-bold text-teal-600 uppercase tracking-wider not-italic mr-1 bg-teal-50 px-1 py-0.5 rounded border border-teal-100">[Conclusion]</span> By integrating such diverse activities, schools can effectively cultivate lifelong healthy habits."</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-gray-50 rounded-2xl p-5 border border-gray-200">
+                                <div class="flex justify-between items-start gap-4 mb-3">
+                                    <p class="font-bold text-gray-800 text-lg">5. Do you think people are healthier now than in the past?</p>
+                                    <button onclick="toggleVisibility('p3-u3-5')" class="text-xs font-bold text-teal-600 bg-teal-100 hover:bg-teal-200 px-4 py-2 rounded-lg transition-colors whitespace-nowrap shadow-sm">Sample</button>
+                                </div>
+                                <div id="p3-u3-5" class="hidden bg-white border-l-4 border-teal-400 p-4 rounded-r-lg shadow-sm mt-3">
+                                    <div class="space-y-2">
+                                        <p class="text-gray-700 italic text-sm leading-relaxed"><span class="text-xs font-bold text-teal-600 uppercase tracking-wider not-italic mr-1 bg-teal-50 px-1 py-0.5 rounded border border-teal-100">[Direct Answer]</span> "It is a bit of a paradox, honestly."</p>
+                                        <p class="text-gray-700 italic text-sm leading-relaxed"><span class="text-xs font-bold text-teal-600 uppercase tracking-wider not-italic mr-1 bg-teal-50 px-1 py-0.5 rounded border border-teal-100">[Yes]</span> Medically, we are healthier; advancements allow us to treat <span class="font-semibold text-teal-600">malignant</span> diseases and increase human <span class="font-semibold text-teal-600">longevity</span> significantly.</p>
+                                        <p class="text-gray-700 italic text-sm leading-relaxed"><span class="text-xs font-bold text-teal-600 uppercase tracking-wider not-italic mr-1 bg-teal-50 px-1 py-0.5 rounded border border-teal-100">[No]</span> Conversely, our modern, sedentary lifestyles and poor diets make us more <span class="font-semibold text-teal-600">susceptible</span> to chronic issues like obesity or <span class="font-semibold text-teal-600">asthma</span> compared to our highly active ancestors."</p>
+                                        <p class="text-gray-700 italic text-sm leading-relaxed"><span class="text-xs font-bold text-teal-600 uppercase tracking-wider not-italic mr-1 bg-teal-50 px-1 py-0.5 rounded border border-teal-100">[Conclusion]</span> So, while we live longer, the quality of our daily physical health is certainly debatable."</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-gray-50 rounded-2xl p-5 border border-gray-200">
+                                <div class="flex justify-between items-start gap-4 mb-3">
+                                    <p class="font-bold text-gray-800 text-lg">6. Are there enough places for sports activities in your country?</p>
+                                    <button onclick="toggleVisibility('p3-u3-6')" class="text-xs font-bold text-teal-600 bg-teal-100 hover:bg-teal-200 px-4 py-2 rounded-lg transition-colors whitespace-nowrap shadow-sm">Sample</button>
+                                </div>
+                                <div id="p3-u3-6" class="hidden bg-white border-l-4 border-teal-400 p-4 rounded-r-lg shadow-sm mt-3">
+                                    <div class="space-y-2">
+                                        <p class="text-gray-700 italic text-sm leading-relaxed"><span class="text-xs font-bold text-teal-600 uppercase tracking-wider not-italic mr-1 bg-teal-50 px-1 py-0.5 rounded border border-teal-100">[Direct Answer]</span> "Unfortunately, I don't think there are enough, particularly in urban areas."</p>
+                                        <p class="text-gray-700 italic text-sm leading-relaxed"><span class="text-xs font-bold text-teal-600 uppercase tracking-wider not-italic mr-1 bg-teal-50 px-1 py-0.5 rounded border border-teal-100">[Detail]</span> While commercial gyms are <span class="font-semibold text-teal-600">prevalent</span>, they are not affordable for everyone. Free, public spaces like community sports fields are shrinking due to rapid urbanization.</p>
+                                        <p class="text-gray-700 italic text-sm leading-relaxed"><span class="text-xs font-bold text-teal-600 uppercase tracking-wider not-italic mr-1 bg-teal-50 px-1 py-0.5 rounded border border-teal-100">[Conclusion]</span> This lack of infrastructure is a real barrier for citizens trying to maintain their physical <span class="font-semibold text-teal-600">vitality</span>."</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `
+        }
+    ];
+
+    let currentIndex = 0;
+
+    const headerEl = document.getElementById('app-header');
+    const titleEl = document.getElementById('slide-title');
+    const containerEl = document.getElementById('content-container');
+    const prevBtn = document.getElementById('btn-prev');
+    const nextBtn = document.getElementById('btn-next');
+    const indicatorEl = document.getElementById('step-indicator');
+    const progressBarEl = document.getElementById('progress-bar');
+    const navDropdown = document.getElementById('nav-dropdown');
+    const navMenuList = document.getElementById('nav-menu-list');
+
+    function populateNavMenu() {
+        navMenuList.innerHTML = sessionData.map((data, index) => `
+            <button onclick="goToSlide(${index})" class="nav-item-btn w-full text-left p-3 mb-1 rounded-xl hover:bg-white transition-all flex items-center gap-3 border border-transparent shadow-sm">
+                <div class="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 text-sm font-bold text-white shadow-sm ${data.themeClass}">
+                    ${index + 1}
+                </div>
+                <div>
+                    <div class="text-sm font-bold text-gray-800 leading-tight">${data.title.substring(3)}</div>
+                    <div class="text-[10px] font-bold uppercase tracking-wider ${data.iconColor}">${data.type}</div>
+                </div>
+            </button>
+        `).join('');
+    }
+
+    window.goToSlide = function(index) {
+        currentIndex = index;
+        renderSlide(currentIndex);
+        navDropdown.classList.add('hidden');
+    };
+
+    document.getElementById('nav-toggle-btn').addEventListener('click', (e) => {
+        e.stopPropagation();
+        navDropdown.classList.toggle('hidden');
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!navDropdown.contains(e.target) && !document.getElementById('nav-toggle-btn').contains(e.target)) {
+            navDropdown.classList.add('hidden');
+        }
+    });
+
+    function showCompletionMessage() {
+        const overlay = document.createElement('div');
+        overlay.id = "completion-overlay";
+        overlay.className = 'fixed inset-0 bg-gray-900/40 backdrop-blur-sm z-50 flex items-center justify-center fade-in';
+        
+        const toast = document.createElement('div');
+        toast.className = 'bg-white text-gray-800 p-8 rounded-3xl shadow-2xl flex flex-col items-center gap-4 text-center max-w-sm border border-gray-100 transform transition-all';
+        toast.innerHTML = `
+            <div class="w-20 h-20 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-500 mb-2 shadow-inner">
+                <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+            </div>
+            <h2 class="text-2xl font-black text-gray-800">Lesson Completed!</h2>
+            <p class="font-medium text-gray-500">Great job on finishing Lesson 11. You can review the sections from the menu.</p>
+            <button onclick="document.getElementById('completion-overlay').remove()" class="mt-4 w-full px-6 py-3 bg-gray-100 text-gray-700 font-bold rounded-xl hover:bg-gray-200 transition-colors shadow-sm">Close</button>
+        `;
+        
+        overlay.appendChild(toast);
+        document.body.appendChild(overlay);
+    }
+
+    function renderSlide(index) {
+        if (typeof pauseAllTimers === 'function') pauseAllTimers();
+        const data = sessionData[index];
+        
+        headerEl.className = `text-white p-4 shadow-lg transition-colors duration-700 z-20 relative ${data.themeClass}`;
+        titleEl.textContent = data.title;
+        
+        const progressPercent = ((index + 1) / sessionData.length) * 100;
+        progressBarEl.style.width = `${progressPercent}%`;
+        indicatorEl.textContent = `Section ${index + 1} of ${sessionData.length}`;
+
+        document.querySelectorAll('.nav-item-btn').forEach((btn, i) => {
+            if (i === index) {
+                btn.classList.add('bg-white', 'shadow-md');
+                btn.classList.remove('border-transparent', 'shadow-sm');
+            } else {
+                btn.classList.remove('bg-white', 'shadow-md');
+                btn.classList.add('border-transparent', 'shadow-sm');
+            }
+        });
+
+        containerEl.innerHTML = ''; 
+        setTimeout(() => {
+            containerEl.innerHTML = data.content;
+            if(data.id === 'speaking_practice_u3') {
+                updateTimerUI('prep', timers.prep.remaining);
+                updateTimerUI('speak', timers.speak.remaining);
+                updateTimerUI('prep2', timers.prep2.remaining);
+                updateTimerUI('speak2', timers.speak2.remaining);
+            }
+        }, 10);
+
+        prevBtn.disabled = index === 0;
+        nextBtn.innerHTML = index === sessionData.length - 1 ? 
+            'Finish Lesson <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>' : 
+            'Next Section <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>';
+    }
+
+    prevBtn.addEventListener('click', () => {
+        if (currentIndex > 0) renderSlide(--currentIndex);
+    });
+
+    nextBtn.addEventListener('click', () => {
+        if (currentIndex < sessionData.length - 1) {
+            renderSlide(++currentIndex);
+        } else {
+            showCompletionMessage();
+        }
+    });
+
+    window.toggleVisibility = function(id) {
+        const el = document.getElementById(id);
+        if(el) {
+            if(el.classList.contains('hidden')){
+                el.classList.remove('hidden');
+                el.classList.add('fade-in');
+            } else {
+                el.classList.add('hidden');
+                el.classList.remove('fade-in');
+            }
+        }
+    };
+
+    window.toggleInlineAnswers = function(containerId, btnId) {
+        const container = document.getElementById(containerId);
+        const btn = document.getElementById(btnId);
+        if(!container) return;
+        
+        const ansEls = container.querySelectorAll('.ans-inline');
+        const blankEls = container.querySelectorAll('.blank-inline');
+        
+        let isShowing = false;
+        
+        ansEls.forEach(el => {
+            if (el.classList.contains('hidden')) {
+                el.classList.remove('hidden');
+                el.classList.add('fade-in');
+                isShowing = true;
+            } else {
+                el.classList.add('hidden');
+                el.classList.remove('fade-in');
+                isShowing = false;
+            }
+        });
+        
+        blankEls.forEach(el => {
+            if (isShowing) el.classList.add('hidden');
+            else el.classList.remove('hidden');
+        });
+        
+        if(btn) {
+            btn.textContent = isShowing ? 'Hide Answers' : 'Show Answers';
+        }
+    };
+
+    window.addEventListener('DOMContentLoaded', () => {
+        populateNavMenu();
+        renderSlide(0);
+    });
+</script>
+</body>
+</html>
