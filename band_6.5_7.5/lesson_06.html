@@ -31,6 +31,11 @@
             -webkit-backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.5);
         }
+
+        /* Inline Answer Toggle Utilities */
+        .blank-ans { display: none; }
+        .show-answers .blank-dots { display: none; }
+        .show-answers .blank-ans { display: inline-block; animation: fadeIn 0.3s forwards; }
     </style>
 </head>
 <body class="h-screen flex flex-col overflow-hidden text-gray-800">
@@ -166,16 +171,6 @@
         }
     }
 
-    function resetTimer(id, defaultTime) {
-        const timer = timers[id];
-        clearInterval(timer.interval);
-        timer.isRunning = false;
-        timer.remaining = defaultTime;
-        updateTimerUI(id, defaultTime);
-        const btn = document.getElementById(`btn-${id}-timer`);
-        if(btn) btn.textContent = 'Start';
-    }
-
     function pauseAllTimers() {
         Object.keys(timers).forEach(key => {
             if (timers[key].isRunning) {
@@ -185,453 +180,231 @@
         });
     }
 
-    // --- DATA STRUCTURE ---
     const sessionData = [
         {
-            id: 'vocab_unit2',
-            type: 'Speaking',
-            themeClass: 'bg-gradient-to-r from-pink-400 to-rose-500',
-            iconColor: 'text-pink-500',
-            bgColor: 'bg-pink-50',
-            title: '1. Unit 2 Vocab Exercises',
+            id: 'reading_sb_unit2',
+            type: 'Reading',
+            themeClass: 'bg-gradient-to-r from-rose-400 to-pink-500',
+            iconColor: 'text-rose-500',
+            title: '5. Reading: Unit 2 SB',
             content: `
-                <div class="fade-in bg-white rounded-3xl shadow-xl border border-pink-50 p-8 md:p-12 relative">
-                    <div class="flex items-center gap-3 mb-6 border-b border-gray-100 pb-4">
-                        <span class="inline-block py-1 px-3 rounded-full bg-pink-100 text-pink-700 font-bold text-xs uppercase tracking-widest">Pink Book</span>
-                        <h3 class="text-3xl font-bold text-gray-800">Unit 2 Vocabulary Exercises</h3>
-                    </div>
-                    
-                    <div class="space-y-6">
-                        
-                        <!-- Exercise 1.1 -->
-                        <div id="ex-unit2-1" class="bg-gray-50 rounded-2xl p-6 border border-gray-200">
-                            <div class="flex justify-between items-start gap-4 mb-4">
-                                <div>
-                                    <h4 class="font-bold text-gray-800 text-lg">Exercise 1: Part 1</h4>
-                                    <p class="text-gray-600 text-sm font-medium mt-1">Fill in each blank with one suitable word from the list below.</p>
-                                </div>
-                                <button id="btn-ex-unit2-1" onclick="toggleInlineAnswers('ex-unit2-1', 'btn-ex-unit2-1')" class="text-xs font-bold text-pink-600 bg-pink-100 hover:bg-pink-200 px-4 py-2 rounded-lg transition-colors whitespace-nowrap shadow-sm">Show Answers</button>
+                <div class="fade-in bg-white rounded-3xl shadow-xl border border-rose-50 p-5 md:p-6 flex flex-col" style="min-height: calc(100vh - 11rem);">
+                    <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-4 border-b border-gray-100 pb-5 shrink-0">
+                        <div class="flex items-center gap-4">
+                            <div class="w-14 h-14 rounded-2xl bg-rose-100 flex items-center justify-center text-rose-600 flex-shrink-0 shadow-sm">
+                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
                             </div>
-                            
-                            <div class="flex flex-wrap gap-3 justify-center mb-6">
-                                <div class="flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-pink-100 shadow-sm min-w-[110px] text-center">
-                                    <span class="text-pink-700 font-bold text-sm">ornamental</span>
-                                    <span class="text-gray-500 text-[11px] font-normal">/ˌɔːnəˈmentl/</span>
-                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">trang trí</span>
-                                </div>
-                                <div class="flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-pink-100 shadow-sm min-w-[110px] text-center">
-                                    <span class="text-pink-700 font-bold text-sm">aesthetic</span>
-                                    <span class="text-gray-500 text-[11px] font-normal">/iːsˈθetɪk/</span>
-                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">thẩm mỹ</span>
-                                </div>
-                                <div class="flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-pink-100 shadow-sm min-w-[110px] text-center">
-                                    <span class="text-pink-700 font-bold text-sm">prominent</span>
-                                    <span class="text-gray-500 text-[11px] font-normal">/ˈprɒmɪnənt/</span>
-                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">nổi bật</span>
-                                </div>
-                                <div class="flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-pink-100 shadow-sm min-w-[110px] text-center">
-                                    <span class="text-pink-700 font-bold text-sm">brilliantly</span>
-                                    <span class="text-gray-500 text-[11px] font-normal">/ˈbrɪliəntli/</span>
-                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">rực rỡ</span>
-                                </div>
-                                <div class="flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-pink-100 shadow-sm min-w-[110px] text-center">
-                                    <span class="text-pink-700 font-bold text-sm">vibrant</span>
-                                    <span class="text-gray-500 text-[11px] font-normal">/ˈvaɪbrənt/</span>
-                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">sống động</span>
-                                </div>
-                            </div>
-
-                            <div class="space-y-3 text-gray-700 text-sm font-medium leading-loose">
-                                <p>1. He always uses <span class="blank-inline text-gray-400">........................</span><span class="ans-inline hidden text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded font-bold">vibrant</span> colors in his paintings, which gives viewers feelings of joy and freshness.</p>
-                                <p>2. When I was little, I relished visiting my grandparents' garden where I could behold the beauty of <span class="blank-inline text-gray-400">........................</span><span class="ans-inline hidden text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded font-bold">brilliantly</span> - <strong>colored</strong> flowers.</p>
-                                <p>3. Colorful items would be a good idea for <span class="blank-inline text-gray-400">........................</span><span class="ans-inline hidden text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded font-bold">ornamental</span> <strong>purpose</strong> of children's room.</p>
-                                <p>4. The most attention-getting lantern is the Dragon Pole. It can easily be spotted because of its <span class="blank-inline text-gray-400">........................</span><span class="ans-inline hidden text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded font-bold">prominent</span> silver-red color.</p>
-                                <p>5. This piece of furniture that is both <span class="blank-inline text-gray-400">........................</span><span class="ans-inline hidden text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded font-bold">aesthetic</span> and functional.</p>
-                            </div>
-                        </div>
-
-                        <!-- Exercise 1.2 -->
-                        <div id="ex-unit2-2" class="bg-gray-50 rounded-2xl p-6 border border-gray-200">
-                            <div class="flex justify-between items-start gap-4 mb-4">
-                                <h4 class="font-bold text-gray-800 text-lg">Exercise 1: Part 2</h4>
-                                <button id="btn-ex-unit2-2" onclick="toggleInlineAnswers('ex-unit2-2', 'btn-ex-unit2-2')" class="text-xs font-bold text-pink-600 bg-pink-100 hover:bg-pink-200 px-4 py-2 rounded-lg transition-colors whitespace-nowrap shadow-sm">Show Answers</button>
-                            </div>
-                            
-                            <div class="flex flex-wrap gap-3 justify-center mb-6">
-                                <div class="flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-pink-100 shadow-sm min-w-[110px] text-center">
-                                    <span class="text-pink-700 font-bold text-sm">liking</span>
-                                    <span class="text-gray-500 text-[11px] font-normal">/ˈlaɪkɪŋ/</span>
-                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">sự thích thú</span>
-                                </div>
-                                <div class="flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-pink-100 shadow-sm min-w-[110px] text-center">
-                                    <span class="text-pink-700 font-bold text-sm">attachment</span>
-                                    <span class="text-gray-500 text-[11px] font-normal">/əˈtætʃmənt/</span>
-                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">sự gắn bó</span>
-                                </div>
-                                <div class="flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-pink-100 shadow-sm min-w-[110px] text-center">
-                                    <span class="text-pink-700 font-bold text-sm">disposition</span>
-                                    <span class="text-gray-500 text-[11px] font-normal">/ˌdɪspəˈzɪʃn/</span>
-                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">tính khí</span>
-                                </div>
-                                <div class="flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-pink-100 shadow-sm min-w-[110px] text-center">
-                                    <span class="text-pink-700 font-bold text-sm">booster</span>
-                                    <span class="text-gray-500 text-[11px] font-normal">/ˈbuːstə/</span>
-                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">sự thúc đẩy</span>
-                                </div>
-                                <div class="flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-pink-100 shadow-sm min-w-[110px] text-center">
-                                    <span class="text-pink-700 font-bold text-sm">symbol</span>
-                                    <span class="text-gray-500 text-[11px] font-normal">/ˈsɪmbl/</span>
-                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">biểu tượng</span>
-                                </div>
-                                <div class="flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-pink-100 shadow-sm min-w-[110px] text-center">
-                                    <span class="text-pink-700 font-bold text-sm">urge</span>
-                                    <span class="text-gray-500 text-[11px] font-normal">/ɜːdʒ/</span>
-                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">sự thôi thúc</span>
-                                </div>
-                            </div>
-
-                            <div class="space-y-3 text-gray-700 text-sm font-medium leading-loose">
-                                <p>6. I am a doll lover, so I cannot <strong>resist the</strong> <span class="blank-inline text-gray-400">........................</span><span class="ans-inline hidden text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded font-bold">urge</span> to buy gorgeous but extravagant dolls.</p>
-                                <p>7. Colorful flowers as special gifts can be a great source of emotional <span class="blank-inline text-gray-400">........................</span><span class="ans-inline hidden text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded font-bold">booster</span>.</p>
-                                <p>8. Red is a/an <span class="blank-inline text-gray-400">........................</span><span class="ans-inline hidden text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded font-bold">symbol</span> of love in many cultures.</p>
-                                <p>9. I believe people with a cheerful <span class="blank-inline text-gray-400">........................</span><span class="ans-inline hidden text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded font-bold">disposition</span> tend to love bright colors.</p>
-                                <p>10. As an animated person, I have a/an <span class="blank-inline text-gray-400">........................</span><span class="ans-inline hidden text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded font-bold">liking</span> for such colorful items as flowers, pictures and clothes.</p>
-                                <p>11. Primary school students often form a strong <span class="blank-inline text-gray-400">........................</span><span class="ans-inline hidden text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded font-bold">attachment</span> to their form teachers.</p>
-                            </div>
-                        </div>
-
-                        <!-- Exercise 1.3 -->
-                        <div id="ex-unit2-3" class="bg-gray-50 rounded-2xl p-6 border border-gray-200">
-                            <div class="flex justify-between items-start gap-4 mb-4">
-                                <h4 class="font-bold text-gray-800 text-lg">Exercise 1: Part 3</h4>
-                                <button id="btn-ex-unit2-3" onclick="toggleInlineAnswers('ex-unit2-3', 'btn-ex-unit2-3')" class="text-xs font-bold text-pink-600 bg-pink-100 hover:bg-pink-200 px-4 py-2 rounded-lg transition-colors whitespace-nowrap shadow-sm">Show Answers</button>
-                            </div>
-                            
-                            <div class="flex flex-wrap gap-3 justify-center mb-6">
-                                <div class="flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-pink-100 shadow-sm min-w-[110px] text-center">
-                                    <span class="text-pink-700 font-bold text-sm">sentimental</span>
-                                    <span class="text-gray-500 text-[11px] font-normal">/ˌsentɪˈmentl/</span>
-                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">tình cảm</span>
-                                </div>
-                                <div class="flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-pink-100 shadow-sm min-w-[110px] text-center">
-                                    <span class="text-pink-700 font-bold text-sm">exquisite</span>
-                                    <span class="text-gray-500 text-[11px] font-normal">/ɪkˈskwɪzɪt/</span>
-                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">tinh tế</span>
-                                </div>
-                                <div class="flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-pink-100 shadow-sm min-w-[110px] text-center">
-                                    <span class="text-pink-700 font-bold text-sm">accentuate</span>
-                                    <span class="text-gray-500 text-[11px] font-normal">/əkˈsentʃueɪt/</span>
-                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">làm nổi bật</span>
-                                </div>
-                                <div class="flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-pink-100 shadow-sm min-w-[110px] text-center">
-                                    <span class="text-pink-700 font-bold text-sm">pleasing</span>
-                                    <span class="text-gray-500 text-[11px] font-normal">/ˈpliːzɪŋ/</span>
-                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">dễ chịu</span>
-                                </div>
-                                <div class="flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-pink-100 shadow-sm min-w-[110px] text-center">
-                                    <span class="text-pink-700 font-bold text-sm">meticulous</span>
-                                    <span class="text-gray-500 text-[11px] font-normal">/məˈtɪkjələs/</span>
-                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">tỉ mỉ</span>
-                                </div>
-                            </div>
-
-                            <div class="space-y-3 text-gray-700 text-sm font-medium leading-loose">
-                                <p>11. Individual workspaces are comfortable and <span class="blank-inline text-gray-400">........................</span><span class="ans-inline hidden text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded font-bold">pleasing</span> to the eye.</p>
-                                <p>12. The ring wasn't worth very much but it had great <span class="blank-inline text-gray-400">........................</span><span class="ans-inline hidden text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded font-bold">sentimental</span> value.</p>
-                                <p>13. This vase is the product of <span class="blank-inline text-gray-400">........................</span><span class="ans-inline hidden text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded font-bold">exquisite</span> workmanship.</p>
-                                <p>14. The table is designed with <span class="blank-inline text-gray-400">........................</span><span class="ans-inline hidden text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded font-bold">meticulous</span> care.</p>
-                                <p>15. The details <span class="blank-inline text-gray-400">........................</span><span class="ans-inline hidden text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded font-bold">accentuate</span> the beauty of the patterns.</p>
-                            </div>
-                        </div>
-
-                        <!-- Exercise 2 -->
-                        <div id="ex-unit2-4" class="bg-gray-50 rounded-2xl p-6 border border-gray-200">
-                            <div class="flex justify-between items-start gap-4 mb-4">
-                                <div>
-                                    <h4 class="font-bold text-gray-800 text-lg">Exercise 2</h4>
-                                    <p class="text-gray-600 text-sm font-medium mt-1">Match the phrases to form complete sentences.</p>
-                                </div>
-                                <button id="btn-ex-unit2-4" onclick="toggleInlineAnswers('ex-unit2-4', 'btn-ex-unit2-4')" class="text-xs font-bold text-pink-600 bg-pink-100 hover:bg-pink-200 px-4 py-2 rounded-lg transition-colors whitespace-nowrap shadow-sm">Show Answers</button>
-                            </div>
-                            
-                            <div class="flex flex-wrap gap-3 justify-center mb-6">
-                                <div class="relative flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-pink-100 shadow-sm min-w-[130px] text-center">
-                                    <div class="ans-inline hidden absolute -top-2 -right-2 bg-emerald-500 text-white font-bold w-6 h-6 rounded-full flex items-center justify-center text-xs shadow-md z-10">C</div>
-                                    <span class="text-pink-700 font-bold text-sm">in two minds</span>
-                                    <span class="text-gray-500 text-[11px] font-normal">/ɪn tuː maɪndz/</span>
-                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">phân vân</span>
-                                </div>
-                                <div class="relative flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-pink-100 shadow-sm min-w-[130px] text-center">
-                                    <div class="ans-inline hidden absolute -top-2 -right-2 bg-emerald-500 text-white font-bold w-6 h-6 rounded-full flex items-center justify-center text-xs shadow-md z-10">A</div>
-                                    <span class="text-pink-700 font-bold text-sm">decisive factor</span>
-                                    <span class="text-gray-500 text-[11px] font-normal">/dɪˈsaɪsɪv ˈfæktə/</span>
-                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">yếu tố quyết định</span>
-                                </div>
-                                <div class="relative flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-pink-100 shadow-sm min-w-[130px] text-center">
-                                    <div class="ans-inline hidden absolute -top-2 -right-2 bg-emerald-500 text-white font-bold w-6 h-6 rounded-full flex items-center justify-center text-xs shadow-md z-10">G</div>
-                                    <span class="text-pink-700 font-bold text-sm">of great utility</span>
-                                    <span class="text-gray-500 text-[11px] font-normal">/əv ɡreɪt juːˈtɪləti/</span>
-                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">rất hữu ích</span>
-                                </div>
-                                <div class="relative flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-pink-100 shadow-sm min-w-[130px] text-center">
-                                    <div class="ans-inline hidden absolute -top-2 -right-2 bg-emerald-500 text-white font-bold w-6 h-6 rounded-full flex items-center justify-center text-xs shadow-md z-10">B</div>
-                                    <span class="text-pink-700 font-bold text-sm">clueless</span>
-                                    <span class="text-gray-500 text-[11px] font-normal">/ˈkluːləs/</span>
-                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">không biết gì</span>
-                                </div>
-                                <div class="relative flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-pink-100 shadow-sm min-w-[130px] text-center">
-                                    <div class="ans-inline hidden absolute -top-2 -right-2 bg-emerald-500 text-white font-bold w-6 h-6 rounded-full flex items-center justify-center text-xs shadow-md z-10">D</div>
-                                    <span class="text-pink-700 font-bold text-sm">appeals to</span>
-                                    <span class="text-gray-500 text-[11px] font-normal">/əˈpiːlz tu/</span>
-                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">hấp dẫn</span>
-                                </div>
-                                <div class="relative flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-pink-100 shadow-sm min-w-[130px] text-center">
-                                    <div class="ans-inline hidden absolute -top-2 -right-2 bg-emerald-500 text-white font-bold w-6 h-6 rounded-full flex items-center justify-center text-xs shadow-md z-10">E</div>
-                                    <span class="text-pink-700 font-bold text-sm">walking on air</span>
-                                    <span class="text-gray-500 text-[11px] font-normal">/ˈwɔːkɪŋ ɒn eə/</span>
-                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">rất hạnh phúc</span>
-                                </div>
-                                <div class="relative flex flex-col items-center justify-center p-2 bg-white rounded-lg border border-pink-100 shadow-sm min-w-[130px] text-center">
-                                    <div class="ans-inline hidden absolute -top-2 -right-2 bg-emerald-500 text-white font-bold w-6 h-6 rounded-full flex items-center justify-center text-xs shadow-md z-10">F</div>
-                                    <span class="text-pink-700 font-bold text-sm">averse to</span>
-                                    <span class="text-gray-500 text-[11px] font-normal">/əˈvɜːs tu/</span>
-                                    <span class="text-gray-700 text-[11px] font-medium mt-0.5">không thích</span>
-                                </div>
-                            </div>
-
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm font-medium text-gray-700">
-                                <div class="space-y-3">
-                                    <p>1. I was <span class="font-bold text-pink-600">in two minds</span> <span class="ans-inline hidden bg-emerald-100 text-emerald-700 px-1 rounded font-bold">C</span></p>
-                                    <p>2. Color is a <span class="font-bold text-pink-600">decisive factor</span> <span class="ans-inline hidden bg-emerald-100 text-emerald-700 px-1 rounded font-bold">A</span></p>
-                                    <p>3. Product instructions are <span class="font-bold text-pink-600">of great utility</span> <span class="ans-inline hidden bg-emerald-100 text-emerald-700 px-1 rounded font-bold">G</span></p>
-                                    <p>4. I was <span class="font-bold text-pink-600">clueless</span> <span class="ans-inline hidden bg-emerald-100 text-emerald-700 px-1 rounded font-bold">B</span></p>
-                                    <p>5. The delicate design <span class="font-bold text-pink-600">appeals to</span> <span class="ans-inline hidden bg-emerald-100 text-emerald-700 px-1 rounded font-bold">D</span></p>
-                                    <p>6. She feels she is <span class="font-bold text-pink-600">walking on air</span> <span class="ans-inline hidden bg-emerald-100 text-emerald-700 px-1 rounded font-bold">E</span></p>
-                                    <p>7. My parents are <span class="font-bold text-pink-600">averse to</span> <span class="ans-inline hidden bg-emerald-100 text-emerald-700 px-1 rounded font-bold">F</span></p>
-                                </div>
-                                <div class="space-y-3 bg-pink-50 p-4 rounded-xl border border-pink-100">
-                                    <p><span class="font-bold text-pink-700 mr-2">A.</span> when it comes to buying clothes.</p>
-                                    <p><span class="font-bold text-pink-700 mr-2">B.</span> about how to operate this machine.</p>
-                                    <p><span class="font-bold text-pink-700 mr-2">C.</span> about the dress.</p>
-                                    <p><span class="font-bold text-pink-700 mr-2">D.</span> me at first sight.</p>
-                                    <p><span class="font-bold text-pink-700 mr-2">E.</span> when receiving his well-chosen present.</p>
-                                    <p><span class="font-bold text-pink-700 mr-2">F.</span> cutting-edge gadgets.</p>
-                                    <p><span class="font-bold text-pink-700 mr-2">G.</span> as they provide users with guidance.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            `
-        },
-        {
-            id: 'speaking_practice_u2',
-            type: 'Speaking',
-            themeClass: 'bg-gradient-to-r from-purple-500 to-indigo-600',
-            iconColor: 'text-purple-500',
-            bgColor: 'bg-purple-50',
-            title: '2. Unit 2 Speaking Practice',
-            content: `
-                <div class="fade-in">
-                    
-                    <!-- Part 2 Section 1 -->
-                    <div class="bg-white rounded-3xl shadow-xl border border-purple-50 p-8 mb-8">
-                        <div class="flex justify-between items-center mb-6 border-b border-gray-100 pb-4">
-                            <h3 class="text-2xl font-bold text-gray-800">Part 2: Long Turn (Topic 1)</h3>
-                            <div class="flex gap-2">
-                                <button onclick="toggleTimer('prep', 60)" id="btn-prep-timer" class="px-4 py-2 bg-purple-100 text-purple-700 rounded-lg text-sm font-bold hover:bg-purple-200 transition">Prep: <span id="prep-timer" class="timer-text">01:00</span></button>
-                                <button onclick="toggleTimer('speak', 120)" id="btn-speak-timer" class="px-4 py-2 bg-indigo-500 text-white rounded-lg text-sm font-bold hover:bg-indigo-600 transition">Speak: <span id="speak-timer" class="timer-text">02:00</span></button>
-                            </div>
-                        </div>
-
-                        <div class="bg-purple-50 border-l-4 border-purple-500 p-6 rounded-r-2xl mb-8 shadow-sm flex items-start gap-4">
-                            <div class="text-4xl">🧸</div>
                             <div>
-                                <p class="text-purple-800 font-bold uppercase tracking-wider text-xs mb-2">Candidate Task Card</p>
-                                <p class="text-xl font-bold text-gray-800 mb-4">Describe a toy that you liked when you were a child</p>
-                                <p class="text-gray-700 font-medium mb-2">You should say:</p>
-                                <ul class="text-gray-700 space-y-2 list-disc list-inside font-medium ml-2">
-                                    <li>What the toy was</li>
-                                    <li>Who gave it to you</li>
-                                    <li>How you used this toy</li>
-                                    <li>And explain how you felt when you got this toy</li>
-                                </ul>
+                                <div class="flex items-center gap-3 mb-1 flex-wrap">
+                                    <h3 class="text-xl md:text-2xl font-bold text-gray-800">Unit 2 Reading Practice</h3>
+                                    <a href="https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/passage3_complete_ielts_6.5_7.5_sb_unit2.html" target="_blank" class="inline-flex items-center gap-1.5 text-rose-600 hover:text-white hover:bg-rose-600 transition-colors px-4 py-1.5 bg-rose-50 rounded-full shadow-sm border border-rose-200 text-sm font-bold" title="Open in new tab">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                                        Open in New Tab
+                                    </a>
+                                </div>
+                                <p class="text-rose-600 font-medium text-sm">Student's Book - Complete IELTS</p>
                             </div>
                         </div>
-                        
-                        <button onclick="toggleVisibility('p2-sample-1')" class="w-full text-left py-3 px-5 bg-gray-50 rounded-xl text-sm font-bold text-gray-700 hover:bg-gray-100 transition-colors flex justify-between items-center mb-4 border border-gray-200">
-                            Show Sample Response
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        <button onclick="toggleVisibility('ans-sb-read-u2')" class="w-full md:w-auto bg-rose-50 text-rose-700 px-5 py-2.5 rounded-xl font-bold hover:bg-rose-100 transition-colors text-sm border border-rose-200 flex justify-center items-center gap-2 shrink-0 shadow-sm">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                            Show Answers
                         </button>
-                        
-                        <div id="p2-sample-1" class="hidden bg-white border border-emerald-100 rounded-2xl p-6 shadow-sm">
-                            <h4 class="font-bold text-emerald-600 flex items-center gap-2 mb-4">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                                High-Scoring Sample
+                    </div>
+
+                    <!-- Vocab Exercises -->
+                    <div class="bg-rose-50 border-l-4 border-rose-400 rounded-r-xl mb-6 flex flex-col shadow-sm">
+                        <div class="flex justify-between items-center p-4 border-b border-rose-200 shrink-0 bg-white/50 cursor-pointer hover:bg-rose-50 transition-colors" onclick="toggleVisibility('reading-vocab-content')">
+                            <h4 class="font-bold text-rose-800 text-lg flex items-center gap-2">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                                Vocab Exercises Check (Pink Book page 20-22)
                             </h4>
-                            <div class="text-gray-700 text-sm leading-relaxed space-y-3 italic">
-                                <p>"I'd like to talk about a Lego set that I absolutely adored when I was a kid. It wasn't just any regular set; it was a huge, complex pirate ship. Even though I was quite young, I had a real <span class="font-bold text-purple-600">liking</span> for building things."</p>
-                                <p>"It was a gift from my uncle for my 8th birthday. At first, when I saw the box, I was <span class="font-bold text-purple-600">clueless</span> about how to put it together because the instructions seemed so complicated. I was actually <span class="font-bold text-purple-600">in two minds</span> about whether to even start it or just play with the individual pieces."</p>
-                                <p>"However, the manual proved to be <span class="font-bold text-purple-600">of great utility</span>. I used to spend hours in my room, being incredibly <span class="font-bold text-purple-600">meticulous</span> about where each block went. I would build it, tear it down, and build different variations of ships. The <span class="font-bold text-purple-600">vibrant</span> colors of the bricks really <span class="font-bold text-purple-600">appealed to</span> me."</p>
-                                <p>"When I finally completed it the first time, I felt like I was <span class="font-bold text-purple-600">walking on air</span>. I was so proud of my accomplishment. Over time, I formed a very strong <span class="font-bold text-purple-600">attachment</span> to that toy. It holds a lot of <span class="font-bold text-purple-600">sentimental</span> value for me now, reminding me of a simpler time."</p>
+                            <span class="text-xs font-bold text-rose-600 bg-rose-100 px-3 py-1 rounded-full uppercase tracking-wider">Toggle</span>
+                        </div>
+                        
+                        <div id="reading-vocab-content" class="p-5 max-h-[500px] overflow-y-auto space-y-8">
+                            <!-- Exercise 1 -->
+                            <div id="read-ex1-container" class="bg-white border border-rose-100 rounded-xl p-5 shadow-sm transition-all duration-300">
+                                <div class="flex justify-between items-center mb-4">
+                                    <h5 class="font-bold text-rose-700 text-md">Exercise 1</h5>
+                                    <button id="btn-read-ex1" onclick="toggleInlineAnswers('read-ex1-container', 'btn-read-ex1')" class="text-xs bg-rose-50 text-rose-700 px-3 py-1.5 rounded-lg font-bold hover:bg-rose-100 transition-colors border border-rose-200">Show Answers</button>
+                                </div>
+                                <p class="text-gray-600 text-sm mb-4 font-medium">Match the words/phrases with the pictures.</p>
+                                
+                                <div class="grid md:grid-cols-2 gap-6 text-sm">
+                                    <div class="space-y-4">
+                                        <p><span class="font-bold text-gray-800">1</span> <span class="text-rose-600 font-semibold">tray</span> <span class="text-gray-400 font-normal">/treɪ/</span> <span class="text-gray-500 font-normal text-xs ml-1">(cái khay)</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ C</span></p>
+                                        <p><span class="font-bold text-gray-800">2</span> <span class="text-rose-600 font-semibold">camouflage</span> <span class="text-gray-400 font-normal">/ˈkæməflɑːʒ/</span> <span class="text-gray-500 font-normal text-xs ml-1">(ngụy trang)</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ E</span></p>
+                                        <p><span class="font-bold text-gray-800">3</span> <span class="text-rose-600 font-semibold">striking</span> <span class="text-gray-400 font-normal">/ˈstraɪkɪŋ/</span> <span class="text-gray-500 font-normal text-xs ml-1">(nổi bật)</span> colors <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ B</span></p>
+                                        <p><span class="font-bold text-gray-800">4</span> <span class="text-rose-600 font-semibold">eyeball</span> <span class="text-gray-400 font-normal">/ˈaɪbɔːl/</span> <span class="text-gray-500 font-normal text-xs ml-1">(nhãn cầu)</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ A</span></p>
+                                        <p><span class="font-bold text-gray-800">5</span> be <span class="text-rose-600 font-semibold">packed</span> <span class="text-gray-400 font-normal">/pækt/</span> <span class="text-gray-500 font-normal text-xs ml-1">(chật cứng)</span> with <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ D</span></p>
+                                    </div>
+                                    <div class="space-y-4 text-gray-600">
+                                        <p><span class="font-bold text-gray-800">A.</span> 👁️ [Picture: An eye/eyeball]</p>
+                                        <p><span class="font-bold text-gray-800">B.</span> 🔴🟠🟡🟢🔵🟣 [Picture: Row of brightly colored eggs]</p>
+                                        <p><span class="font-bold text-gray-800">C.</span> 🛏️ [Picture: A rectangular tray/pan]</p>
+                                        <p><span class="font-bold text-gray-800">D.</span> 👨‍👩‍👧‍👦 [Picture: A dense crowd packed together]</p>
+                                        <p><span class="font-bold text-gray-800">E.</span> 🪖 [Picture: Soldier blending in with a tree]</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Exercise 2 -->
+                            <div id="read-ex2-container" class="bg-white border border-rose-100 rounded-xl p-5 shadow-sm transition-all duration-300">
+                                <div class="flex justify-between items-center mb-4">
+                                    <h5 class="font-bold text-rose-700 text-md">Exercise 2</h5>
+                                    <button id="btn-read-ex2" onclick="toggleInlineAnswers('read-ex2-container', 'btn-read-ex2')" class="text-xs bg-rose-50 text-rose-700 px-3 py-1.5 rounded-lg font-bold hover:bg-rose-100 transition-colors border border-rose-200">Show Answers</button>
+                                </div>
+                                <p class="text-gray-600 text-sm mb-4 font-medium">Match the words with the synonyms/definitions.</p>
+                                
+                                <div class="grid md:grid-cols-2 gap-8 text-sm">
+                                    <!-- Adjectives -->
+                                    <div>
+                                        <h6 class="font-bold text-rose-800 mb-3 border-b border-rose-100 pb-1">Adjectives</h6>
+                                        <div class="space-y-3">
+                                            <p><span class="font-bold text-gray-800">1</span> <span class="text-rose-600 font-semibold">haphazard</span> <span class="text-gray-400 font-normal">/hæpˈhæzəd/</span> <span class="text-gray-500 font-normal text-xs ml-1">(bừa bãi)</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ E</span></p>
+                                            <p><span class="font-bold text-gray-800">2</span> <span class="text-rose-600 font-semibold">accurate</span> <span class="text-gray-400 font-normal">/ˈækjərət/</span> <span class="text-gray-500 font-normal text-xs ml-1">(chính xác)</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ C</span></p>
+                                            <p><span class="font-bold text-gray-800">3</span> <span class="text-rose-600 font-semibold">consistent</span> <span class="text-gray-400 font-normal">/kənˈsɪstənt/</span> <span class="text-gray-500 font-normal text-xs ml-1">(nhất quán)</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ F</span></p>
+                                            <p><span class="font-bold text-gray-800">4</span> <span class="text-rose-600 font-semibold">competent</span> <span class="text-gray-400 font-normal">/ˈkɒmpɪtənt/</span> <span class="text-gray-500 font-normal text-xs ml-1">(thành thạo)</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ D</span></p>
+                                            <p><span class="font-bold text-gray-800">5</span> <span class="text-rose-600 font-semibold">familiar</span> <span class="text-gray-400 font-normal">/fəˈmɪliə(r)/</span> <span class="text-gray-500 font-normal text-xs ml-1">(quen thuộc)</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ A</span></p>
+                                            <p><span class="font-bold text-gray-800">6</span> <span class="text-rose-600 font-semibold">identical</span> <span class="text-gray-400 font-normal">/aɪˈdentɪkl/</span> <span class="text-gray-500 font-normal text-xs ml-1">(giống hệt)</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ B</span></p>
+                                            <p><span class="font-bold text-gray-800">7</span> <span class="text-rose-600 font-semibold">overwhelming</span> <span class="text-gray-400 font-normal">/ˌəʊvəˈwelmɪŋ/</span> <span class="text-gray-500 font-normal text-xs ml-1">(choáng ngợp)</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ G</span></p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="space-y-3 text-gray-600 pt-8">
+                                        <p><span class="font-bold text-gray-800">A.</span> known to one</p>
+                                        <p><span class="font-bold text-gray-800">B.</span> duplicate <span class="text-gray-400 font-normal">/ˈduːplɪkət/</span></p>
+                                        <p><span class="font-bold text-gray-800">C.</span> precise <span class="text-gray-400 font-normal">/prɪˈsaɪs/</span></p>
+                                        <p><span class="font-bold text-gray-800">D.</span> skilled</p>
+                                        <p><span class="font-bold text-gray-800">E.</span> not having an obvious order/plan</p>
+                                        <p><span class="font-bold text-gray-800">F.</span> happening in the same way</p>
+                                        <p><span class="font-bold text-gray-800">G.</span> very great or very strong</p>
+                                    </div>
+
+                                    <!-- Nouns -->
+                                    <div class="mt-4">
+                                        <h6 class="font-bold text-rose-800 mb-3 border-b border-rose-100 pb-1">Nouns</h6>
+                                        <div class="space-y-3">
+                                            <p><span class="font-bold text-gray-800">1</span> <span class="text-rose-600 font-semibold">repertoire</span> <span class="text-gray-400 font-normal">/ˈrepətwɑː(r)/</span> <span class="text-gray-500 font-normal text-xs ml-1">(vốn tiết mục/hiểu biết)</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ E</span></p>
+                                            <p><span class="font-bold text-gray-800">2</span> <span class="text-rose-600 font-semibold">property</span> <span class="text-gray-400 font-normal">/ˈprɒpəti/</span> <span class="text-gray-500 font-normal text-xs ml-1">(đặc tính)</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ A</span></p>
+                                            <p><span class="font-bold text-gray-800">3</span> <span class="text-rose-600 font-semibold">entity</span> <span class="text-gray-400 font-normal">/ˈentəti/</span> <span class="text-gray-500 font-normal text-xs ml-1">(thực thể)</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ D</span></p>
+                                            <p><span class="font-bold text-gray-800">4</span> <span class="text-rose-600 font-semibold">cue</span> <span class="text-gray-400 font-normal">/kjuː/</span> <span class="text-gray-500 font-normal text-xs ml-1">(gợi ý/tín hiệu)</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ B</span></p>
+                                            <p><span class="font-bold text-gray-800">5</span> <span class="text-rose-600 font-semibold">phase</span> <span class="text-gray-400 font-normal">/feɪz/</span> <span class="text-gray-500 font-normal text-xs ml-1">(giai đoạn)</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ C</span></p>
+                                            <p><span class="font-bold text-gray-800">6</span> <span class="text-rose-600 font-semibold">in the course of</span> <span class="text-gray-500 font-normal text-xs ml-1">(trong quá trình)</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ F</span></p>
+                                            <p><span class="font-bold text-gray-800">7</span> <span class="text-rose-600 font-semibold">affair</span> <span class="text-gray-500 font-normal text-xs ml-1">(vấn đề/sự việc)</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ G</span></p>
+                                        </div>
+                                    </div>
+
+                                    <div class="space-y-3 text-gray-600 mt-4 pt-8">
+                                        <p><span class="font-bold text-gray-800">A.</span> characteristic that something has</p>
+                                        <p><span class="font-bold text-gray-800">B.</span> a signal for somebody to do something</p>
+                                        <p><span class="font-bold text-gray-800">C.</span> a stage in a process</p>
+                                        <p><span class="font-bold text-gray-800">D.</span> something exists apart from another thing, and has its own independent existence</p>
+                                        <p><span class="font-bold text-gray-800">E.</span> all the things a person knows</p>
+                                        <p><span class="font-bold text-gray-800">F.</span> during</p>
+                                        <p><span class="font-bold text-gray-800">G.</span> a situation/subject that is being dealt with or considered</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Exercise 3 Part A -->
+                            <div id="read-ex3a-container" class="bg-white border border-rose-100 rounded-xl p-5 shadow-sm transition-all duration-300">
+                                <div class="flex justify-between items-center mb-4">
+                                    <h5 class="font-bold text-rose-700 text-md">Exercise 3 (Part 1)</h5>
+                                    <button id="btn-read-ex3a" onclick="toggleInlineAnswers('read-ex3a-container', 'btn-read-ex3a')" class="text-xs bg-rose-50 text-rose-700 px-3 py-1.5 rounded-lg font-bold hover:bg-rose-100 transition-colors border border-rose-200">Show Answers</button>
+                                </div>
+                                <p class="text-gray-600 text-sm mb-4 font-medium">Match the following prefixes with the meanings.</p>
+                                
+                                <div class="flex justify-center mb-6">
+                                    <div class="flex gap-6 text-rose-600 font-bold border border-rose-200 rounded-lg p-3 bg-rose-50">
+                                        <span>pre- <span class="text-gray-500 font-normal text-xs">/priː/</span></span>
+                                        <span>post- <span class="text-gray-500 font-normal text-xs">/pəʊst/</span></span>
+                                        <span>co- <span class="text-gray-500 font-normal text-xs">/kəʊ/</span></span>
+                                    </div>
+                                </div>
+
+                                <div class="grid grid-cols-3 gap-4 text-sm text-gray-700 font-medium mb-6">
+                                    <div><span class="font-bold text-gray-900">a.</span> together with <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ co-</span></div>
+                                    <div><span class="font-bold text-gray-900">b.</span> before <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ pre-</span></div>
+                                    <div><span class="font-bold text-gray-900">c.</span> after <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ post-</span></div>
+                                </div>
+
+                                <p class="text-gray-600 text-sm mb-4 font-medium border-t border-rose-100 pt-4">Fill in each blank with one suitable prefix.</p>
+                                <div class="space-y-3 text-sm text-gray-700 leading-relaxed font-medium">
+                                    <p>1 <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200">co-</span>author is a person who writes a book or an article with somebody else.</p>
+                                    <p>2 <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200">pre-</span>condition is something that must happen or exist before something else.</p>
+                                    <p>3 <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200">post-</span>graduate is a graduate student who is doing advanced study or research.</p>
+                                </div>
+                            </div>
+
+                            <!-- Exercise 3 Part B -->
+                            <div id="read-ex3b-container" class="bg-white border border-rose-100 rounded-xl p-5 shadow-sm transition-all duration-300">
+                                <div class="flex justify-between items-center mb-4">
+                                    <h5 class="font-bold text-rose-700 text-md">Exercise 3 (Part 2)</h5>
+                                    <button id="btn-read-ex3b" onclick="toggleInlineAnswers('read-ex3b-container', 'btn-read-ex3b')" class="text-xs bg-rose-50 text-rose-700 px-3 py-1.5 rounded-lg font-bold hover:bg-rose-100 transition-colors border border-rose-200">Show Answers</button>
+                                </div>
+                                <p class="text-gray-600 text-sm mb-4 font-medium">Match the following phrasal verbs with the suitable definitions.</p>
+                                
+                                <div class="flex justify-center mb-6">
+                                    <div class="flex flex-wrap gap-4 text-rose-600 font-bold border border-rose-200 rounded-lg p-4 bg-rose-50 justify-center">
+                                        <span>come up with <span class="text-gray-500 font-normal text-xs ml-1">(nghĩ ra)</span></span>
+                                        <span>come to <span class="text-gray-500 font-normal text-xs ml-1">(đi đến)</span></span>
+                                        <span>turn out <span class="text-gray-500 font-normal text-xs ml-1">(hóa ra)</span></span>
+                                        <span>turn up <span class="text-gray-500 font-normal text-xs ml-1">(xuất hiện)</span></span>
+                                        <span>work out <span class="text-gray-500 font-normal text-xs ml-1">(tìm ra)</span></span>
+                                        <span>point out <span class="text-gray-500 font-normal text-xs ml-1">(chỉ ra)</span></span>
+                                        <span>narrow down <span class="text-gray-500 font-normal text-xs ml-1">(thu hẹp)</span></span>
+                                        <span>carry out <span class="text-gray-500 font-normal text-xs ml-1">(tiến hành)</span></span>
+                                    </div>
+                                </div>
+
+                                <div class="grid md:grid-cols-2 gap-4 text-sm text-gray-700 mb-6 font-medium">
+                                    <p>a. to appear <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ turn up</span></p>
+                                    <p>b. to do/complete something <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ carry out</span></p>
+                                    <p>c. to happen in a particular way <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ turn out</span></p>
+                                    <p>d. to make something smaller and clearer by removing less important things <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ narrow down</span></p>
+                                    <p>e. to find the answer by thinking about it <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ work out</span></p>
+                                    <p>f. to tell someone a fact that they did not already know <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ point out</span></p>
+                                    <p>g. to reach a particular state or situation <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ come to</span></p>
+                                    <p>h. to think of or suggest a plan, idea, solution or answer to a question <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ come up with</span></p>
+                                </div>
+
+                                <p class="text-gray-600 text-sm mb-4 font-medium border-t border-rose-100 pt-4">Fill in each blank with a suitable phrasal verb.</p>
+                                <div class="space-y-3 text-sm text-gray-700 leading-relaxed font-medium">
+                                    <p>1 I have never succeeded in <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200">working out</span> which colors suit me best.</p>
+                                    <p>2 The designer <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200">pointed out</span> that the pattern on the fabric was unique.</p>
+                                    <p>3 Unfortunately, I couldn't <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200">come up with</span> any useful suggestions.</p>
+                                    <p>4 James has managed to <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200">narrow down</span> his choice of subjects to three.</p>
+                                    <p>5 We chose the furniture, but when it <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200">came to</span> the colors, we were undecided.</p>
+                                    <p>6 I'm going to <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200">carry out</span> a small study as part of my course book.</p>
+                                    <p>7 It <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200">turned out</span> that many workers preferred the colored chairs.</p>
+                                    <p>8 The meeting had to be cancelled because too few people <span class="blank-dots text-gray-400">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200">turned up</span> .</p>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Part 2 Section 2 -->
-                    <div class="bg-white rounded-3xl shadow-xl border border-indigo-50 p-8 mb-8">
-                         <div class="flex justify-between items-center mb-6 border-b border-gray-100 pb-4">
-                            <h3 class="text-2xl font-bold text-gray-800">Part 2: Long Turn (Topic 2)</h3>
-                            <div class="flex gap-2">
-                                <button onclick="toggleTimer('prep2', 60)" id="btn-prep2-timer" class="px-4 py-2 bg-indigo-100 text-indigo-700 rounded-lg text-sm font-bold hover:bg-indigo-200 transition">Prep: <span id="prep2-timer" class="timer-text">01:00</span></button>
-                                <button onclick="toggleTimer('speak2', 120)" id="btn-speak2-timer" class="px-4 py-2 bg-blue-500 text-white rounded-lg text-sm font-bold hover:bg-blue-600 transition">Speak: <span id="speak2-timer" class="timer-text">02:00</span></button>
-                            </div>
-                        </div>
-
-                        <div class="bg-indigo-50 border-l-4 border-indigo-500 p-6 rounded-r-2xl mb-8 shadow-sm flex items-start gap-4">
-                            <div class="text-4xl">💍</div>
-                            <div>
-                                <p class="text-indigo-800 font-bold uppercase tracking-wider text-xs mb-2">Candidate Task Card</p>
-                                <p class="text-xl font-bold text-gray-800 mb-4">Describe an object that you think is beautiful</p>
-                                <p class="text-gray-700 font-medium mb-2">You should say:</p>
-                                <ul class="text-gray-700 space-y-2 list-disc list-inside font-medium ml-2">
-                                    <li>What it is</li>
-                                    <li>Where you saw it</li>
-                                    <li>What it looks like</li>
-                                    <li>And explain why you think it is beautiful</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <button onclick="toggleVisibility('p2-sample-2')" class="w-full text-left py-3 px-5 bg-gray-50 rounded-xl text-sm font-bold text-gray-700 hover:bg-gray-100 transition-colors flex justify-between items-center mb-4 border border-gray-200">
-                            Show Sample Response
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </button>
-                        
-                        <div id="p2-sample-2" class="hidden bg-white border border-emerald-100 rounded-2xl p-6 shadow-sm">
-                            <h4 class="font-bold text-emerald-600 flex items-center gap-2 mb-4">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                                High-Scoring Sample
-                            </h4>
-                            <div class="text-gray-700 text-sm leading-relaxed space-y-3 italic">
-                                <p>"The beautiful object I'd like to describe is an antique ceramic vase that belongs to my grandmother. It is primarily used for <span class="font-bold text-indigo-600">ornamental</span> purposes in her living room."</p>
-                                <p>"I first saw it when I visited her house as a child. It sits on a wooden stand in a <span class="font-bold text-indigo-600">prominent</span> position right next to the window, where the sunlight catches it perfectly."</p>
-                                <p>"The vase is a stunning example of <span class="font-bold text-indigo-600">exquisite</span> craftsmanship. It's quite tall, painted in a deep blue color, and features <span class="font-bold text-indigo-600">meticulous</span> hand-painted patterns of white cranes and cherry blossoms. The details really <span class="font-bold text-indigo-600">accentuate</span> the elegance of its curved shape. The colors are incredibly <span class="font-bold text-indigo-600">vibrant</span> and <span class="font-bold text-indigo-600">pleasing</span> to the eye."</p>
-                                <p>"I think it is beautiful not just because of its obvious <span class="font-bold text-indigo-600">aesthetic</span> appeal, but also because it serves as a <span class="font-bold text-indigo-600">symbol</span> of my family's heritage. Whenever I look at it, I can't <span class="font-bold text-indigo-600">resist the urge</span> to admire the skill it took to create it. It definitely acts as an emotional <span class="font-bold text-indigo-600">booster</span> for me, bringing a sense of calm and nostalgia."</p>
-                            </div>
+                    <div id="ans-sb-read-u2" class="hidden mb-4 bg-slate-50 border border-rose-200 rounded-2xl p-6 shrink-0 shadow-sm transition-all fade-in">
+                        <h4 class="font-bold text-rose-800 mb-4 flex items-center gap-2 border-b border-rose-100 pb-2 uppercase tracking-wide text-xs">
+                            Answer Key
+                        </h4>
+                        <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-3 text-sm text-gray-700 font-medium">
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-200 shadow-sm"><span class="text-rose-500 font-bold mr-2">1</span> iv</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-200 shadow-sm"><span class="text-rose-500 font-bold mr-2">2</span> i</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-200 shadow-sm"><span class="text-rose-500 font-bold mr-2">3</span> iii</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-200 shadow-sm"><span class="text-rose-500 font-bold mr-2">4</span> vii</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-200 shadow-sm md:col-span-2"><span class="text-rose-500 font-bold mr-2">5</span> training trials</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-200 shadow-sm md:col-span-2"><span class="text-rose-500 font-bold mr-2">6</span> (pre-nominal) position</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-200 shadow-sm md:col-span-2"><span class="text-rose-500 font-bold mr-2">7</span> features/cues</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-200 shadow-sm md:col-span-2"><span class="text-rose-500 font-bold mr-2">8</span> meaning/concept</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-200 shadow-sm md:col-span-2"><span class="text-rose-500 font-bold mr-2">9</span> unhelpful</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-200 shadow-sm md:col-span-2"><span class="text-rose-500 font-bold mr-2">10-11</span> A, C</div>
+                            <div class="bg-white p-2.5 rounded-lg border border-gray-200 shadow-sm md:col-span-2"><span class="text-rose-500 font-bold mr-2">12-13</span> C, D</div>
                         </div>
                     </div>
 
-                    <!-- Part 3 -->
-                    <div class="bg-white rounded-3xl shadow-xl border border-blue-50 p-8">
-                        <h3 class="text-2xl font-bold text-gray-800 mb-6 border-b border-gray-100 pb-4">Part 3: Two-way Discussion</h3>
-                        
-                        <div class="space-y-5">
-                            <div class="bg-gray-50 rounded-2xl p-5 border border-gray-200">
-                                <div class="flex justify-between items-start gap-4 mb-3">
-                                    <p class="font-bold text-gray-800 text-lg">1. What toys are popular with boys and girls in your country now?</p>
-                                    <button onclick="toggleVisibility('p3-u2-1')" class="text-xs font-bold text-emerald-600 bg-emerald-100 hover:bg-emerald-200 px-4 py-2 rounded-lg transition-colors whitespace-nowrap shadow-sm">Sample</button>
-                                </div>
-                                <div id="p3-u2-1" class="hidden bg-white border-l-4 border-emerald-400 p-4 rounded-r-lg shadow-sm mt-3">
-                                    <div class="space-y-2">
-                                        <p class="text-gray-700 italic text-sm leading-relaxed"><span class="text-xs font-bold text-emerald-600 uppercase tracking-wider not-italic mr-1 bg-emerald-50 px-1 py-0.5 rounded border border-emerald-100">[Direct Answer & Trend]</span> "These days, there's a strong <span class="font-semibold text-blue-600">liking</span> for interactive and electronic toys among both genders, primarily due to the rise of technology.</p>
-                                        <p class="text-gray-700 italic text-sm leading-relaxed"><span class="text-xs font-bold text-emerald-600 uppercase tracking-wider not-italic mr-1 bg-emerald-50 px-1 py-0.5 rounded border border-emerald-100">[Detail 1: Boys]</span> For instance, young boys often show a strong <span class="font-semibold text-blue-600">attachment</span> to remote-controlled cars, action figures, or video games that simulate combat or racing.</p>
-                                        <p class="text-gray-700 italic text-sm leading-relaxed"><span class="text-xs font-bold text-emerald-600 uppercase tracking-wider not-italic mr-1 bg-emerald-50 px-1 py-0.5 rounded border border-emerald-100">[Detail 2: Girls]</span> On the other hand, traditional toys like dolls, dollhouses, and craft kits still highly <span class="font-semibold text-blue-600">appeal to</span> many girls, as they enjoy role-playing and creative activities.</p>
-                                        <p class="text-gray-700 italic text-sm leading-relaxed"><span class="text-xs font-bold text-emerald-600 uppercase tracking-wider not-italic mr-1 bg-emerald-50 px-1 py-0.5 rounded border border-emerald-100">[Conclusion]</span> Regardless of gender, a <span class="font-semibold text-blue-600">decisive factor</span> for parents buying these is often whether the toy has educational value, leading to the shared popularity of building blocks like Lego."</p>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="bg-gray-50 rounded-2xl p-5 border border-gray-200">
-                                <div class="flex justify-between items-start gap-4 mb-3">
-                                    <p class="font-bold text-gray-800 text-lg">2. Do you think advertising that targets children should be banned?</p>
-                                    <button onclick="toggleVisibility('p3-u2-2')" class="text-xs font-bold text-emerald-600 bg-emerald-100 hover:bg-emerald-200 px-4 py-2 rounded-lg transition-colors whitespace-nowrap shadow-sm">Sample</button>
-                                </div>
-                                <div id="p3-u2-2" class="hidden bg-white border-l-4 border-emerald-400 p-4 rounded-r-lg shadow-sm mt-3">
-                                    <div class="space-y-2">
-                                        <p class="text-gray-700 italic text-sm leading-relaxed"><span class="text-xs font-bold text-emerald-600 uppercase tracking-wider not-italic mr-1 bg-emerald-50 px-1 py-0.5 rounded border border-emerald-100">[Direct Answer]</span> "I am honestly <span class="font-semibold text-blue-600">in two minds</span> about this issue.</p>
-                                        <p class="text-gray-700 italic text-sm leading-relaxed"><span class="text-xs font-bold text-emerald-600 uppercase tracking-wider not-italic mr-1 bg-emerald-50 px-1 py-0.5 rounded border border-emerald-100">[View 1: Support Ban]</span> On the one hand, children are quite impressionable and can be easily manipulated by <span class="font-semibold text-blue-600">vibrant</span> and deceptive commercials. When they see their favorite characters promoting a toy, they often feel an uncontrollable <span class="font-semibold text-blue-600">urge</span> to have it, which puts immense financial pressure on parents.</p>
-                                        <p class="text-gray-700 italic text-sm leading-relaxed"><span class="text-xs font-bold text-emerald-600 uppercase tracking-wider not-italic mr-1 bg-emerald-50 px-1 py-0.5 rounded border border-emerald-100">[View 2: Oppose Ban]</span> On the other hand, a blanket ban might be too extreme and could harm the children's entertainment industry, which relies heavily on ad revenues to produce free content.</p>
-                                        <p class="text-gray-700 italic text-sm leading-relaxed"><span class="text-xs font-bold text-emerald-600 uppercase tracking-wider not-italic mr-1 bg-emerald-50 px-1 py-0.5 rounded border border-emerald-100">[Conclusion]</span> Therefore, perhaps strict regulation—such as limiting screen time for ads or banning junk food commercials—is a more pragmatic approach than a complete prohibition."</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="bg-gray-50 rounded-2xl p-5 border border-gray-200">
-                                <div class="flex justify-between items-start gap-4 mb-3">
-                                    <p class="font-bold text-gray-800 text-lg">3. How do advertisements influence children?</p>
-                                    <button onclick="toggleVisibility('p3-u2-3')" class="text-xs font-bold text-emerald-600 bg-emerald-100 hover:bg-emerald-200 px-4 py-2 rounded-lg transition-colors whitespace-nowrap shadow-sm">Sample</button>
-                                </div>
-                                <div id="p3-u2-3" class="hidden bg-white border-l-4 border-emerald-400 p-4 rounded-r-lg shadow-sm mt-3">
-                                    <div class="space-y-2">
-                                        <p class="text-gray-700 italic text-sm leading-relaxed"><span class="text-xs font-bold text-emerald-600 uppercase tracking-wider not-italic mr-1 bg-emerald-50 px-1 py-0.5 rounded border border-emerald-100">[Direct Answer]</span> "Advertisements exert a profound influence on children, primarily by acting as a powerful emotional <span class="font-semibold text-blue-600">booster</span>.</p>
-                                        <p class="text-gray-700 italic text-sm leading-relaxed"><span class="text-xs font-bold text-emerald-600 uppercase tracking-wider not-italic mr-1 bg-emerald-50 px-1 py-0.5 rounded border border-emerald-100">[Explanation]</span> Marketers use <span class="font-semibold text-blue-600">brilliantly</span> designed visuals, catchy jingles, and popular mascots that strongly <span class="font-semibold text-blue-600">appeal to</span> a child's desires. They create an illusion that owning a specific product is essential for happiness and social acceptance.</p>
-                                        <p class="text-gray-700 italic text-sm leading-relaxed"><span class="text-xs font-bold text-emerald-600 uppercase tracking-wider not-italic mr-1 bg-emerald-50 px-1 py-0.5 rounded border border-emerald-100">[Result]</span> Consequently, this often leads to the 'pester power' phenomenon, where kids relentlessly beg their parents to buy the advertised items, sometimes fostering materialistic tendencies from a very young age."</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="bg-gray-50 rounded-2xl p-5 border border-gray-200">
-                                <div class="flex justify-between items-start gap-4 mb-3">
-                                    <p class="font-bold text-gray-800 text-lg">4. Do you think there are more beautiful things now than in the past? Why?</p>
-                                    <button onclick="toggleVisibility('p3-u2-4')" class="text-xs font-bold text-emerald-600 bg-emerald-100 hover:bg-emerald-200 px-4 py-2 rounded-lg transition-colors whitespace-nowrap shadow-sm">Sample</button>
-                                </div>
-                                <div id="p3-u2-4" class="hidden bg-white border-l-4 border-emerald-400 p-4 rounded-r-lg shadow-sm mt-3">
-                                    <div class="space-y-2">
-                                        <p class="text-gray-700 italic text-sm leading-relaxed"><span class="text-xs font-bold text-emerald-600 uppercase tracking-wider not-italic mr-1 bg-emerald-50 px-1 py-0.5 rounded border border-emerald-100">[Direct Answer]</span> "I wouldn't necessarily say there are 'more' beautiful things today; rather, the concept and medium of beauty have simply evolved over time.</p>
-                                        <p class="text-gray-700 italic text-sm leading-relaxed"><span class="text-xs font-bold text-emerald-600 uppercase tracking-wider not-italic mr-1 bg-emerald-50 px-1 py-0.5 rounded border border-emerald-100">[The Past]</span> In the past, people highly valued natural beauty or <span class="font-semibold text-blue-600">exquisite</span>, hand-crafted items like pottery or woven fabrics that required <span class="font-semibold text-blue-600">meticulous</span> artisanal work.</p>
-                                        <p class="text-gray-700 italic text-sm leading-relaxed"><span class="text-xs font-bold text-emerald-600 uppercase tracking-wider not-italic mr-1 bg-emerald-50 px-1 py-0.5 rounded border border-emerald-100">[The Present]</span> Today, however, we are surrounded by technological aesthetics. We find beauty in a sleek smartphone design, breathtaking digital art, or cutting-edge modern architecture.</p>
-                                        <p class="text-gray-700 italic text-sm leading-relaxed"><span class="text-xs font-bold text-emerald-600 uppercase tracking-wider not-italic mr-1 bg-emerald-50 px-1 py-0.5 rounded border border-emerald-100">[Conclusion]</span> So, while the volume of mass-produced items has increased, genuine beauty hasn't multiplied; it just caters to modern <span class="font-semibold text-blue-600">aesthetic</span> preferences."</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="bg-gray-50 rounded-2xl p-5 border border-gray-200">
-                                <div class="flex justify-between items-start gap-4 mb-3">
-                                    <p class="font-bold text-gray-800 text-lg">5. What beautiful scenery spots are there in your country?</p>
-                                    <button onclick="toggleVisibility('p3-u2-5')" class="text-xs font-bold text-emerald-600 bg-emerald-100 hover:bg-emerald-200 px-4 py-2 rounded-lg transition-colors whitespace-nowrap shadow-sm">Sample</button>
-                                </div>
-                                <div id="p3-u2-5" class="hidden bg-white border-l-4 border-emerald-400 p-4 rounded-r-lg shadow-sm mt-3">
-                                    <div class="space-y-2">
-                                        <p class="text-gray-700 italic text-sm leading-relaxed"><span class="text-xs font-bold text-emerald-600 uppercase tracking-wider not-italic mr-1 bg-emerald-50 px-1 py-0.5 rounded border border-emerald-100">[General Statement]</span> "My country, Vietnam, is blessed with incredibly diverse and breathtaking landscapes from north to south.</p>
-                                        <p class="text-gray-700 italic text-sm leading-relaxed"><span class="text-xs font-bold text-emerald-600 uppercase tracking-wider not-italic mr-1 bg-emerald-50 px-1 py-0.5 rounded border border-emerald-100">[Example 1]</span> For instance, Ha Long Bay is a <span class="font-semibold text-blue-600">prominent</span> spot renowned globally for its magnificent limestone karsts jutting dramatically out of emerald waters; it is exceptionally <span class="font-semibold text-blue-600">pleasing</span> to the eye.</p>
-                                        <p class="text-gray-700 italic text-sm leading-relaxed"><span class="text-xs font-bold text-emerald-600 uppercase tracking-wider not-italic mr-1 bg-emerald-50 px-1 py-0.5 rounded border border-emerald-100">[Example 2]</span> Meanwhile, in the mountainous regions, the terraced rice fields in Sapa are absolutely stunning, especially when they turn a <span class="font-semibold text-blue-600">brilliantly</span> golden color during the harvest season.</p>
-                                        <p class="text-gray-700 italic text-sm leading-relaxed"><span class="text-xs font-bold text-emerald-600 uppercase tracking-wider not-italic mr-1 bg-emerald-50 px-1 py-0.5 rounded border border-emerald-100">[Conclusion]</span> These spots not only attract millions of tourists but also hold deep <span class="font-semibold text-blue-600">sentimental</span> value for the locals."</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="bg-gray-50 rounded-2xl p-5 border border-gray-200">
-                                <div class="flex justify-between items-start gap-4 mb-3">
-                                    <p class="font-bold text-gray-800 text-lg">6. Where do you think people usually come into contact with beautiful things?</p>
-                                    <button onclick="toggleVisibility('p3-u2-6')" class="text-xs font-bold text-emerald-600 bg-emerald-100 hover:bg-emerald-200 px-4 py-2 rounded-lg transition-colors whitespace-nowrap shadow-sm">Sample</button>
-                                </div>
-                                <div id="p3-u2-6" class="hidden bg-white border-l-4 border-emerald-400 p-4 rounded-r-lg shadow-sm mt-3">
-                                    <div class="space-y-2">
-                                        <p class="text-gray-700 italic text-sm leading-relaxed"><span class="text-xs font-bold text-emerald-600 uppercase tracking-wider not-italic mr-1 bg-emerald-50 px-1 py-0.5 rounded border border-emerald-100">[Direct Answer]</span> "People encounter beauty in a multitude of settings, both man-made and natural.</p>
-                                        <p class="text-gray-700 italic text-sm leading-relaxed"><span class="text-xs font-bold text-emerald-600 uppercase tracking-wider not-italic mr-1 bg-emerald-50 px-1 py-0.5 rounded border border-emerald-100">[Aspect 1: Man-made]</span> In urban environments, people often come into contact with beauty in art galleries, museums, or even high-end boutiques where <span class="font-semibold text-blue-600">ornamental</span> and historical pieces are carefully curated and displayed.</p>
-                                        <p class="text-gray-700 italic text-sm leading-relaxed"><span class="text-xs font-bold text-emerald-600 uppercase tracking-wider not-italic mr-1 bg-emerald-50 px-1 py-0.5 rounded border border-emerald-100">[Aspect 2: Nature]</span> However, nature is arguably the most universal and accessible source of beauty. Just taking a stroll in a local botanical park allows one to appreciate <span class="font-semibold text-blue-600">vibrant</span> flowers, towering trees, or a picturesque sunset.</p>
-                                        <p class="text-gray-700 italic text-sm leading-relaxed"><span class="text-xs font-bold text-emerald-600 uppercase tracking-wider not-italic mr-1 bg-emerald-50 px-1 py-0.5 rounded border border-emerald-100">[Conclusion]</span> Ultimately, I believe people can find beauty anywhere if they have the right <span class="font-semibold text-blue-600">disposition</span> to look for it."</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="bg-gray-50 rounded-2xl p-5 border border-gray-200">
-                                <div class="flex justify-between items-start gap-4 mb-3">
-                                    <p class="font-bold text-gray-800 text-lg">7. Why do you think people create beautiful things?</p>
-                                    <button onclick="toggleVisibility('p3-u2-7')" class="text-xs font-bold text-emerald-600 bg-emerald-100 hover:bg-emerald-200 px-4 py-2 rounded-lg transition-colors whitespace-nowrap shadow-sm">Sample</button>
-                                </div>
-                                <div id="p3-u2-7" class="hidden bg-white border-l-4 border-emerald-400 p-4 rounded-r-lg shadow-sm mt-3">
-                                    <div class="space-y-2">
-                                        <p class="text-gray-700 italic text-sm leading-relaxed"><span class="text-xs font-bold text-emerald-600 uppercase tracking-wider not-italic mr-1 bg-emerald-50 px-1 py-0.5 rounded border border-emerald-100">[Direct Answer]</span> "I think creating beauty is fundamentally rooted in human nature.</p>
-                                        <p class="text-gray-700 italic text-sm leading-relaxed"><span class="text-xs font-bold text-emerald-600 uppercase tracking-wider not-italic mr-1 bg-emerald-50 px-1 py-0.5 rounded border border-emerald-100">[Reason 1: Self-Expression]</span> Primarily, it's a natural <span class="font-semibold text-blue-600">urge</span> to express ourselves, our inner emotions, and our unique <span class="font-semibold text-blue-600">disposition</span>. Whether through painting, architecture, or music, designing something <span class="font-semibold text-blue-600">aesthetic</span> allows individuals to manifest their thoughts into reality.</p>
-                                        <p class="text-gray-700 italic text-sm leading-relaxed"><span class="text-xs font-bold text-emerald-600 uppercase tracking-wider not-italic mr-1 bg-emerald-50 px-1 py-0.5 rounded border border-emerald-100">[Reason 2: Connection]</span> Furthermore, people create beautiful objects to leave a lasting mark on the world, to communicate complex emotions across generations, and to craft items that hold deep <span class="font-semibold text-blue-600">sentimental</span> value for others.</p>
-                                        <p class="text-gray-700 italic text-sm leading-relaxed"><span class="text-xs font-bold text-emerald-600 uppercase tracking-wider not-italic mr-1 bg-emerald-50 px-1 py-0.5 rounded border border-emerald-100">[Conclusion]</span> In essence, it is our way of adding meaning and joy to the human experience."</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="w-full flex-grow rounded-2xl overflow-hidden border border-gray-200 shadow-inner bg-gray-50 relative min-h-[600px]">
+                        <iframe src="https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/passage3_complete_ielts_6.5_7.5_sb_unit2.html" class="absolute inset-0 w-full h-full border-0" title="Reading Practice"></iframe>
                     </div>
                 </div>
             `
@@ -650,15 +423,49 @@
     const navDropdown = document.getElementById('nav-dropdown');
     const navMenuList = document.getElementById('nav-menu-list');
 
+    window.addEventListener('DOMContentLoaded', () => {
+        populateNavMenu();
+        
+        document.getElementById('nav-toggle-btn').addEventListener('click', (e) => {
+            e.stopPropagation();
+            navDropdown.classList.toggle('hidden');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!navDropdown.contains(e.target) && !document.getElementById('nav-toggle-btn').contains(e.target)) {
+                navDropdown.classList.add('hidden');
+            }
+        });
+
+        if(prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                if (currentIndex > 0) renderSlide(--currentIndex);
+            });
+        }
+
+        if(nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                if (currentIndex < sessionData.length - 1) {
+                    renderSlide(++currentIndex);
+                } else {
+                    showCompletionModal();
+                }
+            });
+        }
+
+        renderSlide(0);
+    });
+
     function populateNavMenu() {
+        if(!navMenuList) return;
         navMenuList.innerHTML = sessionData.map((data, index) => `
             <button onclick="goToSlide(${index})" class="nav-item-btn w-full text-left p-3 mb-1 rounded-xl hover:bg-white transition-all flex items-center gap-3 border border-transparent shadow-sm">
-                <div class="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 text-sm font-bold text-white shadow-sm ${data.themeClass}">
+                <div class="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 text-sm font-bold text-white shadow-sm ${data.themeClass || ''}">
                     ${index + 1}
                 </div>
                 <div>
-                    <div class="text-sm font-bold text-gray-800 leading-tight">${data.title.substring(3)}</div>
-                    <div class="text-[10px] font-bold uppercase tracking-wider ${data.iconColor}">${data.type}</div>
+                    <div class="text-sm font-bold text-gray-800 leading-tight">${data.title ? data.title.substring(3) : 'Section ' + (index + 1)}</div>
+                    <div class="text-[10px] font-bold uppercase tracking-wider ${data.iconColor || ''}">${data.type || 'Lesson'}</div>
                 </div>
             </button>
         `).join('');
@@ -667,50 +474,20 @@
     window.goToSlide = function(index) {
         currentIndex = index;
         renderSlide(currentIndex);
-        navDropdown.classList.add('hidden');
+        if(navDropdown) navDropdown.classList.add('hidden');
     };
 
-    document.getElementById('nav-toggle-btn').addEventListener('click', (e) => {
-        e.stopPropagation();
-        navDropdown.classList.toggle('hidden');
-    });
-
-    document.addEventListener('click', (e) => {
-        if (!navDropdown.contains(e.target) && !document.getElementById('nav-toggle-btn').contains(e.target)) {
-            navDropdown.classList.add('hidden');
-        }
-    });
-
-    function showCompletionMessage() {
-        const overlay = document.createElement('div');
-        overlay.id = "completion-overlay";
-        overlay.className = 'fixed inset-0 bg-gray-900/40 backdrop-blur-sm z-50 flex items-center justify-center fade-in';
-        
-        const toast = document.createElement('div');
-        toast.className = 'bg-white text-gray-800 p-8 rounded-3xl shadow-2xl flex flex-col items-center gap-4 text-center max-w-sm border border-gray-100 transform transition-all';
-        toast.innerHTML = `
-            <div class="w-20 h-20 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-500 mb-2 shadow-inner">
-                <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
-            </div>
-            <h2 class="text-2xl font-black text-gray-800">Lesson Completed!</h2>
-            <p class="font-medium text-gray-500">Great job on finishing Lesson 06. You can review the sections from the menu.</p>
-            <button onclick="document.getElementById('completion-overlay').remove()" class="mt-4 w-full px-6 py-3 bg-gray-100 text-gray-700 font-bold rounded-xl hover:bg-gray-200 transition-colors shadow-sm">Close</button>
-        `;
-        
-        overlay.appendChild(toast);
-        document.body.appendChild(overlay);
-    }
-
     function renderSlide(index) {
-        if (typeof pauseAllTimers === 'function') pauseAllTimers();
+        pauseAllTimers();
         const data = sessionData[index];
+        if(!headerEl || !titleEl || !containerEl) return;
         
         headerEl.className = `text-white p-4 shadow-lg transition-colors duration-700 z-20 relative ${data.themeClass}`;
         titleEl.textContent = data.title;
         
         const progressPercent = ((index + 1) / sessionData.length) * 100;
-        progressBarEl.style.width = `${progressPercent}%`;
-        indicatorEl.textContent = `Section ${index + 1} of ${sessionData.length}`;
+        if(progressBarEl) progressBarEl.style.width = `${progressPercent}%`;
+        if(indicatorEl) indicatorEl.textContent = `Section ${index + 1} of ${sessionData.length}`;
 
         document.querySelectorAll('.nav-item-btn').forEach((btn, i) => {
             if (i === index) {
@@ -725,6 +502,8 @@
         containerEl.innerHTML = ''; 
         setTimeout(() => {
             containerEl.innerHTML = data.content;
+            
+            // Restore timers visually if returning to speaking slide
             if(data.id === 'speaking_practice_u2') {
                 updateTimerUI('prep', timers.prep.remaining);
                 updateTimerUI('speak', timers.speak.remaining);
@@ -733,56 +512,30 @@
             }
         }, 10);
 
-        prevBtn.disabled = index === 0;
-        nextBtn.innerHTML = index === sessionData.length - 1 ? 
+        if(prevBtn) prevBtn.disabled = index === 0;
+        if(nextBtn) nextBtn.innerHTML = index === sessionData.length - 1 ? 
             'Finish Lesson <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>' : 
             'Next Section <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>';
     }
-
-    prevBtn.addEventListener('click', () => {
-        if (currentIndex > 0) renderSlide(--currentIndex);
-    });
-
-    nextBtn.addEventListener('click', () => {
-        if (currentIndex < sessionData.length - 1) {
-            renderSlide(++currentIndex);
-        } else {
-            showCompletionMessage();
-        }
-    });
-
-    window.toggleVisibility = function(id) {
-        const el = document.getElementById(id);
-        if(el) {
-            if(el.classList.contains('hidden')){
-                el.classList.remove('hidden');
-                el.classList.add('fade-in');
-            } else {
-                el.classList.add('hidden');
-                el.classList.remove('fade-in');
-            }
-        }
-    };
 
     window.toggleInlineAnswers = function(containerId, btnId) {
         const container = document.getElementById(containerId);
         const btn = document.getElementById(btnId);
         if(!container) return;
         
+        container.classList.toggle('show-answers');
+        let isShowing = container.classList.contains('show-answers');
+        
         const ansEls = container.querySelectorAll('.ans-inline');
         const blankEls = container.querySelectorAll('.blank-inline');
         
-        let isShowing = false;
-        
         ansEls.forEach(el => {
-            if (el.classList.contains('hidden')) {
+            if (isShowing) {
                 el.classList.remove('hidden');
                 el.classList.add('fade-in');
-                isShowing = true;
             } else {
                 el.classList.add('hidden');
                 el.classList.remove('fade-in');
-                isShowing = false;
             }
         });
         
@@ -793,13 +546,31 @@
         
         if(btn) {
             btn.textContent = isShowing ? 'Hide Answers' : 'Show Answers';
+            if(isShowing) {
+                btn.classList.add('bg-emerald-100', 'text-emerald-800');
+                container.classList.add('shadow-md', 'border-emerald-300');
+            } else {
+                btn.classList.remove('bg-emerald-100', 'text-emerald-800');
+                container.classList.remove('shadow-md', 'border-emerald-300');
+            }
         }
     };
 
-    window.addEventListener('DOMContentLoaded', () => {
-        populateNavMenu();
-        renderSlide(0);
-    });
+    function showCompletionModal() {
+        const modal = document.createElement('div');
+        modal.className = 'fixed inset-0 z-50 flex items-center justify-center bg-slate-900/50 backdrop-blur-sm fade-in';
+        modal.innerHTML = `
+            <div class="bg-white p-8 rounded-3xl shadow-2xl text-center max-w-sm mx-4 transform transition-all">
+                <div class="w-20 h-20 bg-gradient-to-tr from-rose-400 to-pink-500 text-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                    <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-800 mb-2">Lesson Completed!</h3>
+                <p class="text-gray-500 mb-8 font-medium">Excellent work today! You have successfully completed Lesson 06.</p>
+                <button onclick="this.parentElement.parentElement.remove()" class="w-full bg-gray-900 text-white font-bold py-3.5 rounded-xl hover:bg-gray-800 shadow-md hover:shadow-lg transition-all focus:outline-none">Return to Lesson</button>
+            </div>
+        `;
+        document.body.appendChild(modal);
+    }
 </script>
 </body>
 </html>
