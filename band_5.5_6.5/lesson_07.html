@@ -64,42 +64,62 @@
         
         .hover-lift { transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease; }
         .hover-lift:hover { transform: translateY(-4px); box-shadow: 0 15px 30px -10px rgba(225, 29, 72, 0.2); }
+        
+        /* Select Dropdown Styling */
+        select.nav-dropdown {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23881337' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1em;
+            padding-right: 2.5rem;
+        }
     </style>
 </head>
 <body class="h-screen flex flex-col overflow-hidden">
-
     <header class="glass-card border-b border-white/60 z-20 shrink-0 relative">
-        <div class="p-4 flex justify-between items-center max-w-7xl mx-auto w-full">
+        <div class="p-4 flex flex-col md:flex-row justify-between items-center gap-4 max-w-7xl mx-auto w-full">
             <div>
                 <h1 class="text-2xl font-extrabold tracking-tight text-rose-950">IELTS Chan Truong <span class="text-rose-600 font-semibold ml-2 px-3 py-1 bg-white/50 border border-white/60 rounded-full text-base shadow-sm">Class 5.5-6.5</span></h1>
                 <p class="text-sm text-rose-900/70 mt-1.5 flex items-center gap-2 font-medium">
                     <span class="w-2 h-2 rounded-full bg-pink-400 shadow-[0_0_8px_rgba(244,114,182,0.8)]"></span> Lesson 07: Listening & Speaking
                 </p>
             </div>
-            <div class="flex items-center gap-4">
-                <span id="slide-counter" class="font-bold text-rose-900 px-4 py-1.5 glass-panel rounded-full">1 / 6</span>
-                <div class="flex gap-3">
-                    <button onclick="prevSlide()" class="glass-button text-rose-800 px-5 py-2.5 rounded-full font-semibold flex items-center gap-2">
-                        <span>←</span> Prev
+            
+            <div class="flex items-center gap-4 w-full md:w-auto justify-between md:justify-end">
+                <select id="section-nav" onchange="jumpToSection(this.value)" class="nav-dropdown glass-panel text-rose-900 font-bold py-2 px-4 rounded-xl shadow-sm outline-none cursor-pointer border border-white/60 hover:bg-white/60 transition">
+                    <option value="0">1. Lesson Overview</option>
+                    <option value="1">2. C9 Test 3 Section 1</option>
+                    <option value="2">3. C9 Test 3 Section 2</option>
+                    <option value="3">4. C9 Test 4 Section 1</option>
+                    <option value="4">5. C9 Test 4 Section 2</option>
+                    <option value="5">6. Spk: Sports & Exercise</option>
+                    <option value="6">7. Spk: Routine & Time</option>
+                    <option value="7">8. Spk: Sleep</option>
+                </select>
+
+                <div class="flex items-center gap-3">
+                    <span id="slide-counter" class="font-bold text-rose-900 px-3 py-1.5 glass-panel rounded-full text-sm hidden md:inline-block">1 / 8</span>
+                    <button onclick="prevSlide()" class="glass-button text-rose-800 px-4 py-2 rounded-full font-semibold flex items-center gap-2">
+                        <span>←</span> <span class="hidden sm:inline">Prev</span>
                     </button>
-                    <button onclick="nextSlide()" class="bg-gradient-to-r from-pink-500 to-rose-400 hover:from-pink-400 hover:to-rose-300 text-white px-6 py-2.5 rounded-full shadow-lg shadow-pink-500/30 transition-all hover:shadow-pink-500/50 hover:-translate-y-0.5 font-bold flex items-center gap-2">
-                        Next <span>→</span>
+                    <button onclick="nextSlide()" class="bg-gradient-to-r from-pink-500 to-rose-400 hover:from-pink-400 hover:to-rose-300 text-white px-5 py-2 rounded-full shadow-lg shadow-pink-500/30 transition-all hover:shadow-pink-500/50 hover:-translate-y-0.5 font-bold flex items-center gap-2">
+                        <span class="hidden sm:inline">Next</span> <span>→</span>
                     </button>
                 </div>
             </div>
         </div>
         <div class="h-1 bg-white/40 w-full absolute bottom-0 left-0">
-            <div id="progress-bar" class="h-full bg-gradient-to-r from-pink-400 to-rose-500 transition-all duration-500 ease-out shadow-[0_0_10px_rgba(244,114,182,0.5)]" style="width: 16.66%;"></div>
+            <div id="progress-bar" class="h-full bg-gradient-to-r from-pink-400 to-rose-500 transition-all duration-500 ease-out shadow-[0_0_10px_rgba(244,114,182,0.5)]" style="width: 12.5%;"></div>
         </div>
     </header>
 
-    <main class="flex-1 overflow-y-auto p-8 relative">
-        <div class="max-w-6xl mx-auto pb-24">
-
+    <main class="flex-1 overflow-y-auto p-4 md:p-8 relative">
+        <div class="max-w-7xl mx-auto pb-24">
             <div class="slide active" id="slide-0">
                 <div class="text-center py-16">
                     <div class="inline-block mb-6 px-5 py-2 rounded-full glass-panel text-rose-600 font-bold text-sm tracking-widest uppercase shadow-sm">Lesson Overview</div>
-                    <h2 class="text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-rose-950 to-pink-700 mb-6 tracking-tight drop-shadow-sm">Listening & Speaking</h2>
+                    <h2 class="text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-rose-950 to-pink-700 mb-6 tracking-tight drop-shadow-sm">Listening & Speaking</h2>
                     <p class="text-xl text-rose-900/70 mb-16 max-w-2xl mx-auto font-medium leading-relaxed">Today's session features intensive mock test practice from Cambridge 9 (Tests 3 & 4), followed by targeted Speaking vocabulary and practice.</p>
                     
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto text-left">
@@ -460,7 +480,7 @@
                 </div>
             </div>
 
-            <div class="slide" id="slide-4">
+            <div class="slide" id="slide-5">
                 <div class="flex items-center gap-4 mb-8">
                     <span class="w-12 h-12 rounded-2xl glass-panel flex items-center justify-center text-2xl shadow-sm">🏋️</span>
                     <div>
@@ -483,45 +503,105 @@
                         </div>
 
                         <ul class="space-y-3 text-[0.95rem] font-semibold text-rose-950 flex-1 overflow-y-auto pr-2">
-                            <li class="grid grid-cols-[1fr_1.5fr] gap-4 items-center p-2 hover:bg-white/40 rounded-lg transition">
-                                <div class="flex items-center gap-2"><button onclick="playAudio('hit the gym')" class="text-pink-500 hover:text-pink-700">🔊</button> 1 hit the gym</div>
-                                <div><span class="hidden-answer text-rose-600 bg-white/60 px-2 py-0.5 rounded border border-white/80">go to the gym to exercise</span></div>
+                            <li class="flex flex-col gap-1 p-2 bg-white/40 rounded-lg hover:bg-white/60 transition">
+                                <div class="flex flex-wrap items-center gap-x-2 gap-y-1">
+                                    <span class="flex items-center gap-2">
+                                        1 <strong class="text-rose-700">hit the gym</strong> 
+                                        <span class="text-xs font-normal text-rose-900/60 ml-1">/hɪt ðə dʒɪm/</span>
+                                        <button onclick="playAudio('hit the gym')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button>
+                                    </span>
+                                    <span class="hidden-answer text-rose-600 bg-white/80 px-2.5 py-0.5 rounded border border-pink-200 text-sm">→ go to the gym to exercise <span class="italic font-normal text-rose-900/70 ml-1">(đi tập gym)</span></span>
+                                </div>
                             </li>
-                            <li class="grid grid-cols-[1fr_1.5fr] gap-4 items-center p-2 hover:bg-white/40 rounded-lg transition">
-                                <div class="flex items-center gap-2"><button onclick="playAudio('strenuous')" class="text-pink-500 hover:text-pink-700">🔊</button> 2 strenuous <span class="text-xs font-normal text-rose-900/60">/ˈstrenjuəs/</span></div>
-                                <div><span class="hidden-answer text-rose-600 bg-white/60 px-2 py-0.5 rounded border border-white/80">needing great effort/energy</span></div>
+                            <li class="flex flex-col gap-1 p-2 bg-white/40 rounded-lg hover:bg-white/60 transition">
+                                <div class="flex flex-wrap items-center gap-x-2 gap-y-1">
+                                    <span class="flex items-center gap-2">
+                                        2 <strong class="text-rose-700">strenuous</strong> (a) 
+                                        <span class="text-xs font-normal text-rose-900/60 ml-1">/ˈstrenjuəs/</span>
+                                        <button onclick="playAudio('strenuous')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button>
+                                    </span>
+                                    <span class="hidden-answer text-rose-600 bg-white/80 px-2.5 py-0.5 rounded border border-pink-200 text-sm">→ needing great effort/energy <span class="italic font-normal text-rose-900/70 ml-1">(đòi hỏi nhiều sức lực, vất vả)</span></span>
+                                </div>
                             </li>
-                            <li class="grid grid-cols-[1fr_1.5fr] gap-4 items-center p-2 hover:bg-white/40 rounded-lg transition">
-                                <div class="flex items-center gap-2"><button onclick="playAudio('take up')" class="text-pink-500 hover:text-pink-700">🔊</button> 3 take up something</div>
-                                <div><span class="hidden-answer text-rose-600 bg-white/60 px-2 py-0.5 rounded border border-white/80">start a new hobby or habit</span></div>
+                            <li class="flex flex-col gap-1 p-2 bg-white/40 rounded-lg hover:bg-white/60 transition">
+                                <div class="flex flex-wrap items-center gap-x-2 gap-y-1">
+                                    <span class="flex items-center gap-2">
+                                        3 <strong class="text-rose-700">take up</strong> something 
+                                        <span class="text-xs font-normal text-rose-900/60 ml-1">/teɪk ʌp/</span>
+                                        <button onclick="playAudio('take up')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button>
+                                    </span>
+                                    <span class="hidden-answer text-rose-600 bg-white/80 px-2.5 py-0.5 rounded border border-pink-200 text-sm">→ start a new hobby or habit <span class="italic font-normal text-rose-900/70 ml-1">(bắt đầu một sở thích/thói quen mới)</span></span>
+                                </div>
                             </li>
-                            <li class="grid grid-cols-[1fr_1.5fr] gap-4 items-center p-2 hover:bg-white/40 rounded-lg transition">
-                                <div class="flex items-center gap-2"><button onclick="playAudio('moderate')" class="text-pink-500 hover:text-pink-700">🔊</button> 4 moderate</div>
-                                <div><span class="hidden-answer text-rose-600 bg-white/60 px-2 py-0.5 rounded border border-white/80">average in amount or intensity</span></div>
+                            <li class="flex flex-col gap-1 p-2 bg-white/40 rounded-lg hover:bg-white/60 transition">
+                                <div class="flex flex-wrap items-center gap-x-2 gap-y-1">
+                                    <span class="flex items-center gap-2">
+                                        4 <strong class="text-rose-700">moderate</strong> (a) 
+                                        <span class="text-xs font-normal text-rose-900/60 ml-1">/ˈmɑːdərət/</span>
+                                        <button onclick="playAudio('moderate')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button>
+                                    </span>
+                                    <span class="hidden-answer text-rose-600 bg-white/80 px-2.5 py-0.5 rounded border border-pink-200 text-sm">→ average in amount or intensity <span class="italic font-normal text-rose-900/70 ml-1">(vừa phải, ôn hòa)</span></span>
+                                </div>
                             </li>
-                            <li class="grid grid-cols-[1fr_1.5fr] gap-4 items-center p-2 hover:bg-white/40 rounded-lg transition">
-                                <div class="flex items-center gap-2"><button onclick="playAudio('well-being')" class="text-pink-500 hover:text-pink-700">🔊</button> 5 well-being</div>
-                                <div><span class="hidden-answer text-rose-600 bg-white/60 px-2 py-0.5 rounded border border-white/80">general health and happiness</span></div>
+                            <li class="flex flex-col gap-1 p-2 bg-white/40 rounded-lg hover:bg-white/60 transition">
+                                <div class="flex flex-wrap items-center gap-x-2 gap-y-1">
+                                    <span class="flex items-center gap-2">
+                                        5 <strong class="text-rose-700">well-being</strong> (n) 
+                                        <span class="text-xs font-normal text-rose-900/60 ml-1">/ˌwel ˈbiːɪŋ/</span>
+                                        <button onclick="playAudio('well-being')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button>
+                                    </span>
+                                    <span class="hidden-answer text-rose-600 bg-white/80 px-2.5 py-0.5 rounded border border-pink-200 text-sm">→ general health and happiness <span class="italic font-normal text-rose-900/70 ml-1">(sự khỏe mạnh và hạnh phúc)</span></span>
+                                </div>
                             </li>
-                            <li class="grid grid-cols-[1fr_1.5fr] gap-4 items-center p-2 hover:bg-white/40 rounded-lg transition">
-                                <div class="flex items-center gap-2"><button onclick="playAudio('immune system')" class="text-pink-500 hover:text-pink-700">🔊</button> 6 immune system <span class="text-xs font-normal text-rose-900/60">/ɪˈmjuːn/</span></div>
-                                <div><span class="hidden-answer text-rose-600 bg-white/60 px-2 py-0.5 rounded border border-white/80">body's defense against disease</span></div>
+                            <li class="flex flex-col gap-1 p-2 bg-white/40 rounded-lg hover:bg-white/60 transition">
+                                <div class="flex flex-wrap items-center gap-x-2 gap-y-1">
+                                    <span class="flex items-center gap-2">
+                                        6 <strong class="text-rose-700">immune system</strong> 
+                                        <span class="text-xs font-normal text-rose-900/60 ml-1">/ɪˈmjuːn ˈsɪstəm/</span>
+                                        <button onclick="playAudio('immune system')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button>
+                                    </span>
+                                    <span class="hidden-answer text-rose-600 bg-white/80 px-2.5 py-0.5 rounded border border-pink-200 text-sm">→ body's defense against disease <span class="italic font-normal text-rose-900/70 ml-1">(hệ miễn dịch)</span></span>
+                                </div>
                             </li>
-                            <li class="grid grid-cols-[1fr_1.5fr] gap-4 items-center p-2 hover:bg-white/40 rounded-lg transition">
-                                <div class="flex items-center gap-2"><button onclick="playAudio('enhance')" class="text-pink-500 hover:text-pink-700">🔊</button> 7 enhance</div>
-                                <div><span class="hidden-answer text-rose-600 bg-white/60 px-2 py-0.5 rounded border border-white/80">improve or increase</span></div>
+                            <li class="flex flex-col gap-1 p-2 bg-white/40 rounded-lg hover:bg-white/60 transition">
+                                <div class="flex flex-wrap items-center gap-x-2 gap-y-1">
+                                    <span class="flex items-center gap-2">
+                                        7 <strong class="text-rose-700">enhance</strong> (v) 
+                                        <span class="text-xs font-normal text-rose-900/60 ml-1">/ɪnˈhæns/</span>
+                                        <button onclick="playAudio('enhance')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button>
+                                    </span>
+                                    <span class="hidden-answer text-rose-600 bg-white/80 px-2.5 py-0.5 rounded border border-pink-200 text-sm">→ improve or increase <span class="italic font-normal text-rose-900/70 ml-1">(nâng cao, cải thiện)</span></span>
+                                </div>
                             </li>
-                            <li class="grid grid-cols-[1fr_1.5fr] gap-4 items-center p-2 hover:bg-white/40 rounded-lg transition">
-                                <div class="flex items-center gap-2"><button onclick="playAudio('get into shape')" class="text-pink-500 hover:text-pink-700">🔊</button> 8 get into shape</div>
-                                <div><span class="hidden-answer text-rose-600 bg-white/60 px-2 py-0.5 rounded border border-white/80">become physically fit</span></div>
+                            <li class="flex flex-col gap-1 p-2 bg-white/40 rounded-lg hover:bg-white/60 transition">
+                                <div class="flex flex-wrap items-center gap-x-2 gap-y-1">
+                                    <span class="flex items-center gap-2">
+                                        8 <strong class="text-rose-700">get into shape</strong> 
+                                        <span class="text-xs font-normal text-rose-900/60 ml-1">/ɡet ˈɪntu ʃeɪp/</span>
+                                        <button onclick="playAudio('get into shape')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button>
+                                    </span>
+                                    <span class="hidden-answer text-rose-600 bg-white/80 px-2.5 py-0.5 rounded border border-pink-200 text-sm">→ become physically fit <span class="italic font-normal text-rose-900/70 ml-1">(lấy lại vóc dáng)</span></span>
+                                </div>
                             </li>
-                            <li class="grid grid-cols-[1fr_1.5fr] gap-4 items-center p-2 hover:bg-white/40 rounded-lg transition">
-                                <div class="flex items-center gap-2"><button onclick="playAudio('do a workout')" class="text-pink-500 hover:text-pink-700">🔊</button> 9 do a workout</div>
-                                <div><span class="hidden-answer text-rose-600 bg-white/60 px-2 py-0.5 rounded border border-white/80">do a session of physical exercise</span></div>
+                            <li class="flex flex-col gap-1 p-2 bg-white/40 rounded-lg hover:bg-white/60 transition">
+                                <div class="flex flex-wrap items-center gap-x-2 gap-y-1">
+                                    <span class="flex items-center gap-2">
+                                        9 <strong class="text-rose-700">do a workout</strong> 
+                                        <span class="text-xs font-normal text-rose-900/60 ml-1">/duː ə ˈwɜːrkaʊt/</span>
+                                        <button onclick="playAudio('do a workout')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button>
+                                    </span>
+                                    <span class="hidden-answer text-rose-600 bg-white/80 px-2.5 py-0.5 rounded border border-pink-200 text-sm">→ do a session of physical exercise <span class="italic font-normal text-rose-900/70 ml-1">(tập thể dục)</span></span>
+                                </div>
                             </li>
-                            <li class="grid grid-cols-[1fr_1.5fr] gap-4 items-center p-2 hover:bg-white/40 rounded-lg transition">
-                                <div class="flex items-center gap-2"><button onclick="playAudio('do wonders')" class="text-pink-500 hover:text-pink-700">🔊</button> 10 do wonders</div>
-                                <div><span class="hidden-answer text-rose-600 bg-white/60 px-2 py-0.5 rounded border border-white/80">have a very beneficial effect</span></div>
+                            <li class="flex flex-col gap-1 p-2 bg-white/40 rounded-lg hover:bg-white/60 transition">
+                                <div class="flex flex-wrap items-center gap-x-2 gap-y-1">
+                                    <span class="flex items-center gap-2">
+                                        10 <strong class="text-rose-700">do wonders</strong> 
+                                        <span class="text-xs font-normal text-rose-900/60 ml-1">/duː ˈwʌndərz/</span>
+                                        <button onclick="playAudio('do wonders')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button>
+                                    </span>
+                                    <span class="hidden-answer text-rose-600 bg-white/80 px-2.5 py-0.5 rounded border border-pink-200 text-sm">→ have a very beneficial effect <span class="italic font-normal text-rose-900/70 ml-1">(có tác dụng tuyệt vời)</span></span>
+                                </div>
                             </li>
                         </ul>
                     </div>
@@ -579,7 +659,7 @@
                 </div>
             </div>
 
-            <div class="slide" id="slide-5">
+            <div class="slide" id="slide-6">
                 <div class="flex items-center gap-4 mb-8">
                     <span class="w-12 h-12 rounded-2xl glass-panel flex items-center justify-center text-2xl shadow-sm">⏱️</span>
                     <div>
@@ -593,44 +673,128 @@
                         <div class="flex items-center justify-between mb-6">
                             <h3 class="text-2xl font-bold text-rose-950">Exercise 2: Personal Choices</h3>
                         </div>
-                        <p class="text-rose-900/70 text-sm font-medium mb-6">Choose an option to answer the following questions about yourself.</p>
+                        <p class="text-rose-900/70 text-sm font-medium mb-6">Choose an option to answer the following questions about yourself. Hover over bold words for meanings.</p>
                         
-                        <div class="space-y-5 text-[0.95rem] font-semibold text-rose-950 flex-1 overflow-y-auto pr-2">
-                            <div class="bg-white/40 p-4 rounded-xl border border-white/50">
-                                <p class="mb-2"><span class="font-black text-pink-400 mr-2">1</span> My current <strong class="text-rose-700 font-extrabold">priority</strong> is...</p>
+                        <div class="space-y-4 text-[0.95rem] font-semibold text-rose-950 flex-1 overflow-y-auto pr-2">
+                            <div class="bg-white/40 p-4 rounded-xl border border-white/50 hover:bg-white/60 transition group relative">
+                                <p class="mb-2 flex items-center gap-2">
+                                    <span class="font-black text-pink-400">1</span> 
+                                    My current <strong class="text-rose-700 font-extrabold cursor-help border-b border-dashed border-rose-300">priority</strong> is...
+                                    <button onclick="playAudio('priority')" class="text-pink-500 hover:text-pink-700 text-xs ml-1">🔊</button>
+                                </p>
                                 <div class="flex gap-4 pl-6 text-sm text-rose-900/80"><label><input type="radio" name="q1" class="mr-1"> A. study</label> <label><input type="radio" name="q1" class="mr-1"> B. well-being</label></div>
+                                <div class="absolute right-4 top-4 hidden group-hover:block bg-white/90 backdrop-blur text-rose-900 p-2 rounded-lg text-xs shadow-lg border border-pink-100 z-10 w-48">
+                                    <span class="block font-bold">priority /praɪˈɔːrəti/</span>
+                                    <span class="italic text-rose-700">sự ưu tiên, điều quan trọng nhất</span>
+                                </div>
                             </div>
-                            <div class="bg-white/40 p-4 rounded-xl border border-white/50">
-                                <p class="mb-2"><span class="font-black text-pink-400 mr-2">2</span> I am an/a ............... <strong class="text-rose-700 font-extrabold">riser</strong>.</p>
+                            <div class="bg-white/40 p-4 rounded-xl border border-white/50 hover:bg-white/60 transition group relative">
+                                <p class="mb-2 flex items-center gap-2">
+                                    <span class="font-black text-pink-400">2</span> 
+                                    I am an/a ............... <strong class="text-rose-700 font-extrabold cursor-help border-b border-dashed border-rose-300">early/late riser</strong>.
+                                    <button onclick="playAudio('early riser')" class="text-pink-500 hover:text-pink-700 text-xs ml-1">🔊</button>
+                                </p>
                                 <div class="flex gap-4 pl-6 text-sm text-rose-900/80"><label><input type="radio" name="q2" class="mr-1"> A. early</label> <label><input type="radio" name="q2" class="mr-1"> B. late</label></div>
+                                <div class="absolute right-4 top-4 hidden group-hover:block bg-white/90 backdrop-blur text-rose-900 p-2 rounded-lg text-xs shadow-lg border border-pink-100 z-10 w-48">
+                                    <span class="block font-bold">early/late riser /ˈɜːrli / leɪt ˈraɪzər/</span>
+                                    <span class="italic text-rose-700">người dậy sớm / người dậy muộn</span>
+                                </div>
                             </div>
-                            <div class="bg-white/40 p-4 rounded-xl border border-white/50">
-                                <p class="mb-2"><span class="font-black text-pink-400 mr-2">3</span> Are you a <strong class="text-rose-700 font-extrabold">night owl</strong>?</p>
+                            <div class="bg-white/40 p-4 rounded-xl border border-white/50 hover:bg-white/60 transition group relative">
+                                <p class="mb-2 flex items-center gap-2">
+                                    <span class="font-black text-pink-400">3</span> 
+                                    Are you a <strong class="text-rose-700 font-extrabold cursor-help border-b border-dashed border-rose-300">night owl</strong>?
+                                    <button onclick="playAudio('night owl')" class="text-pink-500 hover:text-pink-700 text-xs ml-1">🔊</button>
+                                </p>
                                 <div class="flex gap-4 pl-6 text-sm text-rose-900/80"><label><input type="radio" name="q3" class="mr-1"> A. No</label> <label><input type="radio" name="q3" class="mr-1"> B. Yes</label></div>
+                                <div class="absolute right-4 top-4 hidden group-hover:block bg-white/90 backdrop-blur text-rose-900 p-2 rounded-lg text-xs shadow-lg border border-pink-100 z-10 w-48">
+                                    <span class="block font-bold">night owl /ˈnaɪt aʊl/</span>
+                                    <span class="italic text-rose-700">cú đêm, người hay thức khuya</span>
+                                </div>
                             </div>
-                            <div class="bg-white/40 p-4 rounded-xl border border-white/50">
-                                <p class="mb-2"><span class="font-black text-pink-400 mr-2">4</span> I am most <strong class="text-rose-700 font-extrabold">productive</strong> in...</p>
+                            <div class="bg-white/40 p-4 rounded-xl border border-white/50 hover:bg-white/60 transition group relative">
+                                <p class="mb-2 flex items-center gap-2">
+                                    <span class="font-black text-pink-400">4</span> 
+                                    I am most <strong class="text-rose-700 font-extrabold cursor-help border-b border-dashed border-rose-300">productive</strong> in...
+                                    <button onclick="playAudio('productive')" class="text-pink-500 hover:text-pink-700 text-xs ml-1">🔊</button>
+                                </p>
                                 <div class="flex flex-wrap gap-4 pl-6 text-sm text-rose-900/80"><label><input type="radio" name="q4" class="mr-1"> A. the morning</label> <label><input type="radio" name="q4" class="mr-1"> B. the afternoon</label> <label><input type="radio" name="q4" class="mr-1"> C. the evening</label></div>
+                                <div class="absolute right-4 top-4 hidden group-hover:block bg-white/90 backdrop-blur text-rose-900 p-2 rounded-lg text-xs shadow-lg border border-pink-100 z-10 w-48">
+                                    <span class="block font-bold">productive /prəˈdʌktɪv/</span>
+                                    <span class="italic text-rose-700">làm việc có năng suất/hiệu quả cao</span>
+                                </div>
                             </div>
-                            <div class="bg-white/40 p-4 rounded-xl border border-white/50">
-                                <p class="mb-2"><span class="font-black text-pink-400 mr-2">5</span> Currently I have...</p>
-                                <div class="flex gap-4 pl-6 text-sm text-rose-900/80"><label><input type="radio" name="q5" class="mr-1"> A. <strong class="text-rose-700 font-extrabold">a tight schedule</strong></label> <label><input type="radio" name="q5" class="mr-1"> B. <strong class="text-rose-700 font-extrabold">time on my hands</strong></label></div>
+                            <div class="bg-white/40 p-4 rounded-xl border border-white/50 hover:bg-white/60 transition group relative">
+                                <p class="mb-2 flex items-center gap-2">
+                                    <span class="font-black text-pink-400">5</span> 
+                                    Currently I have...
+                                </p>
+                                <div class="flex gap-4 pl-6 text-sm text-rose-900/80">
+                                    <label class="flex items-center gap-1 cursor-help group/item relative">
+                                        <input type="radio" name="q5" class="mr-1"> A. <strong class="text-rose-700 font-extrabold border-b border-dashed border-rose-300">a tight schedule</strong>
+                                        <button onclick="playAudio('a tight schedule')" class="text-pink-500 hover:text-pink-700 text-[10px]">🔊</button>
+                                        <div class="absolute -top-12 left-0 hidden group-hover/item:block bg-white/90 backdrop-blur text-rose-900 p-2 rounded-lg text-xs shadow-lg border border-pink-100 w-48 z-20">
+                                            <span class="block font-bold">/ə taɪt ˈskedʒuːl/</span>
+                                            <span class="italic text-rose-700">lịch trình bận rộn/dày đặc</span>
+                                        </div>
+                                    </label> 
+                                    <label class="flex items-center gap-1 cursor-help group/item relative">
+                                        <input type="radio" name="q5" class="mr-1"> B. <strong class="text-rose-700 font-extrabold border-b border-dashed border-rose-300">time on my hands</strong>
+                                        <button onclick="playAudio('time on my hands')" class="text-pink-500 hover:text-pink-700 text-[10px]">🔊</button>
+                                        <div class="absolute -top-12 left-0 hidden group-hover/item:block bg-white/90 backdrop-blur text-rose-900 p-2 rounded-lg text-xs shadow-lg border border-pink-100 w-48 z-20">
+                                            <span class="block font-bold">/taɪm ɑːn maɪ hændz/</span>
+                                            <span class="italic text-rose-700">có nhiều thời gian rảnh rỗi</span>
+                                        </div>
+                                    </label>
+                                </div>
                             </div>
-                            <div class="bg-white/40 p-4 rounded-xl border border-white/50">
-                                <p class="mb-2"><span class="font-black text-pink-400 mr-2">6</span> Do you often <strong class="text-rose-700 font-extrabold">stick to a routine</strong>?</p>
+                            <div class="bg-white/40 p-4 rounded-xl border border-white/50 hover:bg-white/60 transition group relative">
+                                <p class="mb-2 flex items-center gap-2">
+                                    <span class="font-black text-pink-400">6</span> 
+                                    Do you often <strong class="text-rose-700 font-extrabold cursor-help border-b border-dashed border-rose-300">stick to a routine</strong>?
+                                    <button onclick="playAudio('stick to a routine')" class="text-pink-500 hover:text-pink-700 text-xs ml-1">🔊</button>
+                                </p>
                                 <div class="flex gap-4 pl-6 text-sm text-rose-900/80"><label><input type="radio" name="q6" class="mr-1"> A. Yes</label> <label><input type="radio" name="q6" class="mr-1"> B. No</label></div>
+                                <div class="absolute right-4 top-4 hidden group-hover:block bg-white/90 backdrop-blur text-rose-900 p-2 rounded-lg text-xs shadow-lg border border-pink-100 z-10 w-48">
+                                    <span class="block font-bold">stick to a routine /stɪk tu ə ruːˈtiːn/</span>
+                                    <span class="italic text-rose-700">bám sát/tuân theo thói quen sinh hoạt</span>
+                                </div>
                             </div>
-                            <div class="bg-white/40 p-4 rounded-xl border border-white/50">
-                                <p class="mb-2"><span class="font-black text-pink-400 mr-2">7</span> <strong class="text-rose-700 font-extrabold">A typical day</strong> of mine starts at...</p>
+                            <div class="bg-white/40 p-4 rounded-xl border border-white/50 hover:bg-white/60 transition group relative">
+                                <p class="mb-2 flex items-center gap-2">
+                                    <span class="font-black text-pink-400">7</span> 
+                                    <strong class="text-rose-700 font-extrabold cursor-help border-b border-dashed border-rose-300">A typical day</strong> of mine starts at...
+                                    <button onclick="playAudio('a typical day')" class="text-pink-500 hover:text-pink-700 text-xs ml-1">🔊</button>
+                                </p>
                                 <div class="flex gap-4 pl-6 text-sm text-rose-900/80"><label><input type="radio" name="q7" class="mr-1"> A. 7 a.m.</label> <label><input type="radio" name="q7" class="mr-1"> B. 10 a.m.</label></div>
+                                <div class="absolute right-4 top-4 hidden group-hover:block bg-white/90 backdrop-blur text-rose-900 p-2 rounded-lg text-xs shadow-lg border border-pink-100 z-10 w-48">
+                                    <span class="block font-bold">a typical day /ə ˈtɪpɪkəl deɪ/</span>
+                                    <span class="italic text-rose-700">một ngày bình thường/điển hình</span>
+                                </div>
                             </div>
-                            <div class="bg-white/40 p-4 rounded-xl border border-white/50">
-                                <p class="mb-2"><span class="font-black text-pink-400 mr-2">8</span> Can you <strong class="text-rose-700 font-extrabold">arrange your time wisely</strong>?</p>
+                            <div class="bg-white/40 p-4 rounded-xl border border-white/50 hover:bg-white/60 transition group relative">
+                                <p class="mb-2 flex items-center gap-2">
+                                    <span class="font-black text-pink-400">8</span> 
+                                    Can you <strong class="text-rose-700 font-extrabold cursor-help border-b border-dashed border-rose-300">arrange your time wisely</strong>?
+                                    <button onclick="playAudio('arrange time wisely')" class="text-pink-500 hover:text-pink-700 text-xs ml-1">🔊</button>
+                                </p>
                                 <div class="flex gap-4 pl-6 text-sm text-rose-900/80"><label><input type="radio" name="q8" class="mr-1"> A. Yes</label> <label><input type="radio" name="q8" class="mr-1"> B. No</label></div>
+                                <div class="absolute right-4 top-4 hidden group-hover:block bg-white/90 backdrop-blur text-rose-900 p-2 rounded-lg text-xs shadow-lg border border-pink-100 z-10 w-48">
+                                    <span class="block font-bold">arrange time wisely /əˈreɪndʒ taɪm ˈwaɪzli/</span>
+                                    <span class="italic text-rose-700">sắp xếp thời gian một cách khôn ngoan</span>
+                                </div>
                             </div>
-                            <div class="bg-white/40 p-4 rounded-xl border border-white/50">
-                                <p class="mb-2"><span class="font-black text-pink-400 mr-2">9</span> Are you an <strong class="text-rose-700 font-extrabold">organized</strong> person?</p>
+                            <div class="bg-white/40 p-4 rounded-xl border border-white/50 hover:bg-white/60 transition group relative">
+                                <p class="mb-2 flex items-center gap-2">
+                                    <span class="font-black text-pink-400">9</span> 
+                                    Are you an <strong class="text-rose-700 font-extrabold cursor-help border-b border-dashed border-rose-300">organized</strong> person?
+                                    <button onclick="playAudio('organized')" class="text-pink-500 hover:text-pink-700 text-xs ml-1">🔊</button>
+                                </p>
                                 <div class="flex gap-4 pl-6 text-sm text-rose-900/80"><label><input type="radio" name="q9" class="mr-1"> A. Yes</label> <label><input type="radio" name="q9" class="mr-1"> B. No</label></div>
+                                <div class="absolute right-4 top-4 hidden group-hover:block bg-white/90 backdrop-blur text-rose-900 p-2 rounded-lg text-xs shadow-lg border border-pink-100 z-10 w-48">
+                                    <span class="block font-bold">organized /ˈɔːrɡənaɪzd/</span>
+                                    <span class="italic text-rose-700">người có óc tổ chức, ngăn nắp</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -693,7 +857,7 @@
                 </div>
             </div>
 
-            <div class="slide" id="slide-6">
+            <div class="slide" id="slide-7">
                 <div class="flex items-center gap-4 mb-8">
                     <span class="w-12 h-12 rounded-2xl glass-panel flex items-center justify-center text-2xl shadow-sm">💤</span>
                     <div>
@@ -707,7 +871,7 @@
                         <div class="flex items-center justify-between mb-6">
                             <h3 class="text-2xl font-bold text-rose-950">Exercise 3: True or False</h3>
                         </div>
-                        <p class="text-rose-900/70 text-sm font-medium mb-6">Are the following statements true or false to you?</p>
+                        <p class="text-rose-900/70 text-sm font-medium mb-6">Are the following statements true or false to you? Hover over bold words for meanings.</p>
                         
                         <div class="space-y-4 text-[0.95rem] font-semibold text-rose-950 flex-1 overflow-y-auto pr-2">
                             <table class="w-full text-left border-collapse">
@@ -720,51 +884,135 @@
                                 </thead>
                                 <tbody class="divide-y divide-white/40">
                                     <tr class="hover:bg-white/30 transition">
-                                        <td class="py-3 flex items-center gap-2"><button onclick="playAudio('siesta')" class="text-pink-500 hover:text-pink-700 text-sm">🔊</button> 1. I often take a <strong class="text-rose-700 font-extrabold">siesta</strong>. <span class="text-xs font-normal text-rose-900/60">/siˈestə/</span></td>
+                                        <td class="py-3 flex items-center gap-2">
+                                            <span class="font-black text-pink-400 w-4">1</span>
+                                            <button onclick="playAudio('siesta')" class="text-pink-500 hover:text-pink-700 text-sm">🔊</button>
+                                            <div class="flex flex-col">
+                                                <span>I often take a <strong class="text-rose-700 font-extrabold cursor-help group relative border-b border-dashed border-rose-300">siesta<span class="absolute bottom-full left-0 mb-1 hidden group-hover:block bg-white/90 backdrop-blur text-rose-900 p-1.5 rounded text-xs border border-pink-100 w-32 font-normal z-10 shadow-sm italic text-rose-700">giấc ngủ trưa ngắn</span></strong>.</span>
+                                                <span class="text-xs font-normal text-rose-900/60">/siˈestə/</span>
+                                            </div>
+                                        </td>
                                         <td class="text-center py-3"><input type="radio" name="s1"></td><td class="text-center py-3"><input type="radio" name="s1"></td>
                                     </tr>
                                     <tr class="hover:bg-white/30 transition">
-                                        <td class="py-3 flex items-center gap-2"><button onclick="playAudio('sound sleep')" class="text-pink-500 hover:text-pink-700 text-sm">🔊</button> 2. I often have a <strong class="text-rose-700 font-extrabold">sound sleep</strong> at night.</td>
+                                        <td class="py-3 flex items-center gap-2">
+                                            <span class="font-black text-pink-400 w-4">2</span>
+                                            <button onclick="playAudio('sound sleep')" class="text-pink-500 hover:text-pink-700 text-sm">🔊</button>
+                                            <div class="flex flex-col">
+                                                <span>I often have a <strong class="text-rose-700 font-extrabold cursor-help group relative border-b border-dashed border-rose-300">sound sleep<span class="absolute bottom-full left-0 mb-1 hidden group-hover:block bg-white/90 backdrop-blur text-rose-900 p-1.5 rounded text-xs border border-pink-100 w-36 font-normal z-10 shadow-sm italic text-rose-700">giấc ngủ sâu, ngon giấc</span></strong> at night.</span>
+                                                <span class="text-xs font-normal text-rose-900/60">/saʊnd sliːp/</span>
+                                            </div>
+                                        </td>
                                         <td class="text-center py-3"><input type="radio" name="s2"></td><td class="text-center py-3"><input type="radio" name="s2"></td>
                                     </tr>
                                     <tr class="hover:bg-white/30 transition">
-                                        <td class="py-3 flex items-center gap-2"><button onclick="playAudio('toss and turn')" class="text-pink-500 hover:text-pink-700 text-sm">🔊</button> 3. Before crucial exams, I <strong class="text-rose-700 font-extrabold">toss and turn</strong> in bed all night.</td>
+                                        <td class="py-3 flex items-center gap-2">
+                                            <span class="font-black text-pink-400 w-4">3</span>
+                                            <button onclick="playAudio('toss and turn')" class="text-pink-500 hover:text-pink-700 text-sm">🔊</button>
+                                            <div class="flex flex-col">
+                                                <span>Before crucial exams, I <strong class="text-rose-700 font-extrabold cursor-help group relative border-b border-dashed border-rose-300">toss and turn<span class="absolute bottom-full left-0 mb-1 hidden group-hover:block bg-white/90 backdrop-blur text-rose-900 p-1.5 rounded text-xs border border-pink-100 w-40 font-normal z-10 shadow-sm italic text-rose-700">trằn trọc, trăn trở không ngủ được</span></strong> in bed all night.</span>
+                                                <span class="text-xs font-normal text-rose-900/60">/tɔːs ənd tɜːrn/</span>
+                                            </div>
+                                        </td>
                                         <td class="text-center py-3"><input type="radio" name="s3"></td><td class="text-center py-3"><input type="radio" name="s3"></td>
                                     </tr>
                                     <tr class="hover:bg-white/30 transition">
-                                        <td class="py-3 flex items-center gap-2"><button onclick="playAudio('sleep-deprived')" class="text-pink-500 hover:text-pink-700 text-sm">🔊</button> 4. I'm never <strong class="text-rose-700 font-extrabold">sleep-deprived</strong>. <span class="text-xs font-normal text-rose-900/60">/dɪˈpraɪvd/</span></td>
+                                        <td class="py-3 flex items-center gap-2">
+                                            <span class="font-black text-pink-400 w-4">4</span>
+                                            <button onclick="playAudio('sleep-deprived')" class="text-pink-500 hover:text-pink-700 text-sm">🔊</button>
+                                            <div class="flex flex-col">
+                                                <span>I'm never <strong class="text-rose-700 font-extrabold cursor-help group relative border-b border-dashed border-rose-300">sleep-deprived<span class="absolute bottom-full left-0 mb-1 hidden group-hover:block bg-white/90 backdrop-blur text-rose-900 p-1.5 rounded text-xs border border-pink-100 w-32 font-normal z-10 shadow-sm italic text-rose-700">thiếu ngủ</span></strong>.</span>
+                                                <span class="text-xs font-normal text-rose-900/60">/sliːp dɪˈpraɪvd/</span>
+                                            </div>
+                                        </td>
                                         <td class="text-center py-3"><input type="radio" name="s4"></td><td class="text-center py-3"><input type="radio" name="s4"></td>
                                     </tr>
                                     <tr class="hover:bg-white/30 transition">
-                                        <td class="py-3 flex items-center gap-2"><button onclick="playAudio('calorific')" class="text-pink-500 hover:text-pink-700 text-sm">🔊</button> 5. I never eat <strong class="text-rose-700 font-extrabold">calorific</strong> <span class="text-xs font-normal text-rose-900/60">/ˌkæləˈrɪfɪk/</span> <strong class="text-rose-700 font-extrabold">foods</strong> before sleep.</td>
+                                        <td class="py-3 flex items-center gap-2">
+                                            <span class="font-black text-pink-400 w-4">5</span>
+                                            <button onclick="playAudio('calorific foods')" class="text-pink-500 hover:text-pink-700 text-sm">🔊</button>
+                                            <div class="flex flex-col">
+                                                <span>I never eat <strong class="text-rose-700 font-extrabold cursor-help group relative border-b border-dashed border-rose-300">calorific foods<span class="absolute bottom-full left-0 mb-1 hidden group-hover:block bg-white/90 backdrop-blur text-rose-900 p-1.5 rounded text-xs border border-pink-100 w-36 font-normal z-10 shadow-sm italic text-rose-700">thực phẩm giàu calo</span></strong> before sleep.</span>
+                                                <span class="text-xs font-normal text-rose-900/60">/ˌkæləˈrɪfɪk fuːdz/</span>
+                                            </div>
+                                        </td>
                                         <td class="text-center py-3"><input type="radio" name="s5"></td><td class="text-center py-3"><input type="radio" name="s5"></td>
                                     </tr>
                                     <tr class="hover:bg-white/30 transition">
-                                        <td class="py-3 flex items-center gap-2"><button onclick="playAudio('pitch-black')" class="text-pink-500 hover:text-pink-700 text-sm">🔊</button> 6. I often sleep in <strong class="text-rose-700 font-extrabold">pitch-black</strong> darkness.</td>
+                                        <td class="py-3 flex items-center gap-2">
+                                            <span class="font-black text-pink-400 w-4">6</span>
+                                            <button onclick="playAudio('pitch-black')" class="text-pink-500 hover:text-pink-700 text-sm">🔊</button>
+                                            <div class="flex flex-col">
+                                                <span>I often sleep in <strong class="text-rose-700 font-extrabold cursor-help group relative border-b border-dashed border-rose-300">pitch-black<span class="absolute bottom-full left-0 mb-1 hidden group-hover:block bg-white/90 backdrop-blur text-rose-900 p-1.5 rounded text-xs border border-pink-100 w-32 font-normal z-10 shadow-sm italic text-rose-700">tối đen như mực</span></strong> darkness.</span>
+                                                <span class="text-xs font-normal text-rose-900/60">/pɪtʃ blæk/</span>
+                                            </div>
+                                        </td>
                                         <td class="text-center py-3"><input type="radio" name="s6"></td><td class="text-center py-3"><input type="radio" name="s6"></td>
                                     </tr>
                                     <tr class="hover:bg-white/30 transition">
-                                        <td class="py-3 flex items-center gap-2"><button onclick="playAudio('awake and alert')" class="text-pink-500 hover:text-pink-700 text-sm">🔊</button> 7. I'm always <strong class="text-rose-700 font-extrabold">awake and alert</strong>.</td>
+                                        <td class="py-3 flex items-center gap-2">
+                                            <span class="font-black text-pink-400 w-4">7</span>
+                                            <button onclick="playAudio('awake and alert')" class="text-pink-500 hover:text-pink-700 text-sm">🔊</button>
+                                            <div class="flex flex-col">
+                                                <span>I'm always <strong class="text-rose-700 font-extrabold cursor-help group relative border-b border-dashed border-rose-300">awake and alert<span class="absolute bottom-full left-0 mb-1 hidden group-hover:block bg-white/90 backdrop-blur text-rose-900 p-1.5 rounded text-xs border border-pink-100 w-40 font-normal z-10 shadow-sm italic text-rose-700">tỉnh táo và minh mẫn</span></strong>.</span>
+                                                <span class="text-xs font-normal text-rose-900/60">/əˈweɪk ənd əˈlɜːrt/</span>
+                                            </div>
+                                        </td>
                                         <td class="text-center py-3"><input type="radio" name="s7"></td><td class="text-center py-3"><input type="radio" name="s7"></td>
                                     </tr>
                                     <tr class="hover:bg-white/30 transition">
-                                        <td class="py-3 flex items-center gap-2"><button onclick="playAudio('beneficial to')" class="text-pink-500 hover:text-pink-700 text-sm">🔊</button> 8. I believe that sleeping is <strong class="text-rose-700 font-extrabold">beneficial to</strong> health.</td>
+                                        <td class="py-3 flex items-center gap-2">
+                                            <span class="font-black text-pink-400 w-4">8</span>
+                                            <button onclick="playAudio('beneficial to')" class="text-pink-500 hover:text-pink-700 text-sm">🔊</button>
+                                            <div class="flex flex-col">
+                                                <span>I believe that sleeping is <strong class="text-rose-700 font-extrabold cursor-help group relative border-b border-dashed border-rose-300">beneficial to<span class="absolute bottom-full left-0 mb-1 hidden group-hover:block bg-white/90 backdrop-blur text-rose-900 p-1.5 rounded text-xs border border-pink-100 w-36 font-normal z-10 shadow-sm italic text-rose-700">có lợi cho</span></strong> health.</span>
+                                                <span class="text-xs font-normal text-rose-900/60">/ˌbenɪˈfɪʃəl tu/</span>
+                                            </div>
+                                        </td>
                                         <td class="text-center py-3"><input type="radio" name="s8"></td><td class="text-center py-3"><input type="radio" name="s8"></td>
                                     </tr>
                                     <tr class="hover:bg-white/30 transition">
-                                        <td class="py-3 flex items-center gap-2"><button onclick="playAudio('recharge my batteries')" class="text-pink-500 hover:text-pink-700 text-sm">🔊</button> 9. Sleeping is a good way to <strong class="text-rose-700 font-extrabold">recharge my batteries</strong>.</td>
+                                        <td class="py-3 flex items-center gap-2">
+                                            <span class="font-black text-pink-400 w-4">9</span>
+                                            <button onclick="playAudio('recharge my batteries')" class="text-pink-500 hover:text-pink-700 text-sm">🔊</button>
+                                            <div class="flex flex-col">
+                                                <span>Sleeping is a good way to <strong class="text-rose-700 font-extrabold cursor-help group relative border-b border-dashed border-rose-300">recharge my batteries<span class="absolute bottom-full left-0 mb-1 hidden group-hover:block bg-white/90 backdrop-blur text-rose-900 p-1.5 rounded text-xs border border-pink-100 w-48 font-normal z-10 shadow-sm italic text-rose-700">nạp lại năng lượng/phục hồi sức khỏe</span></strong>.</span>
+                                                <span class="text-xs font-normal text-rose-900/60">/ˌriːˈtʃɑːrdʒ maɪ ˈbætəriz/</span>
+                                            </div>
+                                        </td>
                                         <td class="text-center py-3"><input type="radio" name="s9"></td><td class="text-center py-3"><input type="radio" name="s9"></td>
                                     </tr>
                                     <tr class="hover:bg-white/30 transition">
-                                        <td class="py-3 flex items-center gap-2"><button onclick="playAudio('sleeping pattern')" class="text-pink-500 hover:text-pink-700 text-sm">🔊</button> 10. I have the same <strong class="text-rose-700 font-extrabold">sleeping pattern</strong> every day.</td>
+                                        <td class="py-3 flex items-center gap-2">
+                                            <span class="font-black text-pink-400 w-4">10</span>
+                                            <button onclick="playAudio('sleeping pattern')" class="text-pink-500 hover:text-pink-700 text-sm">🔊</button>
+                                            <div class="flex flex-col">
+                                                <span>I have the same <strong class="text-rose-700 font-extrabold cursor-help group relative border-b border-dashed border-rose-300">sleeping pattern<span class="absolute bottom-full left-0 mb-1 hidden group-hover:block bg-white/90 backdrop-blur text-rose-900 p-1.5 rounded text-xs border border-pink-100 w-36 font-normal z-10 shadow-sm italic text-rose-700">kiểu/thói quen ngủ</span></strong> every day.</span>
+                                                <span class="text-xs font-normal text-rose-900/60">/ˈsliːpɪŋ ˈpætərn/</span>
+                                            </div>
+                                        </td>
                                         <td class="text-center py-3"><input type="radio" name="s10"></td><td class="text-center py-3"><input type="radio" name="s10"></td>
                                     </tr>
                                     <tr class="hover:bg-white/30 transition">
-                                        <td class="py-3 flex items-center gap-2"><button onclick="playAudio('function')" class="text-pink-500 hover:text-pink-700 text-sm">🔊</button> 11. Sleeping helps my body <strong class="text-rose-700 font-extrabold">function</strong> well.</td>
+                                        <td class="py-3 flex items-center gap-2">
+                                            <span class="font-black text-pink-400 w-4">11</span>
+                                            <button onclick="playAudio('function')" class="text-pink-500 hover:text-pink-700 text-sm">🔊</button>
+                                            <div class="flex flex-col">
+                                                <span>Sleeping helps my body <strong class="text-rose-700 font-extrabold cursor-help group relative border-b border-dashed border-rose-300">function<span class="absolute bottom-full left-0 mb-1 hidden group-hover:block bg-white/90 backdrop-blur text-rose-900 p-1.5 rounded text-xs border border-pink-100 w-32 font-normal z-10 shadow-sm italic text-rose-700">hoạt động, vận hành</span></strong> well.</span>
+                                                <span class="text-xs font-normal text-rose-900/60">/ˈfʌŋkʃən/</span>
+                                            </div>
+                                        </td>
                                         <td class="text-center py-3"><input type="radio" name="s11"></td><td class="text-center py-3"><input type="radio" name="s11"></td>
                                     </tr>
                                     <tr class="hover:bg-white/30 transition">
-                                        <td class="py-3 flex items-center gap-2"><button onclick="playAudio('sleep-conscious')" class="text-pink-500 hover:text-pink-700 text-sm">🔊</button> 12. I'm a <strong class="text-rose-700 font-extrabold">sleep-conscious</strong> <span class="text-xs font-normal text-rose-900/60">/ˈkɑːnʃəs/</span> person.</td>
+                                        <td class="py-3 flex items-center gap-2">
+                                            <span class="font-black text-pink-400 w-4">12</span>
+                                            <button onclick="playAudio('sleep-conscious')" class="text-pink-500 hover:text-pink-700 text-sm">🔊</button>
+                                            <div class="flex flex-col">
+                                                <span>I'm a <strong class="text-rose-700 font-extrabold cursor-help group relative border-b border-dashed border-rose-300">sleep-conscious<span class="absolute bottom-full left-0 mb-1 hidden group-hover:block bg-white/90 backdrop-blur text-rose-900 p-1.5 rounded text-xs border border-pink-100 w-48 font-normal z-10 shadow-sm italic text-rose-700">quan tâm/chú trọng đến giấc ngủ</span></strong> person.</span>
+                                                <span class="text-xs font-normal text-rose-900/60">/sliːp ˈkɑːnʃəs/</span>
+                                            </div>
+                                        </td>
                                         <td class="text-center py-3"><input type="radio" name="s12"></td><td class="text-center py-3"><input type="radio" name="s12"></td>
                                     </tr>
                                 </tbody>
@@ -852,10 +1100,28 @@
                     el.classList.remove('active');
                 }
             });
-            document.getElementById('slide-counter').innerText = `${currentSlide + 1} / ${totalSlides}`;
+            // Update counter
+            const counter = document.getElementById('slide-counter');
+            if (counter) counter.innerText = `${currentSlide + 1} / ${totalSlides}`;
+            
+            // Update dropdown
+            const navDropdown = document.getElementById('section-nav');
+            if (navDropdown) navDropdown.value = currentSlide;
+
+            // Update Progress Bar
             const progress = ((currentSlide + 1) / totalSlides) * 100;
-            document.getElementById('progress-bar').style.width = `${progress}%`;
+            const progressBar = document.getElementById('progress-bar');
+            if(progressBar) progressBar.style.width = `${progress}%`;
+
             document.querySelector('main').scrollTop = 0;
+        }
+
+        function jumpToSection(slideIndex) {
+            const index = parseInt(slideIndex);
+            if (!isNaN(index) && index >= 0 && index < totalSlides) {
+                currentSlide = index;
+                updateUI();
+            }
         }
 
         function nextSlide() {
@@ -889,7 +1155,7 @@
 
             hiddenElements.forEach(el => {
                 if (isHidden) {
-                    el.style.display = 'inline-block';
+                    el.style.display = el.tagName === 'SPAN' ? (el.classList.contains('inline-block') ? 'inline-block' : 'inline-flex') : 'block';
                 } else {
                     el.style.display = 'none';
                 }
@@ -898,7 +1164,7 @@
             if (isHidden) {
                 button.innerHTML = "✨ Hide Answers";
             } else {
-                button.innerHTML = button.getAttribute('data-default-text') || "👀 Reveal Answers";
+                button.innerHTML = button.getAttribute('data-default-text') || "✨ Reveal";
             }
         }
 
