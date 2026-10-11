@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Chan Truong - Lesson 20</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #fdf2f8;
+            background-image: 
+                radial-gradient(at 0% 0%, #ffe4e6 0px, transparent 50%),
+                radial-gradient(at 100% 0%, #fce7f3 0px, transparent 50%),
+                radial-gradient(at 100% 100%, #fbcfe8 0px, transparent 50%),
+                radial-gradient(at 0% 100%, #fdf2f8 0px, transparent 50%),
+                radial-gradient(at 50% 50%, #fff1f2 0px, transparent 50%);
+            background-attachment: fixed;
+            color: #4c0519; /* rose-950 */
+        }
+        
+        .slide { display: none; opacity: 0; transition: opacity 0.5s ease, transform 0.5s ease; transform: translateY(20px); }
+        .slide.active { display: block; opacity: 1; transform: translateY(0); }
+        
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: transparent; } 
+        ::-webkit-scrollbar-thumb { background: rgba(244, 114, 182, 0.4); border-radius: 10px; border: 2px solid transparent; background-clip: padding-box; } 
+        ::-webkit-scrollbar-thumb:hover { background: rgba(225, 29, 72, 0.5); border: 2px solid transparent; background-clip: padding-box; } 
+        
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
+        .hidden-answer { display: none; }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 10px 40px -10px rgba(225, 29, 72, 0.15);
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.45);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: inset 0 2px 4px 0 rgba(255, 255, 255, 0.3), 0 4px 15px -5px rgba(225, 29, 72, 0.05);
+        }
+        .glass-button {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.5));
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 15px -5px rgba(225, 29, 72, 0.15);
+            transition: all 0.3s ease;
+        }
+        .glass-button:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px -5px rgba(225, 29, 72, 0.25);
+        }
+        
+        .hover-lift { transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease; }
+        .hover-lift:hover { transform: translateY(-4px); box-shadow: 0 15px 30px -10px rgba(225, 29, 72, 0.2); }
+        
+        /* Select Dropdown Styling */
+        select.nav-dropdown {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23881337' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1em;
+            padding-right: 2.5rem;
+        }
+    </style>
+</head>
+<body class="h-screen flex flex-col overflow-hidden">
+
+    <!-- Header / Navigation -->
+    <header class="glass-card border-b border-white/60 z-20 shrink-0 relative">
+        <div class="p-4 flex flex-col md:flex-row justify-between items-center gap-4 max-w-7xl mx-auto w-full">
+            <div>
+                <h1 class="text-2xl font-extrabold tracking-tight text-rose-950">IELTS Chan Truong <span class="text-rose-600 font-semibold ml-2 px-3 py-1 bg-white/50 border border-white/60 rounded-full text-base shadow-sm">Class 5.5-6.5</span></h1>
+                <p class="text-sm text-rose-900/70 mt-1.5 flex items-center gap-2 font-medium">
+                    <span class="w-2 h-2 rounded-full bg-pink-400 shadow-[0_0_8px_rgba(244,114,182,0.8)]"></span> Lesson 20: Reading & Speaking
+                </p>
+            </div>
+            
+            <div class="flex items-center gap-4 w-full md:w-auto justify-between md:justify-end">
+                <select id="section-nav" onchange="jumpToSection(this.value)" class="nav-dropdown glass-panel text-rose-900 font-bold py-2 px-4 rounded-xl shadow-sm outline-none cursor-pointer border border-white/60 hover:bg-white/60 transition">
+                    <option value="0">1. Lesson Overview</option>
+                    <option value="1">2. Reading: Work Book</option>
+                    <option value="2">3. Speaking: Money Vocab</option>
+                    <option value="3">4. Speaking: Money Practice</option>
+                </select>
+
+                <div class="flex items-center gap-3">
+                    <span id="slide-counter" class="font-bold text-rose-900 px-3 py-1.5 glass-panel rounded-full text-sm hidden md:inline-block">1 / 4</span>
+                    <button onclick="prevSlide()" class="glass-button text-rose-800 px-4 py-2 rounded-full font-semibold flex items-center gap-2">
+                        <span>←</span> <span class="hidden sm:inline">Prev</span>
+                    </button>
+                    <button onclick="nextSlide()" class="bg-gradient-to-r from-pink-500 to-rose-400 hover:from-pink-400 hover:to-rose-300 text-white px-5 py-2 rounded-full shadow-lg shadow-pink-500/30 transition-all hover:shadow-pink-500/50 hover:-translate-y-0.5 font-bold flex items-center gap-2">
+                        <span class="hidden sm:inline">Next</span> <span>→</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="h-1 bg-white/40 w-full absolute bottom-0 left-0">
+            <div id="progress-bar" class="h-full bg-gradient-to-r from-pink-400 to-rose-500 transition-all duration-500 ease-out shadow-[0_0_10px_rgba(244,114,182,0.5)]" style="width: 25%;"></div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 overflow-y-auto p-4 md:p-8 relative">
+        <div class="max-w-7xl mx-auto pb-24">
+
+            
+<!-- SLIDE 0: Intro -->
+<div class="slide active" id="slide-0"><div class="text-center py-16">
+<div class="inline-block mb-6 px-5 py-2 rounded-full glass-panel text-rose-600 font-bold text-sm tracking-widest uppercase shadow-sm">Lesson Overview</div>
+<h2 class="text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-rose-950 to-pink-700 mb-6 tracking-tight drop-shadow-sm">Reading & Speaking</h2>
+<p class="text-xl text-rose-900/70 mb-16 max-w-2xl mx-auto font-medium leading-relaxed">Today's session covers Reading Unit 6 Workbook and Speaking Part 1 & 2 focusing on Money.</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto text-left">
+<div class="glass-card p-8 rounded-3xl hover-lift relative overflow-hidden group"><div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-purple-400 to-pink-400 opacity-80"></div><div class="w-14 h-14 glass-panel rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-sm group-hover:scale-110 transition-transform">📖</div><h3 class="text-2xl font-bold mb-4 text-rose-950">Part 1: Reading</h3><ul class="text-rose-900/80 space-y-3 font-medium"><li class="flex items-start gap-3"><span class="text-pink-400 mt-1">✦</span> Complete IELTS WB | Unit 6</li><li class="flex items-start gap-3"><span class="text-pink-400 mt-1">✦</span> Vocabulary Exercises &amp; Answer Keys</li><li class="flex items-start gap-3"><span class="text-pink-400 mt-1">✦</span> Mock Test</li></ul></div>
+<div class="glass-card p-8 rounded-3xl hover-lift relative overflow-hidden group"><div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-pink-400 to-rose-400 opacity-80"></div><div class="w-14 h-14 glass-panel rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-sm group-hover:scale-110 transition-transform">🗣️</div><h3 class="text-2xl font-bold mb-4 text-rose-950">Part 2: Speaking</h3><ul class="text-rose-900/80 space-y-3 font-medium"><li class="flex items-start gap-3"><span class="text-rose-400 mt-1">✦</span> Unit 6 | Money Vocabulary</li><li class="flex items-start gap-3"><span class="text-rose-400 mt-1">✦</span> Part 1 &amp; Part 2 Practice</li></ul></div>
+</div>
+<button onclick="nextSlide()" class="mt-16 bg-gradient-to-r from-rose-900 to-pink-800 hover:from-rose-800 hover:to-pink-700 text-white px-10 py-4 rounded-full text-lg font-bold shadow-[0_10px_25px_rgba(159,18,57,0.3)] transition-all hover:shadow-[0_15px_35px_rgba(159,18,57,0.4)] hover:-translate-y-1 flex items-center gap-3 mx-auto">Begin Lesson <span class="text-xl">✨</span></button>
+</div></div>
+
+<!-- SLIDE 1: Reading WB -->
+<div class="slide" id="slide-1">
+<div class="flex items-center gap-4 mb-10"><span class="w-12 h-12 rounded-2xl glass-panel flex items-center justify-center text-2xl shadow-sm">📖</span><div><span class="text-pink-600 font-extrabold text-xs tracking-widest uppercase">Reading Section</span><h2 class="text-3xl font-extrabold text-rose-950">Complete IELTS Work Book | Unit 6</h2></div></div>
+
+<div class="glass-card rounded-3xl mb-8 exercise-container overflow-hidden border-t-4 border-pink-400">
+<div class="p-8 md:p-10 border-b border-white/60"><div class="flex items-center justify-between gap-4"><div><h3 class="text-2xl font-bold text-rose-950">Vocabulary Exercises</h3><p class="text-sm text-rose-900/60 mt-1">Yellow Book | Workbook | Reading Section</p></div>
+<button onclick="toggleAnswers(this)" data-default-text="✨ Reveal Answers" class="glass-button text-rose-800 font-bold py-2.5 px-5 rounded-xl flex items-center justify-center gap-2 text-sm shadow-sm shrink-0">✨ Reveal Answers</button></div></div>
+<div class="p-8 md:p-10 bg-white/25 space-y-10">
+<div><h4 class="font-black text-rose-900 mb-4 uppercase tracking-widest text-sm border-b border-pink-200 pb-2">Exercise 1: Matching</h4><p class="font-medium text-rose-950 mb-6">Match the words with the synonyms or definitions.</p>
+<div class="mb-8"><p class="text-xs font-extrabold uppercase tracking-widest text-pink-500 mb-3">Nouns</p>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 text-[0.95rem] font-semibold text-rose-950"><div class="space-y-3"><div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition"><span class="flex items-center gap-2">1 <strong class="text-rose-700">asset</strong> <span class="text-xs font-normal text-rose-900/60">/ˈæset/</span> <span class="text-xs font-normal text-rose-900/60 ml-1">(tài sản)</span> <button onclick="playAudio('asset')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span><span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ E. something/someone valuable</span></div><div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition"><span class="flex items-center gap-2">2 <strong class="text-rose-700">turnover</strong> <span class="text-xs font-normal text-rose-900/60">/ˈtɜːnəʊvər/</span> <span class="text-xs font-normal text-rose-900/60 ml-1">(doanh thu)</span> <button onclick="playAudio('turnover')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span><span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ D. the total amount of goods or services sold</span></div><div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition"><span class="flex items-center gap-2">3 <strong class="text-rose-700">revenue</strong> <span class="text-xs font-normal text-rose-900/60">/ˈrevənjuː/</span> <span class="text-xs font-normal text-rose-900/60 ml-1">(thu nhập)</span> <button onclick="playAudio('revenue')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span><span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ A. the income a company receives regularly</span></div><div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition"><span class="flex items-center gap-2">4 <strong class="text-rose-700">tempo</strong> <span class="text-xs font-normal text-rose-900/60">/ˈtempəʊ/</span> <span class="text-xs font-normal text-rose-900/60 ml-1">(nhịp độ)</span> <button onclick="playAudio('tempo')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span><span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ B. the speed of movement/activity</span></div><div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition"><span class="flex items-center gap-2">5 <strong class="text-rose-700">anathema</strong> <span class="text-xs font-normal text-rose-900/60">/əˈnæθəmə/</span> <span class="text-xs font-normal text-rose-900/60 ml-1">(điều bị ghét bỏ)</span> <button onclick="playAudio('anathema')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span><span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ C. something strongly disliked/disapproved of</span></div></div><div class="glass-panel p-4 rounded-xl text-sm space-y-2.5 font-medium text-rose-950/80 bg-white/20 border border-white/40"><p><strong class="text-pink-500 mr-1">A.</strong> the income a company receives regularly</p><p><strong class="text-pink-500 mr-1">B.</strong> the speed of movement/activity</p><p><strong class="text-pink-500 mr-1">C.</strong> something strongly disliked/disapproved of</p><p><strong class="text-pink-500 mr-1">D.</strong> the total amount of goods or services sold</p><p><strong class="text-pink-500 mr-1">E.</strong> something/someone valuable</p></div></div></div><div class="mb-8"><p class="text-xs font-extrabold uppercase tracking-widest text-pink-500 mb-3">Adjectives</p>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 text-[0.95rem] font-semibold text-rose-950"><div class="space-y-3"><div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition"><span class="flex items-center gap-2">6 <strong class="text-rose-700">disposable</strong> <span class="text-xs font-normal text-rose-900/60">/dɪˈspəʊzəbl/</span> <span class="text-xs font-normal text-rose-900/60 ml-1">(dùng một lần)</span> <button onclick="playAudio('disposable')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span><span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ H. made to be thrown away after use</span></div><div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition"><span class="flex items-center gap-2">7 <strong class="text-rose-700">intrepid</strong> <span class="text-xs font-normal text-rose-900/60">/ɪnˈtrepɪd/</span> <span class="text-xs font-normal text-rose-900/60 ml-1">(dũng cảm)</span> <button onclick="playAudio('intrepid')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span><span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ I. very brave</span></div><div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition"><span class="flex items-center gap-2">8 <strong class="text-rose-700">desperate</strong> <span class="text-xs font-normal text-rose-900/60">/ˈdespərət/</span> <span class="text-xs font-normal text-rose-900/60 ml-1">(tuyệt vọng)</span> <button onclick="playAudio('desperate')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span><span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ F. hopeless/dejected</span></div><div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition"><span class="flex items-center gap-2">9 <strong class="text-rose-700">intrigued</strong> <span class="text-xs font-normal text-rose-900/60">/ɪnˈtriːɡd/</span> <span class="text-xs font-normal text-rose-900/60 ml-1">(tò mò, hứng thú)</span> <button onclick="playAudio('intrigued')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span><span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ G. interested in</span></div></div><div class="glass-panel p-4 rounded-xl text-sm space-y-2.5 font-medium text-rose-950/80 bg-white/20 border border-white/40"><p><strong class="text-pink-500 mr-1">F.</strong> hopeless/dejected</p><p><strong class="text-pink-500 mr-1">G.</strong> interested in</p><p><strong class="text-pink-500 mr-1">H.</strong> made to be thrown away after use</p><p><strong class="text-pink-500 mr-1">I.</strong> very brave</p></div></div></div></div>
+
+<div><h4 class="font-black text-rose-900 mb-4 uppercase tracking-widest text-sm border-b border-pink-200 pb-2">Exercise 2: Phrase Matching</h4><p class="font-medium text-rose-950 mb-6">Match the phrases to form complete sentences.</p>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 text-[0.95rem] font-semibold text-rose-950"><div class="space-y-3"><div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition"><span class="flex flex-wrap items-center gap-x-2">1 Challenges cannot <strong class="text-rose-700">deter</strong> <span class="text-xs font-normal text-rose-900/60">/dɪˈtɜːr/</span> <span class="text-xs font-normal text-rose-900/60">(ngăn cản)</span> <span class="font-normal">(prevent) me</span> <button onclick="playAudio('deter')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span><span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ b. from attaining my goal.</span></div><div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition"><span class="flex flex-wrap items-center gap-x-2">2 They <strong class="text-rose-700">eschew</strong> <span class="text-xs font-normal text-rose-900/60">/ɪsˈtʃuː/</span> <span class="text-xs font-normal text-rose-900/60">(tránh xa)</span> <span class="font-normal">(avoid)</span> <button onclick="playAudio('eschew')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span><span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ d. questions about their private life.</span></div><div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition"><span class="flex flex-wrap items-center gap-x-2">3 The government was to <strong class="text-rose-700">amend</strong> <span class="text-xs font-normal text-rose-900/60">/əˈmend/</span> <span class="text-xs font-normal text-rose-900/60">(sửa đổi)</span> <span class="font-normal">(improve)</span> <button onclick="playAudio('amend')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span><span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ a. the current traffic law.</span></div><div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition"><span class="flex flex-wrap items-center gap-x-2">4 I often <strong class="text-rose-700">get lumbered</strong> <span class="text-xs font-normal text-rose-900/60">/ˈlʌmbərd/</span> <span class="text-xs font-normal text-rose-900/60">(bị giao việc nặng nhọc)</span> <span class="font-normal">(be given a responsibility)</span> <button onclick="playAudio('get lumbered')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span><span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ c. with ironing.</span></div></div><div class="glass-panel p-4 rounded-xl text-sm space-y-2.5 font-medium text-rose-950/80 bg-white/20 border border-white/40"><p><strong class="text-pink-500 mr-1">a.</strong> the current traffic law.</p><p><strong class="text-pink-500 mr-1">b.</strong> from attaining my goal.</p><p><strong class="text-pink-500 mr-1">c.</strong> with ironing.</p><p><strong class="text-pink-500 mr-1">d.</strong> questions about their private life.</p></div></div></div>
+
+<div><h4 class="font-black text-rose-900 mb-4 uppercase tracking-widest text-sm border-b border-pink-200 pb-2">Exercise 3: Correct or Incorrect</h4><p class="font-medium text-rose-950 mb-6">Decide whether the following sentences are correct or incorrect.</p>
+<div class="space-y-3 text-[0.95rem] font-semibold text-rose-950"><div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition"><span class="flex flex-wrap items-center gap-x-2">1 If you <strong class="text-rose-700">pay lip service to</strong> an idea, you pretend to agree with it. <span class="text-xs font-normal text-rose-900/60">/ˈlɪp ˌsɜːrvɪs/</span> <span class="text-xs font-normal text-rose-900/60">(nói suông)</span> <button onclick="playAudio('pay lip service to')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span><span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">✔ Correct</span></div><div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition"><span class="flex flex-wrap items-center gap-x-2">2 If a university educates <strong class="text-rose-700">in excess of</strong> 35,000 students, it has fewer than 35,000 students. <span class="text-xs font-normal text-rose-900/60">/ɪn ɪkˈses əv/</span> <span class="text-xs font-normal text-rose-900/60">(vượt quá)</span> <button onclick="playAudio('in excess of')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span><span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">✘ Incorrect — "in excess of" = more than</span></div><div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition"><span class="flex flex-wrap items-center gap-x-2">3 When you do something <strong class="text-rose-700">to no avail</strong>, you succeed in doing it. <span class="text-xs font-normal text-rose-900/60">/tə nəʊ əˈveɪl/</span> <span class="text-xs font-normal text-rose-900/60">(vô ích)</span> <button onclick="playAudio('to no avail')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span><span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">✘ Incorrect — "to no avail" = without success</span></div><div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition"><span class="flex flex-wrap items-center gap-x-2">4 When you <strong class="text-rose-700">come across</strong> something, you find it by chance. <span class="text-xs font-normal text-rose-900/60">/kʌm əˈkrɔːs/</span> <span class="text-xs font-normal text-rose-900/60">(tình cờ gặp)</span> <button onclick="playAudio('come across')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span><span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">✔ Correct</span></div></div></div>
+</div></div>
+
+<div class="glass-card rounded-3xl mb-8 overflow-hidden border-t-4 border-fuchsia-400"><div class="p-8 md:p-10 border-b border-white/60"><h3 class="text-2xl font-bold text-rose-950">📝 Notes: Turnover vs Revenue vs Sales</h3><p class="text-sm text-rose-900/60 mt-1">Three money words that are easy to confuse in business texts.</p></div><div class="p-8 md:p-10 bg-white/25 space-y-8"><div class="grid grid-cols-1 lg:grid-cols-3 gap-6"><div class="glass-panel p-6 rounded-2xl border-t-4 border-pink-400 flex flex-col gap-3"><div class="flex items-center gap-2 flex-wrap"><strong class="text-xl text-rose-700">turnover</strong><span class="text-xs font-normal text-rose-900/60">/ˈtɜːnəʊvər/</span><span class="text-xs text-rose-900/70 italic">(doanh thu (Anh-Anh))</span><button onclick="playAudio('turnover')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></div><p class="text-[0.95rem] font-medium text-rose-950"><span class="font-bold text-pink-600">Meaning:</span> the total value of goods/services a company sells in a period (UK usage; very close to "revenue" in the US).</p><p class="text-[0.95rem] font-medium text-rose-950"><span class="font-bold text-pink-600">Focus:</span> the money coming in from selling, before costs are taken out. Also: <em>staff turnover</em> = how many employees leave and are replaced.</p><p class="text-[0.9rem] italic text-rose-900/80 bg-white/50 rounded-lg p-3">The company's <strong>turnover</strong> rose to £2 million last year.</p></div><div class="glass-panel p-6 rounded-2xl border-t-4 border-fuchsia-400 flex flex-col gap-3"><div class="flex items-center gap-2 flex-wrap"><strong class="text-xl text-rose-700">revenue</strong><span class="text-xs font-normal text-rose-900/60">/ˈrevənjuː/</span><span class="text-xs text-rose-900/70 italic">(thu nhập / tổng doanh thu)</span><button onclick="playAudio('revenue')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></div><p class="text-[0.95rem] font-medium text-rose-950"><span class="font-bold text-pink-600">Meaning:</span> all the income a company receives, usually from its main business but also from other sources (fees, interest, investments).</p><p class="text-[0.95rem] font-medium text-rose-950"><span class="font-bold text-pink-600">Focus:</span> the widest "money in" word; used everywhere, especially in US English and in finance. <em>Revenue − costs = profit</em>.</p><p class="text-[0.9rem] italic text-rose-900/80 bg-white/50 rounded-lg p-3">The firm's <strong>revenue</strong> comes from ticket sales and advertising.</p></div><div class="glass-panel p-6 rounded-2xl border-t-4 border-rose-400 flex flex-col gap-3"><div class="flex items-center gap-2 flex-wrap"><strong class="text-xl text-rose-700">sales</strong><span class="text-xs font-normal text-rose-900/60">/seɪlz/</span><span class="text-xs text-rose-900/70 italic">(doanh số / việc bán hàng)</span><button onclick="playAudio('sales')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></div><p class="text-[0.95rem] font-medium text-rose-950"><span class="font-bold text-pink-600">Meaning:</span> the act of selling, or the number/amount of products sold.</p><p class="text-[0.95rem] font-medium text-rose-950"><span class="font-bold text-pink-600">Focus:</span> the activity or the quantity sold, not the whole company income. Often plural: <em>sales figures, sales increased, direct sales</em>.</p><p class="text-[0.9rem] italic text-rose-900/80 bg-white/50 rounded-lg p-3"><strong>Sales</strong> of electric cars doubled this year.</p></div></div><div class="overflow-x-auto"><table class="w-full text-sm text-left text-rose-950 font-medium glass-panel rounded-xl overflow-hidden"><thead class="bg-white/60 text-rose-900 uppercase text-xs tracking-widest"><tr><th class="p-3">Word</th><th class="p-3">What it counts</th><th class="p-3">Before costs?</th><th class="p-3">Typical collocations</th></tr></thead><tbody class="divide-y divide-white/60"><tr><td class="p-3 font-bold text-rose-700">sales</td><td class="p-3">items sold / the selling activity</td><td class="p-3">Yes (not profit)</td><td class="p-3">sales figures, boost sales, direct sales</td></tr><tr><td class="p-3 font-bold text-rose-700">turnover</td><td class="p-3">total value of sales in a period (UK)</td><td class="p-3">Yes (not profit)</td><td class="p-3">annual turnover, a turnover of £5m</td></tr><tr><td class="p-3 font-bold text-rose-700">revenue</td><td class="p-3">all income, incl. other sources</td><td class="p-3">Yes (not profit)</td><td class="p-3">generate revenue, advertising revenue</td></tr></tbody></table></div><div class="glass-panel p-5 rounded-xl bg-white/40 text-[0.95rem] font-medium text-rose-950"><strong class="text-pink-600">💡 Quick tip:</strong> <em>Sales</em> are what you sell &rarr; <em>turnover</em> is the total value of those sales in the UK &rarr; <em>revenue</em> is all the money that comes in &rarr; <em>profit</em> is what is left after costs. Note: the workbook gives simplified definitions for turnover and revenue, so use this note for the finer differences.</div></div></div>
+
+<div class="glass-card rounded-3xl mb-8 exercise-container overflow-hidden">
+<div class="p-8 md:p-10 border-b border-white/60"><div class="flex items-center justify-between gap-4"><div><h3 class="text-2xl font-bold text-rose-950">Answer Keys</h3><p class="text-sm text-rose-900/60 mt-1">Reading passage | Questions 1-13</p></div>
+<button onclick="toggleAnswers(this)" data-default-text="👀 Reveal Answers" class="glass-button text-rose-800 font-bold py-2.5 px-5 rounded-xl flex items-center justify-center gap-2 text-sm shadow-sm shrink-0">👀 Reveal Answers</button></div></div>
+<div class="p-8 md:p-10 bg-white/25"><div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4"><div class="glass-panel p-4 rounded-xl flex justify-between items-center gap-3 shadow-sm "><span class="font-black text-pink-400">1</span><span class="hidden-answer font-bold text-rose-900 text-sm text-right">buggies</span></div><div class="glass-panel p-4 rounded-xl flex justify-between items-center gap-3 shadow-sm "><span class="font-black text-pink-400">2</span><span class="hidden-answer font-bold text-rose-900 text-sm text-right">colouring books</span></div><div class="glass-panel p-4 rounded-xl flex justify-between items-center gap-3 shadow-sm "><span class="font-black text-pink-400">3</span><span class="hidden-answer font-bold text-rose-900 text-sm text-right">faster (tempo)</span></div><div class="glass-panel p-4 rounded-xl flex justify-between items-center gap-3 shadow-sm "><span class="font-black text-pink-400">4</span><span class="hidden-answer font-bold text-rose-900 text-sm text-right">F</span></div><div class="glass-panel p-4 rounded-xl flex justify-between items-center gap-3 shadow-sm "><span class="font-black text-pink-400">5</span><span class="hidden-answer font-bold text-rose-900 text-sm text-right">F</span></div><div class="glass-panel p-4 rounded-xl flex justify-between items-center gap-3 shadow-sm "><span class="font-black text-pink-400">6</span><span class="hidden-answer font-bold text-rose-900 text-sm text-right">T</span></div><div class="glass-panel p-4 rounded-xl flex justify-between items-center gap-3 shadow-sm "><span class="font-black text-pink-400">7</span><span class="hidden-answer font-bold text-rose-900 text-sm text-right">NG</span></div><div class="glass-panel p-4 rounded-xl flex justify-between items-center gap-3 shadow-sm "><span class="font-black text-pink-400">8</span><span class="hidden-answer font-bold text-rose-900 text-sm text-right">T</span></div><div class="glass-panel p-4 rounded-xl flex justify-between items-center gap-3 shadow-sm "><span class="font-black text-pink-400">9</span><span class="hidden-answer font-bold text-rose-900 text-sm text-right">direct sales</span></div><div class="glass-panel p-4 rounded-xl flex justify-between items-center gap-3 shadow-sm "><span class="font-black text-pink-400">10</span><span class="hidden-answer font-bold text-rose-900 text-sm text-right">(the) racks</span></div><div class="glass-panel p-4 rounded-xl flex justify-between items-center gap-3 shadow-sm "><span class="font-black text-pink-400">11</span><span class="hidden-answer font-bold text-rose-900 text-sm text-right">kits</span></div><div class="glass-panel p-4 rounded-xl flex justify-between items-center gap-3 shadow-sm "><span class="font-black text-pink-400">12</span><span class="hidden-answer font-bold text-rose-900 text-sm text-right">15 / fifteen months</span></div><div class="glass-panel p-4 rounded-xl flex justify-between items-center gap-3 shadow-sm "><span class="font-black text-pink-400">13</span><span class="hidden-answer font-bold text-rose-900 text-sm text-right">(satisfied) customer</span></div></div></div></div>
+
+<div class="mb-6 flex items-center justify-between">
+<h3 class="text-2xl font-bold text-rose-950">Mock Test View</h3>
+<a href="https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/passage1_complete_ielts_5.5_6.5_wb_unit6.html" target="_blank" class="inline-flex items-center gap-2 bg-gradient-to-r from-pink-500 to-rose-400 hover:from-pink-400 hover:to-rose-300 text-white font-bold py-2.5 px-6 rounded-full shadow-lg shadow-pink-500/30 transition-all hover:-translate-y-1 text-sm">Open in New Tab <span>↗</span></a></div>
+<div class="glass-card rounded-3xl p-2 shadow-lg border-2 border-pink-200/50 overflow-hidden" style="height: 60vh;"><iframe src="https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/passage1_complete_ielts_5.5_6.5_wb_unit6.html" class="w-full h-full border-0 rounded-2xl bg-white" title="Reading Test WB U6"></iframe></div>
+</div>
+
+<!-- SLIDE 2: Speaking Vocab -->
+<div class="slide" id="slide-2">
+<div class="flex items-center gap-4 mb-10"><span class="w-12 h-12 rounded-2xl glass-panel flex items-center justify-center text-2xl shadow-sm">💰</span><div><span class="text-rose-500 font-extrabold text-xs tracking-widest uppercase">Speaking Part 1 & 2</span><h2 class="text-3xl font-extrabold text-rose-950">Money Vocabulary</h2></div></div>
+
+<div class="glass-card rounded-3xl mb-8 exercise-container overflow-hidden border-t-4 border-pink-400">
+<div class="p-8 md:p-10 border-b border-white/60"><div class="flex items-center justify-between gap-4"><div><h3 class="text-2xl font-bold text-rose-950">Part 1 · Exercise 1</h3><p class="text-sm text-rose-900/60 mt-1">Read the box below and try to guess the meanings of the bolded words/phrases.</p></div>
+<button onclick="toggleAnswers(this)" data-default-text="✨ Reveal Answers" class="glass-button text-rose-800 font-bold py-2.5 px-5 rounded-xl flex items-center justify-center gap-2 text-sm shadow-sm shrink-0">✨ Reveal Answers</button></div></div>
+<div class="p-8 md:p-10 bg-white/25 space-y-8">
+<div class="glass-panel p-6 rounded-2xl border border-pink-200 text-[1.02rem] leading-loose font-medium text-rose-950">I used to keep my money in <strong class="text-pink-600">a piggy bank</strong> when I was a child, and now I open a saving account instead to <strong class="text-pink-600">save money for a rainy day</strong>. My mother has always reminded me to <strong class="text-pink-600">spend</strong> my money <strong class="text-pink-600">wisely</strong>; otherwise, I may be <strong class="text-pink-600">broke</strong> or even <strong class="text-pink-600">get into debt</strong>. I believe it's <strong class="text-pink-600">crucial</strong> that children comprehend the significance of <strong class="text-pink-600">money management skills</strong>, and they should not be given too much <strong class="text-pink-600">pocket money</strong>.</div>
+<div class="space-y-3 text-[0.95rem] font-semibold text-rose-950"><div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition"><span class="flex flex-wrap items-center gap-2">1 <strong class="text-rose-700">a piggy bank (n)</strong> <span class="text-xs font-normal text-rose-900/60">/ˈpɪɡi bæŋk/</span> <span class="text-xs font-normal text-rose-900/70 italic">(heo đất)</span> <button onclick="playAudio('a piggy bank')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span><span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ a small container, often shaped like a pig, used to save coins</span></div><div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition"><span class="flex flex-wrap items-center gap-2">2 <strong class="text-rose-700">save money for a rainy day</strong> <span class="text-xs font-normal text-rose-900/60">/seɪv ˈmʌni fər ə ˈreɪni deɪ/</span> <span class="text-xs font-normal text-rose-900/70 italic">(để dành phòng lúc khó khăn)</span> <button onclick="playAudio('save money for a rainy day')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span><span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ to keep money for difficult times in the future</span></div><div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition"><span class="flex flex-wrap items-center gap-2">3 <strong class="text-rose-700">spend money wisely</strong> <span class="text-xs font-normal text-rose-900/60">/spend ˈmʌni ˈwaɪzli/</span> <span class="text-xs font-normal text-rose-900/70 italic">(tiêu tiền khôn ngoan)</span> <button onclick="playAudio('spend money wisely')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span><span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ to use money sensibly and carefully</span></div><div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition"><span class="flex flex-wrap items-center gap-2">4 <strong class="text-rose-700">broke (a)</strong> <span class="text-xs font-normal text-rose-900/60">/brəʊk/</span> <span class="text-xs font-normal text-rose-900/70 italic">(cháy túi)</span> <button onclick="playAudio('broke')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span><span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ having no money</span></div><div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition"><span class="flex flex-wrap items-center gap-2">5 <strong class="text-rose-700">get into debt</strong> <span class="text-xs font-normal text-rose-900/60">/ɡet ˈɪntə det/</span> <span class="text-xs font-normal text-rose-900/70 italic">(mắc nợ)</span> <button onclick="playAudio('get into debt')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span><span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ to owe money to someone</span></div><div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition"><span class="flex flex-wrap items-center gap-2">6 <strong class="text-rose-700">crucial (a)</strong> <span class="text-xs font-normal text-rose-900/60">/ˈkruːʃl/</span> <span class="text-xs font-normal text-rose-900/70 italic">(cực kỳ quan trọng)</span> <button onclick="playAudio('crucial')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span><span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ extremely important</span></div><div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition"><span class="flex flex-wrap items-center gap-2">7 <strong class="text-rose-700">money management skills</strong> <span class="text-xs font-normal text-rose-900/60">/ˈmʌni ˈmænɪdʒmənt skɪlz/</span> <span class="text-xs font-normal text-rose-900/70 italic">(kỹ năng quản lý tiền)</span> <button onclick="playAudio('money management skills')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span><span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ the ability to plan, control and use money well</span></div><div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition"><span class="flex flex-wrap items-center gap-2">8 <strong class="text-rose-700">pocket money</strong> <span class="text-xs font-normal text-rose-900/60">/ˈpɑːkɪt ˈmʌni/</span> <span class="text-xs font-normal text-rose-900/70 italic">(tiền tiêu vặt)</span> <button onclick="playAudio('pocket money')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span><span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ a small amount of money parents regularly give to children</span></div></div>
+</div></div>
+
+<div class="glass-card rounded-3xl mb-8 exercise-container overflow-hidden border-t-4 border-fuchsia-400">
+<div class="p-8 md:p-10 border-b border-white/60"><div class="flex items-center justify-between gap-4"><div><h3 class="text-2xl font-bold text-rose-950">Part 2 · Exercise 2: Fill in the Blanks</h3><p class="text-sm text-rose-900/60 mt-1">Fill in the blanks with the correct form of the verbs in brackets.</p></div>
+<button onclick="toggleAnswers(this)" data-default-text="✨ Reveal Answers" class="glass-button text-rose-800 font-bold py-2.5 px-5 rounded-xl flex items-center justify-center gap-2 text-sm shadow-sm shrink-0">✨ Reveal Answers</button></div></div>
+<div class="p-8 md:p-10 bg-white/25"><p class="text-[1.02rem] leading-loose font-medium text-rose-950">I still <strong class="text-rose-700">recall</strong> vividly the time I <span class="text-rose-900/60 text-sm">(save)</span> <span class="inline-flex items-center justify-center min-w-[90px] border-b-2 border-dashed border-pink-400 text-rose-600 px-2 h-7 align-middle"><span class="hidden-answer font-bold">saved</span></span> money to buy my current laptop. It <span class="text-rose-900/60 text-sm">(be)</span> <span class="inline-flex items-center justify-center min-w-[90px] border-b-2 border-dashed border-pink-400 text-rose-600 px-2 h-7 align-middle"><span class="hidden-answer font-bold">was</span></span> around a couple of years ago when I was fully <strong class="text-rose-700">occupied with</strong> my work, but suddenly my old laptop <span class="text-rose-900/60 text-sm">(crash)</span> <span class="inline-flex items-center justify-center min-w-[90px] border-b-2 border-dashed border-pink-400 text-rose-600 px-2 h-7 align-middle"><span class="hidden-answer font-bold">crashed</span></span> and nothing could be done to repair it. So I <span class="text-rose-900/60 text-sm">(make up)</span> <span class="inline-flex items-center justify-center min-w-[90px] border-b-2 border-dashed border-pink-400 text-rose-600 px-2 h-7 align-middle"><span class="hidden-answer font-bold">made up</span></span> my mind to buy a brand new Macbook, a product of Apple, one of the global tech giants. When I first <span class="text-rose-900/60 text-sm">(lay)</span> <span class="inline-flex items-center justify-center min-w-[90px] border-b-2 border-dashed border-pink-400 text-rose-600 px-2 h-7 align-middle"><span class="hidden-answer font-bold">laid</span></span> my eyes on it, I was <strong class="text-rose-700">struck by</strong> its large display and <strong class="text-rose-700">blazing-fast</strong> performance. However, at that time it <span class="text-rose-900/60 text-sm">(cost)</span> <span class="inline-flex items-center justify-center min-w-[90px] border-b-2 border-dashed border-pink-400 text-rose-600 px-2 h-7 align-middle"><span class="hidden-answer font-bold">cost</span></span> me <strong class="text-rose-700">fortune</strong>, so I <span class="text-rose-900/60 text-sm">(have)</span> <span class="inline-flex items-center justify-center min-w-[90px] border-b-2 border-dashed border-pink-400 text-rose-600 px-2 h-7 align-middle"><span class="hidden-answer font-bold">had</span></span> to save up for a pretty long time. Instead of <span class="text-rose-900/60 text-sm"></span> <span class="inline-flex items-center justify-center min-w-[90px] border-b-2 border-dashed border-pink-400 text-rose-600 px-2 h-7 align-middle"><span class="hidden-answer font-bold">squandering</span></span> on <strong class="text-rose-700">exorbitant</strong> clothes, I set aside a certain amount of money from my salary. And in a little over a year, I finally <span class="text-rose-900/60 text-sm">(can)</span> <span class="inline-flex items-center justify-center min-w-[90px] border-b-2 border-dashed border-pink-400 text-rose-600 px-2 h-7 align-middle"><span class="hidden-answer font-bold">could</span></span> afford it. <strong class="text-rose-700">In retrospect</strong>, I think I <span class="text-rose-900/60 text-sm">(make)</span> <span class="inline-flex items-center justify-center min-w-[90px] border-b-2 border-dashed border-pink-400 text-rose-600 px-2 h-7 align-middle"><span class="hidden-answer font-bold">made / had made</span></span> the best purchase ever.</p></div></div>
+
+<div class="glass-card rounded-3xl mb-8 exercise-container overflow-hidden border-t-4 border-rose-400">
+<div class="p-8 md:p-10 border-b border-white/60"><div class="flex items-center justify-between gap-4"><div><h3 class="text-2xl font-bold text-rose-950">Part 2 · Exercise 3: Decide the Meaning</h3><p class="text-sm text-rose-900/60 mt-1">Decide the meaning of the following phrases.</p></div>
+<button onclick="toggleAnswers(this)" data-default-text="✨ Reveal Answers" class="glass-button text-rose-800 font-bold py-2.5 px-5 rounded-xl flex items-center justify-center gap-2 text-sm shadow-sm shrink-0">✨ Reveal Answers</button></div></div>
+<div class="p-8 md:p-10 bg-white/25 space-y-3 text-[0.95rem] font-semibold text-rose-950"><div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition"><div class="flex flex-col gap-2"><span class="flex flex-wrap items-center gap-2">1. If you <strong class="text-rose-700">recall</strong> something <span class="text-xs font-normal text-rose-900/60">/rɪˈkɔːl/</span> <span class="text-xs font-normal text-rose-900/70 italic">(nhớ lại)</span> <button onclick="playAudio('recall')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span><span class="flex flex-wrap gap-2"><span class="px-3 py-1 rounded-lg bg-white/60 border border-white/70 font-medium text-sm" data-correct="1">a. you remember it.</span><span class="px-3 py-1 rounded-lg bg-white/60 border border-white/70 font-medium text-sm" data-correct="0">b. you forget it.</span></span></div><span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ a</span></div><div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition"><div class="flex flex-col gap-2"><span class="flex flex-wrap items-center gap-2">2. If you're <strong class="text-rose-700">occupied with</strong> something <span class="text-xs font-normal text-rose-900/60">/ˈɑːkjupaɪd wɪð/</span> <span class="text-xs font-normal text-rose-900/70 italic">(bận rộn với)</span> <button onclick="playAudio('occupied with')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span><span class="flex flex-wrap gap-2"><span class="px-3 py-1 rounded-lg bg-white/60 border border-white/70 font-medium text-sm" data-correct="0">a. you're stressed with it.</span><span class="px-3 py-1 rounded-lg bg-white/60 border border-white/70 font-medium text-sm" data-correct="1">b. you're busy with it.</span></span></div><span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ b</span></div><div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition"><div class="flex flex-col gap-2"><span class="flex flex-wrap items-center gap-2">3. If my laptop <strong class="text-rose-700">crashes</strong> <span class="text-xs font-normal text-rose-900/60">/kræʃɪz/</span> <span class="text-xs font-normal text-rose-900/70 italic">(bị hỏng/đơ)</span> <button onclick="playAudio('crashes')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span><span class="flex flex-wrap gap-2"><span class="px-3 py-1 rounded-lg bg-white/60 border border-white/70 font-medium text-sm" data-correct="1">a. it stops working suddenly.</span><span class="px-3 py-1 rounded-lg bg-white/60 border border-white/70 font-medium text-sm" data-correct="0">b. it's updated.</span></span></div><span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ a</span></div><div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition"><div class="flex flex-col gap-2"><span class="flex flex-wrap items-center gap-2">4. When you're <strong class="text-rose-700">struck by</strong> something <span class="text-xs font-normal text-rose-900/60">/strʌk baɪ/</span> <span class="text-xs font-normal text-rose-900/70 italic">(bị ấn tượng bởi)</span> <button onclick="playAudio('struck by')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span><span class="flex flex-wrap gap-2"><span class="px-3 py-1 rounded-lg bg-white/60 border border-white/70 font-medium text-sm" data-correct="1">a. you're impressed by it.</span><span class="px-3 py-1 rounded-lg bg-white/60 border border-white/70 font-medium text-sm" data-correct="0">b. you dislike it.</span></span></div><span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ a</span></div><div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition"><div class="flex flex-col gap-2"><span class="flex flex-wrap items-center gap-2">5. If your laptop is <strong class="text-rose-700">blazing-fast</strong> <span class="text-xs font-normal text-rose-900/60">/ˈbleɪzɪŋ fæst/</span> <span class="text-xs font-normal text-rose-900/70 italic">(nhanh như chớp)</span> <button onclick="playAudio('blazing fast')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span><span class="flex flex-wrap gap-2"><span class="px-3 py-1 rounded-lg bg-white/60 border border-white/70 font-medium text-sm" data-correct="0">a. it operates slowly.</span><span class="px-3 py-1 rounded-lg bg-white/60 border border-white/70 font-medium text-sm" data-correct="1">b. it runs very quickly.</span></span></div><span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ b</span></div><div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition"><div class="flex flex-col gap-2"><span class="flex flex-wrap items-center gap-2">6. If something <strong class="text-rose-700">costs you a fortune</strong> <span class="text-xs font-normal text-rose-900/60">/kɔːsts ju ə ˈfɔːrtʃən/</span> <span class="text-xs font-normal text-rose-900/70 italic">(tốn cả gia tài)</span> <button onclick="playAudio('costs you a fortune')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span><span class="flex flex-wrap gap-2"><span class="px-3 py-1 rounded-lg bg-white/60 border border-white/70 font-medium text-sm" data-correct="0">a. it's reasonably-priced.</span><span class="px-3 py-1 rounded-lg bg-white/60 border border-white/70 font-medium text-sm" data-correct="1">b. it's very expensive.</span></span></div><span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ b</span></div><div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition"><div class="flex flex-col gap-2"><span class="flex flex-wrap items-center gap-2">7. When you <strong class="text-rose-700">squander</strong> money <span class="text-xs font-normal text-rose-900/60">/ˈskwɑːndər/</span> <span class="text-xs font-normal text-rose-900/70 italic">(phung phí)</span> <button onclick="playAudio('squander')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span><span class="flex flex-wrap gap-2"><span class="px-3 py-1 rounded-lg bg-white/60 border border-white/70 font-medium text-sm" data-correct="0">a. you save it.</span><span class="px-3 py-1 rounded-lg bg-white/60 border border-white/70 font-medium text-sm" data-correct="1">b. you waste it.</span></span></div><span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ b</span></div><div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition"><div class="flex flex-col gap-2"><span class="flex flex-wrap items-center gap-2">8. If something is <strong class="text-rose-700">exorbitant</strong> <span class="text-xs font-normal text-rose-900/60">/ɪɡˈzɔːrbɪtənt/</span> <span class="text-xs font-normal text-rose-900/70 italic">(quá đắt)</span> <button onclick="playAudio('exorbitant')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span><span class="flex flex-wrap gap-2"><span class="px-3 py-1 rounded-lg bg-white/60 border border-white/70 font-medium text-sm" data-correct="1">a. it's costly.</span><span class="px-3 py-1 rounded-lg bg-white/60 border border-white/70 font-medium text-sm" data-correct="0">b. it's inexpensive.</span></span></div><span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ a</span></div><div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition"><div class="flex flex-col gap-2"><span class="flex flex-wrap items-center gap-2">9. <strong class="text-rose-700">In retrospect</strong> means <span class="text-xs font-normal text-rose-900/60">/ɪn ˈretrəspekt/</span> <span class="text-xs font-normal text-rose-900/70 italic">(nhìn lại)</span> <button onclick="playAudio('in retrospect')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span><span class="flex flex-wrap gap-2"><span class="px-3 py-1 rounded-lg bg-white/60 border border-white/70 font-medium text-sm" data-correct="1">a. looking back on the past.</span><span class="px-3 py-1 rounded-lg bg-white/60 border border-white/70 font-medium text-sm" data-correct="0">b. thinking of the future.</span></span></div><span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ a</span></div></div></div>
+</div>
+
+<!-- SLIDE 3: Speaking Practice -->
+<div class="slide" id="slide-3">
+<div class="flex items-center gap-4 mb-8"><span class="w-12 h-12 rounded-2xl glass-panel flex items-center justify-center text-2xl shadow-sm">🗣️</span><div><span class="text-rose-500 font-extrabold text-xs tracking-widest uppercase">Speaking Practice</span><h2 class="text-3xl font-extrabold text-rose-950">Topic: Saving Money</h2></div></div>
+
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+<div class="glass-card p-8 rounded-3xl flex flex-col h-full border-t-4 border-rose-400">
+<h3 class="text-2xl font-bold text-rose-950 mb-6 uppercase tracking-widest flex items-center gap-2"><span>💬</span> Part 1: Save Money</h3>
+<ol class="list-decimal pl-6 space-y-4 text-[1.05rem] text-rose-950 font-semibold mb-6 flex-1"><li>Did you save money when you were a child?</li><li>Do your parents give you money for house cleaning?</li><li>Have you given money to other children?</li><li>Do you think parents should teach children to save money?</li><li>What are the ways to improve money management skills?</li><li>Is it acceptable to borrow money?</li></ol>
+<details class="group bg-white/40 border border-white/70 rounded-2xl relative z-10 overflow-hidden transition-all duration-300 shadow-sm hover:shadow-md mt-auto">
+<summary class="cursor-pointer font-bold text-rose-900 p-5 flex items-center justify-between outline-none hover:bg-white/60 transition"><span class="text-[1.05rem] flex items-center gap-3">💡 <span>View P1 Sample Answers</span></span><span class="group-open:rotate-180 transition-transform text-pink-400 text-xl">▼</span></summary>
+<div class="p-6 border-t border-white/60 text-rose-900/90 space-y-5 text-[0.95rem] bg-white/20 backdrop-blur-md h-64 overflow-y-auto"><div class="border-l-4 border-pink-400 pl-4 bg-white/40 p-3 rounded-r-xl"><p class="text-rose-950 font-bold mb-1">1. Did you save money when you were a child?</p><p class="font-medium">Yes, I did. I kept my coins in <strong>a piggy bank</strong>, and my parents taught me to <strong>save money for a rainy day</strong>.</p></div><div class="border-l-4 border-pink-400 pl-4 bg-white/40 p-3 rounded-r-xl"><p class="text-rose-950 font-bold mb-1">2. Do your parents give you money for house cleaning?</p><p class="font-medium">Not really. My parents give me <strong>pocket money</strong> every week, and helping with housework is simply part of family life.</p></div><div class="border-l-4 border-pink-400 pl-4 bg-white/40 p-3 rounded-r-xl"><p class="text-rose-950 font-bold mb-1">3. Have you given money to other children?</p><p class="font-medium">Yes, occasionally. I gave some to my younger cousin so he could buy snacks at school. I think it taught him to <strong>spend money wisely</strong>.</p></div><div class="border-l-4 border-pink-400 pl-4 bg-white/40 p-3 rounded-r-xl"><p class="text-rose-950 font-bold mb-1">4. Do you think parents should teach children to save money?</p><p class="font-medium">Absolutely. I believe it's <strong>crucial</strong> because children who learn early are less likely to be <strong>broke</strong> or <strong>get into debt</strong> as adults.</p></div><div class="border-l-4 border-pink-400 pl-4 bg-white/40 p-3 rounded-r-xl"><p class="text-rose-950 font-bold mb-1">5. What are the ways to improve money management skills?</p><p class="font-medium">You could set a monthly budget, track your spending with an app, and put aside a fixed amount each month. Practice builds good <strong>money management skills</strong>.</p></div><div class="border-l-4 border-pink-400 pl-4 bg-white/40 p-3 rounded-r-xl"><p class="text-rose-950 font-bold mb-1">6. Is it acceptable to borrow money?</p><p class="font-medium">It depends. Borrowing a small amount from friends in an emergency is fine, but borrowing too often can make you <strong>get into debt</strong>.</p></div></div>
+</details></div>
+
+<div class="glass-card p-8 rounded-3xl relative overflow-hidden border-t-4 border-fuchsia-400 flex flex-col h-full">
+<div class="flex items-center justify-between mb-6 gap-2"><h3 class="text-2xl font-bold text-rose-950 uppercase tracking-widest flex items-center gap-2"><span>🎙️</span> Part 2 Cue Card</h3><div class="bg-fuchsia-100 text-fuchsia-800 text-xs font-bold px-3 py-1 rounded border border-fuchsia-200 shrink-0">1 Min Prep | 2 Mins Speak</div></div>
+<h4 class="text-xl font-black text-rose-900 mb-4 uppercase tracking-wide">Describe a time when you saved money to buy something.</h4>
+<p class="text-[0.95rem] mb-3 italic text-rose-900/70 font-medium">You should say:</p>
+<ul class="list-disc pl-6 space-y-2 text-[0.95rem] text-rose-950 font-semibold relative z-10 mb-4"><li>What it is</li><li>When you bought it</li><li>How you saved money to buy it</li><li>And say how important it is</li></ul>
+<div class="flex justify-center gap-6 text-5xl mb-6 flex-1 items-center">🐷💵</div>
+<details class="group bg-white/40 border border-white/70 rounded-2xl relative z-10 overflow-hidden transition-all duration-300 shadow-sm hover:shadow-md mt-auto">
+<summary class="cursor-pointer font-bold text-rose-900 p-5 flex items-center justify-between outline-none hover:bg-white/60 transition"><span class="text-[1.05rem] flex items-center gap-3">💡 <span>View P2 Sample Answer</span></span><span class="group-open:rotate-180 transition-transform text-fuchsia-400 text-xl">▼</span></summary>
+<div class="p-6 border-t border-white/60 text-rose-900/90 text-[0.95rem] bg-white/20 backdrop-blur-md leading-relaxed italic font-medium h-64 overflow-y-auto">"I'd like to talk about the time I saved money to buy a laptop.<br><br>
+It was a brand new MacBook, and I bought it around two years ago. At that time I was fully <strong>occupied with</strong> my work when my old laptop suddenly <strong>crashed</strong> and couldn't be repaired, so I <strong>made up my mind</strong> to replace it.<br><br>
+When I first <strong>laid my eyes on</strong> the MacBook, I was <strong>struck by</strong> its large display and <strong>blazing-fast</strong> performance. Unfortunately, it <strong>cost me a fortune</strong>, so I had to save up for quite a long time. Instead of <strong>squandering</strong> money on <strong>exorbitant</strong> clothes, I <strong>set aside</strong> part of my salary every month, and in a little over a year I could finally afford it.<br><br>
+It's important to me because it taught me to <strong>spend money wisely</strong> and showed that patience pays off. <strong>In retrospect</strong>, I think it was the best purchase I've ever made."</div>
+</details></div>
+</div>
+
+<div class="glass-card rounded-3xl overflow-hidden flex flex-col md:flex-row items-center justify-between p-6 shadow-lg gap-4">
+<div class="flex items-center gap-4"><div class="w-14 h-14 bg-gradient-to-br from-pink-400 to-rose-400 text-white rounded-xl flex items-center justify-center text-3xl shadow-md border border-pink-300">👥</div><div><h4 class="font-extrabold text-rose-950 text-xl">Pair Work Timers</h4><p class="text-rose-900/70 text-sm font-medium">Use for Part 1 discussion or Part 2 practice.</p></div></div>
+<div class="flex flex-wrap items-center justify-center gap-4">
+<div class="flex items-center gap-3 glass-panel py-2 px-4 rounded-xl"><span id="timer-p1" class="text-2xl font-mono text-rose-950 font-black tracking-tight w-16 text-center">03:00</span><button onclick="startTimer(3, 'timer-p1')" class="bg-rose-500 hover:bg-rose-600 text-white font-bold py-2 px-4 rounded-lg shadow-sm text-sm">P1 (3m)</button></div>
+<div class="flex items-center gap-3 glass-panel py-2 px-4 rounded-xl"><span id="timer-p2-prep" class="text-2xl font-mono text-fuchsia-950 font-black tracking-tight w-16 text-center">01:00</span><button onclick="startTimer(1, 'timer-p2-prep')" class="bg-fuchsia-400 hover:bg-fuchsia-500 text-white font-bold py-2 px-4 rounded-lg shadow-sm text-sm">Prep (1m)</button></div>
+<div class="flex items-center gap-3 glass-panel py-2 px-4 rounded-xl"><span id="timer-p2-speak" class="text-2xl font-mono text-fuchsia-950 font-black tracking-tight w-16 text-center">02:00</span><button onclick="startTimer(2, 'timer-p2-speak')" class="bg-fuchsia-600 hover:bg-fuchsia-700 text-white font-bold py-2 px-4 rounded-lg shadow-sm text-sm">Speak (2m)</button></div>
+</div></div>
+</div>
+
+        </div>
+    </main>
+
+    <script>
+        let currentSlide = 0;
+        let totalSlides = 0;
+        let slides = [];
+
+        function initSlides() {
+            slides = document.querySelectorAll('.slide');
+            totalSlides = slides.length;
+            updateUI();
+        }
+
+        function updateUI() {
+            slides.forEach((el, index) => {
+                if (index === currentSlide) {
+                    el.classList.add('active');
+                } else {
+                    el.classList.remove('active');
+                }
+            });
+            // Update counter
+            const counter = document.getElementById('slide-counter');
+            if (counter) counter.innerText = `${currentSlide + 1} / ${totalSlides}`;
+            
+            // Update dropdown
+            const navDropdown = document.getElementById('section-nav');
+            if (navDropdown) navDropdown.value = currentSlide;
+
+            // Update Progress Bar
+            const progress = ((currentSlide + 1) / totalSlides) * 100;
+            const progressBar = document.getElementById('progress-bar');
+            if(progressBar) progressBar.style.width = `${progress}%`;
+
+            document.querySelector('main').scrollTop = 0;
+        }
+
+        function jumpToSection(slideIndex) {
+            const index = parseInt(slideIndex);
+            if (!isNaN(index) && index >= 0 && index < totalSlides) {
+                currentSlide = index;
+                updateUI();
+            }
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides - 1) {
+                currentSlide++;
+                updateUI();
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 0) {
+                currentSlide--;
+                updateUI();
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') nextSlide();
+            if (e.key === 'ArrowLeft') prevSlide();
+        });
+
+        function toggleAnswers(button) {
+            const container = button.closest('.exercise-container');
+            if (!container) return;
+            const hiddenElements = container.querySelectorAll('.hidden-answer');
+
+            let isHidden = true;
+            if (hiddenElements.length > 0) {
+                isHidden = hiddenElements[0].style.display === 'none' || hiddenElements[0].style.display === '';
+            }
+
+            hiddenElements.forEach(el => {
+                if (isHidden) {
+                    el.style.display = el.tagName === 'SPAN' ? (el.classList.contains('inline-block') ? 'inline-block' : 'inline') : 'block';
+                } else {
+                    el.style.display = 'none';
+                }
+            });
+
+            if (isHidden) {
+                button.innerHTML = "✨ Hide Answers";
+            } else {
+                button.innerHTML = button.getAttribute('data-default-text') || "✨ Reveal Answers";
+            }
+        }
+
+        // -- Audio Jump Logic --
+        function jumpToTime(seconds, audioId) {
+            const audio = document.getElementById(audioId);
+            if (audio) {
+                audio.currentTime = seconds;
+                audio.play();
+            }
+        }
+
+        function playAudio(word) {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel(); 
+                const utterance = new SpeechSynthesisUtterance(word);
+                utterance.lang = 'en-US';
+                utterance.rate = 0.85; 
+                window.speechSynthesis.speak(utterance);
+            } else {
+                console.warn("Text-to-Speech is not supported in this browser environment.");
+            }
+        }
+
+        // -- Pair Work Timers --
+        const intervals = {};
+        function updateTimerDisplay(time, display) {
+            const m = Math.max(0, Math.floor(time / 60)).toString().padStart(2, '0');
+            const s = Math.max(0, time % 60).toString().padStart(2, '0');
+            display.innerText = `${m}:${s}`;
+        }
+        function startTimer(minutes, elementId) {
+            const display = document.getElementById(elementId);
+            let time = minutes * 60;
+            if (intervals[elementId]) clearInterval(intervals[elementId]);
+            updateTimerDisplay(time, display);
+            display.classList.remove('text-rose-600');
+            intervals[elementId] = setInterval(() => {
+                time--;
+                updateTimerDisplay(time, display);
+                if (time <= 0) {
+                    clearInterval(intervals[elementId]);
+                    display.classList.add('text-rose-600');
+                    try {
+                        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+                        const o = ctx.createOscillator();
+                        o.type = 'sine';
+                        o.frequency.setValueAtTime(440, ctx.currentTime);
+                        o.connect(ctx.destination);
+                        o.start(); o.stop(ctx.currentTime + 0.5);
+                    } catch(e) {}
+                }
+            }, 1000);
+        }
+
+        // Initialize display
+        document.addEventListener('DOMContentLoaded', initSlides);
+    </script>
+</body>
+</html>
