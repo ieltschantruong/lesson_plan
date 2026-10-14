@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Chan Truong | Unit 7 | Speaking</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            background-color: #f0f9ff; /* sky-50 */
+        }
+        .fade-in { animation: fadeIn 0.4s ease-out forwards; }
+        @keyframes fadeIn { 
+            from { opacity: 0; transform: translateY(10px); } 
+            to { opacity: 1; transform: translateY(0); } 
+        }
+        .timer-text { font-variant-numeric: tabular-nums; }
+        
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #e0f2fe; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb { background: #38bdf8; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #0284c7; }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .blank-ans { display: none; }
+        .show-answers .blank-dots { display: none; }
+        .show-answers .blank-ans { display: inline-block; animation: fadeIn 0.3s forwards; }
+        
+        .active-tab {
+            background-color: #eff6ff !important; /* blue-50 */
+            border-color: #3b82f6 !important; /* blue-500 */
+            color: #1d4ed8 !important; /* blue-700 */
+        }
+
+        .ans-slot { display:none; }
+        .show-answers .ans-slot { display:inline-block; animation: fadeIn 0.3s forwards; }
+        .show-answers .dots-slot { display:none; }
+        .ans-text { color:#047857; font-weight:700; background:#d1fae5; border-radius:6px; padding:0 8px; border-bottom:2px solid #10b981; }
+        .ans-badge { color:#fff; font-weight:700; background:#10b981; border-radius:6px; padding:1px 9px; font-size:0.8rem; }
+        .opt { border:1px solid transparent; border-radius:10px; padding:2px 10px; }
+        .show-answers .opt-correct { background:#d1fae5; border-color:#10b981; color:#047857; font-weight:600; }
+        .show-answers .opt-correct::after { content:' ✓'; }
+
+        .ans-block { display:none; }
+        .show-answers .ans-block { display:block; animation: fadeIn 0.3s forwards; }
+        .hl { color:#047857; font-weight:700; font-style:italic; }
+    </style>
+</head>
+<body class="h-screen flex flex-col overflow-hidden text-gray-800">
+
+    <header id="app-header" class="text-white p-4 shadow-lg transition-colors duration-700 z-20 relative bg-gradient-to-r from-cyan-500 via-blue-500 to-indigo-600">
+        <div class="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9IiNmZmYiLz48L3N2Zz4=')]"></div>
+        
+        <div class="max-w-7xl mx-auto flex justify-between items-center relative z-10">
+            <div>
+                <div class="flex items-center gap-2 mb-1">
+                    <span class="bg-white/20 text-white text-xs font-bold px-2 py-0.5 rounded uppercase tracking-wider backdrop-blur-sm">Band 4.5 - 5.5</span>
+                    <span class="bg-white/20 text-white text-xs font-bold px-2 py-0.5 rounded uppercase tracking-wider backdrop-blur-sm">Unit 7 | Speaking</span>
+                </div>
+                <h1 class="text-2xl font-bold tracking-tight drop-shadow-sm flex items-center gap-2">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                    IELTS Chan Truong
+                </h1>
+                <h2 id="slide-title" class="text-sm font-medium mt-1 text-cyan-50">Loading unit...</h2>
+            </div>
+            
+            <div class="flex items-center space-x-2 sm:space-x-3">
+                <a href="#" target="_blank" class="flex items-center space-x-2 text-sm font-semibold bg-white/20 hover:bg-white/30 transition-all px-3 sm:px-4 py-2 rounded-full focus:outline-none backdrop-blur-md shadow-sm border border-white/20 text-white" title="Complete IELTS 4.5-5.5 Ebook">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                    <span class="hidden sm:inline">Ebook</span>
+                </a>
+
+                <div class="relative">
+                    <button id="nav-toggle-btn" class="flex items-center space-x-2 text-sm font-semibold bg-white/20 hover:bg-white/30 transition-all px-3 sm:px-5 py-2 rounded-full focus:outline-none backdrop-blur-md shadow-sm border border-white/20">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                        <span class="hidden sm:inline">Sections</span>
+                    </button>
+                    
+                    <div id="nav-dropdown" class="hidden absolute right-0 mt-3 w-80 bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-cyan-100 overflow-hidden z-50 origin-top-right transition-all fade-in">
+                        <div class="p-3 bg-cyan-50 border-b border-cyan-100">
+                            <p class="text-xs font-bold text-cyan-800 uppercase tracking-wider text-center">Unit 7 | Speaking Agenda</p>
+                        </div>
+                        <div class="max-h-[60vh] overflow-y-auto p-2" id="nav-menu-list"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto mt-5 bg-black/10 rounded-full h-1.5 overflow-hidden relative z-10">
+            <div id="progress-bar" class="bg-white h-full transition-all duration-700 ease-out shadow-[0_0_10px_rgba(255,255,255,0.8)]" style="width: 0%"></div>
+        </div>
+    </header>
+
+    <main class="flex-grow overflow-y-auto relative p-4 md:p-8" id="main-scroll-area">
+        <div id="content-container" class="max-w-6xl mx-auto flex flex-col h-full min-h-[600px]"></div>
+    </main>
+
+    <footer class="bg-white/80 backdrop-blur-md border-t border-cyan-100 p-4 md:px-10 z-10 shadow-[0_-10px_15px_-3px_rgba(0,0,0,0.02)]">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <button id="btn-prev" class="px-6 py-2.5 rounded-xl border border-cyan-200 text-cyan-600 font-semibold hover:bg-cyan-50 hover:border-cyan-300 transition-all disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-2">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                Previous
+            </button>
+            
+            <div class="flex items-center gap-2">
+                <div class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></div>
+                <div id="step-indicator" class="text-sm font-semibold text-cyan-800 uppercase tracking-wide">
+                    Section 1 of X
+                </div>
+                <div class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse delay-75"></div>
+            </div>
+
+            <button id="btn-next" class="px-6 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-semibold hover:from-cyan-600 hover:to-blue-600 shadow-md hover:shadow-lg transition-all flex items-center gap-2 transform hover:-translate-y-0.5">
+                Next
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </button>
+        </div>
+    </footer>
+
+<script>
+    const EYE_ICON = '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>';
+    const MIC_ICON = '<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-14 0m7 7v4m-4 0h8M12 2a3 3 0 00-3 3v6a3 3 0 006 0V5a3 3 0 00-3-3z"></path></svg>';
+
+    /* ============ VOCABULARY (phrase, IPA, Vietnamese, example) ============ */
+    const V = {
+        putdown:   {w:"couldn't put it down", ipa:"/ˈkʊdnt pʊt ɪt daʊn/", vi:"không thể rời tay (quá cuốn hút)", ex:"It was so exciting that I couldn't put it down."},
+        relate:    {w:"relate to", ipa:"/rɪˈleɪt tuː/", vi:"đồng cảm, thấy gần gũi với", ex:"I can relate to the main character because we have similar lives."},
+        masterpiece:{w:"masterpiece", ipa:"/ˈmɑːstəpiːs/", vi:"kiệt tác", ex:"Many critics call this novel a masterpiece."},
+        readable:  {w:"readable", ipa:"/ˈriːdəbl/", vi:"dễ đọc, đáng đọc", ex:"The book is simple but very readable."},
+        onedim:    {w:"one-dimensional", ipa:"/ˌwʌn daɪˈmenʃənl/", vi:"(nhân vật) nông, thiếu chiều sâu", ex:"The villain is one-dimensional – he is just evil."},
+        heavy:     {w:"heavy going", ipa:"/ˌhevi ˈɡəʊɪŋ/", vi:"nặng nề, khó đọc, tẻ nhạt", ex:"The first chapters were heavy going."},
+        moving:    {w:"moving", ipa:"/ˈmuːvɪŋ/", vi:"cảm động, xúc động", ex:"It's a moving story about a family."},
+        noplot:    {w:"no real plot", ipa:"/nəʊ rɪəl plɒt/", vi:"không có cốt truyện rõ ràng", ex:"The film looks nice but has no real plot."},
+        pageturner:{w:"page-turner", ipa:"/ˈpeɪdʒ ˌtɜːnə(r)/", vi:"cuốn sách hấp dẫn, đọc không dứt", ex:"Her new novel is a real page-turner."},
+        tremendous:{w:"under tremendous pressure", ipa:"/ˈʌndə(r) trəˈmendəs ˈpreʃə(r)/", vi:"chịu áp lực rất lớn", ex:"Students are under tremendous pressure before exams."},
+        alltime:   {w:"all-time favorite", ipa:"/ˌɔːl ˈtaɪm ˈfeɪvərɪt/", vi:"yêu thích nhất mọi thời đại", ex:"This is my all-time favorite song."},
+        optfor:    {w:"opt for", ipa:"/ˈɒpt fɔː(r)/", vi:"chọn, lựa chọn", ex:"I would opt for a short novel."},
+        renowned:  {w:"renowned", ipa:"/rɪˈnaʊnd/", vi:"nổi tiếng, có tiếng tăm", ex:"He is a renowned writer."},
+        knack:     {w:"a knack of / for", ipa:"/ə ˈnæk əv/", vi:"khiếu, tài (làm gì đó)", ex:"She has a knack of telling funny stories."},
+        revolves:  {w:"revolve around", ipa:"/rɪˈvɒlv əˈraʊnd/", vi:"xoay quanh, xoay quanh chủ đề", ex:"The story revolves around a young boy."},
+        struck:    {w:"struck by", ipa:"/ˈstrʌk baɪ/", vi:"bị ấn tượng bởi, bị thu hút bởi", ex:"I was struck by the beauty of the writing."},
+        kickoff:   {w:"kick off", ipa:"/ˈkɪk ɒf/", vi:"bắt đầu (một bài nói)", ex:"I'll kick off by talking about the author."},
+        keen:      {w:"keen on", ipa:"/ˈkiːn ɒn/", vi:"thích, hứng thú với", ex:"I'm keen on detective novels."},
+        into:      {w:"(really) into", ipa:"/ˈɪntuː/", vi:"đam mê, mê (thông tục)", ex:"I'm really into science fiction."},
+        novel:     {w:"novel", ipa:"/ˈnɒvl/", vi:"tiểu thuyết", ex:"I've just finished a novel."},
+        scifi:     {w:"science fiction", ipa:"/ˌsaɪəns ˈfɪkʃn/", vi:"khoa học viễn tưởng", ex:"He loves science fiction films."},
+        selfhelp:  {w:"self-help book", ipa:"/ˌself ˈhelp bʊk/", vi:"sách tự lực, sách phát triển bản thân", ex:"Self-help books give advice on how to improve your life."},
+        leisure:   {w:"free / spare / leisure time", ipa:"/friː speə(r) ˈleʒə(r) taɪm/", vi:"thời gian rảnh", ex:"I read in my spare time."},
+        character: {w:"character", ipa:"/ˈkærəktə(r)/", vi:"nhân vật", ex:"The main character is very brave."},
+        plot:      {w:"plot", ipa:"/plɒt/", vi:"cốt truyện", ex:"The plot is full of surprises."},
+        valuable:  {w:"valuable", ipa:"/ˈvæljuəbl/", vi:"có giá trị, quý giá", ex:"Reading is a valuable habit."},
+        depends:   {w:"it depends on", ipa:"/ɪt dɪˈpendz ɒn/", vi:"còn tùy vào", ex:"It depends on how much time I have."},
+        contrast:  {w:"in contrast", ipa:"/ɪn ˈkɒntrɑːst/", vi:"ngược lại, trái lại", ex:"In contrast, I read a lot in the summer."},
+        regarding: {w:"regarding", ipa:"/rɪˈɡɑːdɪŋ/", vi:"về, liên quan đến", ex:"Regarding the content, it is about a boy."},
+        asfor:     {w:"as for", ipa:"/ˈæz fɔː(r)/", vi:"còn về, đối với", ex:"As for my feelings, I loved it."},
+        whatismore:{w:"what is more", ipa:"/ˌwɒt ɪz ˈmɔː(r)/", vi:"hơn nữa, thêm vào đó", ex:"What is more, it taught me a lot."},
+        whencomes: {w:"when it comes to", ipa:"/wen ɪt kʌmz tuː/", vi:"khi nói đến", ex:"When it comes to books, I love novels."}
+    };
+
+    /* ============ HELPERS ============ */
+    function chip(v) {
+        return `<div class="bg-white border border-emerald-200 rounded-xl px-3 py-2 shadow-sm">
+                    <div class="font-bold text-emerald-700 leading-tight">${v.w}</div>
+                    <div class="text-xs text-gray-500">${v.ipa}</div>
+                    <div class="text-xs text-cyan-700 font-medium mt-0.5">${v.vi}</div>
+                </div>`;
+    }
+    /* [[key]] or [[key|shown text]] -> highlighted vocab; {{x}} -> inline answer slot */
+    function fmt(text, used) {
+        return text
+            .replace(/\[\[(\w+)(?:\|(.+?))?\]\]/g, (_, k, d) => { if (used) used.add(k); return `<span class="hl">${d || V[k].w}</span>`; })
+            .replace(/\{\{(.+?)\}\}/g, (_, a) => `<span class="dots-slot text-gray-400">...........................</span><span class="ans-slot ans-text">${a}</span>`);
+    }
+    function usedChips(used, label) {
+        const arr = [...used];
+        if (!arr.length) return '';
+        return `<div class="mt-3"><p class="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-2">${label || 'Vocab to use'}</p>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">${arr.map(k => chip(V[k])).join('')}</div></div>`;
+    }
+    function revealBtn(id, label) {
+        return `<button onclick="toggleInline('${id}', this)" class="bg-emerald-50 text-emerald-700 px-4 py-1.5 rounded-xl font-bold hover:bg-emerald-100 transition-colors text-xs border border-emerald-200 flex items-center gap-2 shadow-sm shrink-0">${EYE_ICON} <span>${label || 'Show Answer'}</span></button>`;
+    }
+    function slideHeader(title, sub, withAll) {
+        return `<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-gray-100 pb-5 shrink-0">
+                <div class="flex items-center gap-4">
+                    <div class="w-14 h-14 rounded-2xl bg-cyan-100 flex items-center justify-center text-cyan-600 flex-shrink-0 shadow-sm">${MIC_ICON}</div>
+                    <div><h3 class="text-xl md:text-2xl font-bold text-gray-800">${title}</h3><p class="text-cyan-600 font-medium text-sm">${sub}</p></div>
+                </div>
+                ${withAll ? `<button onclick="toggleAll(this)" class="bg-cyan-50 text-cyan-700 px-5 py-2.5 rounded-xl font-bold hover:bg-cyan-100 transition-colors text-sm border border-cyan-200 flex justify-center items-center gap-2 shadow-sm">${EYE_ICON} <span>Show All Answers</span></button>` : ''}
+            </div>`;
+    }
+    const wrap = inner => `<div class="fade-in bg-white rounded-3xl shadow-xl border border-cyan-50 p-5 md:p-6 flex flex-col flex-grow gap-5">${inner}</div>`;
+
+    /* ============ SLIDE 1: VOCAB ============ */
+    function vocabSlide() {
+        const groups = [
+            ['Positive ways to describe a book', ['putdown','pageturner','moving','readable','masterpiece','alltime']],
+            ['Negative ways to describe a book', ['relate','onedim','heavy','noplot']],
+            ['Talking about reading (Part 1)', ['keen','into','novel','scifi','selfhelp','leisure','tremendous','depends','contrast','valuable','character','plot']],
+            ['Describing a book (Part 2)', ['whencomes','optfor','kickoff','renowned','knack','regarding','revolves','asfor','struck','whatismore']]
+        ];
+        const blocks = groups.map(g => `
+            <div class="bg-slate-50/60 border border-gray-100 rounded-2xl p-5">
+                <h4 class="text-lg font-bold text-emerald-700 mb-3">${g[0]}</h4>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">${g[1].map(k => `
+                    <div class="bg-white border border-emerald-100 rounded-xl px-4 py-3 shadow-sm">
+                        <div class="font-bold text-emerald-700">${V[k].w}</div>
+                        <div class="text-xs text-gray-500">${V[k].ipa}</div>
+                        <div class="text-sm text-cyan-700 font-medium mt-1">${V[k].vi}</div>
+                        <div class="text-xs italic text-gray-500 mt-2">“${V[k].ex}”</div>
+                    </div>`).join('')}</div>
+            </div>`).join('');
+        return wrap(slideHeader('Speaking Vocabulary', 'Books &amp; Reading | IPA + Tiếng Việt', false) + blocks);
+    }
+
+    /* ============ SLIDE 2: EXERCISE 1 (P / N) ============ */
+    const ex1 = [
+        {t:`I've just finished a Stephen King novel. I [[putdown]].`, k:'putdown', a:'P', vi:'Tôi vừa đọc xong một cuốn tiểu thuyết của Stephen King. Tôi không thể rời tay khỏi nó.'},
+        {t:`I just couldn't [[relate|relate to]] any of the characters.`, k:'relate', a:'N', vi:'Tôi hoàn toàn không thể đồng cảm với bất kỳ nhân vật nào.'},
+        {t:`It's no [[masterpiece]] but it's very [[readable]].`, k:'masterpiece', k2:'readable', a:'P', vi:'Nó không phải là kiệt tác nhưng rất dễ đọc.', note:'Mixed idea, but the overall view is positive (“very readable”).'},
+        {t:`The main characters don't really develop and some of the minor characters are very [[onedim]].`, k:'onedim', a:'N', vi:'Các nhân vật chính không thực sự phát triển và một số nhân vật phụ rất nông, thiếu chiều sâu.'},
+        {t:`The first few chapters were so [[heavy]] that I gave up.`, k:'heavy', a:'N', vi:'Vài chương đầu nặng nề đến mức tôi bỏ cuộc.'},
+        {t:`It's such a [[moving]] story. I couldn't stop thinking about it.`, k:'moving', a:'P', vi:'Đó là một câu chuyện thật cảm động. Tôi không ngừng nghĩ về nó.'},
+        {t:`It's a very simple story but there's [[noplot]]. Nobody seems to have a reason for doing what they do.`, k:'noplot', a:'N', vi:'Đó là một câu chuyện rất đơn giản nhưng không có cốt truyện rõ ràng. Dường như chẳng ai có lý do để làm những gì họ làm.'},
+        {t:`Her latest novel is a real [[pageturner]]. It's one of my favorite books.`, k:'pageturner', a:'P', vi:'Cuốn tiểu thuyết mới nhất của cô ấy thực sự rất cuốn. Đó là một trong những cuốn sách yêu thích của tôi.'}
+    ];
+    function ex1Slide() {
+        const items = ex1.map((x,i) => {
+            const used = new Set();
+            const html = fmt(x.t, used);
+            const keys = [x.k, x.k2].filter(Boolean);
+            const badge = x.a === 'P' ? 'bg-emerald-500' : 'bg-rose-500';
+            return `<li class="bg-white border border-gray-100 rounded-2xl px-4 py-3 shadow-sm">
+                <div class="flex items-start gap-3">
+                    <span class="text-gray-400 font-bold pt-0.5">${i+1}</span>
+                    <span class="shrink-0 pt-0.5"><span class="dots-slot text-gray-300 font-mono">___</span><span class="ans-slot text-white font-bold rounded-md px-2.5 py-0.5 text-sm ${badge}">${x.a}</span></span>
+                    <div class="flex-grow text-gray-700 leading-relaxed">${html}
+                        <div class="mt-2 flex flex-wrap gap-x-5 gap-y-1 text-xs">${keys.map(k => `<span><b class="text-emerald-700">${V[k].w}</b> <span class="text-gray-500">${V[k].ipa}</span> <span class="text-cyan-700 font-medium">– ${V[k].vi}</span></span>`).join('')}</div>
+                        <div class="ans-block mt-2 text-xs italic text-emerald-700">→ ${x.vi}${x.note ? `<br><span class="text-gray-500 not-italic">Note: ${x.note}</span>` : ''}</div>
+                    </div>
+                </div></li>`;
+        }).join('');
+        return wrap(slideHeader('Exercise 1 · Positive or Negative?', 'Mark each sentence P (positive) or N (negative). The phrases in green will help you decide.', true) +
+            `<div data-q class="show-answers-host"><ol class="space-y-3">${items}</ol></div>`);
+    }
+
+    /* ============ SLIDE 3: EXERCISE 2 (Part 1) ============ */
+    const part1 = [
+        { q:'Do you like reading?', vq:'Bạn có thích đọc sách không?',
+          intro:`Well, I would say that I'm quite [[keen]] reading books, and in particular I'm really [[into|into]] novels / science fiction / self-help books. And I guess this is probably because {{they take me to different worlds and help me relax after a busy day}}.`,
+          vi:'À, tôi có thể nói là tôi khá thích đọc sách, đặc biệt là tôi rất mê tiểu thuyết / khoa học viễn tưởng / sách self-help. Và tôi đoán điều này có lẽ là vì chúng đưa tôi đến những thế giới khác nhau và giúp tôi thư giãn sau một ngày bận rộn.' , extra:['novel','scifi','selfhelp'] },
+        { q:'How often do you read?', vq:'Bạn đọc sách thường xuyên như thế nào?',
+          intro:`You know, it really [[depends|depends on]] the amount of [[leisure|free/spare/leisure time]] that I have. For instance, during the school year when I'm [[tremendous]] from study, I can only read books at the weekend. [[contrast|In contrast]], in the summer, I spend hours reading {{novels by the pool, because I have much more free time}}.`,
+          vi:'Bạn biết đấy, điều đó thực sự phụ thuộc vào lượng thời gian rảnh mà tôi có. Ví dụ, trong năm học khi tôi chịu áp lực rất lớn từ việc học, tôi chỉ có thể đọc sách vào cuối tuần. Ngược lại, vào mùa hè, tôi dành hàng giờ để đọc tiểu thuyết bên hồ bơi vì tôi có nhiều thời gian rảnh hơn hẳn.' },
+        { q:'Do you usually read for leisure or for work/study purposes?', vq:'Bạn thường đọc để giải trí hay để phục vụ công việc/học tập?',
+          sample:`To be honest, I mostly read for leisure. I'm usually [[tremendous]] from study, so reading is my way to switch off. A good [[pageturner]] helps me forget my stress. But before exams I also have to read textbooks, and some of them are really [[heavy]]!`,
+          vi:'Thành thật mà nói, tôi chủ yếu đọc để giải trí. Tôi thường chịu áp lực rất lớn từ việc học, nên đọc sách là cách để tôi thư giãn. Một cuốn sách hấp dẫn giúp tôi quên đi căng thẳng. Nhưng trước kỳ thi tôi cũng phải đọc giáo trình, và một số cuốn thật sự rất nặng nề!' },
+        { q:'What is your favorite book?', vq:'Cuốn sách yêu thích của bạn là gì?',
+          sample:`[[whencomes|When it comes to]] my [[alltime]] book, I would [[optfor]] The Alchemist. It's a [[moving]] story about a shepherd boy who follows his dream. It's also very [[readable]], so I finished it in two days – I really [[putdown]]!`,
+          vi:'Khi nói đến cuốn sách yêu thích nhất mọi thời đại của tôi, tôi sẽ chọn Nhà giả kim. Đó là một câu chuyện cảm động về cậu bé chăn cừu theo đuổi ước mơ của mình. Sách cũng rất dễ đọc nên tôi đọc xong trong hai ngày – tôi thực sự không thể rời tay!' },
+        { q:'Have you ever tried to read a book in English?', vq:'Bạn đã bao giờ thử đọc một cuốn sách bằng tiếng Anh chưa?',
+          sample:`Yes, I have. Last year I tried a short [[novel]] in English, but the first few chapters were [[heavy]] because there were so many new words, and I almost gave up. Then I [[optfor|opted for]] an easier book, and it was much more [[readable]]. Now I read a little every day to improve my vocabulary.`,
+          vi:'Vâng, tôi đã từng. Năm ngoái tôi thử đọc một cuốn tiểu thuyết ngắn bằng tiếng Anh, nhưng vài chương đầu rất nặng nề vì có quá nhiều từ mới và tôi suýt bỏ cuộc. Sau đó tôi chọn một cuốn dễ hơn và nó dễ đọc hơn nhiều. Bây giờ tôi đọc một chút mỗi ngày để cải thiện vốn từ.' },
+        { q:'Do you think that it is more valuable to read a book than to watch television?', vq:'Bạn có nghĩ đọc sách có giá trị hơn xem tivi không?',
+          sample:`I think so, yes. When you read a book, you use your imagination and learn more deeply, so it's more [[valuable]]. Some TV shows have [[noplot]], and the [[character|characters]] can be [[onedim]], but in a good book I can really [[relate]] the characters. However, [[depends|it depends on]] the programme – a good documentary can be useful too.`,
+          vi:'Tôi nghĩ là có. Khi đọc sách, bạn dùng trí tưởng tượng và học sâu hơn, nên nó có giá trị hơn. Một số chương trình tivi không có cốt truyện rõ ràng và các nhân vật rất nông, nhưng trong một cuốn sách hay tôi thực sự có thể đồng cảm với các nhân vật. Tuy nhiên, còn tùy vào chương trình – một bộ phim tài liệu hay cũng có thể hữu ích.' }
+    ];
+    function part1Slide() {
+        const cards = part1.map((p,i) => {
+            const id = 'q-' + i;
+            const used = new Set();
+            const introHtml = p.intro ? fmt(p.intro, used) : '';
+            const sampleHtml = p.sample ? fmt(p.sample, used) : '';
+            (p.extra || []).forEach(k => used.add(k));
+            return `<div id="${id}" data-q class="bg-slate-50/60 border border-gray-100 rounded-2xl p-5">
+                <div class="flex flex-wrap items-start justify-between gap-3">
+                    <div><h4 class="text-lg font-bold text-gray-800"><span class="text-emerald-600 mr-2">${i+1}</span>${p.q}</h4><p class="text-xs text-cyan-700 font-medium ml-6">${p.vq}</p></div>
+                    ${revealBtn(id, p.sample ? 'Show Sample Answer' : 'Show Answer')}
+                </div>
+                ${introHtml ? `<p class="mt-3 text-gray-700 leading-relaxed bg-white border border-gray-100 rounded-xl p-4">${introHtml}</p>` : ''}
+                ${sampleHtml ? `<div class="ans-block mt-3 text-gray-700 leading-relaxed bg-white border border-emerald-200 rounded-xl p-4">${sampleHtml}</div>` : ''}
+                <div class="ans-block mt-2 text-sm italic text-emerald-700 px-1">→ ${p.vi}</div>
+                ${usedChips(used, 'Vocab used')}
+            </div>`;
+        }).join('');
+        return wrap(slideHeader('Exercise 2 · Part 1 Questions', 'Ask and answer. Use the green phrases in your answers.', true) + cards);
+    }
+
+    /* ============ SLIDE 4: PART 2 ============ */
+    function part2Slide() {
+        const used = new Set();
+        const tpl = [
+            ['a', `When it comes to my [[alltime]] book, I would [[optfor]] {{The Alchemist}}.`],
+            ['b', `I would [[kickoff|kick off]] by saying something about the author of the book. He/She is a [[renowned]] writer {{whose books are read all over the world}}. He/She has [[knack|a knack of]] writing about {{dreams and destiny in a simple but powerful way}}.`],
+            ['c', `[[regarding|Regarding]] the content of the book, it [[revolves|revolves around]] {{a young shepherd called Santiago who travels from Spain to the Egyptian desert to look for treasure}}.`],
+            ['d', `[[asfor|As for]] my feelings about this book, I'm [[struck]] {{how simple the story is, yet how deeply it touches readers}}. [[whatismore|What is more]], {{it taught me to believe in myself and follow my dreams}}.`]
+        ];
+        const tplHtml = tpl.map(t => `<p class="text-gray-700 leading-relaxed"><b class="text-emerald-600 mr-2">${t[0]}.</b>${fmt(t[1], used)}</p>`).join('');
+        const full = [
+            [`I'd like to talk about a book I read recently. [[whencomes|When it comes to]] my [[alltime]] book, I would [[optfor]] The Alchemist. It's a [[novel]], and I read it again last month.`,
+             'Tôi muốn nói về một cuốn sách tôi đọc gần đây. Khi nói đến cuốn sách yêu thích nhất mọi thời đại của tôi, tôi sẽ chọn Nhà giả kim. Đó là một cuốn tiểu thuyết, và tôi đã đọc lại nó vào tháng trước.'],
+            [`I would [[kickoff|kick off]] by saying something about the author. Paulo Coelho is a [[renowned]] writer from Brazil, and he has [[knack|a knack of]] writing about dreams and destiny in a simple but powerful way.`,
+             'Tôi sẽ bắt đầu bằng việc nói đôi điều về tác giả. Paulo Coelho là một nhà văn nổi tiếng người Brazil, và ông có khiếu viết về ước mơ và số phận theo cách giản dị nhưng mạnh mẽ.'],
+            [`[[regarding|Regarding]] the content of the book, it [[revolves|revolves around]] a young shepherd called Santiago, who travels from Spain to the Egyptian desert to look for treasure. On the way, he meets many people who teach him important lessons about life.`,
+             'Về nội dung, cuốn sách xoay quanh một cậu bé chăn cừu tên Santiago, người đi từ Tây Ban Nha đến sa mạc Ai Cập để tìm kho báu. Trên đường đi, cậu gặp nhiều người dạy cậu những bài học quan trọng về cuộc sống.'],
+            [`[[asfor|As for]] my feelings about this book, I'm [[struck]] how simple the story is, yet how deeply it touches readers. It's no [[masterpiece]] of complicated writing, but it's very [[readable]], and it's such a [[moving]] story that I really [[putdown]]. [[whatismore|What is more]], it taught me to follow my dreams, even when I'm [[tremendous]] from study. That's why I would recommend it to anyone.`,
+             'Về cảm nhận của tôi, tôi bị ấn tượng bởi việc câu chuyện đơn giản đến thế mà lại chạm đến người đọc sâu sắc đến vậy. Nó không phải là kiệt tác với lối viết phức tạp, nhưng rất dễ đọc, và là một câu chuyện cảm động đến mức tôi không thể rời tay. Hơn nữa, nó dạy tôi theo đuổi ước mơ, ngay cả khi tôi chịu áp lực lớn từ việc học. Đó là lý do tôi muốn giới thiệu nó cho tất cả mọi người.']
+        ];
+        const full2 = [
+            [`I'd like to talk about a book I read recently. [[whencomes|When it comes to]] my [[alltime]] book, I would [[optfor]] Harry Potter and the Philosopher's Stone. It's a fantasy [[novel]]. I first read it when I was twelve, and I read it again last month.`,
+             'Tôi muốn nói về một cuốn sách tôi đọc gần đây. Khi nói đến cuốn sách yêu thích nhất mọi thời đại của tôi, tôi sẽ chọn Harry Potter và Hòn đá Phù thủy. Đó là một cuốn tiểu thuyết giả tưởng. Tôi đọc lần đầu năm 12 tuổi, và đọc lại vào tháng trước.'],
+            [`I would [[kickoff|kick off]] by saying something about the author. J.K. Rowling is a [[renowned]] British writer, and she has [[knack|a knack of]] creating magical worlds that feel real.`,
+             'Tôi sẽ bắt đầu bằng việc nói đôi điều về tác giả. J.K. Rowling là một nhà văn người Anh nổi tiếng, và bà có khiếu tạo ra những thế giới phép thuật nghe như có thật.'],
+            [`[[regarding|Regarding]] the content of the book, it [[revolves|revolves around]] an orphan boy called Harry, who finds out on his eleventh birthday that he is a wizard. He goes to a school of magic called Hogwarts, where he makes close friends and faces a dark wizard.`,
+             'Về nội dung, cuốn sách xoay quanh một cậu bé mồ côi tên Harry, người phát hiện vào sinh nhật lần thứ 11 rằng mình là một phù thủy. Cậu theo học tại trường phép thuật Hogwarts, nơi cậu có những người bạn thân và đối đầu với một phù thủy hắc ám.'],
+            [`[[asfor|As for]] my feelings about this book, I'm [[struck]] how much imagination the author has. It's a real [[pageturner]], so I really [[putdown]]. The characters are far from [[onedim]], and I can [[relate|relate to]] Harry because he feels like an outsider at first. [[whatismore|What is more]], it taught me that friendship and courage matter more than being special. That's why I would recommend it to readers of all ages.`,
+             'Về cảm nhận của tôi, tôi bị ấn tượng bởi trí tưởng tượng phong phú của tác giả. Đây thực sự là một cuốn sách đọc không dứt, nên tôi không thể rời tay. Các nhân vật hoàn toàn không hề nông cạn, và tôi có thể đồng cảm với Harry vì lúc đầu cậu cảm thấy mình như người ngoài cuộc. Hơn nữa, nó dạy tôi rằng tình bạn và lòng dũng cảm quan trọng hơn việc trở nên đặc biệt. Đó là lý do tôi muốn giới thiệu nó cho độc giả mọi lứa tuổi.']
+        ];
+        const fullUsed2 = new Set();
+        const fullHtml2 = full2.map(f => `<p class="mb-3">${fmt(f[0], fullUsed2)}</p><p class="mb-5 text-sm italic text-emerald-700">→ ${f[1]}</p>`).join('');
+        const fullUsed = new Set();
+        const fullHtml = full.map(f => `<p class="mb-3">${fmt(f[0], fullUsed)}</p><p class="mb-5 text-sm italic text-emerald-700">→ ${f[1]}</p>`).join('');
+        return wrap(slideHeader('Part 2 · Describe a Book', 'Describe a book you have read recently.', true) + `
+            <div class="bg-amber-50 border border-amber-200 rounded-2xl p-5">
+                <p class="font-bold text-gray-800 mb-2">You should say:</p>
+                <ul class="list-disc list-inside text-gray-700 space-y-1">
+                    <li>what it is</li><li>who wrote the book</li><li>what the book is about</li><li>and explain how you feel about it</li>
+                </ul>
+            </div>
+            <div id="p2-tpl" data-q class="bg-slate-50/60 border border-gray-100 rounded-2xl p-5">
+                <div class="flex items-center justify-between gap-3 mb-3"><h4 class="text-lg font-bold text-emerald-700">Complete the model answer</h4>${revealBtn('p2-tpl')}</div>
+                <div class="space-y-3 bg-white border border-gray-100 rounded-xl p-4">${tplHtml}</div>
+                ${usedChips(used, 'Vocab used')}
+            </div>
+            <div id="p2-full" data-q class="bg-slate-50/60 border border-gray-100 rounded-2xl p-5">
+                <div class="flex items-center justify-between gap-3 mb-3"><h4 class="text-lg font-bold text-emerald-700">Sample response A · The Alchemist (about 1.5–2 minutes)</h4>${revealBtn('p2-full', 'Show Sample Answer')}</div>
+                <div class="ans-block bg-white border border-emerald-200 rounded-xl p-5 text-gray-700 leading-relaxed">${fullHtml}</div>
+            </div>
+            <div id="p2-full-b" data-q class="bg-slate-50/60 border border-gray-100 rounded-2xl p-5">
+                <div class="flex items-center justify-between gap-3 mb-3"><h4 class="text-lg font-bold text-emerald-700">Alternative sample B · Harry Potter (about 1.5–2 minutes)</h4>${revealBtn('p2-full-b', 'Show Sample Answer')}</div>
+                <div class="ans-block bg-white border border-emerald-200 rounded-xl p-5 text-gray-700 leading-relaxed">${fullHtml2}</div>
+            </div>`);
+    }
+
+    /* ============ UNIT PLAN (Unit + Skill) ============ */
+    const sessionData = [
+        { id:'u7_speaking_vocab', type:'Speaking · Vocab', themeClass:'bg-gradient-to-r from-cyan-500 to-blue-500', iconColor:'text-cyan-500', title:'1. Speaking Vocabulary', content: vocabSlide() },
+        { id:'u7_speaking_ex1', type:'Speaking · Ex 1', themeClass:'bg-gradient-to-r from-blue-500 to-indigo-600', iconColor:'text-blue-500', title:'2. Exercise 1 · P or N', content: ex1Slide() },
+        { id:'u7_speaking_p1', type:'Speaking · Part 1', themeClass:'bg-gradient-to-r from-indigo-500 to-violet-600', iconColor:'text-indigo-500', title:'3. Exercise 2 · Part 1', content: part1Slide() },
+        { id:'u7_speaking_p2', type:'Speaking · Part 2', themeClass:'bg-gradient-to-r from-emerald-500 to-teal-600', iconColor:'text-emerald-500', title:'4. Part 2 · Describe a Book', content: part2Slide() }
+    ];
+
+    let currentIndex = 0;
+    const headerEl = document.getElementById('app-header');
+    const titleEl = document.getElementById('slide-title');
+    const containerEl = document.getElementById('content-container');
+    const prevBtn = document.getElementById('btn-prev');
+    const nextBtn = document.getElementById('btn-next');
+    const indicatorEl = document.getElementById('step-indicator');
+    const progressBarEl = document.getElementById('progress-bar');
+    const navDropdown = document.getElementById('nav-dropdown');
+    const navMenuList = document.getElementById('nav-menu-list');
+
+    window.addEventListener('DOMContentLoaded', () => {
+        populateNavMenu();
+        document.getElementById('nav-toggle-btn').addEventListener('click', e => { e.stopPropagation(); navDropdown.classList.toggle('hidden'); });
+        document.addEventListener('click', e => {
+            if (!navDropdown.contains(e.target) && !document.getElementById('nav-toggle-btn').contains(e.target)) navDropdown.classList.add('hidden');
+        });
+        prevBtn.addEventListener('click', () => { if (currentIndex > 0) renderSlide(--currentIndex); });
+        nextBtn.addEventListener('click', () => {
+            if (currentIndex < sessionData.length - 1) renderSlide(++currentIndex);
+            else alert("Unit 7 | Speaking Completed! Excellent work today.");
+        });
+        renderSlide(0);
+    });
+
+    function populateNavMenu() {
+        navMenuList.innerHTML = sessionData.map((d, i) => `
+            <button onclick="goToSlide(${i})" class="nav-item-btn w-full text-left p-3 mb-1 rounded-xl hover:bg-gray-50 transition-all flex items-center gap-3 border border-transparent shadow-sm">
+                <div class="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 text-sm font-bold text-white shadow-sm ${d.themeClass}">${i + 1}</div>
+                <div><div class="text-sm font-bold text-gray-800 leading-tight">${d.title.substring(3)}</div>
+                <div class="text-[10px] font-bold uppercase tracking-wider ${d.iconColor}">${d.type}</div></div>
+            </button>`).join('');
+    }
+    window.goToSlide = function(i) { currentIndex = i; renderSlide(i); navDropdown.classList.add('hidden'); };
+
+    function renderSlide(index) {
+        const d = sessionData[index];
+        headerEl.className = `text-white p-4 shadow-lg transition-colors duration-700 z-20 relative ${d.themeClass}`;
+        titleEl.textContent = 'Unit 7 | ' + d.title.substring(3);
+        progressBarEl.style.width = `${((index + 1) / sessionData.length) * 100}%`;
+        indicatorEl.textContent = `Section ${index + 1} of ${sessionData.length}`;
+        document.querySelectorAll('.nav-item-btn').forEach((btn, i) => {
+            btn.classList.toggle('bg-white', i === index); btn.classList.toggle('border-gray-200', i === index); btn.classList.toggle('shadow-md', i === index);
+            btn.classList.toggle('border-transparent', i !== index); btn.classList.toggle('shadow-sm', i !== index);
+        });
+        document.getElementById('main-scroll-area').scrollTop = 0;
+        containerEl.innerHTML = '';
+        setTimeout(() => { containerEl.innerHTML = d.content; }, 10);
+        prevBtn.disabled = index === 0;
+        nextBtn.innerHTML = index === sessionData.length - 1
+            ? 'Finish Unit <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>'
+            : 'Next Section <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>';
+    }
+
+    /* ---- answer toggles ---- */
+    window.toggleInline = function(id, btn) {
+        const el = document.getElementById(id);
+        const on = el.classList.toggle('show-answers');
+        const lbl = btn.querySelector('span'); const base = lbl.textContent.replace(/^(Show|Hide) /, '');
+        lbl.textContent = (on ? 'Hide ' : 'Show ') + base;
+    };
+    window.toggleAll = function(btn) {
+        const on = btn.dataset.on !== '1';
+        btn.dataset.on = on ? '1' : '0';
+        document.querySelectorAll('#content-container [data-q]').forEach(el => {
+            el.classList.toggle('show-answers', on);
+            const b = el.querySelector('button span'); if (b && el.id) b.textContent = (on ? 'Hide ' : 'Show ') + b.textContent.replace(/^(Show|Hide) /, '');
+        });
+        btn.querySelector('span').textContent = on ? 'Hide All Answers' : 'Show All Answers';
+    };
+</script>
+</body>
+</html>
