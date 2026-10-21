@@ -31,6 +31,10 @@
             border: 1px solid rgba(255, 255, 255, 0.5);
         }
 
+        .ipa { color: #6b7280; font-size: 0.75rem; font-weight: 400; }
+        .vi { color: #be185d; font-size: 0.75rem; font-weight: 500; }
+        .hl { color: #dc2626; font-weight: 600; font-style: normal; }
+
         /* Inline Answer Toggle Utilities */
         .blank-ans { display: none; }
         .show-answers .blank-dots { display: none; }
@@ -111,6 +115,226 @@
     </footer>
 
 <script>
+    // ===== Vocab dictionary (British IPA, Vietnamese gloss) =====
+    const VOCAB = {};
+    `palette|ˈpælət|bảng pha màu
+arrow|ˈærəʊ|mũi tên
+pottery|ˈpɒtəri|đồ gốm
+powder|ˈpaʊdə|bột
+sap|sæp|nhựa cây
+fluid|ˈfluːɪd|chất lỏng
+canvas|ˈkænvəs|vải bố; tranh vẽ trên vải
+archeology|ˌɑːkiˈɒlədʒi|khảo cổ học
+texture|ˈtekstʃə|kết cấu bề mặt
+weapon|ˈwepən|vũ khí
+pigment|ˈpɪɡmənt|chất màu
+ceremony|ˈserəməni|buổi lễ
+shelter|ˈʃeltə|nơi trú ẩn
+plentiful|ˈplentɪfl|dồi dào
+indigenous|ɪnˈdɪdʒənəs|bản địa
+bind|baɪnd|trói, buộc
+date back|ˌdeɪt ˈbæk|có từ thời
+visual|ˈvɪʒuəl|thuộc thị giác
+tremendous|trəˈmendəs|to lớn, phi thường
+opportunity|ˌɒpəˈtjuːnəti|cơ hội
+showcase|ˈʃəʊkeɪs|trưng bày, giới thiệu
+milestone|ˈmaɪlstəʊn|cột mốc
+passionate|ˈpæʃənət|đam mê
+mend|mend|vá, sửa chữa
+drumming|ˈdrʌmɪŋ|việc đánh trống
+earn a living|ˌɜːn ə ˈlɪvɪŋ|kiếm sống
+keep alive|ˌkiːp əˈlaɪv|giữ cho tồn tại
+eye-catching|ˈaɪ ˌkætʃɪŋ|bắt mắt
+stunning|ˈstʌnɪŋ|tuyệt đẹp, choáng ngợp
+life-like|ˈlaɪf laɪk|giống như thật
+carved|kɑːvd|được chạm khắc
+abstract|ˈæbstrækt|trừu tượng
+workmanship|ˈwɜːkmənʃɪp|tay nghề
+display|dɪˈspleɪ|sự trưng bày
+detail|ˈdiːteɪl|chi tiết
+hand|hænd|tay; (by hand) thủ công
+shape|ʃeɪp|hình dạng
+provide|prəˈvaɪd|cung cấp
+communities|kəˈmjuːnətiz|các cộng đồng
+thoughtful|ˈθɔːtfl|sâu sắc, chu đáo
+critique|krɪˈtiːk|bài phê bình
+record|rɪˈkɔːd|ghi lại
+contribute|kənˈtrɪbjuːt|đóng góp
+progression|prəˈɡreʃn|sự tiến bộ
+generation|ˌdʒenəˈreɪʃn|thế hệ
+complex|ˈkɒmpleks|phức tạp
+clues|kluːz|manh mối
+upkeep|ˈʌpkiːp|sự bảo trì
+hand-held|ˈhænd held|cầm tay
+feature|ˈfiːtʃə|đặc điểm nổi bật
+engrave|ɪnˈɡreɪv|khắc; ghi sâu
+blemish|ˈblemɪʃ|vết nhơ, tì vết
+exaggerate|ɪɡˈzædʒəreɪt|phóng đại
+stress|stres|căng thẳng
+engross|ɪnˈɡrəʊs|làm mải mê
+tuck|tʌk|giấu gọn (tucked away)
+water puppet|ˈwɔːtə ˈpʌpɪt|múa rối nước
+traditional|trəˈdɪʃənl|truyền thống
+authentic|ɔːˈθentɪk|chân thực
+heritage|ˈherɪtɪdʒ|di sản
+captivating|ˈkæptɪveɪtɪŋ|cuốn hút
+digital|ˈdɪdʒɪtl|kỹ thuật số
+reflect|rɪˈflekt|phản ánh
+exhibition|ˌeksɪˈbɪʃn|triển lãm
+subsidy|ˈsʌbsədi|trợ cấp
+funding|ˈfʌndɪŋ|kinh phí
+ruins|ˈruːɪnz|tàn tích
+tomb|tuːm|ngôi mộ
+excavate|ˈekskəveɪt|khai quật
+ancient|ˈeɪnʃənt|cổ xưa
+artefact|ˈɑːtɪfækt|cổ vật
+restrict|rɪˈstrɪkt|hạn chế
+tourism|ˈtʊərɪzəm|du lịch
+preserve|prɪˈzɜːv|bảo tồn
+atmosphere|ˈætməsfɪə|bầu không khí
+audience|ˈɔːdiəns|khán giả
+in person|ɪn ˈpɜːsn|trực tiếp
+confidence|ˈkɒnfɪdəns|sự tự tin
+self-expression|ˌself ɪkˈspreʃn|sự thể hiện bản thân
+creativity|ˌkriːeɪˈtɪvəti|sự sáng tạo
+discipline|ˈdɪsəplɪn|kỷ luật`.split('\n').forEach(l => { const [k, i, v] = l.split('|'); VOCAB[k] = [i, v]; });
+
+    const ipaOf = k => VOCAB[k] ? `/${VOCAB[k][0]}/` : '';
+    const viOf = k => VOCAB[k] ? VOCAB[k][1] : '';
+    // inline: word + IPA + Vietnamese
+    const vw = (k, label) => `<span class="text-indigo-600 font-semibold">${label || k}</span> <span class="ipa">${ipaOf(k)}</span> <span class="vi">· ${viOf(k)}</span>`;
+    // stacked mini-entry for word banks
+    const wb = k => `<span class="inline-block text-left leading-tight"><b>${k}</b><small class="block ipa">${ipaOf(k)}</small><small class="block vi">${viOf(k)}</small></span>`;
+    // small suffix for words in brackets
+    const vwi = k => ` <small class="ipa">${ipaOf(k)} · <span class="vi">${viOf(k)}</span></small>`;
+    const chips = (keys, cols = 'grid-cols-2 md:grid-cols-4') => `<div class="grid ${cols} gap-2 my-3">${keys.map(k => `<div class="bg-white border border-gray-200 rounded-lg px-3 py-2 leading-tight"><span class="font-bold text-gray-800 text-sm">${k}</span><span class="block ipa">${ipaOf(k)}</span><span class="block vi">${viOf(k)}</span></div>`).join('')}</div>`;
+    const bank = keys => `<div class="grid grid-cols-2 md:grid-cols-5 gap-3 text-center text-sm text-indigo-700 bg-indigo-50/50 p-4 rounded-lg border border-indigo-100 mb-6">${keys.map(k => `<div><b>${k}</b><span class="block ipa">${ipaOf(k)}</span><span class="block vi">${viOf(k)}</span></div>`).join('')}</div>`;
+
+    // Expandable sample: structure/ideas list + sample answer + suggested vocab
+    const sampleBlock = (id, o, c) => `
+        <div id="${id}" class="hidden mt-3 bg-white border-l-4 border-${c}-400 p-4 rounded-r-lg shadow-sm space-y-4 text-sm">
+            <div>
+                <p class="font-bold uppercase text-xs tracking-wider text-gray-500 mb-2">Structure &amp; ideas</p>
+                <ol class="space-y-1.5">${o.steps.map(([l, t], i) => `<li class="flex gap-2"><span class="shrink-0 w-5 h-5 rounded-full bg-${c}-100 text-${c}-700 text-xs font-bold flex items-center justify-center">${i + 1}</span><span><b class="text-gray-800">${l}:</b> <span class="text-gray-600">${t}</span></span></li>`).join('')}</ol>
+            </div>
+            <div>
+                <p class="font-bold uppercase text-xs tracking-wider text-gray-500 mb-2">Sample answer</p>
+                <div class="text-gray-700 italic leading-relaxed space-y-2">${o.sample.map(p => `<p>${p}</p>`).join('')}</div>
+            </div>
+            <div>
+                <p class="font-bold uppercase text-xs tracking-wider text-gray-500">Suggested vocab</p>
+                ${chips(o.vocab)}
+            </div>
+        </div>`;
+
+    const P2 = {
+        steps: [
+            ['Opening', 'Name the performance and set the scene'],
+            ['What it was', 'Traditional water puppet show: wooden puppets, water stage, live folk music'],
+            ['When &amp; who', 'Last month, evening show, with my cousin visiting from abroad'],
+            ['Why I watched it', 'Keep the culture alive + wanted something authentic + relax / forget stress'],
+            ['Closing', 'Personal reaction and a recommendation']
+        ],
+        sample: [
+            `I'd like to talk about a <b class="hl">water puppet show</b> I watched last month. It's a <b class="hl">traditional</b> Vietnamese performance in which wooden puppets seem to dance on the surface of the water, accompanied by live folk music.`,
+            `I went with my cousin, who was visiting from abroad. We booked an evening show at a small theatre, and I was completely <b class="hl">engrossed</b> in it from the very first minute.`,
+            `What impressed me most was the <b class="hl">workmanship</b> of the <b class="hl">carved</b> puppets. The level of <b class="hl">detail</b> was incredible, and it's no <b class="hl">exaggeration</b> to say it was a <b class="hl">stunning</b> <b class="hl">display</b>.`,
+            `I watched it mainly because I wanted to help <b class="hl">keep the culture alive</b> for future <b class="hl">generations</b>, and my cousin wanted to see something <b class="hl">authentic</b>. It was also a great way to forget the <b class="hl">stresses</b> of daily life. I'd recommend it to anyone who wants to understand our <b class="hl">heritage</b>.`
+        ],
+        vocab: ['water puppet', 'traditional', 'engross', 'workmanship', 'carved', 'detail', 'exaggerate', 'stunning', 'display', 'authentic', 'heritage', 'stress', 'keep alive', 'captivating']
+    };
+
+    const P3 = [
+        { cat: 'Art and society', items: [
+            { q: 'In what ways are artists important in society?',
+              steps: [['Answer', 'Artists are vital: they shape how a society thinks and feels'], ['Reason 1', 'They critique political / social issues'], ['Reason 2', 'They give communities joy and inspiration'], ['Example', 'A mural or protest song that brings people together']],
+              sample: [`I think artists play a vital role because they <b class="hl">contribute to social progression</b>. Through paintings, songs or films, they can <b class="hl">give thoughtful critique</b> on our political, economic and social systems, which makes people think. Besides, art <b class="hl">provides communities with</b> joy and inspiration. For example, a colourful mural can bring a whole neighbourhood together, whether it's <b class="hl">abstract</b> or <b class="hl">life-like</b>.`],
+              vocab: ['contribute', 'progression', 'thoughtful', 'critique', 'provide', 'communities', 'abstract', 'life-like'] },
+            { q: 'What should governments do to support the arts?',
+              steps: [['Answer', 'Yes, governments should invest'], ['Way 1', 'Build and maintain museums / galleries'], ['Way 2', 'Funding or grants so artists can earn a living'], ['Result', 'Art becomes accessible to everyone']],
+              sample: [`Governments should definitely step in. Firstly, they can build museums so more art is on <b class="hl">display</b> for the public, and pay for the <b class="hl">upkeep</b> of these buildings. Secondly, they could offer <b class="hl">funding</b> so that artists can <b class="hl">earn a living by</b> making art instead of giving it up for a more stable job. In the end, this makes art accessible to everyone, not just the wealthy.`],
+              vocab: ['display', 'upkeep', 'funding', 'subsidy', 'earn a living', 'exhibition'] },
+            { q: 'How have styles of art changed over time?',
+              steps: [['Answer', 'A big shift from traditional to digital'], ['Past', 'Natural pigment, canvas, made by hand'], ['Now', 'Technology: hand-held devices and computers'], ['Effect', 'More eye-catching, easier for ordinary people to try']],
+              sample: [`Quite a lot, I'd say. In the past, artists used natural <b class="hl">pigment</b> and painted on <b class="hl">canvas</b>, usually <b class="hl">by hand</b>. Now, a key <b class="hl">feature</b> of modern art is technology: people use <b class="hl">hand-held</b> devices or computers instead of <b class="hl">complex</b> traditional materials to create <b class="hl">eye-catching</b> digital art. As a result, art has become easier for ordinary people to try.`],
+              vocab: ['pigment', 'canvas', 'hand', 'feature', 'hand-held', 'complex', 'eye-catching', 'digital'] },
+            { q: 'What can you learn about a culture from its art?',
+              steps: [['Answer', 'A lot: art is a window into a culture'], ['Point 1', 'It records history, events and beliefs'], ['Point 2', 'It gives clues about daily life and local materials'], ['Example', 'Ancient pottery or traditional festivals']],
+              sample: [`We can learn a great deal because art helps to <b class="hl">record history</b>. By looking at ancient <b class="hl">pottery</b> or paintings, we find <b class="hl">clues</b> about how people lived, what they believed and what <b class="hl">indigenous</b> materials they used. Art also <b class="hl">reflects</b> values; for instance, <b class="hl">traditional</b> festivals show how important family and nature were to local <b class="hl">communities</b>.`],
+              vocab: ['record', 'pottery', 'clues', 'indigenous', 'reflect', 'traditional', 'communities', 'heritage'] }
+        ]},
+        { cat: 'Art and archaeology', items: [
+            { q: 'Where do archaeologists often find ancient art?',
+              steps: [['Answer', 'Ruins, tombs and caves'], ['Detail', 'Objects tucked away in caves used as shelter'], ['Example', 'Rock paintings in caves'], ['Why it survives', 'Hidden or buried, so protected']],
+              sample: [`Usually in places protected from weather and people: ancient <b class="hl">ruins</b>, <b class="hl">tombs</b> and caves. Sometimes objects are <b class="hl">tucked</b> away in deep caves that people used as <b class="hl">shelter</b> thousands of years ago, such as rock paintings. Because these places were hidden or buried, the art survived, and experts can <b class="hl">excavate</b> it carefully.`],
+              vocab: ['ruins', 'tomb', 'tuck', 'shelter', 'excavate', 'ancient', 'archeology', 'artefact'] },
+            { q: 'What can archaeologists learn from ancient art objects?',
+              steps: [['Answer', 'How people lived back then'], ['Clue 1', 'Materials and texture: were resources plentiful or rare?'], ['Clue 2', 'Weapons / ceremony items show values and beliefs'], ['Conclusion', 'Clues rebuild a picture of the community']],
+              sample: [`They can understand what daily life was like. For example, by checking the <b class="hl">texture</b> and materials of a tool, they can tell whether certain resources were <b class="hl">plentiful</b> or rare. Objects such as <b class="hl">weapons</b> or items used in a <b class="hl">ceremony</b> also show what people valued. Together, these <b class="hl">clues</b> let experts rebuild a picture of the whole community.`],
+              vocab: ['texture', 'plentiful', 'weapon', 'ceremony', 'clues', 'artefact'] },
+            { q: 'How can governments protect ancient sites?',
+              steps: [['Answer', 'Through money and strict rules'], ['Step 1', 'Spend on upkeep and repairs'], ['Step 2', 'Restrict visitor numbers / ban touching'], ['Step 3', 'Use tourism income to fund protection']],
+              sample: [`Mainly through money and rules. Governments need to spend on the <b class="hl">upkeep</b> of historical places and introduce strict rules so that sites aren't <b class="hl">blemished</b> or destroyed by too many tourists, for instance by <b class="hl">restricting</b> visitor numbers. They could also use income from <b class="hl">tourism</b> to pay for repairs, so the sites help to protect themselves.`],
+              vocab: ['upkeep', 'blemish', 'restrict', 'tourism', 'preserve', 'funding'] }
+        ]},
+        { cat: 'Performance', items: [
+            { q: 'Live vs. TV performance? Which do you prefer?',
+              steps: [['Opinion', 'I prefer live performances'], ['Reason 1', 'You see the detail and energy up close'], ['Reason 2', 'Shared atmosphere with the audience'], ['Concession', 'TV is cheaper and more convenient, but less immersive']],
+              sample: [`I definitely prefer live performances. TV is convenient, but when you're there <b class="hl">in person</b> you can see the incredible <b class="hl">detail</b> and the <b class="hl">stunning</b> energy of the actors. The <b class="hl">atmosphere</b> is completely different too: you share the moment with the <b class="hl">audience</b> and feel <b class="hl">engrossed</b> in a way a screen can't match.`],
+              vocab: ['detail', 'stunning', 'in person', 'atmosphere', 'audience', 'engross'] },
+            { q: 'Should the government financially promote traditional performance?',
+              steps: [['Opinion', 'Yes, they should'], ['Reason 1', 'These art forms date back centuries: part of our heritage'], ['Reason 2', 'Performers cannot earn a living without support'], ['Result', 'Funding stops the art from disappearing']],
+              sample: [`Yes, I think they should. Many <b class="hl">traditional</b> performances <b class="hl">date back</b> hundreds of years and help <b class="hl">keep the culture alive</b>. Without financial support, performers can't <b class="hl">earn a living by</b> doing this, so the art form might simply disappear. Funding would also help <b class="hl">preserve</b> our <b class="hl">heritage</b> for future <b class="hl">generations</b>.`],
+              vocab: ['date back', 'keep alive', 'earn a living', 'preserve', 'heritage', 'generation', 'funding'] },
+            { q: 'Is learning drama or dancing helpful for children?',
+              steps: [['Opinion', 'Yes, very helpful'], ['Benefit 1', 'Builds confidence and self-expression'], ['Benefit 2', 'Creative outlet: forget school stress'], ['Benefit 3', 'Teaches discipline and teamwork']],
+              sample: [`Yes, it's very helpful. Learning drama or dance helps children become <b class="hl">engrossed</b> in something creative, which boosts their <b class="hl">confidence</b> and <b class="hl">self-expression</b>. It's also a great way for them to forget the <b class="hl">stresses</b> of schoolwork. On top of that, rehearsing with others teaches <b class="hl">discipline</b> and teamwork.`],
+              vocab: ['engross', 'confidence', 'self-expression', 'creativity', 'stress', 'discipline'] }
+        ]}
+    ];
+
+    const renderPart3 = () => {
+        let n = 0;
+        return `<div>
+            <h4 class="text-xl font-bold text-gray-800 mb-6 uppercase tracking-wide border-b border-gray-100 pb-2">PART 3 QUESTIONS</h4>
+            <div class="space-y-8">${P3.map(cat => `
+                <div class="bg-purple-50 rounded-xl p-5 border border-purple-100 shadow-sm">
+                    <h5 class="font-bold text-purple-700 mb-4 text-lg">${cat.cat}</h5>
+                    <div class="grid lg:grid-cols-2 gap-4 items-start">${cat.items.map(it => { n++; return `
+                        <div class="bg-white/70 rounded-lg p-4 border border-purple-100 text-sm text-gray-700">
+                            <p class="flex gap-2 items-start mb-2"><span class="font-bold text-purple-400">${n}</span> ${it.q}</p>
+                            <button onclick="toggleVisibility('p3-q${n}-ans')" class="text-[10px] font-bold text-purple-600 bg-purple-100 hover:bg-purple-200 px-2 py-1 rounded transition-colors">Show Structure &amp; Sample</button>
+                            ${sampleBlock('p3-q' + n + '-ans', it, 'purple')}
+                        </div>`; }).join('')}
+                    </div>
+                </div>`).join('')}
+            </div>
+        </div>`;
+    };
+
+    // Works when the embedded worksheet is same-origin; otherwise shows a fallback note
+    window.toggleFrameAnswers = function(frameId, btnId, noteId) {
+        const f = document.getElementById(frameId), btn = document.getElementById(btnId), note = document.getElementById(noteId);
+        if (!f) return;
+        let doc = null;
+        try { doc = f.contentDocument || f.contentWindow.document; void doc.body.innerHTML; } catch (e) { doc = null; }
+        if (!doc || !doc.body) { if (note) note.classList.remove('hidden'); return; }
+        const w = f.contentWindow;
+        const els = [...doc.querySelectorAll('button, a, input[type=button], input[type=submit], [role=button], [onclick]')]
+            .filter(e => /answer/i.test((e.innerText || e.value || e.id || '') + ' ' + (e.getAttribute('onclick') || '')));
+        let done = false;
+        if (els.length) { els.forEach(e => e.click()); done = true; }
+        else {
+            const fn = ['toggleAnswers', 'showAnswers', 'revealAnswers', 'showAllAnswers'].find(n => typeof w[n] === 'function');
+            if (fn) { w[fn](); done = true; }
+        }
+        if (!done) { if (note) note.classList.remove('hidden'); return; }
+        if (note) note.classList.add('hidden');
+        const on = btn.dataset.on !== '1';
+        btn.dataset.on = on ? '1' : '0';
+        btn.querySelector('span').textContent = on ? 'Hide Answers' : 'Show Answers';
+    };
+
     const sessionData = [
         {
             id: 'listening_sb_unit4',
@@ -120,7 +344,7 @@
             bgColor: 'bg-indigo-50',
             title: '1. Listening Unit 4 SB',
             content: `
-                <div class="fade-in bg-white rounded-3xl shadow-xl border border-indigo-50 p-5 md:p-6 flex flex-col" style="height: calc(100vh - 11rem); min-height: 650px;">
+                <div class="fade-in bg-white rounded-3xl shadow-xl border border-indigo-50 p-5 md:p-6 flex flex-col" >
                     <div class="flex items-center gap-4 mb-4 border-b border-gray-100 pb-4 shrink-0">
                         <div class="w-12 h-12 rounded-2xl bg-indigo-100 flex items-center justify-center text-indigo-600 flex-shrink-0">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
@@ -178,14 +402,14 @@
                                 
                                 <div class="grid md:grid-cols-2 gap-6 text-sm">
                                     <div class="space-y-3">
-                                        <p><span class="font-bold text-gray-800">1</span> <span class="text-indigo-600 font-semibold">palette</span> <span class="text-gray-500">/'pælət/</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ C</span></p>
-                                        <p><span class="font-bold text-gray-800">2</span> <span class="text-indigo-600 font-semibold">arrow</span> <span class="text-gray-500">/'ærəʊ/</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ A</span></p>
-                                        <p><span class="font-bold text-gray-800">3</span> <span class="text-indigo-600 font-semibold">pottery</span> <span class="text-gray-500">/'pɒtəri/</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ H</span></p>
-                                        <p><span class="font-bold text-gray-800">4</span> <span class="text-indigo-600 font-semibold">powder</span> <span class="text-gray-500">/'paʊdər/</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ F</span></p>
-                                        <p><span class="font-bold text-gray-800">5</span> <span class="text-indigo-600 font-semibold">sap</span> <span class="text-gray-500">/sæp/</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ E</span></p>
-                                        <p><span class="font-bold text-gray-800">6</span> <span class="text-indigo-600 font-semibold">fluid</span> <span class="text-gray-500">/'flu:ɪd/</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ G</span></p>
-                                        <p><span class="font-bold text-gray-800">7</span> <span class="text-indigo-600 font-semibold">canvas</span> <span class="text-gray-500">/'kænvəs/</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ B</span></p>
-                                        <p><span class="font-bold text-gray-800">8</span> <span class="text-indigo-600 font-semibold">archeology</span> <span class="text-gray-500">/ˌɑ:rki'ɑ:lədʒi/</span> <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ D</span></p>
+                                        <p><span class="font-bold text-gray-800">1</span> ${vw('palette')} <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ C</span></p>
+                                        <p><span class="font-bold text-gray-800">2</span> ${vw('arrow')} <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ A</span></p>
+                                        <p><span class="font-bold text-gray-800">3</span> ${vw('pottery')} <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ H</span></p>
+                                        <p><span class="font-bold text-gray-800">4</span> ${vw('powder')} <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ F</span></p>
+                                        <p><span class="font-bold text-gray-800">5</span> ${vw('sap')} <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ E</span></p>
+                                        <p><span class="font-bold text-gray-800">6</span> ${vw('fluid')} <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ G</span></p>
+                                        <p><span class="font-bold text-gray-800">7</span> ${vw('canvas')} <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ B</span></p>
+                                        <p><span class="font-bold text-gray-800">8</span> ${vw('archeology')} <span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200 ml-2">➜ D</span></p>
                                     </div>
                                     <div class="space-y-3 text-gray-600 font-medium">
                                         <p><span class="font-bold text-gray-800">A.</span> [Picture: An arrow pointing right]</p>
@@ -207,6 +431,7 @@
                                     <button id="btn-lis-sb-vocab-2" onclick="toggleInlineAnswers('lis-sb-vocab-2-container', 'btn-lis-sb-vocab-2')" class="text-xs bg-indigo-50 text-indigo-600 px-3 py-1.5 rounded-lg font-bold hover:bg-indigo-100 transition-colors">Show Answers</button>
                                 </div>
                                 <p class="text-gray-600 text-sm mb-4 font-medium">Match the phrases to form complete sentences.</p>
+                                ${chips(['tremendous','opportunity','showcase','milestone','passionate','mend','drumming','earn a living'])}
                                 
                                 <div class="grid md:grid-cols-2 gap-6 text-sm">
                                     <div class="space-y-3">
@@ -236,19 +461,7 @@
                                 </div>
                                 <p class="text-gray-600 text-sm mb-4 font-medium">Fill in each blank with one suitable word from the list below.</p>
                                 
-                                <div class="grid grid-cols-2 md:grid-cols-5 gap-2 text-center text-sm font-bold text-indigo-700 bg-indigo-50/50 p-4 rounded-lg border border-indigo-100 mb-6">
-                                    <div>texture <span class="block text-xs text-gray-500 font-normal">/'tekstʃər/</span></div>
-                                    <div>weapon <span class="block text-xs text-gray-500 font-normal">/'wepən/</span></div>
-                                    <div>pigment <span class="block text-xs text-gray-500 font-normal">/'pɪgmənt/</span></div>
-                                    <div>ceremony <span class="block text-xs text-gray-500 font-normal">/'serəməʊni/</span></div>
-                                    <div>shelter <span class="block text-xs text-gray-500 font-normal">/'ʃeltər/</span></div>
-                                    
-                                    <div>plentiful <span class="block text-xs text-gray-500 font-normal">/'plentɪfl/</span></div>
-                                    <div>indigenous <span class="block text-xs text-gray-500 font-normal">/ɪn'dɪdʒənəs/</span></div>
-                                    <div>bind <span class="block text-xs text-gray-500 font-normal">/baɪnd/</span></div>
-                                    <div class="flex items-center justify-center">date back</div>
-                                    <div>visual <span class="block text-xs text-gray-500 font-normal">/'vɪʒuəl/</span></div>
-                                </div>
+                                ${bank(['texture','weapon','pigment','ceremony','shelter','plentiful','indigenous','bind','date back','visual'])}
 
                                 <div class="space-y-3 text-sm text-gray-700 font-medium leading-relaxed">
                                     <p><span class="font-bold text-gray-900">1</span> The wool is colored using only natural <span class="blank-dots">..............................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200">pigment</span> dyes.</p>
@@ -266,8 +479,8 @@
                         </div>
                     </div>
 
-                    <div class="w-full flex-grow rounded-2xl overflow-hidden border border-gray-200 shadow-inner bg-gray-50 relative">
-                        <iframe src="https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/section4_complete_ielts_6.5_7.5_wb_unit4.html" class="absolute inset-0 w-full h-full border-0" title="Listening Practice"></iframe>
+                    <div class="w-full rounded-2xl overflow-hidden border border-gray-200 shadow-inner bg-gray-50 relative" style="height: calc(100vh - 11rem); min-height: 600px;">
+                        <iframe src="https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/section4_complete_ielts_6.5_7.5_sb_unit4.html" class="absolute inset-0 w-full h-full border-0" title="Listening Practice"></iframe>
                     </div>
                 </div>
             `
@@ -296,12 +509,16 @@
                                 </div>
                                 <p class="text-violet-600 font-medium text-sm">Workbook - Complete IELTS</p>
                             </div>
-                            <p class="text-gray-500 text-sm hidden md:block">Show Answers & Explain tricky distractors</p>
+                            <button id="btn-wb-ans" onclick="toggleFrameAnswers('wb-frame','btn-wb-ans','wb-ans-note')" class="bg-violet-50 text-violet-700 px-4 py-2 rounded-xl font-bold hover:bg-violet-100 transition-colors text-sm border border-violet-200 flex items-center gap-2 shrink-0">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                                <span>Show Answers</span>
+                            </button>
                         </div>
                     </div>
 
+                    <div id="wb-ans-note" class="hidden mb-3 shrink-0 bg-amber-50 border border-amber-200 text-amber-800 text-sm rounded-xl px-4 py-3">The browser blocks access to the embedded worksheet from this page. Use the answer button inside the worksheet below, or click <b>Open in New Tab</b> above.</div>
                     <div class="w-full flex-grow rounded-2xl overflow-hidden border border-gray-200 shadow-inner bg-gray-50 relative">
-                        <iframe src="https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/section4_complete_ielts_6.5_7.5_wb_unit4.html" class="absolute inset-0 w-full h-full border-0" title="Listening Practice Workbook"></iframe>
+                        <iframe src="https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/section4_complete_ielts_6.5_7.5_wb_unit4.html" class="absolute inset-0 w-full h-full border-0" id="wb-frame" title="Listening Practice Workbook"></iframe>
                     </div>
                 </div>
             `
@@ -339,11 +556,11 @@
                                     <div class="flex items-center gap-4 mb-3">
                                         <span class="font-bold text-gray-900">Adjectives</span>
                                         <div class="flex-grow flex flex-wrap gap-x-4 gap-y-2 text-purple-600 font-bold border border-purple-200 rounded p-2 bg-purple-50">
-                                            <span>eye-catching</span>
-                                            <span>stunning</span>
-                                            <span>life-like</span>
-                                            <span>carved</span>
-                                            <span>abstract</span>
+                                            ${wb('eye-catching')}
+                                            ${wb('stunning')}
+                                            ${wb('life-like')}
+                                            ${wb('carved')}
+                                            ${wb('abstract')}
                                         </div>
                                     </div>
                                     <div class="space-y-3 text-gray-700 leading-relaxed">
@@ -358,11 +575,11 @@
                                     <div class="flex items-center gap-4 mb-3">
                                         <span class="font-bold text-gray-900">Nouns</span>
                                         <div class="flex-grow flex flex-wrap gap-x-4 gap-y-2 text-purple-600 font-bold border border-purple-200 rounded p-2 bg-purple-50">
-                                            <span>workmanship</span>
-                                            <span>display</span>
-                                            <span>detail</span>
-                                            <span>hand</span>
-                                            <span>shape</span>
+                                            ${wb('workmanship')}
+                                            ${wb('display')}
+                                            ${wb('detail')}
+                                            ${wb('hand')}
+                                            ${wb('shape')}
                                         </div>
                                     </div>
                                     <div class="space-y-3 text-gray-700 leading-relaxed">
@@ -383,6 +600,7 @@
                                 <button id="btn-spk-ex2" onclick="toggleInlineAnswers('spk-ex2-container', 'btn-spk-ex2')" class="text-xs bg-white border border-gray-300 text-gray-700 px-3 py-1.5 rounded-lg font-bold hover:bg-rose-50 hover:text-rose-700 hover:border-rose-200 transition-colors">Show Answers</button>
                             </div>
                             <p class="text-gray-700 mb-4">Match the words in column A with the words in column B to form meaningful phrases.</p>
+                            ${chips(['provide','communities','thoughtful','critique','record','generation','contribute','progression'])}
                             
                             <div class="grid md:grid-cols-2 gap-8 text-gray-800">
                                 <div class="space-y-4">
@@ -411,12 +629,12 @@
                             <p class="text-gray-700 mb-4">Fill in each blank with one suitable word from the list below.</p>
                             
                             <div class="flex justify-center mb-6">
-                                <div class="flex gap-6 text-purple-600 font-bold border border-purple-200 rounded-lg p-3 bg-purple-50">
-                                    <span>complex</span>
-                                    <span>clues</span>
-                                    <span>upkeep</span>
-                                    <span>hand-held</span>
-                                    <span>feature</span>
+                                <div class="flex flex-wrap justify-center gap-6 text-purple-600 font-bold border border-purple-200 rounded-lg p-3 bg-purple-50">
+                                    ${wb('complex')}
+                                    ${wb('clues')}
+                                    ${wb('upkeep')}
+                                    ${wb('hand-held')}
+                                    ${wb('feature')}
                                 </div>
                             </div>
                             
@@ -437,12 +655,12 @@
                             <p class="text-gray-700 mb-4">Fill in blanks with the suitable form of the words in brackets.</p>
                             
                             <div class="space-y-3 text-gray-700 leading-relaxed">
-                                <p>1. The moment she smiled at me is (<span class="font-bold text-purple-500">ENGRAVE</span>) <span class="blank-dots">.........................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200">engraved</span> in my mind forever.</p>
-                                <p>2. The judge had a reputation without a (<span class="font-bold text-purple-500">BLEMISH</span>) <span class="blank-dots">.........................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200">blemish</span>, known for fairness and honesty.</p>
-                                <p>3. It's no (<span class="font-bold text-purple-500">EXAGGERATE</span>) <span class="blank-dots">.........................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200">exaggeration</span> to say that she's the best teacher I've ever had.</p>
-                                <p>4. On vacation, I could finally forget all the (<span class="font-bold text-purple-500">STRESS</span>) <span class="blank-dots">.........................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200">stresses</span> and strains of work.</p>
-                                <p>5. He was completely (<span class="font-bold text-purple-500">ENGROSS</span>) <span class="blank-dots">.........................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200">engrossed</span> in the world of music, not noticing anything around him.</p>
-                                <p>6. The café is (<span class="font-bold text-purple-500">TUCK</span>) <span class="blank-dots">.........................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200">tucked</span> away in a quiet corner of the city.</p>
+                                <p>1. The moment she smiled at me is (<span class="font-bold text-purple-500">ENGRAVE</span>${vwi('engrave')}) <span class="blank-dots">.........................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200">engraved</span> in my mind forever.</p>
+                                <p>2. The judge had a reputation without a (<span class="font-bold text-purple-500">BLEMISH</span>${vwi('blemish')}) <span class="blank-dots">.........................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200">blemish</span>, known for fairness and honesty.</p>
+                                <p>3. It's no (<span class="font-bold text-purple-500">EXAGGERATE</span>${vwi('exaggerate')}) <span class="blank-dots">.........................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200">exaggeration</span> to say that she's the best teacher I've ever had.</p>
+                                <p>4. On vacation, I could finally forget all the (<span class="font-bold text-purple-500">STRESS</span>${vwi('stress')}) <span class="blank-dots">.........................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200">stresses</span> and strains of work.</p>
+                                <p>5. He was completely (<span class="font-bold text-purple-500">ENGROSS</span>${vwi('engross')}) <span class="blank-dots">.........................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200">engrossed</span> in the world of music, not noticing anything around him.</p>
+                                <p>6. The café is (<span class="font-bold text-purple-500">TUCK</span>${vwi('tuck')}) <span class="blank-dots">.........................</span><span class="blank-ans text-emerald-600 font-bold bg-emerald-50 px-2 rounded border border-emerald-200">tucked</span> away in a quiet corner of the city.</p>
                             </div>
                         </div>
                     </div>
@@ -478,10 +696,8 @@
                                 </ul>
                                 
                                 <div class="mt-4 pt-4 border-t border-red-200">
-                                    <button onclick="toggleVisibility('p2-sample-ans')" class="text-xs font-bold text-red-600 bg-red-100 hover:bg-red-200 px-4 py-2 rounded-lg transition-colors whitespace-nowrap shadow-sm">Show Sample (Band 6.5 - 7.0)</button>
-                                    <div id="p2-sample-ans" class="hidden mt-3 bg-white border-l-4 border-red-400 p-4 rounded-r-lg shadow-sm">
-                                        <p class="text-gray-700 italic text-sm leading-relaxed">"I'd like to talk about a water puppet show I watched recently. It's a traditional Vietnamese performance where wooden puppets move on water. I went there with my cousin last month. When I watched it, I was completely <span class="font-semibold text-red-600">engrossed</span> in the performance. The <span class="font-semibold text-red-600">workmanship</span> of the <span class="font-semibold text-red-600">carved</span> puppets was amazing, with so much <span class="font-semibold text-red-600">detail</span>. It's no <span class="font-semibold text-red-600">exaggeration</span> to say it was a <span class="font-semibold text-red-600">stunning</span> display. I watched it because I think it's important to keep our <span class="font-semibold text-red-600">culture alive</span> for future generations, and it was also a great way to relax and forget the <span class="font-semibold text-red-600">stresses</span> of daily life."</p>
-                                    </div>
+                                    <button onclick="toggleVisibility('p2-sample-ans')" class="text-xs font-bold text-red-600 bg-red-100 hover:bg-red-200 px-4 py-2 rounded-lg transition-colors whitespace-nowrap shadow-sm">Show Structure &amp; Sample (Band 6.5 - 7.0)</button>
+                                    ${sampleBlock('p2-sample-ans', P2, 'red')}
                                 </div>
                             </div>
                         </div>
@@ -503,83 +719,7 @@
                         </div>
                     </div>
 
-                    <!-- Part 3 Questions -->
-                    <div>
-                        <h4 class="text-xl font-bold text-gray-800 mb-6 uppercase tracking-wide border-b border-gray-100 pb-2">PART 3 QUESTIONS</h4>
-                        
-                        <div class="grid md:grid-cols-3 gap-6">
-                            <!-- Category 1 -->
-                            <div class="bg-purple-50 rounded-xl p-5 border border-purple-100 shadow-sm flex flex-col">
-                                <h5 class="font-bold text-purple-700 mb-4 text-lg">Art and society</h5>
-                                <div class="space-y-4 text-sm text-gray-700 flex-grow">
-                                    <div>
-                                        <p class="flex gap-2 items-start mb-2"><span class="font-bold text-purple-400">1</span> In what ways are artists important in society?</p>
-                                        <button onclick="toggleVisibility('p3-q1-ans')" class="text-[10px] font-bold text-purple-600 bg-purple-100 hover:bg-purple-200 px-2 py-1 rounded transition-colors mb-2">Show Sample</button>
-                                        <p id="p3-q1-ans" class="hidden text-gray-600 italic pl-3 border-l-2 border-purple-300">"I think artists are very important because they <span class="font-semibold text-purple-600">contribute to social progression</span>. Through their art, they can <span class="font-semibold text-purple-600">give thoughtful critique</span> to our society. Also, whether it's <span class="font-semibold text-purple-600">abstract</span> or <span class="font-semibold text-purple-600">life-like</span>, art provides communities with joy and inspiration."</p>
-                                    </div>
-                                    <div>
-                                        <p class="flex gap-2 items-start mb-2"><span class="font-bold text-purple-400">2</span> What should governments do to support the arts?</p>
-                                        <button onclick="toggleVisibility('p3-q2-ans')" class="text-[10px] font-bold text-purple-600 bg-purple-100 hover:bg-purple-200 px-2 py-1 rounded transition-colors mb-2">Show Sample</button>
-                                        <p id="p3-q2-ans" class="hidden text-gray-600 italic pl-3 border-l-2 border-purple-300">"Governments should definitely help. They can build museums so more art is on <span class="font-semibold text-purple-600">display</span> for the public. Also, they should help with the <span class="font-semibold text-purple-600">upkeep</span> of these buildings and support artists financially so they can <span class="font-semibold text-purple-600">earn a living by</span> making art."</p>
-                                    </div>
-                                    <div>
-                                        <p class="flex gap-2 items-start mb-2"><span class="font-bold text-purple-400">3</span> How have styles of art changed over time?</p>
-                                        <button onclick="toggleVisibility('p3-q3-ans')" class="text-[10px] font-bold text-purple-600 bg-purple-100 hover:bg-purple-200 px-2 py-1 rounded transition-colors mb-2">Show Sample</button>
-                                        <p id="p3-q3-ans" class="hidden text-gray-600 italic pl-3 border-l-2 border-purple-300">"In the past, artists used natural <span class="font-semibold text-purple-600">pigment</span> and painted on <span class="font-semibold text-purple-600">canvas</span>. But now, a key <span class="font-semibold text-purple-600">feature</span> of modern art is technology. People often use <span class="font-semibold text-purple-600">hand-held</span> devices or computers to create very <span class="font-semibold text-purple-600">eye-catching</span> digital art."</p>
-                                    </div>
-                                    <div>
-                                        <p class="flex gap-2 items-start mb-2"><span class="font-bold text-purple-400">4</span> What can you learn about a culture from its art?</p>
-                                        <button onclick="toggleVisibility('p3-q4-ans')" class="text-[10px] font-bold text-purple-600 bg-purple-100 hover:bg-purple-200 px-2 py-1 rounded transition-colors mb-2">Show Sample</button>
-                                        <p id="p3-q4-ans" class="hidden text-gray-600 italic pl-3 border-l-2 border-purple-300">"We can learn a lot because art helps to <span class="font-semibold text-purple-600">record history</span>. By looking at ancient <span class="font-semibold text-purple-600">pottery</span> or paintings, we can find <span class="font-semibold text-purple-600">clues</span> about how people lived in the past and what kind of <span class="font-semibold text-purple-600">indigenous</span> materials they used."</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Category 2 -->
-                            <div class="bg-purple-50 rounded-xl p-5 border border-purple-100 shadow-sm flex flex-col">
-                                <h5 class="font-bold text-purple-700 mb-4 text-lg">Art and archaeology</h5>
-                                <div class="space-y-4 text-sm text-gray-700 flex-grow">
-                                    <div>
-                                        <p class="flex gap-2 items-start mb-2"><span class="font-bold text-purple-400">5</span> Where do archaeologists often find ancient art?</p>
-                                        <button onclick="toggleVisibility('p3-q5-ans')" class="text-[10px] font-bold text-purple-600 bg-purple-100 hover:bg-purple-200 px-2 py-1 rounded transition-colors mb-2">Show Sample</button>
-                                        <p id="p3-q5-ans" class="hidden text-gray-600 italic pl-3 border-l-2 border-purple-300">"Archaeologists usually find ancient art in old ruins or tombs. Sometimes, these objects are <span class="font-semibold text-purple-600">tucked</span> away in deep caves that people used as <span class="font-semibold text-purple-600">shelter</span> thousands of years ago."</p>
-                                    </div>
-                                    <div>
-                                        <p class="flex gap-2 items-start mb-2"><span class="font-bold text-purple-400">6</span> What can archaeologists learn from ancient art objects?</p>
-                                        <button onclick="toggleVisibility('p3-q6-ans')" class="text-[10px] font-bold text-purple-600 bg-purple-100 hover:bg-purple-200 px-2 py-1 rounded transition-colors mb-2">Show Sample</button>
-                                        <p id="p3-q6-ans" class="hidden text-gray-600 italic pl-3 border-l-2 border-purple-300">"They can understand what life was like back then. For example, by checking the <span class="font-semibold text-purple-600">texture</span> or the materials of a tool, they know if certain resources were <span class="font-semibold text-purple-600">plentiful</span> or rare in that area."</p>
-                                    </div>
-                                    <div>
-                                        <p class="flex gap-2 items-start mb-2"><span class="font-bold text-purple-400">7</span> How can governments protect ancient sites?</p>
-                                        <button onclick="toggleVisibility('p3-q7-ans')" class="text-[10px] font-bold text-purple-600 bg-purple-100 hover:bg-purple-200 px-2 py-1 rounded transition-colors mb-2">Show Sample</button>
-                                        <p id="p3-q7-ans" class="hidden text-gray-600 italic pl-3 border-l-2 border-purple-300">"Governments need to spend money on the <span class="font-semibold text-purple-600">upkeep</span> of these historical places. They also need strict rules so that these ancient sites are not <span class="font-semibold text-purple-600">blemished</span> or destroyed by too many tourists."</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Category 3 -->
-                            <div class="bg-purple-50 rounded-xl p-5 border border-purple-100 shadow-sm flex flex-col">
-                                <h5 class="font-bold text-purple-700 mb-4 text-lg">Performance</h5>
-                                <div class="space-y-4 text-sm text-gray-700 flex-grow">
-                                    <div>
-                                        <p class="flex gap-2 items-start mb-2"><span class="font-bold text-purple-400">8</span> Live vs. TV performance? Which do you prefer?</p>
-                                        <button onclick="toggleVisibility('p3-q8-ans')" class="text-[10px] font-bold text-purple-600 bg-purple-100 hover:bg-purple-200 px-2 py-1 rounded transition-colors mb-2">Show Sample</button>
-                                        <p id="p3-q8-ans" class="hidden text-gray-600 italic pl-3 border-l-2 border-purple-300">"I definitely prefer live performances. Watching TV is easy, but when you are there in person, you can see the incredible <span class="font-semibold text-purple-600">detail</span> and the <span class="font-semibold text-purple-600">stunning</span> energy of the actors. The atmosphere is just different."</p>
-                                    </div>
-                                    <div>
-                                        <p class="flex gap-2 items-start mb-2"><span class="font-bold text-purple-400">9</span> Should the government financially promote traditional performance?</p>
-                                        <button onclick="toggleVisibility('p3-q9-ans')" class="text-[10px] font-bold text-purple-600 bg-purple-100 hover:bg-purple-200 px-2 py-1 rounded transition-colors mb-2">Show Sample</button>
-                                        <p id="p3-q9-ans" class="hidden text-gray-600 italic pl-3 border-l-2 border-purple-300">"Yes, they should. These traditional performances <span class="font-semibold text-purple-600">date back</span> hundreds of years and help <span class="font-semibold text-purple-600">keep the culture alive</span>. Without financial support, many performers can't <span class="font-semibold text-purple-600">earn a living by</span> doing this, and the art might disappear."</p>
-                                    </div>
-                                    <div>
-                                        <p class="flex gap-2 items-start mb-2"><span class="font-bold text-purple-400">10</span> Is learning drama or dancing helpful for children?</p>
-                                        <button onclick="toggleVisibility('p3-q10-ans')" class="text-[10px] font-bold text-purple-600 bg-purple-100 hover:bg-purple-200 px-2 py-1 rounded transition-colors mb-2">Show Sample</button>
-                                        <p id="p3-q10-ans" class="hidden text-gray-600 italic pl-3 border-l-2 border-purple-300">"Yes, it's very helpful. Learning drama or dance helps children become <span class="font-semibold text-purple-600">engrossed</span> in something creative. It's a great way for them to forget the <span class="font-semibold text-purple-600">stresses</span> of schoolwork and build their confidence."</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    ${renderPart3()}
                 </div>
             `
         }
@@ -689,7 +829,7 @@
             containerEl.innerHTML = data.content;
             
             // Restore timers visually if returning to slide
-            if(data.id === 'speaking_unit4') updateTimerUI('speak4', timers.speak4.remaining);
+            if(data.id === 'speaking_practice_unit4') updateTimerUI('speak4', timers.speak4.remaining);
         }, 10);
 
         // Update buttons
