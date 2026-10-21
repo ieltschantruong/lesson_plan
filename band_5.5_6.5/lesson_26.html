@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Chan Truong - Lesson 26</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #fdf2f8;
+            background-image: 
+                radial-gradient(at 0% 0%, #ffe4e6 0px, transparent 50%),
+                radial-gradient(at 100% 0%, #fce7f3 0px, transparent 50%),
+                radial-gradient(at 100% 100%, #fbcfe8 0px, transparent 50%),
+                radial-gradient(at 0% 100%, #fdf2f8 0px, transparent 50%),
+                radial-gradient(at 50% 50%, #fff1f2 0px, transparent 50%);
+            background-attachment: fixed;
+            color: #4c0519; /* rose-950 */
+        }
+        
+        .slide { display: none; opacity: 0; transition: opacity 0.5s ease, transform 0.5s ease; transform: translateY(20px); }
+        .slide.active { display: block; opacity: 1; transform: translateY(0); }
+        
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: transparent; } 
+        ::-webkit-scrollbar-thumb { background: rgba(244, 114, 182, 0.4); border-radius: 10px; border: 2px solid transparent; background-clip: padding-box; } 
+        ::-webkit-scrollbar-thumb:hover { background: rgba(225, 29, 72, 0.5); border: 2px solid transparent; background-clip: padding-box; } 
+        
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
+        .hidden-answer { display: none; }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 10px 40px -10px rgba(225, 29, 72, 0.15);
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.45);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: inset 0 2px 4px 0 rgba(255, 255, 255, 0.3), 0 4px 15px -5px rgba(225, 29, 72, 0.05);
+        }
+        .glass-button {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.5));
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 15px -5px rgba(225, 29, 72, 0.15);
+            transition: all 0.3s ease;
+        }
+        .glass-button:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px -5px rgba(225, 29, 72, 0.25);
+        }
+        
+        .hover-lift { transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease; }
+        .hover-lift:hover { transform: translateY(-4px); box-shadow: 0 15px 30px -10px rgba(225, 29, 72, 0.2); }
+        
+        /* Select Dropdown Styling */
+        select.nav-dropdown {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23881337' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1em;
+            padding-right: 2.5rem;
+        }
+    </style>
+</head>
+<body class="h-screen flex flex-col overflow-hidden">
+
+    <!-- Header / Navigation -->
+    <header class="glass-card border-b border-white/60 z-20 shrink-0 relative">
+        <div class="p-4 flex flex-col md:flex-row justify-between items-center gap-4 max-w-7xl mx-auto w-full">
+            <div>
+                <h1 class="text-2xl font-extrabold tracking-tight text-rose-950">IELTS Chan Truong <span class="text-rose-600 font-semibold ml-2 px-3 py-1 bg-white/50 border border-white/60 rounded-full text-base shadow-sm">Class 5.5-6.5</span></h1>
+                <p class="text-sm text-rose-900/70 mt-1.5 flex items-center gap-2 font-medium">
+                    <span class="w-2 h-2 rounded-full bg-pink-400 shadow-[0_0_8px_rgba(244,114,182,0.8)]"></span> Lesson 26: Reading & Listening
+                </p>
+            </div>
+            
+            <div class="flex items-center gap-4 w-full md:w-auto justify-between md:justify-end">
+                <select id="section-nav" onchange="jumpToSection(this.value)" class="nav-dropdown glass-panel text-rose-900 font-bold py-2 px-4 rounded-xl shadow-sm outline-none cursor-pointer border border-white/60 hover:bg-white/60 transition">
+                    <option value="0">1. Lesson Overview</option>
+                    <option value="1">2. Reading: Work Book</option>
+                    <option value="2">3. Listening: Student's Book</option>
+                    <option value="3">4. Listening: Work Book</option>
+                </select>
+
+                <div class="flex items-center gap-3">
+                    <span id="slide-counter" class="font-bold text-rose-900 px-3 py-1.5 glass-panel rounded-full text-sm hidden md:inline-block">1 / 4</span>
+                    <button onclick="prevSlide()" class="glass-button text-rose-800 px-4 py-2 rounded-full font-semibold flex items-center gap-2">
+                        <span>←</span> <span class="hidden sm:inline">Prev</span>
+                    </button>
+                    <button onclick="nextSlide()" class="bg-gradient-to-r from-pink-500 to-rose-400 hover:from-pink-400 hover:to-rose-300 text-white px-5 py-2 rounded-full shadow-lg shadow-pink-500/30 transition-all hover:shadow-pink-500/50 hover:-translate-y-0.5 font-bold flex items-center gap-2">
+                        <span class="hidden sm:inline">Next</span> <span>→</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="h-1 bg-white/40 w-full absolute bottom-0 left-0">
+            <div id="progress-bar" class="h-full bg-gradient-to-r from-pink-400 to-rose-500 transition-all duration-500 ease-out shadow-[0_0_10px_rgba(244,114,182,0.5)]" style="width: 25%;"></div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 overflow-y-auto p-4 md:p-8 relative">
+        <div class="max-w-7xl mx-auto pb-24">
+
+            
+<!-- SLIDE 0: Intro -->
+<div class="slide active" id="slide-0"><div class="text-center py-16">
+<div class="inline-block mb-6 px-5 py-2 rounded-full glass-panel text-rose-600 font-bold text-sm tracking-widest uppercase shadow-sm">Lesson Overview</div>
+<h2 class="text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-rose-950 to-pink-700 mb-6 tracking-tight drop-shadow-sm">Reading & Listening</h2>
+<p class="text-xl text-rose-900/70 mb-16 max-w-2xl mx-auto font-medium leading-relaxed">Today's session covers Reading Unit 8 Workbook and Listening Unit 8 Student's Book &amp; Workbook.</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto text-left">
+<div class="glass-card p-8 rounded-3xl hover-lift relative overflow-hidden group"><div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-purple-400 to-pink-400 opacity-80"></div><div class="w-14 h-14 glass-panel rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-sm group-hover:scale-110 transition-transform">📖</div><h3 class="text-2xl font-bold mb-4 text-rose-950">Part 1: Reading</h3><ul class="text-rose-900/80 space-y-3 font-medium"><li class="flex items-start gap-3"><span class="text-pink-400 mt-1">✦</span> Complete IELTS WB | Unit 8</li><li class="flex items-start gap-3"><span class="text-pink-400 mt-1">✦</span> Vocabulary Exercises</li><li class="flex items-start gap-3"><span class="text-pink-400 mt-1">✦</span> Reading Passage &amp; Answer Keys</li></ul></div>
+<div class="glass-card p-8 rounded-3xl hover-lift relative overflow-hidden group"><div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-pink-400 to-rose-400 opacity-80"></div><div class="w-14 h-14 glass-panel rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-sm group-hover:scale-110 transition-transform">🎧</div><h3 class="text-2xl font-bold mb-4 text-rose-950">Part 2: Listening</h3><ul class="text-rose-900/80 space-y-3 font-medium"><li class="flex items-start gap-3"><span class="text-rose-400 mt-1">✦</span> Student's Book | Unit 8</li><li class="flex items-start gap-3"><span class="text-rose-400 mt-1">✦</span> Work Book | Unit 8</li><li class="flex items-start gap-3"><span class="text-rose-400 mt-1">✦</span> Tests &amp; Answer Keys</li></ul></div>
+</div>
+<button onclick="nextSlide()" class="mt-16 bg-gradient-to-r from-rose-900 to-pink-800 hover:from-rose-800 hover:to-pink-700 text-white px-10 py-4 rounded-full text-lg font-bold shadow-[0_10px_25px_rgba(159,18,57,0.3)] transition-all hover:shadow-[0_15px_35px_rgba(159,18,57,0.4)] hover:-translate-y-1 flex items-center gap-3 mx-auto">Begin Lesson <span class="text-xl">✨</span></button>
+</div></div>
+
+<!-- SLIDE 1: Reading WB -->
+<div class="slide" id="slide-1">
+<div class="flex items-center gap-4 mb-10"><span class="w-12 h-12 rounded-2xl glass-panel flex items-center justify-center text-2xl shadow-sm">📖</span><div><span class="text-pink-600 font-extrabold text-xs tracking-widest uppercase">Reading Section</span><h2 class="text-3xl font-extrabold text-rose-950">Complete IELTS Work Book | Unit 8</h2></div></div>
+<div class="glass-card rounded-3xl mb-8 exercise-container overflow-hidden border-t-4 border-pink-400">
+<div class="p-8 md:p-10 border-b border-white/60"><div class="flex items-center justify-between gap-4"><div><h3 class="text-2xl font-bold text-rose-950">Vocabulary Exercises</h3><p class="text-sm text-rose-900/60 mt-1">Workbook | Reading Section | Unit 8</p></div><button onclick="toggleAnswers(this)" data-default-text="✨ Reveal Answers" class="glass-button text-rose-800 font-bold py-2.5 px-5 rounded-xl flex items-center justify-center gap-2 text-sm shadow-sm shrink-0">✨ Reveal Answers</button></div></div>
+<div class="p-8 md:p-10 bg-white/25 space-y-10">
+<div><h4 class="font-black text-rose-900 mb-4 uppercase tracking-widest text-sm border-b border-pink-200 pb-2">Exercise 1: Matching</h4><p class="font-medium text-rose-950 mb-6">Match the words with the synonyms/meanings.</p><div class="mb-8"><p class="text-xs font-extrabold uppercase tracking-widest text-pink-500 mb-3">Adjectives</p><div class="grid grid-cols-1 lg:grid-cols-2 gap-8 text-[0.95rem] font-semibold text-rose-950"><div class="space-y-3"><div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition"><span class="flex flex-wrap items-center gap-2">1 <strong class="text-rose-700">bizarre</strong> <span class="text-xs font-normal text-rose-900/60">/bɪˈzɑːr/</span> <span class="text-xs font-normal text-rose-900/70 italic">(kỳ quái, kỳ dị)</span> <button onclick="playAudio('bizarre')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span><span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ C. weird</span></div><div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition"><span class="flex flex-wrap items-center gap-2">2 <strong class="text-rose-700">outraged</strong> <span class="text-xs font-normal text-rose-900/60">/ˈaʊt.reɪdʒd/</span> <span class="text-xs font-normal text-rose-900/70 italic">(phẫn nộ)</span> <button onclick="playAudio('outraged')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span><span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ A. angry</span></div><div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition"><span class="flex flex-wrap items-center gap-2">3 <strong class="text-rose-700">prevailing</strong> <span class="text-xs font-normal text-rose-900/60">/prɪˈveɪ.lɪŋ/</span> <span class="text-xs font-normal text-rose-900/70 italic">(phổ biến, đang thịnh hành)</span> <button onclick="playAudio('prevailing')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span><span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ E. common</span></div><div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition"><span class="flex flex-wrap items-center gap-2">4 <strong class="text-rose-700">surreal</strong> <span class="text-xs font-normal text-rose-900/60">/səˈriː.əl/</span> <span class="text-xs font-normal text-rose-900/70 italic">(siêu thực, như trong mơ)</span> <button onclick="playAudio('surreal')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span><span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ F. very strange (more like a dream than reality)</span></div><div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition"><span class="flex flex-wrap items-center gap-2">5 <strong class="text-rose-700">peculiar</strong> <span class="text-xs font-normal text-rose-900/60">/pɪˈkjuː.li.ər/</span> <span class="text-xs font-normal text-rose-900/70 italic">(khác thường, kỳ lạ)</span> <button onclick="playAudio('peculiar')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span><span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ B. strange or unusual (in an unpleasant way)</span></div><div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition"><span class="flex flex-wrap items-center gap-2">6 <strong class="text-rose-700">exclusive</strong> <span class="text-xs font-normal text-rose-900/60">/ɪkˈskluː.sɪv/</span> <span class="text-xs font-normal text-rose-900/70 italic">(độc quyền, dành riêng)</span> <button onclick="playAudio('exclusive')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span><span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ D. only to be used by one particular person or group</span></div></div><div class="glass-panel p-4 rounded-xl text-sm space-y-2.5 font-medium text-rose-950/80 bg-white/20 border border-white/40"><p><strong class="text-pink-500 mr-1">A.</strong> angry</p><p><strong class="text-pink-500 mr-1">B.</strong> strange or unusual (in an unpleasant way)</p><p><strong class="text-pink-500 mr-1">C.</strong> weird</p><p><strong class="text-pink-500 mr-1">D.</strong> only to be used by one particular person or group</p><p><strong class="text-pink-500 mr-1">E.</strong> common</p><p><strong class="text-pink-500 mr-1">F.</strong> very strange (more like a dream than reality)</p></div></div></div><div class="mb-8"><p class="text-xs font-extrabold uppercase tracking-widest text-pink-500 mb-3">Verbs</p><div class="grid grid-cols-1 lg:grid-cols-2 gap-8 text-[0.95rem] font-semibold text-rose-950"><div class="space-y-3"><div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition"><span class="flex flex-wrap items-center gap-2">7 <strong class="text-rose-700">resist</strong> <span class="text-xs font-normal text-rose-900/60">/rɪˈzɪst/</span> <span class="text-xs font-normal text-rose-900/70 italic">(chống lại, kháng cự)</span> <button onclick="playAudio('resist')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span><span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ I. refuse</span></div><div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition"><span class="flex flex-wrap items-center gap-2">8 <strong class="text-rose-700">assure</strong> <span class="text-xs font-normal text-rose-900/60">/əˈʃʊr/</span> <span class="text-xs font-normal text-rose-900/70 italic">(đảm bảo, cam đoan)</span> <button onclick="playAudio('assure')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span><span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ J. guarantee</span></div><div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition"><span class="flex flex-wrap items-center gap-2">9 <strong class="text-rose-700">halve</strong> <span class="text-xs font-normal text-rose-900/60">/hɑːv/</span> <span class="text-xs font-normal text-rose-900/70 italic">(giảm đi một nửa)</span> <button onclick="playAudio('halve')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span><span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ G. reduce by half</span></div><div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition"><span class="flex flex-wrap items-center gap-2">10 <strong class="text-rose-700">roll (out)</strong> <span class="text-xs font-normal text-rose-900/60">/roʊl aʊt/</span> <span class="text-xs font-normal text-rose-900/70 italic">(tung ra, ra mắt)</span> <button onclick="playAudio('roll out')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></span><span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ H. launch</span></div></div><div class="glass-panel p-4 rounded-xl text-sm space-y-2.5 font-medium text-rose-950/80 bg-white/20 border border-white/40"><p><strong class="text-pink-500 mr-1">G.</strong> reduce by half</p><p><strong class="text-pink-500 mr-1">H.</strong> launch</p><p><strong class="text-pink-500 mr-1">I.</strong> refuse</p><p><strong class="text-pink-500 mr-1">J.</strong> guarantee</p></div></div></div></div>
+<div><h4 class="font-black text-rose-900 mb-4 uppercase tracking-widest text-sm border-b border-pink-200 pb-2">Exercise 2: Fill in the Blanks</h4><p class="font-medium text-rose-950 mb-4">Fill in the blanks with suitable words from the list below.</p><div class="glass-panel p-5 rounded-2xl border border-pink-200 grid grid-cols-2 md:grid-cols-5 gap-4 text-center mb-6"><div class="flex flex-col items-center gap-1"><strong class="text-rose-700">buoyancy</strong><span class="text-xs font-normal text-rose-900/60">/ˈbɔɪ.ən.si/</span><span class="text-xs font-normal text-rose-900/70 italic">(sự phấn chấn, sôi nổi)</span><button onclick="playAudio('buoyancy')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></div><div class="flex flex-col items-center gap-1"><strong class="text-rose-700">whim</strong><span class="text-xs font-normal text-rose-900/60">/wɪm/</span><span class="text-xs font-normal text-rose-900/70 italic">(ý thích bất chợt)</span><button onclick="playAudio('whim')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></div><div class="flex flex-col items-center gap-1"><strong class="text-rose-700">prosperity</strong><span class="text-xs font-normal text-rose-900/60">/prɑːˈsper.ə.t̬i/</span><span class="text-xs font-normal text-rose-900/70 italic">(sự thịnh vượng)</span><button onclick="playAudio('prosperity')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></div><div class="flex flex-col items-center gap-1"><strong class="text-rose-700">fragrance</strong><span class="text-xs font-normal text-rose-900/60">/ˈfreɪ.ɡrəns/</span><span class="text-xs font-normal text-rose-900/70 italic">(mùi hương, nước hoa)</span><button onclick="playAudio('fragrance')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></div><div class="flex flex-col items-center gap-1"><strong class="text-rose-700">outcry</strong><span class="text-xs font-normal text-rose-900/60">/ˈaʊt.kraɪ/</span><span class="text-xs font-normal text-rose-900/70 italic">(sự phản đối dữ dội)</span><button onclick="playAudio('outcry')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button></div></div><div class="space-y-3 text-[0.95rem]"><div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition !justify-start"><span class="font-semibold text-rose-950 leading-loose">1&nbsp; There was a massive public <span class="inline-flex items-center justify-center min-w-[110px] border-b-2 border-dashed border-pink-400 text-rose-600 px-2 h-7 align-middle"><span class="hidden-answer font-bold">outcry</span></span> against the new tax imposed by the government recently.</span></div><div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition !justify-start"><span class="font-semibold text-rose-950 leading-loose">2&nbsp; He bought the jacket on a <span class="inline-flex items-center justify-center min-w-[110px] border-b-2 border-dashed border-pink-400 text-rose-600 px-2 h-7 align-middle"><span class="hidden-answer font-bold">whim</span></span>, having seen it by chance in a shop window.</span></div><div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition !justify-start"><span class="font-semibold text-rose-950 leading-loose">3&nbsp; A country's future <span class="inline-flex items-center justify-center min-w-[110px] border-b-2 border-dashed border-pink-400 text-rose-600 px-2 h-7 align-middle"><span class="hidden-answer font-bold">prosperity</span></span> depends, to an extent, upon the quality of education of its people.</span></div><div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition !justify-start"><span class="font-semibold text-rose-950 leading-loose">4&nbsp; Her music reflects youthful <span class="inline-flex items-center justify-center min-w-[110px] border-b-2 border-dashed border-pink-400 text-rose-600 px-2 h-7 align-middle"><span class="hidden-answer font-bold">buoyancy</span></span> and therefore, becoming vital among youngsters.</span></div><div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition !justify-start"><span class="font-semibold text-rose-950 leading-loose">5&nbsp; They are about to launch their first brand new <span class="inline-flex items-center justify-center min-w-[110px] border-b-2 border-dashed border-pink-400 text-rose-600 px-2 h-7 align-middle"><span class="hidden-answer font-bold">fragrance</span></span> for men from Dior.</span></div></div></div>
+<div><h4 class="font-black text-rose-900 mb-4 uppercase tracking-widest text-sm border-b border-pink-200 pb-2">Exercise 3: Choose A or B</h4><p class="font-medium text-rose-950 mb-6">Choose the correct meanings of the following words by circling A or B.</p><div class="space-y-3 text-[0.95rem] font-semibold text-rose-950"><div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition"><div class="flex flex-col gap-2"><span class="flex flex-wrap items-center gap-2">1. <strong class="text-rose-700">haute couture</strong> <span class="text-xs font-normal text-rose-900/60">/ˌoʊt kuˈtʊr/</span> <span class="text-xs font-normal text-rose-900/70 italic">(thời trang cao cấp)</span> <button onclick="playAudio('haute couture')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button> <span class="font-normal">is the business of making</span></span><span class="flex flex-wrap gap-2"><span class="px-3 py-1 rounded-lg bg-white/60 border border-white/70 font-medium text-sm">A. fashionable and expensive clothes for women.</span><span class="px-3 py-1 rounded-lg bg-white/60 border border-white/70 font-medium text-sm">B. ordinary clothes of cheap prices for everyone.</span></span></div><span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ A</span></div><div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition"><div class="flex flex-col gap-2"><span class="flex flex-wrap items-center gap-2">2. <strong class="text-rose-700">a topsy-turvy world</strong> <span class="text-xs font-normal text-rose-900/60">/ˌtɑːp.si ˈtɝː.vi/</span> <span class="text-xs font-normal text-rose-900/70 italic">(một thế giới đảo lộn, hỗn loạn)</span> <button onclick="playAudio('topsy turvy')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button> <span class="font-normal"></span></span><span class="flex flex-wrap gap-2"><span class="px-3 py-1 rounded-lg bg-white/60 border border-white/70 font-medium text-sm">A. a wealthy and healthy world</span><span class="px-3 py-1 rounded-lg bg-white/60 border border-white/70 font-medium text-sm">B. a confusing world</span></span></div><span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ B</span></div><div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition"><div class="flex flex-col gap-2"><span class="flex flex-wrap items-center gap-2">3. <strong class="text-rose-700">set something in motion</strong> <span class="text-xs font-normal text-rose-900/60">/set ˈsʌm.θɪŋ ɪn ˈmoʊ.ʃən/</span> <span class="text-xs font-normal text-rose-900/70 italic">(khởi động, bắt đầu điều gì)</span> <button onclick="playAudio('set in motion')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button> <span class="font-normal"></span></span><span class="flex flex-wrap gap-2"><span class="px-3 py-1 rounded-lg bg-white/60 border border-white/70 font-medium text-sm">A. make something start happening</span><span class="px-3 py-1 rounded-lg bg-white/60 border border-white/70 font-medium text-sm">B. change something's position</span></span></div><span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ A</span></div><div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition"><div class="flex flex-col gap-2"><span class="flex flex-wrap items-center gap-2">4. <strong class="text-rose-700">in practice</strong> <span class="text-xs font-normal text-rose-900/60">/ɪn ˈpræk.tɪs/</span> <span class="text-xs font-normal text-rose-900/70 italic">(trên thực tế)</span> <button onclick="playAudio('in practice')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button> <span class="font-normal"></span></span><span class="flex flex-wrap gap-2"><span class="px-3 py-1 rounded-lg bg-white/60 border border-white/70 font-medium text-sm">A. in fantasy</span><span class="px-3 py-1 rounded-lg bg-white/60 border border-white/70 font-medium text-sm">B. in reality</span></span></div><span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ B</span></div><div class="flex flex-wrap justify-between items-center gap-2 bg-white/40 p-2.5 rounded-lg hover:bg-white/60 transition"><div class="flex flex-col gap-2"><span class="flex flex-wrap items-center gap-2">5. <strong class="text-rose-700">a marketing device</strong> <span class="text-xs font-normal text-rose-900/60">/ˈmɑːr.kɪ.tɪŋ dɪˈvaɪs/</span> <span class="text-xs font-normal text-rose-900/70 italic">(chiêu thức tiếp thị)</span> <button onclick="playAudio('marketing device')" class="text-pink-500 hover:text-pink-700 text-xs">🔊</button> <span class="font-normal"></span></span><span class="flex flex-wrap gap-2"><span class="px-3 py-1 rounded-lg bg-white/60 border border-white/70 font-medium text-sm">A. an advertising strategy</span><span class="px-3 py-1 rounded-lg bg-white/60 border border-white/70 font-medium text-sm">B. a shopping habit</span></span></div><span class="hidden-answer text-rose-800 font-medium bg-white/80 px-2 py-0.5 rounded border border-pink-200 text-sm">→ A</span></div></div></div>
+</div></div>
+<div class="mb-6 flex items-center justify-between gap-4"><h3 class="text-2xl font-bold text-rose-950">Reading Passage View</h3><a href="https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/passage3_complete_ielts_5.5_6.5_wb_unit8.html" target="_blank" class="inline-flex items-center gap-2 bg-gradient-to-r from-pink-500 to-rose-400 hover:from-pink-400 hover:to-rose-300 text-white font-bold py-2.5 px-6 rounded-full shadow-lg shadow-pink-500/30 transition-all hover:-translate-y-1 text-sm shrink-0">Open in New Tab <span>↗</span></a></div>
+<div class="glass-card rounded-3xl p-2 shadow-lg border-2 border-pink-200/50 overflow-hidden mb-8" style="height: 65vh;"><iframe src="https://ieltschantruong.github.io/IELTS/learning_resources/reading/mock_test/passage3_complete_ielts_5.5_6.5_wb_unit8.html" class="w-full h-full border-0 rounded-2xl bg-white" title="Reading Passage 3 WB U8"></iframe></div>
+<div class="glass-card rounded-3xl mb-8 exercise-container overflow-hidden border-t-4 border-pink-400"><div class="p-8 md:p-10 border-b border-white/60"><div class="flex items-center justify-between gap-4"><div><h3 class="text-2xl font-bold text-rose-950">Answer Keys</h3><p class="text-sm text-rose-900/60 mt-1">Reading passage | Questions 1-14</p></div><button onclick="toggleAnswers(this)" data-default-text="👀 Reveal Answers" class="glass-button text-rose-800 font-bold py-2.5 px-5 rounded-xl flex items-center justify-center gap-2 text-sm shadow-sm shrink-0">👀 Reveal Answers</button></div></div><div class="p-8 md:p-10 bg-white/25"><div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4"><div class="glass-panel p-4 rounded-xl flex justify-between items-center gap-3 shadow-sm"><span class="font-black text-pink-400">1</span><span class="hidden-answer font-bold text-rose-900 text-sm text-right">C</span></div><div class="glass-panel p-4 rounded-xl flex justify-between items-center gap-3 shadow-sm"><span class="font-black text-pink-400">2</span><span class="hidden-answer font-bold text-rose-900 text-sm text-right">A</span></div><div class="glass-panel p-4 rounded-xl flex justify-between items-center gap-3 shadow-sm"><span class="font-black text-pink-400">3</span><span class="hidden-answer font-bold text-rose-900 text-sm text-right">D</span></div><div class="glass-panel p-4 rounded-xl flex justify-between items-center gap-3 shadow-sm"><span class="font-black text-pink-400">4</span><span class="hidden-answer font-bold text-rose-900 text-sm text-right">A</span></div><div class="glass-panel p-4 rounded-xl flex justify-between items-center gap-3 shadow-sm"><span class="font-black text-pink-400">5</span><span class="hidden-answer font-bold text-rose-900 text-sm text-right">B</span></div><div class="glass-panel p-4 rounded-xl flex justify-between items-center gap-3 shadow-sm"><span class="font-black text-pink-400">6</span><span class="hidden-answer font-bold text-rose-900 text-sm text-right">YES</span></div><div class="glass-panel p-4 rounded-xl flex justify-between items-center gap-3 shadow-sm"><span class="font-black text-pink-400">7</span><span class="hidden-answer font-bold text-rose-900 text-sm text-right">NO</span></div><div class="glass-panel p-4 rounded-xl flex justify-between items-center gap-3 shadow-sm"><span class="font-black text-pink-400">8</span><span class="hidden-answer font-bold text-rose-900 text-sm text-right">NOT GIVEN</span></div><div class="glass-panel p-4 rounded-xl flex justify-between items-center gap-3 shadow-sm"><span class="font-black text-pink-400">9</span><span class="hidden-answer font-bold text-rose-900 text-sm text-right">YES</span></div><div class="glass-panel p-4 rounded-xl flex justify-between items-center gap-3 shadow-sm"><span class="font-black text-pink-400">10</span><span class="hidden-answer font-bold text-rose-900 text-sm text-right">NO</span></div><div class="glass-panel p-4 rounded-xl flex justify-between items-center gap-3 shadow-sm"><span class="font-black text-pink-400">11</span><span class="hidden-answer font-bold text-rose-900 text-sm text-right">D</span></div><div class="glass-panel p-4 rounded-xl flex justify-between items-center gap-3 shadow-sm"><span class="font-black text-pink-400">12</span><span class="hidden-answer font-bold text-rose-900 text-sm text-right">F</span></div><div class="glass-panel p-4 rounded-xl flex justify-between items-center gap-3 shadow-sm"><span class="font-black text-pink-400">13</span><span class="hidden-answer font-bold text-rose-900 text-sm text-right">B</span></div><div class="glass-panel p-4 rounded-xl flex justify-between items-center gap-3 shadow-sm"><span class="font-black text-pink-400">14</span><span class="hidden-answer font-bold text-rose-900 text-sm text-right">A</span></div></div></div></div>
+</div>
+
+<!-- SLIDE 2: Listening SB -->
+<div class="slide" id="slide-2">
+<div class="flex items-center gap-4 mb-10"><span class="w-12 h-12 rounded-2xl glass-panel flex items-center justify-center text-2xl shadow-sm">🎧</span><div><span class="text-pink-600 font-extrabold text-xs tracking-widest uppercase">Listening Section</span><h2 class="text-3xl font-extrabold text-rose-950">Complete IELTS Student's Book | Unit 8</h2></div></div>
+<div class="mb-6 flex items-center justify-between gap-4"><h3 class="text-2xl font-bold text-rose-950">Listening Test View</h3><a href="https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/section4_complete_ielts_5.5_6.5_sb_unit8.html" target="_blank" class="inline-flex items-center gap-2 bg-gradient-to-r from-pink-500 to-rose-400 hover:from-pink-400 hover:to-rose-300 text-white font-bold py-2.5 px-6 rounded-full shadow-lg shadow-pink-500/30 transition-all hover:-translate-y-1 text-sm shrink-0">Open in New Tab <span>↗</span></a></div>
+<div class="glass-card rounded-3xl p-2 shadow-lg border-2 border-pink-200/50 overflow-hidden mb-8" style="height: 65vh;"><iframe src="https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/section4_complete_ielts_5.5_6.5_sb_unit8.html" class="w-full h-full border-0 rounded-2xl bg-white" title="Listening Section 4 SB U8"></iframe></div>
+<div class="glass-card rounded-3xl mb-8 exercise-container overflow-hidden border-t-4 border-pink-400"><div class="p-8 md:p-10 border-b border-white/60"><div class="flex items-center justify-between gap-4"><div><h3 class="text-2xl font-bold text-rose-950">Answer Keys</h3><p class="text-sm text-rose-900/60 mt-1">Listening Section 4 | Questions 1-10 | Sashiko</p></div><button onclick="toggleAnswers(this)" data-default-text="👀 Reveal Answers" class="glass-button text-rose-800 font-bold py-2.5 px-5 rounded-xl flex items-center justify-center gap-2 text-sm shadow-sm shrink-0">👀 Reveal Answers</button></div></div><div class="p-8 md:p-10 bg-white/25"><div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4"><div class="glass-panel p-4 rounded-xl flex justify-between items-center gap-3 shadow-sm"><span class="font-black text-pink-400">1</span><span class="hidden-answer font-bold text-rose-900 text-sm text-right">little stitches</span></div><div class="glass-panel p-4 rounded-xl flex justify-between items-center gap-3 shadow-sm"><span class="font-black text-pink-400">2</span><span class="hidden-answer font-bold text-rose-900 text-sm text-right">functional</span></div><div class="glass-panel p-4 rounded-xl flex justify-between items-center gap-3 shadow-sm"><span class="font-black text-pink-400">3</span><span class="hidden-answer font-bold text-rose-900 text-sm text-right">wool</span></div><div class="glass-panel p-4 rounded-xl flex justify-between items-center gap-3 shadow-sm"><span class="font-black text-pink-400">4</span><span class="hidden-answer font-bold text-rose-900 text-sm text-right">(many) layers</span></div><div class="glass-panel p-4 rounded-xl flex justify-between items-center gap-3 shadow-sm"><span class="font-black text-pink-400">5</span><span class="hidden-answer font-bold text-rose-900 text-sm text-right">sea wave</span></div><div class="glass-panel p-4 rounded-xl flex justify-between items-center gap-3 shadow-sm"><span class="font-black text-pink-400">6</span><span class="hidden-answer font-bold text-rose-900 text-sm text-right">firemen / fire men</span></div><div class="glass-panel p-4 rounded-xl flex justify-between items-center gap-3 shadow-sm"><span class="font-black text-pink-400">7</span><span class="hidden-answer font-bold text-rose-900 text-sm text-right">farmer</span></div><div class="glass-panel p-4 rounded-xl flex justify-between items-center gap-3 shadow-sm"><span class="font-black text-pink-400">8</span><span class="hidden-answer font-bold text-rose-900 text-sm text-right">rail travel</span></div><div class="glass-panel p-4 rounded-xl flex justify-between items-center gap-3 shadow-sm"><span class="font-black text-pink-400">9</span><span class="hidden-answer font-bold text-rose-900 text-sm text-right">diamond</span></div><div class="glass-panel p-4 rounded-xl flex justify-between items-center gap-3 shadow-sm"><span class="font-black text-pink-400">10</span><span class="hidden-answer font-bold text-rose-900 text-sm text-right">collectors</span></div></div></div></div>
+</div>
+
+<!-- SLIDE 3: Listening WB -->
+<div class="slide" id="slide-3">
+<div class="flex items-center gap-4 mb-10"><span class="w-12 h-12 rounded-2xl glass-panel flex items-center justify-center text-2xl shadow-sm">🎧</span><div><span class="text-pink-600 font-extrabold text-xs tracking-widest uppercase">Listening Section</span><h2 class="text-3xl font-extrabold text-rose-950">Complete IELTS Work Book | Unit 8</h2></div></div>
+<div class="mb-6 flex items-center justify-between gap-4"><h3 class="text-2xl font-bold text-rose-950">Listening Test View</h3><a href="https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/section4_complete_ielts_5.5_6.5_wb_unit8.html" target="_blank" class="inline-flex items-center gap-2 bg-gradient-to-r from-pink-500 to-rose-400 hover:from-pink-400 hover:to-rose-300 text-white font-bold py-2.5 px-6 rounded-full shadow-lg shadow-pink-500/30 transition-all hover:-translate-y-1 text-sm shrink-0">Open in New Tab <span>↗</span></a></div>
+<div class="glass-card rounded-3xl p-2 shadow-lg border-2 border-pink-200/50 overflow-hidden mb-8" style="height: 65vh;"><iframe src="https://ieltschantruong.github.io/IELTS/learning_resources/listening/mock_test/section4_complete_ielts_5.5_6.5_wb_unit8.html" class="w-full h-full border-0 rounded-2xl bg-white" title="Listening Section 4 WB U8"></iframe></div>
+<div class="glass-card rounded-3xl mb-8 exercise-container overflow-hidden border-t-4 border-fuchsia-400"><div class="p-8 md:p-10 border-b border-white/60"><div class="flex items-center justify-between gap-4"><div><h3 class="text-2xl font-bold text-rose-950">Answer Keys</h3><p class="text-sm text-rose-900/60 mt-1">Listening Section 4 | Questions 1-10</p></div><button onclick="toggleAnswers(this)" data-default-text="👀 Reveal Answers" class="glass-button text-rose-800 font-bold py-2.5 px-5 rounded-xl flex items-center justify-center gap-2 text-sm shadow-sm shrink-0">👀 Reveal Answers</button></div></div><div class="p-8 md:p-10 bg-white/25"><div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4"><div class="glass-panel p-4 rounded-xl flex justify-between items-center gap-3 shadow-sm"><span class="font-black text-pink-400">1</span><span class="hidden-answer font-bold text-rose-900 text-sm text-right">sailors</span></div><div class="glass-panel p-4 rounded-xl flex justify-between items-center gap-3 shadow-sm"><span class="font-black text-pink-400">2</span><span class="hidden-answer font-bold text-rose-900 text-sm text-right">thread(s)</span></div><div class="glass-panel p-4 rounded-xl flex justify-between items-center gap-3 shadow-sm"><span class="font-black text-pink-400">3</span><span class="hidden-answer font-bold text-rose-900 text-sm text-right">plantations</span></div><div class="glass-panel p-4 rounded-xl flex justify-between items-center gap-3 shadow-sm"><span class="font-black text-pink-400">4</span><span class="hidden-answer font-bold text-rose-900 text-sm text-right">Leob</span></div><div class="glass-panel p-4 rounded-xl flex justify-between items-center gap-3 shadow-sm"><span class="font-black text-pink-400">5</span><span class="hidden-answer font-bold text-rose-900 text-sm text-right">pockets</span></div><div class="glass-panel p-4 rounded-xl flex justify-between items-center gap-3 shadow-sm"><span class="font-black text-pink-400">6</span><span class="hidden-answer font-bold text-rose-900 text-sm text-right">metal / copper</span></div><div class="glass-panel p-4 rounded-xl flex justify-between items-center gap-3 shadow-sm"><span class="font-black text-pink-400">7</span><span class="hidden-answer font-bold text-rose-900 text-sm text-right">two horses</span></div><div class="glass-panel p-4 rounded-xl flex justify-between items-center gap-3 shadow-sm"><span class="font-black text-pink-400">8</span><span class="hidden-answer font-bold text-rose-900 text-sm text-right">cowboy movies / films</span></div><div class="glass-panel p-4 rounded-xl flex justify-between items-center gap-3 shadow-sm"><span class="font-black text-pink-400">9</span><span class="hidden-answer font-bold text-rose-900 text-sm text-right">soldiers</span></div><div class="glass-panel p-4 rounded-xl flex justify-between items-center gap-3 shadow-sm"><span class="font-black text-pink-400">10</span><span class="hidden-answer font-bold text-rose-900 text-sm text-right">jean pants</span></div></div></div></div>
+</div>
+
+        </div>
+    </main>
+
+    <script>
+        let currentSlide = 0;
+        let totalSlides = 0;
+        let slides = [];
+
+        function initSlides() {
+            slides = document.querySelectorAll('.slide');
+            totalSlides = slides.length;
+            updateUI();
+        }
+
+        function updateUI() {
+            slides.forEach((el, index) => {
+                if (index === currentSlide) {
+                    el.classList.add('active');
+                } else {
+                    el.classList.remove('active');
+                }
+            });
+            // Update counter
+            const counter = document.getElementById('slide-counter');
+            if (counter) counter.innerText = `${currentSlide + 1} / ${totalSlides}`;
+            
+            // Update dropdown
+            const navDropdown = document.getElementById('section-nav');
+            if (navDropdown) navDropdown.value = currentSlide;
+
+            // Update Progress Bar
+            const progress = ((currentSlide + 1) / totalSlides) * 100;
+            const progressBar = document.getElementById('progress-bar');
+            if(progressBar) progressBar.style.width = `${progress}%`;
+
+            document.querySelector('main').scrollTop = 0;
+        }
+
+        function jumpToSection(slideIndex) {
+            const index = parseInt(slideIndex);
+            if (!isNaN(index) && index >= 0 && index < totalSlides) {
+                currentSlide = index;
+                updateUI();
+            }
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides - 1) {
+                currentSlide++;
+                updateUI();
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 0) {
+                currentSlide--;
+                updateUI();
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') nextSlide();
+            if (e.key === 'ArrowLeft') prevSlide();
+        });
+
+        function toggleAnswers(button) {
+            const container = button.closest('.exercise-container');
+            if (!container) return;
+            const hiddenElements = container.querySelectorAll('.hidden-answer');
+
+            let isHidden = true;
+            if (hiddenElements.length > 0) {
+                isHidden = hiddenElements[0].style.display === 'none' || hiddenElements[0].style.display === '';
+            }
+
+            hiddenElements.forEach(el => {
+                if (isHidden) {
+                    el.style.display = el.tagName === 'SPAN' ? (el.classList.contains('inline-block') ? 'inline-block' : 'inline') : 'block';
+                } else {
+                    el.style.display = 'none';
+                }
+            });
+
+            if (isHidden) {
+                button.innerHTML = "✨ Hide Answers";
+            } else {
+                button.innerHTML = button.getAttribute('data-default-text') || "✨ Reveal Answers";
+            }
+        }
+
+        // -- Audio Jump Logic --
+        function jumpToTime(seconds, audioId) {
+            const audio = document.getElementById(audioId);
+            if (audio) {
+                audio.currentTime = seconds;
+                audio.play();
+            }
+        }
+
+        function playAudio(word) {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel(); 
+                const utterance = new SpeechSynthesisUtterance(word);
+                utterance.lang = 'en-US';
+                utterance.rate = 0.85; 
+                window.speechSynthesis.speak(utterance);
+            } else {
+                console.warn("Text-to-Speech is not supported in this browser environment.");
+            }
+        }
+
+        // Initialize display
+        document.addEventListener('DOMContentLoaded', initSlides);
+    </script>
+</body>
+</html>
