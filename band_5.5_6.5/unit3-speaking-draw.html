@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>IELTS Chan Truong - Band 5.5-6.5 - Unit 3 Speaking Desks</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#4a3560; --muted:#9a86b3; --line:#f0e3f7;
+  --pink:#f8bcd6; --pink-d:#e88ab5; --purple:#c9b3f0; --purple-d:#9a78d8;
+  --shadow:0 18px 40px -22px rgba(154,120,216,.45);
+}
+*{box-sizing:border-box;margin:0}
+html,body{min-height:100%}
+body{
+  font-family:'Poppins',system-ui,sans-serif;color:var(--ink);
+  background:linear-gradient(135deg,#fff4f9 0%,#fbeefc 45%,#f1ecff 100%);
+  background-attachment:fixed;
+  padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px);
+}
+.wrap{max-width:1600px;margin:0 auto;padding:clamp(14px,2.4vw,36px);min-height:100vh;display:flex;flex-direction:column}
+header{text-align:center;margin-bottom:clamp(12px,2vw,24px)}
+.brand{font-family:'Playfair Display',Georgia,serif;font-size:clamp(1.5rem,3.2vw,2.8rem);font-weight:700;line-height:1.2;
+  background:linear-gradient(90deg,var(--pink-d),var(--purple-d));-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{margin-top:6px;color:var(--muted);font-size:clamp(.8rem,1.3vw,1.1rem);letter-spacing:.14em;text-transform:uppercase}
+.controls{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:clamp(14px,2vw,26px)}
+button{font:inherit;font-weight:600;border:0;cursor:pointer;border-radius:999px;padding:12px 28px;font-size:clamp(.95rem,1.4vw,1.15rem);transition:transform .15s,box-shadow .15s}
+button:hover{transform:translateY(-2px)}
+.primary{color:#fff;background:linear-gradient(135deg,var(--pink-d),var(--purple-d));box-shadow:0 10px 22px -10px var(--purple-d)}
+.ghost{background:#fff;color:var(--purple-d);border:1.5px solid var(--line);box-shadow:0 6px 16px -10px rgba(154,120,216,.4)}
+
+/* 2x2 grid of equal cards */
+.grid{flex:1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(12px,1.8vw,26px);align-items:stretch}
+@media (max-width:820px){.grid{grid-template-columns:1fr}}
+
+.card{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:26px;overflow:hidden;box-shadow:var(--shadow);animation:pop .5s both}
+.card:nth-child(2){animation-delay:.07s}.card:nth-child(3){animation-delay:.14s}.card:nth-child(4){animation-delay:.21s}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.98)}to{opacity:1;transform:none}}
+
+.card-head{display:flex;align-items:center;gap:14px;padding:clamp(12px,1.4vw,20px) clamp(18px,2vw,32px);color:#fff;
+  font-weight:600;letter-spacing:.2em;font-size:clamp(1rem,1.8vw,1.6rem)}
+.card:nth-child(1) .card-head{background:linear-gradient(120deg,#f2a0c3,#f7bfd8)}
+.card:nth-child(2) .card-head{background:linear-gradient(120deg,#c3a6ee,#d9c7f6)}
+.card:nth-child(3) .card-head{background:linear-gradient(120deg,#f4a9d3,#cdb2f2)}
+.card:nth-child(4) .card-head{background:linear-gradient(120deg,#b9a0ec,#f3b3d3)}
+.card-head .emo{font-size:1.3em;letter-spacing:0}
+
+.card-body{flex:1;display:flex;flex-direction:column}
+.q{flex:1;display:flex;align-items:center;gap:clamp(12px,1.4vw,22px);padding:clamp(14px,1.8vw,26px) clamp(18px,2vw,32px)}
+.q + .q{border-top:2px dashed var(--line)}
+.num{flex:none;width:clamp(38px,3.4vw,58px);height:clamp(38px,3.4vw,58px);border-radius:50%;display:grid;place-items:center;
+  font-weight:700;font-size:clamp(1.05rem,1.8vw,1.6rem);color:var(--purple-d);background:linear-gradient(135deg,#ffe3ef,#ebe0fb)}
+.q p{flex:1;font-size:clamp(1.2rem,2.3vw,2.2rem);line-height:1.35;font-weight:500}
+.swap{flex:none;padding:6px 12px;font-size:1rem;background:transparent;color:var(--muted);border:1px solid var(--line);opacity:.8}
+.swap:hover{opacity:1;color:var(--purple-d)}
+
+.empty{grid-column:1/-1;display:grid;place-items:center;text-align:center;color:var(--muted);padding:60px 20px;font-size:clamp(1.1rem,2vw,1.6rem);
+  background:#ffffffaa;border:2px dashed var(--purple);border-radius:26px}
+
+footer{text-align:center;color:var(--muted);margin-top:18px;font-size:.9rem}
+
+/* Presentation mode: fills the screen, hides everything except the cards */
+body.present .wrap{max-width:none;height:100vh;min-height:0;padding:clamp(10px,1.6vw,26px)}
+body.present header,body.present footer,body.present .swap{display:none}
+body.present .controls{position:fixed;top:10px;right:10px;margin:0;z-index:5;opacity:0;transition:opacity .25s}
+body.present .controls:hover{opacity:1}
+body.present .controls button{padding:8px 16px;font-size:.9rem}
+body.present .controls .hide-present{display:none}
+body.present .grid{height:100%;grid-template-rows:repeat(2,minmax(0,1fr))}
+body.present .q p{font-size:clamp(1.4rem,3.1vw,3.4rem)}
+body.present .card-head{font-size:clamp(1.1rem,2.2vw,2.2rem)}
+body.present .num{width:clamp(44px,4.4vw,78px);height:clamp(44px,4.4vw,78px);font-size:clamp(1.2rem,2.2vw,2.2rem)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1 class="brand">IELTS Chan Truong</h1>
+    <div class="sub">Band 5.5–6.5 · Unit 3 · Speaking Desks</div>
+  </header>
+  <div class="controls">
+    <button class="primary" id="draw">✨ Draw Questions</button>
+    <button class="ghost hide-present" id="full">📺 Present on TV</button>
+    <button class="ghost" id="exit" style="display:none">✕ Exit</button>
+  </div>
+  <main class="grid" id="out"><div class="empty">Press <b>&nbsp;Draw Questions&nbsp;</b> to pick 2 random questions from every topic 🌸</div></main>
+  <footer>Space = redraw · F = present on TV · Esc = exit</footer>
+</div>
+
+<script>
+const DATA={
+"FILMS":["Do you like watching films?","What type of film do you like watching?","How often do you watch films?","Do you prefer watching films at home or in the cinema?","Would you like to be/appear in a movie?"],
+"PAINTINGS":["What do you know about painting?","What kind of paintings do you like?","Is it important to hang pictures at home?","Have you learned drawing or painting?"],
+"COLORS":["What is your favorite color?","Do you like dark colors?","Do you usually wear clothes in your favorite color?","Are there any colors you dislike?"],
+"MUSIC":["Do you like listening to music?","When do you listen to music?","Can you play any musical instruments?","Did you have any music classes in school?","Do you think it is necessary for children to have music classes?"]
+};
+const EMOJI={FILMS:"🎬",PAINTINGS:"🎨",COLORS:"🌈",MUSIC:"🎧"};
+const out=document.getElementById('out');
+const exitBtn=document.getElementById('exit');
+let current={};
+
+function pick(arr,n,exclude=[]){
+  const a=arr.filter(x=>!exclude.includes(x));
+  for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}
+  return a.slice(0,n);
+}
+const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+function render(){
+  out.innerHTML=Object.entries(current).map(([t,qs])=>`
+    <section class="card">
+      <div class="card-head"><span class="emo">${EMOJI[t]||''}</span><span>${t}</span></div>
+      <div class="card-body">
+        ${qs.map((q,i)=>`<div class="q"><span class="num">${i+1}</span><p>${esc(q)}</p>
+          <button class="swap" title="Swap this question" data-t="${t}" data-i="${i}">↻</button></div>`).join('')}
+      </div>
+    </section>`).join('');
+}
+function draw(){
+  current={};
+  for(const t in DATA) current[t]=pick(DATA[t],2);
+  render();
+}
+out.addEventListener('click',e=>{
+  const b=e.target.closest('.swap'); if(!b) return;
+  const t=b.dataset.t,i=+b.dataset.i;
+  const r=pick(DATA[t],1,current[t]);
+  if(r.length){current[t][i]=r[0];render();}
+});
+
+/* Presentation mode works everywhere; real browser fullscreen is attempted on top when allowed */
+function setPresent(on){
+  document.body.classList.toggle('present',on);
+  exitBtn.style.display=on?'':'none';
+  if(on){ try{ const p=document.documentElement.requestFullscreen?.(); p&&p.catch(()=>{}); }catch(e){} }
+  else if(document.fullscreenElement){ try{ document.exitFullscreen(); }catch(e){} }
+}
+document.addEventListener('fullscreenchange',()=>{
+  if(!document.fullscreenElement && document.body.classList.contains('present')) setPresent(false);
+});
+document.getElementById('draw').onclick=draw;
+document.getElementById('full').onclick=()=>setPresent(true);
+exitBtn.onclick=()=>setPresent(false);
+document.addEventListener('keydown',e=>{
+  if(e.code==='Space'){e.preventDefault();draw();}
+  else if(e.key==='f'||e.key==='F'){setPresent(!document.body.classList.contains('present'));}
+  else if(e.key==='Escape'){setPresent(false);}
+});
+</script>
+</body>
+</html>
